@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>College Admission Form</h1>
+    <p class="subtitle">Begin your academic journey with us</p>
+
+    <form>
+
+        <!-- Personal Information -->
+
+        <fieldset>
+
+            <legend>Personal Information</legend>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required><br><br>
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required><br><br>
+
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter your phone Number" required><br><br>
+
+            <label>Date of Birth</label>
+            <input type="date" required><br><br>
+
+            <label>Gender</label>
+
+            <div class="radio-group">
+                <label><input type="radio" name="gender" required> Male</label><br>
+                <label><input type="radio" name="gender"> Female</label><br>
+                <label><input type="radio" name="gender"> Other</label><br>
+            </div>
+
+        </fieldset>
+
+        <!-- Address -->
+
+        <fieldset>
+
+            <legend>Address</legend>
+
+            <textarea placeholder="Enter your complete address" required></textarea><br><br>
+
+        </fieldset>
+
+        <!-- Academic Details -->
+
+        <fieldset>
+
+            <legend>Academic Details</legend>
+
+            <label>12th Percentage</label>
+            <input type="number" placeholder="Percentage" min="0" max="100" required><br><br>
+
+            <label>10th Percentage</label>
+            <input type="number" placeholder="Percentage" min="0" max="100" required><br><br>
+
+            <label>Preferred Course</label>
+
+            <select required>
+                <option value="">Select Course</option>
+                <option>B.Tech Computer Science</option>
+                <option>B.Tech AI & ML</option>
+                <option>B.Tech IT</option>
+                <option>BBA</option>
+                <option>BCA</option>
+            </select><br><br>
+
+            <label>Upload Marksheet</label>
+            <input type="file" required><br><br>
+
+        </fieldset>
+
+        <!-- Other Details -->
+
+        <fieldset>
+
+            <legend>Other Details</legend>
+
+            <label>Hobbies</label>
+
+            <div class="checkbox-group">
+
+                <label><input type="checkbox"> Sports</label>
+
+                <label><input type="checkbox"> Reading</label>
+
+                <label><input type="checkbox"> Music</label>
+
+                <label><input type="checkbox"> Coding</label>
+
+            </div><br><br>
+
+        </fieldset>
+
+        <button type="submit">Submit Application</button>
+
+    </form>
+</div>
+
+</body>
+</html>

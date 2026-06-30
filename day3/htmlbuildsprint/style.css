@@ -1,0 +1,37 @@
+body{
+font-family:Arial, Helvetica, sans-serif;
+scroll-behavior:smooth;
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+padding:100px 0;
+}
+
+.card{
+transition:.4s;
+border:none;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+height:500px;
+object-fit:scale-down;
+}
+
+footer{
+font-size:15px;
+}
+
+.btn-primary{
+background:#2563eb;
+border:none;
+}
+
+.btn-primary:hover{
+background:#1d4ed8;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SKIT College Registration Form</title>
+
+    <style>
+
+        body{
+            background:rgb(149, 57, 57);
+            padding:20px 450px;
+        }
+
+        .container{
+            width:650px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px gray;
+        }
+
+        .heading{
+            text-align:center;
+            color:#0b4f6c;
+            margin-bottom:20px;
+        }
+
+        .group{
+            margin-bottom:15px;
+        }
+
+        .label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        .input{
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+        }
+
+        .button{
+            padding:12px;
+            background:#2193b0;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        .button:hover{
+            background:#176d84;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <center>
+        <img src="logo.png" width="90" height="90">
+    </center>
+
+    <h2 class="heading">
+        Swami Keshvanand Institute of Technology,<br>
+        Management and Gramothan(SKIT)
+    </h2>
+
+    <h3 class="heading">College Registration Form</h3>
+
+    <form>
+
+        <div class="group">
+            <label class="label">Student Name</label>
+            <input type="text" class="input" placeholder="Enter Student Name">
+        </div>
+
+        <div class="group">
+            <label class="label">Father's Name</label>
+            <input type="text" class="input" placeholder="Enter Father's Name">
+        </div>
+
+        <div class="group">
+            <label class="label">Mother's Name</label>
+            <input type="text" class="input" placeholder="Enter Mother's Name">
+        </div>
+
+        <div class="group">
+            <label class="label">Student Phone Number</label>
+            <input type="tel" class="input" placeholder="Enter Mobile Number">
+        </div>
+
+        <div class="group">
+            <label class="label">Parent's Phone Number</label>
+            <input type="tel" class="input" placeholder="Enter Parent's Mobile Number">
+        </div>
+
+        <div class="group">
+            <label class="label">Age</label>
+            <input type="number" class="input" placeholder="Enter Age">
+        </div>
+
+        <div class="group">
+            <label class="label">State</label>
+            <input type="text" class="input" placeholder="Enter State">
+        </div>
+
+        <div class="group">
+            <label class="label">City</label>
+            <input type="text" class="input" placeholder="Enter City">
+        </div>
+
+        <div class="group">
+            <label class="label">School Name</label>
+            <input type="text" class="input" placeholder="Enter School Name">
+        </div>
+
+        <div class="group">
+            <label class="label">10th Percentage</label>
+            <input type="number" class="input" placeholder="Enter 10th Percentage">
+        </div>
+
+        <div class="group">
+            <label class="label">12th Percentage</label>
+            <input type="number" class="input" placeholder="Enter 12th Percentage">
+        </div>
+
+        <div class="group">
+            <label class="label">Gender</label>
+
+            <input type="radio" name="gender"> Male
+
+            <input type="radio" name="gender"> Female
+        </div>
+
+        <div class="group">
+            <label class="label">Course</label>
+
+            <select class="input">
+                <option>Select Course</option>
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>B.Com</option>
+                <option>BA</option>
+                <option>M.Tech</option>
+                <option>MBA</option>
+                <option>MCA</option>
+            </select>
+        </div>
+
+        <div class="group">
+            <label class="label">Stream</label>
+
+            <select class="input">
+                <option>Select Stream</option>
+                <option>Computer Science Engineering</option>
+                <option>Information Technology</option>
+                <option>Artificial Intelligence & Data Science</option>
+                <option>Electronics & Communication</option>
+                <option>Electrical Engineering</option>
+                <option>Mechanical Engineering</option>
+                <option>Civil Engineering</option>
+            </select>
+        </div>
+
+        <div class="group">
+            <label class="label">Upload 10th Marksheet</label>
+            <input type="file" class="input">
+        </div>
+
+        <div class="group">
+            <label class="label">Upload 12th Marksheet</label>
+            <input type="file" class="input">
+        </div>
+
+        <div class="group">
+            <input type="checkbox">
+            I declare that the above information is true.
+        </div>
+
+        <button type="submit" class="button">Register</button>
+
+        <button type="reset" class="button">Reset</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

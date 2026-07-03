@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Page</title>
+</head>
+<body>
+
+    <!-- 1. PROFILE SECTION -->
+    <section>
+        <h1>Vikram</h1>
+        <p><strong>College:</strong> Engineering College</p>
+        <p><strong>Branch:</strong> Mechanical / Software Engineering</p>
+        <!-- Replace 'your-photo.jpg' with the actual path to your image file -->
+        <img src="Vikram.jpg" alt="Vikram's Profile Photo" width="200">
+    </section>
+
+    <hr>
+
+    <!-- 2. EDUCATION SECTION -->
+    <section>
+        <h2>Education</h2>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Percentage / CGPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>B.Tech (Engineering)</td>
+                    <td>Current College</td>
+                    <td>2026 (Ongoing)</td>
+                    <td>8.5 CGPA</td>
+                </tr>
+                <tr>
+                    <td>Higher Secondary (12th)</td>
+                    <td>Your School Name</td>
+                    <td>2024</td>
+                    <td>90%</td>
+                </tr>
+                <tr>
+                    <td>Secondary School (10th)</td>
+                    <td>Your School Name</td>
+                    <td>2022</td>
+                    <td>92%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- 3. SKILLS SECTION -->
+    <section>
+        <h2>Skills</h2>
+        <h3>Technical Skills</h3>
+        <ul>
+            <li>C Programming</li>
+            <li>Lathe Machine Operations</li>
+            <li>Engineering Chemistry Principles</li>
+        </ul>
+        
+        <h3>Soft Skills</h3>
+        <ul>
+            <li>Teamwork & Sportsmanship (Volleyball)</li>
+            <li>Communication</li>
+            <li>Problem Solving</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- 4. FAVOURITE WEBSITE SECTION -->
+    <section>
+        <h2>Favourite Website</h2>
+        <p>Check out my favourite platform for learning and coding: 
+            <!-- 'target="_blank"' ensures the link opens in a new tab -->
+            <a href="https://www.google.com" target="_blank">Visit Google</a>
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- 5. CONTACT FORM SECTION -->
+    <section>
+        <h2>Contact Form</h2>
+        <form action="#" method="POST">
+            <p>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </p>
+            
+            <p>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </p>
+            
+            <p>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="30" required></textarea>
+            </p>
+            
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+    </section>
+
+</body>
+</html>

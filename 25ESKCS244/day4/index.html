@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeVerse Landing Page</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            CodeVerse
+        </div>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#counter">Counter</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+        <button id="themeBtn">
+            🌙 Dark Mode
+        </button>
+
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>
+                Welcome<br>
+                
+            </h1>
+
+            <button class="start-btn">
+                Get Started
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section id="features">
+
+        <h2 class="section-title">
+            Amazing Features
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <h3>Fast</h3>
+
+                <p>
+                    Optimized JavaScript with modern coding techniques.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-mobile-screen"></i>
+
+                <h3>Responsive</h3>
+
+                <p>
+                    Works perfectly on laptop, tablet and mobile devices.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-palette"></i>
+
+                <h3>Beautiful UI</h3>
+
+                <p>
+                    Attractive gradients, animations and glassmorphism.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Counter -->
+
+    <section id="counter">
+
+        <h2 class="section-title">
+            Click Counter
+        </h2>
+
+        <div class="counter-box">
+
+            <h1 id="count">
+                0
+            </h1>
+
+            <button id="clickBtn">
+                Click Me
+            </button>
+
+            <button id="resetBtn">
+                Reset
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+
+    <section id="contact">
+
+        <h2 class="section-title">
+            Contact Us
+        </h2>
+
+        <form id="contactForm">
+
+            <input
+            type="text"
+            id="name"
+            placeholder="Enter your Name">
+
+            <small id="nameError"></small>
+
+            <input
+            type="email"
+            id="email"
+            placeholder="Enter your Email">
+
+            <small id="emailError"></small>
+
+            <textarea
+            id="message"
+            rows="5"
+            placeholder="Enter your Message"></textarea>
+
+            <button type="submit">
+                Submit
+            </button>
+
+            <p id="successMsg"></p>
+
+        </form>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>CodeVerse</h3>
+
+        <p>
+            Designed with HTML • CSS • JavaScript
+        </p>
+
+        <div class="icons">
+
+            <i class="fab fa-github"></i>
+
+            <i class="fab fa-linkedin"></i>
+
+            <i class="fab fa-instagram"></i>
+
+            <i class="fab fa-twitter"></i>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

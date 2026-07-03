@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Events</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>💻 Hackathon Events</h1>
+        <p>Select a Hackathon and Register.</p>
+
+        <!-- Hero Images -->
+
+        <div class="hero-gallery">
+
+            <img src="images/g7.jpg" alt="Hackathon">
+
+            <img src="images/code.jpg" alt="Coding">
+
+            <img src="images/code2.jpg" alt="Developers">
+
+        </div>
+
+        <!-- Event Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>🏆 Unstop Hackathons</h2>
+
+                <p>
+                    Browse hundreds of active student hackathons,
+                    coding contests and innovation challenges
+                    from top companies and universities across India.
+                </p>
+
+                <button class="registerBtn">Register Now</button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>🌍 Devpost Global Hackathons</h2>
+
+                <p>
+                    Participate in international online hackathons
+                    focusing on Artificial Intelligence,
+                    Web Development,
+                    Blockchain,
+                    Cybersecurity and Social Good.
+                </p>
+
+                <button class="registerBtn">Register Now</button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>🚀 Hack2Skill</h2>
+
+                <p>
+                    Compete in government-backed hackathons
+                    including ISRO's Bharatiya Antariksh Hackathon
+                    and other national innovation challenges.
+                </p>
+
+                <button class="registerBtn">Register Now</button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>💡 Reskilll Tech Sprints</h2>
+
+                <p>
+                    Join coding competitions,
+                    AI challenges,
+                    IoT events and software development
+                    hackathons hosted across India.
+                </p>
+
+                <button class="registerBtn">Register Now</button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>🤖 Open Hackathons</h2>
+
+                <p>
+                    Explore virtual and hybrid hackathons
+                    focused on Artificial Intelligence,
+                    Machine Learning and
+                    High Performance Computing.
+                </p>
+
+                <button class="registerBtn">Register Now</button>
+
+            </div>
+
+        </div>
+
+        <!-- Registration Form -->
+
+        <form id="registrationForm" style="display:none; margin-top:40px;">
+
+            <h2>💻 Hackathon Registration</h2>
+
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <input type="email" id="email" placeholder="Email Address" required>
+
+            <input type="text" id="college" placeholder="College Name" required>
+
+            <input type="text" id="department" placeholder="Department" required>
+
+            <input type="text" id="year" placeholder="Year" required>
+
+            <input type="tel" id="phone" placeholder="Phone Number" maxlength="10" required>
+
+            <input type="text" id="selectedEvent" placeholder="Selected Event" readonly>
+
+            <label>
+
+                <input type="checkbox" id="agree">
+
+                I agree to the Terms & Conditions
+
+            </label>
+
+            <br><br>
+
+            <button type="submit">
+
+                Submit Registration
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

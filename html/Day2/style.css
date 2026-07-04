@@ -1,0 +1,386 @@
+/* ===========================
+   Google Font
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#6d28d9,#0ea5e9);
+    background-size:400% 400%;
+    animation:bg 15s ease infinite;
+    color:#fff;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Background Blur */
+
+.background{
+    position:fixed;
+    inset:0;
+    backdrop-filter:blur(2px);
+    z-index:-2;
+}
+
+.background::before,
+.background::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter:blur(80px);
+}
+
+.background::before{
+    top:40px;
+    left:40px;
+    background:#00e5ff;
+}
+
+.background::after{
+    right:50px;
+    bottom:50px;
+    background:#ff4ecd;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.15);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.circle{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#fff;
+    color:#1e3a8a;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 20px rgba(255,255,255,.5);
+}
+
+.logo h2{
+    font-size:24px;
+}
+
+.logo span{
+    font-size:13px;
+    color:#ddd;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:.4s;
+}
+
+nav ul li a:hover{
+    color:#00e5ff;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:10px;
+    text-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+.hero p{
+    font-size:18px;
+    color:#ddd;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:30px;
+}
+
+.card{
+    width:100%;
+    max-width:1100px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    padding:40px;
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+/* ================= FORM ================= */
+
+.row{
+    display:flex;
+    gap:20px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+
+.inputBox{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.full{
+    flex:100%;
+}
+
+.inputBox label{
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+.inputBox input,
+.inputBox select,
+.inputBox textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.25);
+    transition:.3s;
+}
+
+.inputBox input::placeholder{
+    color:#eee;
+}
+
+.inputBox textarea{
+    resize:none;
+}
+
+.inputBox select option{
+    color:#000;
+}
+
+.inputBox input:focus,
+.inputBox textarea:focus,
+.inputBox select:focus{
+    border-color:#00e5ff;
+    box-shadow:0 0 15px rgba(0,229,255,.6);
+    transform:scale(1.02);
+}
+
+/* ================= CHECKBOX ================= */
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:20px 0;
+}
+
+.checkbox input{
+    width:18px;
+    height:18px;
+}
+
+.checkbox span{
+    font-size:14px;
+}
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.buttons button{
+    padding:15px 45px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:600;
+    transition:.4s;
+}
+
+.buttons button:first-child{
+    background:#ef4444;
+    color:#fff;
+}
+
+.buttons button:last-child{
+    background:linear-gradient(90deg,#06b6d4,#2563eb,#7c3aed);
+    color:#fff;
+}
+
+.buttons button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:60px;
+    padding:35px;
+    text-align:center;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+footer h2{
+    margin-bottom:15px;
+}
+
+footer p{
+    margin:6px 0;
+    color:#ddd;
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#00e5ff;
+    border-radius:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero h1{
+    font-size:34px;
+}
+
+.card{
+    padding:25px;
+}
+
+}
+
+@media(max-width:768px){
+
+.row{
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:28px;
+}
+
+.buttons{
+    flex-direction:column;
+}
+
+.buttons button{
+    width:100%;
+}
+
+nav ul{
+    gap:15px;
+}
+
+.logo{
+    flex-direction:column;
+    text-align:center;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero{
+    padding:40px 15px;
+}
+
+.hero h1{
+    font-size:24px;
+}
+
+.card{
+    padding:20px;
+}
+
+.inputBox input,
+.inputBox select,
+.inputBox textarea{
+    padding:12px;
+}
+
+.buttons button{
+    padding:13px;
+    font-size:15px;
+}
+
+footer{
+    font-size:14px;
+}
+
+}

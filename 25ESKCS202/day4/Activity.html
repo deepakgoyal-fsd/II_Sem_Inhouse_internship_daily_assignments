@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Zone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<nav>
+<h2>Gaming Zone</h2>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Games</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+<button id="modeBtn">Dark Mode</button>
+
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="text">
+
+<h1>Welcome Gamers</h1>
+
+<p>Play • Compete • Win</p>
+
+<button>Play Now</button>
+
+</div>
+
+<div>
+
+<img src="game.avif" alt="Game Image">
+
+</div>
+
+</section>
+
+<section class="about">
+
+<h2>About Game</h2>
+
+<p>
+
+Gaming Zone is a demo website built using HTML, CSS and JavaScript.
+It includes Dark Mode, Click Counter and Form Validation.
+
+</p>
+
+</section>
+
+<section class="counter">
+
+<h2>Game Likes </h2>
+
+<h1 id="count">0</h1>
+
+<button onclick="increase()">Like </button>
+
+<button onclick="resetCounter()">Reset</button>
+
+</section>
+
+<section class="contact">
+
+<h2>Join Tournament</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Enter Name">
+
+<input type="email" id="email" placeholder="Enter Email">
+
+<textarea placeholder="Favorite Game"></textarea>
+
+<input type="submit" value="Register">
+
+</form>
+
+</section>
+
+<footer>
+
+<p>© Gaming Zone 2026</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

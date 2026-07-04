@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+</head>
+<body>
+
+    <h1>Student List</h1>
+
+    <div id="output"></div>
+
+    <script>
+        // Array of Objects
+        let students = [
+            {
+                name: "Lalita",
+                age: 18,
+                course: "B.Tech CSE"
+            },
+            {
+                name: "Riya",
+                age: 19,
+                course: "B.Tech AI"
+            },
+            {
+                name: "Priya",
+                age: 18,
+                course: "B.Tech DS"
+            }
+        ];
+
+        let result = "";
+
+        for (let i = 0; i < students.length; i++) {
+            result += `
+                <h3>Student ${i + 1}</h3>
+                <p><strong>Name:</strong> ${students[i].name}</p>
+                <p><strong>Age:</strong> ${students[i].age}</p>
+                <p><strong>Course:</strong> ${students[i].course}</p>
+                <hr>
+            `;
+        }
+
+        document.getElementById("output").innerHTML = result;
+    </script>
+
+</body>
+</html>

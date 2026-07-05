@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*let studentname = '{"name": "harsh","branch":"cse","rollno":1234,"marks":90}';
+    */
+   /*
+   let studentbranch ='cse';
+   let studentrollno = 1234;
+   let studentmarks = 90;
+   */ 
+
+    let studentobj = 
+        {
+            name:'harsh',
+            branch:'cse',
+            rollno: 12345,
+            marks: 90,
+            skills:['html', 'cse', 'js']
+        };
+        console.log(JSON.stringify(studentobj));
+
+        fetch('https://jsonplaceholder.typicode.com/user')
+        .then(res=> res.jason())
+        .then(data=> {
+            console.log(data);
+        });
+
+        let promise = new Promise(function(resolve, reject){
+            let internet = true;
+            if(internet){
+                resolve("Data received successfully");
+            }else{
+                reject("Internet error");
+            }
+
+        });
+
+        promise.then(function(result){
+            console.log(result);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+       </script>
+       </html>

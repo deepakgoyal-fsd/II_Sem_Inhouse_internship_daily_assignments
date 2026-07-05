@@ -1,0 +1,111 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:20px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:30% 70%;
+    gap:20px;
+}
+
+section{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+
+.left{
+    text-align:center;
+}
+
+img{
+    width:180px;
+    height:230px;
+    border-radius:50%;
+    margin-bottom:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table,th,td{
+    border:1px solid gray;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.skills span{
+    background:#13195d;
+    color:white;
+    padding:8px;
+    border-radius:5px;
+    text-align:center;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    padding:10px 20px;
+    background:#082044;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#000000;
+}
+.website-link{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    margin:15px 0;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* SAVANA button */
+.savana{
+    background-color:#f4b400;   /* Yellow */
+}
+
+.savana:hover{
+    background-color:#d89e00;
+}
+
+/* INSTAGRAM button */
+.instagram{
+    background-color:#E1306C;   /* Instagram Pink */
+}
+
+.instagram:hover{
+    background-color:#C13584;
+}

@@ -1,0 +1,63 @@
+.box{
+    background-image: url("../day-4/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+}
+.container{
+    width: 80%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 3px rgb(22, 28, 95);
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 5px 15px rgb(0,0,0,0.2);
+}
+body{
+    font-family: Arial;
+    background:white;
+    color: rgb(11, 100, 101);
+    text-align:center;
+    transition:0.3s;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#0d204d;
+    color:white;
+}
+
+button{
+    background-color: rgb(110, 167, 232);
+    color: #13134f;
+    padding:10px 20px;
+    margin:10px;
+    cursor:pointer;
+}
+
+input{
+    width:250px;
+    padding:8px;
+}
+
+small{
+    color:red;
+}
+
+.dark{
+    background: black;
+    color:rgb(255, 255, 255);
+}
+
+.dark nav{
+    background:rgb(12, 2, 50);
+    color:rgb(126, 123, 123);
+}
+.dark .container{
+    background-color: rgb(0, 0, 0);
+}

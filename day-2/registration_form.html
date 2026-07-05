@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Form</title>
+    
+</head>
+<body>
+   <div class="container">
+     
+       <h1>Student Registration Form</h1>
+
+     <form>
+        <fieldset>
+            <legend>Student Details</legend>
+
+            <label for="name">Full name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <br>
+
+            <label for="email">Email</label>
+            <input type="email" is="email" placeholder="Enter your email">
+            <br>
+             
+            <label for="password">Paasword</label>
+            <input type="password" id="password" placeholder="Create password">
+            <br>
+
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" placeholder="Enter mobile number">
+            <br>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+            <br>
+
+            <label> Gender</label>
+
+            <div class="radio">
+                <input type="radio" id="male" name="gender">
+                <label for="male">Male</label>
+                
+
+                <input type="radio" id="female" name="gender">
+                <label for="female">Female</label>
+                
+
+                <input type="radio" id="other" name="gender">
+                <label for="other">Other</label>
+                <br>
+
+            </div>
+            <label for="course">Course</label>
+
+            <select id="course">
+                <option>Select Course</option>
+                <option>B.Tech CSE</option>
+                <option>B.Tech AI</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>B.Sc</option>
+            </select>
+            <br>
+        
+
+            <label>Skills</label>
+
+            <div class="check">
+                <input type="checkbox" id="HTML">
+                <label for="HTML">HTML</label>
+
+                <input type="checkbox" id="CSS">
+                <label for="CSS">CSS</label>
+
+                <input type="checkbox" id="Javascript">
+                <label for="Javascript">Javascript</label>
+
+                 <input type="checkbox" id="PHP">
+                <label for="PHP">PHP</label>
+            </div>
+            <br>
+            
+            <label for="resume">Upload Resume</label>
+            <input type="file" id="resume">
+            <br>
+            
+            <label for="text">About Yourself</label>
+
+            <textarea id="text" rows="4" placeholder="Write something about yourself"></textarea>
+            <br><br><br>
+            
+            <input type="submit" value="Register">
+
+        </fieldset>
+     </form>
+   </div>
+    
+</body>
+</html>
+<style>
+    body{
+    background: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:200vh;
+    }
+
+    .container{
+    width:500px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    }
+  h1{
+    text-align:center;
+    color:#003366;
+    margin-bottom:25px;
+    }
+
+   fieldset{
+    border:2px solid #003366;
+    border-radius:10px;
+    padding:20px;
+    }
+
+   legend{
+    color:#003366;
+    font-size:20px;
+    font-weight:bold;
+    padding:0 10px;
+    }
+
+   label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:bold;
+    }
+    input[type=text],
+input[type=email],
+input[type=tel],
+input[type=date],
+input[type=password],
+select,
+textarea,
+input[type=file]{
+
+    width:100%;
+    padding:10px;
+    border:1px solid #999;
+    border-radius:5px;
+    font-size:15px;
+}
+
+.radio,
+.check{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    margin-top:8px;
+}
+
+.radio label,
+.check label{
+    margin:0;
+    font-weight:normal;
+}
+
+textarea{
+    resize:none;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+input[type=submit],
+input[type=reset]{
+
+    width:48%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    color:white;
+}
+
+input[type=submit]{
+    background:#0077cc;
+    width:450px;
+}
+
+input[type=submit]:hover{
+    background:#005fa3;
+}
+
+
+</style>

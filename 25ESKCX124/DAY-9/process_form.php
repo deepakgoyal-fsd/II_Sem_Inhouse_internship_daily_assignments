@@ -28,7 +28,6 @@ else
 $terms = isset($_POST['terms']);
 
 
-//-------------------- Validation --------------------//
 
 if(empty($name))
 {
@@ -91,7 +90,6 @@ if(!$terms)
 }
 
 
-//---------------- Duplicate Email ----------------//
 
 $check = "SELECT * FROM students WHERE email='$email'";
 
@@ -103,7 +101,6 @@ if(mysqli_num_rows($result)>0)
 }
 
 
-//---------------- Show Errors ----------------//
 
 if(count($errors)>0)
 {
@@ -158,7 +155,6 @@ exit();
 }
 
 
-//---------------- Save Data ----------------//
 
 $sql = "INSERT INTO students
 (name,email,phone,birthdate,gender,branch,cgpa,address,city,state,postal,hobbies)

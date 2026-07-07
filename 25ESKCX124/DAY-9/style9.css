@@ -1,0 +1,299 @@
+/* ---------- Body ---------- */
+
+body{
+
+    background-color:#cceeff;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+/* ---------- Main Container ---------- */
+
+.container{
+
+    width:1100px;
+
+    margin:20px auto;
+
+    background-color:white;
+
+    padding:25px;
+
+    border:2px solid black;
+
+    border-radius:10px;
+
+    box-shadow:0px 0px 10px gray;
+
+}
+
+
+/* ---------- Heading ---------- */
+
+h1{
+
+    text-align:center;
+
+    color:darkblue;
+
+    margin-bottom:25px;
+
+}
+
+
+/* ---------- Labels ---------- */
+
+label{
+
+    font-weight:bold;
+
+    display:block;
+
+    margin-top:12px;
+
+}
+
+
+/* ---------- Input Fields ---------- */
+
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=date],
+select,
+textarea{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-top:5px;
+
+    margin-bottom:15px;
+
+    border:1px solid gray;
+
+    border-radius:5px;
+
+    box-sizing:border-box;
+
+}
+
+
+/* ---------- Gender ---------- */
+
+.gender{
+
+    margin-top:10px;
+
+    margin-bottom:15px;
+
+}
+
+.gender input{
+
+    width:auto;
+
+}
+
+
+/* ---------- Checkbox ---------- */
+
+.check{
+
+    margin-top:10px;
+
+    margin-bottom:15px;
+
+}
+
+.check input{
+
+    width:auto;
+
+}
+
+
+/* ---------- Buttons ---------- */
+
+input[type=submit]{
+
+    width:48%;
+
+    padding:10px;
+
+    background-color:blue;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+input[type=submit]:hover{
+
+    background-color:darkblue;
+
+}
+
+
+input[type=reset]{
+
+    width:48%;
+
+    padding:10px;
+
+    background-color:gray;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+input[type=reset]:hover{
+
+    background-color:black;
+
+}
+
+
+/* ---------- Table ---------- */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+}
+
+
+/* ---------- Table Heading ---------- */
+
+th{
+
+    background-color:#212529;
+
+    color:white;
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+
+/* ---------- Table Data ---------- */
+
+td{
+
+    padding:10px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}
+
+
+/* ---------- Table Border ---------- */
+
+table,
+th,
+td{
+
+    border:1px solid #999;
+
+}
+
+
+/* ---------- Alternate Rows ---------- */
+
+tr:nth-child(even){
+
+    background-color:#f2f2f2;
+
+}
+
+
+/* ---------- Hover Effect ---------- */
+
+tr:hover{
+
+    background-color:#d9f2ff;
+
+}
+
+
+/* ---------- Prevent Text Breaking ---------- */
+
+th,
+td{
+
+    white-space:nowrap;
+
+}
+
+
+/* ---------- Links ---------- */
+
+a{
+
+    text-decoration:none;
+
+    color:blue;
+
+    font-weight:bold;
+
+}
+
+a:hover{
+
+    color:red;
+
+}
+
+
+/* ---------- Success Message ---------- */
+
+.success{
+
+    color:green;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+
+/* ---------- Error Message ---------- */
+
+.error{
+
+    color:red;
+
+    font-weight:bold;
+
+}

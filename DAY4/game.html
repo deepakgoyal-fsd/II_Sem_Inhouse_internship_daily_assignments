@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    
+    
+
+
+<body>
+    
+     <style>
+            #reset{
+                height: 100px;
+                width: 100px;
+                font-style: oblique;
+            }
+            p{
+                height: 50px;
+                width: 50;
+            }
+            
+        </style>
+
+    
+    <p apple:> <span id="apple">0</p>
+    
+        <img src="oar2.jpg" height="200" width="200" onclick="apple()">
+        <p  banana:><span id="banana">0</p>
+        <img src="OIP.jpg" height="200" width="200" onclick="banana()">
+        <center>
+            <button id="reset" onclick="resetgame()">RESET
+        </button>
+        </center>
+        
+        <script>
+            let applecount=0;
+            let bananacount=0;
+            function apple(){
+                applecount++;
+                document.getElementById("apple").innerHTML=applecount
+
+            }
+            function banana(){
+                bananacount++;
+                document.getElementById("banana").innerHTML=bananacount
+            }
+            function resetgame(){
+                applecount=0;
+                bananacount=0;
+                document.getElementById("apple").innerHTML=0
+                document.getElementById("banana").innerHTML=0
+            }
+            
+
+            
+        </script>
+        
+       
+
+
+
+    
+</body>
+</html>

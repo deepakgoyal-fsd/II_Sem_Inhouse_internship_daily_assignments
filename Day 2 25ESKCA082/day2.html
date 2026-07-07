@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    <link rel="stylesheet" href="fromstylesheet.css"/>
+    <style>
+        h2{
+            color: aqua;
+        }
+    </style>
+    
+</head>
+<body id="body">
+    <div id="divform">
+    <form class="background" id="frmregister" >
+        <h2 style="color:black" id="frmheading"> registration form</h2>
+        <p class="default" >submit this form for online  registration </p>
+        <p>Note: kindly fill the <strong>genuine information </strong></p>
+        <label>
+            name:
+            <input type="text" name="txtname" id="txtname" required placeholder="enter your name" class="rounded" />
+        </label>
+        <br><br>
+        <label>
+            email:
+            <input type="emailid" id="txtemail" required placeholder="enter your email" class="rounded"/>
+        </label>
+        <br><br>
+        <label>
+            phone number:
+            <input type="text" id="txtphone" required placeholder="enter your number" />
+        </label> 
+        <br><br>
+            <input type="radio" id="check-male" name="gender" checked/>
+            <label for="check-male"> male:</label>
+
+
+            <input type="radio" id="check-female" name="gender" checked/>
+            <label for="check-female"> female:</label>
+
+            <input type="radio" id="cgeck-transgender" name="gender" checked/>
+            <label for="check-transgender">transgender</label>
+            <br><br>
+            <label for="dtDOB" >dob:</label>
+            <input type="date" id="dtDOB" name="dtDOB" class="rounded"/>    
+            <br><br>
+            <label for="pwdpassword">password</label>
+            <input type="password" id="pwdpassword" name="pwdpassword" class="rounded"/>
+            <br><br>
+            <label for="pwdconfirmpassword">confirm password</label>
+            <input type="password" id="pwdconfirmpassword" name="pwdconfirmpassword" class="rounded"/>
+            <br><br>
+            <label for="course">course:</label><br>
+            <select id="course" name="course">
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>B.sc</option>
+                <option>MCA</option>
+            </select>
+            <br><br>
+            <label for="address">Address:</label><br>
+            <textarea  id="address"
+            name="address"
+            rows="4"
+            cols="30"
+            placeholder="enter your address"></textarea>
+            <br><br>
+
+            <input type="checkbox" id="agree">
+            <label for="agree">i accept the termsand conditions</label>'
+            <br><br>
+            <input type="reset" value="reset">
+            <input type="submit" value="submit">
+             </form>
+    </div>
+</body>
+</html>

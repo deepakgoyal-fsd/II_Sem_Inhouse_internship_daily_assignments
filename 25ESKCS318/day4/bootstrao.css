@@ -1,0 +1,39 @@
+body{
+    background-color:#fffaf3;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Hero Image */
+img{
+    transition:0.3s ease;
+    image-orientation: 0rad ;
+}
+
+img:hover{
+    transform:scale(1.03);
+}
+
+/* Recipe Cards */
+.recipe-card{
+    border:none;
+    transition:0.4s ease;
+    cursor:pointer;
+}
+
+/* Hover Effect */
+.recipe-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.25)!important;
+}
+
+/* Card Images */
+.card-img-top{
+    height:220px;
+    object-fit:cover;
+}
+
+/* Buttons */
+.btn{
+    border-radius:30px;
+    padding:10px 25px;
+}

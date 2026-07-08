@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#e6f7ff;
+    transition:.5s;
+}
+
+.container{
+    width:500px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+    text-align:center;
+}
+
+h2{
+    color:#0d6efd;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid gray;
+    border-radius:5px;
+}
+
+input[type="radio"]{
+    width:auto;
+}
+
+button,input[type="submit"]{
+    padding:10px 20px;
+    margin:8px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#darkBtn{
+    background:black;
+    color:white;
+}
+
+#lightBtn{
+    background:white;
+    border:1px solid black;
+}
+
+#counterBtn{
+    background:green;
+    color:white;
+}
+
+#resetBtn{
+    background:red;
+    color:white;
+}
+
+input[type="submit"]{
+    background:#0d6efd;
+    color:white;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.dark .container{
+    background:#333;
+    color:white;
+}
+
+.dark input,
+.dark select{
+    background:#555;
+    color:white;
+    border:1px solid white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>School Registration Form</h2>
+
+<button id="darkBtn">🌙 Dark Mode</button>
+
+<button id="lightBtn">☀ Light Mode</button>
+
+<br><br>
+
+<button id="counterBtn">Click Me</button>
+
+<button id="resetBtn">Reset Counter</button>
+
+<p id="counter">Clicks : 0</p>
+
+<form id="myForm">
+
+<label>Student Name</label>
+
+<input type="text" id="name" placeholder="Enter Name">
+
+<p id="greeting"></p>
+
+<label>Email</label>
+
+<input type="email" id="email" placeholder="Enter Email">
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender"> Male
+
+<input type="radio" name="gender"> Female
+
+<br><br>
+
+<label>Select Class</label>
+
+<select id="class">
+
+<option value="">Select Class</option>
+
+<option>Class 1</option>
+
+<option>Class 2</option>
+
+<option>Class 3</option>
+
+<option>Class 4</option>
+
+</select>
+
+<br>
+
+<input type="submit" value="Register">
+
+</form>
+
+</div>
+
+<script>
+
+// Grab Elements
+
+const body=document.body;
+
+const darkBtn=document.getElementById("darkBtn");
+
+const lightBtn=document.getElementById("lightBtn");
+
+const counterBtn=document.getElementById("counterBtn");
+
+const resetBtn=document.getElementById("resetBtn");
+
+const counter=document.getElementById("counter");
+
+const form=document.getElementById("myForm");
+
+const nameInput=document.getElementById("name");
+
+const email=document.getElementById("email");
+
+const classSelect=document.getElementById("class");
+
+const greeting=document.getElementById("greeting");
+
+// Greeting
+
+nameInput.addEventListener("input",function(){
+
+greeting.innerHTML="Hello <b>"+this.value+"</b> 👋";
+
+});
+
+// Dark Mode
+
+darkBtn.addEventListener("click",function(){
+
+body.classList.add("dark");
+
+});
+
+// Light Mode
+
+lightBtn.addEventListener("click",function(){
+
+body.classList.remove("dark");
+
+});
+
+// Counter
+
+let count=0;
+
+counterBtn.addEventListener("click",function(){
+
+count++;
+
+counter.innerHTML="Clicks : "+count;
+
+});
+
+// Reset Counter
+
+resetBtn.addEventListener("click",function(){
+
+count=0;
+
+counter.innerHTML="Clicks : 0";
+
+});
+
+// Form Validation
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+if(nameInput.value==""){
+
+alert("Please enter your name.");
+
+return;
+
+}
+
+if(email.value==""){
+
+alert("Please enter your email.");
+
+return;
+
+}
+
+let genderSelected=false;
+
+document.querySelectorAll('input[name="gender"]').forEach(function(radio){
+
+if(radio.checked){
+
+genderSelected=true;
+
+}
+
+});
+
+if(!genderSelected){
+
+alert("Please select gender.");
+
+return;
+
+}
+
+if(classSelect.value==""){
+
+alert("Please select a class.");
+
+return;
+
+}
+
+alert("Registration Successful!");
+
+form.reset();
+
+greeting.innerHTML="";
+
+});
+
+</script>
+
+</body>
+</html>

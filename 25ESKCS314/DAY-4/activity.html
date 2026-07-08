@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulb On/Off</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container{
+        text-align: center;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        margin-bottom: 20px;
+    }
+
+    img{
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+    button{
+        padding: 10px 25px;
+        margin: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .on{
+        background-color: green;
+        color: white;
+    }
+
+    .off{
+        background-color: red;
+        color: white;
+    }
+
+    button:hover{
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Bulb On/Off </h2>
+
+    <img id="bulb" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Bulb">
+
+    <br>
+
+    <button class="on" onclick="turnOn()">Turn On</button>
+
+    <button class="off" onclick="turnOff()">Turn Off</button>
+</div>
+
+<script>
+function turnOn() {
+    document.getElementById("bulb").src =
+    "https://www.w3schools.com/js/pic_bulbon.gif";
+}
+
+function turnOff() {
+    document.getElementById("bulb").src =
+    "https://www.w3schools.com/js/pic_bulboff.gif";
+}
+</script>
+
+</body>
+</html>

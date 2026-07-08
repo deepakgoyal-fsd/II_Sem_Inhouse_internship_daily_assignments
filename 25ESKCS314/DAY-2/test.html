@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+.login-form{
+    width:500px;
+    margin:50px auto;
+    padding:30px;
+    background:#fd8686;
+    border-radius:20px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.511);
+}
+
+input:not([type="radio"]){
+    width:100%;
+    padding:8px;
+    margin:8px 0 15px;
+    border:2px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+input:focus{
+    outline:none;
+    border-color:rgb(102, 0, 255);
+    box-shadow:0 0 8px lightgreen;
+}
+
+input[type="submit"]{
+    width:150px;
+    display:block;
+    margin:20px auto;
+    padding:10px;
+    background:#dbe342;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+input[type="submit"]:hover{
+    background:green;
+    color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<form class="login-form">
+
+<h1>Registration Form</h1>
+
+<label>Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Date of Birth</label>
+<input type="date">
+
+<label>Gender</label><br>
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+
+<br><br>
+
+<label>Phone Number</label>
+<input type="tel">
+
+<label>Department</label>
+<input type="text">
+
+<label>Password</label>
+<input type="password" required>
+
+<label>Confirm Password</label>
+<input type="password" required>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

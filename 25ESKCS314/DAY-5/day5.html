@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dance Fiesta 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#111;
+    color:white;
+}
+
+/* HERO SECTION */
+.hero{
+    min-height:100vh;
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:rgba(0,0,0,.4);
+}
+
+.logo{
+    font-size:32px;
+    color:#ff4da6;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ff4da6;
+}
+
+/* CONTENT */
+.content{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:60px;
+    flex-wrap:wrap;
+}
+
+.left{
+    width:500px;
+}
+
+.left h1{
+    font-size:65px;
+    color:#ff4da6;
+}
+
+.left h2{
+    font-size:38px;
+    margin:15px 0;
+}
+
+.left p{
+    font-size:20px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.date{
+    background:#ff4da6;
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:30px;
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+.left button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ff4da6;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.left button:hover{
+    background:#ff0080;
+    transform:scale(1.08);
+}
+
+/* IMAGE */
+.right img{
+    width:420px;
+    border-radius:20px;
+    box-shadow:0 0 25px #ff4da6;
+    animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-18px);}
+100%{transform:translateY(0);}
+}
+
+/* FORM */
+#register{
+    background:#1c1c1c;
+    padding:70px 20px;
+}
+
+.form-box{
+    width:420px;
+    margin:auto;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 0 25px #ff4da6;
+}
+
+.form-box h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#ff4da6;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+span{
+    color:#ff7373;
+    font-size:14px;
+}
+
+input[type=submit]{
+    background:#ff4da6;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+input[type=submit]:hover{
+    background:#ff0080;
+}
+
+footer{
+    background:black;
+    text-align:center;
+    padding:20px;
+    font-size:18px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+}
+
+.content{
+    flex-direction:column;
+    text-align:center;
+}
+
+.left{
+    width:100%;
+}
+
+.left h1{
+    font-size:45px;
+}
+
+.right img{
+    width:300px;
+    margin-top:30px;
+}
+
+.form-box{
+    width:90%;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<nav>
+
+<div class="logo">💃 Dance Fiesta</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#register">Register</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+<div class="content">
+
+<div class="left">
+
+<h1>Feel The Beat!</h1>
+
+<h2>Dance Competition 2026</h2>
+
+<p>
+Show your moves, meet talented dancers and compete for exciting prizes.
+Whether you're a beginner or a professional, everyone is welcome!
+</p>
+
+<div class="date">📅 Event Date : 10 July</div>
+
+<br>
+
+<a href="#register">
+<button>Register Now</button>
+</a>
+
+</div>
+
+<div class="right">
+
+<img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=80" alt="Dance Event">
+
+</div>
+
+</div>
+
+</div>
+
+<section id="register">
+
+<div class="form-box">
+
+<h2>Registration Form</h2>
+
+<form id="danceForm">
+
+<input type="text" id="name" placeholder="Enter Your Name">
+<span id="nameError"></span>
+
+<input type="text" id="phone" placeholder="Enter Phone Number">
+<span id="phoneError"></span>
+
+<input type="email" id="email" placeholder="Enter Email">
+<span id="emailError"></span>
+
+<input type="submit" value="Register">
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Dance Fiesta | Dance • Music • Fun 💃</p>
+
+</footer>
+
+<script>
+
+const form=document.getElementById("danceForm");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let valid=true;
+
+document.getElementById("nameError").innerHTML="";
+document.getElementById("phoneError").innerHTML="";
+document.getElementById("emailError").innerHTML="";
+
+let name=document.getElementById("name").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let email=document.getElementById("email").value.trim();
+
+if(name==""){
+document.getElementById("nameError").innerHTML="Please enter your name";
+valid=false;
+}
+
+if(phone.length!=10 || isNaN(phone)){
+document.getElementById("phoneError").innerHTML="Enter a valid 10-digit phone number";
+valid=false;
+}
+
+if(email=="" || !email.includes("@")){
+document.getElementById("emailError").innerHTML="Enter a valid email address";
+valid=false;
+}
+
+if(valid){
+alert("🎉 Registration Successful!\n\nSee you on 10 July!");
+form.reset();
+}
+
+});
+
+</script>
+
+</body>
+</html>

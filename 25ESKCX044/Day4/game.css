@@ -1,0 +1,26 @@
+body {
+    background-color: #500404;
+    font-family: Arial, sans-serif;
+}
+button {
+    background-color: #f20505;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+   transform:scale(1.2) ;
+    background-color: #ff4747;
+}
+#appleImg {
+    width: 100px;
+    height: 100px;
+    
+    cursor: pointer;
+}
+#bananaImg {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}

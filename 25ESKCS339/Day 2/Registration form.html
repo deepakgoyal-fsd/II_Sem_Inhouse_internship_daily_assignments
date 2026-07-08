@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body bgcolor="skyblue">
+    <h1><center>Registration Form</center></h1>
+    
+    <form class="row g-3">
+  <div class="col-md-4">
+    <label for="validationServer01" class="form-label">First name</label>
+    <input type="text" class="form-control is-valid" id="validationServer01"  required>
+    <div class="valid-feedback">
+    </div>
+  </div><br>
+
+  <div class="col-md-4">
+    <label for="validationServer02" class="form-label">Last name</label>
+    <input type="text" class="form-control is-valid" id="validationServer02"  required>
+    <div class="valid-feedback">
+    </div>
+  </div><br>
+    
+    <form>  
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="blood_group">Blood Group:</label>
+        <input type="text" id="blood_group" name="blood_group" required><br><br>
+        <label for="city">city</label>
+        <input type="text" id="city" name="city" required><br><br>
+        <label for="caste">Caste:</label>
+        <input type="text" id="cast" name="cast" required><br><br>
+        <label for="father_name">Father's Name:</label>
+        <input type="text" id="father_name" name="father_name" required><br><br>
+        <label for="mother_name">Mother's Name:</label>
+        <input type="text" id="mother_name" name="mother_name" required><br><br>
+        <label for="father_occupation">Father's Occupation:</label>
+        <input type="text" id="father_occupation" name="father_occupation" required><br><br>
+        <label for="mother_occupation">Mother's Occupation:</label>
+        <input type="text" id="mother_occupation" name="mother_occupation" required><br><br>
+        <label for ="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+   </form>
+
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+      <label class="form-check-label" for="invalidCheck3">
+        Agree to terms and conditions
+      </label>
+      <div id="invalidCheck3Feedback" class="invalid-feedback">
+        You must agree before submitting.
+         <input type ="reset" value="reset">
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+
+
+</body>
+</html>

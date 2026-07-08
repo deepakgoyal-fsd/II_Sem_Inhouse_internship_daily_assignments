@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.container{
+width:800px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:35px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+border:1px solid rgba(255,255,255,.3);
+color:white;
+}
+
+h2{
+text-align:center;
+margin-bottom:25px;
+font-size:35px;
+}
+
+.row{
+display:flex;
+gap:20px;
+}
+
+.col{
+flex:1;
+}
+
+label{
+display:block;
+margin-top:15px;
+margin-bottom:6px;
+font-weight:600;
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+outline:none;
+background:rgba(255,255,255,.9);
+font-size:15px;
+transition:.3s;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+transform:scale(1.02);
+box-shadow:0 0 10px cyan;
+
+}
+
+textarea{
+
+resize:none;
+
+}
+
+input[type=submit]{
+
+margin-top:25px;
+background:linear-gradient(45deg,#ff416c,#ff4b2b);
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+input[type=submit]:hover{
+
+transform:translateY(-3px);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form action="student.php" method="post">
+
+<div class="row">
+
+<div class="col">
+
+<label>Roll Number</label>
+<input
+    type="text"
+    name="rollno"
+    minlength="10"
+    maxlength="10"
+    pattern="[A-Za-z0-9-]{10}"
+    title="Roll Number must be exactly 10 characters."
+    required>
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Branch</label>
+
+<select name="branch" required>
+
+<option value="">Select</option>
+<option>CSE</option>
+<option>CS(AI)</option>
+<option>CS(DS)</option>
+<option>CS(IT)</option>
+
+</select>
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+name="phone"
+pattern="[0-9]{10}"
+maxlength="10"
+required>
+
+<label>Section</label>
+
+<select name="section" required>
+
+<option value="">Select</option>
+<option>G</option>
+<option>H</option>
+
+</select>
+
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+required>
+
+</div>
+
+<div class="col">
+
+<label>City</label>
+<input type="text" name="city" required>
+
+<label>State</label>
+
+<select name="state" required>
+
+<option value="">Select</option>
+
+<option>Rajasthan</option>
+
+<option>Punjab</option>
+
+<option>Haryana</option>
+
+<option>Bihar</option>
+
+</select>
+
+<label>Country</label>
+
+<input
+type="text"
+name="country"
+required>
+
+<label>Address 1</label>
+
+<textarea
+name="address1"
+rows="3"
+required></textarea>
+
+<label>Address 2</label>
+
+<textarea
+name="address2"
+rows="3"></textarea>
+
+</div>
+
+</div>
+
+<input type="submit" value="Register Student">
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+/* Navbar */
+nav{
+    background:#007BFF;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+/* Hero */
+.hero{
+    height:90vh;
+    background:linear-gradient(to right,#007BFF,#00BFFF);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:50px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.hero button{
+    padding:12px 25px;
+    border:none;
+    background:white;
+    color:#007BFF;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* Courses */
+section{
+    padding:70px 10%;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:280px;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 10px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* Pricing */
+.price{
+    color:#007BFF;
+    font-size:35px;
+    margin:15px 0;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#007BFF;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+/* FAQ */
+.faq{
+    max-width:800px;
+    margin:auto;
+}
+
+.faq-item{
+    background:white;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,.1);
+}
+
+/* Footer */
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.social a{
+    color:white;
+    font-size:28px;
+    margin:10px;
+}
+
+.social a:hover{
+    color:#00BFFF;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav>
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+<h1>Welcome to EduLearn</h1>
+<p>Learn Web Development from Scratch</p>
+<button>Get Started</button>
+</section>
+
+<!-- Courses -->
+
+<section id="courses">
+<h2>Our Courses</h2>
+
+<div class="container">
+
+<div class="card">
+<h3>HTML</h3>
+<p>Learn HTML from basics.</p>
+</div>
+
+<div class="card">
+<h3>CSS</h3>
+<p>Create beautiful websites.</p>
+</div>
+
+<div class="card">
+<h3>JavaScript</h3>
+<p>Make websites interactive.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Testimonials -->
+
+<section id="testimonials">
+
+<h2>Testimonials</h2>
+
+<div class="container">
+
+<div class="card">
+<p>"Best platform for beginners."</p>
+<h4>- Rahul</h4>
+</div>
+
+<div class="card">
+<p>"Excellent mentors and projects."</p>
+<h4>- Anjali</h4>
+</div>
+
+<div class="card">
+<p>"I got my internship after this course."</p>
+<h4>- Aman</h4>
+</div>
+
+</div>
+
+</section>
+
+<!-- Pricing -->
+
+<section id="pricing">
+
+<h2>Pricing Plans</h2>
+
+<div class="container">
+
+<div class="card">
+<h3>Basic</h3>
+<p class="price">₹499</p>
+<p>HTML</p>
+<p>CSS</p>
+<button>Buy Now</button>
+</div>
+
+<div class="card">
+<h3>Pro</h3>
+<p class="price">₹999</p>
+<p>HTML + CSS + JS</p>
+<p>Projects</p>
+<button>Buy Now</button>
+</div>
+
+<div class="card">
+<h3>Premium</h3>
+<p class="price">₹1999</p>
+<p>Full Stack</p>
+<p>Placement Support</p>
+<button>Buy Now</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+<h3>How long is the course?</h3>
+<p>3 to 6 months.</p>
+</div>
+
+<div class="faq-item">
+<h3>Will I get a certificate?</h3>
+<p>Yes, after completing the course.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do you provide placement support?</h3>
+<p>Yes, in the Premium plan.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer id="contact">
+
+<h3>EduLearn</h3>
+
+<p>Follow Us</p>
+
+<div class="social">
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+
+<p style="margin-top:20px;">© 2026 EduLearn. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

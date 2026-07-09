@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        /* This replaces the border attribute */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="photo">
+        <h1>My Profile</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTQsYz8qsp2WpcnYaqcqKOPiC9DtQI9fLeP-QV00LmoQ&s=10" alt="Student Profile Picture">
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <table>
+            <tr>
+                <th>Degree</th>
+                <th>Institution</th>
+                <th>Year</th>
+            </tr>
+            <tr>
+                <td>Bachelor of Technology</td>
+                <td>swami keshavanand institute of technology</td>
+                <td>2029</td>
+            </tr>
+        </table>
+    </section>
+        <h2>My Soft Skills</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Skill</th>
+                <th>Description</th>
+                <th>Proficiency</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Communication</td>
+                <td>Expresses ideas clearly and effectively.</td>
+                <td>Advanced</td>
+            </tr>
+
+            <tr>
+                <td>Teamwork</td>
+                <td>Works well with others to achieve goals.</td>
+                <td>Advanced</td>
+            </tr>
+
+            <tr>
+                <td>Problem Solving</td>
+                <td>Analyzes situations and finds effective solutions.</td>
+                <td>Intermediate</td>
+            </tr>
+
+            <tr>
+                <td>Leadership</td>
+                <td>Guides and motivates team members.</td>
+                <td>Intermediate</td>
+            </tr>
+
+            <tr>
+                <td>Time Management</td>
+                <td>Completes tasks efficiently and on time.</td>
+                <td>Advanced</td>
+            </tr>
+
+            <tr>
+                <td>Adaptability</td>
+                <td>Adjusts quickly to new situations and challenges.</td>
+                <td>Advanced</td>
+            </tr>
+
+            <tr>
+                <td>Critical Thinking</td>
+                <td>Evaluates information logically before making decisions.</td>
+                <td>Intermediate</td>
+            </tr>
+
+            <tr>
+                <td>Creativity</td>
+                <td>Generates innovative ideas and solutions.</td>
+                <td>Intermediate</td>
+            </tr>
+        </tbody>
+    </table>
+     <h2>Contact Form</h2>
+
+    <form action="#">
+
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" cols="30" placeholder="Write your message here..."></textarea><br><br>
+
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+
+    </form>
+
+
+           </body>
+</html>

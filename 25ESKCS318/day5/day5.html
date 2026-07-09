@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Coding Skills Cards</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:400px;
+    max-width:90%;
+    padding:12px 18px;
+    border-radius:30px;
+    border:2px solid #3498db;
+    outline:none;
+    font-size:16px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    display:block;
+    margin:auto;
+    object-fit:cover;
+}
+
+.card h2{
+    text-align:center;
+    margin-top:12px;
+    color:#2c3e50;
+}
+
+.card p{
+    margin:8px 0;
+    color:#555;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:12px;
+    background:#3498db;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#217dbb;
+}
+
+.details{
+    margin-top:15px;
+    background:#f4f9ff;
+    padding:12px;
+    border-radius:8px;
+    display:none;
+    animation:fade .3s;
+}
+
+.details ul{
+    margin-left:18px;
+}
+
+.details li{
+    margin:5px 0;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+
+</head>
+<body>
+
+<h1>Student Coding Skills</h1>
+
+<div class="search-box">
+<input
+type="text"
+id="search"
+placeholder="Search by name, course, language or skills...">
+</div>
+
+<div class="container" id="studentContainer">
+
+<!-- Student 1 -->
+<div class="card">
+<img src="https://via.placeholder.com/90" alt="">
+<h2>Alice Johnson</h2>
+<p><strong>Course:</strong> BCA</p>
+<p><strong>Language:</strong> Java</p>
+
+<button onclick="toggleDetails(this)">
+Show Details
+</button>
+
+<div class="details">
+<p><strong>Coding Skills</strong></p>
+<ul>
+<li>Java</li>
+<li>Spring Boot</li>
+<li>MySQL</li>
+<li>HTML/CSS</li>
+<li>Git</li>
+</ul>
+</div>
+</div>
+
+<!-- Student 2 -->
+<div class="card">
+<img src="https://via.placeholder.com/90" alt="">
+<h2>Rahul Sharma</h2>
+<p><strong>Course:</strong> B.Tech</p>
+<p><strong>Language:</strong> Python</p>
+
+<button onclick="toggleDetails(this)">
+Show Details
+</button>
+
+<div class="details">
+<p><strong>Coding Skills</strong></p>
+<ul>
+<li>Python</li>
+<li>Django</li>
+<li>Flask</li>
+<li>Machine Learning</li>
+<li>SQLite</li>
+</ul>
+</div>
+</div>
+
+<!-- Student 3 -->
+<div class="card">
+<img src="https://via.placeholder.com/90" alt="">
+<h2>Emily Davis</h2>
+<p><strong>Course:</strong> MCA</p>
+<p><strong>Language:</strong> JavaScript</p>
+
+<button onclick="toggleDetails(this)">
+Show Details
+</button>
+
+<div class="details">
+<p><strong>Coding Skills</strong></p>
+<ul>
+<li>JavaScript</li>
+<li>React</li>
+<li>Node.js</li>
+<li>MongoDB</li>
+<li>Express</li>
+</ul>
+</div>
+</div>
+
+<!-- Student 4 -->
+<div class="card">
+<img src="https://via.placeholder.com/90" alt="">
+<h2>Michael Lee</h2>
+<p><strong>Course:</strong> B.Sc IT</p>
+<p><strong>Language:</strong> C++</p>
+
+<button onclick="toggleDetails(this)">
+Show Details
+</button>
+
+<div class="details">
+<p><strong>Coding Skills</strong></p>
+<ul>
+<li>C++</li>
+<li>Data Structures</li>
+<li>Algorithms</li>
+<li>OOP</li>
+<li>STL</li>
+</ul>
+</div>
+</div>
+
+<!-- Student 5 -->
+<div class="card">
+<img src="https://via.placeholder.com/90" alt="">
+<h2>Sophia Brown</h2>
+<p><strong>Course:</strong> BCA</p>
+<p><strong>Language:</strong> PHP</p>
+
+<button onclick="toggleDetails(this)">
+Show Details
+</button>
+
+<div class="details">
+<p><strong>Coding Skills</strong></p>
+<ul>
+<li>PHP</li>
+<li>Laravel</li>
+<li>MySQL</li>
+<li>Bootstrap</li>
+<li>REST API</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<script>
+// Toggle Show/Hide Details
+function toggleDetails(button){
+
+    const details = button.nextElementSibling;
+
+    if(details.style.display === "block"){
+        details.style.display = "none";
+        button.innerHTML = "Show Details";
+    }
+    else{
+        details.style.display = "block";
+        button.innerHTML = "Hide Details";
+    }
+
+}
+
+// Search Functionality
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function(){
+
+    const filter = this.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        const text = card.innerText.toLowerCase();
+
+        if(text.includes(filter)){
+            card.style.display="block";
+        }
+        else{
+            card.style.display="none";
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>

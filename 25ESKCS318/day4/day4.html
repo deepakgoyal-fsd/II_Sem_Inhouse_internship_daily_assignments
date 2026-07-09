@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Fiesta 2026</title>
+    <link rel="stylesheet" href="j.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="overlay"></div>
+
+        <nav>
+            <h2>💃 Dance Fiesta</h2>
+            <a href="#register" class="btn">Register Now</a>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Dance Fiesta 2026</h1>
+            <h3>Feel the Rhythm • Own the Stage</h3>
+            <p>Join the biggest dance celebration on</p>
+            <h2>📅 10 July 2026</h2>
+
+            <a href="#register" class="hero-btn">Join the Event</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="about">
+        <h2>Why Join?</h2>
+
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80" alt="Dance">
+                <h3>Live Performances</h3>
+                <p>Enjoy energetic performances by talented dancers.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=500&q=80" alt="Stage">
+                <h3>Exciting Stage</h3>
+                <p>Perform on a professional stage with amazing lighting.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=500&q=80" alt="Audience">
+                <h3>Win Prizes</h3>
+                <p>Compete and win exciting prizes and certificates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="register" id="register">
+
+        <div class="form-box">
+            <h2>Register Now</h2>
+
+            <form id="registrationForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter Your Name"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone Number"
+                    pattern="[0-9]{10}"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <button type="submit">Submit Registration</button>
+
+            </form>
+
+            <p id="message"></p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Dance Fiesta | See You on 10 July 🎉</p>
+    </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

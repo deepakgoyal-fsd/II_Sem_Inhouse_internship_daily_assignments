@@ -1,0 +1,114 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=5, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login-form{
+            background-color: rgb(205, 142, 155);
+            padding: 50px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 5px rgba(red, green, blue, alpha);
+            width: 500px;
+            margin: 180px;
+            border-color: rgb(36, 157, 82);
+            text-align: center;
+            
+            label{
+    font-weight: bold;
+    color: rgb(220, 230, 233);
+    text-align: center;
+    
+}
+h1{
+    text-align: center;
+    color: blanchedalmond;
+}
+
+
+    
+
+
+input[type="submit"]:hover{
+    background-color: pink;
+}
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="login-form">
+        <h1>Registration form</h1>
+    <form>
+        <label>NAME</label><br>
+        <input type="text" placeholder="name"><br>
+        <label>EMAIL</label><br>
+        <input type="email" placeholder="email"><br><br>
+        <label>GENDER</label><br>
+        <input type="radio" placeholder="gender" value="male"> male<br>
+        <input type="radio" placeholder="gender" value="female">  female<br>
+        <label>CITY</label><br><br>
+        <select placeholder="city">
+            <option value="select city"> Select city</option>
+            <option value="jaipur"> Jaipur</option>
+            <option value="kota"> kota</option><br>
+        </select><br><br>
+        <label>PASSWORD</label><br>
+        <input type="password" placeholder="password"><br><br>
+        <label>CONFIRM PASSWORD</label><br>
+        <input type="password" placeholder="confirm password"><br><br>
+        <input type="submit" value="SUBMIT">
+
+
+        
+
+    </form>
+    </div>
+    <script>
+const form = document.querySelector(".login-form");
+const submitBtn = document.querySelector('input[type="submit"]');
+
+// Create greeting text
+const greeting = document.createElement("p");
+document.querySelector('input[type="text"]').after(greeting);
+
+// Input Event
+document.querySelector('input[type="text"]').addEventListener("input", function () {
+    greeting.textContent = "Hello, " + this.value + "!";
+});
+
+// Click Event
+submitBtn.addEventListener("click", function () {
+    console.log("Submit button clicked");
+});
+
+// Submit Event
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.querySelector('input[type="text"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const phone = document.querySelector('input[type="tel"]').value;
+    const password = document.querySelectorAll('input[type="password"]')[0].value;
+    const confirmPassword = document.querySelectorAll('input[type="password"]')[1].value;
+
+    if (name === "" || email === "" || phone === "") {
+        alert("Please fill all the required fields.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    alert("Registration Successful!");
+
+    form.reset();
+    greeting.textContent = "";
+});
+</script>
+</body>
+</html>

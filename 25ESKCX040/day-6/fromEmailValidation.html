@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5" style="max-width: 400px;">
+        <div class="card p-4 shadow-sm">
+            <h4 class="mb-3 text-center">Login Form</h4>
+            <form id="myForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="text" id="email" class="form-control" placeholder="example@domain.com">
+                    <div id="errorMsg" class="text-danger mt-1 small" style="display:none;"></div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('email').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // Regex for basic email validation
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (emailInput.trim() === "") {
+                errorMsg.style.display = "block";
+                errorMsg.innerText = "Email khali nahi ho sakta!";
+            } else if (!emailPattern.test(emailInput)) {
+                errorMsg.style.display = "block";
+                errorMsg.innerText = "Kripya sahi email format daalein (e.g., abc@xyz.com)";
+            } else {
+                errorMsg.style.display = "none";
+                alert("Form successfully submit !");
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: gray;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.registration-form {
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.form {
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #2f2020;
+    margin-bottom: 6px;
+
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.con {
+    width: 100%;
+    margin-bottom: 6px;
+
+}
+
+.sum {
+    width: 100%;
+    padding: 9px;
+    background: blue;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
+    <title>Registration Form</title>
+    <style> 
+        body{
+            
+            background-color:blueviolet;
+        }
+        p{
+            background-color:lavender;
+            color:black;
+            font-size:14pt;
+            font-family:'seoge UI',Tahoma,geneva,verdana,sans-serif;
+            font-weight:bold;
+            padding:30px;
+            text-align:center;
+
+
+
+        }
+        h1{
+            color:white!important;
+            text-align:center;
+        }
+        .container{
+            width:60%;
+            background-color:lightblue;
+            display:flex;
+            flex-direction:column;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 0 10px black;
+            margin:auto;
+            
+            
+        }
+    
+    </style>
+
+</head>
+<body>
+    <form>
+        <h1> Registration form</h1>
+        <p>.........SUBMIT THIS FORM FOR ONLINE REGISTRATION ......... </p>
+
+        <div class ="container"> 
+
+        <label>
+             First Name:
+        <input type="text" id="txtname" required placeholder="enter your  first name">
+        </label>
+        <br>
+        
+
+         
+
+        <label>
+             Last Name:
+        <input type="text" id="txtname" required placeholder="enter your  Last name">
+        </label>
+        <br>
+        
+
+
+
+
+        <label>
+            Email:
+        <input type="email" id="txtemail" required placeholder ="enter your id">
+        </label>
+        <br>
+        
+
+
+
+
+        <label>
+            Contact:
+        <input type="text"  id="txtcontact" required placeholder="enter your phone no.">
+        </label>
+        <br>
+
+        
+
+
+
+
+        <label>
+             Gender:
+           
+        <input type="radio" id="check-male" name="gender" checked/>
+        <label for="check male" >Male</label>
+
+        <input type="radio" id="check-female" name="gender" checked/>
+        <label for="check female">Female</label>
+
+        <input type="radio" id="check-transgender" name="gender" checked/>
+        <label for="check transgender" >Transgender</label>
+
+        <input type="radio" id="check-other" name="gender" checked/>
+        <label for="check other" >Prefer not to say</label>
+        </label>
+        <br>
+        
+
+
+
+        <label for="dt008">DOB</label>
+        <input type="date" id="dt008" name="dt008"/>
+        <br>
+        
+
+
+
+        <label for="pwdpassword" >password</label>
+        <input type="password" id="pwdoassword" name="pwdpassword"/>
+        <br>
+
+
+
+
+        <label for="confirmpassword">confirm password</label>
+        <input type="password" id="confirmpassword" name="confirmpassword"/>
+        <br>
+<div class="register">
+
+        <a href="registrationconfirm.html">
+        <button  class="register">Register
+        </button>
+        </a>
+        </div>
+        </div>
+
+
+    </form>
+</body>
+</html>

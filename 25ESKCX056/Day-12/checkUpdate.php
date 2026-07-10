@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_new_password = $_POST["confirm_new_password"];
     $current_password = $_POST["current_password"];
 
-    // Validate passwords
     if (empty($new_password) || empty($confirm_new_password) || empty($current_password)) {
         $error = "Please fill in all fields.";
     } else {

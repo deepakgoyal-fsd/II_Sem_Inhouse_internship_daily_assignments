@@ -1,0 +1,548 @@
+/* ==========================
+   Google Font
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+
+    background:#F7F1E8;
+
+    color:#5C4033;
+
+    min-height:100vh;
+
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+
+    background:#F7F1E8;
+
+    border-bottom:3px solid #2E6F40;
+
+}
+
+.navbar-brand{
+
+    color:#2E6F40 !important;
+
+    font-size:30px;
+
+}
+
+.nav-link{
+
+    color:#5C4033 !important;
+
+    font-weight:500;
+
+    margin-left:15px;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#2E6F40 !important;
+
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+
+    padding:70px 20px;
+
+}
+
+.hero h1{
+
+    font-size:50px;
+
+    font-weight:700;
+
+}
+
+.hero span{
+
+    color:#2E6F40;
+
+}
+
+.hero p{
+
+    color:#7A5B49;
+
+    font-size:18px;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+/* ==========================
+   SEARCH
+========================== */
+
+.input-group{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    border-radius:40px;
+
+    overflow:hidden;
+
+}
+
+.input-group-text{
+
+    background:#2E6F40;
+
+    color:white;
+
+    border:none;
+
+}
+
+.form-control{
+
+    border:none;
+
+    padding:15px;
+
+}
+
+.form-control:focus{
+
+    box-shadow:none;
+
+}
+
+/* ==========================
+   BADGE
+========================== */
+
+#countBadge{
+
+    background:#C8A96A;
+
+    color:white;
+
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.btn-success{
+
+    background:#2E6F40;
+
+    border:none;
+
+}
+
+.btn-success:hover{
+
+    background:#355E3B;
+
+}
+
+/* ==========================
+   USER CARD
+========================== */
+
+.user-card{
+
+    border-radius:22px;
+
+    border:3px solid #2E6F40;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    height:100%;
+
+}
+
+.user-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 30px rgba(46,111,64,.25);
+
+}
+
+/* Alternate Colors */
+
+.even{
+
+    background:#EAF7E8;
+
+}
+
+.odd{
+
+    background:#FFFDF8;
+
+}
+
+/* ==========================
+   PROFILE IMAGE
+========================== */
+
+.profile-img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid #2E6F40;
+
+    margin:25px auto 15px;
+
+    display:block;
+
+}
+
+/* ==========================
+   CARD BODY
+========================== */
+
+.card-body{
+
+    text-align:center;
+
+}
+
+.card-title{
+
+    color:#2E6F40;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.card-text{
+
+    color:#5C4033;
+
+    font-size:15px;
+
+}
+
+/* ==========================
+   VIEW BUTTON
+========================== */
+
+.view-btn{
+
+    background:#2E6F40;
+
+    color:white;
+
+    width:100%;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    margin-top:15px;
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    background:#355E3B;
+
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.modal-content{
+
+    border-radius:20px;
+
+    background:#F7F1E8;
+
+    border:3px solid #2E6F40;
+
+}
+
+.modal-header{
+
+    border-bottom:2px solid #C8A96A;
+
+}
+
+.modal-title{
+
+    color:#2E6F40;
+
+    font-weight:600;
+
+}
+
+.modal-body{
+
+    color:#5C4033;
+
+}
+
+.modal-body p{
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================
+   LOADING
+========================== */
+
+#loading{
+
+    color:#2E6F40;
+
+}
+
+/* ==========================
+   ERROR
+========================== */
+
+#error{
+
+    border-radius:15px;
+
+}
+
+/* ==========================
+   NO RESULT
+========================== */
+
+#noResult{
+
+    color:#2E6F40;
+
+    padding:60px;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    background:#2E6F40;
+
+    color:white;
+
+    margin-top:60px;
+
+}
+
+/* ==========================
+   SCROLL BUTTON
+========================== */
+
+#topBtn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#2E6F40;
+
+    color:white;
+
+    display:none;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+    z-index:1000;
+
+}
+
+#topBtn:hover{
+
+    background:#355E3B;
+
+}
+
+/* ==========================
+   CARD ANIMATION
+========================== */
+
+.user-card{
+
+    animation:fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F7F1E8;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2E6F40;
+
+    border-radius:20px;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+.hero h1{
+
+    font-size:40px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+    font-size:32px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+#countBadge{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+}
+
+#sortBtn{
+
+    width:100%;
+
+}
+
+.profile-img{
+
+    width:100px;
+
+    height:100px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.navbar-brand{
+
+    font-size:24px;
+
+}
+
+.hero{
+
+    padding:50px 15px;
+
+}
+
+.card-title{
+
+    font-size:20px;
+
+}
+
+}

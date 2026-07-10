@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container{
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            width: 350px;
+        }
+
+        h1{
+            text-align: center;
+            color: blue;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"]{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"]{
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover{
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Registration Form</h1>
+
+    <form>
+
+        <label>Name:</label>
+        <input type="text" id="txtName" placeholder="Enter your Name" required>
+
+        <label>Email:</label>
+        <input type="email" id="txtEmail" placeholder="Enter your Email" required>
+
+        <label>Phone No:</label>
+        <input type="text" id="txtPhone" placeholder="Enter your Phone Number" required>
+
+        <label>Gender:</label><br><br>
+
+        <input type="radio" id="male" name="gender" checked>
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender">
+        <label for="female">Female</label>
+
+        <input type="radio" id="transgender" name="gender">
+        <label for="transgender">Transgender</label>
+
+        <input type="radio" id="other" name="gender">
+        <label for="other">Prefer Not To Say</label>
+
+        <br><br>
+
+        <label>DOB:</label>
+        <input type="date" id="dtDOB">
+
+        <label>Password:</label>
+        <input type="password" id="pwdPassword" placeholder="Enter Password">
+
+        <label>Confirm Password:</label>
+        <input type="password" id="pwdConfirmPassword" placeholder="Confirm Password">
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</div>
+
+</body>
+</html>

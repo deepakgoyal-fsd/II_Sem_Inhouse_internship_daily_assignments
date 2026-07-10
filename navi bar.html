@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>TechNova Institute</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Segoe UI,sans-serif;
+background:#f8f9fa;
+scroll-behavior:smooth;
+}
+
+.navbar{
+background:linear-gradient(90deg,#0d6efd,#6610f2);
+}
+
+.hero{
+padding:100px 0;
+background:linear-gradient(135deg,#0d6efd,#6f42c1);
+color:white;
+}
+
+.hero img{
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.btn-custom{
+background:white;
+color:#0d6efd;
+font-weight:bold;
+padding:12px 30px;
+border-radius:30px;
+}
+
+.section-title{
+font-weight:700;
+margin-bottom:40px;
+}
+
+.feature-card{
+background:white;
+border:none;
+border-radius:20px;
+transition:.4s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+}
+
+.feature-icon{
+font-size:55px;
+color:#0d6efd;
+}
+
+.stats{
+background:#0d6efd;
+color:white;
+padding:60px 0;
+}
+
+.team-card{
+border:none;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+transition:.4s;
+}
+
+.team-card:hover{
+transform:scale(1.05);
+}
+
+.team-card img{
+height:280px;
+object-fit:cover;
+}
+
+.contact{
+background:#eef4ff;
+}
+
+footer{
+background:#111827;
+color:white;
+}
+
+.social i{
+font-size:25px;
+margin:10px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">TechNova</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+<li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+
+<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+</ul>
+
+<a href="#" class="btn btn-light ms-lg-3 rounded-pill">Join Now</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h1 class="display-4 fw-bold">Become a Professional Web Developer</h1>
+
+<p class="lead my-4">
+
+Learn HTML, CSS, Bootstrap & JavaScript from industry experts and build amazing responsive websites.
+
+</p>
+
+<a href="#" class="btn btn-custom">Start Learning</a>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700" class="img-fluid">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Features -->
+
+<section id="features" class="py-5">
+
+<div class="container">
+
+<h2 class="text-center section-title">Why Choose Us?</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card feature-card p-4 text-center">
+
+<div class="feature-icon">
+<i class="bi bi-code-slash"></i>
+</div>
+
+<h4 class="mt-3">HTML & CSS</h4>
+
+<p>Create beautiful websites from scratch.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card feature-card p-4 text-center">
+
+<div class="feature-icon">
+<i class="bi bi-phone"></i>
+</div>
+
+<h4 class="mt-3">Responsive Design</h4>
+
+<p>Looks perfect on Desktop, Tablet & Mobile.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card feature-card p-4 text-center">
+
+<div class="feature-icon">
+<i class="bi bi-lightning-fill"></i>
+</div>
+
+<h4 class="mt-3">Bootstrap 5</h4>
+
+<p>Modern layouts with less code.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Stats -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+<h2>500+</h2>
+<p>Students</p>
+</div>
+
+<div class="col-md-3">
+<h2>20+</h2>
+<p>Courses</p>
+</div>
+
+<div class="col-md-3">
+<h2>15</h2>
+<p>Experts</p>
+</div>
+
+<div class="col-md-3">
+<h2>98%</h2>
+<p>Placement</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Team -->
+
+<section id="team" class="py-5">
+
+<div class="container">
+
+<h2 class="text-center section-title">Meet Our Team</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card team-card">
+
+<img src="https://randomuser.me/api/portraits/men/11.jpg">
+
+<div class="card-body text-center">
+
+<h4>Tanish Sain</h4>
+
+<p class="text-primary">Frontend Developer</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card team-card">
+
+<img src="https://randomuser.me/api/portraits/women/22.jpg">
+
+<div class="card-body text-center">
+
+<h4>Tanvi</h4>
+
+<p class="text-primary">UI/UX Designer</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card team-card">
+
+<img src="https://randomuser.me/api/portraits/women/33.jpg">
+
+<div class="card-body text-center">
+
+<h4>Vibha</h4>
+
+<p class="text-primary">Backend Developer</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact" class="contact py-5">
+
+<div class="container">
+
+<h2 class="text-center section-title">Contact Us</h2>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-6">
+
+<input class="form-control mb-3" placeholder="Your Name">
+
+<input class="form-control mb-3" placeholder="Email">
+
+<textarea class="form-control mb-3" rows="5" placeholder="Message"></textarea>
+
+<button class="btn btn-primary w-100">Send Message</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="py-4">
+
+<div class="container text-center">
+
+<h5>TechNova Institute</h5>
+
+<div class="social">
+
+<i class="bi bi-facebook"></i>
+
+<i class="bi bi-instagram"></i>
+
+<i class="bi bi-linkedin"></i>
+
+<i class="bi bi-github"></i>
+
+</div>
+
+<p class="mt-3">Designed by Swasti ❤️</p>
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

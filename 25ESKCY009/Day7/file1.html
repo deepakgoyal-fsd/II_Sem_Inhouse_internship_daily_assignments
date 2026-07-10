@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+
+    <link rel="stylesheet" href="css/formStylesheet.css">
+
+    <style>
+        h1{
+            color: palevioletred;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<form action="registration.php" method="get">
+
+<h1>Registration Form</h1>
+
+<p>Submit this form for online registration</p>
+
+<label>Name</label><br>
+<input type="text"
+id="txtName"
+name="txtName"
+placeholder="Enter your Name"
+required>
+
+<br><br>
+
+<label>Email</label><br>
+
+<input type="email"
+id="txtEmail"
+name="txtEmail"
+placeholder="Enter your Email"
+required>
+
+<br><br>
+
+<label>Phone</label><br>
+
+<input type="text"
+id="txtPhone"
+name="txtPhone"
+placeholder="Enter your Phone"
+required>
+
+<br><br>
+
+<label>Gender</label><br>
+
+<input type="radio"
+id="male"
+name="Gender"
+value="Male">
+
+<label for="male">Male</label>
+
+<br>
+
+<input type="radio"
+id="female"
+name="Gender"
+value="Female">
+
+<label for="female">Female</label>
+
+<br>
+
+<input type="radio"
+id="transgender"
+name="Gender"
+value="Transgender">
+
+<label for="transgender">Transgender</label>
+
+<br>
+
+<input type="radio"
+id="other"
+name="Gender"
+value="Prefer not to say">
+
+<label for="other">Prefer not to say</label>
+
+<br><br>
+
+<label>DOB</label><br>
+
+<input
+type="date"
+id="dtDOB"
+name="dtDOB">
+
+<br><br>
+
+<label>Password</label><br>
+
+<input
+type="password"
+id="pwdPassword"
+name="pwdPassword">
+
+<br><br>
+
+<input
+type="submit"
+value="Register">
+
+</form>
+
+</body>
+</html>

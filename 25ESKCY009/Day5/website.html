@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pravah</title>
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">Pravah</div>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#registration">EVENTS AND REGISTRATION</a></li>
+        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="#schedule">EVENT SCHEDULE</a></li>
+        <li><a href="#team">TEAM PRAVAH</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>Welcome to Pravah</h1>
+      <p>Join a celebration of creativity, culture, and community. Pravah brings students, performers, and changemakers together through inspiring events, workshops, and unforgettable experiences.</p>
+    </section>
+
+    <section id="registration">
+      <h2>Events and Registration</h2>
+      <p>Register now to reserve your spot for Pravah events. Please complete the form below and our team will reach out with confirmation details.</p>
+      <form>
+        <div class="form-row">
+          <div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+          </div>
+          <div>
+            <label for="event">Event Category</label>
+            <select id="event" name="event" required>
+              <option value="">Select an event</option>
+              <option value="music">Music Showcase</option>
+              <option value="dance">Dance Battle</option>
+              <option value="workshop">Creative Workshop</option>
+              <option value="talk">Inspiration Talk</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Why do you want to join Pravah?</label>
+          <textarea id="message" name="message" placeholder="Share your motivation or any special requirements"></textarea>
+        </div>
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Pravah is a student-led festival platform dedicated to empowering young voices, showcasing local talent, and building meaningful connections. We curate inclusive events that encourage participation, learning, and celebration.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Vision</h3>
+          <p>To create a vibrant space where every student can explore their passions and share their talents with a supportive community.</p>
+        </div>
+        <div class="card">
+          <h3>Mission</h3>
+          <p>To host engaging events, workshops, and performances that inspire personal growth, collaboration, and creative expression.</p>
+        </div>
+        <div class="card">
+          <h3>Values</h3>
+          <p>Inclusivity, creativity, teamwork, and celebration of diversity are at the heart of everything we do.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <h2>Event Schedule</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Opening Ceremony</h3>
+          <p>10:00 AM - 11:00 AM</p>
+          <p>Welcome address, cultural welcome performance, and event overview.</p>
+        </div>
+        <div class="card">
+          <h3>Workshops</h3>
+          <p>11:30 AM - 1:00 PM</p>
+          <p>Interactive sessions in art, dance, and storytelling for all participants.</p>
+        </div>
+        <div class="card">
+          <h3>Showcase</h3>
+          <p>2:00 PM - 4:00 PM</p>
+          <p>Student performances, music acts, and creative presentations from our community.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2>Team Pravah</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Event Coordinator</h3>
+          <p>Planning and executing programming, schedules, and participant support.</p>
+        </div>
+        <div class="card">
+          <h3>Creative Director</h3>
+          <p>Designing the visual identity, storytelling, and event atmosphere.</p>
+        </div>
+        <div class="card">
+          <h3>Community Lead</h3>
+          <p>Connecting with students, volunteers, and campus partners to build engagement.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Pravah &copy; 2026. Designed for students who dream, perform, and grow together.</p>
+  </footer>
+</body>
+</html>

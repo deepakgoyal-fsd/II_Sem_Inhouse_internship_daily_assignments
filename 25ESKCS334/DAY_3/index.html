@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeNova Academy | Learn, Build & Succeed</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+color:white;
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+color:#FFD54F;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:18px;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#FFD54F;
+}
+
+/* Hero */
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px 8%;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+min-width:300px;
+}
+
+.hero-text h1{
+font-size:55px;
+line-height:65px;
+margin-bottom:20px;
+}
+
+.hero-text span{
+color:#FFD54F;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:30px;
+margin-bottom:30px;
+color:#ddd;
+}
+
+.btn{
+padding:14px 30px;
+border:none;
+border-radius:30px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+margin-right:10px;
+transition:.3s;
+}
+
+.primary{
+background:#FFD54F;
+color:#111;
+}
+
+.secondary{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.hero-image{
+flex:1;
+text-align:center;
+}
+
+.hero-image img{
+width:90%;
+max-width:520px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+/* Stats */
+
+.stats{
+padding:20px 8% 60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.stat{
+background:rgba(255,255,255,.12);
+padding:25px;
+border-radius:15px;
+text-align:center;
+backdrop-filter:blur(10px);
+}
+
+.stat h2{
+font-size:40px;
+color:#FFD54F;
+margin-bottom:10px;
+}
+
+/* Features */
+
+.features{
+padding:70px 8%;
+text-align:center;
+}
+
+.features h2{
+font-size:40px;
+margin-bottom:45px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.12);
+padding:30px;
+border-radius:15px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:rgba(255,255,255,.18);
+}
+
+.card i{
+font-size:45px;
+margin-bottom:20px;
+color:#FFD54F;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.card p{
+line-height:25px;
+color:#ddd;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">CodeNova Academy</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Courses</a></li>
+<li><a href="#">Features</a></li>
+<li><a href="#">Team</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Build Your <span>Dream Tech Career</span></h1>
+
+<p>
+Master Full Stack Development, Python, AI, Cloud Computing and
+Data Science through live classes, real-world projects and expert
+industry mentors.
+</p>
+
+<button class="btn primary">Enroll Now</button>
+
+<button class="btn secondary">Download Brochure</button>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900" alt="Students">
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<h2>5000+</h2>
+<p>Students Trained</p>
+</div>
+
+<div class="stat">
+<h2>120+</h2>
+<p>Professional Courses</p>
+</div>
+
+<div class="stat">
+<h2>98%</h2>
+<p>Placement Success</p>
+</div>
+
+<div class="stat">
+<h2>15+</h2>
+<p>Industry Mentors</p>
+</div>
+
+</section>
+
+<section class="features">
+
+<h2>Why Choose CodeNova?</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fas fa-user-graduate"></i>
+<h3>Expert Mentors</h3>
+<p>Learn directly from experienced software engineers and industry experts.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-laptop-code"></i>
+<h3>Live Projects</h3>
+<p>Develop portfolio-ready applications using modern technologies.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-briefcase"></i>
+<h3>Placement Assistance</h3>
+<p>Resume building, mock interviews and hiring support.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-award"></i>
+<h3>Certification</h3>
+<p>Receive industry-recognized certificates after successful completion.</p>
+</div>
+
+</div>
+
+</section><!-- Team Section -->
+
+<section class="team">
+
+<h2>Meet Our Expert Team</h2>
+
+<style>
+
+.team{
+padding:70px 8%;
+text-align:center;
+}
+
+.team h2{
+font-size:40px;
+margin-bottom:45px;
+}
+
+.team-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.member{
+background:rgba(255,255,255,.12);
+padding:30px;
+border-radius:15px;
+transition:.3s;
+backdrop-filter:blur(10px);
+}
+
+.member:hover{
+transform:translateY(-10px);
+background:rgba(255,255,255,.18);
+}
+
+.member img{
+width:130px;
+height:130px;
+border-radius:50%;
+border:4px solid #FFD54F;
+margin-bottom:15px;
+}
+
+.member h3{
+margin-bottom:10px;
+}
+
+.member p{
+color:#ddd;
+}
+
+/* Testimonials */
+
+.testimonials{
+padding:70px 8%;
+text-align:center;
+}
+
+.testimonials h2{
+font-size:40px;
+margin-bottom:45px;
+}
+
+.review-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.review{
+background:rgba(255,255,255,.12);
+padding:30px;
+border-radius:15px;
+transition:.3s;
+}
+
+.review:hover{
+transform:translateY(-8px);
+}
+
+.review i{
+color:#FFD54F;
+font-size:22px;
+margin-bottom:15px;
+}
+
+.review p{
+line-height:28px;
+color:#ddd;
+margin-bottom:20px;
+}
+
+.review h4{
+color:#FFD54F;
+}
+
+</style>
+
+<div class="team-box">
+
+<div class="member">
+<img src="https://randomuser.me/api/portraits/men/41.jpg" alt="">
+<h3>Arjun Mehta</h3>
+<p>Senior Full Stack Mentor</p>
+</div>
+
+<div class="member">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+<h3>Neha Kapoor</h3>
+<p>Frontend Development Expert</p>
+</div>
+
+<div class="member">
+<img src="https://randomuser.me/api/portraits/men/68.jpg" alt="">
+<h3>Karan Patel</h3>
+<p>Python & AI Trainer</p>
+</div>
+
+<div class="member">
+<img src="https://randomuser.me/api/portraits/women/32.jpg" alt="">
+<h3>Simran Kaur</h3>
+<p>UI / UX Designer</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Testimonials -->
+
+<section class="testimonials">
+
+<h2>What Our Students Say</h2>
+
+<div class="review-box">
+
+<div class="review">
+
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+
+<p>
+"The Full Stack course was amazing! The mentors explained every topic clearly,
+and I got placed within three months."
+</p>
+
+<h4>- Riya Sharma</h4>
+
+</div>
+
+<div class="review">
+
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+
+<p>
+"Excellent learning environment with live projects and interview preparation.
+Highly recommended for beginners."
+</p>
+
+<h4>- Aditya Singh</h4>
+
+</div>
+
+<div class="review">
+
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+
+<p>
+"The Python and AI training helped me build confidence and real-world skills.
+Fantastic mentors!"
+</p>
+
+<h4>- Sneha Verma</h4>
+
+</div>
+
+</div>
+
+</section><!-- Contact Section -->
+
+<style>
+
+.contact{
+padding:70px 8%;
+text-align:center;
+}
+
+.contact h2{
+font-size:40px;
+margin-bottom:40px;
+}
+
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+input,
+textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:16px;
+outline:none;
+transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+box-shadow:0 0 12px #FFD54F;
+transform:scale(1.02);
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+.send-btn{
+background:#FFD54F;
+color:#111;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+border:none;
+padding:15px;
+border-radius:30px;
+transition:.3s;
+}
+
+.send-btn:hover{
+background:#ffffff;
+transform:translateY(-5px);
+}
+
+/* Footer */
+
+footer{
+margin-top:60px;
+background:#0b1120;
+padding:40px 8%;
+text-align:center;
+}
+
+footer h3{
+font-size:28px;
+color:#FFD54F;
+margin-bottom:10px;
+}
+
+footer p{
+color:#cccccc;
+margin:10px 0;
+}
+
+.social{
+margin-top:20px;
+}
+
+.social a{
+display:inline-block;
+margin:0 10px;
+width:50px;
+height:50px;
+line-height:50px;
+border-radius:50%;
+background:rgba(255,255,255,.12);
+color:white;
+font-size:22px;
+transition:.3s;
+text-decoration:none;
+}
+
+.social a:hover{
+background:#FFD54F;
+color:#111;
+transform:translateY(-5px);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+}
+
+nav ul{
+margin-top:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav ul li{
+margin:10px;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text h1{
+font-size:38px;
+line-height:50px;
+}
+
+.hero-image{
+margin-top:40px;
+}
+
+.features h2,
+.team h2,
+.testimonials h2,
+.contact h2{
+font-size:32px;
+}
+
+}
+
+</style>
+
+<section class="contact">
+
+<h2>Get In Touch</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="Write your message here..." required></textarea>
+
+<button type="submit" class="send-btn">
+Send Message
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<h3>CodeNova Academy</h3>
+
+<p>
+Empowering students with industry-ready skills in
+Web Development, Python, AI and Cloud Computing.
+</p>
+
+<div class="social">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+<p style="margin-top:25px;">
+© 2026 CodeNova Academy | All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>

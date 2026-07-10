@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background-color:#e19ff5; 
+    display:flex;
+    justify-content:center;
+    padding:40px;
+    padding-top:100px;
+}
+p{
+    padding-top: 40px;
+}

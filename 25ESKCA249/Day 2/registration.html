@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- !important likhne se voh pehle hoga-->
+
+    <!-- priority order 
+     Inline Styles
+     Between Internal and External whichever is loaded last is preferred
+     ID selector
+     Classes-->
+</head>
+<body>
+    <form class="background">
+        <h1 style="color : blue;">Registration Form</h1>
+        <p>Submit your details carefully !</p>
+        <label>
+            Name :
+            <input type="text" id="txtname" name="name" 
+            placeholder="Enter your name" required class="rounded" />
+        </label>
+        <br>
+        <label>
+            Email :
+            <input type="email" name="email" 
+            placeholder="Enter your email" required class="rounded" />
+        </label>
+        <br>
+        <label>
+            Phone No:
+            <input type="text" id="txtPhone" required
+            placeholder="Enter your phone number" class="rounded"/>
+        </label>
+        <br>
+        <label>Gender :</label>
+        <input type="radio" id="check-male" name="gender" /> <!-- chk-male  -->
+        <label for="check-male">Male</label>
+
+        <input type="radio" id="check-female" name="gender" />
+        <label for="check-female">Female</label>
+
+        <input type="radio" id="check-transgender" name="gender" />
+        <label for="check-transgender">Transgender</label>
+        
+        <br>
+        <input type="checkbox" id="check-others" name="check-others" required />
+        <label for="check-others">Prefer not to say</label>
+        
+        <div>
+        <label for="dtDOB">Date of Birth:</label>
+        <input type="date" id="dtDOB" name="dtDOB" required />
+        </div>
+        <label for="pwdPassword">Password:</label>
+        <input type="password" id="pwdPassword" name="pwdPassword" required />
+        <div>
+        <label for="pwdConfirmPassword">Confirm Password:</label>
+        <input type="password" id="pwdConfirmPassword" name="pwdConfirmPassword" required />
+        </div>
+        <div>
+        <input type="submit" value="Register" />
+        <input type="reset" value="Clear" />
+        </div>
+    </form>
+</body>
+</html>

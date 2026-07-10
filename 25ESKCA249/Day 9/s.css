@@ -1,0 +1,67 @@
+body{
+    background-color: #CAA8F5;
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14pt;
+}
+
+
+h1{
+    text-align: center;
+    font-size: 28pt;     
+    color: #FF5A5F;
+}
+
+
+p{
+    font-size: 14pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;   
+    margin-bottom: 20px;
+}
+
+
+form{
+    border: 2px solid black;
+    border-radius: 10px;     
+    width: 650px;            
+    margin: auto;
+    padding: 25px;
+    background-color : #F5F5F5;
+    box-shadow: 3px 3px 10px gray;   
+}
+
+
+.rounded{
+    border-radius: 8px;
+    padding: 5px;
+    margin: 8px;        
+}
+
+
+#txtPhone{
+    font-size: 16pt;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+label{
+    line-height: 2;      
+}
+
+
+
+p.default{
+    color: cadetblue;
+}
+
+p.note{
+    border: 1px solid black;
+    padding: 3px;
+}
+
+

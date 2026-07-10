@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    text-align: center;
+    background: #f4f4f4;
+    color: black;
+    padding: 30px;
+    transition: 0.5s;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+.timer{
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.game-area{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 2px solid gray;
+    overflow: hidden;
+}
+
+.fruit-box{
+    position: absolute;
+}
+
+#appleBox{
+    left: 100px;
+    top: 100px;
+}
+
+#strawberryBox{
+    left: 400px;
+    top: 200px;
+}
+
+img{
+    width: 120px;
+    cursor: pointer;
+}
+
+p{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.dark{
+    background: #111;
+    color: white;
+}
+
+.dark .game-area{
+    border: 2px solid white;
+}

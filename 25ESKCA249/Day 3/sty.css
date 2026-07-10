@@ -1,0 +1,19 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+img.img-fluid{
+    height: 400px;
+    width: 550px;
+    border: 2px solid lightcyan;
+    border-radius: 5px;
+}
+

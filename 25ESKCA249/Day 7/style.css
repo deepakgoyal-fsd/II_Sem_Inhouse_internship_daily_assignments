@@ -1,0 +1,51 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    font-family :Georgia, 'Times New Roman', Times, serif;
+
+    
+    background-image: url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100px;
+}
+
+
+.container{
+    width:500px;
+    background: white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 10px black;
+}
+
+
+h1{
+    color:blue;
+    margin-bottom:15px;
+}
+
+
+p{
+    font-size:18px;
+    margin:10px 0;
+}
+
+
+img{
+    width:250px;
+    margin-top:20px;
+    border-radius:10px;
+}

@@ -1,0 +1,42 @@
+  <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="☆.jpg" />
+  </head>
+  <body>
+    <div class="home-container">
+      <nav class="home-nav">
+        <ul class="home-ul">
+          <li class="home-li"><a href="index.html">Home </a></li>
+          <li class="home-li"><a href="project.html">Projects</a></li>
+          <li class="home-li"><a href="about.html">About</a></li>
+          <li class="home-li"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <h1>This is Project Page</h1>
+
+    <p>
+      I dont create many projects yet but yehh wants to build something that can
+      be useful for the world
+    </p>
+    <h3 >Some projects of mine 😁</h3>
+    <ol class="project-ol" >
+      <li class="project-li">Pokemon Finder</li>
+      <p>
+        I create this project with the use of HTML5, CSS3,JS. I dont know
+        advance while creating but i keep figuring out things in my way by
+        googling or seaching in youtube
+      </p>
+      <h3>Live demo link:-<a href="https://pokemonapp-peach.vercel.app/">Pokemon</a></h3>
+      <li class="project-li">My Portfolio Website</li>
+      <p>This is something that i am <u><b>currently on working</b></u> i am using reactjs and tailwind css and more framework when i will creating this </p>
+    </ol>
+    <p>So yes these are some of mine projects that i create or currently creating</p>
+    <h2 class="end-mssg"><i><b>Thanks for reading this ❤️</b></i></h2>
+  </body>
+</html>

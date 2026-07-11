@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <button class="toggle" type="button">🌙 Dark Mode</button>
+  <div>
+  <h1>Counter</h1>
+  </div>
+  <div>
+    <p class="counter-text">Value of Count is:<span class="counter-value">0</span></p>
+  </div>
+  
+  <div>
+    <button type="button" class="counter-increment">Increment</button>
+  <button type="button" class="counter-decrement">Decrement</button>
+  <button type="button" class="counter-reset">Reset</button>
+  </div>
+  <div class="form-container">
+  <div class="container">
+        
+    <form class="form">
+        <h1 class="heading">Registeration Form</h1>
+        <div class="field">
+                <label for="mobileno">Mobile No</label>
+        <input type="tel" id="mobileno" placeholder="Enter your mobile no..." >
+      <p class="mobile-error" style="color: red;"></p>  
+      </div>
+        <div class="field">
+         <label for="pass">Password</label>
+        <input type="password" id="pass" name="pass" minlength="6" maxlength="15" placeholder="Type your password..." >
+        <p class="password-error" style="color: red;"></p>
+      </div>
+        <div class="field">
+        <label for="name">
+            Full Name:-
+        </label>
+        <input type="text" id="name" name="name" placeholder="Type your full name..." >
+        <p class="name-error" style="color: red;"></p>  
+      </div>
+        <div class="field">
+        <label for="email">Email:-</label>
+        <input type="email" id="email" name="email" placeholder="Type your email..." >
+                <p class="email-error" style="color: red;"></p>  
+
+      </div>
+        <div class="field">
+        <label for="gender">Gender:-</label>
+        <select id="gender">
+            <option value="" selected disabled>Select Option</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <p class="gender-error" style="color: red;"></p>  
+
+        </div>
+        <div class="field">
+        <label for="dob">DOB</label>
+        <input type="date" id="dob">
+        <p class="dob-error" style="color: red;"></p>  
+
+       </div>
+       
+        <button type="submit" class="form-submit">Register</button>
+       
+
+    </form>
+    </div>
+    
+  <script src="script.js"></script>
+</body>
+</html>

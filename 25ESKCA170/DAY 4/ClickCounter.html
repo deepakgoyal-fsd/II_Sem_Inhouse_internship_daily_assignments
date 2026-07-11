@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Click Counter</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align:center;
+            margin-top:60px;
+        }
+        button{
+            padding:12px 24px;
+            margin:10px;
+            font-size:16px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            background:#4CAF50;
+            color:white;
+        }
+        button:hover{
+            background:#388E3C;
+        }
+        #count{
+            font-weight:bold;
+            color:#e91e63;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Button Click Counter</h2>
+    <p>Button clicked <span id="count">0</span> times.</p>
+
+    <button class="btn">Click Me</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let count = Number(localStorage.getItem("count")) || 0;
+
+        const countDisplay = document.getElementById("count");
+        countDisplay.textContent = count;
+
+        document.querySelector(".btn").addEventListener("click", function(){
+            count++;
+            localStorage.setItem("count", count);
+            countDisplay.textContent = count;
+        });
+
+        document.getElementById("resetBtn").addEventListener("click", function(){
+            count = 0;
+            localStorage.setItem("count", count);
+            countDisplay.textContent = count;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Counter</title>
+    <style>
+        body{font-family:Arial;text-align:center;margin:20px}
+        #game{position:relative;width:500px;height:300px;margin:20px auto;border:1px solid #ccc;background:#f8f8f8;overflow:hidden}
+        #fruit{position:absolute;width:70px;height:70px;display:none;cursor:pointer;user-select:none}
+        button,select{padding:8px 12px;margin:5px}
+    </style>
+</head>
+<body>
+
+<h2>Counter</h2>
+
+<select id="time">
+<option value="5">5 sec</option>
+<option value="10">10 sec</option>
+<option value="15">15 sec</option>
+</select>
+
+<button id="start">Start</button>
+
+<p>Time: <span id="timer">0</span>s</p>
+<p>Apple: <span id="apple">0</span> | Banana: <span id="banana">0</span></p>
+
+<div id="game">
+    <img id="fruit">
+</div>
+
+<script>
+const APPLE="apple.jpg";
+const BANANA="banana.jpg";
+
+const fruit=document.getElementById("fruit");
+let apple=0, banana=0, time=0, timer, mover;
+
+function spawn(){
+    const isApple=Math.random()<0.5;
+    fruit.dataset.type=isApple?"apple":"banana";
+    fruit.src=isApple?APPLE:BANANA;
+    fruit.style.left=Math.random()*430+"px";
+    fruit.style.top=Math.random()*220+"px";
+    fruit.style.display="block";
+}
+
+fruit.onclick=function(){
+    if(fruit.dataset.type==="apple"){
+        document.getElementById("apple").textContent=++apple;
+    }else{
+        document.getElementById("banana").textContent=++banana;
+    }
+    spawn();
+};
+
+document.getElementById("start").onclick=function(){
+    apple=banana=0;
+    document.getElementById("apple").textContent=0;
+    document.getElementById("banana").textContent=0;
+
+    time=parseInt(document.getElementById("time").value);
+    document.getElementById("timer").textContent=time;
+    this.disabled=true;
+
+    spawn();
+
+    clearInterval(mover);
+    mover=setInterval(spawn,800);
+
+    clearInterval(timer);
+    timer=setInterval(()=>{
+        document.getElementById("timer").textContent=--time;
+        if(time<=0){
+            clearInterval(timer);
+            clearInterval(mover);
+            fruit.style.display="none";
+            document.getElementById("start").disabled=false;
+        }
+    },1000);
+};
+</script>
+
+</body>
+</html>

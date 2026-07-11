@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-4">
+        <h2 class="text-center mb-4">Student Directory</h2>
+        <div class="input-group mb-4">
+            <input type="text" id="search" class="form-control" placeholder="Search Student">
+            <button class="btn btn-primary" onclick="searchStudent()">Search</button>
+            <button class="btn btn-secondary" onclick="displayStudents()">Reset</button>
+        </div>
+        <div class="row" id="cards"></div>
+    </div>
+
+    <script>
+        const students = [
+            {name:"Pranay",roll:"25ESKCA170",branch:"AI",cgpa:"7.8"},
+            {name:"Pranav",roll:"25ESKCA169",branch:"AI",cgpa:"8.4"},
+            {name:"Rishi",roll:"25ESKCA192",branch:"AI",cgpa:"9.4"},
+            {name:"Pranjal",roll:"25ESKCA171",branch:"AI",cgpa:"7.4"},
+            {name:"Ayush",roll:"25ESBPH001",branch:"Pharma",cgpa:"6.4"},
+            {name:"J",roll:"25ESKEC009",branch:"ECE",cgpa:"9.2"},
+            {name:"Nish",roll:"25ESKCS102",branch:"CSE",cgpa:"8.2"}
+        ];
+
+        function displayStudents(list = students){
+            let html="";
+
+            list.forEach((s,i)=>{
+                html+=`
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5>${s.name}</h5>
+                                <button class="btn btn-sm btn-success mb-2" onclick="toggleDetails(${i})">
+                                    Show Details
+                                </button>
+                                <div id="details${i}" style="display:none;">
+                                    <p><b>Roll:</b> ${s.roll}</p>
+                                    <p><b>Branch:</b> ${s.branch}</p>
+                                    <p><b>CGPA:</b> ${s.cgpa}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById("cards").innerHTML=html;
+        }
+
+        function toggleDetails(id){
+            $("#details"+id).slideToggle();
+        }
+
+        function searchStudent(){
+            let value=document.getElementById("search").value.toLowerCase();
+            let result=students.filter(s=>s.name.toLowerCase().includes(value));
+            displayStudents(result);
+        }
+
+        displayStudents();
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#4facfe;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:400px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+h2{
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid white;
+    border-radius:8px;
+}
+
+.gender{
+    margin-top:10px;
+}
+
+.gender input{
+    width:auto;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:space-between;
+}
+
+button{
+    width:48%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.submit{
+    background: green;
+}
+
+.reset{
+    background:purple;
+}
+
+button:hover{
+    opacity:0.9;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Registration Form</h2>
+
+<form>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your full name" required>
+
+<label>Email</label>
+<input type="email" placeholder="Enter your email" required>
+
+<label>Password</label>
+<input type="password" placeholder="Enter your password" required>
+
+<label>Mobile Number</label>
+<input type="tel" placeholder="Enter your mobile number" required>
+
+<label>Date of Birth</label>
+<input type="date">
+
+<label>Gender</label>
+<div class="gender">
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+</div>
+
+<label>Course</label>
+<select>
+<option>Select Course</option>
+<option>BCA</option>
+<option>B.Tech</option>
+<option>B.Sc</option>
+<option>MCA</option>
+<option>M.Tech</option>
+</select>
+
+<label>Address</label>
+<textarea rows="3" placeholder="Enter your address"></textarea>
+
+<br><br>
+
+<div class="buttons">
+<button type="submit" class="submit">Register</buttoon>
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

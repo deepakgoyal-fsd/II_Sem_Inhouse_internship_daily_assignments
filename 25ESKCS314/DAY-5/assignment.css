@@ -1,0 +1,204 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f9fa;
+    color:#333;
+}
+
+/* Navbar */
+
+.navbar-brand{
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.nav-link{
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#ffd54f !important;
+}
+
+/* Hero */
+
+.hero{
+    background:linear-gradient(rgba(13,110,253,.8),rgba(13,110,253,.8)),
+    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200") center/cover;
+    color:white;
+    padding:100px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3rem;
+    font-weight:bold;
+}
+
+.hero p{
+    max-width:700px;
+    margin:20px auto;
+    font-size:1.1rem;
+}
+
+.hero .btn{
+    padding:10px 25px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.hero .btn:hover{
+    transform:scale(1.05);
+}
+
+/* Cards */
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.card h4{
+    color:#0d6efd;
+    font-weight:bold;
+}
+
+.card p{
+    margin-bottom:10px;
+}
+
+.details{
+    display:none;
+    border-top:1px solid #ddd;
+    padding-top:10px;
+}
+
+.details-btn{
+    width:100%;
+}
+
+/* About */
+
+#about{
+    padding:70px 20px;
+}
+
+#about h2{
+    color:#0d6efd;
+    font-weight:bold;
+}
+
+#about i{
+    transition:.3s;
+}
+
+#about i:hover{
+    transform:scale(1.2);
+}
+
+/* Footer */
+
+footer{
+    margin-top:40px;
+}
+
+footer i{
+    cursor:pointer;
+    transition:.3s;
+}
+
+footer i:hover{
+    color:#ffd54f;
+    transform:scale(1.2);
+}
+
+/* Search */
+
+#search{
+    border-radius:30px;
+}
+
+/* Buttons */
+
+.btn-primary{
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:scale(1.05);
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.card img{
+    height:220px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+    padding:70px 15px;
+}
+
+.hero h1{
+    font-size:2rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.card img{
+    height:200px;
+}
+
+.navbar form{
+    margin-top:10px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero h1{
+    font-size:1.8rem;
+}
+
+.hero p{
+    font-size:.95rem;
+}
+
+.card{
+    margin:auto;
+}
+
+}

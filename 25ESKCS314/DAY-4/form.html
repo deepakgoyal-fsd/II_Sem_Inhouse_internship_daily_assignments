@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+.login-form{
+    width:500px;
+    margin:50px auto;
+    padding:30px;
+    background:#fd8686;
+    border-radius:20px;
+    box-shadow:20px 20px 30px rgba(0,0,0,0.5);
+}
+
+input:not([type="radio"]){
+    width:100%;
+    padding:8px;
+    margin:8px 0 15px;
+    border:2px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+input:focus{
+    outline:none;
+    border-color:blue;
+    box-shadow:0 0 8px lightgreen;
+}
+
+input[type="submit"]{
+    width:150px;
+    display:block;
+    margin:20px auto;
+    padding:10px;
+    background:#dbe342;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+input[type="submit"]:hover{
+    background:green;
+    color:white;
+}
+
+#greeting{
+    color:blue;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<form class="login-form">
+
+<h1>Registration Form</h1>
+
+<label>Name</label>
+<input type="text" id="name" required>
+<p id="greeting"></p>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+
+<label>Gender</label><br>
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+
+<br><br>
+
+<label>Phone Number</label>
+<input type="tel" id="phone" required>
+
+<label>Department</label>
+<input type="text" id="department">
+
+<label>Password</label>
+<input type="password" id="password" minlength="8" maxlength="20" required>
+
+<label>Confirm Password</label>
+<input type="password" id="confirmPassword" minlength="8" maxlength="20" required>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<script>
+
+const form = document.querySelector(".login-form");
+const nameInput = document.getElementById("name");
+const greeting = document.getElementById("greeting");
+
+// Input Event
+nameInput.addEventListener("input", function(){
+    greeting.textContent = "Hello, " + nameInput.value + "!";
+});
+
+// Submit Event
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(name==="" || email==="" || phone===""){
+        alert("Please fill all the required fields.");
+        return;
+    }
+
+    if(password.length < 8 || password.length > 20){
+        alert("Password must be between 8 and 20 characters.");
+        return;
+    }
+
+    if(password !== confirmPassword){
+        alert("Passwords do not match.");
+        return;
+    }
+
+    alert("Registration Successful!");
+
+    form.reset();
+    greeting.textContent = "";
+
+});
+
+</script>
+
+</body>
+</html>

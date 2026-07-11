@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Profile Landing Page</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #ff4e50, #fc913a, #24c6dc, #514a9d);
+  background-size: 400% 400%;
+  animation: bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  display: none;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 260px;
+  background: white;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  vertical-align: top;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.details {
+  display: none;
+  margin-top: 10px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #514a9d;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Student Profiles</h1>
+
+  <div class="card">
+    <h3>Aarav Sharma</h3>
+    <p><b>Roll No:</b> 101</p>
+    <p><b>Course:</b> BCA</p>
+    <p><b>Department:</b> Computer Science</p>
+
+    <button class="toggle">Show Details</button>
+
+    <div class="details">
+      <p><b>CGPA:</b> 8.5</p>
+      <p><b>Skills:</b> HTML, CSS, JS</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Priya Verma</h3>
+    <p><b>Roll No:</b> 102</p>
+    <p><b>Course:</b> BCA</p>
+    <p><b>Department:</b> Computer Science</p>
+
+    <button class="toggle">Show Details</button>
+
+    <div class="details">
+      <p><b>CGPA:</b> 9.1</p>
+      <p><b>Skills:</b> Python, Java</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Rahul Meena</h3>
+    <p><b>Roll No:</b> 103</p>
+    <p><b>Course:</b> BBA</p>
+    <p><b>Department:</b> Management</p>
+
+    <button class="toggle">Show Details</button>
+
+    <div class="details">
+      <p><b>CGPA:</b> 7.9</p>
+      <p><b>Skills:</b> Marketing, Excel</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Sneha Gupta</h3>
+    <p><b>Roll No:</b> 104</p>
+    <p><b>Course:</b> BSc</p>
+    <p><b>Department:</b> Science</p>
+
+    <button class="toggle">Show Details</button>
+
+    <div class="details">
+      <p><b>CGPA:</b> 8.8</p>
+      <p><b>Skills:</b> Physics, Data Analysis</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+  // Page fade in
+  $(".container").fadeIn(1200);
+
+  $(".toggle").click(function(){
+
+    let card = $(this).closest(".card");
+    let details = card.find(".details");
+
+    // if already open -> close it
+    if(details.is(":visible")){
+      details.slideUp();
+      $(this).text("Show Details");
+    } else {
+
+      // close others
+      $(".details").slideUp();
+      $(".toggle").text("Show Details");
+
+      // open current
+      details.slideDown();
+      $(this).text("Hide Details");
+    }
+
+  });
+
+});
+</script>
+
+</body>
+</html>

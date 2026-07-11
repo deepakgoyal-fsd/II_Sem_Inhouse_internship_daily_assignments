@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College RegistrationS Form</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>College Registration Form</h1>
+
+<form>
+
+<fieldset>
+
+<legend>Personal Details</legend>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your full name" required>
+
+<label>Date of Birth</label>
+<input type="date" required>
+
+<label>Email</label>
+<input type="email" placeholder="example@gmail.com" required>
+
+<label>Mobile Number</label>
+<input type="tel" placeholder="9876543210" required>
+
+<label>Gender</label>
+
+<div class="gender">
+<label><input type="radio" name="gender" required> Male</label>
+<label><input type="radio" name="gender"> Female</label>
+<label><input type="radio" name="gender"> Other</label>
+</div>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Academic Details</legend>
+
+<label>Course</label>
+
+<select required>
+<option value="">Select Course</option>
+<option>B.Tech</option>
+<option>BCA</option>
+<option>B.Sc</option>
+<option>B.Com</option>
+<option>BA</option>
+</select>
+
+<label>Branch</label>
+
+<select required>
+<option value="">Select Branch</option>
+<option>Computer Science</option>
+<option>Information Technology</option>
+<option>Mechanical</option>
+<option>Civil</option>
+<option>Electrical</option>
+</select>
+
+<label>12th Percentage</label>
+<input type="number" placeholder="Enter percentage" min="0" max="100" required>
+
+<label>Passing Year</label>
+<input type="number" placeholder="2026" required>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Address</legend>
+
+<label>Address</label>
+<textarea rows="4" placeholder="Enter your address" required></textarea>
+
+<label>City</label>
+<input type="text" placeholder="Enter city" required>
+
+<label>State</label>
+<input type="text" placeholder="Enter state" required>
+
+<label>Pincode</label>
+<input type="number" placeholder="Enter pincode" required>
+
+</fieldset>
+
+<button type="submit">Submit Registration Form</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

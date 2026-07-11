@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Registration Form</title>
+
+<link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body>
+
+<div class="toggle-box">
+<button id="themeBtn">🌙 Dark Mode</button>
+</div>
+
+<div class="container">
+
+<h1>Student Registration Form</h1>
+
+<form>
+
+<div class="row">
+
+<div class="input-box">
+<label>Full Name</label>
+<input type="text" placeholder="Enter Full Name">
+</div>
+
+<div class="input-box">
+<label>Father's Name</label>
+<input type="text" placeholder="Enter Father's Name">
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-box">
+<label>Email</label>
+<input type="email" placeholder="Enter Email">
+</div>
+
+<div class="input-box">
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter Mobile Number">
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="input-box">
+<label>Date of Birth</label>
+<input type="date">
+</div><br>
+
+<div class="input-box">
+<label>Gender</label>
+
+<select>
+
+<option>Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div><br>
+
+
+<div class="row">
+
+<div class="input-box">
+<label>College Name</label>
+<input type="text" placeholder="College Name">
+</div><br>
+
+<div class="input-box">
+<label>Course</label>
+
+<select>
+
+<option>Select Course</option>
+<option>BCA</option>
+<option>B.Tech</option>
+<option>BBA</option>
+<option>B.Com</option>
+<option>MCA</option>
+
+</select>
+
+</div>
+
+</div><br>
+
+
+<div class="row">
+
+<div class="input-box">
+<label>Semester</label>
+
+<select>
+
+<option>Select Semester</option>
+<option>1st</option>
+<option>2nd</option>
+<option>3rd</option>
+<option>4th</option>
+<option>5th</option>
+<option>6th</option>
+<option>7th</option>
+<option>8th</option>
+
+</select>
+
+</div><br>
+
+<div class="input-box">
+<label>Roll Number</label>
+<input type="text" placeholder="Enter Roll Number">
+</div>
+
+</div><br>
+
+
+<div class="row">
+
+<div class="input-box full">
+<label>Address</label>
+<textarea rows="4" placeholder="Enter Address"></textarea>
+</div>
+
+</div><br>
+
+
+<div class="row">
+
+<div class="input-box">
+<label>Password</label>
+<input type="password" placeholder="Create Password">
+</div>
+
+<div class="input-box">
+<label>Confirm Password</label>
+<input type="password" placeholder="Confirm Password">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="input-box">
+<label>Upload Photo</label>
+<input type="file">
+</div>
+
+<div class="input-box">
+<label>Upload Marksheet</label>
+<input type="file">
+</div>
+
+</div>
+
+<button class="register-btn">
+Register Now
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+const btn=document.getElementById("themeBtn");
+
+btn.onclick=function(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+btn.innerHTML="☀️ Light Mode";
+
+}
+else{
+
+btn.innerHTML="🌙 Dark Mode";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

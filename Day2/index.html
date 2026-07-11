@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="style1.css" rel="stylesheet">
+</head>
+<body>
+    
+    
+        <h1>College Registration Form</h1>
+        <div class="registration">
+            <form>
+                <label for ="name">Student Name</label>
+                <input type ="text" placeholder ="Enter Student Name"><br><br>
+                <label for ="Father's Name">Father's Name</label>
+                <input type ="text" placeholder ="Enter Father's Name"><br><br>
+                <label for ="email">Your Email</label>
+                <input type ="text" placeholder ="Enter Email"><br><br>
+                <label for ="Mobile">Mobile Number</label>
+                <input type ="text" placeholder="Enter Phone Number"><br><br>
+                <label for="Mobile">Alternate Number</label>
+                <input type="text" placeholder="Enter Alternate Phone Number"><br><br>
+                <label for="Date Of Birth">DOB</label>
+                <input Type="text" placeholdar="DOB"><br><br>
+                
+                <div class="form-group">
+    <label>Gender</label>
+
+    <div class="gender">
+        <input type="radio" id="male" name="gender">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender">
+        <label for="female">Female</label>
+
+    
+    </div>
+</div>
+
+            
+                <div>
+                    <label for="Course">Course</label>
+                    <select>
+                        <option value="Select Course"></option>
+                            <option>CSE</option>
+                            <Option>ESE</Option>
+                            <Option>Civil</Option>
+                            <option>EE</option>
+                            <Option>ME</Option>
+                    </select>
+                    <br><br>
+                    
+                    <label>Address:</label><br>
+                    <textarea rows="1" placeholder="Enter Your Address"></textarea><br><br>
+                    <label>City:</label>
+                    <input type="text" placeholder="Enter Your City Name"><br><br>
+                    <label>State:</label>
+                    <input type="text" placeholder="Enter Your State Name"><br><br>
+                    <label for="Pincode">Pincode-box:</label>
+                    <input type="text" name="pincode" placeholder="Enter Your Pincode" maxlength="2">
+                    </div><br>
+
+                    <label>Upload Photo:</label>
+                    <input type="file"><br><br>
+                    <input type="Submit" value="Register">
+                    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+                    <script src="script.js"></script>
+                        </form>
+</div>
+</body>
+</html>

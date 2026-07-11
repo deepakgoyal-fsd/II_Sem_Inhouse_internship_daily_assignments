@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Day 5 — Student Directory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="hero px-3 py-5 text-white text-center">
+      <div class="container py-5">
+        <p class="eyebrow text-uppercase mb-3">Today's Mission</p>
+        <h1 class="display-5 fw-bold">Student Directory</h1>
+        <p class="lead text-white-75">Search, view and explore student profiles with a modern interface.</p>
+      </div>
+    </div>
+    <div class="container py-5">
+      <div class="row align-items-end gy-4 mb-4">
+        <div class="col-lg-6">
+          <div class="form-floating form-floating-dark">
+            <input id="studentSearch" type="search" class="form-control form-control-dark" placeholder="Search students" />
+            <label for="studentSearch">Search students</label>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-floating form-floating-dark">
+            <select id="studentSelect" class="form-select form-select-dark">
+              <option value="">Choose student</option>
+            </select>
+            <label for="studentSelect">Quick detail view</label>
+          </div>
+        </div>
+        <div class="col-lg-2 text-end">
+          <button id="clearFilter" class="btn btn-outline-light w-100">Clear</button>
+        </div>
+      </div>
+      <div id="cardsContainer" class="row g-4"></div>
+    </div>
+    <script>
+      const students = [
+        {id:1,name:'Bhagyaveer Singh',year:'12',stream:'Science',roll:'21',city:'Indore',score:'94%',status:'Active',about:'Motivated science student exploring technology and research.'},
+        {id:2,name:'Aanya Sharma',year:'11',stream:'Commerce',roll:'09',city:'Bhopal',score:'91%',status:'Active',about:'A dedicated learner focusing on finance and leadership.'},
+        {id:3,name:'Rahul Jain',year:'12',stream:'Arts',roll:'33',city:'Ujjain',score:'88%',status:'Active',about:'Creative thinker with strong communication and debate skills.'},
+        {id:4,name:'Mira Patel',year:'10',stream:'Science',roll:'15',city:'Indore',score:'96%',status:'Active',about:'Bright student excelling in math and computer science.'},
+        {id:5,name:'Kavya Mehta',year:'11',stream:'Commerce',roll:'12',city:'Gwalior',score:'89%',status:'Active',about:'Ambitious student with strong analytical skills.'},
+        {id:6,name:'Akash Verma',year:'12',stream:'Science',roll:'18',city:'Dewas',score:'92%',status:'Active',about:'Enthusiastic learner passionate about robotics.'},
+        {id:7,name:'Sofia Khan',year:'11',stream:'Arts',roll:'27',city:'Bhopal',score:'90%',status:'Active',about:'Excellent writer and event organizer.'},
+        {id:8,name:'Nikhil Sharma',year:'10',stream:'Science',roll:'42',city:'Ujjain',score:'93%',status:'Active',about:'Science enthusiast with a love for coding.'},
+        {id:9,name:'Riya Desai',year:'12',stream:'Commerce',roll:'04',city:'Indore',score:'95%',status:'Active',about:'Focused on economics and business strategy.'},
+        {id:10,name:'Aarav Singh',year:'11',stream:'Science',roll:'30',city:'Bhopal',score:'87%',status:'Active',about:'Disciplined and hardworking student in physics.'},
+        {id:11,name:'Priya Nair',year:'12',stream:'Arts',roll:'14',city:'Ujjain',score:'90%',status:'Active',about:'Creative artist with an interest in media.'},
+        {id:12,name:'Dev Patel',year:'10',stream:'Science',roll:'07',city:'Dewas',score:'91%',status:'Active',about:'Math lover working on competitive coding.'},
+        {id:13,name:'Meera Joshi',year:'11',stream:'Commerce',roll:'39',city:'Gwalior',score:'89%',status:'Active',about:'Strong communicator and debate leader.'},
+        {id:14,name:'Ishaan Gupta',year:'12',stream:'Science',roll:'22',city:'Indore',score:'97%',status:'Active',about:'Top scorer with a passion for machine learning.'},
+        {id:15,name:'Sara Khan',year:'10',stream:'Arts',roll:'19',city:'Bhopal',score:'86%',status:'Active',about:'Talented in music, literature and design.'},
+        {id:16,name:'Kabir Mehta',year:'11',stream:'Science',roll:'08',city:'Ujjain',score:'88%',status:'Active',about:'Enjoys experiments and science fairs.'},
+        {id:17,name:'Anika Rao',year:'12',stream:'Commerce',roll:'05',city:'Dewas',score:'92%',status:'Active',about:'Detail-oriented and great with numbers.'},
+        {id:18,name:'Arjun Patel',year:'10',stream:'Arts',roll:'23',city:'Gwalior',score:'85%',status:'Active',about:'Excellent storyteller with a curious mind.'},
+        {id:19,name:'Tanya Sharma',year:'11',stream:'Science',roll:'11',city:'Indore',score:'93%',status:'Active',about:'Strong in chemistry and real world science.'},
+        {id:20,name:'Rohan Verma',year:'12',stream:'Commerce',roll:'28',city:'Bhopal',score:'90%',status:'Active',about:'Business-minded student with leadership potential.'},
+        {id:21,name:'Nisha Joshi',year:'10',stream:'Arts',roll:'02',city:'Ujjain',score:'87%',status:'Active',about:'Creative thinker with excellent presentation skills.'},
+        {id:22,name:'Karan Singh',year:'11',stream:'Science',roll:'17',city:'Dewas',score:'91%',status:'Active',about:'Focused on astronomy and applied physics.'},
+        {id:23,name:'Pooja Jain',year:'12',stream:'Commerce',roll:'31',city:'Gwalior',score:'94%',status:'Active',about:'Driven and ambitious student with sharp planning skills.'},
+        {id:24,name:'Veer Sharma',year:'10',stream:'Science',roll:'16',city:'Indore',score:'89%',status:'Active',about:'Enthusiastic learner in biology and math.'}
+      ];
+
+      const cardsContainer = document.getElementById('cardsContainer');
+      const studentSearch = document.getElementById('studentSearch');
+      const studentSelect = document.getElementById('studentSelect');
+
+      function createCard(student){
+        const card = document.createElement('div');
+        card.className = 'col-md-6';
+        card.dataset.name = student.name.toLowerCase();
+        const hue = (student.id * 32) % 360;
+        const accent = `hsl(${hue}, 90%, 55%)`;
+        const initials = student.name.split(' ').map(n=> n[0]).join('').slice(0,2).toUpperCase();
+        card.innerHTML = `
+          <div class="card student-card rounded-4 shadow-lg overflow-hidden" style="border-top: 5px solid ${accent};">
+            <div class="card-body p-4 text-center">
+              <div class="avatar mb-3" style="background:${accent};">${initials}</div>
+              <h3 class="h5 mb-1">${student.name}</h3>
+              <p class="text-muted mb-2">Class ${student.year} · ${student.stream}</p>
+              <button class="btn btn-sm btn-outline-light toggle-btn mb-3" type="button">Show details</button>
+              <div class="student-meta row g-3 text-center justify-content-center mb-3">
+                <div class="col-6"><strong>Roll</strong><p class="mb-0">${student.roll}</p></div>
+                <div class="col-6"><strong>City</strong><p class="mb-0">${student.city}</p></div>
+              </div>
+              <div class="student-details collapse-details">
+                <p class="mb-2"><strong>Score:</strong> ${student.score}</p>
+                <p class="mb-0">${student.about}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        const btn = card.querySelector('.toggle-btn');
+        const details = card.querySelector('.collapse-details');
+        btn.addEventListener('click', ()=>{
+          const expanded = details.classList.toggle('expanded');
+          btn.textContent = expanded ? 'Hide details' : 'Show details';
+          if(expanded) details.style.maxHeight = details.scrollHeight + 'px';
+          else details.style.maxHeight = '0px';
+        });
+        return card;
+      }
+
+      function renderCards(list){
+        cardsContainer.innerHTML = '';
+        list.forEach(student=> cardsContainer.appendChild(createCard(student)));
+      }
+
+      function populateSelect(){
+        studentSelect.innerHTML = '<option value="">Choose student</option>' + students.map(s=>`<option value="${s.id}">${s.name}</option>`).join('');
+      }
+
+      function filterStudents(){
+        const query = studentSearch.value.trim().toLowerCase();
+        const filtered = students.filter(s=> s.name.toLowerCase().includes(query));
+        renderCards(filtered);
+      }
+
+      studentSearch.addEventListener('input', ()=>{
+        studentSelect.value = '';
+        filterStudents();
+      });
+
+      studentSelect.addEventListener('change', ()=>{
+        const selectedId = Number(studentSelect.value);
+        if(selectedId){
+          const student = students.find(s=> s.id === selectedId);
+          if(student){
+            studentSearch.value = student.name;
+            filterStudents();
+          }
+        } else {
+          studentSearch.value = '';
+          filterStudents();
+        }
+      });
+
+      document.getElementById('clearFilter').addEventListener('click', ()=>{
+        studentSearch.value = '';
+        studentSelect.value = '';
+        filterStudents();
+      });
+
+      populateSelect();
+      renderCards(students);
+    </script>
+  </body>
+</html>

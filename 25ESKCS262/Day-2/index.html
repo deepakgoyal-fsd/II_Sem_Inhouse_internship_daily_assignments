@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="form">
+            <h1 class="heading">Registration Form</h1>
+            
+            <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Type your full name..." required>
+            </div>
+
+            <div class="field">
+                <label for="mobileno">Mobile No</label>
+                <input type="tel" id="mobileno" name="mobileno" placeholder="Enter your mobile no..." required>
+            </div>
+            
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Type your email..." required>
+            </div>
+
+            <div class="field input-group">
+                <div class="half-width">
+                    <label for="pass">Password</label>
+                    <input type="password" id="pass" name="pass" minlength="6" maxlength="15" placeholder="Password..." required>
+                </div>
+                <div class="half-width">
+                    <label for="ConfPass">Confirm Password</label>
+                    <input type="password" id="ConfPass" name="ConfPass" maxlength="15" minlength="6" placeholder="Confirm..." required>
+                </div>
+            </div>
+
+            <div class="field input-group">
+                <div class="half-width">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select Option</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="half-width">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Hobbies</label>
+                <div class="hobbies-container">
+                    <div class="hobby">
+                        <input type="checkbox" id="music" name="hobby" value="music">
+                        <label for="music">Music</label>
+                    </div>
+                    <div class="hobby">
+                        <input type="checkbox" id="sports" name="hobby" value="sports">
+                        <label for="sports">Sports</label>
+                    </div>
+                    <div class="hobby">
+                        <input type="checkbox" id="study" name="hobby" value="study">
+                        <label for="study">Study</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="10th">10th Score</label>
+                <div class="combined-field">
+                    <select id="10th" name="10th_type">
+                        <option value="" disabled selected>Select Format</option>
+                        <option value="grade">Grade</option>
+                        <option value="percentage">Percentage</option>
+                        <option value="cgpa">CGPA</option>
+                    </select>
+                    <input type="number" name="10th_marks" max="100" min="0" placeholder="Enter Marks">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="12th">12th Score</label>
+                <div class="combined-field">
+                    <select id="12th" name="12th_type">
+                        <option value="" disabled selected>Select Format</option>
+                        <option value="grade">Grade</option>
+                        <option value="percentage">Percentage</option>
+                        <option value="cgpa">CGPA</option>
+                    </select>
+                    <input type="number" name="12th_marks" max="100" min="0" placeholder="Enter Marks">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="college">College Year & CGPA</label>
+                <div class="combined-field">
+                    <select id="college" name="college_year">
+                        <option value="" disabled selected>Select Year</option>
+                        <option value="1st">1st Year</option>
+                        <option value="2nd">2nd Year</option>
+                        <option value="3rd">3rd Year</option>
+                        <option value="4th">4th Year</option>
+                    </select>
+                    <input type="number" name="college_marks" max="10" min="0" step="0.01" placeholder="Enter CGPA">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="result-pdf">Upload Result PDF</label>
+                <input type="file" id="result-pdf" name="result_pdf" accept=".pdf">
+            </div>
+
+            <div class="field">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your full address..."></textarea>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

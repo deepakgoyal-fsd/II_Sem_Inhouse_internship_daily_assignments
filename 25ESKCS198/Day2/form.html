@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        .body{
+            background-color: lightblue;
+            padding: 19px 550px;
+        }
+
+        .form{
+            background-color: rgb(245, 250, 252);
+            width: 350px;
+            padding: 20px;
+            border: 2px solid red;
+            border-radius: 8px 10px;
+        }
+
+        .heading{
+            color: rgb(2, 2, 23);
+        }
+
+        .label{
+            color: rgb(170, 57, 125);
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+    
+
+        
+
+        .button{
+            background-color: rgb(26,26,55);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+<form class="form">   
+
+    <h2 class="heading">Student Registration Form</h2>
+
+    <label class="label">Name</label><br>
+    <input type="text" name="name" placeholder="Enter your name">
+    <br><br>
+
+    <label class="label">Email</label><br>
+    <input type="email" name="email" placeholder="Enter your email">
+    <br><br>
+
+    <label class="label">Phone Number</label><br>
+    <input type="tel" name="phone" placeholder="Enter your phone number">
+    <br><br>
+
+    <label class="label">Gender</label><br>
+
+    <input class="radio" type="radio" name="gender" value="male"> Male
+
+    <input class="radio" type="radio" name="gender" value="female"> Female
+
+    <br><br>
+
+    <label class="label">Date of Birth</label><br>
+    <input type="date" name="dob">
+
+    <br><br>
+
+    <label class="label">Password</label><br>
+    <input type="password" name="password" placeholder="Enter your password">
+
+    <br><br>
+
+    <label class="label">Confirm Password</label><br>
+    <input type="password" name="confirm_password" placeholder="Confirm your password">
+
+    <br><br>
+
+    <input class="button"  id ="myButton" type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Feature</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="https://www.bing.com/th/id/OIP.r-FXDIPXjRZmeAleUKTOBwAAAA?w=193&h=144&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=ImgAns&rm=2" alt="">
+            <a class="navbar-brand" href="#">Skit Student Data</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Section
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">A</a></li>
+                            <li><a class="dropdown-item" href="#">B</a></li>
+                           
+                        </ul>
+                    </li>
+                                           <a class="nav-link" href="#">Meeting</a>
+
+                </ul>
+
+                <form class="d-flex" role="search" onsubmit="return false;">
+                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search" />
+                    <button class="btn btn-outline-success" id="search" type="button">Search</button>
+                </form>
+
+
+            </div>
+        </div>
+    </nav>
+    <div class="card_section">
+<div id="card-container" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+</html>

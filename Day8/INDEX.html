@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Trip Form</title>
+    <link rel="stylesheet" href="styles1.css"
+</head>
+<body>
+    <img class="bg" src="skit.jpg.jpeg" alt="skit">
+    <center></center>
+   <div class="container">
+    <h3>Welcome to  SKIT Trip Form</h3>
+    <p>Enter your details and submit this form</p>
+    <p class="submitmsg">Thanks for submitting form</p>
+    <form action="index.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile" accept="image/*" required>
+        <button type="submit">upload</button>
+        <input type="text" name="name" id="name" placeholder="enter your name">
+        <input type="text" name="cgpa" id="cgpa" placeholder="enter your cgpa">
+        <input type="text" name="age" id="age" placeholder="enter your age">
+        <input type="tel" name="phonenumber" id="phonenumber" placeholder="enter your phonenumber">
+        <input type="text" name="other" id="other" placehoder="enter your other details">
+        <button type="submit"  class="btn">SUBMIT</button>
+    </form>
+
+
+   </div>
+</center>
+</body>
+</html>

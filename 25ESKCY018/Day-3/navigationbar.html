@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  
+ <link rel="stylesheet" href="flexstyle.css">
+<style>
+    * {
+      margin: 10;
+      padding: 20;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: antiquewhite;
+    }
+       
+
+    /* Navigation bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      color: rgb(161, 8, 84);
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: rgb(150, 146, 146);
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: rgb(109, 206, 242);
+    }
+
+    .login-btn {
+      background-color: rgb(242, 171, 243);
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .login-btn:hover {
+      background-color: rgb(70, 242, 182);
+    }
+  </style>
+  
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo"><em>D</em></div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#features">Our features</a></li>
+    </ul>
+
+    <button class="login-btn">Login</button>
+  </nav>
+
+  <!-- Page sections (just for testing links) -->
+  <section id="home">
+    <h2 style="padding:20px;">Home Section</h2>
+  </section>
+
+  <section id="about">
+    <h2 style="padding:20px;">About us Section</h2>
+  </section>
+
+  <section id="features">
+    <h2 style="padding:20px;">Our features Section</h2>
+  </section>
+
+</body>
+</html>

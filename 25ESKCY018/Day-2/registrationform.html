@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admission Form</title>
+
+<style>
+ 
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>College Admission Form</h1>
+
+<form>
+
+<fieldset>
+<legend>Personal Information</legend>
+<br>
+<label>Full Name</label>
+<input type="text" placeholder="Enter your full name" required>
+<br>
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email" required>
+<br>
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter phone number" required>
+<br>
+<label>Date of Birth</label>
+<input type="date" required>
+<br>
+<label>Gender</label>
+<br>
+<div class="gender">
+<label><input type="radio" name="gender" required> Male</label>
+<label><input type="radio" name="gender"> Female</label>
+<label><input type="radio" name="gender"> Other</label>
+</div>
+<br>
+</fieldset>
+
+<fieldset>
+
+<legend>Academic Information</legend>
+
+<label>Course Applying For</label>
+<br>
+<select required>
+<option value="">Select Course</option>
+<option>BCA</option>
+<option>B.Sc Computer Science</option>
+<option>B.Tech</option>
+<option>B.Com</option>
+<option>BA</option>
+</select>
+
+<label>12th Percentage</label>
+<input type="number" placeholder="Enter percentage" min="0" max="100" required>
+<br>
+<label>Preferred College</label>
+<input type="text" placeholder="Enter college name" required>
+<br>
+</fieldset>
+
+<fieldset>
+
+<legend>Address</legend>
+<br>
+<label>Address</label>
+<textarea rows="4" placeholder="Enter your address" required></textarea>
+<br>
+<label>City</label>
+<input type="text" placeholder="Enter city" required>
+<br>
+<label>State</label>
+<input type="text" placeholder="Enter state" required>
+<br>
+<label>Pincode</label>
+<input type="number" placeholder="Enter pincode" required>
+
+</fieldset>
+
+<fieldset>
+    
+<legend>Documents</legend>
+
+<label>Upload Passport Size Photo</label>
+<input type="file" accept="image/*" required>
+
+<label>Upload Marksheet</label>
+<input type="file" required>
+
+</fieldset>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

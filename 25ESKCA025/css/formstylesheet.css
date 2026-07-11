@@ -1,0 +1,52 @@
+
+p{
+    font: size 14pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    sans-serif;
+    font-weight:bold;
+}
+ h1{
+    color:blueviolet !important;
+ }
+
+ 
+ #txtPhone{
+    font-size: 16pt;
+    border-radius: 40px;
+
+ }
+ #txtName{
+    font-size: 16pt;
+    border-radius: 40px;
+ }
+ #txtEmail{
+    font-size: 16pt;
+    border-radius: 40px;
+ }
+ #txtPassword{
+    font-size: 16pt;
+    border-radius: 40px;
+ }
+ #btnRegister{
+    border-radius: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Times New Roman', Times, serif;
+    font-size: 20pt !important;
+
+}
+ .background{
+    background-color: black;
+ }
+ body{
+    background-color: aliceblue;
+
+ }
+ #frmRegister{
+    border:2pt;
+ }
+ #divForm{
+    border:2pt;
+    border-color:blueviolet;
+ }
+ input{
+    border-radius: 20px;
+ }

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Fest 2026</title>
+
+<style>
+:root{
+    --bg:#000;
+    --card:#0d0d0d;
+    --text:#ffffff;
+    --blue:#00aaff;
+    --blue-glow:0 0 15px #00aaff;
+    --success:#1f9d55;
+}
+
+body.light{
+    --bg:#f5f5f5;
+    --card:#ffffff;
+    --text:#111;
+    --blue:#0077ff;
+    --blue-glow:0 0 10px rgba(0,119,255,0.5);
+    --success:#1f9d55;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+}
+
+/* Loader */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    color:var(--blue);
+    font-size:2rem;
+}
+
+/* Navbar */
+nav{
+    position:sticky;
+    top:0;
+    background:var(--card);
+    display:flex;
+    justify-content:space-between;
+    padding:15px 8%;
+    align-items:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    z-index:100;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:var(--text);
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--blue);
+    text-shadow:var(--blue-glow);
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    color:var(--blue);
+    text-shadow:var(--blue-glow);
+}
+
+/* Sections */
+section{
+    padding:60px 10%;
+}
+
+/* Cards */
+.card{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    margin:20px 0;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
+button{
+    padding:10px 15px;
+    margin-top:10px;
+    border:none;
+    background:var(--blue);
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
+    transition:.3s;
+}
+
+button:hover{
+    box-shadow:var(--blue-glow);
+}
+
+/* Counter */
+.counter{
+    font-size:2rem;
+    margin:10px 0;
+}
+
+/* Form */
+input{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border-radius:6px;
+    border:none;
+    outline:none;
+}
+
+/* Error */
+.error{
+    color:red;
+    font-size:.9rem;
+}
+
+/* Success */
+.success{
+    background:var(--success);
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+    display:none;
+}
+
+/* Toast */
+#toast{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:var(--blue);
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    display:none;
+}
+
+/* Back to top */
+#topBtn{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    display:none;
+}
+
+/* Animation */
+.fade{
+    opacity:0;
+    transform:translateY(20px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">Loading Music Fest 2026...</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<nav>
+    <h2>Music Fest 2026</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+    </ul>
+
+    <button id="themeToggle">🌙 Dark</button>
+</nav>
+
+<section class="hero" id="home">
+    <h1>Music Fest 2026</h1>
+    <p>Feel the Beat. Live the Moment 🎵</p>
+</section>
+
+<section id="about" class="fade">
+    <h2>About</h2>
+
+    <div class="card">
+        <p>Join the biggest music festival of 2026 with live DJs, bands, and unforgettable performances.</p>
+    </div>
+</section>
+
+<section id="schedule" class="fade">
+    <h2>Schedule</h2>
+
+    <div class="card">
+        <p>Day 1: EDM Night</p>
+        <p>Day 2: Rock Concert</p>
+        <p>Day 3: Bollywood Fusion</p>
+    </div>
+</section>
+
+<!-- Ticket Counter -->
+<section class="fade">
+    <h2>Ticket Reservations</h2>
+
+    <div class="card">
+        <div class="counter">Tickets Reserved: <span id="count">0</span></div>
+
+        <button id="reserveBtn">Reserve Ticket</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+</section>
+
+<!-- Form -->
+<section class="fade">
+    <h2>Register</h2>
+
+    <div class="card">
+        <form id="form">
+            <input id="name" placeholder="Name">
+            <div class="error" id="nameErr"></div>
+
+            <input id="email" placeholder="Email">
+            <div class="error" id="emailErr"></div>
+
+            <input id="phone" placeholder="Phone">
+            <div class="error" id="phoneErr"></div>
+
+            <button type="submit">Submit</button>
+
+            <div class="success" id="successMsg">
+                Registered Successfully 🎉
+            </div>
+        </form>
+    </div>
+</section>
+
+<button id="topBtn">⬆ Top</button>
+
+<script>
+// Loader
+window.addEventListener("load", () => {
+    document.getElementById("loader").style.display = "none";
+});
+
+// Toast
+function showToast(msg){
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.style.display = "block";
+    setTimeout(()=> toast.style.display="none", 2000);
+}
+
+// Theme toggle
+const themeBtn = document.getElementById("themeToggle");
+
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+
+    const mode = document.body.classList.contains("light") ? "Light" : "Dark";
+    themeBtn.textContent = mode === "Light" ? "☀ Light" : "🌙 Dark";
+
+    localStorage.setItem("theme", mode);
+};
+
+if(localStorage.getItem("theme")==="Light"){
+    document.body.classList.add("light");
+}
+
+// Counter
+let count = localStorage.getItem("tickets") || 0;
+const countEl = document.getElementById("count");
+
+function updateCount(){
+    countEl.textContent = count;
+    localStorage.setItem("tickets", count);
+}
+
+updateCount();
+
+document.getElementById("reserveBtn").onclick = () => {
+    count++;
+    updateCount();
+    showToast("Ticket Reserved 🎟️");
+};
+
+document.getElementById("resetBtn").onclick = () => {
+    count = 0;
+    updateCount();
+    showToast("Counter Reset");
+};
+
+// Form validation
+document.getElementById("form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    let valid = true;
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    document.getElementById("nameErr").textContent="";
+    document.getElementById("emailErr").textContent="";
+    document.getElementById("phoneErr").textContent="";
+
+    if(name===""){
+        document.getElementById("nameErr").textContent="Name required";
+        valid=false;
+    }
+
+    if(!email.includes("@")){
+        document.getElementById("emailErr").textContent="Valid email required";
+        valid=false;
+    }
+
+    if(phone.length < 10){
+        document.getElementById("phoneErr").textContent="Valid phone required";
+        valid=false;
+    }
+
+    if(valid){
+        document.getElementById("successMsg").style.display="block";
+        showToast("Registration Successful 🎉");
+        e.target.reset();
+    }
+});
+
+// Back to top
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = () => {
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+
+topBtn.onclick = () => window.scrollTo({top:0, behavior:"smooth"});
+
+// Scroll animation
+const faders = document.querySelectorAll(".fade");
+
+const appear = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+faders.forEach(el=>appear.observe(el));
+</script>
+
+</body>
+</html>

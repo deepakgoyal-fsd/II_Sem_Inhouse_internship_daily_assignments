@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College reg Form</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        /* New Controls for Dark Mode and Counter */
+        .page-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            font-family: Verdana, sans-serif;
+            z-index: 1000;
+        }
+        .control-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .control-panel {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Existing Form Styles */
+        .login_form {
+            font-family: Verdana;
+            background-color: rgb(228, 234, 255);
+            margin: 40px 5px 5px 5px;
+            padding: 35px;
+            border-radius: 15px;
+            width: 550px;
+            box-shadow: 0 10px 25px black;
+            transition: 0.3s;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login_form h1 {
+            margin-top: 0;
+            font-family: 'Arial black';
+            color: #2563eb;
+            text-align: center;
+        }
+        .login_form h2 {
+            color: darkslategrey;
+            font-size: 18px;
+        }
+        input {
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 0.1px solid #2563eb;
+            background-color: #fff;
+        }
+        select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 0.1px solid #2563eb;
+        }
+        button[type="submit"] {
+            background-color: #3463a5;
+            color: white;
+            padding: 10px;
+            font-size: 17px;
+            border-radius: 4px;
+            border: 0.5px solid black;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #1132c2;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .radio label:hover {
+            color: #454242;
+        }
+        .radio {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 0.1px solid #2563eb;
+            background-color: white;
+        }
+        label {
+            font-weight: 500;
+            color: darkslategray;
+        }
+
+        
+        body.dark-mode {
+            background-color: #121212;
+        }
+        .login_form.dark-mode-form {
+            background-color: #1e1e1e;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        }
+        .login_form.dark-mode-form h1,
+        .login_form.dark-mode-form h2,
+        .login_form.dark-mode-form label {
+            color: #e0e0e0;
+        }
+        .dark-mode-form input,
+        .dark-mode-form select,
+        .dark-mode-form .radio {
+            background-color: #333;
+            color: #fff;
+            border-color: #555;
+        }
+        .dark-mode-form .radio label:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-controls">
+        <button id="themeToggle" class="control-btn">Toggle Dark Mode</button>
+        <div id="clickDisplay" class="control-panel">Total Clicks: 0</div>
+    </div>
+
+    <div class="login_form" id="formContainer">
+        <form action="#" id="registrationForm">
+            <h1><img src="https://www.skit.ac.in/images/headers/skit_logo.png" alt="SKIT Logo"></h1>
+            <h1><u>Swami Keshwanand Institute Of Technology</u></h1>
+            <h2>Admission Form</h2>
+        
+            <label for="name">Name: </label>
+            <input type="text" id="name" placeholder="Enter your name" required >
+            
+            <label for="fname">Father's Name: </label>
+            <input type="text" id="fname" placeholder="Enter your father's name" required >
+            
+            <label for="contact">Contact No. : </label>
+            <input type="tel" id="contact" placeholder="Enter your contact no." pattern="[0-9]{10}" required maxlength="10">
+            
+            <label for="mail">Email: </label>
+            <input type="email" id="mail" placeholder="Enter your email" required >
+            
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+            
+            <label for="photo">Upload your photo:</label>
+            <input type="file" id="photo" required>
+            
+            <label for="10th_marks">10th Percentage:</label>
+            <input type="number" id="10th_marks" placeholder="Enter 10th percentage" min="0" max="100" step="0.01" required>
+            
+            <label for="12th_marks">12th Percentage:</label>
+            <input type="number" id="12th_marks" placeholder="Enter 12th percentage" min="0" max="100" step="0.01" required>
+            
+            <label for="JEE_marks">JEE Percentile:</label>
+            <input type="number" id="JEE_marks" placeholder="Enter JEE percentile" min="0" max="100" step="0.01" required>
+            
+            <div class="radio">
+                <label>Gender:</label>
+                <input type="radio" name="gender" id="male" value="Male" required>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="Female" required>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="other" value="Other" required>
+                <label for="other">Other</label>
+            </div>
+            
+            <label for="prog">Course:</label>
+            <select name="prog" id="prog" required>
+                <option value="default">choose your course</option>
+                <option value="b.tech">B.Tech</option>
+                <option value="m.tech">M.Tech</option>
+                <option value="mba">MBA</option>
+                <option value="bpharma">B.Pharma</option>
+            </select>
+            
+            <label for="cat">Category:</label>
+            <select name="cat" id="cat" required>
+                <option value="default">choose your category</option>
+                <option value="Gen">Gen</option>
+                <option value="Gen EWS">Gen EWS</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+            </select>
+            
+            <label for="10thmarksheet">Upload your 10th Marksheet:</label>
+            <input type="file" id="10thmarksheet" required>
+            
+            <label for="12thmarksheet">Upload your 12th Marksheet:</label>
+            <input type="file" id="12thmarksheet" required >
+            
+            <label for="jeescore">Upload your JEE Scorecard:</label>
+            <input type="file"  id="jeescore" required>
+
+            <button type="submit">Submit</button>
+        </form> 
+    </div>
+
+    <script>
+        // --- 1. Global Click Counter ---
+        let totalClicks = 0;
+        const clickDisplay = document.getElementById('clickDisplay');
+        
+        document.addEventListener('click', () => {
+            totalClicks++;
+            clickDisplay.textContent = `Total Clicks: ${totalClicks}`;
+        });
+
+        // --- 2. Dark Mode Toggle ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const bodyElement = document.body;
+        const formContainer = document.getElementById('formContainer');
+
+        themeToggleBtn.addEventListener('click', (event) => {
+           
+            bodyElement.classList.toggle('dark-mode');
+            formContainer.classList.toggle('dark-mode-form');
+        });
+
+        // --- 3. Custom Form Validation ---
+        const regForm = document.getElementById('registrationForm');
+
+        regForm.addEventListener('submit', (event) => {
+            
+            event.preventDefault();
+
+            let isValid = true;
+            let errorMessage = "";
+
+           
+            const contact = document.getElementById('contact').value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(contact)) {
+                isValid = false;
+                errorMessage += "• Please enter a valid 10-digit contact number.\n";
+            }
+
+            
+            const courseSelect = document.getElementById('prog').value;
+            if (courseSelect === "default") {
+                isValid = false;
+                errorMessage += "• Please select a valid Course.\n";
+            }
+
+            const categorySelect = document.getElementById('cat').value;
+            if (categorySelect === "default") {
+                isValid = false;
+                errorMessage += "• Please select a valid Category.\n";
+            }
+
+          
+            if (!isValid) {
+                alert("Please correct the following errors:\n\n" + errorMessage);
+                return;
+            }
+
+            
+            alert("Success! The form has been validated and submitted.");
+            regForm.reset(); 
+        });
+    </script>
+</body>
+</html>

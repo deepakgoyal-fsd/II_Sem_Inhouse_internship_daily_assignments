@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College reg Form</title>
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+        }
+        .login_form{
+            font-family:Verdana;
+            background-color: rgb(228, 234, 255);
+            margin: 5px;
+            padding: 35px;
+            border-radius: 15px;
+            width: 550px;
+            box-shadow: 0 10px 25px black;
+            transition: 0.3s;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        .login_form h1{
+            margin-top: 0;
+            font-family: 'Arial black';
+            color: #2563eb;
+            text-align: center;
+        }
+        .login_form h2{
+            color: darkslategrey;
+            font-size: 18px;
+        }
+        input{
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 0.1px solid #2563eb;
+            background-color: #fff;
+        }
+        select{
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 0.1px solid #2563eb;
+        }
+        button{
+            background-color: #3463a5;
+            color: white;
+            padding: 5px;
+            font-size: 17px;
+            border-radius: 4px;
+            border: 0.5px solid black;
+        }
+        button:hover{
+            background-color: #1132c2;
+            cursor:pointer;
+            transition:0.3s;
+        }
+        .radio label:hover{
+            color: #454242;
+        }
+        .radio{
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 0.1px solid #2563eb;
+            background-color: white;
+        }
+        label{
+            font-weight: 500;
+            color: darkslategray;
+        }
+    </style>
+</head>
+<body>
+    <div class="login_form">
+        <form action="#">
+            <h1><img src="https://www.skit.ac.in/images/headers/skit_logo.png" ></h1>
+            <h1><u>Swami Keshwanand Institute Of Technology</u></h1>
+            <h2>Admission Form</h2>
+        
+            <label for="name">Name: </label>
+            <input type="text" id="name" placeholder="Enter your name" required >
+            <label for="fname">Father's Name: </label>
+            <input type="text" id="fname" placeholder="Enter your father's name" required >
+            <label for="contact">Contact No. : </label>
+            <input type="tel" id="contact" placeholder="Enter your contact no." pattern="[0-9]{10}" required maxlength="10">
+            <label for="mail">Email: </label>
+            <input type="email" id="mail" placeholder="Enter your email" required >
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+            <label for="photo">Upload your photo:</label>
+            <input type="file" id="photo" required>
+            <label for="10th_marks">10th Percentage:</label>
+            <input type="number" id="10th_marks" placeholder="Enter 10th percentage" min="0" max="100" step="0.01" required>
+            <label for="12th_marks">12th Percentage:</label>
+            <input type="number" id="12th_marks" placeholder="Enter 12th percentage" min="0" max="100" step="0.01" required>
+            <label for="JEE_marks">JEE Percentile:</label>
+            <input type="number" id="JEE_marks" placeholder="Enter JEE percentile" min="0" max="100" step="0.01" required>
+            <div class="radio">
+                <label>Gender:</label>
+                <input type="radio" name="gender" id="male" required>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" required>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="other" required>
+                <label for="other">Other</label>
+            </div>
+            <label for="prog">Course:</label>
+            <select name="prog" id="prog" required>
+                <option>choose your course</option>
+                <option value="b.tech">B.Tech</option>
+                <option value="m.tech">M.Tech</option>
+                <option value="mba">MBA</option>
+                <option value="bpharma">B.Pharma</option>
+            </select>
+            <label for="cat">Category:</label>
+            <select name="cat" id="cat" required>
+                <option>choose your category</option>
+                <option value="Gen">Gen</option>
+                <option value="Gen EWS">Gen EWS</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+            </select>
+            <label for="10thmarksheet">Upload your 10th Marksheet:</label>
+            <input type="file" id="10thmarksheet" required>
+            <label for="12thmarksheet">Upload your 12th Marksheet:</label>
+            <input type="file" id="12thmarksheet" required >
+            <label for="jeescore">Upload your JEE Scorecard:</label>
+            <input type="file"  id="jeescore" required>
+
+            <button type="submit">Submit</button>
+        </form> 
+    </div>
+</body>
+</html>

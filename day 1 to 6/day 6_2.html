@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysium 2026 | Annual College Fest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+        }
+        body { font-family: 'Poppins', sans-serif; }
+        .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem;
+        }
+        
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 14px 40px;
+            font-weight: 600;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">
+                <i class="fas fa-graduation-cap"></i> Elysium 2026
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container text-center">
+            <h1 class="display-1 fw-bold mb-3">ELYSIUM 2026</h1>
+            <p class="lead fs-2 mb-4">Annual Techno-Cultural Festival</p>
+            <div class="mb-5">
+                <h4 class="text-warning">10th July 2026 • 9:00 AM Onwards</h4>
+            </div>
+            <div id="countdown" class="d-flex justify-content-center gap-4 mb-5"></div>
+            <a href="#register" class="btn btn-register btn-lg text-white shadow">Register Now →</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://picsum.photos/id/1016/800/600" class="img-fluid rounded-4 shadow" alt="College Fest">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4 section-title">The Biggest Fest of the Year</h2>
+                    <p class="lead">Experience 50+ events across technical, cultural, and sports domains. Join thousands of students for an unforgettable day of talent, creativity, and competition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-lg border-0 rounded-4">
+                        <div class="card-header text-white text-center py-4" 
+                             style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+                            <h3><i class="fas fa-user-plus"></i> Student Registration</h3>
+                        </div>
+                        <div class="card-body p-5">
+                            <form id="registrationForm">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="fullName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">College ID *</label>
+                                        <input type="text" class="form-control" id="collegeId" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Phone Number *</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Branch</label>
+                                        <select class="form-select" id="branch" required>
+                                            <option value="">Select</option>
+                                            <option>CSE</option>
+                                            <option>ECE</option>
+                                            <option>Mechanical</option>
+                                            <option>Civil</option>
+                                            <option>IT</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Semester</label>
+                                        <select class="form-select" id="semester" required>
+                                            <option value="">Select</option>
+                                            <option>1</option><option>2</option><option>3</option>
+                                            <option>4</option><option>5</option><option>6</option>
+                                            <option>7</option><option>8</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Section</label>
+                                        <input type="text" class="form-control" id="section">
+                                    </div>
+                                </div>
+
+                                <div class="mt-5 text-center">
+                                    <button type="submit" class="btn btn-register btn-lg text-white">
+                                        Submit Registration
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        
+        function countdown() {
+            const eventDate = new Date("2026-07-10T09:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                
+                if (distance < 0) return;
+                
+                const days = Math.floor(distance / (1000*60*60*24));
+                const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+                const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+                
+                document.getElementById("countdown").innerHTML = `
+                    <div class="text-center px-4">
+                        <h2 class="fw-bold text-white">${days}</h2><small>DAYS</small>
+                    </div>
+                    <div class="text-center px-4">
+                        <h2 class="fw-bold text-white">${hours}</h2><small>HOURS</small>
+                    </div>
+                    <div class="text-center px-4">
+                        <h2 class="fw-bold text-white">${minutes}</h2><small>MINUTES</small>
+                    </div>
+                `;
+            }, 1000);
+        }
+
+       
+        $(document).ready(function() {
+            countdown();
+            
+            $('#registrationForm').submit(function(e) {
+                e.preventDefault();
+                alert("✅ Registration Successful!\n\nThank you for registering for Elysium 2026!");
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

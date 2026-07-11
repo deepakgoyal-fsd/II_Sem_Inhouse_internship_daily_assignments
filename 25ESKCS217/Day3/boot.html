@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap Landing Page</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+html{
+    scroll-behavior:smooth;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0d6efd,#0dcaf0);
+    color:white;
+    padding:100px 0;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    transition:.3s;
+}
+
+footer a{
+    color:white;
+    margin:0 10px;
+    font-size:25px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<div class="container">
+
+<a class="navbar-brand" href="#">My Website</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#home">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#features">Features</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#pricing">Pricing</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#testimonials">Testimonials</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#faq">FAQ</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">Contact</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero text-center" id="home">
+
+<div class="container">
+
+<h1 class="display-4 fw-bold">Welcome to My Website</h1>
+
+<p class="lead">
+Learn Bootstrap and build responsive websites easily.
+</p>
+
+<a href="#features" class="btn btn-light btn-lg">
+Get Started
+</a>
+
+</div>
+
+</section>
+
+<!-- Features -->
+<section class="py-5" id="features">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Our Features</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card shadow h-100">
+<div class="card-body text-center">
+<h4 class="text-primary">Fast</h4>
+<p>Bootstrap helps you build websites quickly.</p>
+<button class="btn btn-primary">Read More</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card shadow h-100">
+<div class="card-body text-center">
+<h4 class="text-success">Responsive</h4>
+<p>Looks perfect on desktop, tablet and mobile.</p>
+<button class="btn btn-success">Learn More</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card shadow h-100">
+<div class="card-body text-center">
+<h4 class="text-danger">Easy</h4>
+<p>Simple Bootstrap classes make designing easy.</p>
+<button class="btn btn-danger">Explore</button>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Pricing -->
+<section class="bg-light py-5" id="pricing">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Pricing</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card text-center shadow">
+<div class="card-header bg-primary text-white">
+Basic
+</div>
+<div class="card-body">
+<h2>$10</h2>
+<p>1 Website</p>
+<p>Email Support</p>
+<button class="btn btn-primary">Choose</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-center shadow border-primary">
+<div class="card-header bg-success text-white">
+Standard
+</div>
+<div class="card-body">
+<h2>$25</h2>
+<p>5 Websites</p>
+<p>Priority Support</p>
+<button class="btn btn-success">Choose</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card text-center shadow">
+<div class="card-header bg-danger text-white">
+Premium
+</div>
+<div class="card-body">
+<h2>$50</h2>
+<p>Unlimited Websites</p>
+<p>24/7 Support</p>
+<button class="btn btn-danger">Choose</button>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Testimonials -->
+<section class="py-5" id="testimonials">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Testimonials</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card shadow">
+<div class="card-body">
+<p>"Amazing website and easy to use."</p>
+<h5>- Rahul</h5>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card shadow">
+<div class="card-body">
+<p>"Bootstrap made my learning much easier."</p>
+<h5>- Priya</h5>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card shadow">
+<div class="card-body">
+<p>"Beautiful responsive design!"</p>
+<h5>- Aman</h5>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+<section class="bg-light py-5" id="faq">
+
+<div class="container">
+
+<h2 class="text-center mb-4">Frequently Asked Questions</h2>
+
+<div class="accordion" id="faqAccordion">
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
+What is Bootstrap?
+</button>
+
+</h2>
+
+<div id="q1" class="accordion-collapse collapse show">
+
+<div class="accordion-body">
+Bootstrap is a popular CSS framework for responsive web development.
+</div>
+
+</div>
+
+</div>
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">
+Is Bootstrap Free?
+</button>
+
+</h2>
+
+<div id="q2" class="accordion-collapse collapse">
+
+<div class="accordion-body">
+Yes, Bootstrap is completely free and open source.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+<section class="py-5 text-center" id="contact">
+
+<div class="container">
+
+<h2>Contact Us</h2>
+
+<p>Email: example@gmail.com</p>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white py-4">
+
+<h5>Follow Us</h5>
+
+<a href="#"><i class="bi bi-facebook"></i></a>
+
+<a href="#"><i class="bi bi-instagram"></i></a>
+
+<a href="#"><i class="bi bi-twitter-x"></i></a>
+
+<a href="#"><i class="bi bi-linkedin"></i></a>
+
+<p class="mt-3 mb-0">
+© 2026 My Website. All Rights Reserved.
+</p>
+
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

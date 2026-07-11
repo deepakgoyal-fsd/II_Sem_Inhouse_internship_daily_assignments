@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Directory · enhanced</title>
+
+    <!-- Google Fonts + Font Awesome (icons) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f6f9fc;
+            padding: 2rem 1.5rem;
+            transition: background 0.3s, color 0.2s;
+            color: #1a2639;
+        }
+
+        /* dark mode */
+        body.dark {
+            background: #1a1e2b;
+            color: #eef2f7;
+        }
+
+        body.dark .card {
+            background: #262d3f;
+            border-color: #3a435b;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        body.dark .card h2 {
+            color: #f0f4ff;
+        }
+
+        body.dark .card p {
+            color: #bcc6e0;
+        }
+
+        body.dark .details {
+            background: #1f2639;
+            color: #d4def5;
+        }
+
+        body.dark .details p {
+            color: #d4def5;
+        }
+
+        body.dark input#search {
+            background: #2d354a;
+            border-color: #4a546e;
+            color: #f0f4ff;
+        }
+
+        body.dark input#search::placeholder {
+            color: #8f99b3;
+        }
+
+        body.dark .dark-toggle {
+            background: #f1c40f;
+            color: #1a1e2b;
+        }
+
+        body.dark .dark-toggle i {
+            color: #1a1e2b;
+        }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.8rem;
+            gap: 1.2rem;
+        }
+
+        header h1 {
+            font-weight: 600;
+            font-size: 2.1rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header h1 i {
+            color: #2b7be4;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        #search {
+            padding: 0.7rem 1.4rem;
+            border-radius: 60px;
+            border: 1px solid #dbe1ec;
+            background: white;
+            font-size: 0.95rem;
+            width: 260px;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        #search:focus {
+            border-color: #2b7be4;
+            box-shadow: 0 0 0 4px rgba(43, 123, 228, 0.15);
+        }
+
+        .dark-toggle {
+            background: #1a2639;
+            border: none;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .dark-toggle:hover {
+            transform: scale(1.04);
+            background: #2b3b5c;
+        }
+
+        body.dark .dark-toggle {
+            background: #f1c40f;
+            color: #1a1e2b;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem 1.5rem 1.8rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f8;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px rgba(0, 20, 40, 0.06);
+            border-color: #d0def0;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 60px;
+            object-fit: cover;
+            margin-bottom: 0.8rem;
+            border: 3px solid white;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+            background: #eaf0f8;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+            color: #1a2639;
+        }
+
+        .card .subtitle {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: #f4b942;
+            margin: 0.2rem 0 0.8rem;
+        }
+
+        .details-btn {
+            background: transparent;
+            border: 1.5px solid #2b7be4;
+            color: #2b7be4;
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 0.3rem 0 0.8rem;
+            font-family: 'Poppins', sans-serif;
+            background: white;
+        }
+
+        .details-btn:hover {
+            background: #2b7be4;
+            color: white;
+            box-shadow: 0 6px 14px rgba(43, 123, 228, 0.2);
+        }
+
+        body.dark .details-btn {
+            background: #2d354a;
+            border-color: #5a7bbf;
+            color: #b8ceff;
+        }
+
+        body.dark .details-btn:hover {
+            background: #3b5a94;
+            color: white;
+            border-color: #6f93d9;
+        }
+
+        .details {
+            background: #f0f5fe;
+            padding: 0.9rem 1rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            width: 100%;
+            display: none;
+            font-size: 0.9rem;
+            text-align: left;
+            transition: all 0.2s;
+            border: 1px solid #e4edfa;
+        }
+
+        .details.open {
+            display: block;
+            animation: fadeSlide 0.25s ease;
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0.4; transform: translateY(-5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .details p {
+            margin: 0.25rem 0;
+            color: #1e2a44;
+            word-break: break-word;
+        }
+
+        .details p strong {
+            font-weight: 600;
+            color: #0b1d3a;
+        }
+
+        body.dark .details p strong {
+            color: #d4e2ff;
+        }
+
+        .card .badge-course {
+            background: #e2eaf9;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1d3e7a;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+        }
+
+        body.dark .badge-course {
+            background: #33405e;
+            color: #c7daff;
+        }
+
+        .footer-note {
+            margin-top: 3.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7b8aa3;
+            border-top: 1px solid #e2eaf2;
+            padding-top: 1.8rem;
+        }
+
+        body.dark .footer-note {
+            color: #8d9bb8;
+            border-top-color: #2e374b;
+        }
+
+        /* empty state */
+        .no-result {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            background: #f1f5fa;
+            border-radius: 60px;
+            color: #4c6085;
+            font-weight: 400;
+        }
+
+        body.dark .no-result {
+            background: #262d3f;
+            color: #b1c3e5;
+        }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            #search {
+                width: 100%;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: stretch;
+            }
+            .dark-toggle {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======= HEADER ======= -->
+<header>
+    <h1>
+        <i class="fas fa-graduation-cap"></i> Student Directory
+    </h1>
+    <div class="header-actions">
+        <input type="text" id="search" placeholder="🔍 Search by name, course, city..." />
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</header>
+
+<!-- ======= CARDS ======= -->
+<div class="container" id="studentContainer">
+
+    <!-- Student 1 -->
+    <div class="card" data-name="Rahul Sharma" data-course="BCA" data-city="Delhi">
+        <img src="https://i.pravatar.cc/200?img=12" alt="Rahul" />
+        <h2>Rahul Sharma</h2>
+        <span class="badge-course">BCA</span>
+        <p class="subtitle"><i class="fas fa-map-pin" style="opacity:0.6;"></i> Delhi</p>
+        <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <button class="details-btn" data-target="details1">
+            <i class="fas fa-chevron-down"></i> Show Details
+        </button>
+        <div class="details" id="details1">
+            <p><strong><i class="fas fa-envelope"></i> Email:</strong> rahul@gmail.com</p>
+            <p><strong><i class="fas fa-phone"></i> Phone:</strong> 9876543210</p>
+            <p><strong><i class="fas fa-university"></i> College:</strong> ABC College</p>
+            <p><strong><i class="fas fa-book"></i> Course:</strong> BCA</p>
+            <p><strong><i class="fas fa-home"></i> Address:</strong> Delhi</p>
+        </div>
+    </div>
+
+    <!-- Student 2 -->
+    <div class="card" data-name="Priya Verma" data-course="B.Tech" data-city="Jaipur">
+        <img src="https://i.pravatar.cc/200?img=32" alt="Priya" />
+        <h2>Priya Verma</h2>
+        <span class="badge-course">B.Tech</span>
+        <p class="subtitle"><i class="fas fa-map-pin" style="opacity:0.6;"></i> Jaipur</p>
+        <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <button class="details-btn" data-target="details2">
+            <i class="fas fa-chevron-down"></i> Show Details
+        </button>
+        <div class="details" id="details2">
+            <p><strong><i class="fas fa-envelope"></i> Email:</strong> priya@gmail.com</p>
+            <p><strong><i class="fas fa-phone"></i> Phone:</strong> 9123456789</p>
+            <p><strong><i class="fas fa-university"></i> College:</strong> XYZ University</p>
+            <p><strong><i class="fas fa-book"></i> Course:</strong> Computer Science</p>
+            <p><strong><i class="fas fa-home"></i> Address:</strong> Jaipur</p>
+        </div>
+    </div>
+
+    <!-- Student 3 -->
+    <div class="card" data-name="Aman Singh" data-course="BBA" data-city="Mumbai">
+        <img src="https://i.pravatar.cc/200?img=15" alt="Aman" />
+        <h2>Aman Singh</h2>
+        <span class="badge-course">BBA</span>
+        <p class="subtitle"><i class="fas fa-map-pin" style="opacity:0.6;"></i> Mumbai</p>
+        <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <button class="details-btn" data-target="details3">
+            <i class="fas fa-chevron-down"></i> Show Details
+        </button>
+        <div class="details" id="details3">
+            <p><strong><i class="fas fa-envelope"></i> Email:</strong> aman@gmail.com</p>
+            <p><strong><i class="fas fa-phone"></i> Phone:</strong> 9874512365</p>
+            <p><strong><i class="fas fa-university"></i> College:</strong> SRM College</p>
+            <p><strong><i class="fas fa-book"></i> Course:</strong> BBA</p>
+            <p><strong><i class="fas fa-home"></i> Address:</strong> Mumbai</p>
+        </div>
+    </div>
+
+    <!-- Student 4 -->
+    <div class="card" data-name="Neha Gupta" data-course="MCA" data-city="Pune">
+        <img src="https://i.pravatar.cc/200?img=45" alt="Neha" />
+        <h2>Neha Gupta</h2>
+        <span class="badge-course">MCA</span>
+        <p class="subtitle"><i class="fas fa-map-pin" style="opacity:0.6;"></i> Pune</p>
+        <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <button class="details-btn" data-target="details4">
+            <i class="fas fa-chevron-down"></i> Show Details
+        </button>
+        <div class="details" id="details4">
+            <p><strong><i class="fas fa-envelope"></i> Email:</strong> neha@gmail.com</p>
+            <p><strong><i class="fas fa-phone"></i> Phone:</strong> 9012345678</p>
+            <p><strong><i class="fas fa-university"></i> College:</strong> Tech Institute</p>
+            <p><strong><i class="fas fa-book"></i> Course:</strong> MCA</p>
+            <p><strong><i class="fas fa-home"></i> Address:</strong> Pune</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer-note">
+    <i class="fas fa-arrow-right" style="opacity:0.6;"></i> Click <strong>Show Details</strong> for more info · <i class="fas fa-moon" style="opacity:0.6;"></i> toggle dark mode
+</div>
+
+<!-- ======= JQUERY + SCRIPT ======= -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    (function($) {
+        "use strict";
+
+        // ---------- toggle details (with icon switch) ----------
+        $(".details-btn").on("click", function() {
+            const targetId = $(this).data("target");
+            const detailsDiv = $("#" + targetId);
+            const btn = $(this);
+
+            // close other open details (optional: keep one open at a time)
+            // $(".details").not(detailsDiv).removeClass("open").slideUp(180);
+            // $(".details-btn").not(btn).each(function() {
+            //     $(this).html('<i class="fas fa-chevron-down"></i> Show Details');
+            // });
+
+            // toggle current
+            const isOpen = detailsDiv.hasClass("open");
+            if (isOpen) {
+                detailsDiv.removeClass("open").slideUp(180);
+                btn.html('<i class="fas fa-chevron-down"></i> Show Details');
+            } else {
+                detailsDiv.addClass("open").slideDown(200);
+                btn.html('<i class="fas fa-chevron-up"></i> Hide Details');
+            }
+        });
+
+        // ---------- search filter (live) ----------
+        $("#search").on("input", function() {
+            const query = $(this).val().toLowerCase().trim();
+            const cards = $(".card");
+
+            let visibleCount = 0;
+            cards.each(function() {
+                const card = $(this);
+                const name = card.data("name")?.toLowerCase() || "";
+                const course = card.data("course")?.toLowerCase() || "";
+                const city = card.data("city")?.toLowerCase() || "";
+                const match = name.includes(query) || course.includes(query) || city.includes(query);
+                if (match || query === "") {
+                    card.show(200);
+                    visibleCount++;
+                } else {
+                    card.hide(180);
+                }
+            });
+
+            // show "no result" if needed
+            const container = $("#studentContainer");
+            container.find(".no-result").remove();
+            if (visibleCount === 0 && query !== "") {
+                container.append(`
+                    <div class="no-result">
+                        <i class="fas fa-search-minus" style="font-size:1.6rem; opacity:0.6; display:block; margin-bottom:0.5rem;"></i>
+                        No students found for "<strong>${query}</strong>"
+                    </div>
+                `);
+            }
+        });
+
+        // ---------- dark mode toggle (with icon swap) ----------
+        const darkToggle = $("#darkToggle");
+        darkToggle.on("click", function() {
+            $("body").toggleClass("dark");
+            const icon = $(this).find("i");
+            if ($("body").hasClass("dark")) {
+                icon.removeClass("fa-moon").addClass("fa-sun");
+                $(this).css("background", "#f1c40f").css("color", "#1a1e2b");
+            } else {
+                icon.removeClass("fa-sun").addClass("fa-moon");
+                $(this).css("background", "").css("color", "");
+            }
+        });
+
+        // (optional) close details when search triggers – no need, keeps UX clean
+
+        // small enhancement: close details on ESC key? not needed
+
+        // ensure details are hidden initially (if any open)
+        $(".details").hide();
+
+        // click on card image? no.
+
+        console.log("✨ Student Directory enhanced with jQuery");
+
+    })(jQuery);
+</script>
+
+</body>
+</html>

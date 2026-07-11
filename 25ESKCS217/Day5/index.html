@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory · enhanced</title>
+
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- subtle custom touch -->
+    <style>
+        body {
+            background: #f4f7fc;
+            transition: background 0.25s, color 0.2s;
+        }
+        .hero {
+            background: linear-gradient(145deg, #e8f0fe 0%, #d4e2f7 100%);
+            padding: 3rem 1rem 2.5rem;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            border: none;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .card-header {
+            border-bottom: 0;
+            padding: 1rem 1.5rem;
+        }
+        .table-hover tbody tr {
+            transition: background 0.2s, transform 0.1s;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #e9f0fe;
+            transform: scale(1.004);
+        }
+        .btn-group-gap .btn {
+            margin-right: 8px;
+            margin-bottom: 6px;
+            border-radius: 40px !important;
+            padding: 0.4rem 1.2rem;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .btn-group-gap .btn:last-child {
+            margin-right: 0;
+        }
+        .footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        #message {
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .highlight-row {
+            background-color: #fff3cd !important;
+            transition: background 0.2s;
+        }
+        .dark-mode {
+            background: #1a1e2b;
+            color: #eef2f7;
+        }
+        .dark-mode .hero {
+            background: linear-gradient(145deg, #262d3f, #1e2537);
+        }
+        .dark-mode .card {
+            background: #262d3f;
+            color: #eef2f7;
+        }
+        .dark-mode .card-header {
+            background: #0d6efd !important;
+        }
+        .dark-mode .table {
+            color: #eef2f7;
+        }
+        .dark-mode .table-hover tbody tr:hover {
+            background: #2f3850;
+        }
+        .dark-mode .table-dark {
+            background: #161c2b;
+        }
+        .dark-mode #studentTable {
+            border-color: #3a435b;
+        }
+        .dark-mode .form-control {
+            background: #2d354a;
+            border-color: #4a546e;
+            color: #f0f4ff;
+        }
+        .dark-mode .form-control:focus {
+            background: #323b53;
+            border-color: #6a7b9e;
+            color: #fff;
+        }
+        .dark-mode .form-control::placeholder {
+            color: #8f99b3;
+        }
+        .dark-mode .btn-outline-light {
+            border-color: #5a6582;
+            color: #d4def5;
+        }
+        .dark-mode .btn-outline-light:hover {
+            background: #3d4763;
+        }
+        .dark-mode footer {
+            background: #121624 !important;
+        }
+        /* tiny extra */
+        #count {
+            font-weight: 700;
+            background: #0d6efd;
+            color: white;
+            padding: 0.15rem 0.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            min-width: 2.2rem;
+        }
+        .dark-mode #count {
+            background: #ffb347;
+            color: #1a1e2b;
+        }
+        #slideBtn i {
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================= NAVBAR (refined) ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-mortarboard-fill me-2"></i>Student Directory
+        </a>
+        <button class="btn btn-outline-light rounded-pill" id="darkMode" style="border-color: rgba(255,255,255,0.3);">
+            <i class="bi bi-moon-stars me-1"></i> Dark
+        </button>
+    </div>
+</nav>
+
+<!-- ================= HERO (slightly polished) ================= -->
+<section class="hero">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">
+            <i class="bi bi-people-fill text-primary me-2"></i>Student Directory
+        </h1>
+        <p class="lead text-secondary">
+            <i class="bi bi-pencil-square me-2"></i>Manage Student Records with jQuery
+        </p>
+        <button class="btn btn-success btn-lg rounded-pill px-5 mt-2 shadow-sm" id="welcomeBtn">
+            <i class="bi bi-hand-thumbs-up me-2"></i>Welcome
+        </button>
+        <h3 id="message" class="mt-4 fst-italic"></h3>
+    </div>
+</section>
+
+<!-- ================= FORM (card + slide) ================= -->
+<div class="container mt-4">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+            <i class="bi bi-person-plus fs-4 me-2"></i>
+            <h3 class="mb-0">Add Student</h3>
+        </div>
+        <div class="card-body" id="formBody">
+            <form id="studentForm" autocomplete="off">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold"><i class="bi bi-person me-1"></i>Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="e.g. Alex Rivera">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold"><i class="bi bi-hash me-1"></i>Roll No</label>
+                        <input type="text" class="form-control" id="roll" placeholder="e.g. 101">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold"><i class="bi bi-book me-1"></i>Course</label>
+                        <input type="text" class="form-control" id="course" placeholder="e.g. Computer Science">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold"><i class="bi bi-geo-alt me-1"></i>City</label>
+                        <input type="text" class="form-control" id="city" placeholder="e.g. New York">
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <button type="submit" class="btn btn-success rounded-pill px-4" id="addStudent">
+                        <i class="bi bi-plus-circle me-1"></i> Add Student
+                    </button>
+                    <button type="button" class="btn btn-outline-info rounded-pill px-4" id="slideBtn">
+                        <i class="bi bi-chevron-up" id="slideIcon"></i> <span id="slideLabel">Hide</span> Form
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SEARCH + COUNT ================= -->
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-primary"></i></span>
+                <input type="text" id="search" class="form-control border-start-0" placeholder="🔍 Search by name, roll, course, city...">
+            </div>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <h5 class="mb-0 d-inline-flex align-items-center gap-2">
+                <i class="bi bi-people"></i> Total : <span id="count">0</span>
+            </h5>
+        </div>
+    </div>
+</div>
+
+<!-- ================= ACTION BUTTONS (compact & enhanced) ================= -->
+<div class="container mt-3">
+    <div class="d-flex flex-wrap align-items-center btn-group-gap">
+        <button class="btn btn-outline-danger" id="hideTable"><i class="bi bi-eye-slash me-1"></i>Hide</button>
+        <button class="btn btn-outline-success" id="showTable"><i class="bi bi-eye me-1"></i>Show</button>
+        <button class="btn btn-outline-warning" id="fadeBtn"><i class="bi bi-arrows-expand me-1"></i>Fade</button>
+        <button class="btn btn-outline-primary" id="highlightBtn"><i class="bi bi-highlighter me-1"></i>Highlight</button>
+        <button class="btn btn-outline-secondary" id="clearHighlightBtn"><i class="bi bi-eraser me-1"></i>Clear Highlight</button>
+    </div>
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="container mt-3" id="tableWrapper">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle" id="studentTable">
+            <thead class="table-dark">
+                <tr>
+                    <th><i class="bi bi-person me-1"></i>Name</th>
+                    <th><i class="bi bi-hash"></i> Roll</th>
+                    <th><i class="bi bi-book"></i> Course</th>
+                    <th><i class="bi bi-geo-alt"></i> City</th>
+                    <th><i class="bi bi-trash3"></i> Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- dynamic rows -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white text-center p-3 mt-5 footer">
+    <h6 class="mb-0 fw-light">
+        <i class="bi bi-code-square me-2"></i>Student Directory · jQuery enhanced
+    </h6>
+</footer>
+
+
+<!-- jQuery + Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    (function($) {
+        "use strict";
+
+        // ---------- sample data ----------
+        const defaultStudents = [
+            { name: "Ashna Kumari", roll: "101", course: "Computer Science", city: "kanpur" },
+            { name: "James Okafor", roll: "202", course: "Engineering", city: "Lagos" },
+            { name: "Maria Santos", roll: "303", course: "Medicine", city: "Manila" },
+            { name: "Liam Chen", roll: "404", course: "Business", city: "Singapore" }
+        ];
+
+        let students = [];
+
+        // ---------- helper: render table ----------
+        function renderTable(filter = "") {
+            const tbody = $("#tableBody");
+            tbody.empty();
+            const q = filter.trim().toLowerCase();
+            const filtered = q === "" ? students : students.filter(s =>
+                s.name.toLowerCase().includes(q) ||
+                s.roll.toLowerCase().includes(q) ||
+                s.course.toLowerCase().includes(q) ||
+                s.city.toLowerCase().includes(q)
+            );
+            if (filtered.length === 0) {
+                tbody.append(`<tr><td colspan="5" class="text-muted fst-italic">No students found</td></tr>`);
+            } else {
+                filtered.forEach((s, idx) => {
+                    const row = `
+                        <tr data-index="${idx}" data-name="${s.name}" data-roll="${s.roll}" data-course="${s.course}" data-city="${s.city}">
+                            <td><span class="fw-medium">${s.name}</span></td>
+                            <td>${s.roll}</td>
+                            <td>${s.course}</td>
+                            <td>${s.city}</td>
+                            <td><button class="btn btn-sm btn-outline-danger deleteBtn"><i class="bi bi-x-circle"></i></button></td>
+                        </tr>
+                    `;
+                    tbody.append(row);
+                });
+            }
+            // update count
+            $("#count").text(students.length);
+            // re-bind delete events
+            $(".deleteBtn").off("click").on("click", function() {
+                const row = $(this).closest("tr");
+                const name = row.data("name");
+                const roll = row.data("roll");
+                // remove from array (by roll + name)
+                const idx = students.findIndex(s => s.roll === roll && s.name === name);
+                if (idx !== -1) {
+                    students.splice(idx, 1);
+                    renderTable($("#search").val());
+                    // feedback
+                    $("#message").text(`🗑️ Removed ${name}`).fadeIn(150).delay(1800).fadeOut(400);
+                }
+            });
+            // re-apply highlight if class was toggled
+            if ($("#studentTable").hasClass("highlight-on")) {
+                $("tbody tr").addClass("highlight-row");
+            }
+        }
+
+        // ---------- init ----------
+        function init() {
+            students = defaultStudents.map(s => ({ ...s }));
+            renderTable();
+        }
+
+        // ---------- add student ----------
+        $("#studentForm").on("submit", function(e) {
+            e.preventDefault();
+            const name = $("#name").val().trim();
+            const roll = $("#roll").val().trim();
+            const course = $("#course").val().trim();
+            const city = $("#city").val().trim();
+            if (!name || !roll || !course || !city) {
+                $("#message").text("⚠️ Please fill all fields.").css("color", "#d9534f").fadeIn(150).delay(2000).fadeOut(400);
+                return;
+            }
+            // check duplicate roll
+            if (students.some(s => s.roll === roll)) {
+                $("#message").text(`⚠️ Roll ${roll} already exists.`).css("color", "#d9534f").fadeIn(150).delay(2000).fadeOut(400);
+                return;
+            }
+            students.push({ name, roll, course, city });
+            renderTable($("#search").val());
+            $("#studentForm")[0].reset();
+            $("#message").text(`✅ ${name} added!`).css("color", "#2b8c4a").fadeIn(150).delay(1800).fadeOut(400);
+        });
+
+        // ---------- search ----------
+        $("#search").on("input", function() {
+            renderTable($(this).val());
+        });
+
+        // ---------- slide form ----------
+        let formVisible = true;
+        $("#slideBtn").on("click", function() {
+            $("#formBody").slideToggle(280, function() {
+                formVisible = !formVisible;
+                $("#slideIcon").toggleClass("bi-chevron-up bi-chevron-down");
+                $("#slideLabel").text(formVisible ? "Hide" : "Show");
+            });
+        });
+
+        // ---------- hide / show table ----------
+        $("#hideTable").on("click", function() {
+            $("#studentTable").fadeOut(200);
+        });
+        $("#showTable").on("click", function() {
+            $("#studentTable").fadeIn(250);
+        });
+
+        // ---------- fade table ----------
+        $("#fadeBtn").on("click", function() {
+            $("#studentTable").fadeToggle(350);
+        });
+
+        // ---------- highlight rows (toggle) ----------
+        $("#highlightBtn").on("click", function() {
+            $("#studentTable").toggleClass("highlight-on");
+            $("tbody tr").toggleClass("highlight-row");
+        });
+        $("#clearHighlightBtn").on("click", function() {
+            $("#studentTable").removeClass("highlight-on");
+            $("tbody tr").removeClass("highlight-row");
+        });
+
+        // ---------- welcome message (with style) ----------
+        $("#welcomeBtn").on("click", function() {
+            const msg = $("#message");
+            msg.text("👋 Welcome to Student Directory! Use the form to add records.")
+                .css("color", "#0d6efd")
+                .fadeIn(200)
+                .delay(2200)
+                .fadeOut(500);
+        });
+
+        // ---------- dark mode (toggle) ----------
+        let dark = false;
+        $("#darkMode").on("click", function() {
+            dark = !dark;
+            $("body").toggleClass("dark-mode", dark);
+            const btn = $(this);
+            if (dark) {
+                btn.html('<i class="bi bi-sun me-1"></i> Light');
+                btn.removeClass("btn-outline-light").addClass("btn-warning");
+            } else {
+                btn.html('<i class="bi bi-moon-stars me-1"></i> Dark');
+                btn.removeClass("btn-warning").addClass("btn-outline-light");
+            }
+        });
+
+        // ---------- extra: if user clicks message, clear ----------
+        $("#message").on("click", function() {
+            $(this).fadeOut(200);
+        });
+
+        // start
+        init();
+
+    })(jQuery);
+</script>
+
+</body>
+</html>

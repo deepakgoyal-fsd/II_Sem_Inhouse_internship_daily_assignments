@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Left Side -->
+    <div class="left-section">
+
+        <h1>🎉 Tech Fest 2026</h1>
+
+        <p>
+            Welcome to the biggest technical event of the year.
+            Register now and participate in exciting competitions,
+            workshops, and coding challenges.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=700"
+             alt="Event">
+
+    </div>
+
+    <!-- Right Side -->
+    <div class="form-section">
+
+        <h2>Event Registration</h2>
+
+        <form id="registrationForm">
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" placeholder="Mobile Number" maxlength="10" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-building-columns"></i>
+                <input type="text" placeholder="College Name" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-calendar-days"></i>
+                <input type="date" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-list"></i>
+
+                <select required>
+
+                    <option value="">Select Event</option>
+
+                    <option>Hackathon</option>
+
+                    <option>Web Design Competition</option>
+
+                    <option>Coding Challenge</option>
+
+                    <option>Poster Presentation</option>
+
+                    <option>Technical Quiz</option>
+
+                    <option>Robotics</option>
+
+                </select>
+            </div>
+
+            <div class="gender">
+
+                <label>Gender</label>
+
+                <input type="radio" name="gender"> Male
+
+                <input type="radio" name="gender"> Female
+
+                <input type="radio" name="gender"> Other
+
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-image"></i>
+                <input type="file">
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Password" id="password">
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Confirm Password">
+            </div>
+
+            <div class="input-box">
+                <textarea placeholder="Tell us about yourself..."></textarea>
+            </div>
+
+            <button type="submit">
+                Register Now
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="script1.js"></script>
+
+</body>
+</html>

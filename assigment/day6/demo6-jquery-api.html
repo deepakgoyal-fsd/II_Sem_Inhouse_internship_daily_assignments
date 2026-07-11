@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery API Demo</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<h2>User Names</h2>
+<div id="output">Loading...</div>
+
+<script>
+$.get('https://jsonplaceholder.typicode.com/users', function(data) {
+  let html = "";
+  data.forEach(user => {
+    html += `<p>${user.name}</p>`;
+  });
+  $('#output').html(html);
+});
+</script>
+
+</body>
+</html>

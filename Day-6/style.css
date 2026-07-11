@@ -1,0 +1,349 @@
+/* ===========================
+   Google Font
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f9fa;
+    color:#333;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+
+.navbar{
+    transition:.4s;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-link{
+    color:#fff !important;
+    margin-left:15px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#ffd43b !important;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(135deg,#0d6efd,#6f42c1);
+    color:white;
+    padding:100px 0;
+}
+
+.hero h1{
+    font-size:55px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+.hero img{
+    border-radius:20px;
+    transition:.4s;
+}
+
+.hero img:hover{
+    transform:scale(1.05);
+}
+
+.btn-warning{
+    padding:12px 30px;
+    font-size:18px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn-warning:hover{
+    transform:translateY(-5px);
+}
+
+/* ===========================
+   Section Heading
+=========================== */
+
+section h2{
+    font-size:40px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+section p{
+    color:#666;
+}
+
+/* ===========================
+   Feature Cards
+=========================== */
+
+.feature-card{
+    border:none;
+    border-radius:20px;
+    transition:.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.feature-card i{
+    transition:.4s;
+}
+
+.feature-card:hover i{
+    transform:scale(1.2);
+}
+
+/* ===========================
+   Testimonial Cards
+=========================== */
+
+.testimonial-card{
+    border:none;
+    border-radius:20px;
+    transition:.4s;
+    margin-bottom:20px;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.testimonial-card img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+}
+
+/* ===========================
+   Pricing Cards
+=========================== */
+
+.price-card{
+    border:none;
+    border-radius:20px;
+    padding:20px;
+    transition:.4s;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.price-card:hover{
+    transform:translateY(-10px);
+}
+
+.price-card h1{
+    font-size:45px;
+    margin:20px 0;
+    color:#0d6efd;
+}
+
+.price-card ul{
+    padding:0;
+}
+
+.price-card li{
+    list-style:none;
+    margin:12px 0;
+}
+
+.popular{
+    border:3px solid #dc3545;
+    transform:scale(1.05);
+}
+
+/* ===========================
+   FAQ
+=========================== */
+
+.accordion-button{
+    font-weight:600;
+}
+
+.accordion-button:not(.collapsed){
+    background:#0d6efd;
+    color:white;
+}
+
+/* ===========================
+   Contact
+=========================== */
+
+.social-icons{
+    margin-top:30px;
+}
+
+.social-icons a{
+    display:inline-block;
+    width:60px;
+    height:60px;
+    line-height:60px;
+    margin:10px;
+    border-radius:50%;
+    background:white;
+    color:#0d6efd;
+    font-size:28px;
+    text-align:center;
+    transition:.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.social-icons a:hover{
+    background:#0d6efd;
+    color:white;
+    transform:translateY(-8px);
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+    font-size:16px;
+}
+
+/* ===========================
+   Back To Top Button
+=========================== */
+
+#topBtn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:#0d6efd;
+    color:white;
+    font-size:22px;
+    display:none;
+    cursor:pointer;
+    transition:.4s;
+    z-index:1000;
+}
+
+#topBtn:hover{
+    background:#0b5ed7;
+    transform:scale(1.1);
+}
+
+/* ===========================
+   Animation
+=========================== */
+
+.fade-in{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade-in.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero img{
+    margin-top:40px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:34px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+section h2{
+    font-size:30px;
+}
+
+.nav-link{
+    margin-left:0;
+}
+
+.social-icons a{
+    width:50px;
+    height:50px;
+    line-height:50px;
+    font-size:22px;
+}
+
+.price-card{
+    margin-top:20px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+    padding-top:120px;
+}
+
+.hero h1{
+    font-size:28px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.btn-warning{
+    width:100%;
+}
+
+section{
+    padding:60px 0;
+}
+
+}

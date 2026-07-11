@@ -1,0 +1,14 @@
+.container{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    
+     gap: 20px;
+   height: 10px;
+}
+.box{
+  background-color: burlywood;
+}

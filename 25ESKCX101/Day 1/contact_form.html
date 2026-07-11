@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Me — Contact Form</title>
+</head>
+<body>
+
+    <p><a href="first.html">&larr; Back to portfolio</a></p>
+
+    <header>
+        <h1>Interested in Hiring?</h1>
+        <p>Fill out the form below and I will get back to you within 24–48 hours.</p>
+    </header>
+
+    <hr>
+
+    <main>
+        <form action="mailto:jainsaksham0022@gmail.com" method="post" enctype="text/plain">
+
+            <fieldset>
+                <legend><b>Your Details</b></legend>
+
+                <p>
+                    <label for="fullName">Full Name *</label><br>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required minlength="2" size="40">
+                </p>
+
+                <p>
+                    <label for="email">Work Email *</label><br>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" required size="40">
+                </p>
+
+                <p>
+                    <label for="phone">Phone Number</label><br>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" pattern="[\+]?[\d\s\-]{10,15}" size="40">
+                </p>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend><b>Job Details</b></legend>
+
+                <p>
+                    <label for="company">Company Name *</label><br>
+                    <input type="text" id="company" name="company" placeholder="Acme Inc." required size="40">
+                </p>
+
+                <p>
+                    <label for="role">Position / Role *</label><br>
+                    <input type="text" id="role" name="role" placeholder="e.g. Software Developer Intern" required size="40">
+                </p>
+
+                <p>
+                    <label for="employmentType">Employment Type *</label><br>
+                    <select id="employmentType" name="employmentType" required>
+                        <option value="" disabled selected>Select type</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="internship">Internship</option>
+                        <option value="contract">Contract / Freelance</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="message">Message / Job Details *</label><br>
+                    <textarea id="message" name="message" rows="6" cols="50" placeholder="Describe the role, tech stack, and what you are looking for..." required minlength="20"></textarea><br>
+                    <small><i>Minimum 20 characters. Include salary range or timeline if available.</i></small>
+                </p>
+            </fieldset>
+
+            <br>
+
+            <p>
+                <input type="checkbox" id="consent" name="consent" value="yes" required>
+                <label for="consent">I confirm this is a genuine hiring inquiry and I agree to be contacted. *</label>
+            </p>
+
+            <p>
+                <button type="submit">Send Hiring Inquiry</button>
+                <button type="reset">Clear Form</button>
+            </p>
+
+        </form>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p><b>Saksham Jain</b> | Software Developer | jainsaksham0022@gmail.com | 9352875008</p>
+    </footer>
+
+</body>
+</html>

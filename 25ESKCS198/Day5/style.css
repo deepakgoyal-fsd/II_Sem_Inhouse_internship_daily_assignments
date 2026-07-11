@@ -1,0 +1,320 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===========================
+BODY
+=========================== */
+
+body{
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    min-height:100vh;
+    transition:.5s;
+}
+
+/* ===========================
+NAVBAR
+=========================== */
+
+.navbar{
+    padding:15px;
+}
+
+.navbar-brand{
+    font-size:28px;
+    letter-spacing:1px;
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+    text-align:center;
+    color:white;
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:55px;
+    font-weight:bold;
+}
+
+.hero p{
+    font-size:22px;
+}
+
+/* ===========================
+CARD
+=========================== */
+
+.card{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    background:rgba(255,255,255,.90);
+    backdrop-filter:blur(15px);
+}
+
+.card-header{
+    font-size:25px;
+    font-weight:bold;
+}
+
+/* ===========================
+FORM
+=========================== */
+
+label{
+    font-weight:600;
+}
+
+.form-control{
+    border-radius:10px;
+    padding:12px;
+    transition:.3s;
+}
+
+.form-control:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 10px rgba(13,110,253,.3);
+}
+
+/* ===========================
+BUTTONS
+=========================== */
+
+button{
+    margin:5px;
+    transition:.4s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+.btn{
+    border-radius:10px;
+}
+
+/* ===========================
+SEARCH
+=========================== */
+
+#search{
+    border-radius:40px;
+    padding:14px;
+}
+
+/* ===========================
+TABLE
+=========================== */
+
+table{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+thead{
+    font-size:18px;
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:hover{
+    background:#dff6ff;
+    cursor:pointer;
+    transform:scale(1.01);
+}
+
+/* ===========================
+DELETE BUTTON
+=========================== */
+
+.deleteBtn{
+    border:none;
+    background:red;
+    color:white;
+    padding:8px 15px;
+    border-radius:8px;
+}
+
+.deleteBtn:hover{
+    background:darkred;
+}
+
+/* ===========================
+HIGHLIGHT CLASS
+=========================== */
+
+.highlight{
+    background:yellow !important;
+    color:black;
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+    margin-top:80px;
+    font-size:18px;
+}
+
+/* ===========================
+DARK MODE
+=========================== */
+
+.dark{
+
+    background:#121212;
+    color:white;
+
+}
+
+.dark .card{
+
+    background:#1f1f1f;
+    color:white;
+
+}
+
+.dark table{
+
+    background:#222;
+    color:white;
+
+}
+
+.dark .table-dark{
+
+    background:#000;
+
+}
+
+.dark input{
+
+    background:#333;
+    color:white;
+    border:1px solid #555;
+
+}
+
+.dark .form-control::placeholder{
+
+    color:#ddd;
+
+}
+
+.dark footer{
+
+    background:#000 !important;
+
+}
+
+.dark .navbar{
+
+    background:#000 !important;
+
+}
+
+/* ===========================
+ANIMATION
+=========================== */
+
+.card{
+
+animation:slide 1s;
+
+}
+
+@keyframes slide{
+
+0%{
+
+transform:translateY(50px);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+.hero h1{
+
+animation:zoom 1.5s;
+
+}
+
+@keyframes zoom{
+
+0%{
+
+transform:scale(.5);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.navbar-brand{
+
+font-size:22px;
+
+}
+
+button{
+
+width:100%;
+margin-top:10px;
+
+}
+
+}

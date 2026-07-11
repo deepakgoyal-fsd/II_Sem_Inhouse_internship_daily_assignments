@@ -1,0 +1,264 @@
+// ---------- State ----------
+const STORAGE_KEY = 'internshipTasks';
+let tasks = loadTasks();
+let currentStatusFilter = 'all';
+let currentPriorityFilter = 'all';
+let searchTerm = '';
+
+// ---------- Elements ----------
+const taskForm = document.getElementById('taskForm');
+const editIdInput = document.getElementById('editId');
+const titleInput = document.getElementById('title');
+const descInput = document.getElementById('desc');
+const dueDateInput = document.getElementById('dueDate');
+const priorityInput = document.getElementById('priority');
+const mentorInput = document.getElementById('mentor');
+const submitBtn = document.getElementById('submitBtn');
+const cancelEditBtn = document.getElementById('cancelEdit');
+
+const taskListEl = document.getElementById('taskList');
+const emptyStateEl = document.getElementById('emptyState');
+const statusTabs = document.getElementById('statusTabs');
+const priorityFilter = document.getElementById('priorityFilter');
+const searchInput = document.getElementById('searchInput');
+const dateStampEl = document.getElementById('dateStamp');
+
+// ---------- Init ----------
+dateStampEl.textContent = new Date().toLocaleDateString(undefined, {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+render();
+
+// ---------- Storage ----------
+function loadTasks() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    console.error('Failed to load tasks', e);
+    return [];
+  }
+}
+
+function saveTasks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+}
+
+function uid() {
+  return 't_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+}
+
+// ---------- Form submit (add / edit) ----------
+taskForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const title = titleInput.value.trim();
+  if (!title) return;
+
+  const editId = editIdInput.value;
+
+  if (editId) {
+    const task = tasks.find(t => t.id === editId);
+    if (task) {
+      task.title = title;
+      task.desc = descInput.value.trim();
+      task.dueDate = dueDateInput.value;
+      task.priority = priorityInput.value;
+      task.mentor = mentorInput.value.trim();
+    }
+    exitEditMode();
+  } else {
+    tasks.unshift({
+      id: uid(),
+      title,
+      desc: descInput.value.trim(),
+      dueDate: dueDateInput.value,
+      priority: priorityInput.value,
+      mentor: mentorInput.value.trim(),
+      status: 'pending',
+      createdAt: Date.now()
+    });
+  }
+
+  saveTasks();
+  taskForm.reset();
+  priorityInput.value = 'medium';
+  render();
+});
+
+cancelEditBtn.addEventListener('click', () => {
+  exitEditMode();
+  taskForm.reset();
+  priorityInput.value = 'medium';
+});
+
+function exitEditMode() {
+  editIdInput.value = '';
+  submitBtn.textContent = '＋ Add to log';
+  cancelEditBtn.hidden = true;
+}
+
+function enterEditMode(task) {
+  editIdInput.value = task.id;
+  titleInput.value = task.title;
+  descInput.value = task.desc || '';
+  dueDateInput.value = task.dueDate || '';
+  priorityInput.value = task.priority;
+  mentorInput.value = task.mentor || '';
+  submitBtn.textContent = 'Save changes';
+  cancelEditBtn.hidden = false;
+  titleInput.focus();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---------- Task actions ----------
+function deleteTask(id) {
+  if (!confirm('Delete this task from the log?')) return;
+  tasks = tasks.filter(t => t.id !== id);
+  saveTasks();
+  render();
+}
+
+function cycleStatus(id) {
+  const task = tasks.find(t => t.id === id);
+  if (!task) return;
+  const order = ['pending', 'progress', 'done'];
+  const next = order[(order.indexOf(task.status) + 1) % order.length];
+  task.status = next;
+  saveTasks();
+  render();
+}
+
+// ---------- Filters ----------
+statusTabs.addEventListener('click', (e) => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  currentStatusFilter = btn.dataset.status;
+  render();
+});
+
+priorityFilter.addEventListener('change', () => {
+  currentPriorityFilter = priorityFilter.value;
+  render();
+});
+
+searchInput.addEventListener('input', () => {
+  searchTerm = searchInput.value.trim().toLowerCase();
+  render();
+});
+
+// ---------- Helpers ----------
+function isOverdue(task) {
+  if (!task.dueDate || task.status === 'done') return false;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return new Date(task.dueDate) < today;
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return 'No due date';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+const statusLabel = { pending: 'Pending', progress: 'In progress', done: 'Done' };
+
+// ---------- Render ----------
+function render() {
+  // filter
+  let filtered = tasks.filter(t => {
+    if (currentStatusFilter !== 'all' && t.status !== currentStatusFilter) return false;
+    if (currentPriorityFilter !== 'all' && t.priority !== currentPriorityFilter) return false;
+    if (searchTerm) {
+      const haystack = (t.title + ' ' + t.desc + ' ' + t.mentor).toLowerCase();
+      if (!haystack.includes(searchTerm)) return false;
+    }
+    return true;
+  });
+
+  // sort: overdue first, then by due date ascending, then no-date last
+  filtered.sort((a, b) => {
+    const aOverdue = isOverdue(a), bOverdue = isOverdue(b);
+    if (aOverdue !== bOverdue) return aOverdue ? -1 : 1;
+    if (!a.dueDate && !b.dueDate) return b.createdAt - a.createdAt;
+    if (!a.dueDate) return 1;
+    if (!b.dueDate) return -1;
+    return new Date(a.dueDate) - new Date(b.dueDate);
+  });
+
+  taskListEl.innerHTML = '';
+  emptyStateEl.hidden = tasks.length !== 0;
+
+  if (tasks.length !== 0 && filtered.length === 0) {
+    taskListEl.innerHTML = `<div class="empty-state"><p class="empty-title">No matching entries.</p><p class="empty-sub">Try a different filter or search term.</p></div>`;
+  }
+
+  filtered.forEach(task => {
+    taskListEl.appendChild(buildTaskCard(task));
+  });
+
+  updateStats();
+}
+
+function buildTaskCard(task) {
+  const overdue = isOverdue(task);
+  const card = document.createElement('div');
+  card.className = `task-card priority-${task.priority} status-${task.status}`;
+
+  card.innerHTML = `
+    <div class="task-top">
+      <div>
+        <p class="task-title">${escapeHtml(task.title)}</p>
+        ${task.desc ? `<p class="task-desc">${escapeHtml(task.desc)}</p>` : ''}
+      </div>
+      <div class="task-actions">
+        <button class="icon-btn" data-action="edit" title="Edit">✎</button>
+        <button class="icon-btn" data-action="delete" title="Delete">🗑</button>
+      </div>
+    </div>
+    <div class="task-bottom">
+      <div class="task-meta">
+        <span class="badge badge-${task.priority}">${task.priority}</span>
+        ${overdue ? '<span class="badge badge-overdue">Overdue</span>' : ''}
+        <span>📅 ${formatDate(task.dueDate)}</span>
+        ${task.mentor ? `<span>👤 ${escapeHtml(task.mentor)}</span>` : ''}
+      </div>
+      <button class="stamp stamp-${task.status}" data-action="cycle">${statusLabel[task.status]}</button>
+    </div>
+  `;
+
+  card.querySelector('[data-action="edit"]').addEventListener('click', () => enterEditMode(task));
+  card.querySelector('[data-action="delete"]').addEventListener('click', () => deleteTask(task.id));
+  card.querySelector('[data-action="cycle"]').addEventListener('click', () => cycleStatus(task.id));
+
+  return card;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+// ---------- Stats ----------
+function updateStats() {
+  const total = tasks.length;
+  const pending = tasks.filter(t => t.status === 'pending').length;
+  const progress = tasks.filter(t => t.status === 'progress').length;
+  const done = tasks.filter(t => t.status === 'done').length;
+  const overdue = tasks.filter(isOverdue).length;
+
+  document.getElementById('countPending').textContent = pending;
+  document.getElementById('countProgress').textContent = progress;
+  document.getElementById('countDone').textContent = done;
+  document.getElementById('countOverdue').textContent = overdue;
+
+  const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+  document.getElementById('pctText').textContent = pct + '%';
+
+  const circumference = 326.7; // 2 * PI * 52
+  const offset = circumference - (pct / 100) * circumference;
+  document.getElementById('ringFill').style.strokeDashoffset = offset;
+}

@@ -1,0 +1,203 @@
+/* ==========================
+   LOADING SCREEN
+========================== */
+
+window.addEventListener("load", function () {
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+
+    },2000);
+
+});
+
+
+/* ==========================
+   COUNTDOWN TIMER
+========================== */
+
+const eventDate = new Date("February 20, 2026 09:00:00").getTime();
+
+const timer = setInterval(function(){
+
+    const now = new Date().getTime();
+
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance/(1000*60*60*24));
+
+    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+    const seconds = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if(distance < 0){
+
+        clearInterval(timer);
+
+        document.getElementById("countdown").innerHTML="<h2>🎉 PARVAH HAS STARTED 🎉</h2>";
+
+    }
+
+},1000);
+
+
+/* ==========================
+   MUSIC
+========================== */
+
+const music = document.getElementById("bgMusic");
+
+const musicBtn = document.getElementById("musicBtn");
+
+let playing = false;
+
+musicBtn.addEventListener("click",function(){
+
+    if(!playing){
+
+        music.play();
+
+        musicBtn.innerHTML="🔊";
+
+        playing=true;
+
+    }
+
+    else{
+
+        music.pause();
+
+        musicBtn.innerHTML="🎵";
+
+        playing=false;
+
+    }
+
+});
+
+
+/* ==========================
+   TICKET SELECTION
+========================== */
+
+let selectedPass="";
+
+const ticketButtons=document.querySelectorAll(".ticket-btn");
+
+ticketButtons.forEach(function(button){
+
+button.addEventListener("click",function(){
+
+selectedPass=this.parentElement.querySelector("h2").innerText;
+
+alert(selectedPass+" Selected!");
+
+});
+
+});
+
+
+/* ==========================
+   FORM SUBMISSION
+========================== */
+
+document.getElementById("registrationForm")
+
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name=this.querySelector("input[type='text']").value;
+
+localStorage.setItem("username",name);
+
+localStorage.setItem("ticket",selectedPass);
+
+window.location.href="success.html";
+
+});
+
+
+/* ==========================
+   SCROLL ANIMATION
+========================== */
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+
+cards.forEach(card=>{
+
+const position=card.getBoundingClientRect().top;
+
+const screen=window.innerHeight;
+
+if(position<screen-100){
+
+card.style.opacity="1";
+
+card.style.transform="translateY(0px)";
+
+}
+
+});
+
+});
+
+
+cards.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(80px)";
+
+card.style.transition=".8s";
+
+});
+
+
+/* ==========================
+   SMOOTH NAVIGATION
+========================== */
+
+document.querySelectorAll("nav a").forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href"))
+
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+
+/* ==========================
+   GLOW EFFECT
+========================== */
+
+document.addEventListener("mousemove",(e)=>{
+
+document.body.style.backgroundPosition=
+
+e.clientX/30+"px "+e.clientY/30+"px";
+
+});

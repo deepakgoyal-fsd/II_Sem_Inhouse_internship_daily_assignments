@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student profile page </title>
+
+    <!-- profile section-->
+    <center>
+    <h1> Khushboo goyal </h1>
+    </center>
+
+       <img src="myphoto.tmp" width="150"
+
+        <div>
+         <p><strong>College:</strong> Swami Keshvanand Institute of Technology (SKIT), Jaipur</p>
+
+         <p><strong>Branch:</strong> Computer Science Engineering</p>
+
+        <p><strong>Year:</strong> Second Year (B.Tech)</p>
+
+        </div>
+
+        <!-- about me -->
+
+        <h2><strong> About me </strong></h2>
+
+        <p>
+Hello! I'm Khushboo, a Computer Science student at SKIT Jaipur.
+I enjoy learning new things, solving problems, and working on creative projects.
+My goal is to grow as a software developer and build useful applications.
+</p> 
+
+        <!-- education -->
+
+        <h2><strong> Education  </strong></h2>
+
+        <table border="1" cellpadding="10">
+
+                <thead>
+                    <tr>
+                        <th> Qualification </th>
+
+                        <th> Institution</th>
+
+
+                        <th> Year</th>
+
+
+                        <th> pencentage/cgpa</th>
+                        
+
+                    </tr>
+                </thead>
+                 
+                <tbody>
+                    <tr>
+                         <td>Class 10th </td>
+                         <td> Apel academy </td>
+                         <td> 2022-23 </td>
+                         <td>   94.14% </td>
+                    </tr>
+
+                      <tr>
+                         <td>Class 12th </td>
+                         <td> Apel academy </td>
+                         <td> 2024-25 </td>
+                         <td>   91.40% </td>
+                    </tr>
+
+                    
+                      <tr>
+                         <td> 1st year </td>
+                         <td> skit jaipur  </td>
+                         <td> 2025-26 </td>
+                         <td>   8.15cgpa </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!-- skills -->
+             <h2><strong> Skills </strong></h2>
+
+            <ol>
+                <li>c++ programming</li>
+                <li>python</li>
+                <li>html</li>
+                <li>problem solving</li>
+
+            </ol>
+
+            <!-- my fav website -->
+             <h2><strong> My favorite website </strong></h2>
+
+            <a href="https://www.matiks.in/" > Click me </a>
+            
+            <!--contact page-->
+             <h2><strong>Contact Me</strong></h2>
+
+    <form>
+
+        <label>Full Name:</label><br>
+        <input type="text" placeholder="Enter your name"><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" placeholder="Enter your email"><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="tel" placeholder="Enter your phone number"><br><br>
+
+        <label>Gender:</label><br>
+
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+
+        <br><br>
+
+        <label>Message:</label><br>
+
+        <textarea rows="5" cols="40"
+            placeholder="Write your message here"></textarea>
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Khushboo | Student Profile Page</p>
+    </footer>
+
+        
+</head>
+<body>
+    
+</body>
+</html>

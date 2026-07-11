@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apple Banana Counter</title>
+<style>
+  body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #000000;
+    color: #ffffff;
+    padding: 40px;
+  }
+  h1 {
+    color: #ffffff;
+  }
+  #timerSelect button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  #timerSelect button:hover {
+    background: #45a049;
+  }
+
+  /* This box is the "playground" where the fruit moves around */
+  #fruitBox {
+    margin: 30px auto 0;
+    position: relative;      /* needed so the image can be positioned inside it */
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    background: #111111;
+    border: 2px dashed #555;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;      /* lets us place it at random top/left */
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  img:hover {
+    transform: scale(1.05);
+  }
+  img.fading {
+    opacity: 0;               /* used for the disappear effect */
+  }
+
+  .counters {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  .counters p {
+    margin: 8px 0;
+  }
+  #timeLeft {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-top: 15px;
+  }
+  #result {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Apple  vs Banana  Counter</h1>
+
+  <!-- Timer select buttons -->
+  <div id="timerSelect">
+    <button onclick="startGame(5)">5 Minute</button>
+    <button onclick="startGame(10)">10 Minute</button>
+  </div>
+
+  <!-- Game area, shuru me hidden -->
+  <div id="gameArea" class="hidden">
+    <p id="timeLeft"></p>
+
+    <div id="fruitBox">
+      <img id="fruitImg" src="" alt="fruit">
+    </div>
+
+    <div class="counters">
+      <p>Apple Count: <span id="appleCount">0</span></p>
+      <p>Banana Count: <span id="bananaCount">0</span></p>
+    </div>
+  </div>
+
+  <p id="result"></p>
+
+<script>
+  let appleCount = 0;
+  let bananaCount = 0;
+  let currentFruit = "";
+  let timerInterval;
+  let disappearTimeout;
+  let totalSeconds = 0;
+  let gameRunning = false;
+
+  const appleURL = "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg";
+  const bananaURL = "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg";
+
+  const fruitImg = document.getElementById("fruitImg");
+  const fruitBox = document.getElementById("fruitBox");
+  const appleCountEl = document.getElementById("appleCount");
+  const bananaCountEl = document.getElementById("bananaCount");
+  const timeLeftEl = document.getElementById("timeLeft");
+  const resultEl = document.getElementById("result");
+  const gameArea = document.getElementById("gameArea");
+  const timerSelect = document.getElementById("timerSelect");
+
+  // Fruit ko fruitBox ke andar random jagah pe rakhne ka function
+  function moveToRandomPosition() {
+    const boxWidth = fruitBox.clientWidth;
+    const boxHeight = fruitBox.clientHeight;
+    const imgSize = 120;
+
+    const maxLeft = Math.max(boxWidth - imgSize, 0);
+    const maxTop = Math.max(boxHeight - imgSize, 0);
+
+    const randomLeft = Math.floor(Math.random() * maxLeft);
+    const randomTop = Math.floor(Math.random() * maxTop);
+
+    fruitImg.style.left = randomLeft + "px";
+    fruitImg.style.top = randomTop + "px";
+  }
+
+  // Random image dikhane ka function (naye position ke saath)
+  function showRandomFruit() {
+    if (!gameRunning) return;
+
+    const randomNum = Math.random();
+    if (randomNum < 0.5) {
+      fruitImg.src = appleURL;
+      currentFruit = "apple";
+    } else {
+      fruitImg.src = bananaURL;
+      currentFruit = "banana";
+    }
+
+    moveToRandomPosition();
+    fruitImg.classList.remove("fading");
+
+    // Agar 1.5 second me click nahi hua, to image gayab ho jayegi aur nayi jagah dikhegi
+    clearTimeout(disappearTimeout);
+    disappearTimeout = setTimeout(function () {
+      fruitImg.classList.add("fading");
+      setTimeout(showRandomFruit, 200); // thoda wait karke nayi fruit dikhao
+    }, 1500);
+  }
+
+  // Image click hone par counter badhana
+  fruitImg.addEventListener("click", function () {
+    if (!gameRunning) return;
+
+    if (currentFruit === "apple") {
+      appleCount++;
+      appleCountEl.textContent = appleCount;
+    } else {
+      bananaCount++;
+      bananaCountEl.textContent = bananaCount;
+    }
+
+    // Click karte hi turant gayab ho kar nayi jagah dikhe
+    fruitImg.classList.add("fading");
+    clearTimeout(disappearTimeout);
+    setTimeout(showRandomFruit, 150);
+  });
+
+  // Game start karne ka function
+  function startGame(minutes) {
+    // Reset everything
+    appleCount = 0;
+    bananaCount = 0;
+    appleCountEl.textContent = 0;
+    bananaCountEl.textContent = 0;
+    resultEl.textContent = "";
+    gameRunning = true;
+
+    totalSeconds = minutes * 60;
+
+    timerSelect.classList.add("hidden");
+    gameArea.classList.remove("hidden");
+
+    showRandomFruit();
+    updateTimerDisplay();
+
+    timerInterval = setInterval(function () {
+      totalSeconds--;
+      updateTimerDisplay();
+
+      if (totalSeconds <= 0) {
+        endGame();
+      }
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    const mins = Math.floor(totalSeconds / 60);
+    const secs = totalSeconds % 60;
+    timeLeftEl.textContent = "Time Left: " + mins + "m " + (secs < 10 ? "0" + secs : secs) + "s";
+  }
+
+  function endGame() {
+    gameRunning = false;
+    clearInterval(timerInterval);
+    clearTimeout(disappearTimeout);
+    fruitImg.src = "";
+    gameArea.classList.add("hidden");
+    timerSelect.classList.remove("hidden");
+
+    resultEl.textContent = "Game Over! Apple: " + appleCount + " | Banana: " + bananaCount;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College admission form </title>
+    <link rel="stylesheet"
+        href="stylesheet.css">
+
+</head>
+<body>
+     <div class="container">
+        <h1 style="color: deeppink;"> College admission form </h1>
+        <form>
+        <label>
+                <div>
+            Name:
+            <input type="text" id ="txtname" required
+            place holder="Enter your name" />
+                </div>
+        </label>
+        <label>
+             <div>`
+        Email:
+        <input type ="email" id="txtemail" required
+         place holder="Enter your email" />
+             </div>
+         </label>
+         <label>
+                 <div>
+             Phone no :
+             <input type ="text " id="txtphone" required
+         place holder="Enter your phone " />
+         </div>
+
+         </lable>
+         <label>
+         <div>
+            Gender :
+         <input type ="radio" id=" chkMale" name=" gender" checked />
+         <label for="chkMale">Male</label>
+
+         <input type ="radio" id=" chkFemale" name=" gender" checked />
+         <label for="chkFemale">Female</label>
+
+         <input type ="radio" id=" chkTransgender" name=" gender" checked />
+         <label for="chkTransgender">Transgender</label>
+          
+         <input type ="radio" id=" chkOther" name=" gender" checked />
+         <label for="chkOther">Other</label>
+         </div>
+         </label>
+
+         <label>
+            <div>
+
+         <label for="dtDOB">DOB</label>
+         <input type ="date" id="dtDOB" name ="dtDOB" />
+         </div>
+         </label>
+         <div>
+    
+
+    <div>
+        <label for="course">Course</label>
+        <select id="course" name="course">
+            <option>B.Tech</option>
+            <option>M.Tech</option>
+            <option>MBA</option>
+            <option>B.Sc</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="txtAddress">Address</label><br>
+        <textarea id="txtAddress" name="txtAddress"></textarea>
+    </div>
+
+    <div>
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </div>
+</form>
+</div>
+
+</body>
+</html>
+          
+        

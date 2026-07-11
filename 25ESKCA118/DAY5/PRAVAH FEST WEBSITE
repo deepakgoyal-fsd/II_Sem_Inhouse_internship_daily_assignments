@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PARVAH 2026 | Multiverse of Seven Days</title>
+
+<link rel="stylesheet" href="pravah.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src ="pravah.js"
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+<!-- Loading Screen -->
+
+<div id="loader">
+
+<div class="portal"></div>
+
+<h2>Entering The Multiverse...</h2>
+
+</div>
+
+<!-- Navigation -->
+
+<nav>
+
+<div class="logo">
+
+PARVAH 2026
+
+</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#events">Events</a></li>
+
+<li><a href="#tickets">Tickets</a></li>
+
+<li><a href="#register">Register</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+
+<div class="overlay">
+
+<h3>Annual College Fest</h3>
+
+<h1>PARVAH</h1>
+
+<h2>🌌 Multiverse of Seven Days 🌌</h2>
+
+<p>
+
+Seven Days.
+
+Seven Universes.
+
+One Unforgettable Experience.
+
+</p>
+
+<div id="countdown">
+
+<div>
+
+<h1 id="days">00</h1>
+
+<p>Days</p>
+
+</div>
+
+<div>
+
+<h1 id="hours">00</h1>
+
+<p>Hours</p>
+
+</div>
+
+<div>
+
+<h1 id="minutes">00</h1>
+
+<p>Minutes</p>
+
+</div>
+
+<div>
+
+<h1 id="seconds">00</h1>
+
+<p>Seconds</p>
+
+</div>
+
+</div>
+
+<a href="#register">
+
+<button>
+
+Register Now
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section class="about">
+
+<h2>
+
+Welcome To PARVAH
+
+</h2>
+
+<p>
+
+Experience an extraordinary journey through seven different worlds filled with technology,
+
+music, dance, gaming, sports, fashion and innovation.
+
+Each day opens a new universe full of excitement.
+
+</p>
+
+</section>
+
+<!-- Events -->
+
+<section id="events">
+
+<h1 class="heading">
+
+Seven Universes
+
+</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>🌍 Day 1</h2>
+
+<h3>Opening Ceremony</h3>
+
+<p>
+
+Inauguration, Flash Mob,
+
+Celebrity Welcome
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>💻 Day 2</h2>
+
+<h3>Hackathon</h3>
+
+<p>
+
+Coding Battles,
+
+AI Challenge,
+
+Web Design
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎮 Day 3</h2>
+
+<h3>Gaming Arena</h3>
+
+<p>
+
+BGMI,
+
+Valorant,
+
+FIFA,
+
+Chess
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎵 Day 4</h2>
+
+<h3>Music & Dance</h3>
+
+<p>
+
+Battle of Bands,
+
+Solo Dance,
+
+Group Dance
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎨 Day 5</h2>
+
+<h3>Creative World</h3>
+
+<p>
+
+Fashion Show,
+
+Art,
+
+Photography
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🏆 Day 6</h2>
+
+<h3>Sports</h3>
+
+<p>
+
+Cricket,
+
+Football,
+
+Badminton,
+
+Athletics
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎉 Day 7</h2>
+
+<h3>Grand Finale</h3>
+
+<p>
+
+DJ Night,
+
+Prize Distribution,
+
+Celebrity Performance
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Ticket Section -->
+
+<section id="tickets">
+
+<h1 class="heading">
+
+Choose Your Pass
+
+</h1>
+
+<div class="ticket-container">
+
+<div class="ticket normal">
+
+<h2>🎫 Normal Pass</h2>
+
+<h1>₹499</h1>
+
+<ul>
+
+<li>✔ Entry for 7 Days</li>
+
+<li>✔ All Cultural Events</li>
+
+<li>✔ Gaming Access</li>
+
+<li>✔ Workshops</li>
+
+</ul>
+
+<button class="ticket-btn">
+
+Select
+
+</button>
+
+</div>
+
+<div class="ticket vip">
+
+<h2>👑 VIP Pass</h2>
+
+<h1>₹999</h1>
+
+<ul>
+
+<li>✔ Everything in Normal</li>
+
+<li>✔ VIP Lounge</li>
+
+<li>✔ Front Row Seating</li>
+
+<li>✔ Meet Celebrity Guests</li>
+
+<li>✔ Exclusive Merchandise</li>
+
+</ul>
+
+<button class="ticket-btn">
+
+Select
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Registration -->
+
+<section id="register">
+
+<h1 class="heading">
+
+Register Now
+
+</h1>
+
+<form id="registrationForm">
+
+<input
+
+type="text"
+
+placeholder="Full Name"
+
+required>
+
+<input
+
+type="text"
+
+placeholder="Branch"
+
+required>
+
+<input
+
+type="email"
+
+placeholder="Email Address"
+
+required>
+
+<input
+
+type="tel"
+
+placeholder="Phone Number"
+
+required>
+
+<select required>
+
+<option value="">
+
+Select Pass
+
+</option>
+
+<option>
+
+Normal Pass ₹499
+
+</option>
+
+<option>
+
+VIP Pass ₹999
+
+</option>
+
+</select>
+
+<button type="submit">
+
+Complete Registration
+
+</button>
+
+</form>
+
+</section>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Successful</title>
+</head>
+<body style="background:black;color:white;text-align:center;padding-top:100px;">
+
+<h1>🎉 Registration Successful!</h1>
+
+<h2>Welcome to PARVAH 2026</h2>
+
+<p>Your registration has been completed successfully.</p>
+
+<a href="index.html">
+<button>Go Back</button>
+</a>
+
+</body>
+</html>
+
+<!-- Music Button -->
+
+<button id="musicBtn">
+
+🎵
+
+</button>
+
+<audio id="bgMusic" loop>
+
+<source src="music.mp3">
+
+</audio>
+
+<!-- Footer -->
+
+<footer>
+
+<h2>
+
+PARVAH 2026
+
+</h2>
+
+<p>
+
+Multiverse Of Seven Days
+
+</p>
+
+<p>
+
+Designed with ❤️ by Team PARVAH
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

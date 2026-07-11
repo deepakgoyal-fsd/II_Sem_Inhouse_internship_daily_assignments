@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Task Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="corkboard">
+
+    <!-- Folder tab header -->
+    <header class="header">
+      <div class="header-tab">
+        <span class="tab-pin"></span>
+        <h1>Internship Task Log</h1>
+        <p class="subtitle">Track what's assigned, what's in motion, what's signed off.</p>
+      </div>
+      <div class="header-meta" id="dateStamp"></div>
+    </header>
+
+    <div class="layout">
+
+      <!-- Sidebar: stats -->
+      <aside class="sidebar">
+        <div class="card stats-card">
+          <h2 class="card-label">Progress</h2>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" class="ring">
+              <circle cx="60" cy="60" r="52" class="ring-track"/>
+              <circle cx="60" cy="60" r="52" class="ring-fill" id="ringFill"/>
+            </svg>
+            <div class="ring-center">
+              <span id="pctText">0%</span>
+              <small>done</small>
+            </div>
+          </div>
+          <ul class="stat-list">
+            <li><span class="dot dot-pending"></span>Pending <b id="countPending">0</b></li>
+            <li><span class="dot dot-progress"></span>In progress <b id="countProgress">0</b></li>
+            <li><span class="dot dot-done"></span>Done <b id="countDone">0</b></li>
+            <li><span class="dot dot-overdue"></span>Overdue <b id="countOverdue">0</b></li>
+          </ul>
+        </div>
+
+        <div class="card form-card">
+          <h2 class="card-label">New Entry</h2>
+          <form id="taskForm">
+            <input type="hidden" id="editId">
+
+            <label for="title">Task</label>
+            <input type="text" id="title" placeholder="e.g. Draft weekly report" required>
+
+            <label for="desc">Details</label>
+            <textarea id="desc" rows="2" placeholder="Optional notes..."></textarea>
+
+            <div class="form-row">
+              <div>
+                <label for="dueDate">Due date</label>
+                <input type="date" id="dueDate">
+              </div>
+              <div>
+                <label for="priority">Priority</label>
+                <select id="priority">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+            </div>
+
+            <label for="mentor">Assigned by</label>
+            <input type="text" id="mentor" placeholder="e.g. Mentor name / team">
+
+            <button type="submit" class="btn-primary" id="submitBtn">＋ Add to log</button>
+            <button type="button" class="btn-ghost" id="cancelEdit" hidden>Cancel edit</button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- Main: task list -->
+      <main class="main">
+        <div class="toolbar">
+          <div class="tabs" id="statusTabs">
+            <button class="tab active" data-status="all">All</button>
+            <button class="tab" data-status="pending">Pending</button>
+            <button class="tab" data-status="progress">In progress</button>
+            <button class="tab" data-status="done">Done</button>
+          </div>
+          <div class="toolbar-right">
+            <select id="priorityFilter">
+              <option value="all">All priorities</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <input type="search" id="searchInput" placeholder="Search tasks...">
+          </div>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <p class="empty-title">The log is empty.</p>
+          <p class="empty-sub">Add your first task from the form on the left.</p>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+:root{
+	--accent-1: #0d6efd;
+	--accent-2: #6f42c1;
+	--accent-3: #0ea5a4;
+}
+body{font-family:Inter, Arial, Helvetica, sans-serif;margin:0;background:linear-gradient(180deg,#f7fbff,#f3f7ff);color:#0f1724}
+.hero{padding:80px 0;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));}
+.feature{min-height:140px}
+.bg-gradient1{background:linear-gradient(135deg,var(--accent-1),#2b8cff)}
+.bg-gradient2{background:linear-gradient(135deg,#6f42c1,#9b59ff)}
+.bg-gradient3{background:linear-gradient(135deg,#0ea5a4,#38bdf8)}
+.hero .display-5{color:#fff}
+.hero p.lead{color:#e6e9ff}
+section{padding-top:48px;padding-bottom:48px}
+footer{margin-top:32px}
+
+@media (max-width:767px){
+	.hero{padding:48px 0}
+}

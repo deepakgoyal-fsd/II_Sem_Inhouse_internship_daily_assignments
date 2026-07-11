@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Registration Form</title>
+<link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+
+<div class="container">
+  <h1>Student Registration Form</h1>
+  <p class="sub">Please fill all the required fields</p>
+
+  <form id="regForm">
+
+    <h3>Personal Details</h3>
+    <label>First Name *</label>
+    <input type="text" placeholder="Ravi" required>
+
+    <label>Last Name *</label>
+    <input type="text" placeholder="Sharma" required>
+
+    <label>Date of Birth *</label>
+    <input type="date" required>
+
+    <label>Gender *</label>
+    <div class="gender-options">
+      <label><input type="radio" name="gender" required> Male</label>
+      <label><input type="radio" name="gender"> Female</label>
+      <label><input type="radio" name="gender"> Other</label>
+    </div>
+
+    <h3>Contact Details</h3>
+    <label>Email *</label>
+    <input type="email" placeholder="ravi@example.com" required>
+
+    <label>Mobile Number *</label>
+    <input type="tel" placeholder="9876543210" maxlength="10" required>
+
+    <label>Address *</label>
+    <textarea rows="3" placeholder="House no, street, city" required></textarea>
+
+   
+
+
+    <label>12th Percentage *</label>
+    <input type="number" placeholder="87.5" min="0" max="100" step="0.01" required>
+
+    <h3>Documents</h3>
+    <label>Upload Photo *</label>
+    <input type="file" accept="image/*" required>
+
+    <div class="terms">
+      <input type="checkbox" id="agree" required>
+      <label style="display:inline; font-weight:normal;" for="agree">I agree to the terms and conditions</label>
+    </div>
+
+    <button type="submit">Submit</button>
+    <div id="successMsg">✅ Form submitted successfully!</div>
+  </form>
+</div>
+
+<script>
+  document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("successMsg").style.display = "block";
+  });
+</script>
+
+</body>
+</html>

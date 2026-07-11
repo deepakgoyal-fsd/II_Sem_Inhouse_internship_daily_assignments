@@ -1,0 +1,94 @@
+body {
+  font-family: 'Poppins', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #8591ba;
+  color: #e2e8f0;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b 70%);
+}
+
+.eyebrow {
+  color: #38bdf8;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+}
+
+.feature-card,
+.quick-view,
+.student-card {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  text-align: center;
+}
+
+  .student-card .card-body {
+    padding-top: 1.5rem;
+  }
+
+  .student-card .toggle-btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+.feature-card p,
+.quick-view p,
+.student-card p,
+.student-card small {
+  color: #cbd5e1;
+}
+
+.bg-card-side {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+}
+
+.avatar {
+  width: 76px;
+  height: 76px;
+  line-height: 76px;
+  border-radius: 50%;
+  background: #38bdf8;
+  color: #5174c6;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+body,
+.card {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.form-floating-dark .form-floating > .form-control,
+.form-floating-dark .form-floating > .form-select {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: #e2e8f0;
+}
+
+.form-floating-dark .form-floating > label {
+  color: #94a3b8;
+}
+
+.form-control-dark:focus,
+.form-select-dark:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 0.15rem rgba(56, 189, 248, 0.25);
+}
+
+.student-card .collapse-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.student-card .collapse-details.expanded {
+  margin-top: 1rem;
+}
+
+.toggle-btn {
+  min-width: 120px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Click Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #2a7bc3;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #2e7d32;
+        }
+
+        .fruits {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .fruit-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .fruit-card img {
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .fruit-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .fruit-card img:active {
+            transform: scale(0.95);
+        }
+
+        .fruit-card p {
+            margin-top: 12px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .fruit-counter {
+            margin-top: 8px;
+            font-size: 1.2rem;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <h1><i>Fruit Click Game</i></h1>
+    <p>Click the apple or banana to increase the counter!</p>
+
+    <div class="fruits">
+        <div class="fruit-card">
+            <img src="../apple.jpg" alt="Apple" onclick="clickFruit('apple')">
+            <p>Apple</p>
+            <p class="fruit-counter">Clicks: <span id="appleCount">0</span></p>
+        </div>
+        <div class="fruit-card">
+            <img src="../banana.jpg" alt="Banana" onclick="clickFruit('banana')">
+            <p>Banana</p>
+            <p class="fruit-counter">Clicks: <span id="bananaCount">0</span></p>
+        </div>
+    </div>
+
+    <script >
+        let appleCount = 0;
+let bananaCount = 0;
+
+function clickFruit(fruit) {
+    if (fruit === "apple") {
+        appleCount++;
+        document.getElementById("appleCount").textContent = appleCount;
+    } else if (fruit === "banana") {
+        bananaCount++;
+        document.getElementById("bananaCount").textContent = bananaCount;
+    }
+}
+    </script>
+</body>
+</html>

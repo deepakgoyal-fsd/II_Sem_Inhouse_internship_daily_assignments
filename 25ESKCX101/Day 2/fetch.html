@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Users</h2>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <input type="text" id="searchBar" class="form-control" placeholder="Search by name...">
+            </div>
+        </div>
+
+        <div id="container" class="row g-4"></div>
+    </div>
+
+    <!-- Details Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">User Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoV7hZC55XU8zWZBg+HGf+D9NCXWKD" crossorigin="anonymous"></script>
+
+    <script>
+        let usersData = [];
+
+        $(document).ready(function () {
+            $.getJSON('https://jsonplaceholder.typicode.com/users', function (data) {
+                usersData = data;
+                renderUsers(usersData);
+            }).fail(function (err) {
+                console.error('Failed to fetch users:', err);
+            });
+
+            $('#searchBar').on('keyup', function () {
+                const query = $(this).val().toLowerCase();
+                const filtered = usersData.filter(user => user.name.toLowerCase().includes(query));
+                renderUsers(filtered);
+            });
+
+            $('#container').on('click', '.show-details-btn', function () {
+                const id = $(this).data('id');
+                const user = usersData.find(u => u.id === id);
+                if (user) showDetails(user);
+            });
+        });
+
+        function renderUsers(data) {
+            let html = "";
+
+            for (let i = 0; i < data.length; i++) {
+                const user = data[i];
+                html += `
+                    <div class="col-md-4">
+                        <div class="card shadow h-100">
+                            <img src="https://i.pravatar.cc/150?img=${user.id}" class="card-img-top mt-3" style="width:80px; height:80px; border-radius:50%; margin:16px auto 0;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">${user.name}</h5>
+                                <p class="card-text mb-1"><strong>Username:</strong> ${user.username}</p>
+                                <p class="card-text mb-3"><strong>Email:</strong> ${user.email}</p>
+                                <button class="btn btn-outline-primary btn-sm show-details-btn" data-id="${user.id}">Show Details</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            $('#container').html(html || '<p class="text-center w-100">No users found.</p>');
+        }
+
+        function showDetails(user) {
+            $('#modalTitle').text(user.name + "'s Details");
+
+            const body = `
+                <div class="text-center mb-3">
+                    <img src="https://i.pravatar.cc/150?img=${user.id}" style="width:90px; height:90px; border-radius:50%;">
+                </div>
+                <p><strong>Username:</strong> ${user.username}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Phone:</strong> ${user.phone}</p>
+                <p><strong>Website:</strong> ${user.website}</p>
+                <hr>
+                <p><strong>Address:</strong><br>
+                    ${user.address.street}, ${user.address.suite}<br>
+                    ${user.address.city}, ${user.address.zipcode}<br>
+                    <small class="text-muted">Lat: ${user.address.geo.lat}, Lng: ${user.address.geo.lng}</small>
+                </p>
+                <hr>
+                <p><strong>Company:</strong> ${user.company.name}</p>
+                <p><em>"${user.company.catchPhrase}"</em></p>
+                <p><small class="text-muted">${user.company.bs}</small></p>
+            `;
+
+            $('#modalBody').html(body);
+            $('#detailsModal').modal('show');
+        }
+    </script>
+</body>
+</html>

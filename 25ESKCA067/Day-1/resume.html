@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeraj Tolani - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #0f172a; /* Deep professional slate */
+            --accent-color: #2563eb; /* Tech blue accent */
+            --text-main: #1f2937;
+            --text-light: #4b5563;
+            --bg-color: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 2rem;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 3rem 4rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-top: 8px solid var(--accent-color);
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 1.75rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Reusable Classes */
+        .item {
+            margin-bottom: 1.25rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 1.25rem;
+            color: var(--text-light);
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        /* Skills specific */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 0.6rem 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .skill-category {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Print Settings for ATS/PDF export */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                border-top: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <header>
+            <h1>Dheeraj Tolani</h1>
+            <div class="contact-info">
+                <span><a href="mailto:skillnest05@gmail.com">skillnest05@gmail.com</a></span> |
+                <span><a href="https://skillnest-beige.vercel.app/" target="_blank">Portfolio</a></span> |
+                <span><a href="https://www.linkedin.com/in/dheeraj-tolani-643a00322" target="_blank">LinkedIn</a></span> |
+                <span><a href="https://github.com/skillnest05" target="_blank">GitHub</a></span>
+            </div>
+        </header>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Swami Keshvanand Institute of Technology (SKIT)</span>
+                    <span class="item-date">Jaipur, India</span>
+                </div>
+                <div class="item-header">
+                    <span class="item-subtitle">Bachelor of Technology in Artificial Intelligence</span>
+                    <span class="item-date">Expected 2029</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-category">Languages:</span>
+                <span>C++ (OOP, Data Structures & Algorithms), JavaScript, Python</span>
+                
+                <span class="skill-category">Frontend & UI:</span>
+                <span>React.js, Vite, HTML5/CSS3, Tailwind, Recharts, Framer Motion, Intuitive UI ("Vibe Coding")</span>
+                
+                <span class="skill-category">Backend & DB:</span>
+                <span>Node.js, Express, FastAPI, MongoDB Atlas, Firebase, SQLite</span>
+                
+                <span class="skill-category">AI & Tools:</span>
+                <span>Hugging Face Transformers, spaCy, NLTK, Git/GitHub, EmailJS</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Technical Projects</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">EssayAI — Multi-Aspect Semantic Evaluator</span>
+                </div>
+                <div class="item-subtitle">Tech Stack: React 18, Vite, Python (FastAPI), Hugging Face Transformers, spaCy, SQLite</div>
+                <ul>
+                    <li>Developed an AI-powered automated essay evaluation platform utilizing deep semantic analysis to assess coherence, argument strength, and factual correctness.</li>
+                    <li>Engineered a custom Natural Language Processing (NLP) pipeline using Python, spaCy, and Hugging Face Transformers to evaluate lexical diversity and discourse mapping.</li>
+                    <li>Built a highly performant backend with FastAPI, reducing evaluation processing time to under 3 seconds per essay.</li>
+                    <li>Designed a dynamic, modern frontend interface using React 18 and Recharts to visualize a 5-dimensional scoring system via interactive radar charts.</li>
+                    <li>Implemented advanced integrity tools to detect LLM-generated hallucinations, paraphrased plagiarism, and argumentative bias.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">MindCareCluster</span>
+                </div>
+                <div class="item-subtitle">Tech Stack: MongoDB Atlas, MERN Stack</div>
+                <ul>
+                    <li>Architected and deployed a secure backend database infrastructure utilizing MongoDB Atlas for reliable data handling.</li>
+                    <li>Integrated seamless frontend-to-backend communication workflows to ensure a highly responsive and intuitive user experience.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Competitions</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Founder / Project Lead – Vaultic</span>
+                    <span class="item-date">IIT Jodhpur</span>
+                </div>
+                <ul>
+                    <li>Pitched the business model for a Decentralized Intellectual Property Liquidity Protocol at the Prometeo Business Darbar competition.</li>
+                    <li>Demonstrated strong presentation, entrepreneurial, and technical strategy skills to a panel of expert judges.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Hackathon Competitor & Technical Lead</span>
+                </div>
+                <ul>
+                    <li><strong>HackJKLU 5.0 (Inter-IIT Tech Meet):</strong> Competed in this multi-domain hackathon, developing and architecting the comprehensive EssayAI platform to solve complex educational scaling challenges.</li>
+                    <li><strong>Hackingly Hack:</strong> Participated in a specialized cloud-based hackathon, focusing on scalable backend infrastructure, robust deployment strategies, and rapid prototyping.</li>
+                    <li><strong>OpenAI State Hack:</strong> Leveraged advanced artificial intelligence models and APIs to build and deploy an innovative, market-ready application under strict time constraints.</li>
+                    <li><strong>House of Hack:</strong> Directed team "Code Hustlers" to successfully shortlist for the highly competitive final offline round of a 24-hour hackathon.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications & Extracurriculars</h2>
+            <div class="item">
+                <ul>
+                    <li><strong>Certifications:</strong> Completed the rigorous 5-day "AI Agents Intensive" program offered by Google.</li>
+                    <li><strong>Athletics & Discipline:</strong> Highly active in home fitness routines and physically intensive outdoor sports (Football, Volleyball, Karate, Badminton), fostering discipline, teamwork, and resilience.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        
+    <form class="form">
+        <h1 class="heading">Registeration Form</h1>
+        <div class="field">
+                <label for="mobileno">Mobile No</label>
+        <input type="tel" id="mobileno" placeholder="Enter your mobile no..." required>
+        </div>
+        <div class="field">
+         <label for="pass">Password</label>
+        <input type="password" id="pass" name="pass" minlength="6" maxlength="15" placeholder="Type your password..." required>
+        </div>
+        <div class="field">
+         <label for="ConfPass">Confirm Password</label>
+        <input type="password" id="ConfPass" name="pass" maxlength="15" minlength="6" placeholder="Type your confirm password..." required>
+        </div>
+        <div class="field">
+        <label for="name">
+            Full Name:-
+        </label>
+        <input type="text" id="name" name="name" placeholder="Type your full name..." required>
+        </div>
+        <div class="field">
+        <label for="email">Email:-</label>
+        <input type="email" id="email" name="email" placeholder="Type your email..." required>
+        </div>
+        <div class="field">
+        <label for="gender">Gender:-</label>
+        <select id="gender">Male
+            <option value="">Select Option</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        </div>
+        <div class="field">
+        <label for="dob">DOB</label>
+        <input type="date" id="dob">
+       </div>
+        <div class="field">
+            
+        <label>Hobbies:-</label>
+        <div class="hobby">
+        <input type="checkbox" name="hobby">
+        <label>Music</label>
+        </div>
+         <div class="hobby">
+        <input type="checkbox" name="hobby">
+        <label>Sports</label>
+        </div>
+        <div class="hobby">
+        <input type="checkbox" name="hobby">
+        <label>Study</label>
+        </div>
+        </div>
+        <div class="field">
+        <label for="10th">10th Percentage:</label>
+        <select id="10th" name="10th">
+        <option value="">Select Option</option>
+        <option value="grade">Grade</option>
+        <option value="percentage">Percentage</option>
+        <option value="cgpa">CGPA</option>
+        </select>
+        <input type="text" max="100" min="0" placeholder="Enter Marks">
+        </div>
+        <div class="field">
+        <label for="12th">12th Percentage:</label>
+        <select id="12th" name="12th">
+        <option value="">Select Option</option>
+        <option value="grade">Grade</option>
+        <option value="percentage">Percentage</option>
+        <option value="cgpa">CGPA</option>
+        </select>
+        <input type="text" max="100" min="0" placeholder="Enter Marks">
+        </div>
+        <div class="field">
+       <label for="college">College CGPA:</label>
+        <select id="college" name="college">
+        <option value="">Select Year</option>
+        <option value="1st">1st</option>
+        <option value="2nd">2nd</option>
+        <option value="3rd">3rd</option>
+        <option value="4th">4th</option>
+        </select>
+        <input type="text" max="10" min="0" placeholder="Enter Marks">
+         </div>
+         <div class="field">
+            <label>Result PDF</label>
+            <input type="file">
+       </div>
+        <div class="field">
+        <label>Address</label>
+        <textarea rows="4" cols="30"></textarea>
+        </div>
+        <button type="submit">Register</button>
+       
+
+    </form>
+    
+    <script src="script.js"></script>
+</body>
+</html>

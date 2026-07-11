@@ -1,0 +1,48 @@
+body{
+    background-color:rgb(158, 161, 212)
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form{
+    border:2px solid black;
+    border-radius: 10px;
+    width: 500px;
+    padding: 30px;
+   
+}
+.field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+label{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.heading{
+    text-align: center;
+    
+    margin-bottom: 20px;
+}
+input,select,textarea{
+   padding: 10px;
+   font-size: 16px;
+   width: 100%;
+   box-sizing: border-box;
+}
+.hobby{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+.hobby label{
+    margin: 0;
+}
+.hobby input{
+    width: auto;
+}

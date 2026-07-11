@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+    }
+
+    /* Navigation bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: rgb(192, 136, 14);
+    }
+
+    .login-btn {
+      background-color: blue;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .login-btn:hover {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Logo</div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#features">Our features</a></li>
+    </ul>
+
+    <button class="login-btn">Login</button>
+  </nav>
+
+  <!-- Page sections (just for testing links) -->
+  <section id="home">
+    <h2 style="padding:20px;">Home Section</h2>
+    <a href="https://www.tesla.com"></a>
+  </section>
+
+  <section id="about">
+    <h2 style="padding:20px;">About us Section</h2>
+  </section>
+
+  <section id="features">
+    <h2 style="padding:20px;">Our features Section</h2>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fruit Game</title>
+
+<style>
+
+body{
+    position:relative;
+    height:100vh;
+    margin:0;
+    overflow:hidden;
+    font-family:Arial;
+    text-align:center;
+}
+
+img{
+    width:100px;
+    position:absolute;
+    cursor:pointer;
+    display:none;
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    margin:10px;
+}
+
+#message{
+    font-size:25px;
+    color:red;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Fruit Catch Game</h2>
+
+<button id="startBtn" onclick="startGame()">Start Game</button>
+
+<h3>Time : <span id="timer">30</span></h3>
+
+<p>Apple : <span id="apple">0</span></p>
+
+<p>Banana : <span id="banana">0</span></p>
+
+<p id="message"></p>
+
+<img id="appleImg"
+src="Apple.jpeg"
+onclick="clickImage('apple',this)"
+alt="Apple">
+
+<img id="bananaImg"
+src="Banana.jpeg"
+onclick="clickImage('banana',this)"
+alt="Banana">
+
+<script>
+
+let apple=0;
+let banana=0;
+let time=30;
+let interval;
+
+function randomPosition(img){
+
+img.style.left=Math.random()*(window.innerWidth-120)+"px";
+img.style.top=Math.random()*(window.innerHeight-180)+"px";
+
+}
+
+function startGame(){
+
+apple=0;
+banana=0;
+time=30;
+
+document.getElementById("apple").innerText=0;
+document.getElementById("banana").innerText=0;
+document.getElementById("timer").innerText=30;
+document.getElementById("message").innerText="";
+
+document.getElementById("startBtn").style.display="none";
+
+let images=document.querySelectorAll("img");
+
+images.forEach(img=>{
+
+img.style.display="block";
+img.style.pointerEvents="auto";
+randomPosition(img);
+
+});
+
+interval=setInterval(function(){
+
+time--;
+
+document.getElementById("timer").innerText=time;
+
+if(time==0){
+
+clearInterval(interval);
+
+images.forEach(img=>{
+
+img.style.pointerEvents="none";
+
+});
+
+document.getElementById("message").innerHTML=
+"🎉 Game Over!<br>Apple = "+apple+
+"<br>Banana = "+banana;
+
+document.getElementById("startBtn").innerText="Restart Game";
+document.getElementById("startBtn").style.display="inline";
+
+}
+
+},1000);
+
+}
+
+function clickImage(type,img){
+
+if(type=="apple"){
+
+apple++;
+document.getElementById("apple").innerText=apple;
+
+}
+else{
+
+banana++;
+document.getElementById("banana").innerText=banana;
+
+}
+
+randomPosition(img);
+
+}
+
+</script>
+
+</body>
+</html>

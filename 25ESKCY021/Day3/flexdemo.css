@@ -1,0 +1,25 @@
+.container{
+    border:black;
+    font:bold;
+    color:red;
+    padding:inherit;
+}
+display flex::after{
+    align-item: center;
+    background: whitesmoke;
+    color: black;
+    
+}
+.box{
+    flex:1;
+    min width: 150p;
+    background: white;
+    color::after
+    display:flex;
+    justify-content:center;
+    align-item:center;
+    font-size: 20px;
+    font-weight:bold;
+    border-radius:8px;
+
+}

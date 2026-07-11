@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAH '26 — Navras, The Nine Emotions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+/* ============================================
+   PRAVAH '26 — NAVRAS edition — design tokens
+   ============================================ */
+:root{
+  --bg:#170B3B;
+  --surface:#221351;
+  --surface-alt:#2C1A64;
+  --gold:#E8B64A;
+  --text:#F3EFFA;
+  --muted:#A99FC7;
+  --border:rgba(243,239,250,0.10);
+  --radius:16px;
+
+  /* the nine rasas */
+  --r-shringara:#E85A7A;   /* love */
+  --r-hasya:#F0C23E;       /* laughter */
+  --r-karuna:#6FA8DC;      /* compassion */
+  --r-raudra:#D6483F;      /* anger */
+  --r-veera:#E8752A;       /* courage */
+  --r-bhayanaka:#8577C4;   /* fear */
+  --r-bibhatsya:#7A9B5A;   /* disgust */
+  --r-adbhuta:#E8B64A;     /* wonder */
+  --r-shanta:#4AA88A;      /* peace */
+}
+*{box-sizing:border-box;}
+body{
+  background:
+    radial-gradient(1100px 550px at 8% -8%, rgba(232,182,74,0.10), transparent 58%),
+    radial-gradient(900px 500px at 100% 0%, rgba(133,119,196,0.16), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:'Manrope', sans-serif;
+  min-height:100vh;
+}
+h1,h2,h3,.display-font{ font-family:'Fraunces', serif; letter-spacing:-0.01em; }
+.mono{ font-family:'JetBrains Mono', monospace; }
+
+.navbar-pravah{ background:rgba(23,11,59,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+.navbar-pravah .navbar-brand{ font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem; color:var(--text) !important; }
+.navbar-pravah .navbar-brand span{ color:var(--gold); }
+.navbar-pravah .nav-link{ color:var(--muted) !important; font-weight:500; margin:0 6px; cursor:pointer; }
+.navbar-pravah .nav-link:hover, .navbar-pravah .nav-link.active{ color:var(--text) !important; }
+.btn-accent{ background:linear-gradient(135deg, var(--gold), #C9922E); color:#1A0E3F; border:none; font-weight:700; border-radius:10px; padding:.55rem 1.3rem; transition:transform .15s ease, box-shadow .15s ease; }
+.btn-accent:hover{ color:#1A0E3F; transform:translateY(-2px); box-shadow:0 10px 25px rgba(232,182,74,0.30); }
+.btn-outline-light{ border-color:var(--border) !important; color:var(--text) !important; }
+
+.hero{ padding:90px 0 60px; position:relative; }
+.eyebrow{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-size:.8rem; letter-spacing:.18em; text-transform:uppercase; }
+.hero h1{ font-size:clamp(2.5rem, 5.6vw, 4.6rem); font-weight:600; line-height:1.05; margin:14px 0; }
+.hero h1 em{ font-style:italic; color:var(--gold); }
+.hero p.lead{ color:var(--muted); max-width:540px; font-size:1.08rem; }
+.hero-stats{ display:flex; gap:36px; margin-top:38px; flex-wrap:wrap; }
+.hero-stats .stat b{ font-family:'Fraunces', serif; font-size:1.9rem; display:block; color:var(--text); }
+.hero-stats .stat span{ color:var(--muted); font-size:.8rem; font-family:'JetBrains Mono', monospace; letter-spacing:.05em; }
+
+/* Navras wheel — signature element */
+.wheel-wrap{ display:flex; flex-direction:column; align-items:center; }
+.wheel{
+  width:260px; height:260px; border-radius:50%; position:relative;
+  background: conic-gradient(
+    var(--r-shringara) 0turn .1111turn,
+    var(--r-hasya) .1111turn .2222turn,
+    var(--r-karuna) .2222turn .3333turn,
+    var(--r-raudra) .3333turn .4444turn,
+    var(--r-veera) .4444turn .5555turn,
+    var(--r-bhayanaka) .5555turn .6666turn,
+    var(--r-bibhatsya) .6666turn .7777turn,
+    var(--r-adbhuta) .7777turn .8888turn,
+    var(--r-shanta) .8888turn 1turn
+  );
+  box-shadow: 0 0 0 1px var(--border), 0 30px 60px rgba(0,0,0,0.35);
+}
+.wheel::after{
+  content:""; position:absolute; inset:22%; border-radius:50%;
+  background:var(--bg); display:flex; align-items:center; justify-content:center;
+}
+.wheel-center{
+  position:absolute; inset:22%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:2;
+}
+.wheel-center b{ font-family:'Fraunces', serif; font-size:1.15rem; }
+.wheel-center span{ font-family:'JetBrains Mono', monospace; font-size:.62rem; color:var(--muted); letter-spacing:.1em; margin-top:2px;}
+.wheel-caption{ color:var(--muted); font-size:.82rem; margin-top:18px; text-align:center; max-width:260px; }
+
+.section-label{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; }
+.section-title{ font-size:2rem; font-weight:600; margin-bottom:8px; }
+.section-sub{ color:var(--muted); margin-bottom:36px; }
+
+/* Rasa legend grid */
+.rasa-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; height:100%; }
+.rasa-dot{ width:12px; height:12px; border-radius:50%; display:inline-block; margin-right:8px; }
+.rasa-card h4{ font-family:'Fraunces', serif; font-size:1.05rem; margin:0 0 2px 0; }
+.rasa-card .rasa-en{ color:var(--muted); font-size:.78rem; font-family:'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:.05em; }
+.rasa-card p{ color:var(--muted); font-size:.86rem; margin:8px 0 0 0; }
+
+.ticket{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); display:flex; overflow:hidden; margin-bottom:20px; transition:transform .15s ease, border-color .15s ease; }
+.ticket:hover{ transform:translateY(-3px); border-color:rgba(232,182,74,0.35); }
+.ticket-stub{ width:108px; flex-shrink:0; background:var(--surface-alt); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px 6px; }
+.ticket-stub .day{ font-family:'Fraunces', serif; font-size:1.9rem; font-weight:600; line-height:1; }
+.ticket-stub .month{ font-family:'JetBrains Mono', monospace; font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-top:4px; }
+.ticket-perf{ width:0; border-left:2px dashed rgba(255,255,255,0.15); position:relative; }
+.ticket-perf::before, .ticket-perf::after{ content:""; position:absolute; width:16px; height:16px; background:var(--bg); border-radius:50%; left:-9px; }
+.ticket-perf::before{ top:-8px; }
+.ticket-perf::after{ bottom:-8px; }
+.ticket-body{ flex:1; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.ticket-body h3{ font-size:1.12rem; margin:0 0 4px 0; font-family:'Fraunces', serif; }
+.ticket-meta{ color:var(--muted); font-size:.85rem; font-family:'JetBrains Mono', monospace; }
+.badge-rasa{ font-family:'JetBrains Mono', monospace; font-size:.7rem; letter-spacing:.05em; padding:5px 11px; border-radius:20px; border:1px solid var(--border); white-space:nowrap; display:inline-flex; align-items:center; }
+
+.panel{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px; }
+
+.form-label{ color:var(--muted); font-size:.8rem; font-family:'JetBrains Mono', monospace; letter-spacing:.03em; text-transform:uppercase; margin-bottom:6px; }
+.form-control, .form-select{ background:var(--surface-alt); border:1px solid var(--border); color:var(--text); border-radius:10px; padding:.65rem .9rem; }
+.form-control:focus, .form-select:focus{ background:var(--surface-alt); color:var(--text); border-color:var(--gold); box-shadow:0 0 0 3px rgba(232,182,74,0.18); }
+.form-control::placeholder{ color:#6E6296; }
+.form-select option{ background:var(--surface-alt); }
+
+.manifest-wrap{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.table-manifest{ margin:0; color:var(--text); }
+.table-manifest thead th{ background:var(--surface-alt); color:var(--muted); font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; border-bottom:1px solid var(--border); padding:14px 16px; white-space:nowrap; }
+.table-manifest tbody td{ padding:13px 16px; border-bottom:1px solid var(--border); font-size:.92rem; vertical-align:middle; }
+.table-manifest tbody tr:last-child td{ border-bottom:none; }
+.table-manifest tbody tr:hover{ background:rgba(255,255,255,0.02); }
+.reg-id{ font-family:'JetBrains Mono', monospace; color:var(--gold); font-size:.82rem; }
+.empty-state{ text-align:center; padding:50px 20px; color:var(--muted); }
+
+footer{ border-top:1px solid var(--border); padding:30px 0; color:var(--muted); font-size:.85rem; margin-top:80px; }
+.toast-success{ background:var(--surface); border:1px solid rgba(74,168,138,0.45); color:var(--text); }
+
+@media (max-width:576px){
+  .ticket{ flex-direction:column; }
+  .ticket-stub{ width:100%; flex-direction:row; gap:8px; padding:10px; }
+  .ticket-perf{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-pravah sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand" href="#top">PRAVAH<span>'26</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" style="border-color:var(--border);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#top">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#navras">The Navras</a></li>
+        <li class="nav-item"><a class="nav-link" href="#events">Schedule</a></li>
+        <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a class="btn btn-accent" href="#register">Register Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header id="top" class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="eyebrow">10 – 12 july 2026 &middot; SKIT campus</div>
+        <h1>Navras — a journey through <em>nine emotions</em>.</h1>
+        <p class="lead">PRAVAH '26 draws its theme from the Natyashastra's nine rasas — the emotional palette classical Indian art has used for centuries. Every event on this year's fest carries one of them. One registration, every emotion.</p>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="#register" class="btn btn-accent btn-lg">Register Now</a>
+          <a href="#navras" class="btn btn-outline-light btn-lg">Meet the Navras</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>9</b><span>RASAS</span></div>
+          <div class="stat"><b>8</b><span>EVENTS</span></div>
+          <div class="stat"><b>₹0</b><span>ENTRY FEE</span></div>
+        </div>
+      </div>
+      <div class="col-lg-5 d-flex justify-content-center">
+        <div class="wheel-wrap">
+          <div class="wheel">
+            <div class="wheel-center"><b>PRAVAH</b><span>NAVRAS &middot; '26</span></div>
+          </div>
+          <p class="wheel-caption">Each slice is a rasa — love, laughter, courage, wonder and more. Scroll down to see which one your event belongs to.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- The Navras -->
+<section id="navras" class="container py-5">
+  <div class="section-label">The Theme</div>
+  <h2 class="section-title">The Nine Rasas</h2>
+  <p class="section-sub">Rasa means "essence" — in classical aesthetics, it's the emotion a performance is built to evoke. Pravah '26 borrows all nine as its color language.</p>
+  <div class="row g-3" id="rasaGrid"><!-- filled by JS --></div>
+</section>
+
+<!-- Event Schedule -->
+<section id="events" class="container py-5 mt-2">
+  <div class="section-label">What's on</div>
+  <h2 class="section-title">Event Schedule</h2>
+  <p class="section-sub">Every event, its rasa, date and venue — jump to the form below to lock in your seat.</p>
+  <div id="eventList"><!-- filled by JS --></div>
+</section>
+
+<!-- Registration Form -->
+<section id="register" class="container pb-5">
+  <div class="section-label">Application</div>
+  <h2 class="section-title">Get Your Pass</h2>
+  <p class="section-sub">Fill this once — you're set for every event you pick.</p>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="panel">
+        <form id="registrationForm" class="row g-3 needs-validation" novalidate>
+          <div class="col-md-6">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" placeholder="e.g. Ayushi Kumar" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" placeholder="10-digit number" pattern="[0-9]{10}" required>
+            <div class="invalid-feedback">Please enter a valid 10-digit number.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="branch" class="form-label">College / Branch</label>
+            <input type="text" class="form-control" id="branch" placeholder="e.g. SKIT, CSE" required>
+            <div class="invalid-feedback">Please enter your college and branch.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="semester" class="form-label">Semester</label>
+            <select class="form-select" id="semester" required>
+              <option value="" selected disabled>Choose...</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+            </select>
+            <div class="invalid-feedback">Please select your semester.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="eventSelect" class="form-label">Event</label>
+            <select class="form-select" id="eventSelect" required>
+              <option value="" selected disabled>Choose an event...</option>
+            </select>
+            <div class="invalid-feedback">Please pick an event.</div>
+          </div>
+          <div class="col-12">
+            <label for="teamName" class="form-label">Team Name <span style="text-transform:none;">(optional)</span></label>
+            <input type="text" class="form-control" id="teamName" placeholder="Leave blank if solo">
+          </div>
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-accent btn-lg w-100">Confirm Registration</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="panel h-100">
+        <div class="section-label mb-2">Good to Know</div>
+        <ul style="color:var(--muted); padding-left:18px; line-height:1.9;">
+          <li>Registration is free and takes under two minutes.</li>
+          <li>You'll get a Registration ID instantly — save it.</li>
+          <li>Team events: one member registers for the whole team.</li>
+          <li>Bring your college ID on the day of the event.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Registered Participants Table -->
+<section class="container pb-5">
+  <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-3">
+    <div>
+      <div class="section-label">Live Manifest</div>
+      <h2 class="section-title" style="font-size:1.5rem; margin-bottom:0;">Registered Participants <span class="mono" style="color:var(--muted); font-size:1rem;">(<span id="regCount">0</span>)</span></h2>
+    </div>
+    <button id="exportWordBtn" class="btn btn-outline-light">Export to Word (.doc)</button>
+  </div>
+
+  <div id="manifestWrap" class="manifest-wrap" style="display:none;">
+    <div class="table-responsive">
+      <table class="table table-manifest">
+        <thead>
+          <tr>
+            <th>Reg. ID</th><th>Name</th><th>Email</th><th>Phone</th>
+            <th>Branch</th><th>Event</th><th>Team</th><th>Registered At</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="registrationsTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="emptyState" class="panel empty-state">
+    <p class="mb-0">No registrations yet — be the first to sign up above.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container d-flex justify-content-between flex-wrap gap-2">
+    <span>&copy; 2026 PRAVAH Fest Committee</span>
+    <span class="mono">SKIT, Jaipur</span>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="successToast" class="toast toast-success" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="successToastBody">Registered!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ============================================
+   PRAVAH '26 NAVRAS — compiled logic (jQuery + localStorage)
+   ============================================ */
+const RASAS = {
+  shringara: { name:"Shringara", meaning:"Love & beauty", color:"var(--r-shringara)" },
+  hasya:     { name:"Hasya",     meaning:"Laughter & joy", color:"var(--r-hasya)" },
+  karuna:    { name:"Karuna",    meaning:"Compassion", color:"var(--r-karuna)" },
+  raudra:    { name:"Raudra",    meaning:"Fury & intensity", color:"var(--r-raudra)" },
+  veera:     { name:"Veera",     meaning:"Courage", color:"var(--r-veera)" },
+  bhayanaka: { name:"Bhayanaka", meaning:"Fear & suspense", color:"var(--r-bhayanaka)" },
+  bibhatsya: { name:"Bibhatsya", meaning:"Disgust & aversion", color:"var(--r-bibhatsya)" },
+  adbhuta:   { name:"Adbhuta",   meaning:"Wonder & surprise", color:"var(--r-adbhuta)" },
+  shanta:    { name:"Shanta",    meaning:"Peace & calm", color:"var(--r-shanta)" },
+};
+
+const EVENTS = [
+  { day: "10", month: "july", name: "Code Storm — Hackathon", time: "9:00 AM – 6:00 PM", venue: "CS Block, Lab 3", rasa: "veera" },
+  { day: "10", month: "july", name: "Robo Race", time: "11:00 AM – 2:00 PM", venue: "Open Ground", rasa: "adbhuta" },
+  { day: "10", month: "july", name: "Fresher's Fashion Walk", time: "5:00 PM – 7:00 PM", venue: "Main Auditorium", rasa: "shringara" },
+  { day: "11", month: "july", name: "Design-a-thon (UI/UX)", time: "10:00 AM – 4:00 PM", venue: "IoT Lab", rasa: "adbhuta" },
+  { day: "11", month: "july", name: "Battle of Bands", time: "6:00 PM – 9:00 PM", venue: "Amphitheatre", rasa: "hasya" },
+  { day: "11", month: "july", name: "Capture The Flag (CTF)", time: "10:00 AM – 3:00 PM", venue: "CS Block, Lab 1", rasa: "raudra" },
+  { day: "12", month: "july", name: "Dance Battle Finals", time: "4:00 PM – 6:00 PM", venue: "Main Auditorium", rasa: "veera" },
+  { day: "12", month: "july", name: "Closing Night & Prize Ceremony", time: "7:00 PM onward", venue: "Main Ground", rasa: "shanta" },
+];
+
+const STORAGE_KEY = "pravah26_navras_registrations";
+
+function getRegistrations(){ const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : []; }
+function saveRegistrations(list){ localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); }
+function addRegistration(entry){
+  const list = getRegistrations();
+  entry.id = "PRV-" + String(list.length + 1).padStart(4, "0");
+  entry.registeredAt = new Date().toLocaleString("en-IN");
+  list.push(entry);
+  saveRegistrations(list);
+  return entry;
+}
+function deleteRegistration(id){ saveRegistrations(getRegistrations().filter(r => r.id !== id)); }
+
+function renderRasaGrid(){
+  const $wrap = $("#rasaGrid");
+  $wrap.empty();
+  Object.values(RASAS).forEach(r => {
+    $wrap.append(`
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="rasa-card">
+          <h4><span class="rasa-dot" style="background:${r.color}"></span>${r.name}</h4>
+          <div class="rasa-en">${r.meaning}</div>
+        </div>
+      </div>`);
+  });
+}
+
+function renderEvents(){
+  const $wrap = $("#eventList");
+  $wrap.empty();
+  EVENTS.forEach(ev => {
+    const r = RASAS[ev.rasa];
+    $wrap.append(`
+      <div class="ticket">
+        <div class="ticket-stub"><div class="day">${ev.day}</div><div class="month">${ev.month}</div></div>
+        <div class="ticket-perf"></div>
+        <div class="ticket-body">
+          <div><h3>${ev.name}</h3><div class="ticket-meta">${ev.time} &middot; ${ev.venue}</div></div>
+          <span class="badge-rasa"><span class="rasa-dot" style="background:${r.color}"></span>${r.name}</span>
+        </div>
+      </div>`);
+  });
+}
+
+function populateEventDropdown(){
+  const $select = $("#eventSelect");
+  EVENTS.forEach(ev => $select.append(`<option value="${ev.name}">${ev.name} — ${ev.day} ${ev.month}</option>`));
+}
+
+function renderTable(){
+  const $tbody = $("#registrationsTableBody");
+  const list = getRegistrations();
+  $("#regCount").text(list.length);
+
+  if (list.length === 0){ $("#emptyState").show(); $("#manifestWrap").hide(); return; }
+  $("#emptyState").hide(); $("#manifestWrap").show();
+
+  $tbody.empty();
+  list.forEach(r => {
+    $tbody.append(`
+      <tr>
+        <td class="reg-id">${r.id}</td>
+        <td>${r.name}</td><td>${r.email}</td><td>${r.phone}</td>
+        <td>${r.branch}</td><td>${r.event}</td><td>${r.team ? r.team : "—"}</td>
+        <td class="mono" style="font-size:.78rem;color:var(--muted);">${r.registeredAt}</td>
+        <td><button class="btn btn-sm btn-outline-danger delete-reg" data-id="${r.id}">Remove</button></td>
+      </tr>`);
+  });
+}
+
+function exportTableToWord(){
+  const list = getRegistrations();
+  if (list.length === 0){ alert("No registrations yet to export."); return; }
+
+  const rows = list.map(r => `
+    <tr>
+      <td>${r.id}</td><td>${r.name}</td><td>${r.email}</td><td>${r.phone}</td>
+      <td>${r.branch}</td><td>${r.event}</td><td>${r.team ? r.team : "-"}</td><td>${r.registeredAt}</td>
+    </tr>`).join("");
+
+  const htmlContent = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+    <head><meta charset='utf-8'><title>Registered Participants — PRAVAH '26</title></head>
+    <body>
+      <h2>PRAVAH '26 (Navras) — Registered Participants</h2>
+      <p>Exported on ${new Date().toLocaleString("en-IN")} &nbsp;|&nbsp; Total registrations: ${list.length}</p>
+      <table border="1" cellspacing="0" cellpadding="6" style="border-collapse:collapse;font-family:Calibri,Arial,sans-serif;font-size:11pt;">
+        <thead>
+          <tr style="background:#E8B64A;color:#1A0E3F;">
+            <th>Reg. ID</th><th>Name</th><th>Email</th><th>Phone</th>
+            <th>Branch</th><th>Event</th><th>Team</th><th>Registered At</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </body></html>`;
+
+  const blob = new Blob(["\ufeff", htmlContent], { type: "application/msword" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "PRAVAH26_Registered_Participants.doc";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function initRegistrationForm(){
+  const $form = $("#registrationForm");
+
+  $form.on("submit", function(e){
+    e.preventDefault();
+    this.classList.add("was-validated");
+    if (!this.checkValidity()){ e.stopPropagation(); return; }
+
+    const entry = {
+      name: $("#fullName").val().trim(),
+      email: $("#email").val().trim(),
+      phone: $("#phone").val().trim(),
+      branch: $("#branch").val().trim(),
+      semester: $("#semester").val(),
+      event: $("#eventSelect").val(),
+      team: $("#teamName").val().trim(),
+    };
+
+    const saved = addRegistration(entry);
+    $form[0].reset();
+    $form.removeClass("was-validated");
+
+    $("#successToastBody").text(`Registered! Your ID is ${saved.id}.`);
+    new bootstrap.Toast(document.getElementById("successToast")).show();
+
+    renderTable();
+  });
+
+  $(document).on("click", ".delete-reg", function(){
+    const id = $(this).data("id");
+    if (confirm("Remove this registration?")){ deleteRegistration(id); renderTable(); }
+  });
+
+  $("#exportWordBtn").on("click", exportTableToWord);
+}
+
+$(function(){
+  renderRasaGrid();
+  renderEvents();
+  populateEventDropdown();
+  renderTable();
+  initRegistrationForm();
+});
+</script>
+</body>
+</html>

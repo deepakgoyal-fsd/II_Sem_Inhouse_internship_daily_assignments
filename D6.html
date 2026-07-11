@@ -1,0 +1,193 @@
+<!--DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student card</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.3.7.1.min.js"></script>
+    </head>
+    <body class="big-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Student Records</h2>
+            <input type="text" id="search" class="form-control mb-4" placeholder="Search Student">
+            <div id="container" class="row g-4"></div>
+        </div>
+        <script>
+            const students = [
+                { name: "Kamya", age: 18, Branch: "Computer Science" },
+                { name: "Divyansh", age: 18, Branch: "Mathematics" },
+                { name: "Anviksha", age:18, Branch: "Physics" },
+                { name: "Antima", age: 18, Branch: "Chemistry" },
+                { name: "Ayush", age: 18, Branch: "Computer Science" },
+                { name: "Kunal", age:18, Branch: "Mathematics" },
+                { name: "Aditya", age:18, Branch: "Physics" },
+                { name: "Krishna", age: 18, Branch: "Chemistry" },
+                { name: "Iti", age: 18, Branch: "Computer Science" },
+                { name: "Kritika", age:18, Branch: "Mathematics" },
+            ];
+            let html = "";
+            for (let i = 0; i < students.length; i++) {
+                html += `
+                <div class="col-md-4 card-item">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h4>${students[i].name}</h4>
+                            <button class="btn btn-primary btn-sm mt-2">
+                                show details
+                            </button>
+                        <div class="details mt-3" style="display: none;">
+                            <p><strong>Branch:</strong> ${students[i].Branch}</p>
+                            <p><strong>Age:</strong> ${students[i].age}</p>
+                        </div>
+                        </div>  
+                    </div>
+                    </div>
+                `;
+                }
+                document.getElementById("container").innerHTML=html;
+
+                //Show/Hide Details
+                $(document).on("click", ".btn", function() {
+                    $(this).next(".details").slideToggle();
+                });
+
+                //Search Student
+                $("#search").keyup(function() {
+                    let val=$(this).val().toLowerCase();
+                    $(".card-item").each(function() {
+                        let name = $(this).find("h4").text().toLowerCase();
+                        if (name.includes(val)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                });
+
+        </script>
+</body>
+</html-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body{
+        transition: background-color 0.5s ease;
+    }
+
+    .dark-mode{
+        background-color: #4f84b9;
+        color: white;
+    }
+
+    .card{
+        transition: 0.3s;
+    }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body id="body">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Student records</h2>
+        <div class="text-center mb-3">
+    <button id="themeBtn" class="btn btn-dark">
+        👀
+    </button>
+</div>
+        <input type="text" id="search" class="form-control mb-4" placeholder="search student">
+        <div id="container" class="row g-4"></div>
+        <div id="json"></div>
+        </div>
+   
+    <script>
+
+        const students = [
+            { name: "Kamya",branch:"cse",age:18 },
+            { name: "Divyansh",branch:"cse",age:18 },
+            { name: "Anviksha",branch:"cse",age:18 },
+            { name: "Antima",branch:"cse",age:18 },
+            { name: "Ayush",branch:"cse",age:18 },
+            { name: "Kunal",branch:"cse",age:18 },
+            { name: "Aditya",branch:"cse",age:18 },
+            { name: "Krishna",branch:"cse",age:18 },
+            { name: "Iti",branch:"cse",age:18 },
+            { name: "Kritika",branch:"cse",age:18 },
+            { name: "Shreya",branch:"cse",age:18 },
+            { name: "Prachi",branch:"cse",age:18 },
+            { name: "Aditya",branch:"cse",age:18 },
+             ];
+             let html = "";
+             for(let i=0; i<students.length; i++) {
+                html += `
+             
+            <div class="col-md-4 card-item">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4>${students[i].name}</h4>
+                        <button class="btn btn-primary btn-sm mt-2">
+                            show details
+                            </button>
+                                <div class="details mt-3" style="display:none;">
+                                    <p><strong>Branch:</strong>${students[i].branch}</p>
+                                    <p><strong>Age:</strong>${students[i].age}</p>
+                                     </div>
+                                     </div>
+                                     </div>
+                                     </div>
+                                     `;
+             }
+//for bg color change
+             $("#themeBtn").click(function(){
+    $("body").toggleClass("dark-mode");
+});
+
+document.getElementById("container").innerHTML = html;
+$(document).on("click",".btn-primary",function(){
+    $(this).next(".details").fadeToggle(500);
+});
+ $("#search").keyup(function(){
+    let val = $(this).val().toLowerCase();
+    $(".card-item").each(function(){
+        let name = $(this).find("h4").text().toLowerCase();
+        if(name.includes(val)){
+            $(this).fadeIn(500);
+        }
+        else{
+            $(this).fadeOut(500);
+        }
+    });
+ });
+
+ document.getElementById("json").innerHTML=JSON.stringify(students, ["name", "age"], 4);
+ 
+ //Replacer(function)
+
+ function replace (key, value){
+    if(key==="age"){
+        return undefined;//Remove age
+    }
+        return value;
+    }
+
+
+ </script>
+</body>
+</html>
+
+
+
+
+
+//background-image:url('https://images.unsplash.com/photo-1682685794700-1f3e5c7d8b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+background-repeat:no-repeat;
+background-position:center;
+background-attachment:fixed;

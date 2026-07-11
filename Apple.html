@@ -1,0 +1,286 @@
+<!--DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple & Banana Counter Game</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .timer-buttons button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background: #4CAF50;
+        color: white;
+    }
+
+    .timer-buttons button:hover {
+        background: #45a049;
+    }
+
+    .score-board {
+        margin: 20px 0;
+        font-size: 22px;
+    }
+
+    #timer {
+        color: #d9534f;
+        margin: 20px 0;
+    }
+
+    #fruit {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: transform 0.2s;
+        display: none;
+    }
+
+    #fruit:hover {
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+<h1>🍎 Apple & Banana Counter Game 🍌</h1>
+
+<div class="timer-buttons">
+    <button onclick="startGame(300)">Start 5 Minutes</button>
+    <button onclick="startGame(600)">Start 10 Minutes</button>
+</div>
+
+<h2 id="timer">Time Left: 00:00</h2>
+
+<div class="score-board">
+    🍎 Apple Counter: <span id="appleCount">0</span><br><br>
+    🍌 Banana Counter: <span id="bananaCount">0</span>
+</div>
+
+<img id="fruit" src="" alt="Fruit">
+
+<script>
+const fruitImg = document.getElementById("fruit");
+
+let appleCount = 0;
+let bananaCount = 0;
+let timeLeft = 0;
+let timer;
+
+const fruits = [
+    {
+        name: "apple",
+        src:"https://thf.bing.com/th/id/OIP.r4WonVYChdpXjy_dz1eUPwHaHe?w=141&h=180&c=7&r=0&o=7&cb=thfc1falcon3&dpr=1.3&pid=1.7&rm=3"
+    },
+    {
+        name: "banana",
+        src: "https://thf.bing.com/th/id/OIP.ae5d4SN21vAAvEB9UBx8dwHaHw?w=182&h=190&c=7&r=0&o=7&cb=thfc1falcon3&dpr=1.3&pid=1.7&rm=3"
+    }
+];
+
+function showRandomFruit() {
+    const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+
+    fruitImg.src = randomFruit.src;
+    fruitImg.dataset.fruit = randomFruit.name;
+}
+
+fruitImg.addEventListener("click", () => {
+    const fruit = fruitImg.dataset.fruit;
+
+    if (fruit === "apple") {
+        appleCount++;
+        document.getElementById("appleCount").textContent = appleCount;
+    } else {
+        bananaCount++;
+        document.getElementById("bananaCount").textContent = bananaCount;
+    }
+
+    showRandomFruit();
+});
+
+function startGame(seconds) {
+    clearInterval(timer);
+
+    appleCount = 0;
+    bananaCount = 0;
+
+    document.getElementById("appleCount").textContent = "0";
+    document.getElementById("bananaCount").textContent = "0";
+
+    timeLeft = seconds;
+    fruitImg.style.display = "block";
+    showRandomFruit();
+
+    timer = setInterval(() => {
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+
+        document.getElementById("timer").textContent =
+            `Time Left: ${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timer);
+
+            alert(
+                `Game Over!\n\n🍎 Apple Count: ${appleCount}\n🍌 Banana Count: ${bananaCount}`
+            );
+
+            fruitImg.style.display = "none";
+        }
+    }, 1000);
+}
+</script>
+
+</body>
+</html-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/Apple.css">
+            <!--body{
+                
+                position:relative;
+                height:100vh;
+                margin:0;
+            }
+
+            img{
+                width:100px;
+                position:absolute;
+                cursor:pointer;
+            }-->
+    
+    </head>
+    <body>
+    <p>
+    Select Timer:
+    <select id="timerSelect">
+        <option value="30">30 Seconds</option>
+        <option value="60">1 Minute</option>
+        <option value="120">2 Minutes</option>
+        <option value="300">5 Minutes</option>
+    </select>
+
+    <button onclick="startTimer()">Start</button>
+</p>
+
+<p>Time Left: <span id="timer">0</span>s</p>
+    
+        
+
+        <p>Apple: <span id="Apple">0</span></p>
+        <p>Banana: <span id="Banana">0</span></p>
+
+        <img src="https://thf.bing.com/th/id/OIP.kori7Y8NQzmHi4RLlD-T9AHaE5?w=232&h=180&c=7&r=0&o=7&cb=thfc1falcon3&dpr=1.3&pid=1.7&rm=3" onclick="clickImage('Apple',this)">
+       <img src="https://thf.bing.com/th/id/OIP.R-Zm4-X16nt7ZBJcQvgmQgHaHK?w=197&h=190&c=7&r=0&o=7&cb=thfc1falcon3&dpr=1.3&pid=1.7&rm=3" onclick="clickImage('Banana',this)">
+   
+      <script> 
+        let Apple=0,Banana=0
+        document.querySelectorAll("img").forEach(img=>{
+                img.style.left=Math.random()*(window.innerWidth-100)+"px";
+                img.style.top=Math.random()*(window.innerHeight-120)+"px";
+        });
+        function clickImage(type,img)
+{
+    if(type=="Apple")
+{
+    document.getElementById("Apple").innerText=++Apple;
+}
+ else
+{
+document.getElementById("Banana").innerText=++Banana;
+}
+img.style.left=Math.random()*(window.innerWidth-100)+"px";
+img.style.top=Math.random()*(window.innerHeight-120)+"px";
+}        
+
+      let timerInterval;
+
+function startTimer() {
+    let timeLeft = parseInt(document.getElementById("timerSelect").value);
+
+    document.getElementById("timer").innerText = timeLeft;
+
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+    
+        timeLeft--;
+        document.getElementById("timer").innerText = timeLeft;
+
+         if (timeLeft <= 0) {
+    clearInterval(timerInterval);
+
+    // Final scores save
+    let finalApple = Apple;
+    let finalBanana = Banana;
+    let total = finalApple + finalBanana;
+
+    // Clear screen
+    document.body.innerHTML = "";
+    document.body.style.background = "black";
+
+    // GAME OVER text
+    let gameOver = document.createElement("h1");
+    gameOver.innerText = "GAME OVER";
+    gameOver.style.position = "fixed";
+    gameOver.style.top = "50%";
+    gameOver.style.left = "50%";
+    gameOver.style.transform = "translate(-50%, -50%)";
+    gameOver.style.color = "red";
+    gameOver.style.fontSize = "80px";
+    gameOver.style.fontWeight = "bold";
+    gameOver.style.textShadow = "0 0 20px red";
+    document.body.appendChild(gameOver);
+
+    // Score card after 3 seconds
+    setTimeout(() => {
+        document.body.innerHTML = "";
+
+        let scoreCard = document.createElement("div");
+        scoreCard.style.position = "fixed";
+        scoreCard.style.top = "50%";
+        scoreCard.style.left = "50%";
+        scoreCard.style.transform = "translate(-50%, -50%)";
+        scoreCard.style.background = "white";
+        scoreCard.style.padding = "30px";
+        scoreCard.style.borderRadius = "15px";
+        scoreCard.style.textAlign = "center";
+        scoreCard.style.boxShadow = "0 0 20px white";
+
+        scoreCard.innerHTML = `
+            <h1>🏆 SCORE CARD 🏆</h1>
+            <h2>🍎 Apple Score: ${finalApple}</h2>
+            <h2>🍌 Banana Score: ${finalBanana}</h2>
+            <h2>Total Clicks: ${total}</h2>
+        `;
+
+        document.body.appendChild(scoreCard);
+    }, 3000);
+}
+}, 1000);
+}
+      </script>
+      
+    </body>
+</html>

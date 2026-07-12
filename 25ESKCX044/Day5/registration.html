@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | PREVAH 2026</title>
+  <meta name="description" content="Register for PREVAH 2026 - Annual College Fest, 10-14 July 2026." />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet + registration-page-specific styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================= -->
+  <!-- SCROLL PROGRESS BAR -->
+  <!-- ============================= -->
+  <div id="scrollProgress"></div>
+
+  <!-- ============================= -->
+  <!-- NAVBAR (same as index.html) -->
+  <!-- ============================= -->
+  <nav class="navbar navbar-expand-lg fixed-top prevah-navbar" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand prevah-brand" href="index.html">
+        <span class="brand-mark">P</span>REVAH<span class="brand-year">'26</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#schedule">Schedule</a></li>
+          <li class="nav-item"><a class="nav-link active-link" href="registration.html">Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item">
+            <button id="themeToggle" class="theme-toggle-btn" title="Toggle light/dark mode">
+              <i class="bi bi-sun-fill"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================= -->
+  <!-- REGISTRATION PAGE HERO STRIP -->
+  <!-- ============================= -->
+  <header class="reg-hero">
+    <div class="reg-hero-bg"></div>
+    <div class="container reg-hero-content text-center">
+      <span class="section-eyebrow">PREVAH 2026</span>
+      <h1 class="section-title">Event Registration</h1>
+      <p class="section-subtitle">Fill in your details carefully. A confirmation will be shown once submitted.</p>
+    </div>
+  </header>
+
+  <!-- ============================= -->
+  <!-- REGISTRATION FORM -->
+  <!-- ============================= -->
+  <section class="section reg-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+          <div class="glass-card reg-form-card">
+            <form id="registrationForm" novalidate>
+
+              <!-- ---- Personal Details ---- -->
+              <h5 class="reg-form-heading"><i class="bi bi-person-badge"></i> Personal Details</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="fullName" class="form-label">Full Name <span class="req">*</span></label>
+                  <input type="text" class="form-control prevah-input" id="fullName" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="gender" class="form-label">Gender <span class="req">*</span></label>
+                  <select class="form-select prevah-input" id="gender" required>
+                    <option value="" selected disabled>Select gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                    <option>Prefer not to say</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a gender.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone Number <span class="req">*</span></label>
+                  <input type="tel" class="form-control prevah-input" id="phone" placeholder="10-digit mobile number" maxlength="10" required>
+                  <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address <span class="req">*</span></label>
+                  <input type="email" class="form-control prevah-input" id="email" placeholder="you@example.com" required>
+                  <div class="invalid-feedback">Enter a valid email address.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="city" class="form-label">City <span class="req">*</span></label>
+                  <input type="text" class="form-control prevah-input" id="city" required>
+                  <div class="invalid-feedback">Please enter your city.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="state" class="form-label">State <span class="req">*</span></label>
+                  <input type="text" class="form-control prevah-input" id="state" required>
+                  <div class="invalid-feedback">Please enter your state.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="emergencyContact" class="form-label">Emergency Contact Number <span class="req">*</span></label>
+                  <input type="tel" class="form-control prevah-input" id="emergencyContact" placeholder="10-digit mobile number" maxlength="10" required>
+                  <div class="invalid-feedback">Enter a valid 10-digit emergency contact number.</div>
+                </div>
+              </div>
+
+              <!-- ---- Academic Details ---- -->
+              <h5 class="reg-form-heading mt-4"><i class="bi bi-mortarboard"></i> Academic Details</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="collegeName" class="form-label">College Name <span class="req">*</span></label>
+                  <input type="text" class="form-control prevah-input" id="collegeName" required>
+                  <div class="invalid-feedback">Please enter your college name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="rollNumber" class="form-label">University Roll Number <span class="req">*</span></label>
+                  <input type="text" class="form-control prevah-input" id="rollNumber" required>
+                  <div class="invalid-feedback">Please enter your roll number.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="branch" class="form-label">Branch <span class="req">*</span></label>
+                  <input type="text" class="form-control prevah-input" id="branch" placeholder="e.g. Computer Science" required>
+                  <div class="invalid-feedback">Please enter your branch.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="year" class="form-label">Year <span class="req">*</span></label>
+                  <select class="form-select prevah-input" id="year" required>
+                    <option value="" selected disabled>Select year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                    <option>Postgraduate</option>
+                  </select>
+                  <div class="invalid-feedback">Please select your year.</div>
+                </div>
+              </div>
+
+              <!-- ---- Event Details ---- -->
+              <h5 class="reg-form-heading mt-4"><i class="bi bi-stars"></i> Event Details</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="chooseEvent" class="form-label">Choose Event <span class="req">*</span></label>
+                  <select class="form-select prevah-input" id="chooseEvent" required>
+                    <option value="" selected disabled>Select an event</option>
+                    <optgroup label="Technical">
+                      <option>Code Storm</option>
+                      <option>Robo Race</option>
+                      <option>Web Sprint</option>
+                      <option>Circuit Break</option>
+                    </optgroup>
+                    <optgroup label="Gaming">
+                      <option>Valorant Clash</option>
+                      <option>FIFA Face-off</option>
+                      <option>Chess Masters</option>
+                    </optgroup>
+                    <optgroup label="Sports">
+                      <option>Cricket Premier League</option>
+                      <option>Football Frenzy</option>
+                      <option>Athletics Meet</option>
+                    </optgroup>
+                    <optgroup label="Cultural">
+                      <option>Battle of Bands</option>
+                      <option>Solo Singing</option>
+                      <option>Group Dance</option>
+                      <option>Street Play (Nukkad)</option>
+                      <option>Photography Walk</option>
+                    </optgroup>
+                  </select>
+                  <div class="invalid-feedback">Please choose an event.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="teamName" class="form-label">Team Name <span class="text-muted-label">(optional, for team events)</span></label>
+                  <input type="text" class="form-control prevah-input" id="teamName">
+                </div>
+                <div class="col-md-6">
+                  <label for="numMembers" class="form-label">Number of Members <span class="req">*</span></label>
+                  <input type="number" class="form-control prevah-input" id="numMembers" min="1" max="20" value="1" required>
+                  <div class="invalid-feedback">Enter a valid number of members (1-20).</div>
+                </div>
+              </div>
+
+              <!-- ---- Uploads ---- -->
+              <h5 class="reg-form-heading mt-4"><i class="bi bi-cloud-arrow-up"></i> Uploads</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="studentId" class="form-label">Upload Student ID <span class="req">*</span></label>
+                  <input type="file" class="form-control prevah-input" id="studentId" accept="image/*,.pdf" required>
+                  <div class="form-text">JPG, PNG or PDF, max 2MB.</div>
+                  <div class="invalid-feedback">Please upload your student ID (max 2MB).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="paymentScreenshot" class="form-label">Upload Payment Screenshot <span class="req">*</span></label>
+                  <input type="file" class="form-control prevah-input" id="paymentScreenshot" accept="image/*" required>
+                  <div class="form-text">JPG or PNG, max 2MB.</div>
+                  <div class="invalid-feedback">Please upload a valid payment screenshot (max 2MB).</div>
+                </div>
+              </div>
+
+              <!-- ---- Additional Info ---- -->
+              <h5 class="reg-form-heading mt-4"><i class="bi bi-chat-left-text"></i> Additional Information</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="medicalCondition" class="form-label">Any Medical Condition</label>
+                  <input type="text" class="form-control prevah-input" id="medicalCondition" placeholder="e.g. Asthma, allergies (leave blank if none)">
+                </div>
+                <div class="col-md-6">
+                  <label for="comments" class="form-label">Comments</label>
+                  <input type="text" class="form-control prevah-input" id="comments" placeholder="Anything else we should know?">
+                </div>
+              </div>
+
+              <!-- ---- Agreement ---- -->
+              <div class="form-check reg-agree-check mt-4">
+                <input class="form-check-input" type="checkbox" id="agreeRules" required>
+                <label class="form-check-label" for="agreeRules">
+                  I agree to all rules and regulations of PREVAH 2026. <span class="req">*</span>
+                </label>
+                <div class="invalid-feedback">You must agree to the rules before submitting.</div>
+              </div>
+
+              <!-- ---- Actions ---- -->
+              <div class="reg-form-actions">
+                <button type="submit" class="btn btn-prevah-primary ripple">
+                  <i class="bi bi-send-check"></i> Submit Registration
+                </button>
+                <button type="reset" class="btn btn-prevah-outline ripple" id="resetFormBtn">
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset Form
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SUCCESS MODAL -->
+  <!-- ============================= -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content prevah-modal">
+        <div class="modal-body text-center py-5">
+          <div class="success-icon-wrap">
+            <i class="bi bi-check-lg"></i>
+          </div>
+          <h4 class="mt-4 mb-2">Registration Successful!</h4>
+          <p class="text-muted-label mb-1">Your Registration ID</p>
+          <p class="reg-id-display" id="regIdDisplay">PREVAH-000000</p>
+          <p class="section-subtitle mt-3">A confirmation has been saved. Please note your Registration ID for reference at the event.</p>
+          <div class="d-flex gap-3 justify-content-center mt-4">
+            <button type="button" class="btn btn-prevah-primary ripple" data-bs-dismiss="modal">Done</button>
+            <a href="index.html" class="btn btn-prevah-outline ripple">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- FOOTER (simplified) -->
+  <!-- ============================= -->
+  <footer class="prevah-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-bottom">
+        <p class="mb-0">&copy; 2026 PREVAH. All Rights Reserved.</p>
+        <p class="mb-0 dev-credit">Designed &amp; Developed with <i class="bi bi-heart-fill"></i> by the PREVAH Web Team</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Shared behaviors (theme toggle, back to top, scroll progress, toast) -->
+  <script src="script.js"></script>
+  <!-- Registration-page-specific logic -->
+  <script src="registration.js"></script>
+</body>
+</html>

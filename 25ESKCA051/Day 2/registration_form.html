@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Copatible" content="ie=edge"/>
+
+    <link rel="stylesheet" href="formStylesheet.css"/>
+    <!-- <title>Registration Form</title> -->
+     <center>
+</head>
+    <body id="body">
+    <div id="divForm">
+    <form class="background" id="frmRegister">
+     <center><h1><p>Registration Form</p></h1></center>
+     <br>
+    <!-- <h1><p id="frmHeading">Registration Form</p></h1>  -->
+        <h4 class="default">Submit this form for online Registration</h4>
+        <!--<p>Submit this form for online Registration</p>-->
+        <label>
+            Full Name:
+            <br><br>
+         <input type="text" id="txtName"  required placeholder="  Enter your Name" class="rounded" class="width" >
+        </label>
+        <br><br>
+
+        <label>
+            Email:
+            <br><br>
+             <input type="email" id="txtemail"  required placeholder="  Enter your Email" class="rounded">
+        </label>
+        <br><br>
+        <label>
+            Phone No:    
+            <label for="dtDOB"
+            style="margin-left:134px">DOB:</label>
+            <br><br>
+             <input type="text" id="txtPhone"  required placeholder="  Enter your Phone No." class="rounded">
+        </label>
+        <input type="date" id="dtDOB" name="dtDOB" class="rounded"/>
+        <br><br>
+
+         <label> 
+            Gender:
+            <br><br>
+        <input type="radio" id="check-Male" name="Gender" checked >
+        <label for="check-Male">Male</label>
+        
+        <input type="radio" id="check-Female" name="Gender" checked >
+        <label for="check-Female">Female</label>
+        
+        <input type="radio" id="check-Transgender" name="Gender" checked >
+        <label for="check-Transgender">Transgender</label>
+        
+        <input type="radio" id="check-Other" name="Gender" checked >
+        <label for="check-Other">Prefer not to say</label>
+        
+        </label>
+        <br><br>
+
+
+        <label for="Country">  Country:</label>
+            <select id="Country" name="country" > 
+                <option value="" selected disabled>  Country</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="AU">Australia</option>
+            <option value="BR">Brazil</option>
+            <option value="CA">Canada</option>
+            <option value="DE">Germany</option>
+            <option value="IN">India</option>
+            <option value="JP">Japan</option>
+            <option value="MX">Mexico</option>
+            <option value="GB">United Kingdom</option>
+            <option value="US">United States</option>
+            <option value="VN">Vietnam</option>
+                </select>
+            <br><br>
+        
+
+             <label>
+            Address:
+            <br><br>
+             <input type="text" id="txtaddress"  required placeholder="  Enter your Address" class="rounded">
+        </label>
+        <br><br>
+        
+
+        <label for="pwdPassword">Password:</label>
+        <br><br>
+        <input type="Password" id="pwdPassword" name="pwdPassword" required placeholder="  Password" class="rounded"/>
+        <br><br>
+        
+        <label for="pwdPassword">Confirm Password:</label>
+        <br><br>
+        <input type="Password"  id="pwdConfirmPassword" name="pwdConfirmPassword" required placeholder="  Confirm Password" class="rounded"/>
+        <br><br><br>
+        <center>
+        <input type="submit" id="btnSubmit"/>
+        <input type="reset" placeholder="Clear"/>
+        </center>
+    </form>
+    </div>
+</body>
+</center>

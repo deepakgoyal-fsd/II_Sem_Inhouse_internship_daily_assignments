@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Copatible" content="ie=edge"/>
+
+    <link rel="stylesheet" href="style.css"/>
+    <!-- <title>Registration Form</title> -->
+     <center>
+</head>
+    <body id="body">
+    <div id="divForm">
+    <form class="background" id="frmRegister" action="registration.php" method="POST">
+     <center><h1><p>Registration Form</p></h1></center>
+     <br>
+    <!-- <h1><p id="frmHeading">Registration Form</p></h1>  -->
+        <h4 class="default">Submit this form for online Registration</h4>
+        <!--<p>Submit this form for online Registration</p>-->
+        <label>
+            Name:
+            <br><br>
+         <input type="text" id="txtName"  name="Name" required placeholder="  Enter your Name" class="rounded" class="width" >
+        </label>
+        <br><br>
+
+        <label>
+            Email:
+            <br><br>
+             <input type="email" id="txtemail" name="Email" required placeholder="  Enter your Email" class="rounded">
+        </label>
+        <br><br>
+        <label>
+            PhoneNumber:   
+            <br><br> 
+             <input type="text" id="txtPhone" name="PhoneNumber" required placeholder="  Enter your Phone No." class="rounded">
+        </label>
+        <br><br>
+        
+        <label for="pwdPassword">Password </label>
+        <br><br>
+        <input type="Password" id="pwdPassword" name="Password" required placeholder="  Password" class="rounded"/>
+        <center>
+            <br>
+        <input type="submit" id="btnSubmit"/>
+        <input type="reset" placeholder="Clear"/>
+        </center>
+    </form>
+    </div>
+</body>
+</center>

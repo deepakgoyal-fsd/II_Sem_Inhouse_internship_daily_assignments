@@ -1,1 +1,8 @@
+div{
+    display: flex;
+    justify-content: space-evenly;
+}
+a{
 
+text-decoration-color: black;
+}

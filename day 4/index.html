@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body{
+            background-color:grey;
+            color:rgba(68,7,175,0.885);
+            border:13px solid rgb(76,37,7);
+            padding:20px;
+            margin:15px;
+            background-size:cover;
+            text-align:center;
+            font-family:Arial, Helvetica, sans-serif;
+            transition:0.4s;
+        }
+
+        h1{
+            color: greenyellow;
+            text-decoration:underline;
+            margin-bottom:20px;
+        }
+
+        label{
+            display:inline-block;
+            width:170px;
+            text-align:right;
+            font-weight:bold;
+            margin-right:10px;
+        }
+
+        input,
+        select,
+        textarea{
+            width:230px;
+            padding:8px;
+            border:1px solid #555;
+            border-radius:5px;
+            font-size:15px;
+        }
+
+        textarea{
+            resize:vertical;
+        }
+
+        input[type="radio"]{
+            width:auto;
+            margin-left:10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        button{
+            width:120px;
+            padding:10px;
+            margin:15px 10px;
+            border:none;
+            border-radius:6px;
+            background-color:darkblue;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        input[type="submit"]:hover{
+            background-color:green;
+        }
+
+        input[type="reset"]:hover{
+            background-color:red;
+        }
+
+        button:hover{
+            background-color:black;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus{
+            outline:none;
+            border:2px solid #0bb1c7;
+        }
+
+        /* Dark Mode */
+
+        .dark{
+            background-color:#1b1b1b;
+            color:white;
+        }
+
+        .dark h1{
+            color:cyan;
+        }
+
+        .dark input,
+        .dark select,
+        .dark textarea{
+            background-color:#333;
+            color:white;
+            border:1px solid white;
+        }
+
+        .dark input[type="submit"],
+        .dark input[type="reset"],
+        .dark button{
+            background-color:#555;
+            color:white;
+        }
+
+        .dark input[type="submit"]:hover{
+            background-color:green;
+        }
+
+        .dark input[type="reset"]:hover{
+            background-color:red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>Student Registration Form</h1>
+
+<button type="button" onclick="toggleMode()">🌙 Dark Mode</button>
+
+<br><br>
+
+<form method="post" onsubmit="return validateForm()">
+
+    <label for="Username">Full Name</label>
+    <input required autofocus type="text" id="Username" name="Full Username" placeholder="Enter Your Name">
+    <br><br>
+
+    <label for="MobileNumber">Mobile no.</label>
+    <input required type="number" name="Mobile Number" id="MobileNumber" placeholder="Enter Mobile Number">
+    <br><br>
+
+    <label for="Email">Email</label>
+    <input required type="email" id="Email" name="Email" placeholder="Enter Your Email">
+    <br><br>
+
+    <label for="Password">Password</label>
+    <input required type="password" name="Password" id="Password" placeholder="Enter Your Password">
+    <br><br>
+
+    <label for="ConfirmPassword">Confirm Password</label>
+    <input required type="password" name="Confirm Password" id="ConfirmPassword" placeholder="Confirm Password">
+    <br><br>
+
+    <label for="DOB">DOB</label>
+    <input required type="date" name="DOB" id="DOB">
+    <br><br>
+
+    <label>Gender</label>
+
+    <input required type="radio" id="Male" name="Gender" value="Male">
+    <label for="Male" style="width:auto;">Male</label>
+
+    <input type="radio" id="Female" name="Gender" value="Female">
+    <label for="Female" style="width:auto;">Female</label>
+
+    <input type="radio" id="Other" name="Gender" value="Other">
+    <label for="Other" style="width:auto;">Other</label>
+
+    <br><br>
+
+    <label for="BRANCH">Branch</label>
+    <select required name="BRANCH" id="BRANCH">
+        <option value="">Select Branch</option>
+        <option value="ECE">ECE</option>
+        <option value="CSE">CS</option>
+        <option value="AI">AI</option>
+        <option value="Data Science">DSA</option>
+    </select>
+
+    <br><br>
+
+    <label for="RollNo">University Roll no.</label>
+    <input required type="number" id="RollNo" name="University Roll no." placeholder="Enter Roll Number">
+
+    <br><br>
+
+    <label for="Resume">Upload Resume</label>
+    <input required type="file" id="Resume" name="Upload Resume">
+
+    <br><br>
+
+    <label for="AboutYourself">About Yourself</label>
+    <br><br>
+
+    <textarea required name="About Yourself" rows="4" cols="30" id="AboutYourself" placeholder="Write something about yourself..."></textarea>
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+</form>
+
+<script>
+    // Dark Mode Toggle
+    function toggleMode() {
+        document.body.classList.toggle("dark");
+    }
+
+    // Form Validation
+    function validateForm() {
+
+        let password = document.getElementById("Password").value;
+        let confirmPassword = document.getElementById("ConfirmPassword").value;
+
+        if(password !== confirmPassword){
+            alert("❌ Password and Confirm Password do not match!");
+            return false;
+        }
+
+        alert("✅ Form Submitted Successfully!");
+        return true;
+    }
+</script>
+
+</body>
+</html>

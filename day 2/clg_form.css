@@ -1,0 +1,12 @@
+ body {
+    border: 13px solid rgb(76, 37, 7);
+    padding: 20px;
+
+    margin: 20px;
+
+    background-size: cover;
+    background-color: rgb(241, 218, 165);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}

@@ -1,0 +1,68 @@
+/* CSS for SKIT Portal */
+
+/* Body styling and generic colors */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light Gray */
+    color: #333;
+}
+
+/* Navbar Shadow and Styling */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* Active Navigation Link */
+.navbar-nav .nav-link.active {
+    color: #0d6efd !important; /* Bootstrap Primary Blue */
+}
+
+/* Hero Section with Background Image Overlay */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('skit_campus.jpg') center/cover no-repeat;
+    height: 70vh; /* Takes up 70% of viewport height */
+    color: white;
+}
+
+/* Custom Buttons (Border radius & Hover effect) */
+.btn-custom {
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Cards (Box Shadow and Hover Effects) */
+.card {
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Elevate card on hover */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Footer Customizations */
+footer {
+    background-color: #212529; /* Dark Bootstrap color */
+}
+
+/* Social Media Icons in Footer */
+.social-icons a {
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0d6efd !important; /* Turn blue on hover */
+}

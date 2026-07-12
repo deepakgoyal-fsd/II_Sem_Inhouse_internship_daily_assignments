@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            border: 13px solid rgb(76, 37, 7);
+            padding: 20px;
+           
+           margin: 20px;
+           
+            background-size: cover;
+            background-color: rgb(242, 220, 251);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            text-decoration: none
+        }
+
+    </style>
+    <h2>STUDENT REGISTRATION FORM<FORM:get></FORM:get></h2><br><br>
+    <form action="xyz.html" method="post">
+
+        <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+        <lable for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br><br>
+
+        <lable for="password">Password:</lable>
+            <input type="password" id="password" name="password" required><br><br>
+
+        <lable for="mobile number">Mobile Number:</lable>
+            <input type="number" id="mobile number" name="mobile number"  required><br><br>
+        <lable for="dob">Date of Birth:</lable>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+        <lable for="gender">Gender:</lable><br>
+            <lable for="male">Male</lable>
+            <input type="radio" id="male" name="male" value="male">
+            <lable for="female">Female</lable>
+            <input type="radio" id="female" name="female" value="female">
+            <lable for="other">Other</lable>
+            <input type="radio" id="other" name="other" value="other"><br><br>
+        
+        <lable for="course">Course:</lable>
+            <select id="course" name="course" required>
+                <option value="">Select Course</option>
+                <option value="cse">CSE</option>
+                <option value="cs ai">CS AI</option>
+                <option value="cs it">CS IT</option>
+                <option value="cs ds">CS DS</option>
+                <option value="electrical">Electrical</option>
+                <option value="civil">Civil</option>
+                <option value="mechanical">Mechanical</option>
+                
+            </select><br><br>
+
+        <lable for="skills">Skills:</lable><br>
+            <lable for="html">HTML</lable>
+            <input type="checkbox" id="html" name="skills" value="html">
+            <lable for="css">CSS</lable>
+            <input type="checkbox" id="css" name="skills" value="css">
+            <lable for="js">JavaScript</lable>
+            <input type="checkbox" id="js" name="skills" value="js">
+            <lable for="python">Python</lable>
+            <input type="checkbox" id="python" name="skills" value="python"><br><br>
+
+        <lable for="resume">Upload Resume:</lable>
+            <input required type="file" id="resume" name="resume" required><br><br>
+
+        <lable for="additional information">Additional Information:</lable><br>
+            <textarea id="additional information" name="additional information" rows="4" cols="30"></textarea><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

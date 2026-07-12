@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <main>
+        <form id="registration-form">
+            <h1>Registration Form</h1>
+
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" aria-required="true">
+            </div>
+            <br> <br>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" aria-required="true">
+            </div>
+            <br> <br>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+            <br> <br>
+            <fieldset>
+                <legend>Gender</legend>
+                <div>
+                    <label><input type="radio" name="gender" value="male"> Male </label>
+                    <label><input type="radio" name="gender" value="female"> Female </label>
+                    <label><input type="radio" name="gender" value="other"> Other </label>
+                </div>
+            </fieldset>
+            <br> <br>
+            <div>
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <br> <br>
+            <div>
+                <label for="department">Department</label>
+                <select id="department" name="department">
+                    <option value="">-- Select Department --</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="it">Information Technology</option>
+                    <option value="ec">Electronics & Communication</option>
+                    <option value="me">Mechanical Engineering</option>
+                    <option value="ce">Civil Engineering</option>
+                    <option value="ee">Electrical Engineering</option>
+                </select>
+            </div>
+            <br> <br>
+            <div>
+                <label><input type="checkbox" name="newsletter" value="yes"> Subscribe to our newsletter </label>
+            </div>
+            <br> <br>
+            <div>
+                <label><input type="checkbox" name="terms" value="yes"> I agree to the terms and conditions </label>
+            </div>
+            <br> <br>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <br> <br>
+            <div>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password">
+            </div>
+            <br> <br>
+            <div>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

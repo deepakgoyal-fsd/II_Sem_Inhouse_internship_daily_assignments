@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeSphere Solutions</title>
+<style>
+/* === Reset & Base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === Buttons === */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #2563EB;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #1D4ED8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #2563EB;
+    border: 2px solid #2563EB;
+}
+
+.btn-secondary:hover {
+    background-color: #2563EB;
+    color: #fff;
+}
+
+.btn-nav {
+    background-color: #2563EB;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.btn-nav:hover {
+    background-color: #1D4ED8;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* === Section Header === */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #1E293B;
+    margin-bottom: 8px;
+}
+
+.section-header p {
+    color: #64748B;
+}
+
+/* === Navigation === */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.logo-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1E293B;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563EB;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: #1E293B;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+}
+
+.nav-toggle-label span::before {
+    margin-bottom: 6px;
+}
+
+.nav-toggle-label span::after {
+    margin-top: 6px;
+}
+
+/* === Hero === */
+.hero {
+    padding: 130px 0 80px;
+    background-color: #F8FAFC;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: #1E293B;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #64748B;
+    margin-bottom: 28px;
+    max-width: 480px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* === Services === */
+.services {
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.service-card {
+    background-color: #F8FAFC;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.service-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.service-image {
+    height: 160px;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 20px;
+}
+
+.service-content h3 {
+    font-size: 1.15rem;
+    color: #1E293B;
+    margin-bottom: 8px;
+}
+
+.service-content p {
+    color: #64748B;
+    font-size: 0.95rem;
+}
+
+/* === About === */
+.about {
+    padding: 80px 0;
+    background-color: #F8FAFC;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    color: #1E293B;
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    color: #64748B;
+    margin-bottom: 12px;
+}
+
+.about-text .btn {
+    margin-top: 12px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2563EB;
+}
+
+.stat-label {
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+/* === Testimonials === */
+.testimonials {
+    padding: 80px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background-color: #F8FAFC;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.testimonial-rating {
+    color: #FBBF24;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    color: #64748B;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    font-size: 0.95rem;
+    color: #1E293B;
+    margin-bottom: 2px;
+}
+
+.author-info span {
+    color: #94A3B8;
+    font-size: 0.85rem;
+}
+
+/* === Contact === */
+.contact {
+    padding: 80px 0;
+    background-color: #F8FAFC;
+}
+
+.contact-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.contact-image {
+    flex: 1;
+}
+
+.contact-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contact-form {
+    flex: 1;
+    background-color: #fff;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #1E293B;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #E2E8F0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563EB;
+}
+
+/* === Footer === */
+.footer {
+    background-color: #1E293B;
+    color: #94A3B8;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 20px;
+}
+
+.footer-brand .logo-text {
+    color: #fff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .nav-toggle-label {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle:checked ~ .nav-links {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-stats {
+        justify-content: center;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+</style>
+</head>
+  <body>
+    <header class="header" id="home">
+      <nav class="navbar">
+        <div class="logo">
+          <span class="logo-text">CodeSphere</span>
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact" class="btn btn-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-container">
+          <div class="hero-content">
+            <h1>Web Solutions That Actually Work</h1>
+            <p>
+              We build websites, apps, and provide tech support for small
+              businesses. Clean work, fair prices.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary">Get a Quote</a>
+              <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="images/hero-illustration.jpg"
+              alt="CodeSphere Solutions"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="container">
+          <div class="section-header">
+            <h2>What We Do</h2>
+            <p>Simple solutions for your business needs</p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-image">
+                <img
+                  src="images/service-web-development.jpg"
+                  alt="Web Development"
+                />
+              </div>
+              <div class="service-content">
+                <h3>Websites</h3>
+                <p>
+                  Clean, fast websites that work on phones and computers. Built
+                  to help your business grow.
+                </p>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-image">
+                <img src="images/service-mobile-apps.jpg" alt="Mobile Apps" />
+              </div>
+              <div class="service-content">
+                <h3>Mobile Apps</h3>
+                <p>
+                  Apps for iPhone and Android that your customers will actually
+                  enjoy using.
+                </p>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-image">
+                <img src="images/service-cloud.jpg" alt="Tech Support" />
+              </div>
+              <div class="service-content">
+                <h3>Tech Support</h3>
+                <p>
+                  When something breaks, we fix it. Quick responses and honest
+                  pricing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-content">
+            <div class="about-text">
+              <h2>About Us</h2>
+              <p>
+                We're a small team of developers who care about doing good work.
+                We've been helping businesses with their tech needs since 2015.
+              </p>
+              <p>
+                No complicated contracts. No hidden fees. Just straightforward
+                solutions at fair prices.
+              </p>
+              <a href="#contact" class="btn btn-primary">Work With Us</a>
+            </div>
+            <div class="about-image">
+              <img src="images/about-team.jpg" alt="Our Team" />
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Support</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <h2>What Clients Say</h2>
+            <p>Real feedback from people we've worked with</p>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </div>
+              <p class="testimonial-text">
+                "They built our website in just two weeks. Clean design, fast
+                loading, and our customers love it."
+              </p>
+              <div class="testimonial-author">
+                <img src="images/testimonial-1.jpg" alt="Client" />
+                <div class="author-info">
+                  <h4>Sarah J.</h4>
+                  <span>Small Business Owner</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </div>
+              <p class="testimonial-text">
+                "The mobile app they made for us increased our sales by 30%.
+                Worth every penny."
+              </p>
+              <div class="testimonial-author">
+                <img src="images/testimonial-2.jpg" alt="Client" />
+                <div class="author-info">
+                  <h4>Michael R.</h4>
+                  <span>Restaurant Manager</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </div>
+              <p class="testimonial-text">
+                "When our system crashed, they fixed it within hours. Reliable
+                support you can count on."
+              </p>
+              <div class="testimonial-author">
+                <img src="images/testimonial-3.jpg" alt="Client" />
+                <div class="author-info">
+                  <h4>David L.</h4>
+                  <span>Tech Startup CEO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2>Let's Talk</h2>
+            <p>Tell us about your project</p>
+          </div>
+          <div class="contact-container">
+            <div class="contact-image">
+              <img src="images/contact-illustration.jpg" alt="Contact Us" />
+            </div>
+            <div class="contact-form">
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    placeholder="What do you need?"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                  Send
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span class="logo-text">CodeSphere</span>
+            <p>Simple tech solutions for small businesses.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 CodeSphere. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const heading=document.querySelector('h1');
+  if(heading){
+    console.log(heading.textContent);
+    heading.textContent='Web Solutions That Actually Work';
+    heading.style.color='blue';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      const target=document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth'});
+        const nav=document.getElementById('nav-toggle');
+        if(nav) nav.checked=false;
+      }
+    });
+  });
+
+  const form=document.querySelector('form');
+  if(form){
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      alert('Thank you! Your message has been received.');
+      form.reset();
+    });
+  }
+});
+</script>
+
+</body>
+</html>

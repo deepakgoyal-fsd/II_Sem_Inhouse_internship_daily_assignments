@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <div>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <br><br>
+
+    <div>
+        <label for="dob">date of birth</label>
+        <input type="date" id="dob" name="dob" placeholder="Select your date of birth">
+    </div>
+    <br><br>
+
+    <div>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+    </div>
+    <br><br>
+    
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+    </div> 
+    <br><br>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+    </div> 
+    <br><br>
+
+    <div>
+        <label for="password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password">
+    </div>
+    <br><br>
+    
+    <div>
+        <label for ="gender">Gender:</label>
+        <label><input type="radio" id="male" name="gender" value="male">male</label>
+        <label><input type="radio" id="female" name="gender" value="female">female</label>
+        <label><input type="radio" id="other" name="gender" value="other">other</label>
+    </div>
+    <br><br>
+
+    <div>
+        <label for="department">Department:</label>
+        <select id="department" name="department">
+            <option value="">-- Select Department --</option>
+            <option value="cs">Computer Science</option>
+            <option value="it">Information Technology</option>
+            <option value="ec">Electronics & Communication</option>
+            <option value="me">Mechanical Engineering</option>
+            <option value="ce">Civil Engineering</option>
+            <option value="ee">Electrical Engineering</option>
+        </select>
+    </div>
+    <br><br>
+
+    <div>
+        <label for="newsletter">Subscribe to our newsletter:</label>
+        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+    </div>
+    <div>
+        <label for="terms">I agree to the terms and conditions:</label>
+        <input type="checkbox" id="terms" name="terms" value="yes">
+    </div>
+    <br><br>
+    
+    <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+</body>
+</html>

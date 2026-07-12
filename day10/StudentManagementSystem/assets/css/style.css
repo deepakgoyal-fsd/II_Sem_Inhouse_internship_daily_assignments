@@ -1,0 +1,58 @@
+body {
+    background-color: #f4f6fb;
+}
+
+.app-navbar {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+.app-footer {
+    background-color: #1f2233;
+    color: #cfd2e6;
+}
+
+.card-soft {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card {
+    border: none;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card.total   { background: linear-gradient(135deg, #4e54c8, #8f94fb); }
+.stat-card.avg     { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.stat-card.branch  { background: linear-gradient(135deg, #f7971e, #ffd200); color: #3a2a00; }
+
+.student-photo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecf5;
+}
+
+.student-photo-placeholder {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #e9ecf5;
+    color: #8f94fb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-preview-lg {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}

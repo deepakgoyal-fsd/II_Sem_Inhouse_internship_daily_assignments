@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My First JavaScript Project</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #f4f4f4;
+    color: #222;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  body.dark {
+    background: #111010;
+    color: #eee;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  section {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  body.dark section {
+    background: #2b2b2b;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+
+  button {
+    background: #14b88a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  button:hover {
+    background: #0f9d76;
+  }
+
+  input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    max-width: 220px;
+    box-sizing: border-box;
+  }
+
+  #errorMsg {
+    color: red;
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  #countDisplay {
+    font-size: 22px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="mainHeading">Welcome to my page!</h1>
+
+<!-- 1. Dynamic Heading -->
+<section>
+  <h2>1. Dynamic Heading</h2>
+  <p>Click the button to change the heading text above.</p>
+  <button onclick="changeHeading()">Change Heading</button>
+</section>
+
+<!-- 2. Click Counter -->
+<section>
+  <h2>2. Click Counter</h2>
+  <p id="countDisplay">Clicks: 0</p>
+  <button onclick="addClick()">Click Me</button>
+</section>
+
+<!-- 3. Dark Mode -->
+<section>
+  <h2>3. Dark Mode</h2>
+  <p>Toggle between light and dark theme.</p>
+  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</section>
+
+<!-- 4. Validation -->
+<section>
+  <h2>4. Form Validation</h2>
+  <p>Type your name and press submit. It must be at least 2 letters.</p>
+  <input type="text" id="nameInput" placeholder="Your name">
+  <br>
+  <button onclick="checkName()">Submit</button>
+  <p id="errorMsg"></p>
+</section>
+
+<!-- 5. Landing Page greeting (mini interactive feature) -->
+<section>
+  <h2>5. Say Hello</h2>
+  <p>Type your name and get a personal greeting.</p>
+  <input type="text" id="greetInput" placeholder="Your name">
+  <br>
+  <button onclick="sayHello()">Say Hello</button>
+  <p id="greetOutput"></p>
+</section>
+
+<script>
+  
+  function changeHeading() {
+    document.getElementById("mainHeading").textContent = "this is tanish here!";
+  }
+
+  
+  let clickCount = 0;
+  function addClick() {
+    clickCount = clickCount + 1;
+    document.getElementById("countDisplay").textContent = "Clicks: " + clickCount;
+  }
+
+  
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+  }
+
+
+  function checkName() {
+    const name = document.getElementById("nameInput").value;
+    const errorMsg = document.getElementById("errorMsg");
+
+    if (name.length < 2) {
+      errorMsg.textContent = "Please enter at least 2 letters.";
+    } else {
+      errorMsg.textContent = "Looks good, " + name + "!";
+      errorMsg.style.color = "green";
+    }
+  }
+
+  
+  function sayHello() {
+    const name = document.getElementById("greetInput").value;
+    document.getElementById("greetOutput").textContent = "Hello, " + name + "! Welcome!";
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tanish

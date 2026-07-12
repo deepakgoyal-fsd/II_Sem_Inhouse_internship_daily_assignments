@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(218, 211, 211) ;
+    font-family: Arial, sans-serif;
+}
+
+.main {
+    width: 600px;
+    min-height: 100vh; 
+    margin: 50px auto; 
+    background-color: rgb(184, 222, 246);
+    display: flex;
+    border-radius: 10px;
+    
+} 
+
+.form {
+    padding: 30px;
+    width: 500px;
+}
+
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(245, 233, 235);
+    margin-bottom: 15px;
+}
+
+
+.two {
+    display: block;
+}
+
+.two div {
+    width: 50%;
+}
+
+.gender {
+    margin-top: 10px;
+}
+
+.gender input {
+    width: auto;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

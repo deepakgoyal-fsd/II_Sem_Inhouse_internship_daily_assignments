@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+ 
+<body class="bg-light">
+
+    <div class="container py-5">
+
+        <h2 class="text-center mb-4">Student Records</h2>
+
+        <input type="text" id="search" class="form-control mb-4"
+            placeholder="Search Student">
+            <div id ="json"></div>
+
+        <div id="container" class="row g-4"></div>
+
+    </div>
+
+    <script>
+
+        const Students = [
+            { Name: "Akshara", Branch: "CSE", CGPA: "9.3" },
+            { Name: "Manas", Branch: "IT", CGPA: "8.9" },
+            { Name: "Ananya", Branch: "AI", CGPA: "9.0" }
+        ];
+
+        let html = "";
+
+        for (let i = 0; i < Students.length; i++) {
+
+            html += `
+            <div class="col-md-4 card-item">
+
+                <div class="card shadow">
+
+                    <div class="card-body">
+
+                        <h4>${Students[i].Name}</h4>
+
+                        <button class="btn btn-primary btn-sm mt-2">
+                            Show Details
+                        </button>
+
+                        <div class="details mt-3" style="display:none;">
+
+                            <p><strong>Branch:</strong> ${Students[i].Branch}</p>
+
+                            <p><strong>CGPA:</strong> ${Students[i].CGPA}</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            `;
+        }
+
+        document.getElementById("container").innerHTML = html;
+
+        // Show / Hide Details
+        $(document).on("click", ".btn", function () {
+
+            $(this).next(".details").slideToggle();
+
+        });
+
+        // Search Function
+        $("#search").on("keyup", function () {
+
+            let value = $(this).val().toLowerCase();
+
+            $(".card-item").filter(function () {
+
+                $(this).toggle(
+                    $(this).text().toLowerCase().indexOf(value) > -1
+                );
+
+            });
+
+        });
+        document.getElementById("json").innerHTML=JSON.stringify(Students, ["Name", "CGPA"],4);
+
+    </script>
+
+</body>
+
+</html>

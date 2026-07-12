@@ -1,0 +1,81 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+
+.custom-navbar{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    padding:15px 0;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    color:#fff !important;
+    letter-spacing:1px;
+}
+
+.nav-link{
+    color:white !important;
+    margin:0 12px;
+    font-size:17px;
+    font-weight:500;
+    position:relative;
+    transition:.3s;
+}
+
+/* Underline Animation */
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:white;
+    transition:.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after{
+    width:100%;
+}
+
+.nav-link:hover{
+    color:#ffd43b !important;
+}
+
+.btn-light{
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-light:hover{
+    background:#ffd43b;
+    color:#000;
+    transform:translateY(-2px);
+}
+
+/* Mobile */
+
+@media(max-width:991px){
+
+    .navbar-nav{
+        text-align:center;
+        margin:20px 0;
+    }
+
+    .nav-item{
+        margin:8px 0;
+    }
+
+    .btn-light{
+        display:block;
+        width:180px;
+        margin:15px auto;
+    }
+
+}

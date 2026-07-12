@@ -1,0 +1,36 @@
+form{
+    text-align: center;
+}
+body{
+    background-color: blue;
+}
+form{
+    background-color: white;
+    width: 650px;
+    height: 650px;
+    margin-left: 450px;
+    padding: 20px;
+    line-height: 20px;
+    border-radius: 10;
+
+  
+}
+button{
+    background-color: blue;
+    width: 550px;
+    height: 40px;
+    color: white;
+    text-align: center;
+    margin-left: 30px;
+}
+  #txtName, #txtAddress, #txtEmail{
+    width:650px;
+    height: 30px;
+  } 
+  *{
+    text-align: left;
+  } 
+  #countryname{
+    width: 325px;
+    height: 30px;
+  }

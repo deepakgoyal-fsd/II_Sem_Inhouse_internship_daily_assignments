@@ -1,0 +1,110 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#ffffff;
+}
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 70px;
+background:white;
+box-shadow:0px 0px 5px gray;
+
+}
+
+nav ul{
+
+display:flex;
+list-style:none;
+
+}
+
+nav ul li{
+
+margin:0 20px;
+
+}
+
+nav ul li a{
+
+text-decoration:none;
+color:#333;
+font-size:18px;
+
+}
+
+.btn a{
+
+background:#1e90ff;
+color:white;
+padding:10px 25px;
+text-decoration:none;
+border-radius:5px;
+
+}
+
+.container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+height:70vh;
+
+}
+
+.register{
+
+width:350px;
+
+}
+
+.register h1{
+
+margin-bottom:30px;
+text-align:center;
+
+}
+
+.register input{
+
+width:100%;
+padding:12px;
+margin:12px 0;
+border:none;
+border-bottom:1px solid gray;
+outline:none;
+
+}
+
+.register button{
+
+width:100%;
+padding:12px;
+background:#1e90ff;
+color:white;
+border:none;
+border-radius:5px;
+font-size:17px;
+cursor:pointer;
+
+}
+
+footer{
+
+background:#172554;
+color:white;
+text-align:center;
+padding:18px;
+position:fixed;
+bottom:0;
+width:100%;
+
+}

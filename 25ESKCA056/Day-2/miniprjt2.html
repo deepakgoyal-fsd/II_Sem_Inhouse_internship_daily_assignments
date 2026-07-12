@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="prctrelate.css"/>
+</head>
+<body>
+    <center>
+    <form class="background"  id="form">
+    <h1>Registration Form </h1>
+    <div class="common">
+<div id="first">
+    <label for="txtname" > Name:</label>
+    <br>
+    <input type="text" id="txtname" select placeholder="enter your full name" />
+    </div>
+<br>
+<div id="second">
+    <label for="txtEmail" > Email Address:</label>
+    <br>
+    <input type="text" id="txtEmail" placeholder="enter your email"/>
+    </div>
+    </div>
+<br>
+<div class="common2">
+<div id="third">
+    <label for="number" > Mobile Number:</label>
+    <br>
+    <input type="text" id="Number" placeholder="enter mobile number"/>
+</div>
+<div id="forth">  
+       <label for="DOB"  > Birth Date:</label>
+       <br>
+    
+    <input type="date" id="DOB"  />
+    </div>
+</div>
+
+    <br>
+    <div id="five"><label>
+                Gender:
+    <br>
+      <label for="male" > male</label>
+    <input type="radio" id="male" name="gender" checked/>
+    
+    <label for="female" > female</label>
+    <input type="radio" id="female" name="gender" checked/>
+    <label for="transgender" >transgender</label>
+    <input type="radio" id="transgender" name="gender" checked/> 
+    <label for="another" > other</label>
+    <input type="radio" id="another" name="gender" checked/>
+    
+    
+              </label><br></div>
+    <!-- <div class="six"> -->
+      <label > 
+        Address:
+    <br>
+    <input type="text" id="address1" placeholder="enter street address"/><br><br>
+<input type="text" id="address2" placeholder="enter street address line 2"/>
+</label>
+<!-- </div> -->
+<br>
+<!-- <label for="countryname"> select country</label> -->
+ <br>
+ <div class="common3">
+ <div id="seven">
+<select name="checkcountry" id="countryname" > 
+    <option value="">country</option>
+    <option value="America">America</option>
+    <option value="Japan">Japan</option>
+    <option value="India">India</option>
+    <option value="Maleshiya">Maleshiya</option>
+</select>
+</div>
+<div id="eight">
+<input type="text" name="city" id="cityname"   placeholder="enter city name"/>
+</div>
+
+</div>
+<br><br>
+<div class="common4">
+<input type="text" name="region" id="btnrgn" placeholder="enter your region"/>
+<input type="text" name="postal code" id="btnpost" placeholder="enter postal code"/>
+
+
+</div>
+<br><br>
+
+<input type="submit"  id="btnsubmit"  reuired placeholder="Submit"/>
+</div>
+
+
+    </form>
+
+
+    </center>
+</body>
+</html>

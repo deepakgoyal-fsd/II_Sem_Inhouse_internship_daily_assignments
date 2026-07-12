@@ -1,0 +1,105 @@
+h1{
+    text-align: center;
+    padding-top: 10px;  
+    color: blue;
+    margin-top: 100px;
+}
+form{
+    text-align: center;
+    background-size:700px;
+    margin-top: 10px;
+    height: 900px;
+    width: 700px;
+    line-height:30px;
+}
+#username{
+    text-align: right;
+
+}
+.one{
+    margin: right 1px;;
+}
+*{
+    margin:0;
+    padding-right:0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+
+}
+body{
+    background-color: black;
+   
+}
+.background{
+    background-color: aliceblue;
+    margin-top: 20px;
+    margin-left: 450px;
+    margin-right: 450px;
+}
+
+.common2{
+    display: flex;
+    gap:50px;
+    height: 50px;
+}
+.common3{
+    display: flex;
+    gap: 30px;
+}
+#txtname, #txtEmail{
+    width: 550px;
+    height: 50px;
+}
+#countryname,#cityname{
+    width:250px;
+    height:50px;
+    gap: 40px;
+}
+#btnrgn{
+    
+    height:50px ;
+}
+*{
+    text-align: left;
+    padding-left: 10px;
+}
+.common4{
+    display: flex;
+    
+    gap: 40px;
+    height: 50px;
+}
+#btnrgn{
+    margin-left: 10px;
+    width: 150px;
+}
+#btnsubmit{
+    width: 150px;
+    background-color: chartreuse;
+    height: 50px;
+    padding-left: 10px;
+    text-align: center;
+}
+.common2{
+    display: flex;
+    gap:30px;
+    
+}
+#btnrgn,#btnpost{
+    width: 250px;
+    height: 50px;
+}
+#cityname{
+ margin-right: 20px;
+}
+#address1,#address2{
+    width: 550px;
+    height: 50px;
+}
+#Number,#DOB{
+    width:250px;
+    height: 50px;
+}
+
+    

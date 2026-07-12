@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <!-- <h1>Hello World! I Am Here!!</h1> -->
+     
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        
+        <div class="container-fluid">
+             
+    
+        <nav class="navbar bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="img/Avenix_logo.png" alt="Bootstrap" width="30" height="24">
+    </a>
+  </div>
+</nav>
+            <a class="navbar-brand" href="#">Avenix</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            courses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Java</a></li>
+                            <li><a class="dropdown-item" href="#">Python</a></li>
+                            <li><a class="dropdown-item" href="#">Machine Learning</a></li>
+                            <li><a class="dropdown-item" href="#">Data Science</a></li>
+                            <li><a class="dropdown-item" href="#">Web-Development</a></li>
+                            <!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Digi Certificate</a></li>
+                            <li><a class="dropdown-item" href="#">Generate Slip</a></li>
+                            <li><a class="dropdown-item" href="#">Make Payment</a></li>
+                            <li><a class="dropdown-item" href="#">Carrer</a></li>
+                            <li><a class="dropdown-item" href="#">Interview Question</a></li>
+                            <!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+
+    </nav>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>20% Discount on all Courses</strong>-Check It Out Immediately
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/welcome_page.jpg" class="d-block w-100" height="500px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h6>Welcome To Our Website</h6>
+                    <p>Discover quality,innovation , and excellent services</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/template1.jpg" class="d-block w-100" height="500px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h6>Create Amazing Products</h6>
+                    <p>Turn Your Ideas into reality with modern technologies</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/template3.jpg" class="d-block w-100" height="500px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h6>Start Your AI Journey Today</h6>
+                    <p>Join our ML Program And Take The Next Step Toward A Successful Career</p>
+                </div>
+            </div>
+
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+
+    </div>
+
+    <!-- <form>
+        <div class="row mb-3" height="200px">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3">
+            </div>
+        </div>
+
+
+        </div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form> -->
+    <h5 width="30px">CONTACT US:</h5>
+    <form class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+            <!-- <label class="visually-hidden" for="autoSizingInput"><div class="col-auto"> -->
+            <label class="visually-hidden" for="autoSizingInput"> Your Name</label>
+            <input type="text" class="form-control" id="autoSizingInput" placeholder=" Your Name">
+        </div>
+
+
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingInput">Email Address</label>
+            <input type="text" class="form-control" id="autoSizingInput" placeholder="Email Address">
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingInput">Phone Number</label>
+            <input type="text" class="form-control" id="autoSizingInput" placeholder="Phone Number">
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingInput">Admission/JOB/Others</label>
+            <input type="text" class="form-control" id="autoSizingInput" placeholder="Admission/JOB/Others">
+        </div>
+
+
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Request For Call</button>
+        </div>
+        <h3>Our Popular Programs</h3>
+        <div class="card-group">
+            <div class="card">
+                <img src="img/python.jpg" class="card-img-top1" height="171.84px">
+                <div class="card-body">
+                    <h5 class="card-title">Python</h5>
+                    <p class="card-text">Discover the power of Python for software development, automation, web
+                        applications, and data analysis. Develop practical coding skills through hands-on exercises and
+                        real-world projects.</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/WebD.jpg" class="card-img-top1" height="171.84px">
+                <div class="card-body">
+                    <h5 class="card-title">Web Development</h5>
+                    <p class="card-text">Master modern web development by learning HTML, CSS, Bootstrap, JavaScript,
+                        React, and Node.js. Build responsive, interactive, and dynamic websites through practical
+                        projects.</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/DataScience.jpg" class="card-img-top1" height="171.84px" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Data Science</h5>
+                    <p class="card-text">Explore the world of data using Python, Pandas, NumPy, and machine learning
+                        techniques. Learn to analyze data, create visualizations, and build predictive models for
+                        real-world problems.</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <h3>About Us</h3>
+        <p >
+
+            Avenix is a leading technology training institute dedicated to empowering students and professionals with
+            industry-relevant skills. We offer comprehensive courses in Java, Python, Web Development, Data Science,
+            Machine Learning, and other in-demand technologies.<br> Our experienced trainers combine theoretical
+            knowledge
+            with practical, project-based learning to ensure every student gains real-world experience.<br>
+
+            At Avenix, we believe in quality education, personalized guidance, and career-focused training. Through
+            hands-on projects, mock interviews, certification support, and placement assistance, we prepare our learners
+            to succeed in today's competitive IT industry.<br> Our mission is to bridge the gap between academic
+            learning
+            and industry requirements, helping every student build a successful and rewarding career in technology. </p>
+        <h3>Meet Our Team</h3>
+        <br>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/profile1.jpg" class="card-img-top" height="171.84px" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Deny Desouza<br>Role: Senior Java Trainer</h5>
+                        <p class="card-text">an experienced Java developer and trainer with over 8 years of expertise in
+                            Core Java, Advanced Java, Spring Boot, and database technologies. He is passionate about
+                            helping students build strong programming skills through practical, project-based learning.
+
+
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/profile2.jpg" class="card-img-top" height="171.84px" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Amelia <br>Role: Full Stack Web Development Mentor</h5>
+                        <p class="card-text">specialized in HTML, CSS, Bootstrap, JavaScript, React, and Node.js. She
+                            guides students in creating responsive, interactive web applications while emphasizing clean
+                            coding practices and modern development tools.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col2">
+                <div class="card h-100">
+                    <img src="img/profile3.jpg" class="card-img-top" height="171.84px" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Adderine<br>Role: Python & Data Science Instructor</h5>
+                        <p class="card-text">experienced in Python programming, data analysis, machine learning, and
+                            artificial intelligence. He helps students gain hands-on experience with real-world datasets
+                            and industry-focused projects, preparing them for careers in data science and AI.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <footer class="py-5"> <div class="row"> <div class="col-6 col-md-2 mb-3"> <h5>Section</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> <div class="col-6 col-md-2 mb-3"> <h5>Section</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> <div class="col-6 col-md-2 mb-3"> <h5>Section</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> <div class="col-md-5 offset-md-1 mb-3"> <form> <h5>Subscribe to our newsletter</h5> <p>Monthly digest of what's new and exciting from us.</p> <div class="d-flex flex-column flex-sm-row w-100 gap-2"> <label for="newsletter1" class="visually-hidden">Email address</label> <input id="newsletter1" type="email" class="form-control" placeholder="Email address"> <button class="btn btn-primary" type="button">Subscribe</button> </div> </form> </div> </div> <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"> <p>© 2025 Company, Inc. All rights reserved.</p> <ul class="list-unstyled d-flex"> <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li> <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#facebook"></use></svg></a></li> </ul> </div> </footer> -->
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Contact Information</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Address<br>Avenix Training Institute, Tech Park, Noida, Uttar Pradesh</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Phone<br>+91 98765 43210</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email<br>info@avenix.com</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Working-Hours<br>Monday – Saturday: 9:00 AM – 6:00 PM</a></li>
+                        <!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> -->
+                    </ul>
+                </div>
+                
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2"> <label for="newsletter1"
+                                class="visually-hidden">Email address</label> <input id="newsletter1" type="email"
+                                class="form-control" placeholder="Email address"> <button class="btn btn-primary"
+                                type="button">Subscribe</button> </div>
+                    </form>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>© 2025 Company, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi"
+                                width="24" height="24">
+                                <use xlink:href="#instagram"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi"
+                                width="24" height="24" aria-hidden="true">
+                                <use xlink:href="#facebook"></use>
+                            </svg></a></li>
+                </ul>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+            integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

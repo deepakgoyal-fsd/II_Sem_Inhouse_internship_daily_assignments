@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="divForm">
+
+<form id="frmRegister"
+action="registration.php"
+method="POST"
+enctype="multipart/form-data">
+
+<h1>Registration Form</h1>
+
+<p class="default">
+Submit this form for Online Registration
+</p>
+
+<p><strong>Note : Kindly fill genuine information.</strong></p>
+
+<label>Name</label><br>
+<input
+type="text"
+name="Name"
+placeholder="Enter your Name"
+required
+class="rounded">
+
+<br><br>
+
+<label>Email</label><br>
+
+<input
+type="email"
+name="Email"
+placeholder="Enter your Email"
+required
+class="rounded">
+
+<br><br>
+
+<label>Phone Number</label><br>
+
+<input
+type="text"
+name="phone"
+placeholder="Enter 10 Digit Mobile Number"
+maxlength="10"
+required
+id="txtPhone">
+
+<br><br>
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender" value="Male" checked> Male
+
+<input type="radio" name="gender" value="Female"> Female
+
+<input type="radio" name="gender" value="Transgender"> Transgender
+
+<input type="radio" name="gender" value="Prefer not to say">
+Prefer not to say
+
+<br><br>
+
+<label>Date of Birth</label><br>
+
+<input
+type="date"
+name="dtDOB"
+required>
+
+<br><br>
+
+<label>Address</label><br>
+
+<textarea
+name="address"
+rows="3"
+required
+placeholder="Enter Address"></textarea>
+
+<br><br>
+
+<label>Select Country</label><br>
+
+<select name="country" required>
+
+<option value="">Select Country</option>
+
+<option>India</option>
+
+<option>America</option>
+
+<option>Russia</option>
+
+<option>England</option>
+
+<option>China</option>
+
+</select>
+
+<br><br>
+
+<label>Select Branch</label><br>
+
+<select name="branch" required>
+
+<option value="">Select Branch</option>
+
+<option>CSE</option>
+
+<option>IT</option>
+
+<option>ECE</option>
+
+<option>EE</option>
+
+<option>ME</option>
+
+<option>CE</option>
+
+<option>AI</option>
+
+</select>
+
+<br><br>
+
+<label>Upload Image</label><br>
+
+<input
+type="file"
+name="photo"
+accept="image/*"
+required>
+
+<br><br>
+
+<input
+type="submit"
+value="Register"
+id="btnSubmit">
+
+</form>
+
+</div>
+
+</body>
+
+</html>

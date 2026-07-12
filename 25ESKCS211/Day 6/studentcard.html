@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Search Engine</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+    padding:20px;
+    text-align:center;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+#search{
+    width:300px;
+    padding:10px;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+#studentList{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    padding:15px;
+}
+
+.card img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+button{
+    margin-top:10px;
+    padding:8px 15px;
+    cursor:pointer;
+}
+
+.details{
+    display:none;
+    margin-top:10px;
+    text-align:left;
+}
+
+.show{
+    display:block;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Student Search Engine</h1>
+
+<input type="text" id="search" placeholder="Search by Name or Branch">
+
+<div id="studentList"></div>
+
+<script>
+
+let students=[
+{
+name:"Siddharth Sharma",
+branch:"CSE",
+cgpa:"9.2",
+photo:"https://picsum.photos/seed/student1/120"
+},
+{
+name:"Rahul Verma",
+branch:"AI",
+cgpa:"8.8",
+photo:"https://picsum.photos/seed/student2/120"
+},
+{
+name:"Priya Singh",
+branch:"IT",
+cgpa:"9.1",
+photo:"https://picsum.photos/seed/student3/120"
+},
+{
+name:"Aman Gupta",
+branch:"ECE",
+cgpa:"8.4",
+photo:"https://picsum.photos/seed/student4/120"
+},
+{
+name:"Neha Sharma",
+branch:"Mechanical",
+cgpa:"8.9",
+photo:"https://picsum.photos/seed/student5/120"
+},
+{
+name:"Rohan Meena",
+branch:"Civil",
+cgpa:"8.2",
+photo:"https://picsum.photos/seed/student6/120"
+},
+{
+name:"Anjali Jain",
+branch:"CSE",
+cgpa:"9.5",
+photo:"https://picsum.photos/seed/student7/120"
+},
+{
+name:"Mohit Yadav",
+branch:"AI",
+cgpa:"8.7",
+photo:"https://picsum.photos/seed/student8/120"
+},
+{
+name:"Kritika Sharma",
+branch:"IT",
+cgpa:"9.0",
+photo:"https://picsum.photos/seed/student9/120"
+},
+{
+name:"Deepak Kumar",
+branch:"ECE",
+cgpa:"8.6",
+photo:"https://picsum.photos/seed/student10/120"
+}
+];
+
+function displayStudents(data){
+
+let output="";
+
+data.forEach(function(student){
+
+output+=`
+<div class="card">
+
+<img src="${student.photo}" alt="${student.name}">
+
+<h2>${student.name}</h2>
+
+<button onclick="toggleDetails(this)">
+Show Details
+</button>
+
+<div class="details">
+<p><b>Branch:</b> ${student.branch}</p>
+<p><b>CGPA:</b> ${student.cgpa}</p>
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("studentList").innerHTML=output;
+
+}
+
+function toggleDetails(button){
+button.nextElementSibling.classList.toggle("show");
+}
+
+displayStudents(students);
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+let result=students.filter(function(student){
+
+return student.name.toLowerCase().includes(value) ||
+student.branch.toLowerCase().includes(value);
+
+});
+
+displayStudents(result);
+
+});
+
+</script>
+
+</body>
+</html>
+  

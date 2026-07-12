@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(250, 220, 149);
+    font-family: Arial;
+}
+
+h2{
+    text-align: center;
+}
+
+form{
+    width: 300px;
+    margin: auto;
+    background-color: rgb(132, 205, 229);
+    padding: 20px;
+    border: 2px solid rgb(217, 194, 230);
+}
+
+input{
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+select{
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]{
+    background-color: rgb(14, 155, 7);
+    color: white;
+    height: 35px;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+    <head>
+        <meta charest="UTF-B"/>
+        <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="stylesheet.css" />
+        
+        </head>
+         <center>
+        <body id="body">
+            <div id="divform">
+            <form class="background" id="frmRegister"
+        action="registration.php" method="POST">
+
+                <h1 style="color:black;">Registration form</h1>
+                <p class="default">submit this form for online Registration</p>
+                <p><strong>Note: Kindly fill the genuine information</strong></p>
+            
+                <label>
+                    Name:
+                    <input type="text" id="txtName" name="Name" required
+                    placeholder="Enter your name" class="rounded"/>
+
+                </label>
+                <br><br>
+                <label>
+                    Email:
+                    <input type="email" id="txtEmail"  name = "Email" required
+                    placeholder="Enter your Email" class="rounded"/>
+                </label>
+                <br><br>
+                <label>
+                   Phone No:
+                    <input type="text" id="txtPhone"  name="phone" required
+                    placeholder="Enter your Phone"/>
+
+                </label>
+                <br><br>
+                Gender:
+                    <input type="radio" id="check-male" name="gender" checked/>
+                    <label for="check-male">male</label>
+                    <br><br>
+
+                    <input type="radio" id="check-female" name="gender" checked/>
+                    <label for="check-female">female</label>
+                    <br><br>
+
+                    <input type="radio" id="check-transgender" name="gender" checked/>
+                    <label for="check-transgender">transgender</label>
+                    <br><br>
+
+                     <input type="radio" id="check-other" name="gender" checked/>
+                    <label for="check-other">prefer not to say</label>
+                    <br><br>
+
+                    <label for="dtDOB">DOB</label>
+                    <input type="date" id="dtDOB" name="dtDOB"/>
+                    <br><br>
+                    
+                     <label for="pwdpassword">Password</label>
+                    <input type="password" id="pwdPassword" name="pwdPassword"/>
+                    <br><br>
+                    <label for="pwdConfirmpassword">Confirm Password</label>
+                    <input type="Password" id="pwdConfirmPassword" name="pwdPassword"/>
+                    <!DOCTYPE html>
+                    <br><br>
+                    <div class="mb-3">
+    <label class="form-label">Address</label>
+    <textarea
+        class="form-control"
+        name="address"
+        rows="2";
+        placeholder="Enter your address"
+        required></textarea>
+</div>
+<br>
+<title>Select country</title>
+</head>
+<body>
+
+    <label for="branch">Select country:</label>
+
+    <select id="branch" name="country">
+        <option value="">-- Select country --</option>
+        <option value="India">India</option>
+        <option value="America">America</option>
+        <option value="Russia">Russia</option>
+        <option value="England">England</option>
+        <option value="China">China</option>
+        </select>
+    <br><br>
+
+    <title>Select Branch</title>
+</head>
+<body>
+
+    <label for="branch">Select Branch:</label>
+
+    <select id="branch" name="branch">
+        <option value="">-- Select Branch --</option>
+        <option value="CSE">CSE</option>
+        <option value="IT">IT</option>
+        <option value="ECE">ECE</option>
+        <option value="EE">EE</option>
+        <option value="ME">ME</option>
+        <option value="CE">CE</option>
+        <option value="AI">AI</option>
+    </select>
+    <br><br>
+    <form action="upload.php" method="POST" emctype="multipart/form-data">
+        <input type="file" name="myfile" accept="image"
+    </form>
+
+</body>
+</html>
+                    </select>
+                    <br><br>
+                    <input type="submit" id="btnSubmit" />
+                    </form>
+                
+
+            </form> 
+            </div>
+        </body>
+
+</DOCTYPE>
+    

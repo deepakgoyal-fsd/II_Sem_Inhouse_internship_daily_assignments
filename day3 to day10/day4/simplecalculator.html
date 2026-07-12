@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="num1" placeholder="enter first num">
+        <input type="text" id="num2" placeholder="enter second num">
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button type="button" onclick="calculate()">Calculate</button>
+
+        <p id="result"></p>
+    </form>
+
+    
+
+    <script>
+      function calculate(){
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let operation = document.getElementById("operation").value;
+        let result = document.getElementById("result");
+
+        switch(operation){
+            case "+":
+                result.innerHTML = num1+num2;
+                break;
+            case "-":
+                result.innerHTML= num1-num2;
+                break;
+            case "*":
+                result.innerHTML=num1*num2;
+                break;
+            case "/":
+                if(num2===0){
+                    result.innerHTML="OOPS NOT POSSIBLE"
+                }else{
+                    result.innerHTML=num1/num2
+                }
+                break;
+            default:
+                result.innerHTML="invalid!!!"                
+        }
+      }
+    </script>>
+</body>
+</html>

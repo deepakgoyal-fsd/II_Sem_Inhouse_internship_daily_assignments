@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="formStylesheet2.css">
+</head>
+
+<body>
+    <form class="form">
+        <h1>Registration Form</h1>
+        <br>
+        <label>Full Name<br>
+            <input type="text" id="txtname" placeholder="Enter Full Name" class="rounded" required>
+        </label>
+
+        <label>Email Address<br>
+            <input type="email" id="txtemail" placeholder="Enter Email Address" class="rounded" required>
+        </label>
+
+        <label>Phone Number<br>
+            <input type="tel" id="txtPhone" placeholder="Enter Phone Number" class="rounded">
+        </label>
+
+        <label>Birth Date<br>
+            <input type="date" class="rounded">
+        </label>
+
+        <p>Gender</p>
+        <br>
+        <input type="radio" id="male" name="gender">
+        <label for="male" class="radio">Male</label>
+
+        <input type="radio" id="female" name="gender">
+        <label for="female" class="radio">Female</label>
+
+        <input type="radio" id="other" name="gender">
+        <label for="other" class="radio">Prefer not to say</label>
+        <br><br>
+
+        <label>Address
+            <input type="text" placeholder="Enter Street Address line 1" class="rounded" required><br>
+            <input type="text" placeholder="Enter Street Address line 2" class="rounded"><br>
+        </label>
+
+        Country
+        <select id="country" name="country" class="rounded" required>
+            <option>Select your country</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>Australia</option>
+            <option>Germany</option>
+            <option>Japan</option>
+            <option>China</option>
+        </select>
+
+        <p>City</p>
+        <input type="text" placeholder="Enter Your City" class="rounded">
+
+        <input type="text" placeholder="Enter Your Region" class="rounded">
+                
+        <input type="text" placeholder="Enter Your Postal Code" class="rounded">
+
+        <button type="reset" class="button">CLEAR</button>
+        <button type="submit" class="button">SUBMIT</button>
+    </form>
+</body>
+
+</html>

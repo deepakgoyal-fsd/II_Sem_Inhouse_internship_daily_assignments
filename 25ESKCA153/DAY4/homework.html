@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        img {
+            position: absolute;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center mt-3">
+        <h3>Tap on one of the images given below</h3>
+
+        <h5>
+            Apple :
+            <span id="appleCount">0</span>
+
+            Banana :
+            <span id="bananaCount">0</span>
+
+            Time :
+            <span id="timer">10</span>
+        </h5>
+    </div>
+    <div>
+        <img src="apple.png" alt="Apple" width="200px" height="200px" onclick="clickImage('apple', this)">
+        <img src="banana.jpg" alt="Banana" width="200px" height="200px" onclick="clickImage('banana', this)">
+    </div>
+    <h2 id="gameOver" class="text-center mt-5" style="display:none;">
+        Game Over
+    </h2>
+
+    <div class="text-center">
+        <button id="restartBtn" class="btn btn-primary" style="display:none;">
+            Restart Game
+        </button>
+    </div>
+    <script>
+        let appleCount = 0;
+        let bananaCount = 0;
+        let time = 10;
+        let timer = document.getElementById("timer");
+        randomPosition();
+        function randomPosition() {
+
+            document.querySelectorAll("img").forEach((img) => {
+
+                img.style.left =
+                    Math.random() * (window.innerWidth - 220) + "px";
+
+                img.style.top =
+                    Math.random() * (window.innerHeight - 250) + "px";
+
+            });
+
+        }
+        function clickImage(type, img) {
+            if (type == "apple") {
+                document.getElementById("appleCount").innerHTML = ++appleCount;
+            } else {
+                document.getElementById("bananaCount").innerHTML = ++bananaCount;
+            }
+            randomPosition();
+        }
+        let gameTimer = setInterval(function () {
+
+            time--;
+
+            timer.innerHTML = time;
+
+            if (time == 0) {
+
+                clearInterval(gameTimer);
+
+                document.querySelectorAll("img").forEach((img) => {
+
+                    img.style.display = "none";
+
+                });
+
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+                document.getElementById("gameOver").style.display = "block";
+
+                document.getElementById("restartBtn").style.display = "inline-block";
+
+            }
+
+        }, 1000);
+        document.getElementById("restartBtn").onclick = function () {
+
+            location.reload();
+
+        }
+    </script>
+</body>
+
+</html>

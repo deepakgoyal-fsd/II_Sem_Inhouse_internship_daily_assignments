@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Student Records</h1>
+        <input type="text" id="search" class="form-control mb-4" placeholder="Search Student">
+        <div id="container" class="row g-4"></div>
+        <div id="json"></div>
+    </div>
+</body>
+<script>
+    const students = [
+        { name: "Hmmm mmm", branch: "CSE", cgpa: 7.5 },
+        { name: "Jane Smith", branch: "AI", cgpa: 8.4 },
+        { name: "Alice Johnson", branch: "IT", cgpa: 8.2 },
+        { name: "Bob Brown", branch: "CSE", cgpa: 8.0 },
+        { name: "Charlie Davis", branch: "AI", cgpa: 7.8 },
+        { name: "Eve Wilson", branch: "IOT", cgpa: 9.0 },
+        { name: "Frank Miller", branch: "AI", cgpa: 8.6 },
+        { name: "Grace Lee", branch: "CSE", cgpa: 7.9 },
+        { name: "Hannah Taylor", branch: "AI", cgpa: 8.1 },
+        { name: "Ian Anderson", branch: "DS", cgpa: 8.3 },
+        { name: "Mradul Gupta", branch: "DS", cgpa: 9.0 },
+        { name: "Jane Smith", branch: "AI", cgpa: 8.4 },
+        { name: "Alice Johnson", branch: "IT", cgpa: 8.2 },
+        { name: "Bob Brown", branch: "CSE", cgpa: 8.0 },
+        { name: "Charlie Davis", branch: "AI", cgpa: 7.8 },
+        { name: "Eve Wilson", branch: "IOT", cgpa: 9.0 },
+        { name: "Frank Miller", branch: "AI", cgpa: 8.6 },
+        { name: "Grace Lee", branch: "CSE", cgpa: 7.9 },
+        { name: "Hannah Taylor", branch: "AI", cgpa: 8.1 },
+        { name: "Ian Anderson", branch: "DS", cgpa: 8.3 },
+        { name: "Mradul Gupta", branch: "DS", cgpa: 9.0 },
+        { name: "Jane Smith", branch: "AI", cgpa: 8.4 },
+        { name: "Alice Johnson", branch: "IT", cgpa: 8.2 },
+        { name: "Bob Brown", branch: "CSE", cgpa: 8.0 },
+        { name: "Charlie Davis", branch: "AI", cgpa: 7.8 },
+        { name: "Eve Wilson", branch: "IOT", cgpa: 9.0 },
+        { name: "Frank Miller", branch: "AI", cgpa: 8.6 },
+        { name: "Grace Lee", branch: "CSE", cgpa: 7.9 },
+        { name: "Hannah Taylor", branch: "AI", cgpa: 8.1 },
+        { name: "Ian Anderson", branch: "DS", cgpa: 8.3 },
+        { name: "Mradul Gupta", branch: "DS", cgpa: 9.0 }
+    ];
+
+    let html = "";
+
+    for (let i = 0; i < students.length; i++) {
+        html +=
+            `<div class="col-md-3 card-item">
+                <div class="card shadow p-3">
+                    <div class="card-body">
+                        <img src="" alt="photo">
+                        <h4>${students[i].name}</h4>
+                        <h4>${students[i].branch}</h4>
+                        <h4>${students[i].cgpa}</h4>
+                        <div class="details mt-3" style="display: none;">
+                            <p><strong>Branch:</strong> ${students[i].branch}</p>
+                            <p><strong>CGPA:</strong> ${students[i].cgpa}</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>`;
+    }
+    
+    
+    document.getElementById("container").innerHTML = html;
+
+</script>
+
+</html>

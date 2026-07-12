@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Cards Portal</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .card{
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover{
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .card img{
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img{
+            transform: scale(1.08);
+        }
+
+        .card{
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    
+    <div class="container py-5">
+        <h2 class="text-center mb-4" style="color: #d11a6a; font-weight: bold;">STUDENT RECORD PORTAL</h2>
+        
+        <input type="text" id="search" class="form-control mb-4" placeholder="Search student by name (e.g. vidhi, teena)..." style="border: 2px solid #ff99cc;">
+        
+        <div id="container" class="row g-4"></div>
+    </div>
+            
+    <script>
+        // 1. Student Array Data
+        const students = [
+            {name: "AMAN SISODIYA", branch: "CSE", cgpa: "8.0"},
+            {name: "NUKUL CHIPPA", branch: "DS", cgpa: "8.0"},
+            {name: "AYUSH SINGH", branch: "CSE", cgpa: "8.5"},
+            {name: "AMAN SINGH", branch: "CSE", cgpa: "9.0"},
+            {name: "NARESH KUMAR SUTHAR", branch: "DS", cgpa: "8.0"},
+            {name: "PRATHAM", branch: "DS", cgpa: "9.0"},
+            {name: "PRIYANSHU", branch: "CSE", cgpa: "6.0"},
+            {name: "YASHU", branch: "CDS", cgpa: "7.7"}
+        ];
+
+        // 2. Loop se HTML Cards generate karna
+        let html = "";
+        for (let i = 0; i < students.length; i++) {
+            html += `
+            <div class="col-md-4 card-item">
+                <div class="card shadow h-100" style="border: 1px solid #ff99cc;">
+                    <div class="card-body text-center">
+                        <h4 class="text-capitalize" style="color: #2c52b4;">${students[i].name}</h4>
+                        
+                        <button class="btn btn-primary btn-sm mt-2 toggle-btn" style="background-color: #ff66b3; border: none;">
+                            Show Details
+                        </button>
+
+                        <div class="details mt-3" style="display: none; background-color: #fff0f5; padding: 10px; border-radius: 5px;">
+                            <p class="mb-1"><strong>Branch: </strong>${students[i].branch}</p>
+                            <p class="mb-0"><strong>CGPA: </strong>${students[i].cgpa}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+        document.getElementById('container').innerHTML = html;
+
+        // ==========================================
+        // JQUERY LOGIC (Aapka likha hua logic fixed)
+        // ==========================================
+
+        $(document).ready(function() {
+
+            // Show / Hide Details Button Click
+            $(document).on("click", ".toggle-btn", function() {
+                // Button ke pas wale "details" div ko dhundho aur slide toggle karo
+                let detailsDiv = $(this).siblings(".details");
+                detailsDiv.slideToggle();
+
+                // Button ka naam badlo (Show hai to Hide, Hide hai to Show)
+                if ($(this).text().trim() === "Show Details") {
+                    $(this).text("Hide Details");
+                } else {
+                    $(this).text("Show Details");
+                }
+            });
+
+            // Live Search Student Logic
+            $("#search").on("keyup", function() {
+                let val = $(this).val().toLowerCase(); // Input box me jo type hua
+
+                $(".card-item").each(function() {
+                    let name = $(this).find("h4").text().toLowerCase(); // Card ka naam
+
+                    // Agar naam me wo akshar hai jo search hua hai, to dikhao warna chupao
+                    if (name.includes(val)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="Registration Form.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <form>
+
+            <label for="txtName">Name</label>
+            <input type="text" id="txtName" placeholder="Enter your Name" required>
+
+            <label for="txtEmail">Email</label>
+            <input type="email" id="txtEmail" placeholder="Enter your Email" required>
+
+            <label for="txtPhone">Phone Number</label>
+            <input type="tel" id="txtPhone" placeholder="Enter your Phone Number" required>
+
+            <label>Gender</label>
+            <div class="gender">
+                <input type="radio" id="male" name="gender">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender">
+                <label for="female">Female</label>
+
+                <input type="radio" id="transgender" name="gender">
+                <label for="transgender">Transgender</label>
+            </div>
+
+            <label for="dtDOB">Date of Birth</label>
+            <input type="date" id="dtDOB">
+
+            <label for="pwdPassword">Password</label>
+            <input type="password" id="pwdPassword" placeholder="Enter Password" required>
+
+            <label for="pwdConfirmPassword">Confirm Password</label>
+            <input type="password" id="pwdConfirmPassword" placeholder="Confirm Password" required>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

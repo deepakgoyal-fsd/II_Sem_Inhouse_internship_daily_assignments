@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Banana Game</title>
+    <link rel="stylesheet" href="game.css">
+
+    <style>
+        body{
+            position: relative;
+            height:100vh;
+            margin:0;
+            overflow:hidden;
+            font-family:Arial, sans-serif;
+        }
+
+        p{
+            font-size:22px;
+            margin:10px;
+        }
+
+        img{
+            width:100px;
+            position:absolute;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>
+    Apple :
+    <span id="apple">0</span>
+</p>
+
+<p>
+    Banana :
+    <span id="banana">0</span>
+</p>
+
+<img src="https://img.magnific.com/free-vector/apple-colorful-vector-design_341269-1123.jpg?semt=ais_hybrid&w=740&q=80"
+     onclick="clickImage('apple',this)">
+
+<img src="https://media.istockphoto.com/id/804495812/vector/yellow-not-peeled-banana.jpg?s=612x612&w=0&k=20&c=cv7wUTj9DF_au1biwWb27c09G_a-9F2KpRhgP_sth80="
+     onclick="clickImage('banana',this)">
+
+<script>
+
+let apple = 0;
+let banana = 0;
+
+// Initial Random Position
+document.querySelectorAll("img").forEach(img=>{
+
+    img.style.left =
+    Math.random()*(window.innerWidth-100)+"px";
+
+    img.style.top =
+    Math.random()*(window.innerHeight-120)+"px";
+
+});
+
+function clickImage(type,img){
+
+    if(type=="apple"){
+        document.getElementById("apple").innerText = ++apple;
+    }
+    else{
+        document.getElementById("banana").innerText = ++banana;
+    }
+
+    // Move image to random position
+    img.style.left =
+    Math.random()*(window.innerWidth-100)+"px";
+
+    img.style.top =
+    Math.random()*(window.innerHeight-120)+"px";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Flex Container */
+.container {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;          /* Boxes move to the next line if needed */
+    justify-content: center;  /* Center boxes horizontally */
+    align-items: center;      /* Center boxes vertically */
+    gap: 20px;                /* Space between boxes */
+    padding: 20px;
+    border: 2px solid #333;
+    background-color: #2175a9;
+}
+
+/* Flex Items */
+.box {
+    width: 120px;
+    height: 120px;
+    background-color:white;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}

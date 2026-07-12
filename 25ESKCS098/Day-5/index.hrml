@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JavaScript Fundamentals</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="heading">
+Welcome to JavaScript
+</h1>
+
+<button id="changeHeading">
+Change Heading
+</button>
+
+<hr>
+
+<h2>Click Counter</h2>
+
+<p>
+
+Button Clicked :
+
+<span id="count">0</span>
+
+Times
+
+</p>
+
+<button id="counterBtn">
+
+Click Me
+
+</button>
+
+<hr>
+
+<h2>Dark Mode</h2>
+
+<button id="themeBtn">
+
+Toggle Theme
+
+</button>
+
+<hr>
+
+<h2>Student Registration</h2>
+
+<form id="myForm">
+
+<input
+type="text"
+id="name"
+placeholder="Enter Name"
+>
+
+<br><br>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email"
+>
+
+<br><br>
+
+<button>
+
+Submit
+
+</button>
+
+</form>
+
+<p id="message"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cards</title>
+
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+ 
+        <h2 class="text-center mb-4">User Cards</h2>
+
+        <div class="row g-4" id="container"></div>
+
+    </div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+
+            .then(response => response.json())
+
+            .then(users => {
+
+                let html = "";
+
+                users.forEach(user => {
+
+                    html += `
+                    
+                    <div class="col-md-4">
+
+                        <div class="card shadow h-100">
+
+                            <img src="https://i.pravatar.cc/150?img=${user.id}"
+                                 class="card-img-top rounded-circle p-3"
+                                 style="height:180px; object-fit:contain;">
+
+                            <div class="card-body">
+
+                                <h4>${user.name}</h4>
+
+                                <p><strong>Email:</strong> ${user.email}</p>
+
+                                <p><strong>Company:</strong> ${user.company.name}</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                });
+
+                document.getElementById("container").innerHTML = html;
+
+            })
+
+            .catch(error => {
+
+                console.log(error);
+
+            });
+
+    </script>
+
+</body>
+
+</html>

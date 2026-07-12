@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="registration_style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form action="registration.php" method="POST" enctype="multipart/form-data">
+
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Roll Number</label>
+<input type="text" name="roll_no" required>
+
+<label>Branch</label>
+<select name="branch" required>
+<option value="">Select Branch</option>
+<option value="CSE">CSE</option>
+<option value="AI">AI</option>
+<option value="DS">DS</option>
+<option value="IOT">IOT</option>
+</select>
+
+<label>CGPA</label>
+<input type="number" step="0.01" name="cgpa" required>
+
+<label>Phone Number</label>
+<input type="text" name="phone_number" maxlength="10" required>
+
+<label>Upload Photo</label>
+<input type="file" name="photo" accept="image/*" required>
+
+<input type="submit" value="Register">
+
+</form>
+
+</div>
+
+</body>
+</html>

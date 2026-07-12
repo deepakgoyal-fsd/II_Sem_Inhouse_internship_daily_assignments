@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAVAAH '26 | 7-Day Cultural & Tech Fest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #fffaf0 0%, #fff5e6 50%, #f0f7ff 100%);
+            color: #4a2c11;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .font-fest {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.25em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #d97706 0%, #db2777 50%, #4338ca 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cultural-hero {
+            position: relative;
+            background: linear-gradient(rgba(255, 250, 240, 0.85), rgba(255, 245, 230, 0.92)), 
+                        url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            min-height: 85vh;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(217, 119, 6, 0.18) !important;
+            box-shadow: 0 15px 35px rgba(217, 119, 6, 0.05);
+        }
+
+        .event-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(255, 255, 255, 0.88) !important;
+            border: 1px solid rgba(217, 119, 6, 0.1) !important;
+            cursor: pointer;
+        }
+        .event-card:hover {
+            border-color: rgba(219, 39, 119, 0.4) !important;
+            box-shadow: 0 20px 40px rgba(219, 39, 119, 0.1);
+            transform: translateY(-6px);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #ea580c 0%, #db2777 100%);
+            color: white !important;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            opacity: 0.95;
+            box-shadow: 0 8px 25px rgba(219, 39, 119, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .tag-tech { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .tag-cult { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .tag-sports { background-color: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+
+        .bright-input {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(217, 119, 6, 0.2) !important;
+            color: #4a2c11 !important;
+        }
+        .bright-input:focus {
+            border-color: #db2777 !important;
+            box-shadow: 0 0 0 0.25rem rgba(219, 39, 119, 0.15) !important;
+        }
+
+        .modal-glass {
+            background: rgba(255, 254, 252, 0.98) !important;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 6, 0.2) !important;
+            box-shadow: 0 25px 50px rgba(74, 44, 17, 0.12) !important;
+        }
+
+        .duration-pill {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.08), rgba(219, 39, 119, 0.08));
+            border: 1px solid rgba(219, 39, 119, 0.25);
+            color: #be185d;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cultural-hero d-flex flex-column justify-content-center align-items-center text-center p-4">
+        
+        <p class="animate__animated animate__fadeInDown text-uppercase fw-bold mb-2 tracking-widest" style="font-size: 0.75rem; letter-spacing: 0.4em !important; color: #b45309 !important;">
+            The Grand Intercollegiate Cultural Celebration
+        </p>
+        
+        <h1 class="animate__animated animate__fadeIn font-fest display-1 fw-black gradient-text mb-3 select-none py-2" style="font-size: calc(3.2rem + 5vw); font-weight: 900;">
+            PRAVAAH
+        </h1>
+        
+        <div class="animate__animated animate__fadeInUp animate__delay-1s duration-pill rounded-pill px-4 py-2 fw-semibold mb-4 shadow-sm d-flex align-items-center gap-2">
+            ✨ <span>July 10th – July 16th</span> 
+            <span class="opacity-50">|</span> 
+            <span>⚡ 7 Days of Creative Celebration</span>
+        </div>
+
+        <p class="animate__animated animate__fadeInUp animate__delay-1s lead mb-4 mx-auto text-dark opacity-75" style="max-w: 600px; font-weight: 500;">
+            Where heritage flows, modern talents speak, and memories ignite. Connect with fellow creators across a week-long celebration of performance and skill.
+        </p>
+
+        <div class="animate__animated animate__fadeInUp animate__delay-1s glass-panel p-4 rounded-4 shadow-sm mb-5 max-w-lg row text-start justify-content-center g-3" style="max-width: 650px;">
+            <div class="col-sm-5 border-end border-light-subtle pe-3 d-flex align-items-center gap-3">
+                <div class="fs-2 text-warning">🕒</div>
+                <div>
+                    <h6 class="mb-0 fw-bold text-dark text-uppercase small tracking-wide">Timings</h6>
+                    <p class="mb-0 text-muted small fw-medium">9:00 AM – 6:00 PM</p>
+                </div>
+            </div>
+            <div class="col-sm-7 ps-sm-4 d-flex align-items-center gap-3">
+                <div class="fs-2 text-danger">📍</div>
+                <div>
+                    <h6 class="mb-0 fw-bold text-dark text-uppercase small tracking-wide">Official Venue</h6>
+                    <p class="mb-0 text-muted small fw-medium">Gyaan Mandir Auditorium,<br>SKIT College</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#register" class="animate__animated animate__fadeInUp animate__delay-2s btn btn-gradient btn-lg rounded-pill px-5 py-3 fw-bold tracking-wider shadow-sm">
+            SECURE YOUR PASS
+        </a>
+    </header>
+
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="font-fest h2 fw-bold mb-2 text-dark">THE FESTIVAL ARENAS</h2>
+            <p class="text-muted small">Select any event tile below to discover explicit rule configurations, schedules, and perks.</p>
+            <div class="mx-auto mt-3" style="height: 3px; width: 80px; background: linear-gradient(to right, #ea580c, #db2777);"></div>
+        </div>
+        
+        <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+            <button onclick="filterEvents('all')" id="btn-all" class="btn btn-gradient rounded-pill px-4 text-xs tracking-wider uppercase">All Domains</button>
+            <button onclick="filterEvents('tech')" id="btn-tech" class="btn btn-light border rounded-pill px-4 text-xs tracking-wider uppercase text-secondary">Technical</button>
+            <button onclick="filterEvents('cult')" id="btn-cult" class="btn btn-light border rounded-pill px-4 text-xs tracking-wider uppercase text-secondary">Cultural</button>
+            <button onclick="filterEvents('sports')" id="btn-sports" class="btn btn-light border rounded-pill px-4 text-xs tracking-wider uppercase text-secondary">Sports</button>
+        </div>
+
+        <div class="row g-4" id="events-grid">
+            <div class="col-md-4 event-card-wrapper" data-category="tech">
+                <div class="card glass-panel h-100 p-4 rounded-4 event-card" onclick="openDetails('robo')">
+                    <span class="badge rounded-pill px-3 py-1 text-uppercase mb-3 align-self-start tag-tech">Technical</span>
+                    <h3 class="h4 fw-bold mb-2 text-dark">RoboWars</h3>
+                    <p class="text-muted small flex-grow-1">Custom metal-crushing combat machines fighting for mechanical supremacy inside a steel cage.</p>
+                    <span class="text-xs fw-bold text-orange-600 mt-2 d-inline-block">View Details & Perks →</span>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3 text-secondary small">
+                        <span>🗓️ July 10 (Day 1)</span>
+                        <span>🕒 10:00 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 event-card-wrapper" data-category="cult">
+                <div class="card glass-panel h-100 p-4 rounded-4 event-card" onclick="openDetails('band')">
+                    <span class="badge rounded-pill px-3 py-1 text-uppercase mb-3 align-self-start tag-cult">Cultural</span>
+                    <h3 class="h4 fw-bold mb-2 text-dark">Symphony of Bands</h3>
+                    <p class="text-muted small flex-grow-1">Watch top collegiate musical bands clash instruments live on stage for the ultimate rock title.</p>
+                    <span class="text-xs fw-bold text-orange-600 mt-2 d-inline-block">View Details & Perks →</span>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3 text-secondary small">
+                        <span>🗓️ July 11 (Day 2)</span>
+                        <span>🕒 05:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 event-card-wrapper" data-category="tech">
+                <div class="card glass-panel h-100 p-4 rounded-4 event-card" onclick="openDetails('hack')">
+                    <span class="badge rounded-pill px-3 py-1 text-uppercase mb-3 align-self-start tag-tech">Technical</span>
+                    <h3 class="h4 fw-bold mb-2 text-dark">Hackathon 2.0</h3>
+                    <p class="text-muted small flex-grow-1">A grueling continuous 24-hour prototype build-marathon solving crucial local optimization problems.</p>
+                    <span class="text-xs fw-bold text-orange-600 mt-2 d-inline-block">View Details & Perks →</span>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3 text-secondary small">
+                        <span>🗓️ July 12-13 (Days 3-4)</span>
+                        <span>🕒 Continuous</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 event-card-wrapper" data-category="cult">
+                <div class="card glass-panel h-100 p-4 rounded-4 event-card" onclick="openDetails('dance')">
+                    <span class="badge rounded-pill px-3 py-1 text-uppercase mb-3 align-self-start tag-cult">Cultural</span>
+                    <h3 class="h4 fw-bold mb-2 text-dark">Street Dance Faceoff</h3>
+                    <p class="text-muted small flex-grow-1">High-energy hip-hop and contemporary dance battles demanding extreme flexibility and coordination.</p>
+                    <span class="text-xs fw-bold text-orange-600 mt-2 d-inline-block">View Details & Perks →</span>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3 text-secondary small">
+                        <span>🗓️ July 14 (Day 5)</span>
+                        <span>🕒 02:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 event-card-wrapper" data-category="sports">
+                <div class="card glass-panel h-100 p-4 rounded-4 event-card" onclick="openDetails('cricket')">
+                    <span class="badge rounded-pill px-3 py-1 text-uppercase mb-3 align-self-start tag-sports">Sports</span>
+                    <h3 class="h4 fw-bold mb-2 text-dark">Box Cricket League</h3>
+                    <p class="text-muted small flex-grow-1">Fast-paced, high-intensity indoor cricket tournament matching strategic placements with raw speed.</p>
+                    <span class="text-xs fw-bold text-orange-600 mt-2 d-inline-block">View Details & Perks →</span>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3 text-secondary small">
+                        <span>🗓️ July 15 (Day 6)</span>
+                        <span>🕒 09:00 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 event-card-wrapper" data-category="cult">
+                <div class="card glass-panel h-100 p-4 rounded-4 event-card" onclick="openDetails('fashion')">
+                    <span class="badge rounded-pill px-3 py-1 text-uppercase mb-3 align-self-start tag-cult">Cultural</span>
+                    <h3 class="h4 fw-bold mb-2 text-dark">Vogue Runway</h3>
+                    <p class="text-muted small flex-grow-1">The thematic grand finale fashion show showcasing avant-garde styling concepts and runway walking.</p>
+                    <span class="text-xs fw-bold text-orange-600 mt-2 d-inline-block">View Details & Perks →</span>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3 mt-3 text-secondary small">
+                        <span>🗓️ July 16 (Day 7)</span>
+                        <span>🕒 06:30 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-glass text-dark p-3 rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <span id="modalCategory" class="text-uppercase fw-bold tracking-widest text-xs px-2 py-1 rounded">Category</span>
+                        <h2 class="modal-title font-fest h3 fw-bold mt-2" id="modalTitle">Event Title</h2>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <h6 class="fw-bold mb-2 text-secondary text-uppercase tracking-wider small">Event Overview</h6>
+                    <p id="modalDescription" class="text-muted font-light mb-4">Detailed outline information.</p>
+                    
+                    <h6 class="fw-bold mb-3 text-secondary text-uppercase tracking-wider small">Why You Should Register (Pros)</h6>
+                    <ul id="modalPros" class="list-unstyled d-flex flex-column gap-2">
+                        </ul>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light border rounded-pill px-4 text-xs" data-bs-dismiss="modal">Close</button>
+                    <a href="#register" class="btn btn-gradient rounded-pill px-4 text-xs fw-bold" data-bs-dismiss="modal">Register Immediately</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="register" class="py-5 my-5 border-top" style="background: rgba(255, 255, 255, 0.45);">
+        <div class="container py-4">
+            <div class="row g-5">
+                
+                <div class="col-md-6">
+                    <div class="card glass-panel p-4 p-md-5 rounded-4 shadow-sm">
+                        <h2 class="h3 fw-bold text-dark mb-1">Claim Your Pass</h2>
+                        <p class="text-muted small mb-4">Select your primary competition stage to register.</p>
+                        
+                        <form id="regForm">
+                            <div class="mb-3">
+                                <label class="form-label text-uppercase text-muted fw-semibold small" style="font-size: 0.7rem;">Full Name</label>
+                                <input type="text" id="name" required class="form-control form-control-lg bright-input rounded-3">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-uppercase text-muted fw-semibold small" style="font-size: 0.7rem;">Roll Number / Student ID</label>
+                                <input type="text" id="rollNo" required class="form-control form-control-lg bright-input rounded-3">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label text-uppercase text-muted fw-semibold small" style="font-size: 0.7rem;">Chosen Competition</label>
+                                <select id="eventSelect" class="form-select form-select-lg bright-input rounded-3">
+                                    <option>RoboWars</option>
+                                    <option>Symphony of Bands</option>
+                                    <option>Hackathon 2.0</option>
+                                    <option>Street Dance Faceoff</option>
+                                    <option>Box Cricket League</option>
+                                    <option>Vogue Runway</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-gradient btn-lg w-100 fw-bold py-3 rounded-3 shadow-sm">
+                                SUBMIT ENTRY
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card glass-panel p-4 p-md-5 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="h3 fw-bold text-dark mb-0">Live Roster</h2>
+                                <span id="regCount" class="badge rounded-pill px-3 py-2 text-uppercase font-monospace text-dark" style="background-color: #fff3e0; border: 1px solid rgba(217, 119, 6, 0.3); color: #b45309;">
+                                    0 Registered
+                                </span>
+                            </div>
+                            <div class="overflow-y-auto pe-1 d-flex flex-column gap-2" id="attendeesList" style="max-height: 310px;">
+                                <p class="text-muted text-center py-5 font-light small" id="noRecords">No registrations captured yet. Grab the first spot!</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-top border-light-subtle text-center text-muted small mt-3" style="font-size: 0.75rem;">
+                            Dashboard updates locally in real-time.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // --- Event Dataset Matrix ---
+        const eventData = {
+            robo: {
+                title: "RoboWars",
+                category: "Technical Arena",
+                classes: "tag-tech",
+                desc: "Welcome to the premium mechanical battlefield. Teams from across the state bring heavy custom-built combat robots to lock horns inside an enclosed bulletproof steel arena. Sparks will fly, structural elements will twist, and only one machine will walk away functional.",
+                pros: [
+                    "🏆 **Grand Cash Pool:** Combined cash rewards worth ₹50,000 for top ranking platforms.",
+                    "🛠️ **Technical Exposure:** Interact with expert automation engineers and premium hardware builders.",
+                    "📢 **Massive Audience:** Arena matches are cast live to over 2,000+ explosive cheering spectators."
+                ]
+            },
+            band: {
+                title: "Symphony of Bands",
+                category: "Cultural Stage",
+                classes: "tag-cult",
+                desc: "Turn up the amplifiers! Symphony of Bands gathers raw collegiate musical groups to showcase rock, fusion, metal, and acoustic melodies. Complete pro stage installation featuring high-end line arrays and studio-level sound monitoring engineering.",
+                pros: [
+                    "🎸 **Concert Grade Gear:** Get your hands on premium instrument interfaces and massive stage sound.",
+                    "📸 **Professional Portfolio:** Free high-res performance photography and multi-track audio captures.",
+                    "🎫 **Pro-Night Track:** The ultimate champion group opens the stage for the Day 7 celebrity artist!"
+                ]
+            },
+            hack: {
+                title: "Hackathon 2.0",
+                category: "Technical Arena",
+                classes: "tag-tech",
+                desc: "A grueling continuous 24-hour non-stop sprint where design and clean execution meet reality. Developers and UI designers combine skills to architect immediate scalable code frameworks targeting environmental tracking parameters.",
+                pros: [
+                    "💼 **Placement Tracks:** On-spot evaluations and direct interview calls from elite corporate partners.",
+                    "🧠 **Elite Mentorship:** Regular checkpoints with seasoned cloud architects and senior product developers.",
+                    "☕ **Uncapped Fuel:** Limitless specialty snacks, premium beverages, and fast networks all night long."
+                ]
+            },
+            dance: {
+                title: "Street Dance Faceoff",
+                category: "Cultural Stage",
+                classes: "tag-cult",
+                desc: "Bring the attitude to the concrete floor. Street Dance Faceoff matches high-octane hip-hop crews, poppers, and break-dancers against each other in classic circle choreography challenges. Rated heavily on sync, expression, and custom flips.",
+                pros: [
+                    "🏆 **Choreography Honor:** Judged directly by leading national reality television dance champions.",
+                    "✨ **Viral Production:** High-definition video crews will broadcast clean highlights across media channels.",
+                    "🔥 **Collaborative Jamming:** Build direct contacts with premium urban styling crews from diverse circuits."
+                ]
+            },
+            cricket: {
+                title: "Box Cricket League",
+                category: "Sports Arena",
+                classes: "tag-sports",
+                desc: "Fast, loud, and incredibly intense. Box Cricket strips away large traditional boundary setups for an accelerated short-format indoor box tournament where precision placement and hyper-fast running between wickets dictate victory.",
+                pros: [
+                    "⚡ **Fast Format:** Action-packed 6-over matches designed for rapid, highly engaging turnarounds.",
+                    "🥇 **Champions Trophy:** Heavy golden championship emblems and individual custom medals for final squads.",
+                    "🤝 **Team Bonding:** Outstanding avenue to assert college athleticism and tactical teamwork parameters."
+                ]
+            },
+            fashion: {
+                title: "Vogue Runway",
+                category: "Cultural Stage",
+                classes: "tag-cult",
+                desc: "The grand thematic aesthetic conclusion of Pravaah. Design houses and individual clothing lines match concepts under the spotlight, focusing heavily on sustainable couture elements, styling confidence, and fluid grace.",
+                pros: [
+                    "👑 **Couture Network:** Share concepts directly with premium design house scouts and fashion critiques.",
+                    "💄 **Styling Support:** Backstage cosmetic arrays managed completely by certified makeup institutions.",
+                    "🌟 **High-Stakes Spotlight:** The grand finale closing spotlight presentation on Day 7 of the festival."
+                ]
+            }
+        };
+
+        // --- Bootstrap Modal Activation ---
+        const bsModal = new Bootstrap.Modal(document.getElementById('eventModal'));
+        
+        function openDetails(key) {
+            const data = eventData[key];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            
+            const catSpan = document.getElementById('modalCategory');
+            catSpan.innerText = data.category;
+            catSpan.className = `text-uppercase fw-bold tracking-widest text-xs px-2 py-1 rounded ${data.classes}`;
+
+            document.getElementById('modalDescription').innerText = data.desc;
+
+            const prosContainer = document.getElementById('modalPros');
+            prosContainer.innerHTML = '';
+            
+            data.pros.forEach(pro => {
+                const li = document.createElement('li');
+                li.className = "p-3 rounded-3 mb-1 small text-secondary border d-flex align-items-start gap-2 bg-white bg-opacity-50";
+                li.style.borderColor = "rgba(217, 119, 6, 0.1)";
+                
+                const formatted = pro.replace(/\*\*(.*?)\*\*/g, '<strong class="text-dark">$1</strong>');
+                li.innerHTML = `🔸 <span>${formatted}</span>`;
+                prosContainer.appendChild(li);
+            });
+
+            bsModal.show();
+        }
+
+        // --- Interactive Filter Pipeline ---
+        function filterEvents(category) {
+            const wrappers = document.querySelectorAll('.event-card-wrapper');
+            const targetClasses = {
+                all: 'btn btn-gradient rounded-pill px-4 text-xs tracking-wider uppercase',
+                tech: 'btn btn-light border rounded-pill px-4 text-xs tracking-wider uppercase text-secondary',
+                cult: 'btn btn-light border rounded-pill px-4 text-xs tracking-wider uppercase text-secondary',
+                sports: 'btn btn-light border rounded-pill px-4 text-xs tracking-wider uppercase text-secondary'
+            };
+
+            ['all', 'tech', 'cult', 'sports'].forEach(t => {
+                document.getElementById(`btn-${t}`).className = (t === category) ? targetClasses.all : targetClasses[t];
+            });
+
+            wrappers.forEach(wrapper => {
+                const card = wrapper.querySelector('.event-card');
+                if (category === 'all' || wrapper.getAttribute('data-category') === category) {
+                    wrapper.style.display = 'block';
+                    card.classList.add('animate__animated', 'animate__fadeIn');
+                } else {
+                    wrapper.style.display = 'none';
+                    card

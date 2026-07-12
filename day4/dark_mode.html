@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SKIT Student Portal</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f8f6f9;text-align:center;transition:.3s;}
+.dark{background:#222;color:#fff;}
+.dark form,.dark .box{background:#444;color:#fff;}
+nav{background:#8d5d38;color:#fff;padding:15px;display:flex;justify-content:space-between;}
+#navbar{display:none;}
+nav a{color:#fff;margin:10px;cursor:pointer;text-decoration:none;}
+form,.box{width:400px;margin:30px auto;padding:20px;background:#fff;border-radius:10px;}
+.box{display:none;}
+input{width:90%;padding:10px;margin:10px;}
+button,input[type=submit]{padding:10px 20px;background:#8d5d38;color:#fff;border:none;cursor:pointer;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h3>SKIT Portal</h3>
+<div id="navbar">
+<a onclick="show('home')">Home</a>
+<a onclick="show('about')">About</a>
+<a onclick="show('updates')">Updates</a>
+</div>
+</nav>
+
+<button onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</button>
+
+<h2>Student Registration</h2>
+
+<form id="form">
+<input type="text" id="name" placeholder="Name" required><br>
+<input type="email" id="email" placeholder="Email" required><br>
+<input type="password" id="pass" placeholder="Password" required><br>
+<input type="submit" value="Register">
+<p id="msg"></p>
+</form>
+
+<div class="box" id="home">
+<h2>Home</h2>
+<p>Welcome to the SKIT Student Portal. Get all college updates here.</p>
+</div>
+
+<div class="box" id="about">
+<h2>About</h2>
+<p>This portal helps students stay connected with notices, events and academics.</p>
+</div>
+
+<div class="box" id="updates">
+<h2>Updates</h2>
+<p>• Workshops<br>• Events<br>• Notices<br>• Activities</p>
+</div>
+
+<script>
+form.onsubmit=function(e){
+e.preventDefault();
+
+if(name.value==""||!email.value.includes("@")||pass.value.length<6){
+msg.innerHTML="Enter valid details";
+msg.style.color="red";
+}
+else{
+form.style.display="none";
+navbar.style.display="block";
+show("home");
+}
+}
+
+function show(id){
+document.querySelectorAll(".box").forEach(x=>x.style.display="none");
+document.getElementById(id).style.display="block";
+}
+</script>
+
+</body>
+</html>

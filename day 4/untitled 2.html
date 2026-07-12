@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    const btn=document.querySelector("#myBtn");
+    brn.addEventListener("click",function(){
+        let count=parseInt(btn.dataset.count||0);
+        count++;
+        btn.dataset.count=count;
+        document.querySelector("#display").textContent=`Clicks:${count}`;
+    });
+    //Input event-fires on every keystroke
+    document.querySelector("#nameInput").addEventListener("input",(e)=>{
+        document.querySelector("#greeting").textContent=`Hi, ${e.target.value}!`
+    });
+</body>
+</html>

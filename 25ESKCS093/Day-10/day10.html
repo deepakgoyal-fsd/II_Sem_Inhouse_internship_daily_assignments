@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="regstyle.css">
+</head>
+
+<body>
+    <div class="whole">
+        <form class="background" action="registration.php" method="post" enctype="multipart/form-data">
+            <h1>REGISTRATION FORM</h1>
+            <p>Submit this form for online registration</p>
+            <label for="id">id:</label>
+            <input type="text" name="id" required placeholder="  Enter Your id" class="rounded">
+            <label for="txtName">name:</label>
+            <input type="text" name="txtName" required placeholder="  Enter Your Name" class="rounded">
+            <label for="roll">roll_no:</label>
+            <input type="text" name="roll" required placeholder="  Enter Your Roll No." class="rounded">
+            <div class="row">
+                <div class="column">
+                    <label for="PhoneNo">phonemumber</label>
+                    <input type="text" name="PhoneNo" required placeholder="  Enter Your PhoneNo." class="rounded">
+                    <label for="cgpa">cgpa:</label>
+
+                    <input type="text" name="cgpa" required placeholder="  Enter Your CGPA" class="rounded">
+                
+                    <label for="branch">branch</label>
+                    <select name="branch"  class="rounded">
+                        <option value="AI">AI</option>
+                        <option value="CSE">CSE</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="IoT">IoT</option>
+                    </select>
+                    <br>
+                    <label for="password">password</label>
+                    <input type="password" name="password" required placeholder="  Enter Your Password" class="rounded">
+                    
+                </div>
+
+            </div>
+            <button class="register" type="submit" name="registerBtn">Register</button>
+            
+        </form>
+    </div>
+</body>
+
+</html>

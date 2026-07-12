@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+
+    <link
+    href="https://cdn.jddelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background:#f5f5f5;
+        }
+
+        .card{
+            transition:0.3s;
+        }
+        .card:hover{
+            transform:scale(1.02);
+        }
+
+        .details{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-3">Student Directory</h2>
+        <h5 id="total" class="text-primary"></h5>
+
+        <input type="text" id="search" class="form-control mb-4" placeholder="Search Student">
+        <div class="row" id="container"></div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        const students=[
+            {
+                name:"Deepika",
+                branch:"CSE",
+                cgpa:8.7,
+                city:"Jaipur",
+                year:"2nd year",
+                email:"b250945@gmail.com"
+            },
+            {
+                name:"harshita",
+                branch:"CSE",
+                CGPA:"8.7",
+                city:"Sikar",
+                year:"2nd year",
+                email:"harshu@gmail.com",
+            },
+            {
+                name:"Dheeraj",
+                branch:"CSE",
+                CGPA:"8.5",
+                city:"jaipur",
+                year:"2nd year",
+                email:"dheeraj@gmail.com",
+            },
+            {
+                name:"ishita",
+                branch:"CSE",
+                CGPA:"8.5",
+                city:"kota",
+                year:"2nd year",
+                email:"ishita@gmail.com"
+            },
+            {
+                name:"bhavya",
+                branch:"cse",
+                CGPA:"8.5",
+                city:"kota",
+                year:"2nd year",
+                email:"bhavya@gmail.com"
+            }
+        ];
+
+        document.getElementById("total").innerHTML="Total Students:"+students.length;
+
+        let html="";
+
+        for(let i=0;i<student.length;i++){
+            let bg=i%2==0?"bg-light":"bg-white";
+
+            let badge=students[i].cgpa>8?
+            "bg-success":"bg-warning";
+
+            html+=
+
+            <div class="col-md-4 mb-4">
+                <div class="card ${bg} shadow">
+            <div class="card-body">
+                <h4>${i+1}.${students[i].name}</h4>
+                <p><b>Branch:</b>${students[i].branch}</p>
+                <span class="badge ${badge}">
+                    CGPA:${students[i].cgpa}
+                    </span>
+
+                    <div class="details  mt-3">
+
+                        <p><b>Year:</b>${students[i].year}</p>
+                        <p><b>City:</b>${students[i].city}</p>
+                        <p><b>Email:</b>${students[i].email}</p>
+                        </div>
+
+                        <button class="btn btn-primary btn-details mt-3">
+                            Show details
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                        ;
+
+        }
+        document.getElementByid("container").innerHTML=html;
+        $(".btn-details").click(function(){
+            $(this).closest(".card").find(".details").slideToggle();
+        
+        if($(this).text()=="Show Details"){
+            $(this).text("Hide Details");
+            $(this).css("background","red");
+        }
+    else{
+        $(this).text("Show Details");
+        $(this).css("background","blue");
+    }
+        });
+        $("#search").keyup(function(){
+            let value=$(this).val().toLowerCase();
+            $(".card").each(function(){
+
+                let name=$(this).find("h4").text().toLowerCase();
+
+                if(name.includes(value)){
+                    $(this).parent().show();
+        
+                }
+                else{
+                    $(this).parent().hide();
+                }
+            });
+        });
+        $(".card").hide().fadeln(1200);
+    </script>
+    
+</body>
+</html>

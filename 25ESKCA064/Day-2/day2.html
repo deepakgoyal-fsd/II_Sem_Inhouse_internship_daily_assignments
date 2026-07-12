@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>College Admission Form</h2>
+
+        <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name" requireed>
+
+            <label>Father's Name</label>
+            <input type="text" placeholder="Enter father's name" required>
+
+            <label>Mother's Name</label>
+            <input type="text" placeholder="Enter mother's name" required>
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter email" required>
+
+            <label>Mobile Number</label>
+            <input type="tel"placeholder="Enter mobile number" required>
+
+            <label>Date of Birth</label>
+            <input type="date" required>
+
+            <label>Gender</label><br>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">female
+            <input type="radio" name="gender">Other
+            <br><br>
+
+            <label>Course</label>
+            <select required>
+                <option>Select Course</option>
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>B.Sc</option>
+                <option>B.Com</option>
+                <option>BA</option>
+            </select>
+
+            <label>Address</label>
+            <textarea rows="4" placeholder="Enter your address">></textarea>
+
+            <label>Upload 12th Marksheet</label>
+            <input type="file">
+
+            <label>
+                <input type="checkbox"required">
+                I declare that the above information is correct.
+            </label>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+    <section id="testimonials" class="container py-5">
+        <h2 class="text-center mb-4">Testimonials</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-3 shadow">
+                    <p>"this website is amazing and very responsive!"</p>
+                    <h5>-Deepika Choudhary</h5>
+                </div>
+            </div>Bootstrap made web development much easier"</p>
+            <h5>-Harshita kanwar</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-3 shadow">
+                    <p>"Excellent design and mobile-friendly layout"</p>
+                    <h5>-Dheeraj tolani</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pricing" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Pricing</h2>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center p-4">
+                        <h3>Basic</h3>
+                        <h2>Rs 499</h2>
+                        <p>1 Website</p>
+                        <p>Email Support</p>
+                        <button class="btn btn-primary">Choose</button>
+                    </div>
+                </div>
+
+                <div class="col-md 4">
+                    <div class="card text-center p-4">
+                        <h3>Standard</h3>
+                        <h2>Rs 999</h2>
+                        <p>24/7 Support</p>
+                        <button class="btn btn-success">Choose</button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-center p-4">
+                        <h3>Premium</h3>
+                        <h2>Rs 1499</h2>
+                        <p>Unlimited Websites</p>
+                        <p>Priority Support</p>
+                        <button class="btn btn-danger">Choosen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container">
+        <h2 class="text-center mb-4"> Student Records </h2>
+        <input type="text" id="search" class="form-control mb-4" placeholder="search Student">
+        <div id="container" class="row g-4"></div>
+        <div id="json"></div>
+    </div>
+
+    <script>
+
+        const students = [
+            { name: "Gravit", branch: "CS", cgpa: 9.4 },
+            { name: "Ankit", branch: "ECE", cgpa: 8.2 },
+            { name: "Kriti", branch: "ME", cgpa: 8.5 },
+            { name: "Divisha", branch: "AI", cgpa: 8.0 },
+            { name: "Kalpit", branch: "AI", cgpa: 8.2 },
+            { name: "Harshit", branch: "AI", cgpa: 8.8 },
+            { name: "Harsh", branch: "AI", cgpa: 8.1 },
+            { name: "Divyanshi", branch: "AI", cgpa: 9.3 },
+            { name: "Dhriti", branch: "AI", cgpa: 8.3 },
+            { name: "Shaksham", branch: "CSE", cgpa: 8.4 },
+        ];
+
+
+        let html = ""
+        for (let i = 0; i < students.length; i++) {
+            html += `
+         <div class="col-md-4 card-item">
+         <div class="card shadow">
+            <div class="card-body">
+                <img src="https://i.pravatar.cc/100?img=${user}"
+
+                <h4>${students[i].name}</h4>
+                <button class="btn btn-primary btn-sm mt-2">
+                    Show Details
+                </button>
+
+                <div class="details mt-3" style="display:none;">
+                    <p><strong>Branch:</strong> ${students[i].branch}</p>
+                    <p><strong>CGPA:</strong> ${students[i].cgpa}</p>
+                </div>
+            </div>
+        </div> 
+        </div>   
+        ` ;
+        }
+
+        document.getElementById("container").innerHTML = html;
+
+        $(document).on("click", ".btn", function () {
+            $(this).next(".details").slideToggle();
+        });
+
+        $("#search").keyup(function () {
+            let val = $(this).val().toLowerCase();
+
+            $(".card-item").each(function () {
+
+                let name = $(this).find("h4").text().toLowerCase();
+
+                if (name.includes(val)) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
+            });
+        });
+
+        document.getElementById("json").innerHTML=JSON.stringify(students,["name","cgpa"],4);
+        
+    </script>
+</body>
+
+</html>

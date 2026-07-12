@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrum Digital Bootcamp Landing Page</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black: #050505;
+      --black-soft: #0d0d0d;
+      --charcoal: #151515;
+      --gold: #d4af37;
+      --gold-light: #f5d76e;
+      --gold-dark: #9c7a17;
+      --text-light: #f5f1e8;
+      --text-muted: #b8b1a4;
+      --border-gold: rgba(212, 175, 55, 0.35);
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--black);
+      color: var(--text-light);
+    }
+
+    .custom-navbar {
+      padding: 12px 0;
+      background: var(--black-soft);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .navbar-brand {
+      color: var(--gold-light) !important;
+      letter-spacing: 10px;
+    }
+
+    .navbar-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin: 0 14px;
+      font-size: 15px;
+    }
+
+    .navbar-links a:hover { color: var(--gold-light); }
+
+    .enroll-btn,
+    .btn-primary,
+    .btn-success {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      border: none;
+      color: #111 !important;
+      font-weight: 700;
+      border-radius: 24px;
+      padding: 9px 22px;
+      box-shadow: 0 10px 28px rgba(212,175,55,0.25);
+    }
+
+    .btn-primary:hover,
+    .btn-success:hover,
+    .enroll-btn:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-light,
+    .btn-outline-primary {
+      border: 1px solid var(--gold);
+      color: var(--gold-light) !important;
+      border-radius: 24px;
+      font-weight: 600;
+    }
+
+    .btn-outline-light:hover,
+    .btn-outline-primary:hover {
+      background: var(--gold);
+      color: #111 !important;
+      border-color: var(--gold);
+    }
+
+    .hero-section {
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,0.22), transparent 32%),
+        linear-gradient(135deg, #050505, #111, #050505);
+      color: var(--text-light);
+      padding: 105px 0;
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .hero-content h1 {
+      font-size: 2.55rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .badge.bg-primary {
+      background: rgba(212,175,55,0.16) !important;
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold);
+      padding: 9px 14px;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.75), 0 0 30px rgba(212,175,55,0.16);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: var(--gold-light);
+    }
+
+    .feature-section { padding: 80px 0; }
+
+    .feature-card {
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      background: linear-gradient(145deg, #111, #080808) !important;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+      transition: transform 0.25s, box-shadow 0.25s;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.65), 0 0 24px rgba(212,175,55,0.12);
+    }
+
+    .feature-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      height: 180px;
+      object-fit: cover;
+      border: 1px solid rgba(212,175,55,0.18);
+    }
+
+    .feature-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--gold-light); }
+    .feature-card p { color: var(--text-muted); }
+
+    .trainer-section {
+      background: #0a0a0a;
+      padding: 80px 0;
+      border-top: 1px solid rgba(212,175,55,0.12);
+      border-bottom: 1px solid rgba(212,175,55,0.12);
+    }
+
+    .trainer-grid { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+
+    .trainer-card {
+      text-align: center;
+      max-width: 280px;
+      background: linear-gradient(145deg, #121212, #080808);
+      padding: 28px 22px;
+      border-radius: 18px;
+      border: 1px solid var(--border-gold);
+    }
+
+    .trainer-card img {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 16px;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 25px rgba(212,175,55,0.2);
+    }
+
+    .trainer-card h4 { font-weight: 700; color: var(--gold-light); }
+    .trainer-card p { color: var(--text-muted); }
+
+    .testimonial-section { padding: 80px 0; background: var(--black); }
+
+    .testimonial-card {
+      background: linear-gradient(145deg, #111, #080808);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--gold);
+      border-top: 1px solid rgba(212,175,55,0.18);
+      border-right: 1px solid rgba(212,175,55,0.18);
+      border-bottom: 1px solid rgba(212,175,55,0.18);
+      height: 100%;
+    }
+
+    .testimonial-card p { font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 16px; }
+    .testimonial-card .name { font-weight: 700; color: var(--gold-light); }
+    .testimonial-card .role { font-size: 0.85rem; color: #8f887b; }
+    .stars { color: var(--gold-light); font-size: 1.1rem; margin-bottom: 12px; }
+
+    .pricing-section {
+      padding: 85px 0;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,0.2), transparent 35%),
+        linear-gradient(135deg, #050505, #151515);
+      color: var(--text-light);
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .pricing-card {
+      background: linear-gradient(145deg, #121212, #070707);
+      color: var(--text-light);
+      border-radius: 20px;
+      padding: 38px 28px;
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+      transition: transform 0.25s;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    .pricing-card:hover { transform: translateY(-8px); }
+    .pricing-card.popular { border: 2px solid var(--gold-light); box-shadow: 0 0 35px rgba(212,175,55,0.22); }
+
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #111;
+      padding: 5px 18px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .pricing-card h4 { font-weight: 800; font-size: 1.3rem; margin-bottom: 8px; color: var(--gold-light); }
+    .pricing-card .price { font-size: 2.4rem; font-weight: 900; color: var(--gold-light); margin-bottom: 4px; }
+    .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+    .pricing-card ul { list-style: none; padding: 0; margin: 20px 0; text-align: left; }
+    .pricing-card ul li { padding: 7px 0; font-size: 0.95rem; color: var(--text-muted); }
+    .pricing-card ul li i { color: var(--gold-light); margin-right: 8px; }
+
+    .faq-section { padding: 80px 0; background: #0a0a0a; }
+
+    .accordion-item {
+      background: #111;
+      border: 1px solid var(--border-gold) !important;
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      background: #111;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: linear-gradient(135deg, #171717, #0d0d0d);
+      color: var(--gold-light);
+      box-shadow: none;
+    }
+
+    .accordion-button:focus { box-shadow: 0 0 0 0.2rem rgba(212,175,55,0.18); }
+    .accordion-body { color: var(--text-muted); background: #0c0c0c; }
+
+    .social-section {
+      background: #050505;
+      color: var(--text-light);
+      padding: 55px 0;
+      text-align: center;
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .social-section h4 { margin-bottom: 24px; font-weight: 700; color: var(--gold-light); }
+    .social-icons a { color: var(--text-light); font-size: 1.8rem; margin: 0 14px; transition: color 0.2s, transform 0.2s; display: inline-block; }
+    .social-icons a:hover { color: var(--gold-light) !important; transform: translateY(-4px); }
+
+    .contact-section { padding: 80px 0; }
+
+    .contact-box {
+      background:
+        radial-gradient(circle at top left, rgba(245,215,110,0.22), transparent 30%),
+        linear-gradient(135deg, #111, #050505);
+      color: var(--text-light);
+      border-radius: 24px;
+      padding: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.55);
+    }
+
+    .contact-box h2 { font-weight: 800; margin-bottom: 8px; color: var(--gold-light); }
+    .contact-box p { color: var(--text-muted); }
+    .contact-box form { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .contact-box input {
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border-gold);
+      min-width: 200px;
+      background: #0a0a0a;
+      color: var(--text-light);
+      outline: none;
+    }
+
+    .contact-box input::placeholder { color: #8d8678; }
+
+    .btn-light {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #111;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #050505;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(212,175,55,0.2);
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 991px) {
+      .navbar .container { flex-direction: column; gap: 14px; }
+      .navbar-links { text-align: center; }
+      .navbar-links a { display: inline-block; margin: 6px 8px; }
+      .hero-section { padding: 75px 0; }
+      .hero-content h1 { font-size: 2rem; }
+    }
+
+    @media (max-width: 576px) {
+      .hero-row .col-6 { width: 100%; }
+      .hero-img { margin-top: 28px; }
+      .contact-box { padding: 32px 22px; }
+      .contact-box input, .contact-box button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Scrum Digital</a>
+      <div class="navbar-links">
+        <a href="#program">Program</a>
+        <a href="#features">Features</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn btn-primary enroll-btn">Enroll Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row hero-row align-items-center">
+        <div class="col-lg-6 col-6 hero-content">
+          <span class="badge bg-primary mb-3">13-Day Intensive Bootcamp</span>
+          <h1>Full Stack Web Development & AI Integration</h1>
+          <p>Build real-world projects using HTML, CSS, Bootstrap, JavaScript, PHP, MySQL and AI APIs with industry mentors.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-success">Join Today</a>
+            <a href="#program" class="btn btn-outline-light">View Program</a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-6">
+          <img class="hero-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&auto=format&fit=crop&q=80" alt="Students coding in classroom">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="container feature-section">
+    <h2 class="section-title">What You Will Build</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-card card-html">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format&fit=crop&q=80" alt="Laptop with code">
+          <h3>Responsive UI</h3>
+          <p>Create modern pages using HTML, CSS, Flexbox and Bootstrap components.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card-css">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Code editor">
+          <h3>Backend Logic</h3>
+          <p>Connect frontend pages with PHP, MySQL and REST-style workflows.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card-bootstrap">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=80" alt="AI technology">
+          <h3>AI Features</h3>
+          <p>Add useful AI API features into your final project dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINERS -->
+  <section id="trainers" class="trainer-section">
+    <div class="container">
+      <h2 class="section-title">Meet Your Trainers</h2>
+      <div class="trainer-grid">
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80" alt="Trainer profile">
+          <h4>Lead Technical Trainer</h4>
+          <p>Guides live coding, debugging and architecture discussions.</p>
+        </div>
+        <div class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80" alt="Trainer profile">
+          <h4>Product & Delivery Mentor</h4>
+          <p>Helps students connect technical skills with real product thinking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ =
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonial-section">
+    <div class="container">
+      <h2 class="section-title">What Students Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"This bootcamp changed the way I think about code. I built my first full stack project in just 13 days. Absolutely worth it."</p>
+            <div class="name">Aarav Sharma</div>
+            <div class="role">B.Tech CSE, 2nd Year — Delhi</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The mentors were incredibly patient and the curriculum was practical. I finally understand how frontend and backend connect."</p>
+            <div class="name">Priya Mehta</div>
+            <div class="role">BCA Student — Jaipur</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">★★★★☆</div>
+            <p>"Loved the AI integration section. Adding real AI features to my project made my portfolio stand out during internship interviews."</p>
+            <div class="name">Rohan Verma</div>
+            <div class="role">Fresher — Pune</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="pricing-card">
+            <h4>Basic</h4>
+            <div class="price">₹999 <span>/ bootcamp</span></div>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> HTML, CSS & Bootstrap</li>
+              <li><i class="bi bi-check-circle-fill"></i> 3 Live Sessions</li>
+              <li><i class="bi bi-check-circle-fill"></i> Project Templates</li>
+              <li><i class="bi bi-check-circle-fill"></i> Certificate</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-primary w-100">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <h4>Full Stack</h4>
+            <div class="price">₹2,499 <span>/ bootcamp</span></div>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Everything in Basic</li>
+              <li><i class="bi bi-check-circle-fill"></i> JavaScript + PHP + MySQL</li>
+              <li><i class="bi bi-check-circle-fill"></i> 13 Live Sessions</li>
+              <li><i class="bi bi-check-circle-fill"></i> 1:1 Mentor Support</li>
+              <li><i class="bi bi-check-circle-fill"></i> Real Project Build</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-100">Enroll Now</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pricing-card">
+            <h4>AI Pro</h4>
+            <div class="price">₹3,999 <span>/ bootcamp</span></div>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Everything in Full Stack</li>
+              <li><i class="bi bi-check-circle-fill"></i> AI API Integration</li>
+              <li><i class="bi bi-check-circle-fill"></i> Portfolio Review</li>
+              <li><i class="bi bi-check-circle-fill"></i> LinkedIn Profile Help</li>
+              <li><i class="bi bi-check-circle-fill"></i> Job Referral Network</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-primary w-100">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item mb-3 border rounded">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  Who is this bootcamp for?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">This bootcamp is designed for beginners and students who want to break into web development. No prior experience is required — just a laptop and willingness to learn.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  How long is the bootcamp?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">The bootcamp runs for 13 intensive days with live sessions every day. Sessions are recorded so you can revisit them anytime.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  Will I get a certificate?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes! All students who complete the bootcamp receive a verified certificate from Scrum Digital that you can add to your LinkedIn profile and resume.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  Is the bootcamp online or offline?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">The bootcamp is conducted online via live video sessions. You can attend from anywhere in India with a stable internet connection.</div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  What if I miss a session?
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">All sessions are recorded and shared within 24 hours. You can catch up at your own pace and ask questions in our WhatsApp community group.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL MEDIA -->
+  <section class="social-section">
+    <div class="container">
+      <h4>Follow Us & Stay Connected</h4>
+      <div class="social-icons">
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+        <a href="#" class="github"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container contact-section">
+    <div class="contact-box">
+      <div>
+        <h2>Ready to Build?</h2>
+        <p>Register your interest and start your journey toward becoming job-ready.</p>
+      </div>
+      <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <button class="btn btn-light fw-bold">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Scrum Digital Bootcamp. Learn. Build. Debug. Repeat.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

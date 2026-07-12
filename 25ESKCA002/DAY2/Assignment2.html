@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h1{
+            color:black !important;
+        }
+        </style>
+</head>
+<body id="body">
+    <form class="registration-form">
+        <h1>Registration Form</h1>
+        <h3>Submit this form for online registration:</h3>
+
+        <label>
+           Full Name
+           
+           <br>
+            <input type="text" id="txtName" required placeholder="Enter your Name" class="name" />
+            
+        </label>
+        
+
+        <br>
+        <label>
+            Email Address
+            <br>
+            <input type="email" id="txtEmail" required placeholder="Enter  Email address" class="name" />
+            </label>
+        <br>
+        <label for="pwdPassword">Password</label>
+            <input type="password" id="pwdPassword" name="pwdPassword" />
+        <label>
+            <br>
+            
+            Phone No
+            <br>
+            <input type="text" id="txtPhone" required placeholder="Enter  Phone No" class="phone"/>
+        </label>
+        
+       
+            
+            <label for="dtDOB" id="dtDOB">Date of Birth:</label>
+            <input type="date" id="dtDOB" name="dtDOB" />
+            <br>
+              
+            <input type="radio" id="check-male" name="gender" checked />
+            <label for="check-male">Male</label>
+
+            <input type="radio" id="check-female" name="gender" />
+            <label for="check-female">Female</label>
+
+            <input type="radio" id="check-Transgender" name="gender" />
+            <label for="check-Transgender">Transgender</label>
+            <input type="radio" id="check-other" name="gender" />
+            <label for="check-other">Prefer not to say</label> 
+            <br>
+             <label>
+           Address
+           
+           <br>
+            <input type="text" id="txtaddress1" required placeholder="Enter street address" class="add" />
+            <br>
+            <input type="text" id="txtaddress2" required placeholder="Enter street address line 2" class="add"/>
+            <br>
+            <select name="country" >
+                <option value="Select a country">Select a country</option>
+                 <option value="India">India</option>
+<option value="South africa">South africa</option>
+<option value="Australia">Australia</option>
+<option value="England">England</option>
+<option value="Newzealand">Newzealand</option>
+
+
+            
+            </select>
+            <label>
+           <input type="text" id="txtcity" required placeholder="Enter your city" class="con">
+            <br>
+            <input type="text" id="txtregion" required placeholder="Enter your region" class="con" />
+            <input type="text" id="txtpostalcode" required placeholder="Enter postal code" class="con" />
+        </label>
+
+            <br>
+            <div class="input-name">
+                <input type="checkbox" class="check button">
+                <label> I accept the terms and conditons</label>
+            </div>
+            <br>
+            
+            
+            
+            <input type="submit" value="Register" class="sum" />
+
+
+
+    </form>
+</body>
+</html>

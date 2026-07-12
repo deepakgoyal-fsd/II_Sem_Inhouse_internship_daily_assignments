@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravah 2026 — Techno-Cultural Fest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A0F16;
+    --ink-2:#3B1620;
+    --paper:#F4F1EA00; /* unused, kept for clarity of override */
+    --foam:#FBF3E7;
+    --slate:#C9A79B;
+    --current:#F2A93C;   /* marigold gold, "the flow" */
+    --current-dim:#C97D1E;
+    --amber:#E85C7B;     /* rose-magenta counter-accent */
+    --marigold:#F2A93C;  /* festival gold, used in cultural motif */
+    --line:rgba(251,243,231,0.16);
+    --radius:14px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--foam);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+    position:relative;
+  }
+  ::selection{background:var(--current); color:var(--ink);}
+
+  h1,h2,h3,.display{
+    font-family:'Unbounded', sans-serif;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'JetBrains Mono', monospace; letter-spacing:0.02em;}
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- Static cultural backdrop (fixed, never moves on scroll) ---------- */
+  #culture-bg{
+    position:fixed; inset:0; width:100%; height:100%;
+    z-index:0; pointer-events:none;
+    background-color:var(--ink);
+    background-image:
+      radial-gradient(ellipse 900px 600px at 15% 10%, rgba(242,169,60,0.10), transparent 60%),
+      radial-gradient(ellipse 800px 700px at 90% 85%, rgba(232,92,123,0.09), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='960' viewBox='0 0 960 960'%3E%3Cg fill='none' stroke='rgba(242,169,60,0.05)' stroke-width='1'%3E%3Ccircle cx='480' cy='480' r='420'/%3E%3Ccircle cx='480' cy='480' r='360'/%3E%3Ccircle cx='480' cy='480' r='300'/%3E%3Ccircle cx='480' cy='480' r='240'/%3E%3Ccircle cx='480' cy='480' r='180'/%3E%3C/g%3E%3Cg fill='none' stroke='rgba(232,92,123,0.08)' stroke-width='1.1'%3E%3Cpath d='M480 60 C560 60 600 140 560 200 C520 255 440 245 420 175 C405 120 435 70 480 60Z'/%3E%3Cpath d='M480 900 C560 900 600 820 560 760 C520 705 440 715 420 785 C405 840 435 890 480 900Z'/%3E%3Cpath d='M60 480 C60 400 140 360 200 400 C255 440 245 520 175 540 C120 555 70 525 60 480Z'/%3E%3Cpath d='M900 480 C900 400 820 360 760 400 C705 440 715 520 785 540 C840 555 890 525 900 480Z'/%3E%3Cpath d='M170 170 C220 130 290 150 300 210 C308 260 260 300 215 280 C170 260 150 205 170 170Z'/%3E%3Cpath d='M790 170 C740 130 670 150 660 210 C652 260 700 300 745 280 C790 260 810 205 790 170Z'/%3E%3Cpath d='M170 790 C220 830 290 810 300 750 C308 700 260 660 215 680 C170 700 150 755 170 790Z'/%3E%3Cpath d='M790 790 C740 830 670 810 660 750 C652 700 700 660 745 680 C790 700 810 755 790 790Z'/%3E%3C/g%3E%3Ccircle cx='480' cy='480' r='6' fill='rgba(232,92,123,0.12)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='rgba(251,243,231,0.05)' stroke-width='1'%3E%3Cpath d='M70 24 C92 24 104 46 92 64 C80 80 56 76 50 58 C44 42 54 28 70 24Z'/%3E%3C/g%3E%3Ccircle cx='70' cy='70' r='2' fill='rgba(242,169,60,0.06)'/%3E%3C/svg%3E");
+    background-repeat:no-repeat, no-repeat, no-repeat, repeat;
+    background-position:center, center, center, top left;
+    background-size:auto, auto, min(760px,90vw) min(760px,90vh), 140px 140px;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,18,36,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Unbounded'; font-weight:800; font-size:1.25rem;
+    letter-spacing:0.02em;
+  }
+  .brand .drop{
+    width:10px; height:14px; border-radius:50% 50% 50% 0;
+    background:var(--current);
+    transform:rotate(45deg);
+    box-shadow:0 0 14px var(--current);
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{ 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(-4px)} }
+
+  .navlinks{display:flex; gap:32px; font-size:0.92rem; font-weight:500;}
+  .navlinks a{color:var(--slate); position:relative; padding:4px 0; transition:color .25s;}
+  .navlinks a:hover{color:var(--foam);}
+  .navlinks a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1.5px;
+    background:var(--current); transition:width .25s;
+  }
+  .navlinks a:hover::after{width:100%;}
+
+  .nav-cta{
+    background:var(--current); color:var(--ink); font-weight:700; font-size:0.88rem;
+    padding:10px 20px; border-radius:100px; transition:transform .2s, box-shadow .2s;
+  }
+  .nav-cta:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(242,169,60,0.35);}
+
+  .menu-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; z-index:60;}
+  .menu-toggle span{width:24px; height:2px; background:var(--foam); transition:.3s;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; z-index:1;
+    padding:110px 28px 90px;
+    max-width:var(--maxw); margin:0 auto;
+    display:grid; grid-template-columns:1.3fr 1fr; gap:50px; align-items:end;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--current);
+    border:1px solid rgba(242,169,60,0.3); background:rgba(242,169,60,0.06);
+    padding:7px 14px; border-radius:100px; margin-bottom:28px;
+  }
+  .eyebrow .pulse{
+    width:6px; height:6px; border-radius:50%; background:var(--current);
+    box-shadow:0 0 8px var(--current);
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1} 50%{opacity:0.3}}
+
+  .hero h1{
+    font-size:clamp(3.4rem, 9vw, 7.5rem);
+    font-weight:800; line-height:0.92;
+    background:linear-gradient(180deg, var(--foam) 0%, var(--foam) 60%, var(--current) 140%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .hero .sub{
+    margin-top:22px; font-size:1.15rem; color:var(--slate); max-width:520px;
+  }
+  .hero .sub b{color:var(--foam); font-weight:600;}
+
+  .hero-actions{display:flex; gap:16px; margin-top:38px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--current); color:var(--ink); font-weight:700; padding:15px 30px;
+    border-radius:100px; font-size:0.95rem; transition:transform .2s, box-shadow .2s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 12px 28px rgba(242,169,60,0.35);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--foam); padding:15px 30px; border-radius:100px;
+    font-size:0.95rem; font-weight:600; transition:border-color .2s, background .2s;
+  }
+  .btn-ghost:hover{border-color:var(--current); background:rgba(242,169,60,0.06);}
+
+  /* Countdown block anchored right */
+  .countdown-card{
+    background:linear-gradient(160deg, rgba(242,169,60,0.1), rgba(232,92,123,0.05));
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px; backdrop-filter:blur(6px);
+  }
+  .countdown-card .label{font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--slate); margin-bottom:16px;}
+  .countdown-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  .countdown-grid div{text-align:center;}
+  .countdown-grid .num{
+    font-family:'Unbounded'; font-weight:800; font-size:1.9rem; color:var(--current);
+    font-variant-numeric:tabular-nums;
+  }
+  .countdown-grid .unit{font-size:0.68rem; color:var(--slate); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px;}
+  .countdown-card .date-line{
+    margin-top:18px; padding-top:16px; border-top:1px solid var(--line);
+    font-size:0.88rem; color:var(--slate);
+  }
+  .countdown-card .date-line b{color:var(--foam);}
+
+  /* ---------- Section shell ---------- */
+  section{position:relative; z-index:1; padding:100px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head .eyebrow{margin-bottom:18px;}
+  .section-head h2{font-size:clamp(2rem,4vw,2.9rem); font-weight:600; line-height:1.1;}
+  .section-head p{color:var(--slate); margin-top:16px; font-size:1.02rem;}
+
+  .divider{
+    height:1px; max-width:var(--maxw); margin:0 auto;
+    background:linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  .about-grid .lede{font-size:1.35rem; font-weight:500; color:var(--foam); line-height:1.5;}
+  .about-grid .lede .accent{color:var(--current);}
+  .stat-row{display:flex; gap:36px; margin-top:36px; flex-wrap:wrap;}
+  .stat-row div .n{font-family:'Unbounded'; font-size:2.1rem; font-weight:800; color:var(--foam);}
+  .stat-row div .l{font-size:0.82rem; color:var(--slate); margin-top:4px;}
+
+  /* ---------- Tracks (reveal on scroll) ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  .track-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .track-card{
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 24px; background:var(--ink-2);
+    transition:transform .3s, border-color .3s, background .3s;
+    cursor:default;
+  }
+  .track-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(242,169,60,0.4);
+    background:linear-gradient(160deg, rgba(242,169,60,0.08), var(--ink-2));
+  }
+  .track-card .ico{font-size:1.6rem; margin-bottom:16px;}
+  .track-card h3{font-size:1.05rem; font-weight:600; margin-bottom:8px;}
+  .track-card p{font-size:0.88rem; color:var(--slate);}
+
+  /* ---------- Timeline ---------- */
+  .timeline{position:relative; padding-left:36px;}
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(180deg, var(--current), var(--amber));
+  }
+  .t-item{position:relative; padding-bottom:38px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:""; position:absolute; left:-36px; top:4px; width:14px; height:14px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--current); box-shadow:0 0 0 4px var(--ink);
+  }
+  .t-item .time{font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--current);}
+  .t-item h3{font-size:1.1rem; font-weight:600; margin:6px 0 4px;}
+  .t-item p{color:var(--slate); font-size:0.92rem;}
+
+  /* ---------- Organiser (college) ---------- */
+  .org-card{
+    display:grid; grid-template-columns:auto 1fr; gap:32px;
+    border:1px solid var(--line); border-radius:20px; padding:44px;
+    background:linear-gradient(150deg, var(--ink-2), rgba(242,169,60,0.04));
+    align-items:center;
+  }
+  .org-mark{
+    width:96px; height:96px; border-radius:20px;
+    background:linear-gradient(160deg, var(--current), var(--current-dim));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Unbounded'; font-weight:800; font-size:2rem; color:var(--ink);
+    flex-shrink:0;
+  }
+  .org-card h3{font-size:1.5rem; font-weight:600; margin-bottom:8px;}
+  .org-card .tag{font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--slate); margin-bottom:14px;}
+  .org-card p{color:var(--slate); max-width:640px; font-size:0.96rem;}
+  .org-meta{display:flex; gap:28px; margin-top:20px; flex-wrap:wrap;}
+  .org-meta span{font-size:0.85rem; color:var(--foam); display:flex; align-items:center; gap:6px;}
+  .org-meta small{color:var(--slate); display:block; font-size:0.72rem;}
+
+  /* ---------- Registration ---------- */
+  #register{
+    background:radial-gradient(ellipse at top, rgba(242,169,60,0.08), transparent 60%);
+  }
+  .reg-shell{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:0;
+    border:1px solid var(--line); border-radius:22px; overflow:hidden;
+  }
+  .reg-side{
+    background:linear-gradient(165deg, var(--ink-2), var(--ink));
+    padding:48px 40px; position:relative; overflow:hidden;
+  }
+  .reg-side h3{font-size:1.7rem; font-weight:600; margin-bottom:16px; line-height:1.25;}
+  .reg-side p{color:var(--slate); font-size:0.94rem; margin-bottom:28px;}
+  .reg-perk{display:flex; gap:12px; margin-bottom:16px; font-size:0.88rem;}
+  .reg-perk .dot{color:var(--current); flex-shrink:0;}
+
+  .reg-form{background:var(--ink); padding:48px 44px;}
+  .field{margin-bottom:20px;}
+  .field label{display:block; font-size:0.8rem; color:var(--slate); margin-bottom:8px; font-weight:500;}
+  .field input, .field select{
+    width:100%; background:var(--ink-2); border:1px solid var(--line); border-radius:10px;
+    padding:13px 16px; color:var(--foam); font-family:'Inter'; font-size:0.94rem;
+    transition:border-color .2s, background .2s;
+  }
+  .field input:focus, .field select:focus{
+    outline:none; border-color:var(--current); background:rgba(242,169,60,0.05);
+  }
+  .field input.error{border-color:#FF6B6B;}
+  .field .err-msg{font-size:0.76rem; color:#FF8484; margin-top:6px; display:none;}
+  .field .err-msg.show{display:block;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+
+  .submit-btn{
+    width:100%; background:var(--current); color:var(--ink); font-weight:700;
+    padding:15px; border:none; border-radius:10px; font-size:0.96rem; cursor:pointer;
+    font-family:'Inter'; margin-top:8px; transition:transform .2s, box-shadow .2s;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .submit-btn:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(242,169,60,0.3);}
+  .submit-btn:disabled{opacity:0.6; cursor:default; transform:none; box-shadow:none;}
+
+  .success-panel{
+    display:none; text-align:center; padding:20px 0;
+  }
+  .success-panel.show{display:block;}
+  .success-panel .check{
+    width:64px; height:64px; border-radius:50%; background:rgba(242,169,60,0.12);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 20px;
+    border:1px solid var(--current);
+  }
+  .success-panel h4{font-size:1.3rem; margin-bottom:8px;}
+  .success-panel p{color:var(--slate); font-size:0.9rem;}
+  .success-panel .ref{
+    margin-top:18px; font-family:'JetBrains Mono'; font-size:0.85rem; color:var(--current);
+    background:rgba(242,169,60,0.08); border:1px solid var(--line); border-radius:8px; padding:10px 16px;
+    display:inline-block;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;}
+  .faq-item{
+    border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+    overflow:hidden; background:var(--ink-2);
+  }
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:20px 24px; display:flex; justify-content:space-between; align-items:center;
+    color:var(--foam); font-family:'Inter'; font-size:1rem; font-weight:600;
+  }
+  .faq-q .plus{
+    color:var(--current); font-size:1.3rem; font-weight:400; transition:transform .3s;
+    flex-shrink:0; margin-left:16px;
+  }
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease;
+    padding:0 24px; color:var(--slate); font-size:0.92rem; line-height:1.6;
+  }
+  .faq-item.open .faq-a{max-height:200px; padding:0 24px 22px;}
+
+  /* ---------- Share buttons ---------- */
+  .share-row{display:flex; gap:12px; margin-top:36px; flex-wrap:wrap; align-items:center;}
+  .share-row .label{font-size:0.82rem; color:var(--slate); margin-right:4px;}
+  .share-btn{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 18px;
+    border:1px solid var(--line); border-radius:100px; font-size:0.85rem; font-weight:600;
+    color:var(--foam); background:var(--ink-2); cursor:pointer; transition:transform .2s, border-color .2s, background .2s;
+    font-family:'Inter';
+  }
+  .share-btn:hover{transform:translateY(-2px); border-color:var(--current); background:rgba(242,169,60,0.08);}
+
+  /* ---------- Toast ---------- */
+  #toast{
+    position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--ink-2); border:1px solid var(--current); color:var(--foam);
+    padding:13px 24px; border-radius:100px; font-size:0.86rem; z-index:200;
+    opacity:0; pointer-events:none; transition:opacity .3s, transform .3s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  }
+  #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  /* ---------- Ripple ---------- */
+  .ripple-wrap{position:relative; overflow:hidden;}
+  .ripple{
+    position:absolute; border-radius:50%; background:rgba(255,255,255,0.35);
+    transform:scale(0); animation:ripple-anim .6s ease-out; pointer-events:none;
+  }
+  @keyframes ripple-anim{ to{ transform:scale(3); opacity:0; } }
+
+  /* ---------- Admin panel ---------- */
+  #adminPanel{
+    position:fixed; inset:0; background:rgba(5,9,20,0.85); backdrop-filter:blur(6px);
+    z-index:300; display:none; align-items:center; justify-content:center; padding:24px;
+  }
+  #adminPanel.show{display:flex;}
+  .admin-box{
+    background:var(--ink-2); border:1px solid var(--line); border-radius:16px;
+    max-width:720px; width:100%; max-height:80vh; overflow:auto; padding:32px; position:relative;
+  }
+  .admin-box h3{font-size:1.2rem; margin-bottom:4px;}
+  .admin-box .sub-note{color:var(--slate); font-size:0.82rem; margin-bottom:20px;}
+  .admin-table{width:100%; border-collapse:collapse; font-size:0.82rem;}
+  .admin-table th{text-align:left; color:var(--current); font-family:'JetBrains Mono'; padding:8px; border-bottom:1px solid var(--line); font-weight:500;}
+  .admin-table td{padding:8px; border-bottom:1px solid var(--line); color:var(--slate);}
+  .admin-actions{display:flex; gap:10px; margin-top:20px;}
+  .admin-actions button{
+    font-family:'Inter'; font-size:0.82rem; font-weight:600; padding:9px 16px; border-radius:8px;
+    border:1px solid var(--line); background:var(--ink); color:var(--foam); cursor:pointer;
+  }
+  .admin-actions button:hover{border-color:var(--current);}
+  .admin-close{position:absolute; top:16px; right:16px;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--line); padding:48px 28px 28px; position:relative; z-index:1;
+  }
+  .footer-grid{
+    max-width:var(--maxw); margin:0 auto; display:flex; justify-content:space-between;
+    align-items:center; flex-wrap:wrap; gap:20px;
+  }
+  .footer-grid .brand{font-size:1.1rem;}
+  .foot-links{display:flex; gap:24px; font-size:0.85rem; color:var(--slate);}
+  .foot-links a:hover{color:var(--current);}
+  .foot-note{max-width:var(--maxw); margin:24px auto 0; font-size:0.78rem; color:#5C6478;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .navlinks{position:fixed; top:0; right:0; height:100vh; width:70%; max-width:300px;
+      background:var(--ink-2); flex-direction:column; padding:100px 32px; gap:24px;
+      transform:translateX(100%); transition:transform .35s ease; z-index:55;}
+    .navlinks.open{transform:translateX(0);}
+    .menu-toggle{display:flex;}
+    .hero{grid-template-columns:1fr; gap:36px; padding-top:70px;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+    .track-grid{grid-template-columns:1fr 1fr;}
+    .org-card{grid-template-columns:1fr; text-align:center;}
+    .org-meta{justify-content:center;}
+    .reg-shell{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+  }
+  @media (max-width: 520px){
+    .track-grid{grid-template-columns:1fr;}
+    .countdown-grid .num{font-size:1.4rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div id="culture-bg"></div>
+
+<header>
+  <nav>
+    <div class="brand"><span class="drop"></span>PRAVAH</div>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#tracks">Events</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#organiser">Organiser</a>
+      <a href="#faq">FAQ</a>
+      <a href="#register" class="nav-cta">Register</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><span class="pulse"></span>REGISTRATIONS ARE OPEN</div>
+      <h1>PRAVAH<br>2026</h1>
+      <p class="sub">A day-long <b>techno-cultural current</b> — where ideas, code, and creativity flow together. Hackathons, stage battles, and workshops, all under one current.</p>
+      <div class="hero-actions">
+        <a href="#register" class="btn-primary">Register Now →</a>
+        <a href="#about" class="btn-ghost">Explore the Event</a>
+      </div>
+    </div>
+
+    <div class="countdown-card">
+      <div class="label mono">// COUNTDOWN TO PRAVAH</div>
+      <div class="countdown-grid" id="countdown">
+        <div><div class="num" id="cd-days">00</div><div class="unit">Days</div></div>
+        <div><div class="num" id="cd-hours">00</div><div class="unit">Hours</div></div>
+        <div><div class="num" id="cd-mins">00</div><div class="unit">Mins</div></div>
+        <div><div class="num" id="cd-secs">00</div><div class="unit">Secs</div></div>
+      </div>
+      <div class="date-line">📍 <b>Friday, 10 July 2026</b> · Main Campus Grounds</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="eyebrow">ABOUT THE EVENT</div>
+          <p class="lede">Pravah means <span class="accent">"flow."</span> It's a single day built to carry every kind of energy on campus — technical, creative, competitive — into one continuous current.</p>
+          <div class="stat-row">
+            <div><div class="n">12+</div><div class="l">Events & Competitions</div></div>
+            <div><div class="n">4</div><div class="l">Tracks</div></div>
+            <div><div class="n">₹1L+</div><div class="l">In Prizes</div></div>
+            <div><div class="n">1000+</div><div class="l">Expected Footfall</div></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <p style="color:var(--slate); font-size:0.98rem;">
+            Open to students from all colleges, Pravah brings together coders, designers, performers, and thinkers for a single day of competition, collaboration, and celebration. Whether you build, perform, or compete — there's a stream here for you.
+          </p>
+          <p style="color:var(--slate); font-size:0.98rem; margin-top:16px;">
+            Expect a hackathon under lights, on-stage cultural battles, hands-on workshops from industry mentors, and a closing showcase where every track meets on one main stage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="tracks">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">FOUR TRACKS, ONE CURRENT</div>
+        <h2>Find your stream</h2>
+        <p>Every track runs in parallel through the day — pick one or hop between them.</p>
+      </div>
+      <div class="track-grid">
+        <div class="track-card reveal">
+          <div class="ico">💻</div>
+          <h3>Tech Sprint</h3>
+          <p>A 6-hour build hackathon, coding challenges, and a robotics showdown.</p>
+        </div>
+        <div class="track-card reveal">
+          <div class="ico">🎭</div>
+          <h3>Culture Stage</h3>
+          <p>Battle of Bands, dance crews, open mic, and a street-play face-off.</p>
+        </div>
+        <div class="track-card reveal">
+          <div class="ico">🧠</div>
+          <h3>Mind Games</h3>
+          <p>Quiz championships, debate rounds, and a case-study business sprint.</p>
+        </div>
+        <div class="track-card reveal">
+          <div class="ico">🛠️</div>
+          <h3>Workshops</h3>
+          <p>Hands-on sessions on AI, design, and product-building with mentors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="schedule">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">THE DAY, MINUTE BY MINUTE</div>
+        <h2>Schedule for 10 July</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="t-item">
+          <div class="time">08:30 AM</div>
+          <h3>Gates open & registration desk</h3>
+          <p>Badge pickup, team check-in, and campus map handout.</p>
+        </div>
+        <div class="t-item">
+          <div class="time">09:30 AM</div>
+          <h3>Opening ceremony</h3>
+          <p>Welcome address and kickoff for all four tracks.</p>
+        </div>
+        <div class="t-item">
+          <div class="time">10:00 AM – 04:00 PM</div>
+          <h3>Track events run in parallel</h3>
+          <p>Hackathon, quiz rounds, workshops, and prelims for stage events.</p>
+        </div>
+        <div class="t-item">
+          <div class="time">05:00 PM</div>
+          <h3>Culture Stage finals</h3>
+          <p>Band battle, dance finale, and open mic under the lights.</p>
+        </div>
+        <div class="t-item">
+          <div class="time">07:30 PM</div>
+          <h3>Closing & prize distribution</h3>
+          <p>Winners announced across all tracks, followed by a wrap-up performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="organiser">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">ORGANISED BY</div>
+        <h2>Hosted with pride by our college</h2>
+      </div>
+      <div class="org-card reveal">
+        <div class="org-mark">VI</div>
+        <div>
+          <h3>Vidyodaya Institute of Technology & Management</h3>
+          <div class="tag mono">Department of Student Affairs · Est. 1998</div>
+          <p>Pravah is organised end-to-end by the students of VITM, backed by the college administration and our alumni network. This is our flagship annual fest, run by the Student Council in partnership with every technical and cultural club on campus.</p>
+          <div class="org-meta">
+            <span>📍 <span>Campus Road, Jaipur, Rajasthan<br><small>Main Auditorium & Grounds</small></span></span>
+            <span>✉️ <span>pravah@vitm.edu.in<br><small>Event helpdesk</small></span></span>
+            <span>📞 <span>+91 98765 43210<br><small>Student Coordinator</small></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">GOOD TO KNOW</div>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q">Is Pravah open to students from other colleges? <span class="plus">+</span></button>
+          <div class="faq-a">Yes — Pravah is open to all students, from any college or university. Just bring a valid college ID on the day.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is there a registration fee? <span class="plus">+</span></button>
+          <div class="faq-a">No, registration is completely free. Some individual competitions may have their own entry rules, which will be shared after you register.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I register as a team? <span class="plus">+</span></button>
+          <div class="faq-a">Yes. Pick your team size in the registration form — one member can register on behalf of the whole team.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What should I bring on 10 July? <span class="plus">+</span></button>
+          <div class="faq-a">Your college ID and your registration confirmation. Laptops are only needed if you're joining the Tech Sprint track.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Will I get a certificate? <span class="plus">+</span></button>
+          <div class="faq-a">All registered participants receive a participation certificate, and winners get certificates plus prizes at the closing ceremony.</div>
+        </div>
+      </div>
+
+      <div class="share-row reveal">
+        <span class="label">Spread the word:</span>
+        <button class="share-btn" data-share="whatsapp">💬 WhatsApp</button>
+        <button class="share-btn" data-share="twitter">𝕏 Twitter</button>
+        <button class="share-btn" data-share="linkedin">in LinkedIn</button>
+        <button class="share-btn" data-share="copy">🔗 Copy link</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="register">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">JOIN THE CURRENT</div>
+        <h2>Register for Pravah 2026</h2>
+        <p>Takes under a minute. You'll get a confirmation with your entry pass details.</p>
+      </div>
+
+      <div class="reg-shell reveal">
+        <div class="reg-side">
+          <h3>What's included</h3>
+          <div class="reg-perk"><span class="dot">✓</span> Access to all four tracks for the full day</div>
+          <div class="reg-perk"><span class="dot">✓</span> Event kit + Pravah ID badge</div>
+          <div class="reg-perk"><span class="dot">✓</span> Lunch & refreshments on campus</div>
+          <div class="reg-perk"><span class="dot">✓</span> Entry to the closing stage show</div>
+          <p style="margin-top:32px; font-size:0.8rem; color:var(--slate);">Registration is free for students. Bring your college ID at the gate on 10 July.</p>
+        </div>
+
+        <div class="reg-form">
+          <form id="regForm" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="fname">Full name</label>
+                <input type="text" id="fname" placeholder="Your name">
+                <div class="err-msg">Please enter your name.</div>
+              </div>
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" placeholder="10-digit mobile number">
+                <div class="err-msg">Enter a valid 10-digit number.</div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" placeholder="you@example.com">
+              <div class="err-msg">Enter a valid email address.</div>
+            </div>
+            <div class="field">
+              <label for="college">College / Institution</label>
+              <input type="text" id="college" placeholder="Where do you study?">
+              <div class="err-msg">Please enter your college name.</div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="track">Interested track</label>
+                <select id="track">
+                  <option value="">Select a track</option>
+                  <option>Tech Sprint</option>
+                  <option>Culture Stage</option>
+                  <option>Mind Games</option>
+                  <option>Workshops</option>
+                  <option>Not sure yet</option>
+                </select>
+                <div class="err-msg">Please pick a track.</div>
+              </div>
+              <div class="field">
+                <label for="tsize">Team size</label>
+                <select id="tsize">
+                  <option value="Solo">Solo</option>
+                  <option value="2">Team of 2</option>
+                  <option value="3">Team of 3</option>
+                  <option value="4">Team of 4+</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">Confirm Registration →</button>
+          </form>
+
+          <div class="success-panel" id="successPanel">
+            <div class="check">✓</div>
+            <h4>You're in the flow!</h4>
+            <p>We've saved your spot for Pravah 2026 on 10 July. Show your confirmation at the gate.</p>
+            <div class="ref" id="refCode">REF-PRAVAH-000000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="brand"><span class="drop"></span>PRAVAH 2026</div>
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#tracks">Events</a>
+      <a href="#organiser">Organiser</a>
+      <a href="#register">Register</a>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:pravah@vitm.edu.in">pravah@vitm.edu.in</a>
+    </div>
+  </div>
+  <p class="foot-note">Organised by the Student Council, Vidyodaya Institute of Technology & Management. © 2026 Pravah. All rights reserved.</p>
+  <p class="foot-note" style="margin-top:8px;">Organiser? Press <span class="mono" style="color:var(--current);">Ctrl/Cmd + Shift + A</span> to view registrations.</p>
+</footer>
+
+<div id="toast"></div>
+
+<div id="adminPanel">
+  <div class="admin-box">
+    <button class="admin-close share-btn" id="adminClose">✕ Close</button>
+    <h3>Registered participants</h3>
+    <p class="sub-note">Stored locally in this browser via localStorage — visible only on this device.</p>
+    <div id="adminTableWrap"></div>
+    <div class="admin-actions">
+      <button id="adminExport">⬇ Export as CSV</button>
+      <button id="adminClear">🗑 Clear all</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- Mobile menu ----------
+  const menuToggle = document.getElementById('menuToggle');
+  const navlinks = document.getElementById('navlinks');
+  menuToggle.addEventListener('click', () => {
+    navlinks.classList.toggle('open');
+  });
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // ---------- Countdown to 10 July 2026 ----------
+  const target = new Date('2026-07-10T09:00:00');
+  function updateCountdown(){
+    const now = new Date();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const mins = Math.floor((diff / (1000*60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ---------- Scroll reveal ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ---------- Registration form validation ----------
+  const form = document.getElementById('regForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successPanel = document.getElementById('successPanel');
+
+  function setError(input, isValid){
+    const field = input.closest('.field');
+    const msg = field.querySelector('.err-msg');
+    if(isValid){
+      input.classList.remove('error');
+      msg.classList.remove('show');
+    } else {
+      input.classList.add('error');
+      msg.classList.add('show');
+    }
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const fname = document.getElementById('fname');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const college = document.getElementById('college');
+    const track = document.getElementById('track');
+
+    let valid = true;
+    setError(fname, fname.value.trim().length > 1); if(fname.value.trim().length <= 1) valid = false;
+    const phoneOk = /^[6-9]\d{9}$/.test(phone.value.trim());
+    setError(phone, phoneOk); if(!phoneOk) valid = false;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    setError(email, emailOk); if(!emailOk) valid = false;
+    setError(college, college.value.trim().length > 1); if(college.value.trim().length <= 1) valid = false;
+    setError(track, track.value !== ''); if(track.value === '') valid = false;
+
+    if(!valid){ playSound('error'); return; }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Confirming…';
+    playSound('click');
+
+    setTimeout(() => {
+      const ref = 'REF-PRAVAH-' + Math.floor(100000 + Math.random()*900000);
+
+      // Persist to localStorage
+      const entry = {
+        ref,
+        name: fname.value.trim(),
+        phone: phone.value.trim(),
+        email: email.value.trim(),
+        college: college.value.trim(),
+        track: track.value,
+        teamSize: document.getElementById('tsize').value,
+        registeredAt: new Date().toISOString()
+      };
+      const all = JSON.parse(localStorage.getItem('pravahRegistrations') || '[]');
+      all.push(entry);
+      localStorage.setItem('pravahRegistrations', JSON.stringify(all));
+
+      form.style.display = 'none';
+      successPanel.classList.add('show');
+      document.getElementById('refCode').textContent = ref;
+      playSound('success');
+      showToast('🎉 Registration saved — welcome to the flow!');
+    }, 700);
+  });
+
+  // ---------- Sound effects (Web Audio, no files needed) ----------
+  let audioCtx;
+  function getAudioCtx(){
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+  function playSound(type){
+    try{
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+
+      if(type === 'click'){
+        osc.type = 'sine'; osc.frequency.setValueAtTime(520, now);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        osc.start(now); osc.stop(now + 0.13);
+      } else if(type === 'hover'){
+        osc.type = 'sine'; osc.frequency.setValueAtTime(720, now);
+        gain.gain.setValueAtTime(0.025, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+        osc.start(now); osc.stop(now + 0.08);
+      } else if(type === 'success'){
+        [523.25, 659.25, 783.99].forEach((f, i) => {
+          const o = ctx.createOscillator(); const g = ctx.createGain();
+          o.connect(g); g.connect(ctx.destination);
+          o.type = 'sine'; o.frequency.setValueAtTime(f, now + i*0.09);
+          g.gain.setValueAtTime(0.07, now + i*0.09);
+          g.gain.exponentialRampToValueAtTime(0.001, now + i*0.09 + 0.35);
+          o.start(now + i*0.09); o.stop(now + i*0.09 + 0.36);
+        });
+      } else if(type === 'error'){
+        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(180, now);
+        gain.gain.setValueAtTime(0.04, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+        osc.start(now); osc.stop(now + 0.19);
+      }
+    }catch(e){ /* audio not available, fail silently */ }
+  }
+
+  // ---------- Ripple + hover sound on primary buttons ----------
+  document.querySelectorAll('.btn-primary, .submit-btn, .share-btn, .nav-cta').forEach(btn => {
+    btn.classList.add('ripple-wrap');
+    btn.addEventListener('mouseenter', () => playSound('hover'));
+    btn.addEventListener('click', function(e){
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 650);
+    });
+  });
+
+  // ---------- Toast helper ----------
+  function showToast(msg){
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+
+  // ---------- FAQ accordion ----------
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if(!wasOpen){ item.classList.add('open'); playSound('click'); }
+    });
+  });
+
+  // ---------- Share buttons ----------
+  const pageUrl = window.location.href;
+  const shareText = "Join me at Pravah 2026 — a techno-cultural fest on 10 July! Register free:";
+  document.querySelectorAll('.share-btn[data-share]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-share');
+      if(type === 'whatsapp'){
+        window.open(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + pageUrl)}`, '_blank');
+      } else if(type === 'twitter'){
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`, '_blank');
+      } else if(type === 'linkedin'){
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`, '_blank');
+      } else if(type === 'copy'){
+        navigator.clipboard.writeText(pageUrl).then(() => showToast('🔗 Link copied to clipboard'))
+          .catch(() => showToast('Could not copy — copy the URL manually'));
+      }
+    });
+  });
+
+  // ---------- Admin panel (view stored registrations) ----------
+  const adminPanel = document.getElementById('adminPanel');
+  const adminTableWrap = document.getElementById('adminTableWrap');
+
+  function renderAdminTable(){
+    const all = JSON.parse(localStorage.getItem('pravahRegistrations') || '[]');
+    if(all.length === 0){
+      adminTableWrap.innerHTML = '<p style="color:var(--slate); font-size:0.88rem; padding:20px 0;">No registrations yet. They\'ll appear here as people sign up on this device.</p>';
+      return;
+    }
+    let rows = all.map(r => `
+      <tr>
+        <td>${escapeHtml(r.name)}</td>
+        <td>${escapeHtml(r.college)}</td>
+        <td>${escapeHtml(r.phone)}</td>
+        <td>${escapeHtml(r.email)}</td>
+        <td>${escapeHtml(r.track)}</td>
+        <td>${escapeHtml(r.teamSize)}</td>
+        <td class="mono">${escapeHtml(r.ref)}</td>
+      </tr>`).join('');
+    adminTableWrap.innerHTML = `
+      <p style="color:var(--slate); font-size:0.82rem; margin-bottom:10px;">${all.length} registration${all.length===1?'':'s'} total</p>
+      <table class="admin-table">
+        <thead><tr><th>Name</th><th>College</th><th>Phone</th><th>Email</th><th>Track</th><th>Team</th><th>Ref</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+  function escapeHtml(s){
+    const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a'){
+      e.preventDefault();
+      renderAdminTable();
+      adminPanel.classList.add('show');
+    }
+    if(e.key === 'Escape') adminPanel.classList.remove('show');
+  });
+  document.getElementById('adminClose').addEventListener('click', () => adminPanel.classList.remove('show'));
+  adminPanel.addEventListener('click', (e) => { if(e.target === adminPanel) adminPanel.classList.remove('show'); });
+
+  document.getElementById('adminExport').addEventListener('click', () => {
+    const all = JSON.parse(localStorage.getItem('pravahRegistrations') || '[]');
+    if(all.length === 0){ showToast('No registrations to export yet'); return; }
+    const headers = ['Name','College','Phone','Email','Track','TeamSize','Ref','RegisteredAt'];
+    const csvRows = [headers.join(',')];
+    all.forEach(r => {
+      csvRows.push([r.name, r.college, r.phone, r.email, r.track, r.teamSize, r.ref, r.registeredAt]
+        .map(v => `"${String(v ?? '').replace(/"/g,'""')}"`).join(','));
+    });
+    const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'pravah-registrations.csv'; a.click();
+    URL.revokeObjectURL(url);
+    showToast('⬇ CSV downloaded');
+  });
+
+  document.getElementById('adminClear').addEventListener('click', () => {
+    if(confirm('Clear all stored registrations on this device? This cannot be undone.')){
+      localStorage.removeItem('pravahRegistrations');
+      renderAdminTable();
+      showToast('All registrations cleared');
+    }
+  });
+
+  // live-clear errors as user types
+  ['fname','phone','email','college'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function(){
+      this.classList.remove('error');
+      this.closest('.field').querySelector('.err-msg').classList.remove('show');
+    });
+  });
+  document.getElementById('track').addEventListener('change', function(){
+    this.classList.remove('error');
+    this.closest('.field').querySelector('.err-msg').classList.remove('show');
+  });
+
+  // ---------- Static cultural backdrop ----------
+  // The #culture-bg element is position:fixed with a mandala/paisley motif
+  // and never redraws or repositions — it stays perfectly still while the
+  // page content scrolls over it.
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#dbeafe;
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0px 0px 15px pink;
+        }
+
+        h2{
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:25px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#010202;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=tel],
+        input[type=date],
+        textarea{
+            width:100%;
+            padding:10px;
+            margin-top:6px;
+            margin-bottom:15px;
+            border:1px solid #999;
+            border-radius:6px;
+            font-size:15px;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        .radio,
+        .checkbox{
+            margin-top:8px;
+            margin-bottom:15px;
+        }
+
+        .radio label,
+        .checkbox label{
+            font-weight:normal;
+            margin-right:20px;
+        }
+
+        input[type=file]{
+            margin-top:8px;
+            margin-bottom:20px;
+        }
+
+        .btn{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        input[type=submit]{
+            background-color:#0d6efd;
+            color:white;
+            border:none;
+            padding:10px 25px;
+            border-radius:6px;
+            cursor:pointer;
+            margin-right:10px;
+        }
+
+        input[type=submit]:hover{
+            background-color:#0b5ed7;
+        }
+
+        input[type=reset]{
+            background-color:#dc3545;
+            color:white;
+            border:none;
+            padding:10px 25px;
+            border-radius:6px;
+            cursor:pointer;
+        }
+
+        input[type=reset]:hover{
+            background-color:#bb2d3b;
+        }
+
+        input:focus,
+        textarea:focus{
+            border:2px solid #0d6efd;
+            outline:none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your full name">
+
+<label>Email</label>
+<input type="email" placeholder="Enter your email">
+
+<label>Password</label>
+<input type="password" placeholder="Enter your password">
+
+<label>Mobile Number</label>
+<input type="tel" placeholder="Enter your mobile number">
+
+<label>Date of Birth</label>
+<input type="date">
+
+<label>Gender</label>
+<div class="radio">
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+</div>
+
+<label>Skills</label>
+<div class="checkbox">
+<input type="checkbox"> HTML
+<input type="checkbox"> CSS
+<input type="checkbox"> JavaScript
+<input type="checkbox"> PHP
+</div>
+
+<label>Upload Resume</label><br>
+<input type="file">
+
+<br><br>
+
+<label>About Yourself</label>
+<textarea rows="5" placeholder="Write something about yourself..."></textarea>
+
+<div class="btn">
+<input type="submit" value="Register">
+<input type="reset" value="Reset">
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravah '26 | SKIT Annual Fest</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ULTRA-BRIGHT HIGHLY SATURATED NEON BACKGROUND */
+        .color-burst-bg {
+            background: linear-gradient(45deg, #ff0055, #00ffcc, #ffcc00, #ff6600, #cc00ff);
+            background-size: 250% 250%;
+            animation: ultraColorFlow 6s ease infinite;
+        }
+
+        @keyframes ultraColorFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* High-Contrast Frosted White Glass Panels */
+        .premium-glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 3px solid #ffffff;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .premium-glass-nav {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        /* Super High-Contrast Solid Pop Buttons */
+        .neon-pop-btn {
+            background: #ffffff;
+            color: #d00060;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+            border: 2px solid #ffffff;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .neon-pop-btn:hover {
+            background: #ffe600;
+            color: #000000;
+            border-color: #ffe600;
+            box-shadow: 0 15px 35px #ffe600;
+            transform: translateY(-4px) scale(1.03);
+        }
+
+        .dark-pop-btn {
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            transition: all 0.3s ease;
+        }
+        .dark-pop-btn:hover {
+            background: transparent;
+            color: #000000;
+            border-color: #000000;
+            font-weight: 800;
+            transform: translateY(-3px);
+        }
+
+        /* Text Stroke effect for extreme clarity */
+        .text-stroke-black {
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+    </style>
+</head>
+<body class="text-black color-burst-bg selection:bg-yellow-400 selection:text-black">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 premium-glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="h-11 w-11 rounded-xl bg-black text-white flex items-center justify-center font-extrabold text-2xl shadow-xl">P</div>
+                <span class="text-2xl font-black tracking-wider text-black">PRAVAH <span class="bg-black text-white px-2 py-0.5 rounded-lg text-xl">'26</span></span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-black text-sm tracking-wide text-black">
+                <a href="#home" class="hover:underline decoration-4">Home</a>
+                <a href="#events" class="hover:underline decoration-4">Events</a>
+                <a href="#schedule" class="hover:underline decoration-4">Schedule</a>
+                <a href="#contact" class="hover:underline decoration-4">Contact</a>
+            </div>
+            <div>
+                <a href="#register" class="px-6 py-3 rounded-xl neon-pop-btn text-xs font-black inline-block tracking-widest uppercase">Register Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden pt-24">
+        <!-- Intense Halftone Overlay Grid -->
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#000_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+            <p data-aos="fade-up" class="text-xs md:text-sm font-black tracking-[0.25em] uppercase text-white bg-black px-6 py-2.5 rounded-full shadow-2xl">Swami Keshvanand Institute of Technology, Jaipur</p>
+
+            <h1 data-aos="zoom-in" data-aos-delay="200" class="text-6xl md:text-9xl font-black tracking-tighter my-6 text-white text-stroke-black leading-none">
+                नवरस – एक <span class="text-yellow-300 block mt-2 md:inline">प्रवाह</span>
+            </h1>
+
+            <p data-aos="fade-up" data-aos-delay="400" class="text-xl md:text-3xl text-black font-black max-w-3xl mb-12 px-4 leading-relaxed bg-white/70 inline-block py-2 rounded-2xl border-2 border-black">
+                9 Vivid Emotions. 3 Color-Charged Arenas. The ultimate festival!
+            </p>
+
+            <!-- ULTRA REACTION COUNTDOWN CLOCK -->
+            <div data-aos="fade-up" data-aos-delay="600" class="grid grid-cols-4 gap-3 md:gap-6 mb-14 max-w-md w-full bg-black text-white p-6 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.4)] border-4 border-white">
+                <div class="text-center">
+                    <span id="days" class="block text-3xl md:text-5xl font-black tracking-tight text-cyan-400">00</span>
+                    <span class="text-[10px] uppercase font-black tracking-widest text-gray-400 block mt-1">Days</span>
+                </div>
+                <div class="text-center">
+                    <span id="hours" class="block text-3xl md:text-5xl font-black tracking-tight text-pink-400">00</span>
+                    <span class="text-[10px] uppercase font-black tracking-widest text-gray-400 block mt-1">Hrs</span>
+                </div>
+                <div class="text-center">
+                    <span id="minutes" class="block text-3xl md:text-5xl font-black tracking-tight text-lime-400">00</span>
+                    <span class="text-[10px] uppercase font-black tracking-widest text-gray-400 block mt-1">Min</span>
+                </div>
+                <div class="text-center">
+                    <span id="seconds" class="block text-3xl md:text-5xl font-black tracking-tight text-yellow-300">00</span>
+                    <span class="text-[10px] uppercase font-black tracking-widest text-yellow-300 block mt-1">Sec</span>
+                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="800" class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full justify-center px-6">
+                <a href="#events" class="px-8 py-4 rounded-xl dark-pop-btn font-black shadow-lg text-center uppercase tracking-wider text-sm">Explore Competitions</a>
+                <a href="#register" class="px-8 py-4 rounded-xl neon-pop-btn font-black text-center tracking-widest uppercase shadow-2xl text-sm">Grab Festival Pass</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="py-32 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-5xl md:text-7xl font-black text-white text-stroke-black mb-4 tracking-tighter">CHOOSE YOUR ARENA</h2>
+            <p class="text-black font-black text-lg bg-white/60 inline-block px-4 py-1 rounded-lg">Click the tabs below to swap dynamic tracks instantly!</p>
+        </div>
+
+        <!-- Dynamic Filter Tabs -->
+        <div class="flex justify-center space-x-2 mb-16 bg-black p-2.5 rounded-2xl max-w-sm mx-auto border-4 border-white shadow-xl" data-aos="fade-up">
+            <button onclick="switchTab('technical')" id="btn-technical" class="tab-btn w-full py-3 rounded-xl text-xs font-black tracking-wider uppercase transition duration-300 bg-yellow-400 text-black shadow-md">Technical</button>
+            <button onclick="switchTab('cultural')" id="btn-cultural" class="tab-btn w-full py-3 rounded-xl text-xs font-black tracking-wider uppercase transition duration-300 text-white hover:text-yellow-300">Cultural</button>
+            <button onclick="switchTab('sports')" id="btn-sports" class="tab-btn w-full py-3 rounded-xl text-xs font-black tracking-wider uppercase transition duration-300 text-white hover:text-yellow-300">Sports</button>
+        </div>
+
+        <!-- TECHNICAL CONTENT -->
+        <div id="tab-technical" class="tab-content grid md:grid-cols-2 gap-8">
+            <div class="premium-glass-card rounded-3xl overflow-hidden hover:scale-[1.03] transition duration-300 flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="100">
+                <div class="md:w-1/2 h-56 md:h-auto overflow-hidden relative border-b-4 md:border-b-0 md:border-r-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover" alt="Hackathon">
+                </div>
+                <div class="p-8 md:w-1/2 flex flex-col justify-between bg-white/40">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-code"></i></div>
+                        <h3 class="text-3xl font-black text-black mb-2">Hackathon Matrix</h3>
+                        <p class="text-black font-semibold text-sm leading-relaxed mb-6">A grueling 24-hour rapid tech development run solving real industrial software complications.</p>
+                    </div>
+                    <a href="#register" class="text-sm font-black text-purple-900 flex items-center hover:underline decoration-2">Register Now <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+            <div class="premium-glass-card rounded-3xl overflow-hidden hover:scale-[1.03] transition duration-300 flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="200">
+                <div class="md:w-1/2 h-56 md:h-auto overflow-hidden relative border-b-4 md:border-b-0 md:border-r-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover" alt="Robotics">
+                </div>
+                <div class="p-8 md:w-1/2 flex flex-col justify-between bg-white/40">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-robot"></i></div>
+                        <h3 class="text-3xl font-black text-black mb-2">Robo Clash</h3>
+                        <p class="text-black font-semibold text-sm leading-relaxed mb-6">Heavy engineered armor bots lock horns inside custom smash pits for ultimate structural survival.</p>
+                    </div>
+                    <a href="#register" class="text-sm font-black text-purple-900 flex items-center hover:underline decoration-2">Register Now <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CULTURAL CONTENT -->
+        <div id="tab-cultural" class="tab-content hidden grid md:grid-cols-2 gap-8">
+            <div class="premium-glass-card rounded-3xl overflow-hidden hover:scale-[1.03] transition duration-300 flex flex-col md:flex-row">
+                <div class="md:w-1/2 h-56 md:h-auto overflow-hidden relative border-b-4 md:border-b-0 md:border-r-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover" alt="Band">
+                </div>
+                <div class="p-8 md:w-1/2 flex flex-col justify-between bg-white/40">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-music"></i></div>
+                        <h3 class="text-3xl font-black text-black mb-2">Symphony Rock</h3>
+                        <p class="text-black font-semibold text-sm leading-relaxed mb-6">Intercollegiate live band wars spanning absolute loud rock-metal to heavy acoustic dance melodies.</p>
+                    </div>
+                    <a href="#register" class="text-sm font-black text-purple-900 flex items-center hover:underline decoration-2">Register Now <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+            <div class="premium-glass-card rounded-3xl overflow-hidden hover:scale-[1.03] transition duration-300 flex flex-col md:flex-row">
+                <div class="md:w-1/2 h-56 md:h-auto overflow-hidden relative border-b-4 md:border-b-0 md:border-r-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover" alt="Fashion">
+                </div>
+                <div class="p-8 md:w-1/2 flex flex-col justify-between bg-white/40">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-shirt"></i></div>
+                        <h3 class="text-3xl font-black text-black mb-2">Vogue Runway</h3>
+                        <p class="text-black font-semibold text-sm leading-relaxed mb-6">The design-heavy fashion ramp display outlining deep artistic wear elements across Navras tones.</p>
+                    </div>
+                    <a href="#register" class="text-sm font-black text-purple-900 flex items-center hover:underline decoration-2">Register Now <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPORTS CONTENT -->
+        <div id="tab-sports" class="tab-content hidden grid md:grid-cols-2 gap-8">
+            <div class="premium-glass-card rounded-3xl overflow-hidden hover:scale-[1.03] transition duration-300 flex flex-col md:flex-row">
+                <div class="md:w-1/2 h-56 md:h-auto overflow-hidden relative border-b-4 md:border-b-0 md:border-r-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1780&auto=format&fit=crop" class="w-full h-full object-cover" alt="Basketball">
+                </div>
+                <div class="p-8 md:w-1/2 flex flex-col justify-between bg-white/40">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-basketball"></i></div>
+                        <h3 class="text-3xl font-black text-black mb-2">Hoop Masters</h3>
+                        <p class="text-black font-semibold text-sm leading-relaxed mb-6">High-speed 5v5 varsity knockout basketball challenges mapping stamina and physical control.</p>
+                    </div>
+                    <a href="#register" class="text-sm font-black text-purple-900 flex items-center hover:underline decoration-2">Register Now <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHEDULE SECTION -->
+    <section id="schedule" class="py-32 bg-white text-black border-y-4 border-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-4">TIMELINE INFUSION</h2>
+                <p class="text-gray-700 font-bold text-lg">Tracks of execution inside the campus.</p>
+            </div>
+
+            <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:w-1.5 before:bg-black">
+                <!-- Row 1 -->
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group" data-aos="fade-right">
+                    <div class="absolute left-4 md:left-1/2 w-6 h-6 rounded-full bg-yellow-400 -translate-x-[10px] top-1.5 border-4 border-black z-10"></div>
+                    <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right">
+                        <span class="text-xs font-black text-white bg-black px-4 py-2 rounded-xl shadow-md">09:00 AM - 10:30 AM</span>
+                        <h4 class="text-3xl font-black text-black mt-4">Grand Inauguration</h4>
+                        <p class="text-gray-800 font-medium text-sm mt-2">Welcoming cultural panels and revealing core festive exhibits inside the main SKIT Auditorium building.</p>
+                    </div>
+                    <div class="hidden md:block w-[45%]"></div>
+                </div>
+                <!-- Row 2 -->
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group" data-aos="fade-left">
+                    <div class="absolute left-4 md:left-1/2 w-6 h-6 rounded-full bg-pink-500 -translate-x-[10px] top-1.5 border-4 border-black z-10"></div>
+                    <div class="hidden md:block w-[45%]"></div>
+                    <div class="w-full md:w-[45%] pl-12">
+                        <span class="text-xs font-black text-white bg-black px-4 py-2 rounded-xl shadow-md">11:00 AM Onwards</span>
+                        <h4 class="text-3xl font-black text-black mt-4">Competitions Kickoff</h4>
+                        <p class="text-gray-800 font-medium text-sm mt-2">Simultaneous activation tracks open up for code runs, robo fights, track athletics, and indoor setups.</p>
+                    </div>
+                </div>
+                <!-- Row 3 -->
+                <div class="relative flex flex-col md:flex-row items-start md:justify-between group" data-aos="fade-right">
+                    <div class="absolute left-4 md:left-1/2 w-6 h-6 rounded-full bg-cyan-400 -translate-x-[10px] top-1.5 border-4 border-black z-10"></div>
+                    <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right">
+                        <span class="text-xs font-black text-white bg-black px-4 py-2 rounded-xl shadow-md">06:00 PM - 10:00 PM</span>
+                        <h4 class="text-3xl font-black text-black mt-4">Concert Star Night</h4>
+                        <p class="text-gray-800 font-medium text-sm mt-2">Closing celebrations packed with bass-heavy live dance musical coordinates to encapsulate shared event joy.</p>
+                    </div>
+                    <div class="hidden md:block w-[45%]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION CARD -->
+    <section id="register" class="py-32 max-w-3xl mx-auto px-6" data-aos="zoom-in">
+        <div class="bg-black text-white p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.5)] border-4 border-white">
+
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-yellow-300 tracking-tight">SECURE YOUR SLOT Pass</h2>
+                <p class="text-gray-400 text-xs font-bold uppercase mt-2 tracking-widest">Entry entries are highly limited inside batches.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Registration captured successfully!');">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-widest font-black text-gray-300 mb-2">Your Name</label>
+                        <input type="text" required class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl px-4 py-3.5 text-white font-bold text-sm focus:outline-none focus:border-yellow-400 transition" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-widest font-black text-gray-300 mb-2">WhatsApp Contact</label>
+                        <input type="tel" required class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl px-4 py-3.5 text-white font-bold text-sm focus:outline-none focus:border-yellow-400 transition" placeholder="+91 XXXXX XXXXX">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] uppercase tracking-widest font-black text-gray-300 mb-2">College Name</label>
+                    <input type="text" required class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl px-4 py-3.5 text-white font-bold text-sm focus:outline-none focus:border-yellow-400 transition" placeholder="SKIT, Jaipur">
+                </div>
+                <div>
+                    <label class="block text-[11px] uppercase tracking-widest font-black text-gray-300 mb-2">Target Event Domain</label>
+                    <select class="w-full bg-zinc-900 border-2 border-zinc-700 rounded-xl px-4 py-3.5 text-white font-bold text-sm focus:outline-none focus:border-yellow-400 transition">
+                        <option>Technical Track (Hackathons/Robotics)</option>
+                        <option>Cultural Arena (Concerts/Fashion/Drama)</option>
+                        <option>Sports Tournaments</option>
+                        <option>General Event Pass Only</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-white text-black hover:bg-yellow-300 font-black tracking-widest uppercase text-sm mt-4 transition duration-300 shadow-xl">Complete Registration</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-black py-12 text-center text-xs text-gray-400 border-t-4 border-white">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <div class="text-center md:text-left">
+                <p class="font-black text-white text-xl tracking-wider">PRAVAH 2026</p>
+                <p class="text-gray-400 mt-1 font-semibold">Swami Keshvanand Institute of Technology, Jaipur</p>
+            </div>
+            <div class="flex space-x-6 text-3xl text-white">
+                <a href="#" class="hover:text-yellow-300 transition duration-300"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-cyan-400 transition duration-300"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-pink-500 transition duration-300"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div>
+                <p class="font-bold text-white">© 2026 Student Organizing Committee.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS ENGINE ANIMATIONS & BACKEND SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 60
+        });
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-yellow-400', 'text-black', 'shadow-md');
+                btn.classList.add('text-white', 'hover:text-yellow-300');
+            });
+
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.classList.add('bg-yellow-400', 'text-black', 'shadow-md');
+            activeBtn.classList.remove('text-white', 'hover:text-yellow-300');
+        }
+
+        // Live Countdown Clock (Target: July 10, 2026)
+        const targetDate = new Date("July 10, 2026 00:00:00").getTime();
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

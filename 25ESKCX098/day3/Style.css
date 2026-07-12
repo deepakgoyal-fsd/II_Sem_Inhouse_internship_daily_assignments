@@ -1,0 +1,23 @@
+/* Custom Styles */
+
+/* Navigation links par hover effect */
+.nav-link:hover {
+    color: #0d6efd !important; /* Bootstrap primary color on hover */
+    text-decoration: underline;
+    transition: 0.3s ease;
+}
+
+/* Logo par thoda padding ya effect */
+img[alt="logo"] {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+img[alt="logo"]:hover {
+    transform: scale(1.05);
+}
+
+/* Background fallback agar header ka light color change karna ho */
+header {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}

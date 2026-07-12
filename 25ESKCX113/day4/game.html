@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Click Game</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>  
+
+    <!-- Top area -->
+    <div class="top-panel">
+
+        <div class="row align-items-center">
+
+            <div class="col-md-3">
+                <h3>Fruit Click Game</h3>
+            </div>
+            <p style="margin:0; color:white;">
+            Click the fruits before the time ends!
+            </p>
+            <div class="col-md-3">
+                <b>Apple:</b>
+                <span id="apple">0</span>
+                <br>
+
+                <b>Banana:</b>
+                <span id="banana">0</span>
+            </div>
+
+            <div class="col-md-2">
+                <select id="timeSelect" class="form-select">
+                    <option value="60">1 Minute</option>
+                    <option value="120">2 Minutes</option>
+                    <option value="300">5 Minutes</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-success" onclick="startGame()">
+                    Start Game
+                </button>
+            </div>
+
+            <div class="col-md-2">
+                <h4 id="timer">01:00</h4>
+            </div>
+
+        </div>
+
+        <button id="changeColorBtn"
+                class="btn btn-primary mt-3"
+                onclick="changeBG()">
+            Change Background Color
+        </button>
+
+    </div>
+
+    <!-- Game area -->
+    <div id="gameArea">
+
+        <img src="apple.jpg"
+             id="appleImg"
+             alt="Apple"
+             onclick="clickImage('apple', this)">
+
+        <img src="banana.jpg"
+             id="bananaImg"
+             alt="Banana"
+             onclick="clickImage('banana', this)">
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

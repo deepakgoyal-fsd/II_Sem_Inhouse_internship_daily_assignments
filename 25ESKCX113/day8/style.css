@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(29, 77, 181);
+    color: rgb(255, 0, 0);
+}
+form{align-content: center;
+    
+    width: 800px;
+    border-radius: 100px;
+    height: 800px;
+    background-color: rgb(246, 246, 246);
+}
+input[type="text"],
+input[type="date"]{
+    width: 400px;
+    height: 40px ;
+}

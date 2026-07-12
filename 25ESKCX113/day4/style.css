@@ -1,0 +1,82 @@
+/* Page style */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #eef7ff;
+    font-family: Verdana, Geneva, sans-serif;
+    transition: 0.5s;
+}
+
+/* Top panel */
+
+.top-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: #2d6cdf;
+    color: white;
+    box-shadow: 0px 3px 10px gray;
+    z-index: 1000;
+}
+
+/* Top panel h3 */
+.top-panel h3 {
+    color: yellow;
+    font-weight: bold;
+    font-size: 30px;
+}
+/*Top panel score*/
+.top-panel span {
+    color: #ffe600;
+    font-weight: bold;
+    font-size: 22px;
+}
+/* Game area */
+
+#gameArea {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* Fruit images */
+
+img {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 15px;
+    border: 3px solid white;
+}
+#gameArea {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #d8f3dc;
+}
+img:hover {
+    transform: scale(1.1);
+}
+select {
+    border: 2px solid #2d6cdf;
+}
+#changeColorBtn {
+    display: none;
+}
+#timer {
+    background: white;
+    color: red;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+}

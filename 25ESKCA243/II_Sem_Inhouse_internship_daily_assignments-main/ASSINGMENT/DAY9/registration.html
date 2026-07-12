@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="regstyle.css">
+</head>
+
+<body>
+    <div class="whole">
+        <form class="background" action="process.php" method="post" enctype="multipart/form-data">
+
+            <h1>REGISTRATION FORM</h1>
+            <p>Submit this form for online registration</p>
+
+            <label for="txtName">Name:</label>
+            <input type="text" id="txtName" name="txtName" required placeholder="Enter Your Name" class="rounded">
+
+            <label for="txtEmail">Email:</label>
+            <input type="email" id="txtEmail" name="txtEmail" required placeholder="Enter Your Email" class="rounded">
+
+            <div class="row">
+                <div class="column">
+
+                    <label for="PhoneNo">Phone Number:</label>
+                    <input type="text" id="PhoneNo" name="PhoneNo" required placeholder="Enter Your Phone Number" class="rounded">
+
+                    <label for="branch">Branch:</label>
+                    <select id="branch" name="branch" class="rounded">
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="MECH">MECH</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="Password">Password:</label>
+                    <input type="password" id="Password" name="Password" required class="rounded" placeholder="Enter Your Password">
+
+                    <br><br>
+
+                    <label for="myFile">Upload your profile picture:</label>
+                    <input type="file" id="myFile" name="myFile" accept="image/*" required>
+
+                </div>
+            </div>
+
+            <button class="register" type="submit" name="registerBtn">Register</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

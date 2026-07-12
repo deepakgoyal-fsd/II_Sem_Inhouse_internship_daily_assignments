@@ -1,0 +1,1 @@
+<tr class="<?= ($row['cgpa'] > 8) ? 'success' : 'normal' ?>">

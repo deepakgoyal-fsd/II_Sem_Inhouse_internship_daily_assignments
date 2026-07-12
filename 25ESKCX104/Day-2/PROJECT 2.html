@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="project2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="registration.php" method="post" class="form">
+
+        <h1> COLLEGE REGISTRATION FORM</h1>
+        <h3>Complete this Registration form for Online Registration</h3>
+        <hr>
+        <label>
+            FULL NAME:
+            <input type="text" placeholder="Enter Full Name" required>
+        </label>
+        <label>
+            FATHER'S NAME:
+            <input type="text" placeholder="Enter Father's Name" required>
+        </label><br><br>
+        <label>
+            EMAIL:
+            <input type="email" placeholder="Enter your email" required>
+        </label>
+        <label>
+            NUMBER:
+            <input type="number" placeholder="Enter number" required>
+        </label><br><br>
+        <label>
+            DATE OF BIRTH:
+            <input type="date" required>
+        </label>
+        <label>GENDER:
+            <input type="radio" id="check-male" name="gender" checked /><label for="check-male">male</label>
+            <input type="radio" id="check-female" name="gender" checked /><label for="check-female">female</label>
+            <input type="radio" id="check-transgender" name="gender" checked /><label
+                for="check-transgender">transgender</label>
+            <input type="radio" id="check-male" name="gender" checked /><label for="check-male">prefer not to
+                say</label>
+        </label>
+        <br><br>
+        <label>
+            STATE:
+            ,<input type="text" placeholder="Enter State">
+        </label>
+        <label>
+            CITY:
+            ,<input type="text" placeholder="Enter City">
+        </label><br><br>
+        <label>COURSE:</label>
+        <select>
+            <option>B.Tech</option>
+            <option>M.Tech</option>
+            <option>M.B.A</option>
+            <option>B.CA</option>
+        </select><br><br>
+        <label>
+            USERNAME:
+            <input type="text" placeholder="Enter username">
+        </label><br><br>
+        <label>
+            PASWORD:
+            <input type="password" placeholder="Enter pasword">
+        </label>
+        <label>
+            CONFIRM PASWORD:
+            <input type="password" placeholder="Enter confirm pasword">
+        </label><br><br>
+        <label>
+            <input type="checkbox">I agree to the terms & conditions
+        </label>
+        <br><br>
+        <input type="submit" name="submit">
+        <input type="reset" name="reset">
+    </form>
+    <div class="feedbackbox">
+        <div>
+            <div>
+
+                <h4>FEEDBACK:</h4>
+                <label for="101">
+                    <input type="text" placeholder="Feedback" id="101">
+
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Email us: </p>
+                abc02@gmail.com</p>
+                <p>Phone:</p>
+                <p>9033****99</p>
+            </div>
+        </div>
+
+        <div>
+            <div>
+
+                <h4>MUST VISIT:</h4>
+                <p><a href="www.google.com">Google</a></p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>made with&hearts; by Shashwat</p>
+        <p>&#169;,College.com,Inc. or its affiliates</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form action="insert.php" method="POST" enctype="multipart/form-data">
+            <input type="text" name="fullname" placeholder="Enter Full Name" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="number" name="age" placeholder="Enter Age" required>
+            <select name="course" required>
+                <option value="">Select Course</option>
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>MCA</option>
+            </select>
+            <div class="gender">
+                <label>
+                    <input type="radio" name="gender" value="Male" required>
+                    Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="Female">
+                    Female
+                </label>
+            </div>
+            <label>Upload Image</label>
+            <input type="file" name="profile" accept="image/*" required>
+            <button type="submit"> Register </button>
+        </form>
+        <br>
+        <a href="display.php">View Students</a>
+    </div>
+</body>
+</html>

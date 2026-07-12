@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #060b19;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar-dark .nav-link {
+            color: #a0aec0;
+            transition: color 0.3s;
+        }
+        .navbar-dark .nav-link:hover {
+            color: #ffffff;
+        }
+        .hero-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        .text-accent {
+            color: #3b82f6;
+        }
+        .feature-card {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 25px 20px;
+            text-align: center;
+            height: 100%;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .feature-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        img{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
 
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">Code<span class="text-primary">Pro</span></a>
+            <button class="navbar-expand-lg navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item ms-lg-2">
+                         <button type="button" class="btn btn-light">Enroll Now</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-sm mb-3">
+                        Learn. Build.<br>
+                        Become a <span class="text-accent">Full Stack<br>Developer.</span>
+                    </h1>
+                    <p class="lead text-muted fs-6 mb-4 col-md-10">
+                        Join our expert-led bootcamp and build real-world projects that get you hired.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <button type="button" class="btn btn-primary">Explore Courses</button>
+                        <button type="button" class="btn btn-light">Download Syllabus</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://www.eduwiseelearning.com/images/1700032604.jpg" class="rounded float-end" alt="..." height="500px" width="650px">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 mb-5">
+        <div class="container text-center">
+            <h2 class="section-title">Why Learn With Us?</h2>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h5>Expert Trainers</h5>
+                        <p>Learn from industry professionals</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h5>Hands-on Projects</h5>
+                        <p>Build real projects for real experience</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h5>Placement Support</h5>
+                        <p>We help you land your dream job</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-patch-check"></i>
+                        </div>
+                        <h5>Certificate</h5>
+                        <p>Industry-recognized completion certificate</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+     <h1  class="text-center">Pricing</h1>
+   <p  class="text-center">Please checkout our most effective payment models</p>
+<div class="container text-center">
+  <div class="row">
+   <div class="col">
+    <div class="card col-sm-5" style="width: 18rem;">
+  <div class="card-header text-center">
+    Free
+  </div>
+  <div class="card-body">
+    <h1 class="card-title text-center">$0/mo</h1>
+        <ul class="list-unstyled">
+            <li class="text-center">10 users included</li>
+            <li class="text-center">2GB of storage</li>
+            <li class="text-center">Email support</li>
+            </ul>
+            <br>
+            <a href="#" class=" btn btn-outline-primary position-absolute start-50 translate-middle">Sign-up for free</a>
+            <br>
+  </div>
+  </div>
+  </div>
+     <div class="col">
+<div class="card col-sm-5" style="width: 18rem;" >
+  <div class="card-header text-center">Pro </div>
+  <div class="card-body">
+    <h1 class="card-title text-center">$15/mo</h1>
+        <ul class="list-unstyled">
+            <li class="text-center">20 users included</li>
+            <li class="text-center">10GB of storage</li>
+            <li class="text-center">Priority email support</li>
+            </ul>
+            <br>
+            <a href="#" class=" btn btn-primary position-absolute start-50 translate-middle">Sign-up for free</a>
+            <br>
+  </div>
+  </div>
+ </div>
+    <div class="col">
+<div class="card col-sm-5" style="width: 18rem;">
+  <div class="card-header text-center">
+    Enterprise
+  </div>
+  <div class="card-body">
+    <h1 class="card-title text-center">$29/mo</h1>
+        <ul class="list-unstyled">
+            <li class="text-center">30 users included</li>
+            <li class="text-center">15GB of storage</li>
+            <li class="text-center">Phone & email support</li>
+            </ul>
+            <br>
+            <a href="#" class=" btn btn-primary position-absolute start-50 translate-middle">Sign-up for free</a>
+            <br>
+  </div>
+  </div>
+    </div>
+ </div>
+ </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

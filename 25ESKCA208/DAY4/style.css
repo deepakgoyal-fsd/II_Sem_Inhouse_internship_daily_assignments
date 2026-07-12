@@ -1,0 +1,83 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar-brand{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-link{
+    transition:0.3s;
+}
+
+.nav-link:hover{
+    color: yellow !important;
+}
+
+/* Hero Section */
+.hero{
+    padding:60px 0;
+}
+
+.hero h1{
+    font-weight:bold;
+}
+
+.hero img{
+    border-radius:10px;
+}
+
+/* Buttons */
+.btn{
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0px 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Feature Cards */
+.card{
+    transition:0.4s;
+    border:none;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0px 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Team Images */
+.rounded-circle{
+    margin:auto;
+    display:block;
+}
+
+/* Contact Form */
+#contact{
+    padding:60px 0;
+}
+
+.form-control{
+    border-radius:8px;
+}
+
+/* Greeting */
+#greeting{
+    font-size:20px;
+    color:green;
+    font-weight:bold;
+}
+
+/* Footer */
+footer{
+    margin-top:40px;
+}
+
+footer a:hover{
+    color:yellow !important;
+}

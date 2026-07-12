@@ -1,0 +1,40 @@
+body{
+    background:#f4f7fc;
+    font-family:Arial, sans-serif;
+}
+
+.card{
+    max-width:500px;
+    margin:auto;
+    border-radius:15px;
+}
+
+h2{
+    font-weight:bold;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.btn{
+    border-radius:10px;
+}
+
+.btn:hover{
+    transform:scale(1.02);
+    transition:.3s;
+}
+
+img{
+    border-radius:50%;
+    object-fit:cover;
+}
+
+table{
+    background:white;
+}
+
+a{
+    text-decoration:none;
+}

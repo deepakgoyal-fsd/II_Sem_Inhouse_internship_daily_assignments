@@ -1,0 +1,28 @@
+body{
+    background:#f5f5f5;
+}
+
+.card{
+    transition:.3s;
+    border-radius:15px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.card img{
+    height:220px;
+    object-fit:cover;
+}
+
+#loading{
+    color:green;
+    font-weight:bold;
+}
+
+#error{
+    color:red;
+    font-weight:bold;
+}

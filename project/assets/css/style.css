@@ -1,0 +1,443 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,Arial;
+}
+
+
+body{
+
+    background:#f1f5f9;
+
+}
+
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+.sidebar{
+
+    position:fixed;
+
+    width:250px;
+
+    height:100vh;
+
+    background:#1e293b;
+
+    padding:20px;
+
+}
+
+
+
+.sidebar h2{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+
+
+.sidebar a:hover{
+
+    background:#2563eb;
+
+    transform:translateX(10px);
+
+}
+
+
+
+.main{
+
+    margin-left:250px;
+
+}
+
+
+
+.navbar{
+
+    background:white;
+
+    padding:20px;
+
+    box-shadow:0 5px 15px #ddd;
+
+}
+
+
+
+.container{
+
+    padding:30px;
+
+}
+
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px #ddd;
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    display:inline-block;
+
+}
+
+
+
+.btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+table{
+
+    width:100%;
+
+    background:white;
+
+    border-collapse:collapse;
+
+}
+
+
+
+table th{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+table td,th{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+}
+
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+}
+
+
+form{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+}
+
+
+@media(max-width:800px){
+
+.sidebar{
+
+    width:100%;
+
+    height:auto;
+
+    position:relative;
+
+}
+
+
+.main{
+
+    margin:0;
+
+}
+
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+}tr{
+
+transition:.3s;
+
+}
+
+
+tr:hover{
+
+background:#eff6ff;
+
+transform:scale(1.01);
+
+}
+
+
+
+.btn{
+
+transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+textarea{
+
+resize:none;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+}
+
+
+textarea:focus,
+input:focus{
+
+outline:none;
+
+border:2px solid #2563eb;
+
+box-shadow:0 0 10px #bfdbfe;
+
+transition:.3s;
+
+}
+select{
+
+width:100%;
+
+padding:12px;
+
+border-radius:8px;
+
+border:1px solid #ddd;
+
+background:white;
+
+}
+
+
+select:focus{
+
+border:2px solid #2563eb;
+
+outline:none;
+
+}
+.card{
+
+animation:fadeIn .6s ease;
+
+}
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.card h1{
+
+color:#2563eb;
+
+font-size:40px;
+
+}
+
+
+
+.report-card:hover{
+
+background:#eff6ff;
+
+}
+.card{
+
+animation:fadeIn .6s ease;
+
+}
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.card h1{
+
+color:#2563eb;
+
+font-size:40px;
+
+}
+
+
+
+.report-card:hover{
+
+background:#eff6ff;
+
+}
+.btn,
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.btn:active,
+button:active{
+
+transform:scale(.95);
+
+}
+.navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+.navbar h3{
+
+color:#2563eb;
+
+}

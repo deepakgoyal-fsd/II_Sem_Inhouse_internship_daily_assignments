@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RTU Student Registration Form</title>
+
+<style>
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#4ca1af);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    padding:40px 20px;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.wrapper{
+    width:100%;
+    max-width:550px;
+}
+
+.heading{
+    text-align:center;
+    color:white;
+    margin-bottom:20px;
+}
+
+.heading h1{
+    font-size:42px;
+    font-weight:700;
+    text-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+.heading h1 span{
+    color:#FFD700;
+}
+
+.heading p{
+    margin-top:8px;
+    color:#e7e7e7;
+    font-size:16px;
+}
+
+/* Glass Card */
+
+.container{
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.container h2{
+    text-align:center;
+    color:white;
+    margin-bottom:25px;
+    font-size:28px;
+}
+
+.container h2::after{
+    content:"";
+    width:80px;
+    height:4px;
+    display:block;
+    background:#FFD700;
+    margin:8px auto;
+    border-radius:10px;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    color:white;
+    font-weight:600;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    margin-top:8px;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,.9);
+    font-size:15px;
+    transition:.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    transform:scale(1.02);
+    box-shadow:0 0 12px rgba(255,215,0,.7);
+}
+
+textarea{
+    resize:none;
+}
+
+.gender-group{
+    display:flex;
+    gap:25px;
+    margin-top:12px;
+}
+
+.gender-group label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:white;
+    font-weight:400;
+    margin-top:0;
+}
+
+.gender-group input{
+    width:auto;
+    accent-color:#FFD700;
+}
+
+button{
+    width:100%;
+    margin-top:30px;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:600;
+    color:#0f2027;
+    cursor:pointer;
+    background:linear-gradient(45deg,#FFD700,#FFA500);
+    transition:.4s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(255,215,0,.5);
+}
+
+footer{
+    margin-top:20px;
+    text-align:center;
+    color:white;
+    font-size:14px;
+}
+
+@media(max-width:600px){
+
+.container{
+    padding:25px;
+}
+
+.heading h1{
+    font-size:32px;
+}
+
+.gender-group{
+    flex-direction:column;
+    gap:10px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="heading">
+<h1>🎓 <span>RTU</span> Admission Portal</h1>
+<p>Rajasthan Technical University • Student Registration 2026</p>
+</div>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form>
+
+<label>👤 Full Name</label>
+<input type="text" placeholder="Enter your full name" required>
+
+<label>📧 Email Address</label>
+<input type="email" placeholder="example@rtu.ac.in" required>
+
+<label>📱 Phone Number</label>
+<input type="tel" placeholder="Enter 10-digit mobile number" required>
+
+<label>🎂 Date of Birth</label>
+<input type="date" required>
+
+<label>🎓 Preferred Course</label>
+
+<select required>
+<option value="" disabled selected>Select Your Course</option>
+<option>B.Tech (Computer Science Engineering)</option>
+<option>B.Tech (Information Technology)</option>
+<option>B.Tech (Mechanical Engineering)</option>
+<option>B.Tech (Civil Engineering)</option>
+<option>B.Tech (Electronics & Communication)</option>
+<option>M.Tech</option>
+<option>MBA</option>
+<option>MCA</option>
+</select>
+
+<label>⚧ Gender</label>
+
+<div class="gender-group">
+<label><input type="radio" name="gender" required> Male</label>
+<label><input type="radio" name="gender"> Female</label>
+<label><input type="radio" name="gender"> Other</label>
+</div>
+
+<label>🏠 Permanent Address</label>
+<textarea rows="4" placeholder="Enter your complete address..." required></textarea>
+
+<label>🔒 Create Password</label>
+<input type="password" placeholder="Minimum 8 characters" required>
+
+<label>🔐 Confirm Password</label>
+<input type="password" placeholder="Re-enter password" required>
+
+<button type="submit">
+🚀 Register Now
+</button>
+
+</form>
+
+</div>
+
+<footer>
+© 2026 Rajasthan Technical University (RTU) | Admission Portal | All Rights Reserved
+</footer>
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,420 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Oréal Paris Ramp Walk</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#000;
+color:#fff;
+}
+
+/* Hero Section */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h3{
+color:#FFD700;
+letter-spacing:4px;
+font-size:20px;
+}
+
+.hero-content h1{
+font-size:65px;
+margin:20px 0;
+font-weight:800;
+}
+
+.hero-content p{
+font-size:20px;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 40px;
+background:#FFD700;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+border-radius:40px;
+transition:.4s;
+}
+
+.btn:hover{
+background:#fff;
+transform:scale(1.08);
+}
+
+/* Event */
+
+.event{
+padding:80px 10%;
+background:#111;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+color:#FFD700;
+margin-bottom:50px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1a1a1a;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:#222;
+box-shadow:0 0 25px rgba(255,215,0,.3);
+}
+
+.card i{
+font-size:45px;
+color:#FFD700;
+margin-bottom:20px;
+}
+
+/* Registration */
+
+.register{
+padding:80px 10%;
+background:url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+.register::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.75);
+}
+
+.form-box{
+position:relative;
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.2);
+}
+
+.form-box h2{
+text-align:center;
+margin-bottom:30px;
+color:#FFD700;
+}
+
+.input{
+margin-bottom:20px;
+}
+
+.input input,
+.input select,
+.input textarea{
+width:100%;
+padding:14px;
+border:none;
+outline:none;
+border-radius:8px;
+background:rgba(255,255,255,.15);
+color:#fff;
+font-size:15px;
+}
+
+.input input::placeholder,
+textarea::placeholder{
+color:#ddd;
+}
+
+textarea{
+resize:none;
+height:120px;
+}
+
+option{
+color:#000;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#FFD700;
+border:none;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+border-radius:50px;
+transition:.4s;
+}
+
+button:hover{
+background:#fff;
+transform:scale(1.03);
+}
+
+#success{
+display:none;
+margin-top:20px;
+background:#00b894;
+padding:15px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+}
+
+/* Footer */
+
+footer{
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+.social i{
+margin:10px;
+font-size:25px;
+color:#FFD700;
+cursor:pointer;
+transition:.3s;
+}
+
+.social i:hover{
+transform:scale(1.3);
+color:#fff;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:42px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h3>SPONSORED BY</h3>
+
+<h1>L'Oréal Paris<br>Ramp Walk</h1>
+
+<p>
+Walk the runway. Showcase your confidence. Become the next fashion icon.
+</p>
+
+<a href="#register" class="btn">
+Register Now
+</a>
+
+</div>
+
+</section>
+
+<!-- Event -->
+
+<section class="event">
+
+<h2 class="title">
+Event Highlights
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-calendar-days"></i>
+<h3>Auditions</h3>
+<p>21 June – 30 June</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-trophy"></i>
+<h3>Grand Finale</h3>
+<p>10 July</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>Eligibility</h3>
+<p>16+ Years • All Genders</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-camera"></i>
+<h3>Dress Code</h3>
+<p>Fashion Portfolio Preferred</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Registration -->
+
+<section class="register" id="register">
+
+<div class="form-box">
+
+<h2>Registration Form</h2>
+
+<form id="form">
+
+<div class="input">
+<input type="text" id="name" placeholder="Full Name">
+</div>
+
+<div class="input">
+<input type="email" id="email" placeholder="Email Address">
+</div>
+
+<div class="input">
+<input type="tel" id="phone" placeholder="Phone Number">
+</div>
+
+<div class="input">
+<input type="number" id="age" placeholder="Age">
+</div>
+
+<div class="input">
+<select id="gender">
+<option value="">Select Gender</option>
+<option>Female</option>
+<option>Male</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="input">
+<input type="number" id="height" placeholder="Height (cm)">
+</div>
+
+<div class="input">
+<input type="text" id="city" placeholder="City">
+</div>
+
+<div class="input">
+<input type="file">
+</div>
+
+<div class="input">
+<textarea id="reason" placeholder="Why do you want to join?"></textarea>
+</div>
+
+<button type="submit">
+REGISTER NOW
+</button>
+
+</form>
+
+<div id="success">
+🎉 Registration Submitted Successfully!
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>L'Oréal Paris Ramp Walk</h2>
+
+<p>Fashion • Confidence • Elegance</p>
+
+<div class="social">
+<i class="fab fa-instagram"></i>
+<i class="fab fa-facebook"></i>
+<i class="fab fa-youtube"></i>
+<i class="fab fa-twitter"></i>
+</div>
+
+<p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+document.getElementById("form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let fields=["name","email","phone","age","gender","height","city","reason"];
+
+for(let id of fields){
+
+if(document.getElementById(id).value==""){
+
+alert("Please fill all fields.");
+
+return;
+
+}
+
+}
+
+document.getElementById("success").style.display="block";
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
+```
+

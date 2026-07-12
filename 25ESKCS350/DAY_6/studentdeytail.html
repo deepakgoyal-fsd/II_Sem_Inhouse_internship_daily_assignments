@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Book Catalog</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9f6;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2d5a27;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: white;
+    border: 1px solid #c2cdc1;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    color: #2d5a27;
+    margin-top: 0;
+}
+
+button {
+    background: #2d5a27;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background: #418239;
+}
+
+.details {
+    display: none;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.footer {
+    background: #2d5a27;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Digital Book Catalog</h1>
+
+<p>Search books by title and expand to view publication details.</p>
+
+<input type="text" id="search" placeholder="Search Book Title..." onkeyup="searchBook()">
+
+<div class="card">
+    <h2>The Hobbit</h2>
+    <p>Fantasy / Adventure</p>
+    <button onclick="toggle(this)">Show Details</button>
+    <div class="details">
+        <p><b>ISBN:</b> 978-0261103344</p>
+        <p><b>Author:</b> J.R.R. Tolkien</p>
+        <p><b>Published:</b> 1937</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Frankenstein</h2>
+    <p>Gothic Horror / Sci-Fi</p>
+    <button onclick="toggle(this)">Show Details</button>
+    <div class="details">
+        <p><b>ISBN:</b> 978-0141439471</p>
+        <p><b>Author:</b> Mary Shelley</p>
+        <p><b>Published:</b> 1818</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Dracula</h2>
+    <p>Classic Horror</p>
+    <button onclick="toggle(this)">Show Details</button>
+    <div class="details">
+        <p><b>ISBN:</b> 978-0486411095</p>
+        <p><b>Author:</b> Bram Stoker</p>
+        <p><b>Published:</b> 18

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Code</title>
+</head>
+<body>
+   <div>
+        <button id="myBtn" data-count="0">Click Me</button>
+        <p id="display">Clicks: 0</p>
+    </div>
+
+    <hr>
+
+    <div>
+        <label for="nameInput">Enter Name: </label>
+        <input type="text" id="nameInput" placeholder="Type your name...">
+        <h1 id="greeting">Hi!</h1>
+    </div>
+    
+
+    <script>
+    const btn = document.querySelector("#myBtn");
+    
+    btn.addEventListener("click", function(){
+        let count = parseInt(btn.dataset.count || 0);
+        count++;
+        btn.dataset.count = count; 
+        document.querySelector("#display").textContent = `Clicks: ${count}`;
+    });
+
+    document.querySelector("#nameInput").addEventListener("input", (e) => {
+        // FIXED: fixed capitalization of textContent
+        document.querySelector("#greeting").textContent = `Hi, ${e.target.value}!`;
+    });
+    </script>
+    
+</body>
+</html>

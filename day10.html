@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with Terms & Conditions</title>
+    <style>
+        :root {
+            --bg-body: #f4f7f6;
+            --bg-form: #ffffff;
+            --text-main: #333333;
+            --text-sub: #444444;
+            --border-color: #cccccc;
+            --input-bg: #ffffff;
+            --primary-color: #4caf50;
+            --primary-hover: #45a049;
+            --toggle-bg: #ccc;
+            --link-color: #0066cc;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #121212;
+            --bg-form: #1e1e1e;
+            --text-main: #f5f5f5;
+            --text-sub: #dddddd;
+            --border-color: #444444;
+            --input-bg: #2d2d2d;
+            --primary-color: #bb86fc;
+            --primary-hover: #9965cc;
+            --toggle-bg: #bb86fc;
+            --link-color: #82b1ff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .registration-form {
+            background-color: var(--bg-form);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Theme Toggle Button Layout */
+        .theme-toggle-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-label {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--text-sub);
+        }
+
+        /* Toggle Switch Styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 22px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .3s;
+            border-radius: 22px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-sub);
+        }
+
+        /* Form Inputs Uniformed Styles via Variables */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--text-main);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .file-upload {
+            margin-bottom: 20px;
+        }
+        .file-upload label {
+            font-weight: 600;
+            color: var(--text-sub);
+        }
+        .checkbox-group label, 
+        .terms-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: normal;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .terms-group {
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+
+        .terms-group a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .terms-group a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="registration-form">
+        <div class="theme-toggle-container">
+            <span class="theme-label" id="themeText">Light Mode</span>
+            <label class="switch">
+                <input type="checkbox" id="themeCheckbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone no.</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone no." required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender option</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="courses">Courses</label>
+                <select id="courses" name="courses" required>
+                    <option value="" disabled selected>Select courses</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="CA">CA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="B.com hons.">B.com hons.</option>
+                    <option value="M.tech">M.tech</option>
+                    <option value="MS">MS</option>
+                </select>
+            </div>
+
+            <div class="file-upload">
+                <label for="profile-pic">Upload your photo:</label><br>
+                <input type="file" id="profile-pic" name="profile_picture" accept="image/*" required>
+            </div>
+
+            <div class="file-upload">
+                <label for="signature">Upload signature:</label><br>
+                <input type="file" id="signature" name="signature" accept="image/*" required>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label style="font-weight: 600;">Choose skills</label>
+                <label><input type="checkbox" name="skills" value="html"> HTML5</label>
+                <label><input type="checkbox" name="skills" value="javascript"> JS</label>
+                <label><input type="checkbox" name="skills" value="c++"> C++</label>
+                <label><input type="checkbox" name="skills" value="python"> Python</label>
+                <label><input type="checkbox" name="skills" value="c"> <span class="skill-name">C</span></label>
+            </div>
+
+            <div class="form-group">
+                <label for="about-me">About yourself</label>
+                <textarea id="about-me" name="aboutMe" placeholder="Tell us something about you" rows="5" required></textarea>
+            </div>
+            <div class="terms-group">
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <span>I agree to the <a href="#" target="_blank">Terms and Conditions</a> and privacy policy.</span>
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const themeCheckbox = document.getElementById('themeCheckbox');
+        const themeText = document.getElementById('themeText');
+
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeCheckbox.checked = true;
+            themeText.textContent = "Dark Mode";
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeCheckbox.checked = false;
+            themeText.textContent = "Light Mode";
+        }
+
+        themeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeText.textContent = "Dark Mode";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeText.textContent = "Light Mode";
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const skillCheckboxes = document.querySelectorAll('input[name="skills"]:checked');
+            if (skillCheckboxes.length === 0) {
+                alert('Please select at least one skill.');
+                return;
+            }
+            const termsChecked = document.getElementById('terms').checked;
+            if (!termsChecked) {
+                alert('You must accept the Terms and Conditions to proceed.');
+                return;
+            }
+            const formData = new FormData(this);
+            const formPayload = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                gender: formData.get('gender'),
+                dob: formData.get('dob'),
+                course: formData.get('courses'),
+                aboutMe: formData.get('aboutMe'),
+                skills: Array.from(skillCheckboxes).map(cb => cb.value),
+                acceptedTerms: formData.get('terms') === 'on',
+                photoName: formData.get('profile_picture')?.name,
+                signatureName: formData.get('signature')?.name
+            };
+
+            console.log('Submission Parsed:', formPayload);
+            alert(`Registration successful! Welcome aboard, ${formPayload.firstName}.`);
+        });
+    </script>
+</body>
+</html>

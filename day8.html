@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 50px;
+        }
+        .form-container {
+            max-width: 400px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error-message {
+            color: #ff3333;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none; /* Hidden by default */
+        }
+        .input-error {
+            border-color: #ff3333 !important;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .success-message {
+            color: #28a745;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Register</h2>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username">
+            <div class="error-message" id="usernameError">Username must be at least 3 characters long.</div>
+        </div>
+         <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password">
+            <div class="error-message" id="passwordError">Password must be at least 6 characters long.</div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="success-message" id="successMessage">Form submitted successfully!</div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#registrationForm').on('submit', function(e) {
+        e.preventDefault();
+        $('.error-message').hide();
+        $('input').removeClass('input-error');
+        $('#successMessage').hide();
+
+        let isValid = true;
+        const username = $('#username').val().trim();
+        if (username.length < 3) {
+            $('#username').addClass('input-error');
+            $('#usernameError').show();
+            isValid = false;
+        }
+        const password = $('#password').val();
+        if (password.length < 6) {
+            $('#password').addClass('input-error');
+            $('#passwordError').show();
+            isValid = false;
+        }
+        if (isValid) {
+            $('#successMessage').fadeIn();
+            // You can uncomment the line below to actually submit the form data to a server:
+            // this.submit(); 
+        }
+    });
+});
+</script>
+
+</body>
+</html>

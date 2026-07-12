@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/稳定/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-main: #212529;
+            --accent-color: #4f46e5;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f1f5f9;
+            --accent-color: #818cf8;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+        .dashboard-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .interactive-card {
+            background-color: var(--bg-card);
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.15);
+        }
+        .theme-switch {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: transform 0.2s;
+        }
+        .theme-switch:hover {
+            transform: scale(1.1);
+        }
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: rgba(129, 140, 248, 0.1);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg shadow-sm px-4" style="background-color: var(--bg-card);">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--accent-color);">
+                <i class="fa-solid to fa-chart-pie me-2"></i>NexusPortal
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <div id="themeToggle" class="theme-switch" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="Profile" class="rounded-circle" width="40" height="40">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container dashboard-container">
+        
+        <div class="row">
+            <div class="col-12 text-center text-md-start">
+                <h1 class="fw-bold">Welcome back, Alex!</h1>
+                <p class="text-muted">Here is what’s happening with your projects today.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card interactive-card p-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <span class="p-3 rounded-circle bg-primary bg-opacity-10 text-primary">
+                            <i class="fa-solid fa-list-check fa-2xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="fw-bold counter" data-target="12">0</h3>
+                    <p class="text-muted mb-0">Active Tasks</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card interactive-card p-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <span class="p-3 rounded-circle bg-success bg-opacity-10 text-success">
+                            <i class="fa-solid fa-circle-check fa-2xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="fw-bold counter" data-target="84">0</h3>
+                    <p class="text-muted mb-0">Tasks Completed (%)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card interactive-card p-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <span class="p-3 rounded-circle bg-warning bg-opacity-10 text-warning">
+                            <i class="fa-solid fa-clock fa-2xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="fw-bold counter" data-target="5">0</h3>
+                    <p class="text-muted mb-0">Hours Tracked Today</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card interactive-card p-4 h-100">
+                    <h4 class="fw-bold mb-4"><i class="fa-solid fa-thumbtack me-2 text-danger"></i>Quick Tasks</h4>
+                    
+                    <div class="input-group mb-3">
+                        <input type="text" id="taskInput" class="form-control" placeholder="Add a new task..." aria-label="New task">
+                        <button class="btn text-white" type="button" id="addTaskBtn" style="background-color: var(--accent-color);">Add</button>
+                    </div>
+
+                    <div id="taskList" style="max-height: 250px; overflow-y: auto;">
+                        <div class="task-item">
+                            <span>Review project documentation</span>
+                            <button class="btn btn-sm btn-link text-danger delete-task"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="task-item">
+                            <span>Design user interface prototype</span>
+                            <button class="btn btn-sm btn-link text-danger delete-task"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card interactive-card p-4 h-100">
+                    <h4 class="fw-bold mb-3"><i class="fa-solid fa-bell me-2 text-warning"></i>Live Notifications</h4>
+                    <p class="text-muted">Click on a notification to dismiss it with smooth animations.</p>
+                    
+                    <div class="alert alert-info alert-dismissible fade show custom-alert" role="alert" style="cursor: pointer;">
+                        <strong>System Update:</strong> Version 2.4 is now live. Explore new widgets!
+                    </div>
+                    <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert" style="cursor: pointer;">
+                        <strong>Success:</strong> Database sync completed 5 minutes ago.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ajaxStart(function() {
+            // Placeholder for real-time tracking if needed
+        });
+
+        $(document).ready(function() {
+            
+            // 1. Dark/Light Mode Theme Switcher
+            $('#themeToggle').on('click', function() {
+                const currentTheme = $('body').attr('data-theme');
+                const icon = $(this).find('i');
+                
+                if (currentTheme === 'dark') {
+                    $('body').removeAttr('data-theme');
+                    icon.removeClass('fa-sun').addClass('fa-moon');
+                } else {
+                    $('body').attr('data-theme', 'dark');
+                    icon.removeClass('fa-moon').addClass('fa-sun');
+                }
+            });
+            $('.counter').each(function() {
+                const $this = $(this);
+                const countTo = $this.attr('data-target');
+                
+                $({ countNum: $this.text() }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 1200,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            });
+            $('#addTaskBtn').on('click', function() {
+                addTask();
+            });
+
+            $('#taskInput').on('keypress', function(e) {
+                if(e.which === 13) { // Enter key
+                    addTask();
+                }
+            });
+
+            function addTask() {
+                const taskText = $('#taskInput').val().trim();
+                if(taskText !== '') {
+                    const taskHTML = `
+                        <div class="task-item" style="display: none;">
+                            <span>${taskText}</span>
+                            <button class="btn btn-sm btn-link text-danger delete-task"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    `;
+                    $('#taskList').append(taskHTML);
+                    $('.task-item').fadeIn(300); // Smooth drop-in effect
+                    $('#taskInput').val(''); // Clear input
+                }
+            }
+            $('#taskList').on('click', '.delete-task', function() {
+                $(this).closest('.task-item').fadeOut(300, function() {
+                    $(this).remove();
+                });
+            });
+            $('.custom-alert').on('click', function() {
+                $(this).slideUp(300, function() {
+                    $(this).remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraTrails | Premium Eco-Expeditions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- MODERN URBAN OUTDOOR LUXURY PALETTE --- */
+        :root {
+            --slate-deep: #1A1F1D;       /* Ultimate dark charcoal slate background */
+            --slate-medium: #2C3532;     /* Card accents and cleaner overlays */
+            --amber-gold: #E2A745;       /* Warm premium metallic amber */
+            --amber-bright: #F7C665;     /* High-energy interactive gold states */
+            --warm-white: #F9F8F5;       /* Soft luxury linen background cream */
+            --pure-white: #FFFFFF;
+            --charcoal-body: #2B3330;   /* Readable contrast body text */
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(226, 167, 69, 0.25);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--charcoal-body);
+            overflow-x: hidden;
+            letter-spacing: -0.2px;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- STYLISH SLATE NAVIGATION BAR --- */
+        .navbar {
+            background: linear-gradient(135deg, var(--slate-deep) 0%, #111514 100%);
+            padding: 1.2rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-bottom: 2px solid rgba(226, 167, 69, 0.4);
+        }
+        .navbar-brand {
+            color: var(--pure-white) !important;
+            font-weight: 800;
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+        }
+        .navbar-brand:hover { transform: scale(1.03); }
+        .custom-nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0 0.4rem;
+            position: relative;
+            transition: color 0.3s ease !important;
+        }
+        .custom-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 10%;
+            background-color: var(--amber-gold);
+            transition: width 0.3s ease;
+        }
+        .custom-nav-link:hover::after { width: 80%; }
+        .custom-nav-link:hover { color: var(--amber-bright) !important; }
+        
+        /* Premium Glow Control Button */
+        .btn-amber-glow {
+            background: linear-gradient(135deg, var(--amber-gold) 0%, #C28A2F 100%);
+            color: var(--slate-deep) !important;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 4px 15px rgba(226, 167, 69, 0.35);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .btn-amber-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(226, 167, 69, 0.55);
+            background: linear-gradient(135deg, var(--amber-bright) 0%, var(--amber-gold) 100%);
+        }
+
+        /* --- IMMERSIVE HERO WITH SLATE GLASS OVERLAYS --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 31, 29, 0.75) 0%, rgba(26, 31, 29, 0.45) 60%, var(--warm-white) 100%);
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 25px;
+        }
+        .hero-title {
+            font-size: 4.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        .hero-title span { color: var(--amber-bright); font-style: italic; }
+
+        /* --- PREMIUM FROSTED FILTER BAR --- */
+        .filter-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-top: -80px;
+            position: relative;
+            z-index: 4;
+            box-shadow: 0 20px 50px rgba(26, 31, 29, 0.12);
+            border: 1px solid var(--glass-border);
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.25s ease;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--amber-gold);
+            box-shadow: 0 0 0 4px rgba(226, 167, 69, 0.15);
+        }
+
+        /* --- PREMIUM DESTINATION DECK --- */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            padding: 3rem 0;
+        }
+        .destination-card {
+            background: var(--pure-white);
+            border-radius: 20px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(26, 31, 29, 0.05);
+        }
+        .destination-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(26, 31, 29, 0.15);
+        }
+        .card-img-wrapper {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .destination-card:hover .card-img-wrapper img { transform: scale(1.12); }
+        
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--slate-deep) 0%, var(--slate-medium) 100%);
+            color: var(--amber-bright);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+            border: 1px solid rgba(226, 167, 69, 0.3);
+        }
+        .card-body-custom {
+            padding: 2rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-price { color: var(--slate-deep); font-weight: 800; font-size: 1.5rem; }
+        
+        .btn-card-action {
+            border: 2px solid var(--slate-deep);
+            color: var(--slate-deep);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .btn-card-action:hover { background-color: var(--slate-deep); color: var(--pure-white); }
+
+        /* --- INTERACTIVE MAP LAYER --- */
+        .map-wrapper-layout {
+            background: #eef2f0;
+            border-radius: 24px;
+            height: 480px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(226, 167, 69, 0.2);
+        }
+        .map-interactive-bg {
+            width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .map-pin {
+            position: absolute; width: 24px; height: 24px;
+            background-color: var(--amber-bright); border: 3px solid var(--slate-deep);
+            border-radius: 50%; cursor: pointer; z-index: 5;
+            animation: pulse-pin 2s infinite; transition: transform 0.2s ease;
+        }
+        .map-pin:hover { transform: scale(1.3); background-color: var(--pure-white); }
+        @keyframes pulse-pin {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(247, 198, 101, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(247, 198, 101, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(247, 198, 101, 0); }
+        }
+        .pin-forest { top: 35%; left: 45%; }
+        .pin-alpine { top: 22%; left: 30%; }
+        .pin-sahara { top: 60%; left: 55%; }
+
+        .map-info-overlay {
+            position: absolute; bottom: 30px; left: 30px;
+            background: rgba(26, 31, 29, 0.95); color: white;
+            padding: 1.5rem; border-radius: 16px; max-width: 340px; z-index: 6;
+            border-left: 4px solid var(--amber-gold);
+        }
+
+        /* --- FIXED INTELLIGENT BOT SYSTEM --- */
+        .chat-widget {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            z-index: 1000;
+        }
+        .chat-btn {
+            width: 65px; height: 65px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--amber-bright) 0%, var(--amber-gold) 100%);
+            color: var(--slate-deep); display: flex; align-items: center;
+            justify-content: center; font-size: 1.7rem; cursor: pointer;
+            box-shadow: 0 8px 25px rgba(226, 167, 69, 0.4); border: none;
+            transition: all 0.3s ease;
+        }
+        .chat-btn:hover { transform: rotate(15deg) scale(1.05); }
+        .chat-box {
+            position: absolute; bottom: 85px; right: 0;
+            width: 340px; background: var(--pure-white); border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            display: none; flex-direction: column; overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .chat-header {
+            background: var(--slate-deep); color: white; padding: 1.2rem;
+            font-weight: 700; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 2px solid var(--amber-gold);
+        }
+        .chat-body {
+            height: 300px; padding: 1.2rem; overflow-y: auto;
+            background: var(--warm-white); display: flex; flex-direction: column; gap: 0.75rem;
+        }
+        .chat-footer {
+            padding: 0.8rem; display: flex; background: var(--pure-white);
+            border-top: 1px solid rgba(0,0,0,0.05); align-items: center;
+        }
+        .chat-footer input {
+            flex-grow: 1; border: 1px solid rgba(0,0,0,0.1); border-radius: 20px;
+            padding: 0.5rem 1rem; margin-right: 0.5rem; outline: none; font-size: 0.9rem;
+        }
+        .chat-footer input:focus { border-color: var(--amber-gold); }
+        
+        /* Chat bubble styling mechanics */
+        .msg-user {
+            background-color: var(--slate-medium); color: white;
+            padding: 0.6rem 0.9rem; border-radius: 16px 16px 2px 16px;
+            max-width: 85%; align-self: flex-end; font-size: 0.88rem;
+            box-shadow: 0 2px 8px rgba(44, 53, 50, 0.15);
+        }
+        .msg-bot {
+            background-color: var(--pure-white); color: var(--slate-deep);
+            padding: 0.6rem 0.9rem; border-radius: 16px 16px 16px 2px;
+            max-width: 85%; align-self: flex-start; font-size: 0.88rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--amber-gold);
+        }
+        .typing-indicator {
+            align-self: flex-start; background: rgba(0,0,0,0.05);
+            padding: 0.5rem 1rem; border-radius: 15px; display: none;
+        }
+        .typing-indicator span {
+            height: 6px; width: 6px; background: var(--slate-deep);
+            display: inline-block; border-radius: 50%; animation: bounce 1.3s infinite; margin: 0 2px;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.15s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
+
+        /* --- PREMIUM EDITORIAL FOOTER --- */
+        footer {
+            background: linear-gradient(135deg, #111514 0%, #090B0A 100%);
+            color: var(--warm-white); padding: 5rem 0 2.5rem 0; margin-top: 6rem;
+            border-top: 4px solid var(--amber-gold);
+        }
+        footer a { color: rgba(249, 248, 245, 0.7); text-decoration: none; }
+        footer a:hover { color: var(--amber-bright); }
+    </style>
+</head>
+<body>
+
+    <!-- --- NAVIGATION BAR --- -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-compass me-2" style="color: var(--amber-bright);"></i>TerraTrails</a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-row flex-wrap ms-auto align-items-center justify-content-center">
+                    <li class="nav-item"><a class="nav-link custom-nav-link px-3" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link px-3" href="#destinations">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link px-3" href="#explore-map">Interactive Map</a></li>
+                    <li class="nav-item ms-3 my-1">
+                        <button class="btn btn-amber-glow px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- --- HERO BACKGROUND VIDEO DISPLAY (UPDATED & WORKING) --- -->
+    <header class="hero">
+        <video class="hero-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80">
+            <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27c349536d2f005c00e80737d90c0119e07504e&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Experience Earth’s <br>Most <span>Untamed Landscapes</span></h1>
+            <p class="lead fs-4 mb-4 opacity-90">Bespoke, low-impact sustainable journeys guided entirely by local preservationists.</p>
+            <a href="#destinations" class="btn btn-amber-glow btn-lg px-5 rounded-pill shadow">Begin Exploration</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- --- FILTER INSTRUMENTATION --- -->
+        <section class="filter-section">
+            <form id="filterForm" class="row g-3 align-items-center">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold small text-uppercase text-muted">Destination Query</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-end-0"><i class="fa-solid fa-earth-americas text-muted"></i></span>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Type to search live..." oninput="filterDestinations()">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold small text-uppercase text-muted">Vibe & Terrain Style</label>
+                    <select id="typeFilter" class="form-select" onchange="filterDestinations()">
+                        <option value="all">All Ecosystems</option>
+                        <option value="Forest">Forest Canopy</option>
+                        <option value="Mountain">Alpine High-Trek</option>
+                        <option value="Desert">Arid Oasis Wilderness</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold small text-uppercase text-muted">Maximum Price Limit</label>
+                    <select id="budgetFilter" class="form-select" onchange="filterDestinations()">
+                        <option value="all">Unlimited Threshold</option>
+                        <option value="1000">Max $1,000</option>
+                        <option value="1500">Max $1,500</option>
+                    </select>
+                </div>
+            </form>
+        </section>
+
+        <!-- --- DYNAMIC RESORT DECKS --- -->
+        <section id="destinations" class="pt-5 mt-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Curated Wilderness Paradises</h2>
+                <div style="width: 60px; height: 3px; background-color: var(--amber-gold); margin: 15px auto;"></div>
+            </div>
+
+            <div class="card-container" id="destinationsGrid">
+                <div class="destination-card" data-type="Forest" data-price="850">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=500&q=80" alt="Black Forest">
+                        <span class="card-badge">Forest Canopy</span>
+                    </div>
+                    <div class="card-body-custom">
+                        <h3 class="h4 fw-bold mb-2">Mystic Black Forest</h3>
+                        <p class="text-muted small mb-4">Wander dense pristine pine trails, engaging with micro-climatology tracking projects.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <span class="card-price">$850</span>
+                            <button class="btn btn-card-action btn-sm rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" onclick="setModalPackage('Mystic Black Forest')">Reserve</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" data-type="Mountain" data-price="1200">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80" alt="Alps">
+                        <span class="card-badge">Alpine Peak</span>
+                    </div>
+                    <div class="card-body-custom">
+                        <h3 class="h4 fw-bold mb-2">Alpine Eco-Peak Trek</h3>
+                        <p class="text-muted small mb-4">High-ridge clean routing across sweeping crags, staying inside self-sufficient low-emissions shelters.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <span class="card-price">$1,200</span>
+                            <button class="btn btn-card-action btn-sm rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" onclick="setModalPackage('Alpine Eco-Peak Trek')">Reserve</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" data-type="Desert" data-price="1450">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=500&q=80" alt="Desert">
+                        <span class="card-badge">Desert Oasis</span>
+                    </div>
+                    <div class="card-body-custom">
+                        <h3 class="h4 fw-bold mb-2">Sahara Starry Nights</h3>
+                        <p class="text-muted small mb-4">Traverse ancient shifting dune structures safely via camel paths under dark-sky star reserves.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <span class="card-price">$1,450</span>
+                            <button class="btn btn-card-action btn-sm rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" onclick="setModalPackage('Sahara Starry Nights')">Reserve</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- COORDINATE LAYER MAP --- -->
+        <section id="explore-map" class="pt-5 mt-5">
+            <div class="map-wrapper-layout">
+                <div class="map-interactive-bg"></div>
+                <div class="map-pin pin-alpine" onclick="updateMapPanel('Alpine Base Alpha', 'Elevation: 3,200m. Shelters operational.')"></div>
+                <div class="map-pin pin-forest" onclick="updateMapPanel('Black Forest Canopy Ridge', 'Canopy paths open. Lodging operating entirely on solar arrays.')"></div>
+                <div class="map-pin pin-sahara" onclick="updateMapPanel('Sahara Celestial Staging Ground', 'Arid sky metrics clear. Night tracking visibility optimal.')"></div>
+                <div class="map-info-overlay" id="mapPanel">
+                    <h5 class="fw-bold mb-2 text-warning" id="panelTitle"><i class="fa-solid fa-satellite-dish me-2"></i>Satellite Overlay</h5>
+                    <p class="small mb-0 opacity-90" id="panelDesc">Click any pulsing marker on the landscape to check active trail maps.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- --- FULLY FUNCTIONAL AI CONCIERGE CHAT BOT --- -->
+    <div class="chat-widget">
+        <button class="chat-btn" onclick="toggleChat()" aria-label="Open support portal">
+            <i class="fa-solid fa-comments"></i>
+        </button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span><i class="fa-solid fa-circle text-success me-2 fs-6"></i>Terra AI Concierge</span>
+                <i class="fa-solid fa-xmark cursor-pointer fs-5" onclick="toggleChat()"></i>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Content updates algorithmically via user execution input -->
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Ask about paths, pricing or landscapes..." onkeypress="handleChatKey(event)">
+                <button class="btn btn-amber-glow btn-sm rounded-pill px-3" onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- REGISTRATION MODAL LAYER --- -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark" style="border-radius:24px; overflow:hidden;">
+                <div class="modal-header text-white" style="background: var(--slate-deep); border-bottom: 3px solid var(--amber-gold);">
+                    <h5 class="modal-title h4 fw-bold"><i class="fa-solid fa-passport me-2"></i>Lock Expedition Route</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4" style="background:var(--warm-white)">
+                    <form id="bookingForm" onsubmit="handleBooking(event)">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-muted">Selected Dynamic Itinerary</label>
+                            <input type="text" id="modalTargetPackage" class="form-control bg-white fw-bold text-success" readonly value="General Pathway Discovery">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-muted">Your Full Name</label>
+                            <input type="text" class="form-control" id="clientName" required>
+                        </div>
+                        <button type="submit" class="btn btn-amber-glow w-100 rounded-pill py-3 shadow">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- PREMIUM FOOTER --- -->
+    <footer>
+        <div class="container text-center small text-white-50">
+            <p>&copy; 2026 TerraTrails Inc. Structural coordinates verified. High-tier parameters operational.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let botInitialized = false;
+
+        // 1. CHATBOX CONSOLE LOGIC & WELCOME GREETINGS
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            const isOpening = (chatBox.style.display === 'none' || chatBox.style.display === '');
+            
+            chatBox.style.display = isOpening ? 'flex' : 'none';
+
+            if (isOpening && !botInitialized) {
+                showBotTypingThenReply("Hi explorer! 🧭 Welcome to TerraTrails. I am your automated route selector. Looking for a 'forest' trek, 'mountain' summit, or a custom 'budget' package? Let me know your vibe!");
+                botInitialized = true;
+            }
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') sendChatMessage();
+        }
+
+        // 2. CONTEXT-AWARE INTELLIGENT MATCHING CHAT ENGINE
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const userText = input.value.trim();
+            if (!userText) return;
+
+            const chatBody = document.getElementById('chatBody');
+
+            // Render User Bubble instantly
+            const userMsg = document.createElement('div');
+            userMsg.className = 'msg-user';
+            userMsg.innerText = userText;
+            chatBody.appendChild(userMsg);
+
+            input.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            const cleanText = userText.toLowerCase();
+            let responseString = "I didn't quite catch that ecosystem metric. Try asking me about 'forest paths', 'alpine options', or tracking our 'prices'!";
+
+            // Process user input and dynamically map filter actions
+            if (cleanText.includes('forest') || cleanText.includes('woods') || cleanText.includes('tree')) {
+                responseString = "🌲 Our 'Mystic Black Forest' tour is magnificent right now! It features tracking old-growth canopies at just $850. Would you like me to adjust your view filters to show it?";
+                document.getElementById('typeFilter').value = "Forest";
+                filterDestinations();
+            } else if (cleanText.includes('alpine') || cleanText.includes('mountain') || cleanText.includes('trek') || cleanText.includes('climb')) {
+                responseString = "🏔️ Ah, a high-altitude lover! The 'Alpine Eco-Peak Trek' sits at $1,200, crossing zero-emission solar shelters. I've updated your destination dashboard to highlight it!";
+                document.getElementById('typeFilter').value = "Mountain";
+                filterDestinations();
+            } else if (cleanText.includes('desert') || cleanText.includes('sahara') || cleanText.includes('sand')) {
+                responseString = "🦂 Excellent choice. The 'Sahara Starry Nights' expedition ($1,450) includes camel navigation layers and night astro-tracking. Dashboard updated!";
+                document.getElementById('typeFilter').value = "Desert";
+                filterDestinations();
+            } else if (cleanText.includes('price') || cleanText.includes('budget') || cleanText.includes('cost') || cleanText.includes('cheap')) {
+                responseString = "💰 Our tours range safely from $850 up to $1,450. If you are on a budget under $1,000, our 'Mystic Black Forest' canopy track is your optimal selection!";
+            } else if (cleanText.includes('hello') || cleanText.includes('hi') || cleanText.includes('hey')) {
+                responseString = "Hello again! Tell me, what type of wilderness atmosphere or price range are you hunting for today?";
+            }
+
+            showBotTypingThenReply(responseString);
+        }
+
+        function showBotTypingThenReply(textHTML) {
+            const indicator = document.getElementById('typingIndicator');
+            const chatBody = document.getElementById('chatBody');
+
+            indicator.style.display = 'block';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            setTimeout(() => {
+                indicator.style.display = 'none';
+                const botMsg = document.createElement('div');
+                botMsg.className = 'msg-bot';
+                botMsg.innerHTML = textHTML;
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1000); // 1s delayed text execution framework
+        }
+
+        // 3. AS-YOU-TYPE DASHBOARD FILTER ENGINE
+        function filterDestinations() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const typeValue = document.getElementById('typeFilter').value;
+            const budgetValue = document.getElementById('budgetFilter').value;
+            const cards = document.querySelectorAll('.destination-card');
+
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('h3').innerText.toLowerCase();
+                const cardType = card.getAttribute('data-type');
+                const cardPrice = parseInt(card.getAttribute('data-price'), 10);
+
+                const matchesSearch = cardTitle.includes(searchQuery);
+                const matchesType = (typeValue === 'all' || cardType === typeValue);
+                const matchesBudget = (budgetValue === 'all' || cardPrice <= parseInt(budgetValue, 10));
+
+                card.style.display = (matchesSearch && matchesType && matchesBudget) ? 'flex' : 'none';
+            });
+        }
+
+        // 4. MAP DATA INJECTOR
+        function updateMapPanel(title, description) {
+            document.getElementById('panelTitle').innerHTML = `<i class="fa-solid fa-location-crosshairs text-warning me-2"></i>${title}`;
+            document.getElementById('panelDesc').innerText = description;
+        }
+
+        // 5. REGISTRATION ROUTINE
+        function setModalPackage(packageName) {
+            document.getElementById('modalTargetPackage').value = packageName;
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+            alert(`Request logged! Sequence initiated for target package.`);
+            bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
+        }
+    </script>
+</body>
+</html>

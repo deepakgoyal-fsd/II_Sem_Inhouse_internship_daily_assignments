@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>July Tech Summit 2026 | Student Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --dark-bg: #0f172a;
+            --card-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Tweak */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(15, 23, 42, 0.95) !important;
+        }
+
+        /* Header Section with Flexbox alignment */
+        .hero-header {
+            background: var(--dark-bg);
+            background-image: radial-gradient(circle at top right, rgba(124, 58, 237, 0.3), transparent 40%);
+            color: white;
+            padding: 6rem 0 5rem 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        /* Countdown Timer Styling */
+        .countdown-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 12px;
+            min-width: 80px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .countdown-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #a78bfa;
+            display: block;
+        }
+
+        /* Interactive Elements */
+        .interactive-card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--card-smooth);
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
+        }
+
+        .btn-gradient {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            transition: var(--card-smooth);
+        }
+
+        .btn-gradient:hover {
+            color: white;
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* Footer Sticky push */
+        footer {
+            margin-top: auto;
+            background-color: var(--dark-bg);
+            color: #94a3b8;
+        }
+
+        /* Floating Feedback Alert */
+        #successAlert {
+            display: none;
+            position: fixed;
+            top: 80px; /* Adjusted below the sticky navbar */
+            right: 20px;
+            z-index: 1050;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: slideIn 0.4s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(120%); }
+            to { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-check me-2"></i> <strong>Registration Successful!</strong> Welcome to the event, a confirmation email has been sent.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fa-solid fa-terminal text-purple me-2" style="color: #a78bfa;"></i>TechSummit
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2 align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Perks</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-sm btn-gradient px-3 py-2 text-white" href="#register">Register Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-header text-center">
+        <div class="container">
+            <span class="badge mb-3 text-uppercase px-3 py-2" style="background-color: #6d28d9;">July 2026 Mega Event</span>
+            <h1 class="display-4 fw-bold mb-3">Future Tech Summit 2026</h1>
+            <p class="lead max-w-2xl mx-auto text-light" style="opacity: 0.85;">
+                Join thousands of students globally for a 3-day immersive hackathon, technical workshops, and developer keynotes.
+            </p>
+
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <span class="countdown-num" id="days">00</span>
+                    <small>Days</small>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="minutes">00</span>
+                    <small>Mins</small>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="seconds">00</span>
+                    <small>Secs</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row g-5">
+            
+            <div id="features" class="col-lg-6 d-flex flex-column justify-content-center">
+                <h2 class="fw-bold mb-4">Why Should You Attend?</h2>
+                
+                <div class="card interactive-card p-4 mb-3 d-flex flex-row align-items-center gap-4">
+                    <div class="p-3 bg-primary bg-opacity-10 rounded-circle text-primary">
+                        <i class="fa-solid fa-laptop-code fa-2xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Hands-On Hackathons</h5>
+                        <p class="text-muted mb-0">Build real projects alongside mentors from top tier tech companies.</p>
+                    </div>
+                </div>
+
+                <div class="card interactive-card p-4 mb-3 d-flex flex-row align-items-center gap-4">
+                    <div class="p-3 bg-success bg-opacity-10 rounded-circle text-success">
+                        <i class="fa-solid fa-id-card fa-2xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Global Networking</h5>
+                        <p class="text-muted mb-0">Connect with over 500+ tech-driven students and recruiters.</p>
+                    </div>
+                </div>
+
+                <div class="card interactive-card p-4 mb-3 d-flex flex-row align-items-center gap-4">
+                    <div class="p-3 bg-warning bg-opacity-10 rounded-circle text-warning">
+                        <i class="fa-solid fa-award fa-2xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Certificates & Swag</h5>
+                        <p class="text-muted mb-0">Earn official student credentials, digital badges, and exclusive hoodies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="register" class="col-lg-6">
+                <div class="card interactive-card p-4 p-md-5 border-0 shadow-lg">
+                    <h3 class="fw-bold mb-2">Student Registration</h3>
+                    <p class="text-muted mb-4">Secure your free spot before reservations close.</p>
+
+                    <form id="registrationForm" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label fw-semibold">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="fa-regular fa-user"></i></span>
+                                <input type="text" class="form-control" id="studentName" placeholder="John Doe" required>
+                                <div class="invalid-feedback">Please enter your full name.</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="studentEmail" class="form-label fw-semibold">Student Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="fa-regular fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="studentEmail" placeholder="yourname@university.edu" required>
+                                <div class="invalid-feedback">Please enter a valid university email address.</div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="university" class="form-label fw-semibold">University</label>
+                                <input type="text" class="form-control" id="university" placeholder="MIT, Stanford, etc." required>
+                                <div class="invalid-feedback">Field required.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="techTrack" class="form-label fw-semibold">Preferred Track</label>
+                                <select class="form-select" id="techTrack" required>
+                                    <option value="" selected disabled>Choose track...</option>
+                                    <option value="web3">Full-Stack Development</option>
+                                    <option value="ai">AI & Machine Learning</option>
+                                    <option value="cyber">Cybersecurity & Cloud</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a track.</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold d-block">T-Shirt Size (For Swag Kit)</label>
+                            <div class="btn-group w-100" role="group" aria-label="T-shirt sizes">
+                                <input type="radio" class="btn-check" name="tshirt" id="sizeS" required>
+                                <label class="btn btn-outline-secondary" for="sizeS">S</label>
+
+                                <input type="radio" class="btn-check" name="tshirt" id="sizeM">
+                                <label class="btn btn-outline-secondary" for="sizeM">M</label>
+
+                                <input type="radio" class="btn-check" name="tshirt" id="sizeL">
+                                <label class="btn btn-outline-secondary" for="sizeL">L</label>
+
+                                <input type="radio" class="btn-check" name="tshirt" id="sizeXL">
+                                <label class="btn btn-outline-secondary" for="sizeXL">XL</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-gradient w-100 py-3 fw-bold rounded-3">
+                            <i class="fa-solid fa-paper-plane me-2"></i>Complete Registration
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-4 border-top border-secondary border-opacity-20">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center gap-4 mb-3">
+                <a href="#" class="text-secondary decoration-none"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="#" class="text-secondary decoration-none"><i class="fa-brands fa-github fa-xl"></i></a>
+                <a href="#" class="text-secondary decoration-none"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+            </div>
+            <p class="small mb-0">&copy; 2026 Future Tech Summit. Built with Bootstrap 5 & jQuery. All student rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            
+            // 1. Live Countdown Timer Target (July 15, 2026)
+            const targetDate = new Date("July 15, 2026 00:00:00").getTime();
+
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                // Time math calculations
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                // Inject variables smoothly into UI
+                $("#days").text(days < 10 ? "0" + days : days);
+                $("#hours").text(hours < 10 ? "0" + hours : hours);
+                $("#minutes").text(minutes < 10 ? "0" + minutes : minutes);
+                $("#seconds").text(seconds < 10 ? "0" + seconds : seconds);
+
+                // Stop counter if date has passed
+                if (difference < 0) {
+                    clearInterval(countdownInterval);
+                    $(".countdown-container").html("<h4 class='text-danger'>Event Has Started! Registration Closed.</h4>");
+                }
+            }, 1000);
+
+
+            // 2. Interactive Form Submission & Validation Architecture
+            $("#registrationForm").on("submit", function (e) {
+                e.preventDefault(); // Stop full page refresh
+
+                const form = this;
+
+                if (!form.checkValidity()) {
+                    e.stopPropagation();
+                    $(form).addClass("was-validated"); // Activates built-in Bootstrap visual states
+                } else {
+                    // Simulating a successful backend API post
+                    $("#successAlert").fadeIn(400);
+                    
+                    // Reset fields and remove validation styling artifacts
+                    form.reset();
+                    $(form).removeClass("was-validated");
+
+                    // Automatically hide notification banner after 5 seconds
+                    setTimeout(function() {
+                        $("#successAlert").fadeOut(400);
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

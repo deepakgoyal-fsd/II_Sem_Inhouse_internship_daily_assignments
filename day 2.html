@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <style>
+        .login-form{
+            background-color: #9fabeee1;
+            padding: 20px 10px;
+            border-radius: 2px;
+            width: 300px;
+            margin: 100px auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+       }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+    <h1>Login</h1>
+    <form>
+        <p>
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name"><br></p>
+        <p>
+        <label>Email</label>
+        <input type="text" placeholder="Enter your email"><br></p>
+        <p><label>Phone no.</label>
+        <input type="text" placeholder="Enter your phone no."><br></p>
+        <p><div class="input group">
+         <label>Gender</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-user-group input-icon"></i>
+        <select id = "gender">
+            <option value=""disabled selected>Select your gender option</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+        </select></div></div> </p>
+        <p><div class="input-group">
+        <label>DOB</label>
+         <div class="input-wrapper">
+            <i class="fa regular fa calendar input icon"></i>
+            <input type="date" id="dob" placeholder="select your date of birth" >      
+        </div>   
+    </div></p>
+        <p><label>Password</label>
+        <input type="text" placeholder="Enter your password"><br></p>
+        <p><label>Confirm password</label>
+        <input type="text" placeholder="Confirm password"></p>
+        <button type="submit" class="Submit-button">Submit</button>
+ </form>
+ </body></div>
+</html>

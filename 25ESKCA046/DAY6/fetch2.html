@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Card Grid</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            /* Creates a responsive grid that automatically wraps cards */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Styling */
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e0eafc;
+            margin-bottom: 20px;
+        }
+
+        /* Text Styling */
+        .card h2 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .card .company {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meet Our Team</h1>
+    
+    <!-- This is where the cards will be injected by JavaScript -->
+    <div id="card-container" class="grid-container">
+        <p class="loading">Loading user data...</p>
+    </div>
+
+    <script>
+        // Select the container where cards will be placed
+        const container = document.getElementById('card-container');
+
+        // Fetch user data from JSONPlaceholder API
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(users => {
+                // Clear the "Loading..." text
+                container.innerHTML = '';
+
+                // Loop through the array of users
+                users.forEach(user => {
+                    // Create a div element for each card
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    // Construct the HTML for the card
+                    // We use ${user.id} to dynamically set the image and the text data
+                    card.innerHTML = `
+                        <img src="https://i.pravatar.cc/150?img=${user.id}" alt="${user.name} Profile Picture">
+                        <h2>${user.name}</h2>
+                        <p>✉️ ${user.email}</p>
+                        <p>📍 ${user.address.city}</p>
+                        <p class="company">${user.company.name}</p>
+                    `;
+
+                    // Append the finished card to the container
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem fetching the data:', error);
+                container.innerHTML = `<p style="text-align: center; color: red;">Failed to load user data.</p>`;
+            });
+    </script>
+</body>
+</html>

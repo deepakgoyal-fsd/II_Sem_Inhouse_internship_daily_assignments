@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="day2.css"/>
+</head>
+<body>
+    <form>
+        <h1>Registration Form</h1>
+        <p>Submit this form for Online Registration</p>
+        
+        <label for="txtname">Name:</label>
+        <input type="text" id="txtname" required placeholder="Enter your name">
+        
+        <label for="txtemail">Email:</label>
+            <input type="email" id="txtemail" required placeholder="Enter your email">
+        
+        <div class="side-by-side">
+            <div class="column">
+                <label> Phone No: </label> <input type="text" id="txtphone" required placeholder="Enter your phone no"> 
+            </div> 
+            
+            <div class="column">
+                <label for="dtDOB">DOB: </label> 
+                <input type="date" id="dtDOB" name="dtDOB"/> 
+            </div>
+        </div>
+
+        <label>Gender:</label>
+        <div class="radio-group">
+            <input type="radio" id="check-male" name="gender" checked/>
+            <label for="check-male">Male</label>
+
+            <input type="radio" id="check-female" name="gender"/>
+            <label for="check-female">Female</label>
+
+            <input type="radio" id="chkTransgender" name="gender"/>
+            <label for="chkTransgender">Transgender</label>
+
+            <input type="radio" id="chkOther" name="gender"/>
+            <label for="chkOther">Prefer not to say</label>
+        </div>
+
+        <br>
+        <label>Address:</label>
+        <input type="text" placeholder="Enter street address" required>
+        <input type="text" placeholder="Enter street address line 2">
+        
+        <label>Country:</label>
+        <input type="text" placeholder="Enter your country" required>
+
+        <div class="side-by-side">
+            <div class="column">
+                <label>City:</label>
+                <input type="text" placeholder="Enter your city" required>
+            </div>
+            <div class="column">
+                <label>Pin Code:</label>
+                <input type="text" placeholder="Enter pin code" required>
+            </div>
+        </div>
+
+        <br>
+        <input type="submit" value="Submit"/>
+        
+    </form> 
+</body>
+</html>

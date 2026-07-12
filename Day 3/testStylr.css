@@ -1,0 +1,11 @@
+h1{
+    display: flex;
+    justify-content: center;
+    color: darkblue;
+}
+.Photo{
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 20px;
+}

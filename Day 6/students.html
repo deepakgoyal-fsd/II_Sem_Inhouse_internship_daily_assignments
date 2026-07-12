@@ -1,0 +1,215 @@
+<!-- REGISTRATION MODAL -->
+
+<div class="modal fade" id="registerModal" tabindex="-1">
+
+<div class="modal-dialog modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header bg-dark text-white">
+
+<h4 class="modal-title">PRAVAH 2026 Registration</h4>
+
+<button
+type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<form id="registrationForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Full Name</label>
+
+<input
+type="text"
+class="form-control"
+id="name"
+placeholder="Enter Full Name"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">College</label>
+
+<input
+type="text"
+class="form-control"
+id="college"
+value="SKIT"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Branch</label>
+
+<select class="form-select" id="branch">
+
+<option>CSE</option>
+<option>IT</option>
+<option>ECE</option>
+<option>ME</option>
+<option>CE</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Year</label>
+
+<select class="form-select" id="year">
+
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Email</label>
+
+<input
+type="email"
+class="form-control"
+id="email"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Mobile Number</label>
+
+<input
+type="tel"
+class="form-control"
+id="mobile"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Gender</label>
+
+<select class="form-select" id="gender">
+
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">Choose Event</label>
+
+<select class="form-select" id="event">
+
+<option>Coding Challenge</option>
+<option>Gaming Arena</option>
+<option>Robotics</option>
+<option>Quiz Competition</option>
+<option>Cultural Night</option>
+<option>Workshop</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="text-end">
+
+<button
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Close
+
+</button>
+
+<button
+type="submit"
+class="btn btn-warning">
+
+Register
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h4>PRAVAH 2026</h4>
+
+<p>
+
+Swami Keshvanand Institute of Technology (SKIT), Jaipur
+
+</p>
+
+<p>
+
+Made with ❤️ using HTML, CSS & Bootstrap
+
+</p>
+
+</footer>
+
+<!-- BOOTSTRAP -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Registration Successful! (Local Storage will be added next)");
+
+this.reset();
+
+let modal=bootstrap.Modal.getInstance(document.getElementById("registerModal"));
+
+modal.hide();
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Banana Game</title>
+
+    <style>
+        body{
+            position: relative;
+            height:100vh;
+            margin:0;
+            overflow:hidden;
+            font-family:Arial, sans-serif;
+        }
+
+        p{
+            font-size:22px;
+            margin:10px;
+        }
+
+        img{
+            width:100px;
+            position:absolute;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>
+    Apple :
+    <span id="apple">0</span>
+</p>
+
+<p>
+    Banana :
+    <span id="banana">0</span> 
+</p>
+
+<img src="https://img.magnific.com/premium-vector/smiling-apple-with-eyes-cute-funny-apple-fruit-cartoon-style-vector-design-illustration_1063541-81.jpg"
+     onclick="clickImage('apple',this)">
+
+<img src="https://thumbs.dreamstime.com/b/banana-cartoon-mascot-swag-sunglasses-illustration-banana-cartoon-mascot-swag-sunglasses-illustration-character-design-421177793.jpg"
+     onclick="clickImage('banana',this)">
+
+<script>
+
+let apple = 0;
+let banana = 0;
+
+// Initial Random Position
+document.querySelectorAll("img").forEach(img=>{
+
+    img.style.left =
+    Math.random()*(window.innerWidth-100)+"px";
+
+    img.style.top =
+    Math.random()*(window.innerHeight-120)+"px";
+
+});
+
+function clickImage(type,img){
+
+    if(type=="apple"){
+        document.getElementById("apple").innerText = ++apple;
+    }
+    else{
+        document.getElementById("banana").innerText = ++banana;
+    }
+
+    // Move image to random position
+    img.style.left =
+    Math.random()*(window.innerWidth-100)+"px";
+
+    img.style.top =
+    Math.random()*(window.innerHeight-120)+"px";
+}
+
+</script>
+
+</body>
+</html>

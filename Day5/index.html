@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <h1>Student Directory</h1>
+            <p>Click “View Details” to see complete student information.</p>
+        </div>
+    </header>
+
+    <main class="container pb-5">
+        <div class="row g-4" id="studentList">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card student-card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top"
+                         alt="Portrait of Ananya Sharma">
+                    <div class="card-body">
+                        <span class="status-badge mb-2">Active</span>
+                        <h2 class="h4 card-title">Ananya Sharma</h2>
+                        <p class="text-muted mb-2">B.Sc. Computer Science</p>
+                        <p class="email-text mb-3">ananya.sharma@example.com</p>
+
+                        <button class="btn btn-primary view-details-btn"
+                                type="button"
+                                aria-expanded="false">
+                            View Details
+                        </button>
+
+                        <div class="student-details">
+                            <p><strong>Roll Number:</strong> CS-101</p>
+                            <p><strong>Semester:</strong> 4th</p>
+                            <p><strong>Phone:</strong> +91 98765 43210</p>
+                            <p class="mb-0"><strong>City:</strong> Jaipur</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card student-card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top"
+                         alt="Portrait of Aarav Mehta">
+                    <div class="card-body">
+                        <span class="status-badge mb-2">Active</span>
+                        <h2 class="h4 card-title">Aarav Mehta</h2>
+                        <p class="text-muted mb-2">Bachelor of Business Administration</p>
+                        <p class="email-text mb-3">aarav.mehta@example.com</p>
+
+                        <button class="btn btn-primary view-details-btn"
+                                type="button"
+                                aria-expanded="false">
+                            View Details
+                        </button>
+
+                        <div class="student-details">
+                            <p><strong>Roll Number:</strong> BBA-117</p>
+                            <p><strong>Semester:</strong> 2nd</p>
+                            <p><strong>Phone:</strong> +91 91234 56789</p>
+                            <p class="mb-0"><strong>City:</strong> Delhi</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card student-card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top"
+                         alt="Portrait of Riya Verma">
+                    <div class="card-body">
+                        <span class="status-badge mb-2">Active</span>
+                        <h2 class="h4 card-title">Riya Verma</h2>
+                        <p class="text-muted mb-2">B.A. Psychology</p>
+                        <p class="email-text mb-3">riya.verma@example.com</p>
+
+                        <button class="btn btn-primary view-details-btn"
+                                type="button"
+                                aria-expanded="false">
+                            View Details
+                        </button>
+
+                        <div class="student-details">
+                            <p><strong>Roll Number:</strong> PSY-132</p>
+                            <p><strong>Semester:</strong> 6th</p>
+                            <p><strong>Phone:</strong> +91 99887 76655</p>
+                            <p class="mb-0"><strong>City:</strong> Mumbai</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        Student Directory Project
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

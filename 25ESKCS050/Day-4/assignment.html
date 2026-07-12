@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admission Portal</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(to right,#74ebd5,#9face6);
+margin:0;
+}
+
+nav{
+background:#0d6efd;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:bold;
+}
+
+.box{
+width:60%;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+.logo{
+display:block;
+margin:auto;
+width:70px;
+}
+
+h1{
+text-align:center;
+}
+
+.highlight{
+background:yellow;
+color:red;
+padding:8px;
+border-radius:8px;
+}
+
+fieldset{
+border:2px solid royalblue;
+margin:15px 0;
+padding:15px;
+border-radius:8px;
+}
+
+label{
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:8px;
+margin:8px 0;
+border-radius:5px;
+box-sizing:border-box;
+}
+
+button{
+padding:10px;
+margin:5px;
+background:royalblue;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:darkblue;
+}
+
+#error{
+color:red;
+font-weight:bold;
+}
+
+#success{
+color:green;
+font-weight:bold;
+}
+
+.dark{
+background:#222;
+color:white;
+}
+
+.dark .box{
+background:#333;
+}
+
+.dark input,
+.dark select,
+.dark textarea{
+background:#555;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Courses</a>
+<a href="#">Admissions</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<div class="box">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
+
+<h1 id="heading">College Admission Form</h1>
+
+<button id="darkBtn" type="button">Dark Mode</button>
+
+<form id="admissionForm">
+
+<fieldset>
+
+<legend>Personal Details</legend>
+
+<label>First Name</label>
+<input type="text" id="name">
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Mobile</label>
+<input type="tel">
+
+<label>Date of Birth</label>
+<input type="date">
+
+</fieldset>
+
+<fieldset>
+
+<legend>Academic Details</legend>
+
+<label>Course</label>
+
+<select>
+
+<option value="">Choose Course</option>
+<option>B.Tech</option>
+<option>BCA</option>
+<option>B.Sc</option>
+
+</select>
+
+<label>10th %</label>
+<input type="number">
+
+<label>12th %</label>
+<input type="number">
+
+<label>Address</label>
+<textarea></textarea>
+
+</fieldset>
+
+<p id="error"></p>
+<p id="success"></p>
+
+<button type="submit">Submit</button>
+
+<button type="button" id="counterBtn">
+Count Click
+</button>
+
+<button type="button" id="resetBtn">
+Reset
+</button>
+
+<p id="display">
+Clicks : 0
+</p>
+
+<script>
+
+// DOM Manipulation
+
+const heading = document.querySelector("#heading");
+
+console.log(heading.textContent);
+
+heading.textContent = "College Admission Portal";
+
+heading.style.color = "#16FFBB";
+
+heading.classList.add("highlight");
+
+
+// Variables
+
+let count = 0;
+
+const darkBtn = document.querySelector("#darkBtn");
+const counterBtn = document.querySelector("#counterBtn");
+const resetBtn = document.querySelector("#resetBtn");
+const display = document.querySelector("#display");
+
+const form = document.querySelector("#admissionForm");
+
+const error = document.querySelector("#error");
+const success = document.querySelector("#success");
+
+
+// Dark Mode
+
+darkBtn.addEventListener("click",function(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+darkBtn.textContent="Light Mode";
+
+}
+
+else{
+
+darkBtn.textContent="Dark Mode";
+
+}
+
+});
+
+
+// Click Counter
+
+form.addEventListener("click", function(){
+
+count++;
+
+display.textContent = "Clicks : " + count;
+
+});
+
+// Reset Counter
+
+resetBtn.addEventListener("click",function(){
+
+count=0;
+
+display.textContent="Clicks : "+count;
+
+});
+
+
+// Function
+
+function validateForm(){
+
+const name=document.querySelector("#name").value.trim();
+
+const email=document.querySelector("#email").value.trim();
+
+error.textContent="";
+success.textContent="";
+
+if(name==""){
+
+error.textContent="Name is required.";
+
+return false;
+
+}
+
+if(!email.includes("@")){
+
+error.textContent="Enter a valid email.";
+
+return false;
+
+}
+
+success.textContent="Application Submitted Successfully!";
+
+return true;
+
+}
+
+// Form Submit Event
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+validateForm();
+
+});
+
+</script>
+
+</div>
+
+</body>
+</html>

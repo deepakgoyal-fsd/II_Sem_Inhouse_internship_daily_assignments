@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Cards</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Student Cards</h2>
+
+    <!-- Total Students -->
+    <h4 class="mb-4">
+        Total Students :
+        <span id="total" class="badge bg-primary"></span>
+    </h4>
+
+    <!-- Cards will appear here -->
+    <div class="row" id="students"></div>
+
+</div>
+
+<script>
+
+let studentArray = [
+
+{
+    name:"Harsh Bhardwaj",
+    branch:"CSE",
+    cgpa:8.9
+},
+
+{
+    name:"Rahul Sharma",
+    branch:"IT",
+    cgpa:7.5
+},
+
+{
+    name:"Priya Verma",
+    branch:"ECE",
+    cgpa:9.1
+},
+
+{
+    name:"Aman Singh",
+    branch:"Mechanical",
+    cgpa:7.9
+},
+
+{
+    name:"Neha Gupta",
+    branch:"Civil",
+    cgpa:8.5
+}
+
+];
+
+// Bonus
+document.getElementById("total").innerHTML = studentArray.length;
+
+let cards = "";
+
+for(let i=0;i<studentArray.length;i++)
+{
+
+let bgColor;
+
+if(i%2==0)
+{
+    bgColor="bg-light";
+}
+else
+{
+    bgColor="bg-warning-subtle";
+}
+
+let cgpaBadge;
+
+if(studentArray[i].cgpa>8)
+{
+    cgpaBadge="bg-success";
+}
+else
+{
+    cgpaBadge="bg-danger";
+}
+
+cards += `
+
+<div class="col-md-4 mb-4">
+
+<div class="card ${bgColor} shadow">
+
+<div class="card-body">
+
+<h5 class="card-title">
+
+<span class="badge bg-dark">
+${i+1}
+</span>
+
+${studentArray[i].name}
+
+</h5>
+
+<p><strong>Branch :</strong> ${studentArray[i].branch}</p>
+
+<p>
+
+<strong>CGPA :</strong>
+
+<span class="badge ${cgpaBadge}">
+${studentArray[i].cgpa}
+</span>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("students").innerHTML = cards;
+
+</script>
+
+</body>
+</html>

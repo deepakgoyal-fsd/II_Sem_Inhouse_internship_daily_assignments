@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+
+    <h2>Student Registration Form</h2>
+
+    <form action="registration1.php" method="post">
+
+        <label>Name:</label><br>
+        <input type="text" name="name">
+        <br><br>
+
+        <label>Branch:</label><br>
+        <select name="branch">
+            <option value="">Select Branch</option>
+            <option value="AI">AI</option>
+            <option value="Data Science">Data Science</option>
+            <option value="CSE">CSE</option>
+            <option value="IOT">IOT</option>
+        </select>
+        <br><br>
+
+        <label>CGPA:</label><br>
+        <input type="number" name="cgpa" step="0.01" min="0" max="10">
+        <br><br>
+
+        <label>Password:</label><br>
+        <input type="text" name="pwd">
+        <br><br>
+
+        <label>Confirm Password:</label><br>
+        <input type="text" name="cnfpwd">
+        <br><br>
+
+        <input type="submit" name="submit" value="Register">
+
+    </form>
+
+</body>
+</html>

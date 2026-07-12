@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIT Campus Portal | Innovation & Education</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-bold">SKIT</span> <span class="logo-light">Portal</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#notices">Notice Board</a></li>
+                <li><a href="#facilities">Campus Life</a></li>
+                <li><button class="btn-login" id="openModalBtn">ERP Login</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Showcase Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Welcome to SKIT Jaipur</span>
+            <h1>Where Knowledge Meets Innovation</h1>
+            <p>Access your student dashboard, track live academic announcements, explore digital libraries, and manage your campus profile all from one centralized portal.</p>
+            <div class="hero-actions">
+                <a href="#portal-grid" class="btn-primary">Explore Services</a>
+                <a href="#notices" class="btn-secondary">View Live Notices</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Central Services Portal Grid -->
+    <main class="container" id="portal-grid">
+        <h2 class="section-title">Digital Campus Services</h2>
+        <p class="section-subtitle">Quick access tools designed for engineering, management, and tech students.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Student ERP (Edusprint)</h3>
+                <p>Check mid-term performance, track your overall attendance criteria, and view your internal marks dashboard.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Placements & Industry</h3>
+                <p>Register for ongoing campus recruitment drives, review eligibility criteria, and track top corporate arrivals.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏛️</div>
+                <h3>Digital Library (DSpace)</h3>
+                <p>Access thousands of research papers, download e-books, and check availability of central library resources.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>Innovation Labs & R&D</h3>
+                <p>Submit project proposals, apply for incubation support, and collaborate across technical research cells.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Real-time Dynamic Notice Board Section -->
+    <section class="notices-section" id="notices">
+        <div class="container">
+            <h2 class="section-title text-center">Live Notification Center</h2>
+            <div class="notice-board">
+                <div class="notice-item active-notice">
+                    <span class="notice-date">July 04, 2026</span>
+                    <h4>Odd-Semester Mid-Term Time Table Released</h4>
+                    <p>B.Tech and MBA students are requested to download the upcoming internal exam schedules from their respected branch portals.</p>
+                </div>
+                <div class="notice-item">
+                    <span class="notice-date">July 02, 2026</span>
+                    <h4>Registration Open: Annual Hackathon & Tech Fest</h4>
+                    <p>Submissions for the flagship technical hackathon project outlines are open till next week. Prizes worth ₹1.5L up for grabs.</p>
+                </div>
+                <div class="notice-item">
+                    <span class="notice-date">June 28, 2026</span>
+                    <h4>Placements Drive Alert: Top Tech Firms Visiting Next Month</h4>
+                    <p>Eligible CS/IT and Core Branch students with a CGPA greater than 7.5 must update their profiles before registration locks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Accessible Authentic ERP Login Modal Overlay -->
+    <div class="modal-backdrop" id="loginModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>SKIT Student & Faculty ERP</h3>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <form class="login-form" onsubmit="event.preventDefault(); alert('Authentication simulated successfully.');">
+                <div class="form-group">
+                    <label for="studentId">College Enrollment / User ID</label>
+                    <input type="text" id="studentId" placeholder="e.g., 22ESKCS000" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Portal Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">Authenticate Session</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Central Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Swami Keshvanand Institute of Technology, Management & Gramothan (SKIT), Jaipur. All Rights Reserved.</p>
+        <p class="footer-sub">Maintained by the Student Web Developers & Open-Source Community.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>/* Custom Global Utility Design Variables */
+:root {
+    --primary: #004b87;       /* Iconic deep academic blue tone */
+    --accent: #e0aa3e;        /* Clean campus secondary gold */
+    --bg-light: #f4f6f9;
+    --bg-card: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --radius: 8px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+/* Fixed Modern Floating Navigation Header */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+.logo-bold {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo-light {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn-login {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background-color: #003663;
+    transform: translateY(-1px);
+}
+
+/* Polished High-Impact Canvas Hero Area */
+.hero {
+    position: relative;
+    padding-top: 80px;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    background: url('https://www.skit.ac.in/images/SKIT/THE_DHANVANTRI_BLOCK.JPG') no-repeat center center/cover;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 43, 78, 0.95), rgba(0, 75, 135, 0.4));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.badge {
+    background-color: var(--accent);
+    color: #000;
+    padding: 0.3rem 1rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #cda135;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--primary);
+}
+
+/* Typography Utilities & Layout Components */
+.section-title {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+}
+
+.text-center { text-align: center; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,75,135,0.08);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Notice Feeds Block Layout */
+.notices-section {
+    background-color: #edf0f5;
+}
+
+.notice-board {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.notice-item {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    border-left: 5px solid #cbd5e1;
+}
+
+.active-notice {
+    border-left-color: var(--primary);
+}
+
+.notice-date {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.notice-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.notice-item p {
+    color: var(--text-muted);
+}
+
+/* Functional Interactive Login Portal Modals */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-20px);
+    transition: var(--transition);
+}
+
+.modal-backdrop.show .modal {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius);
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 75, 135, 0.15);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Footer Details Container */
+.footer {
+    background-color: var(--text-dark);
+    color: #94a3b8;
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 0.9rem;
+}
+
+.footer-sub {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Adaptive Mobile Displays layout */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .nav-links { display: none; }
+    .hero-actions { flex-direction: column; }
+}</style>
+<script>// Central Event Management & Structural Portal Logic
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // UI Modal Selection Element DOM references
+    const loginModal = document.getElementById('loginModal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // UI Interactive Methods
+    const showModal = () => {
+        loginModal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevents background body scrolling
+    };
+
+    const hideModal = () => {
+        loginModal.classList.remove('show');
+        document.body.style.overflow = '';
+    };
+
+    // Binding Interactive Handlers to Global DOM components
+    openModalBtn.addEventListener('click', showModal);
+    closeModalBtn.addEventListener('click', hideModal);
+
+    // Esc Key Window Listener closing operational modal panels
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            hideModal();
+        }
+    });
+
+    // Smooth Scrolling tracking behavior logic for local navigational hashes
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});</script>s

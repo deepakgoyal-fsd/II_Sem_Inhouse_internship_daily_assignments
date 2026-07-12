@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Directory</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">
+            🎓 Student Directory
+        </a>
+
+        <button class="btn btn-warning" id="darkMode">
+            🌙 Dark Mode
+        </button>
+
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container text-center">
+
+<h1 class="display-4 fw-bold">
+Student Directory
+</h1>
+
+<p class="lead">
+Manage Student Records using jQuery
+</p>
+
+<button class="btn btn-success btn-lg mt-3" id="welcomeBtn">
+Welcome
+</button>
+
+<h3 id="message" class="mt-4 text-success"></h3>
+
+</div>
+
+</section>
+
+
+<!-- ================= FORM ================= -->
+
+<div class="container mt-5">
+
+<div class="card shadow-lg">
+
+<div class="card-header bg-primary text-white">
+
+<h3>Add Student</h3>
+
+</div>
+
+<div class="card-body">
+
+<form id="studentForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Name</label>
+
+<input
+type="text"
+class="form-control"
+id="name"
+placeholder="Enter Name">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Roll No</label>
+
+<input
+type="text"
+class="form-control"
+id="roll"
+placeholder="Enter Roll No">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Course</label>
+
+<input
+type="text"
+class="form-control"
+id="course"
+placeholder="Enter Course">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>City</label>
+
+<input
+type="text"
+class="form-control"
+id="city"
+placeholder="Enter City">
+
+</div>
+
+</div>
+
+<button
+type="submit"
+class="btn btn-success"
+id="addStudent">
+
+Add Student
+
+</button>
+
+<button
+type="button"
+class="btn btn-info"
+id="slideBtn">
+
+Show / Hide Form
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= SEARCH ================= -->
+
+<div class="container mt-5">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<input
+type="text"
+id="search"
+class="form-control"
+placeholder="Search Student...">
+
+</div>
+
+<div class="col-md-6 text-end">
+
+<h4>
+
+Total Students :
+
+<span id="count">
+
+0
+
+</span>
+
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= BUTTONS ================= -->
+
+<div class="container mt-4">
+
+<button class="btn btn-danger" id="hideTable">
+
+Hide Table
+
+</button>
+
+<button class="btn btn-success" id="showTable">
+
+Show Table
+
+</button>
+
+<button class="btn btn-warning" id="fadeBtn">
+
+Fade Table
+
+</button>
+
+<button class="btn btn-primary" id="highlightBtn">
+
+Highlight Rows
+
+</button>
+
+</div>
+
+
+<!-- ================= TABLE ================= -->
+
+<div class="container mt-4">
+
+<table
+class="table table-bordered table-hover text-center"
+id="studentTable">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Name</th>
+
+<th>Roll</th>
+
+<th>Course</th>
+
+<th>City</th>
+
+<th>Delete</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-dark text-white text-center p-3 mt-5">
+
+<h5>
+
+Student Directory Project using jQuery
+
+</h5>
+
+</footer>
+
+
+<!-- jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

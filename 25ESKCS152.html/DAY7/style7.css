@@ -1,0 +1,177 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    min-height:100vh;
+}
+
+/* Navbar */
+
+.navbar{
+    padding:15px;
+}
+
+.navbar-brand{
+    font-size:28px;
+    letter-spacing:1px;
+}
+
+/* Registration Card */
+
+.registration-card{
+    border:none;
+    border-radius:20px;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    animation:fadeIn 1s ease;
+}
+
+/* Heading */
+
+h2{
+    font-weight:bold;
+}
+
+/* Labels */
+
+.form-label{
+    font-weight:600;
+    color:#333;
+}
+
+/* Inputs */
+
+.form-control,
+.form-select{
+    border-radius:10px;
+    padding:12px;
+    transition:.3s;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 10px rgba(13,110,253,.3);
+}
+
+/* Radio Buttons */
+
+input[type="radio"]{
+    margin-right:6px;
+}
+
+input[type="checkbox"]{
+    cursor:pointer;
+}
+
+/* File Upload */
+
+input[type="file"]{
+    padding:10px;
+}
+
+/* Buttons */
+
+.btn{
+    border-radius:30px;
+    padding:10px 30px;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+.btn-danger:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+/* Error Box */
+
+.error-box{
+    background:#ffe6e6;
+    color:#b00020;
+    border-left:6px solid red;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.error-box ul{
+    margin:0;
+    padding-left:20px;
+}
+
+/* Success Card */
+
+.success-card{
+    max-width:700px;
+    margin:40px auto;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+/* Table */
+
+.table{
+    margin-top:20px;
+}
+
+.table th{
+    width:35%;
+    background:#0d6efd;
+    color:white;
+}
+
+/* Footer */
+
+footer{
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.registration-card{
+padding:20px;
+}
+
+.navbar-brand{
+font-size:22px;
+}
+
+.btn{
+width:100%;
+margin-top:10px;
+}
+
+}

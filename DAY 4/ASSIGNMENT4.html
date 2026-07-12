@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button id="themeBtn" onclick="darkMode()">
+🌙 Dark Mode
+</button>
+    
+    <form id="registerForm">
+      <img src="https://png.pngtree.com/png-vector/20230423/ourlarge/pngtree-student-login-blue-gradient-concept-icon-thin-resource-icon-vector-png-image_51465858.jpg" width=200px hight=100px>
+      
+   
+   
+    
+
+    
+         <div class="container">
+    <h1>REGISTRATION FORM</h1>
+    
+
+        <label>Name:</label><br>
+        <input type="text" id="name" placeholder="Enter your name">
+        <span class="error" id="nameError"></span>
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email" placeholder="Enter your email">
+        <span class="error" id="emailError"></span>
+        <br><br>
+
+        <label>Phone:</label><br>
+        <input type="tel" id="phone" placeholder="Enter your phone number">
+        <span class="error" id="phoneError"></span>
+        <br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+        <br><br>
+
+        <label>Date of Birth:</label><br>
+        <input type="date" id="dob">
+        <span class="error" id="dobError"></span>
+        <br><br>
+
+        <label>Documents:</label><br>
+<input type="text" id="documents" placeholder="Enter your documents">
+<span class="error" id="docError"></span>
+<br><br>
+
+        <label>Password:</label><br>
+<input type="password" id="password" placeholder="Enter password">
+<span class="error" id="passwordError"></span>
+<br><br>
+
+        <label>Confirm Password:</label><br>
+<input type="password" id="confirmPassword" placeholder="Confirm password">
+<span class="error" id="confirmError"></span>
+<br><br>
+
+        <button type="submit">Submit</button>
+<button type="reset" id="resetBtn">Reset</button>
+
+<p id="clickCount">Total Clicks : 0</p>
+
+    </form>
+    </div>
+    
+
+</body>
+</html>

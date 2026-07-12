@@ -1,0 +1,67 @@
+/* Basic page layout to center the form */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c9733e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* The box containing the form */
+.form-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+
+/* Form heading */
+h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Spacing between inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Input labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555555;
+    font-size: 14px;
+}
+
+/* Text, email, and password input fields */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Keeps padding from breaking width */
+}
+
+/* Submit button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Simple hover effect for the button */
+button:hover {
+    background-color: #0056b3;
+}

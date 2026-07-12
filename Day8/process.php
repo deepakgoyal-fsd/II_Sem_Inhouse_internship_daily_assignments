@@ -1,0 +1,93 @@
+
+    <?php
+// 1. INCLUDES: Get the tools we need
+include 'header.php';
+include 'db.php'; // <--- THIS MUST BE HERE
+
+// 2. LOGIC: Process the data sent from the form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $cgpa = $_POST['cgpa'];
+    $branch = $_POST['branch'];
+    $college = $_POST['college'];
+
+    // 3. EXECUTE: Send the data to the database
+    $sql = "INSERT INTO students (name, email, cgpa, branch, college) 
+            VALUES ('$name', '$email', '$cgpa', '$branch', '$college')";
+
+    if (mysqli_query($conn, $sql)) {
+        // Data saved successfully
+        echo "<div class='alert alert-success'>Data saved successfully!</div>";
+    } else {
+        // Show an error if something goes wrong
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+?>
+
+<div class="container mt-5">
+    <h2>Registration Confirmation</h2>
+    </div>
+
+<?php 
+// 5. FOOTER: End the page
+include 'footer.php'; 
+?>
+<?php
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+    
+}
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = htmlspecialchars($_POST['name']);
+        $email = htmlspecialchars($_POST['email']);
+        $cgpa = floatval($_POST['cgpa']);
+        $branch = htmlspecialchars($_POST['branch']);
+        $college = htmlspecialchars($_POST['college']);
+
+        function calculateGrade($cgpa) {
+            if ($cgpa >= 9.0) return ["Grade" => "A+", "Color" => "success"];
+            if ($cgpa >= 8.0) return ["Grade" => "A", "Color" => "info"];
+            if ($cgpa >= 7.0) return ["Grade" => "B", "Color" => "warning"];
+            return ["Grade" => "C", "Color" => "danger"];
+        }
+
+        $result = calculateGrade($cgpa);
+    ?>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    Confirmation
+                </div>
+                <div class="card-body">
+                    <h5>Welcome, <?php echo $name; ?></h5>
+                    <p>Email: <?php echo $email; ?></p>
+                    <p>College: <?php echo $college; ?></p>
+                    <p>Branch: <?php echo $branch; ?></p>
+                    <div class="alert alert-<?php echo $result['Color']; ?>">
+                        Grade Awarded: <?php echo $result['Grade']; ?>
+                    </div>
+                    <a href="index.php" class="btn btn-secondary">Go Back</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Date: <?php echo date("Y-m-d"); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+    } else {
+        echo "<div class='alert alert-danger'>Invalid Request</div>";
+    }
+    ?>
+</div>
+<?php include 'footer.php'; ?>

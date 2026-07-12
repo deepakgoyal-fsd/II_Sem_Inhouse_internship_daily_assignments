@@ -1,0 +1,25 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.bg-black {
+    background-color: #000000 !important;
+}
+
+.blue-gradient-bg {
+    background: linear-gradient(to right, #0000ff, #800080);
+}
+
+.my-card {
+    margin-bottom: 20px;
+}
+
+.my-card:hover {
+    transform: scale(1.03);
+    transition: 0.4s;
+}

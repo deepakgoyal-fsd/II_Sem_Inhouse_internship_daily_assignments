@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <button id="darkModeBtn">Enable Dark Mode</button>
+    </nav>
+
+    <h1>My Interactive Page</h1>
+
+    <div class="counter-section">
+        <p>Click Count: <span id="countDisplay">0</span></p>
+        <button id="counterBtn">Click Me</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <form id="myForm">
+        <label>Name:</label>
+        <input type="text" id="nameInput">
+        <div id="nameError" class="error-msg"></div>
+
+        <label>Email:</label>
+        <input type="text" id="emailInput">
+        <div id="emailError" class="error-msg"></div>
+
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

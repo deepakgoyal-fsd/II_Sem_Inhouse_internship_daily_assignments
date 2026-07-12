@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - SKIT Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="skit_logo.png" alt="SKIT Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-4 border-0 shadow">
+                        <h2 class="text-center mb-4 text-primary">Student Registration Form</h2>
+                        
+                        <!-- Form with ID for JavaScript validation -->
+                        <form id="registerForm">
+                            <!-- Full Name -->
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="row">
+                                <!-- Email -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                                </div>
+                                <!-- Phone -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="10-digit number">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <!-- Gender -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <select class="form-select" id="gender">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <!-- Date of Birth -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="dob" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="dob">
+                                </div>
+                            </div>
+                            
+                            <!-- Course Selection -->
+                            <div class="mb-3">
+                                <label for="course" class="form-label">Course Selection</label>
+                                <select class="form-select" id="course">
+                                    <option value="btech_cse">B.Tech CSE</option>
+                                    <option value="btech_aids">B.Tech AI & DS</option>
+                                    <option value="mba">MBA</option>
+                                    <option value="mca">MCA</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Address -->
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea class="form-control" id="address" rows="3" placeholder="Enter your full address"></textarea>
+                            </div>
+                            
+                            <!-- Terms Checkbox -->
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="terms" required>
+                                <label class="form-check-label" for="terms">I agree to the Terms and Conditions.</label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-custom w-100">Submit Registration</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>SKIT Jaipur</h5>
+                    <p>Swami Keshvanand Institute of Technology, Management & Gramothan</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="courses.html" class="text-light text-decoration-none">Courses</a></li>
+                        <li><a href="register.html" class="text-light text-decoration-none">Register</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="d-flex gap-3 social-icons">
+                        <a href="https://www.facebook.com/SKITJAIP/" target="_blank" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/skitjaipurofficial/" target="_blank" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/school/skit-jaipur-raj/" target="_blank" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://x.com/SKIT_Jaipur/" target="_blank" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2023 SKIT Student Portal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

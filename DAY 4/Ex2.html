@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>SKIT Student Portal</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:rgb(248, 246, 249);
+text-align:center;
+
+transition:0.4s;
+}
+
+/* Dark Mode */
+
+.dark{
+
+background:#222;
+
+color:white;
+
+}
+
+.dark form,
+.dark .box{
+
+background:#444;
+
+color:white;
+
+}
+
+/* Navbar */
+
+nav{
+
+background:#8d5d38;
+
+padding:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+.nav-links{
+
+display:none;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:15px;
+
+cursor:pointer;
+
+}
+
+/* Form */
+
+form{
+
+width:500px;
+
+margin:40px auto;
+
+background:white;
+
+padding:20px;
+
+border-radius:10px;
+
+}
+
+input{
+
+width:85%;
+
+padding:10px;
+
+margin:10px;
+
+}
+
+/* Buttons */
+
+button,
+input[type="submit"]{
+
+padding:10px 20px;
+
+background:#8d5d38;
+
+color:white;
+
+border:none;
+
+cursor:pointer;
+
+margin:10px;
+
+}
+
+/* Flex */
+
+.flex-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+padding:30px;
+
+flex-wrap:wrap;
+
+}
+
+.box{
+
+display:none;
+
+width:300px;
+
+padding:20px;
+
+background:white;
+
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<div>
+<h3>SKIT Portal</h3>
+</div>
+
+<div
+class="nav-links"
+id="navbar">
+
+<a onclick="show('home')">
+Home
+</a>
+
+<a onclick="show('about')">
+About
+</a>
+
+<a onclick="show('updates')">
+Updates
+</a>
+
+</div>
+
+</nav>
+
+<!-- Dark Mode -->
+
+<button onclick="toggleDark()">
+🌙 Dark Mode
+</button>
+
+<h1>
+Student Registration
+</h1>
+
+<!-- Form -->
+
+<form id="myForm">
+
+<input
+type="text"
+id="name"
+placeholder="Username"
+required>
+
+<br>
+
+<input
+type="email"
+id="email"
+placeholder="Email"
+required>
+
+<br>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+required>
+
+<br>
+
+<input
+type="submit"
+value="submit">
+
+<p id="message"></p>
+
+</form>
+
+<!-- Flexbox -->
+
+<div class="flex-container">
+
+<div
+class="box"
+id="home">
+
+<h2>
+Home
+</h2>
+
+<p>
+
+Welcome to SKIT Student Portal.
+
+Students can interact and receive important college updates.
+
+</p>
+
+</div>
+
+<div
+class="box"
+id="about">
+
+<h2>
+About
+</h2>
+
+<p>
+
+This platform helps students stay connected with academic activities and announcements.
+
+</p>
+
+</div>
+
+<div
+class="box"
+id="updates">
+
+<h2>
+Updates
+</h2>
+
+<p>
+
+Latest Updates:
+
+<br><br>
+
+• Workshops
+
+<br>
+
+• Events
+
+<br>
+
+• Notices
+
+<br>
+
+• College Activities
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+/* Dark Mode */
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+}
+
+/* Registration */
+
+document
+.getElementById("myForm")
+
+.addEventListener(
+
+"submit",
+
+function(e){
+
+e.preventDefault();
+
+let name=
+document
+.getElementById("name")
+.value;
+
+let email=
+document
+.getElementById("email")
+.value;
+
+let password=
+document
+.getElementById("password")
+.value;
+
+if(
+
+name===""
+
+||
+
+!email.includes("@")
+
+||
+
+password.length<6
+
+){
+
+document
+.getElementById("message")
+.innerText=
+
+"Enter valid details";
+
+document
+.getElementById("message")
+.style.color=
+
+"red";
+
+}
+
+else{
+
+document
+.getElementById("message")
+.innerText=
+
+"Registration Successful ✓";
+
+document
+.getElementById("message")
+.style.color=
+
+"green";
+
+/* Hide Form */
+
+document
+.getElementById("myForm")
+.style.display=
+
+"none";
+
+/* Enable Navbar */
+
+document
+.getElementById("navbar")
+.style.display=
+
+"block";
+
+/* Open Home */
+
+show("home");
+
+}
+
+}
+
+);
+
+/* Navbar */
+
+function show(id){
+
+document
+.querySelectorAll(".box")
+
+.forEach(
+
+box=>{
+
+box.style.display="none";
+
+}
+
+);
+
+document
+.getElementById(id)
+.style.display=
+
+"block";
+
+}
+
+</script>
+
+</body>
+
+</html>

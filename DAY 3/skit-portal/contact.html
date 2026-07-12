@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SKIT Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="skit_logo.png" alt="SKIT Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <header class="bg-primary text-white py-5 text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Contact Us</h1>
+            <p class="lead">We'd love to hear from you. Get in touch with SKIT.</p>
+        </div>
+    </header>
+
+    <!-- Contact Details & Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                
+                <!-- Contact Information & Map -->
+                <div class="col-md-6">
+                    <h3 class="mb-4">Get In Touch</h3>
+                    <ul class="list-unstyled fs-5 mb-4">
+                        <li class="mb-3"><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Address:</strong> Ramnagaria, Jagatpura, Jaipur, Rajasthan 302017</li>
+                        <li class="mb-3"><i class="fas fa-phone-alt text-primary me-2"></i> <strong>Phone:</strong> +91 141-5160400</li>
+                        <li class="mb-3"><i class="fas fa-envelope text-primary me-2"></i> <strong>Email:</strong> info@skit.ac.in</li>
+                    </ul>
+                    <!-- Google Maps Placeholder Image -->
+                    <div class="card border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Map Placeholder" class="card-img-top rounded">
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-md-6">
+                    <div class="card p-4 border-0 shadow h-100">
+                        <h3 class="mb-4">Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="contactName" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Write your message here" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-custom w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>SKIT Jaipur</h5>
+                    <p>Swami Keshvanand Institute of Technology, Management & Gramothan</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="courses.html" class="text-light text-decoration-none">Courses</a></li>
+                        <li><a href="register.html" class="text-light text-decoration-none">Register</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="d-flex gap-3 social-icons">
+                        <a href="https://www.facebook.com/SKITJAIP/" target="_blank" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/skitjaipurofficial/" target="_blank" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/school/skit-jaipur-raj/" target="_blank" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://x.com/SKIT_Jaipur/" target="_blank" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2023 SKIT Student Portal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

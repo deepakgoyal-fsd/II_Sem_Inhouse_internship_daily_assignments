@@ -1,0 +1,1 @@
+insert into query (id,full_name,class_semester,email,city,mobile_number,queries,college_name) values (1,'saumya','3','saumya@gmail.com','Jaipur','9414630468','I have a query regarding the course','skit');

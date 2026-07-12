@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIT Hackathon | Web Development Event</title>
+    <meta name="description" content="Join the ultimate Web Development Hackathon organized by the Computer Science Department at Gyan Mandir Auditorium. Build, Innovate, and Inspire!">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ----------------------------------------------- */
+        /* CSS VARIABLES & THEMING                         */
+        /* ----------------------------------------------- */
+        :root {
+            --primary: #6C63FF;
+            --secondary: #8B5CF6;
+            --accent: #00D4FF;
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+            
+            /* Dark Mode (Default) */
+            --bg-gradient: linear-gradient(135deg, #0A0A1A 0%, #120E2E 50%, #050510 100%);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+            --text-inverse: #0F172A;
+            --shadow-glow: rgba(108, 99, 255, 0.2);
+            --card-hover-bg: rgba(255, 255, 255, 0.07);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, white 0%, beige 50%, #bd9860 100%);
+            --glass-bg: rgba(15, 23, 42, 0.04);
+            --glass-border: rgba(15, 23, 42, 0.08);
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --text-inverse: #FFFFFF;
+            --shadow-glow: rgba(108, 99, 255, 0.1);
+            --card-hover-bg: rgba(15, 23, 42, 0.08);
+        }
+
+        /* ----------------------------------------------- */
+        /* RESET & BASE STYLES                            */
+        /* ----------------------------------------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.6;
+            transition: background 0.5s ease, color 0.3s ease;
+        }
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
+
+        /* Ambient Glow & Canvas Background */
+        #canvas-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .ambient-blob {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--shadow-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(40px);
+            animation: floatingBlob 15s infinite alternate ease-in-out;
+        }
+
+        .blob-1 { top: 10%; left: -10%; animation-delay: 0s; }
+        .blob-2 { bottom: 10%; right: -10%; animation-delay: 5s; }
+
+        @keyframes floatingBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 50px) scale(1.2); }
+        }
+
+        /* Mouse Follower Glow */
+        #mouse-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Typography Shortcuts */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        section {
+            padding: 100px 5% 60px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            background: linear-gradient(to right, #FFF, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        [data-theme="light"] .section-title {
+            background: linear-gradient(to right, var(--text-main), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ----------------------------------------------- */
+        /* INTERSECTION OBSERVER REVEAL ANIMATIONS         */
+        /* ----------------------------------------------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ----------------------------------------------- */
+        /* BUTTONS WITH RIPPLE EFFECT                      */
+        /* ----------------------------------------------- */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-hover-bg);
+            transform: translateY(-3px);
+        }
+
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-effect 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-effect {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* ----------------------------------------------- */
+        /* STICKY GLASSMOPHISM NAVIGATION BAR              */
+        /* ----------------------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(10, 10, 26, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: background 0.3s, padding 0.3s;
+        }
+        [data-theme="light"] header {
+            background: rgba(241, 245, 249, 0.7);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-main);
+            background: var(--glass-bg);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-main);
+            transition: 0.3s;
+        }
+
+        /* ----------------------------------------------- */
+        /* HERO SECTION                                    */
+        /* ----------------------------------------------- */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-org {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom right, #FFF 30%, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .hero-title {
+            background: linear-gradient(to bottom right, var(--text-main) 30%, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .typing-container {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+            min-height: 40px;
+        }
+
+        .typed-cursor {
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        /* Hero Right Side - Interactive Glass Mockup Layout */
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+        }
+
+        .glass-card-floating {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 25px;
+            position: absolute;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease-out; /* For mouse parallax */
+        }
+
+        .card-main {
+            width: 320px;
+            z-index: 2;
+            transform: translate(0, 0);
+        }
+
+        .card-sub-1 {
+            width: 200px;
+            bottom: 20px;
+            left: 20px;
+            z-index: 3;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(0, 212, 255, 0.05));
+        }
+
+        .card-sub-2 {
+            width: 180px;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+
+        .code-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        .code-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FF5F56;
+        }
+        .code-dot:nth-child(2) { background: #FFBD2E; }
+        .code-dot:nth-child(3) { background: #27C93F; }
+
+        .code-snippet {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            line-height: 1.4;
+        }
+
+        /* Scroll Down Indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .scroll-down i {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* ----------------------------------------------- */
+        /* LIVE COUNTDOWN TIMER BLOCK                      */
+        /* ----------------------------------------------- */
+        .timer-section {
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            margin-top: -20px;
+            margin-bottom: 60px;
+        }
+
+        .timer-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 50px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .timer-segment {
+            text-align: center;
+        }
+
+        .timer-val {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .timer-lbl {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timer-divider {
+            font-size: 1.8rem;
+            color: var(--glass-border);
+            font-weight: 300;
+        }
+
+        .live-started-msg {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        /* ----------------------------------------------- */
+        /* STATS SECTION                                   */
+        /* ----------------------------------------------- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ----------------------------------------------- */
+        /* ABOUT & WHY PARTICIPATE                         */
+        /* ----------------------------------------------- */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.2s 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .premium-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.03));
+            transform: translateX(-100%);
+            transition: transform 0.5s;
+        }
+
+        .premium-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px);
+            background: var(--card-hover-bg);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px var(--shadow-glow);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .premium-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary);
+            color: white;
+        }
+
+        .premium-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .premium-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* ----------------------------------------------- */
+        /* EVENT HIGHLIGHTS TIMELINE                       */
+        /* ----------------------------------------------- */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        /* ----------------------------------------------- */
+        /* SCHEDULE SECTION (VERTICAL TIMELINE)            */
+        /* ----------------------------------------------- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--glass-border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item-left { left: 0; text-align: right; }
+        .timeline-item-right { left: 50%; text-align: left; }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -10px;
+            background-color: var(--bg-gradient);
+            border: 4px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .timeline-item-right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .timeline-time {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item:hover::after {
+            transform: scale(1.3);
+            background-color: var(--primary);
+        }
+
+        /* ----------------------------------------------- */
+        /* PRIZES SECTION                                  */
+        /* ----------------------------------------------- */
+        .prizes-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .prize-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            width: 300px;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .prize-card.gold {
+            order: 2;
+            height: 380px;
+            border-color: rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), var(--glass-bg));
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.1);
+        }
+        .prize-card.silver {
+            order: 1;
+            height: 320px;
+            border-color: rgba(192, 192, 192, 0.3);
+        }
+        .prize-card.bronze {
+            order: 3;
+            height: 300px;
+            border-color: rgba(205, 127, 50, 0.3);
+        }
+
+        .prize-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .prize-trophy {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .gold .prize-trophy { color: #FFD700; filter: drop-shadow(0 0 15px rgba(255,215,0,0.4)); }
+        .silver .prize-trophy { color: #C0C0C0; filter: drop-shadow(0 0 15px rgba(192,192,192,0.3)); }
+        .bronze .prize-trophy { color: #CD7F32; filter: drop-shadow(0 0 15px rgba(205,127,50,0.3)); }
+
+        .prize-rank {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .prize-amount {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* ----------------------------------------------- */
+        /* RULES SECTION                                   */
+        /* ----------------------------------------------- */
+        .rules-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .rule-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .rule-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+
+        /* ----------------------------------------------- */
+        /* FAQ SECTION (ACCORDION)                         */
+        /* ----------------------------------------------- */
+        .faq-max-width {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 20px;
+            text-align: left;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            padding: 0 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 1000px;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* ----------------------------------------------- */
+        /* CONTACT SECTION                                 */
+        /* ----------------------------------------------- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* ----------------------------------------------- */
+        /* REGISTRATION MODAL POPUP & FORM                 */
+        /* ----------------------------------------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 15, 0.6);
+            backdrop-filter: blur(15px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: rgba(15, 15, 35, 0.85);
+            border: 1px solid var(--glass-border);
+            width: 90%;
+            max-width: 650px;
+            max-height: 85vh;
+            border-radius: 24px;
+            padding: 45px;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        [data-theme="light"] .modal-box {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover { color: var(--text-main); }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .reg-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        input, select, textarea {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            width: 100%;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* Success Message Modern Alert */
+        .success-toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10B981;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 10001;
+        }
+
+        .success-toast.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ----------------------------------------------- */
+        /* BACK TO TOP BUTTON                              */
+        /* ----------------------------------------------- */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+            box-shadow: 0 4px 15px var(--shadow-glow);
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ----------------------------------------------- */
+        /* FOOTER                                          */
+        /* ----------------------------------------------- */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            background: rgba(5, 5, 15, 0.4);
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--text-main); }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ----------------------------------------------- */
+        /* RESPONSIVENESS AND MEDIA QUERIES               */
+        /* ----------------------------------------------- */
+        @media (max-width: 992px) {
+            #home {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                padding-top: 140px;
+            }
+            .hero-btns { justify-content: center; }
+            .hero-visual { display: none; } /* Hide complicated parallax layers on tablets/mobile for high speed */
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item-left, .timeline-item-right { text-align: left; left: 0; }
+            .timeline-item::after { left: 22px; right: auto; }
+            .prizes-container { align-items: center; }
+            .prize-card.gold, .prize-card.silver, .prize-card.bronze { order: initial; height: auto; width: 100%; max-width: 350px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 26, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 40px;
+                transition: 0.4s;
+                align-items: flex-start;
+            }
+            [data-theme="light"] .nav-menu { background: rgba(241, 245, 249, 0.95); }
+            .nav-menu.active { left: 0; }
+            .hamburger { display: flex; }
+            .hero-title { font-size: 2.8rem; }
+            .reg-form { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .modal-box { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <canvas id="canvas-particles"></canvas>
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div id="mouse-glow"></div>
+
+    <button id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-code"></i><span>SKIT Hackathon</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#highlights" class="nav-link">Highlights</a></li>
+                <li><a href="#schedule" class="nav-link">Schedule</a></li>
+                <li><a href="#prizes" class="nav-link">Prizes</a></li>
+                <li><a href="#rules" class="nav-link">Rules</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn btn-primary" onclick="openRegistrationModal()" style="padding: 8px 20px; font-size:0.85rem;">Register</button>
+                <div class="hamburger" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <span class="hero-org">Computer Science Department Presents</span>
+            <h1 class="hero-title">SKIT Hackathon</h1>
+            <div class="typing-container">
+                <span id="typed-text"></span><span class="typed-cursor">|</span>
+            </div>
+            <p class="hero-desc">Push your technical boundaries, build modern robust software implementations, and redefine realities. Join the elite arena for web developers to transform concepts into scalable real-world digital applications.</p>
+            <div class="hero-btns">
+                <button class="btn btn-primary" onclick="openRegistrationModal()">Register Now <i class="fas fa-rocket"></i></button>
+                <a href="#about" class="btn btn-secondary">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="glass-card-floating card-main" id="pCard1">
+                <div class="code-header">
+                    <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+                </div>
+                <div class="code-snippet">
+                    <p style="color:#6C63FF">&lt;div class="hackathon"&gt;</p>
+                    <p style="padding-left:15px; color:var(--text-main)">Theme: Web Development;</p>
+                    <p style="padding-left:15px; color:var(--accent)">Status: Active;</p>
+                    <p style="padding-left:15px; color:#27C93F">Energy: Over 9000!!;</p>
+                    <p style="color:#6C63FF">&lt;/div&gt;</p>
+                </div>
+            </div>
+            <div class="glass-card-floating card-sub-1" id="pCard2">
+                <p style="font-size:0.8rem; color:var(--text-muted)">Current Prize Pool</p>
+                <p style="font-size:1.6rem; font-family:var(--font-heading); font-weight:700; color:var(--text-main);">₹9,000</p>
+            </div>
+            <div class="glass-card-floating card-sub-2" id="pCard3">
+                <p style="font-size:0.85rem;"><i class="fas fa-map-marker-alt" style="color:#FF5F56"></i> Gyan Mandir Auditor.</p>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-down">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <div class="timer-section reveal">
+        <div class="timer-container" id="countdownTimer">
+            <div class="timer-segment">
+                <span class="timer-val" id="days">00</span>
+                <span class="timer-lbl">Days</span>
+            </div>
+            <div class="timer-divider">:</div>
+            <div class="timer-segment">
+                <span class="timer-val" id="hours">00</span>
+                <span class="timer-lbl">Hours</span>
+            </div>
+            <div class="timer-divider">:</div>
+            <div class="timer-segment">
+                <span class="timer-val" id="minutes">00</span>
+                <span class="timer-lbl">Mins</span>
+            </div>
+            <div class="timer-divider">:</div>
+            <div class="timer-segment">
+                <span class="timer-val" id="seconds">00</span>
+                <span class="timer-lbl">Secs</span>
+            </div>
+        </div>
+    </div>
+
+    <section style="padding:40px 5%">
+        <div class="stats-grid">
+            <div class="stat-card reveal">
+                <span class="stat-num" data-target="500">0</span>
+                <span class="stat-label">Participants Registered</span>
+            </div>
+            <div class="stat-card reveal">
+                <span class="stat-num" data-target="25">0</span>
+                <span class="stat-label">Expert Mentors</span>
+            </div>
+            <div class="stat-card reveal">
+                <span class="stat-num" data-target="9000">0</span>
+                <span class="stat-label">Prize Value (INR)</span>
+            </div>
+            <div class="stat-card reveal">
+                <span class="stat-num" data-target="5">0</span>
+                <span class="stat-label">Intense Coding Hours</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="reveal">
+        <h2 class="section-title">About The Event</h2>
+        <div class="about-layout">
+            <div class="about-text">
+                <h3>What is SKIT Hackathon?</h3>
+                <p>The SKIT Hackathon is an elite annual event designed to foster developer interactions, systemic breakthroughs, and scalable platform ideas. Organized exclusively by the Computer Science Department, it serves as an experiential ground for engineers to push product development velocities over a unified framework.</p>
+                <h3>Why Web Development?</h3>
+                <p>Web Development forms the vital foundation of modern cloud ecosystems and human-computer interactions. Creating responsive, intuitive, scalable web platforms remains the absolute premier mechanism to roll out immediate answers to structural everyday bottlenecks globally.</p>
+                <h3>Who should participate?</h3>
+                <p>If you are a builder, designer, logical thinker, or code enthusiast looking to validate your concepts under real-world time-constrained pressure, this event is built specifically for you. Broaden your architecture limits, test production efficiency, and win highly competitive prize rewards.</p>
+            </div>
+            <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); padding:35px; border-radius:24px; backdrop-filter:blur(10px)">
+                <h4 style="margin-bottom:15px; font-family:var(--font-heading);">Key Framework Details</h4>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:15px;">
+                    <li><i class="fas fa-calendar-alt" style="color:var(--accent); margin-right:10px;"></i> <strong>Date:</strong> 10 July</li>
+                    <li><i class="fas fa-clock" style="color:var(--accent); margin-right:10px;"></i> <strong>Timeline:</strong> 10:00 AM – 3:00 PM</li>
+                    <li><i class="fas fa-map-marker-alt" style="color:var(--accent); margin-right:10px;"></i> <strong>Venue:</strong> Gyan Mandir Auditorium</li>
+                    <li><i class="fas fa-graduation-cap" style="color:var(--accent); margin-right:10px;"></i> <strong>Eligibility:</strong> Students from any college domain</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="why-grid">
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Learn New Tech</h3>
+                <p>Interact directly with cutting-edge production tooling, high-efficiency build pipelines, and advanced web standard paradigms.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-cubes"></i></div>
+                <h3>Build Real Projects</h3>
+                <p>Transition from pure conceptual theory environments straight into deployable minimum viable real software implementations.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <h3>Networking Ecosystems</h3>
+                <p>Establish high-value collaborative associations with top-performing engineering talent paths across various regional structures.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-award"></i></div>
+                <h3>Official Certificates</h3>
+                <p>Earn documented verification stamps from the institution certifying your technical capability metrics explicitly.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-wallet"></i></div>
+                <h3>Win Cash Prizes</h3>
+                <p>Compete under elite conditions to lock down specialized direct financial rewards from our overarching event allocation funds.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3>Enhance Resumes</h3>
+                <p>Stand out remarkably inside standard placement screening workflows by proving structural hackathon execution competencies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="highlights" class="reveal">
+        <h2 class="section-title">Event Highlights</h2>
+        <div class="highlights-grid">
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Web Development Focus</h3>
+                <p>Direct attention on semantic builds, performance layout components, styling optimizations, and programmatic logic layers.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Hands-on Sprint Coding</h3>
+                <p>Experience uninterrupted engineering workflows designed to accurately gauge your execution precision capabilities.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>Dedicated Industry Mentorship</h3>
+                <p>Acquire structural guidance inputs from domain veterans actively deploying cloud applications at high scale daily.</p>
+            </div>
+            <div class="premium-card reveal">
+                <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Team Cross-Collaboration</h3>
+                <p>Refine your capabilities working under high-velocity synchronization parameters across agile cross-functional groups.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prizes" class="reveal">
+        <h2 class="section-title">Award Standings</h2>
+        <div class="prizes-container">
+            <div class="prize-card silver reveal">
+                <span class="prize-trophy">🥈</span>
+                <h3 class="prize-rank">2nd Runner Up</h3>
+                <span class="prize-amount" data-val="3000">₹0</span>
+            </div>
+            <div class="prize-card gold reveal">
+                <span class="prize-trophy">🥇</span>
+                <h3 class="prize-rank">Champion Winner</h3>
+                <span class="prize-amount" data-val="5000">₹0</span>
+            </div>
+            <div class="prize-card bronze reveal">
+                <span class="prize-trophy">🥉</span>
+                <h3 class="prize-rank">3rd Runner Up</h3>
+                <span class="prize-amount" data-val="1000">₹0</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="reveal">
+        <h2 class="section-title">Event Schedule</h2>
+        <div class="timeline">
+            <div class="timeline-item timeline-item-left reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">10:00 AM</span>
+                    <h4>Registration & Welcome Verification</h4>
+                    <p>Onboard check-ins, terminal infrastructure workspace setups, and verification protocols mapping.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-right reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">10:30 AM</span>
+                    <h4>Opening Keynote Ceremony</h4>
+                    <p>Introductory administrative breakdowns, track briefing declarations, and evaluation criteria reveals.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-left reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">11:00 AM</span>
+                    <h4>Hackathon Hacking Starts</h4>
+                    <p>Repositories open up completely. Teams set up scaffolding foundations and execute initialization runs.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-right reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">01:30 PM</span>
+                    <h4>Code Freeze & Project Submission</h4>
+                    <p>All coding operations halt natively. Local bundles are zipped and securely pushed onto verification tables.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-left reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">02:00 PM</span>
+                    <h4>Live Feature Pitch Presentations</h4>
+                    <p>Teams showcase live builds directly onto the auditoriums projectors showcasing unique structural code traits.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-right reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">02:45 PM</span>
+                    <h4>Judging Council Reviews</h4>
+                    <p>Evaluation of code architecture, layout accessibility compliance, and implementation completion parameters.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-item-left reveal">
+                <div class="timeline-content">
+                    <span class="timeline-time">03:00 PM</span>
+                    <h4>Winner Proclamations & Closing</h4>
+                    <p>Closing remarks from the department lead followed directly by prize and certificate handovers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rules" class="reveal">
+        <h2 class="section-title">Rules & Conditions</h2>
+        <div class="rules-wrapper">
+            <div class="rule-item reveal">
+                <i class="fas fa-check-circle"></i>
+                <p>Open to active student identities globally from any recognized collegiate entity.</p>
+            </div>
+            <div class="rule-item reveal">
+                <i class="fas fa-check-circle"></i>
+                <p>All core logical scripts and frontend configurations must be authored from absolute scratch inside the sprint timeline.</p>
+            </div>
+            <div class="rule-item reveal">
+                <i class="fas fa-check-circle"></i>
+                <p>Plagiarism of structural templates or copying preexisting repos directly prompts immediate disqualification.</p>
+            </div>
+            <div class="rule-item reveal">
+                <i class="fas fa-check-circle"></i>
+                <p>Teams must configure constraints cleanly within size thresholds spanning minimum 2 up to maximum 4 participants.</p>
+            </div>
+            <div class="rule-item reveal">
+                <i class="fas fa-check-circle"></i>
+                <p>Participants are requested to arrange their own hardware terminal laptops. High-speed local access lines will be provided.</p>
+            </div>
+            <div class="rule-item reveal">
+                <i class="fas fa-check-circle"></i>
+                <p>The review board holds absolute binding execution command concerning all score allocation results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="reveal">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-max-width">
+            <div class="faq-item reveal">
+                <button class="faq-trigger">Who can participate? <i class="fas fa-chevron-down faq-icon"></i></button>
+                <div class="faq-content">
+                    <p>Any active university undergraduate or postgraduate student with an official collegiate identity registration profile can enter the sprint workflows directly.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-trigger">Is there any registration fee? <i class="fas fa-chevron-down faq-icon"></i></button>
+                <div class="faq-content">
+                    <p>No, registration for the SKIT Hackathon is free of charge. The event is funded by the Computer Science Department.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-trigger">Can I participate individually? <i class="fas fa-chevron-down faq-icon"></i></button>
+                <div class="faq-content">
+                    <p>No, the architectural rule book commands team synchronization structures. Build configurations demand a minimum size metric of 2 up to a ceiling limit of 4 team members.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-trigger">Will certificates be provided? <i class="fas fa-chevron-down faq-icon"></i></button>
+                <div class="faq-content">
+                    <p>Yes. Every single onboarded applicant checking into the auditorium workspace receives authentic physical confirmation credentials validating their operational efforts.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-trigger">What should I bring? <i class="fas fa-chevron-down faq-icon"></i></button>
+                <div class="faq-content">
+                    <p>Bring your own development machine, power adaptors, valid university identification credentials, and an enthusiastic mindset to build software.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2 class="section-title">Contact Support Lines</h2>
+        <div class="contact-grid">
+            <div class="contact-card reveal">
+                <i class="fas fa-university"></i>
+                <h3>Organized By</h3>
+                <p style="color:var(--text-muted)">Computer Science Department</p>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-top:5px;">SKIT Campus Premises</p>
+            </div>
+            <div class="contact-card reveal">
+                <i class="fas fa-map-signs"></i>
+                <h3>Event Venue</h3>
+                <p style="color:var(--text-muted)">Gyan Mandir Auditorium</p>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-top:5px;">Main Block, Ground Level</p>
+            </div>
+            <div class="contact-card reveal">
+                <i class="fas fa-envelope-open-text"></i>
+                <h3>Inquiries & Channels</h3>
+                <p style="color:var(--text-muted)">cs_hackathon@skit.ac.in</p>
+                <p style="color:var(--text-muted)">+91 141 275 2165</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Github Connection Link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn Platform Channel"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram Media Base"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:60px;">
+            <button class="btn btn-primary" onclick="openRegistrationModal()" style="font-size: 1.2rem; padding: 16px 40px;">Initialize Registration Run</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#prizes">Prizes</a>
+            <a href="#rules">Rules</a>
+        </div>
+        <p class="footer-copy">© 2026 SKIT Hackathon Arena. All computational rights protected.</p>
+        <p class="footer-copy" style="margin-top:5px; font-size:0.75rem;">Made with ❤️ for SKIT Hackathon by the Computer Science Department.</p>
+    </footer>
+
+    <div class="modal-overlay" id="registrationModal" onclick="closeRegistrationModalViaOverlay(event)">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeRegistrationModal()"><i class="fas fa-times"></i></button>
+            <h3 class="modal-title" style="font-family:var(--font-heading);">Hackathon Gate Registry</h3>
+            <form class="reg-form" id="hackathonForm" onsubmit="handleFormSubmission(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="emailAddr">Email Address *</label>
+                    <input type="email" id="emailAddr" required placeholder="john@university.edu">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNum">Phone Number *</label>
+                    <input type="tel" id="phoneNum" required placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="collegeName">College Name *</label>
+                    <input type="text" id="collegeName" required placeholder="SKIT Jaipur">
+                </div>
+                <div class="form-group">
+                    <label for="branchStudy">Branch *</label>
+                    <input type="text" id="branchStudy" required placeholder="Computer Science">
+                </div>
+                <div class="form-group">
+                    <label for="gradYear">Year *</label>
+                    <select id="gradYear" required>
+                        <option value="" disabled selected>Select Current Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="teamName">Team Name (Optional)</label>
+                    <input type="text" id="teamName" placeholder="Alpha Coders">
+                </div>
+                <div class="form-group">
+                    <label for="teamSize">Team Size *</label>
+                    <select id="teamSize" required>
+                        <option value="" disabled selected>Select count</option>
+                        <option value="2">2 Members</option>
+                        <option value="3">3 Members</option>
+                        <option value="4">4 Members</option>
+                    </select>
+                </div>
+                <div class="form-group class-full-width" style="grid-column: span 2;">
+                    <label for="expLevel">Experience Level *</label>
+                    <select id="expLevel" required>
+                        <option value="" disabled selected>Select level</option>
+                        <option value="beginner">Beginner (0-1 years experience)</option>
+                        <option value="intermediate">Intermediate (Build basic applications)</option>
+                        <option value="advanced">Advanced (Understand architectural design limits)</option>
+                    </select>
+                </div>
+                <div class="form-group class-full-width" style="grid-column: span 2;">
+                    <label for="statementIntent">Why do you want to participate? (Optional)</label>
+                    <textarea id="statementIntent" rows="3" placeholder="Briefly describe your motivation..."></textarea>
+                </div>
+                <div class="form-group class-full-width" style="grid-column: span 2; margin-top:10px;">
+                    <button type="submit" class="btn btn-primary" style="justify-content:center; width:100%;">Transmit Registration Registry <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="success-toast" id="successToast">
+        <i class="fas fa-check-circle" style="font-size:1.4rem;"></i>
+        <div>
+            <p style="margin:0; font-weight:700;">Registration Securely Processed!</p>
+            <p style="margin:0; font-size:0.8rem; opacity:0.9;">Your application metrics have been stored successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        /* ----------------------------------------------- */
+        /* GLOBAL INITIALIZATION CONFIGS                   */
+        /* ----------------------------------------------- */
+        document.addEventListener('DOMContentLoaded', () => {
+            initParticleCanvasSystem();
+            initThemeConfiguration();
+            initTypingEffectEngine();
+            initCountdownLogic();
+            initScrollRevealEngine();
+            initAccordionEngine();
+            initParallaxEngine();
+            initButtonRippleEngine();
+            initScrollTrackingEngine();
+        });
+
+        /* ----------------------------------------------- */
+        /* NATIVE LIGHT/DARK MODE STORAGE LOGIC            */
+        /* ----------------------------------------------- */
+        function initThemeConfiguration() {
+            const toggleBtn = document.getElementById('themeToggleBtn');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeToggleButtonIcon(savedTheme);
+
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', targetTheme);
+                localStorage.setItem('theme', targetTheme);
+                updateThemeToggleButtonIcon(targetTheme);
+            });
+        }
+
+        function updateThemeToggleButtonIcon(theme) {
+            const icon = document.querySelector('#themeToggleBtn i');
+            if(theme === 'light') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
+
+        /* ----------------------------------------------- */
+        /* HIGH REFRESH RATE ACCELERATED CANVAS PARTICLES  */
+        /* ----------------------------------------------- */
+        function initParticleCanvasSystem() {
+            const canvas = document.getElementById('canvas-particles');
+            const ctx = canvas.getContext('2d');
+            let particlesArray = [];
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2.5 + 0.5;
+                    this.speedX = Math.random() * 0.4 - 0.2;
+                    this.speedY = Math.random() * 0.4 - 0.2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if(this.x > canvas.width) this.x = 0;
+                    else if(this.x < 0) this.x = canvas.width;
+                    if(this.y > canvas.height) this.y = 0;
+                    else if(this.y < 0) this.y = canvas.height;
+                }
+                draw() {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    ctx.fillStyle = currentTheme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(15, 23, 42, 0.15)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            for(let i = 0; i < 65; i++) {
+                particlesArray.push(new Particle());
+            }
+
+            function animateParticlesLoop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for(let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticlesLoop);
+            }
+            animateParticlesLoop();
+        }
+
+        /* ----------------------------------------------- */
+        /* CURSOR GLOW AND PARALLAX EFFECTS               */
+        /* ----------------------------------------------- */
+        function initParallaxEngine() {
+            const mouseGlow = document.getElementById('mouse-glow');
+            const card1 = document.getElementById('pCard1');
+            const card2 = document.getElementById('pCard2');
+            const card3 = document.getElementById('pCard3');
+
+            window.addEventListener('mousemove', (e) => {
+                // Glow positioning
+                mouseGlow.style.opacity = '1';
+                mouseGlow.style.left = e.clientX + 'px';
+                mouseGlow.style.top = e.clientY + 'px';
+
+                // Subtle Hero Parallax offsets (Only calculated if elements are visible on screen layout)
+                if(window.innerWidth > 992) {
+                    const xOffset = (window.innerWidth / 2 - e.clientX) * 0.015;
+                    const yOffset = (window.innerHeight / 2 - e.clientY) * 0.015;
+                    
+                    if(card1 && card2 && card3) {
+                        card1.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                        card2.style.transform = `translate(${xOffset * -1.5}px, ${yOffset * -1.2}px)`;
+                        card3.style.transform = `translate(${xOffset * 1.8}px, ${yOffset * -2}px)`;
+                    }
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                mouseGlow.style.opacity = '0';
+            });
+        }
+
+        /* ----------------------------------------------- */
+        /* TYPING EFFECT ENGINE                            */
+        /* ----------------------------------------------- */
+        function initTypingEffectEngine() {
+            const targetElement = document.getElementById('typed-text');
+            const items = ["Build • Innovate • Inspire", "Code The Future.", "Connect • Collaborate • Conquer."];
+            let itemIdx = 0;
+            let charIdx = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+
+            function processTyping() {
+                const currentStr = items[itemIdx];
+                if(isDeleting) {
+                    targetElement.textContent = currentStr.substring(0, charIdx - 1);
+                    charIdx--;
+                    typingSpeed = 40;
+                } else {
+                    targetElement.textContent = currentStr.substring(0, charIdx + 1);
+                    charIdx++;
+                    typingSpeed = 120;
+                }
+
+                if(!isDeleting && charIdx === currentStr.length) {
+                    typingSpeed = 2000; // Pause at completion flag
+                    isDeleting = true;
+                } else if(isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    itemIdx = (itemIdx + 1) % items.length;
+                    typingSpeed = 400; // Buffer before switching tracks
+                }
+
+                setTimeout(processTyping, typingSpeed);
+            }
+            if(targetElement) processTyping();
+        }
+
+        /* ----------------------------------------------- */
+        /* LIVE HACKATHON EVENT COUNTDOWN TIMER            */
+        /* ----------------------------------------------- */
+        function initCountdownLogic() {
+            // Set targeted date explicitly to July 10, 2026 10:00:00 AM IST
+            const targetTimestamp = new Date('July 10, 2026 10:00:00').getTime();
+            const timerBox = document.getElementById('countdownTimer');
+
+            function calculateMetrics() {
+                const now = new Date().getTime();
+                const difference = targetTimestamp - now;
+
+                if (difference <= 0) {
+                    clearInterval(intervalRef);
+                    if(timerBox) {
+                        timerBox.innerHTML = `<span class="live-started-msg">🚀 The Hackathon Has Begun!</span>`;
+                    }
+                    return;
+                }
+
+                const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = d < 10 ? '0' + d : d;
+                document.getElementById('hours').textContent = h < 10 ? '0' + h : h;
+                document.getElementById('minutes').textContent = m < 10 ? '0' + m : m;
+                document.getElementById('seconds').textContent = s < 10 ? '0' + s : s;
+            }
+
+            calculateMetrics();
+            const intervalRef = setInterval(calculateMetrics, 1000);
+        }
+
+        /* ----------------------------------------------- */
+        /* SCROLL REVEAL & STATS MULTI-COUNTER ENGINE       */
+        /* ----------------------------------------------- */
+        function initScrollRevealEngine() {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // If it contains numerical animation structures, trigger counters natively
+                        const counters = entry.target.querySelectorAll('.stat-num');
+                        if(counters.length > 0) {
+                            counters.forEach(c => animateCounterNode(c));
+                        }
+
+                        // If it contains prize items, execute value counters
+                        const prizeAmounts = entry.target.querySelectorAll('.prize-amount');
+                        if(prizeAmounts.length > 0) {
+                            prizeAmounts.forEach(p => animatePrizeNode(p));
+                        }
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        }
+
+        function animateCounterNode(node) {
+            if(node.getAttribute('data-animated') === 'true') return;
+            node.setAttribute('data-animated', 'true');
+
+            const targetValue = parseInt(node.getAttribute('data-target'));
+            let current = 0;
+            const operationalSteps = 40; 
+            const balanceIncrement = Math.ceil(targetValue / operationalSteps);
+            let pace = 30;
+
+            function stepCalculation() {
+                current += balanceIncrement;
+                if(current >= targetValue) {
+                    node.textContent = targetValue + "+";
+                } else {
+                    node.textContent = current + "+";
+                    setTimeout(stepCalculation, pace);
+                }
+            }
+            stepCalculation();
+        }
+
+        function animatePrizeNode(node) {
+            if(node.getAttribute('data-animated') === 'true') return;
+            node.setAttribute('data-animated', 'true');
+
+            const targetVal = parseInt(node.getAttribute('data-val'));
+            let count = 0;
+            const delta = Math.ceil(targetVal / 30);
+
+            function runLoop() {
+                count += delta;
+                if(count >= targetVal) {
+                    node.textContent = "₹" + targetVal.toLocaleString('en-IN');
+                } else {
+                    node.textContent = "₹" + count.toLocaleString('en-IN');
+                    setTimeout(runLoop, 25);
+                }
+            }
+            runLoop();
+        }
+
+        /* ----------------------------------------------- */
+        /* RESPONSIVE SCROLL MONITORING & LINK ACTIVE STATE*/
+        /* ----------------------------------------------- */
+        function initScrollTrackingEngine() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const progress = document.getElementById('scroll-progress');
+            const btt = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                let scrollY = window.pageYOffset;
+
+                // 1. Calculate and update Top Scroll Progress Bar
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (totalHeight > 0) {
+                    const percentage = (scrollY / totalHeight) * 100;
+                    progress.style.width = percentage + '%';
+                }
+
+                // 2. Dynamic Toggle tracking visibility for back to top trigger
+                if (scrollY > 500) {
+                    btt.classList.add('visible');
+                } else {
+                    btt.classList.remove('visible');
+                }
+
+                // 3. Navigation link tracking highlight state updates via matching offsets
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 140;
+                    const sectionId = current.getAttribute('id');
+
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+
+            btt.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        /* ----------------------------------------------- */
+        /* BUTTON RIPPLE GRAPHICS INTEGRITY CODE           */
+        /* ----------------------------------------------- */
+        function initButtonRippleEngine() {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const x = e.clientX - e.target.getBoundingClientRect().left;
+                    const y = e.clientY - e.target.getBoundingClientRect().top;
+                    
+                    const rippleSpan = document.createElement('span');
+                    rippleSpan.className = 'ripple';
+                    rippleSpan.style.left = x + 'px';
+                    rippleSpan.style.top = y + 'px';
+                    
+                    this.appendChild(rippleSpan);
+                    setTimeout(() => rippleSpan.remove(), 600);
+                });
+            });
+        }
+
+        /* ----------------------------------------------- */
+        /* ACCORDION (FAQ) TOGGLE CORE ENGINE              */
+        /* ----------------------------------------------- */
+        function initAccordionEngine() {
+            const triggers = document.querySelectorAll('.faq-trigger');
+            triggers.forEach(t => {
+                t.addEventListener('click', function() {
+                    const parentNode = this.parentNode;
+                    const isOpen = parentNode.classList.contains('active');
+                    
+                    // Close all adjacent sibling loops immediately
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Toggle status for the targeted element node
+                    if(!isOpen) {
+                        parentNode.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        /* ----------------------------------------------- */
+        /* MOBILE OVERLAY MENU CONTROLLER                  */
+        /* ----------------------------------------------- */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        if(mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('open');
+            });
+
+            // Auto Close mobile menu upon executing transition links jumps
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('open');
+                });
+            });
+        }
+
+        /* ----------------------------------------------- */
+        /* REGISTRATION SYSTEM MODAL ACTIONS ENGINE        */
+        /* ----------------------------------------------- */
+        const modalEl = document.getElementById('registrationModal');
+
+        function openRegistrationModal() {
+            if(modalEl) modalEl.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Freeze scrolling viewport bounds
+        }
+
+        function closeRegistrationModal() {
+            if(modalEl) modalEl.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable document canvas scrolling
+        }
+
+        function closeRegistrationModalViaOverlay(event) {
+            if (event.target === modalEl) {
+                closeRegistrationModal();
+            }
+        }
+
+        function handleFormSubmission(event) {
+            event.preventDefault(); // Lock native server form transmission routines
+            
+            // Execute validation metrics checks across active elements
+            const form = document.getElementById('hackathonForm');
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Close registration screen layer
+            closeRegistrationModal();
+
+            // Trigger success alert popup notification
+            const toast = document.getElementById('successToast');
+            if(toast) {
+                toast.classList.add('active');
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                }, 4500);
+            }
+
+            // Purge metrics cleanly
+            form.reset();
+        }
+    </script>
+</body>
+</html>

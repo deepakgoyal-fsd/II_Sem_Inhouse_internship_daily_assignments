@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Student Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="family">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* --- CSS Reset & Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: rgba(0, 0, 0, 0.15);
+            --text-color: #ffffff;
+            --text-muted: #e0e0e0;
+            --primary-btn: #4776e6;
+            --primary-btn-hover: #8e54e9;
+            --secondary-btn: #11998e;
+            --secondary-btn-hover: #38ef7d;
+            --danger-btn: #eb3349;
+            --danger-btn-hover: #f45c43;
+            --warning-btn: #f4c430;
+            --warning-btn-hover: #ffdb58;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        /* --- Background Floating Circles --- */
+        .circle {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            z-index: -1;
+            animation: float 8s ease-in-out infinite alternate;
+        }
+
+        .circle-1 { width: 300px; height: 300px; top: -100px; left: -100px; }
+        .circle-2 { width: 400px; height: 400px; bottom: -150px; right: -100px; animation-delay: -2s; }
+        .circle-3 { width: 200px; height: 200px; top: 50%; left: 80%; animation-delay: -4s; }
+
+        /* --- Animations --- */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(30px) rotate(15deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- Layout Containers --- */
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* --- Header Section --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+
+        /* --- Counter Badge --- */
+        .badge-counter {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid var(--glass-border);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px var(--glass-shadow);
+            margin-bottom: 25px;
+        }
+
+        .badge-counter i {
+            margin-right: 8px;
+        }
+
+        /* --- Glassmorphism Search Bar --- */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 16px 24px 16px 55px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-bar:focus {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px rgba(35, 166, 213, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+
+        /* --- Grid Layout --- */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- Glassmorphic Student Card --- */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px var(--glass-shadow);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: none; /* Controlled by jQuery fadeIn */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Branch Badge inside Card */
+        .branch-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Dynamic Branch Colors */
+        .branch-cse { background: #4a00e0; color: #fff; }
+        .branch-ece { background: #ff416c; color: #fff; }
+        .branch-me { background: #f12711; color: #fff; }
+        .branch-ee { background: #f5af19; color: #111; }
+        .branch-ce { background: #11998e; color: #fff; }
+
+        /* Card Avatar */
+        .avatar-container {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto 20px auto;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .student-name {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .roll-number {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Toggleable Containers --- */
+        .details-container {
+            display: none; /* Initially Hidden */
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 4px;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .detail-value {
+            font-weight: 400;
+            text-align: right;
+            word-break: break-all;
+            max-width: 65%;
+        }
+
+        .cgpa-container {
+            display: none; /* Initially Hidden */
+            margin: 20px 0 10px 0;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .cgpa-container i {
+            color: #ffd700;
+            margin-right: 8px;
+        }
+
+        /* --- Button Action Layout --- */
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            outline: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-details {
+            background: var(--primary-btn);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-cgpa {
+            background: var(--secondary-btn);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Status States --- */
+        .no-results {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px var(--glass-shadow);
+            animation: pulse 2s infinite;
+        }
+
+        .no-results i {
+            display: block;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        footer i {
+            color: #ff416c;
+            margin: 0 4px;
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 100%;
+            height: 8px;
+            max-width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* --- Responsive Queries --- */
+        @media (max-width: 768px) {
+            .container { width: 92%; padding: 25px 0; }
+            header h1 { font-size: 2.1rem; }
+            .search-bar { padding: 14px 20px 14px 45px; font-size: 1rem; }
+            .search-container i { left: 18px; font-size: 1rem; }
+            .directory-grid { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <div class="container">
+        
+        <header>
+            <h1>Student Directory</h1>
+            <div class="badge-counter">
+                <i class="fas fa-users"></i>Total Database Records: <span id="student-count-badge">0</span>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="directory-search" class="search-bar" placeholder="Search by name or roll number...">
+        </div>
+
+        <main class="directory-grid" id="student-container">
+            <div class="no-results" id="no-matches-msg">
+                <i class="fas fa-search-minus"></i>
+                No Student Found Match Criteria
+            </div>
+        </main>
+
+    </div>
+
+    <footer>
+        <p>Premium Student Directory Management System &copy; 2026 | Crafted with <i class="fas fa-heart"></i> &amp; jQuery</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Configuration Archetypes for Data Generation Array
+            const branches = ['CSE', 'ECE', 'ME', 'EE', 'CE'];
+            const branchClasses = {
+                'CSE': 'branch-cse',
+                'ECE': 'branch-ece',
+                'ME': 'branch-me',
+                'EE': 'branch-ee',
+                'CE': 'branch-ce'
+            };
+            const sections = ['A', 'B', 'C', 'D'];
+            const years = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
+            
+            const firstNames = ['Aarav', 'Vivaan', 'Aditya', 'Sai', 'Arjun', 'Reyansh', 'Krishna', 'Ishaan', 'Shaurya', 'Aaryan', 'Ayush', 'Ananya', 'Diya', 'Pari', 'Angel', 'Ipshita', 'Anika', 'Aadhya', 'Saanvi', 'Khushi'];
+            const lastNames = ['Sharma', 'Verma', 'Kumar', 'Singh', 'Patel', 'Das', 'Mishra', 'Joshi', 'Nair', 'Reddy', 'Gupta', 'Mehta', 'Choudhury', 'Gill', 'Saxena', 'Rao', 'Boshi', 'Trivedi', 'Kulkarni', 'Bhatt'];
+
+            const studentDataset = [];
+
+            // 1. Dynamic generation loop for exactly 60 fully populated student data entities
+            for (let i = 1; i <= 60; i++) {
+                // Generate Deterministic Determinants mixed mathematically
+                const fName = firstNames[Math.floor(Math.random() * firstNames.length)];
+                const lName = lastNames[Math.floor(Math.random() * lastNames.length)];
+                const fullName = fName + " " + lName;
+                
+                const rollYear = 2020 + Math.floor(Math.random() * 6); 
+                const rollNumStr = String(i).padStart(3, '0');
+                const rollNumber = `R${rollYear}BU${rollNumStr}`;
+                
+                const branch = branches[Math.floor(Math.random() * branches.length)];
+                const year = years[Math.floor(Math.random() * years.length)];
+                const section = sections[Math.floor(Math.random() * sections.length)];
+                
+                const email = `${fName.toLowerCase()}.${lName.toLowerCase()}${i}@university.edu`;
+                
+                // Construct systematic random safe numeric properties
+                const phone = `+91 98765 ${String(Math.floor(10000 + Math.random() * 90000))}`;
+                const cgpa = (7.0 + Math.random() * 3.0).toFixed(2); // Random continuous distribution limit maxing at 10.00
+                const avatar = `https://api.dicebear.com/7.x/avataaars/svg?seed=Student${i}`;
+
+                studentDataset.push({
+                    name: fullName,
+                    rollNumber: rollNumber,
+                    avatar: avatar,
+                    branch: branch,
+                    year: year,
+                    section: section,
+                    email: email,
+                    phone: phone,
+                    cgpa: cgpa
+                });
+            }
+
+            // Update badge text cleanly via DOM property mapping
+            $("#student-count-badge").text(studentDataset.length);
+
+            // 2. Generate and Render HTML Components into grid container systematically using $.each
+            const targetContainer = $("#student-container");
+
+            $.each(studentDataset, function(index, student) {
+                const branchCSSModifier = branchClasses[student.branch] || 'branch-cse';
+                
+                // Building exact structural layout string containing target node patterns 
+                const cardMarkup = `
+                    <div class="card" data-index="${index}">
+                        <span class="branch-badge ${branchCSSModifier}">${student.branch}</span>
+                        <div class="avatar-container">
+                            <img src="${student.avatar}" alt="${student.name} Profile Avatar">
+                        </div>
+                        <h2 class="student-name">${student.name}</h2>
+                        <p class="roll-number">${student.rollNumber}</p>
+                        
+                        <div class="details-container">
+                            <div class="detail-item">
+                                <span class="detail-label">Year:</span>
+                                <span class="detail-value">${student.year}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Section:</span>
+                                <span class="detail-value">${student.section}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-value">${student.email}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Phone:</span>
+                                <span class="detail-value">${student.phone}</span>
+                            </div>
+                        </div>
+
+                        <div class="cgpa-container">
+                            <i class="fas fa-star"></i>CGPA: <span>${student.cgpa}</span>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn btn-details">
+                                <i class="fas fa-info-circle"></i> <span class="btn-text">Show Details</span>
+                            </button>
+                            <button class="btn btn-cgpa">
+                                <i class="fas fa-graduation-cap"></i> <span class="btn-text">Show CGPA</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                targetContainer.append(cardMarkup);
+            });
+
+            // 3. Smooth Orchestrated Entrance Transition
+            $(".card").fadeIn(1000);
+
+            // 4. Interaction Events Implementation - Show / Hide Detailed Metadata Panel
+            $(".btn-details").on("click", function() {
+                const currentButton = $(this);
+                const targetCard = currentButton.closest(".card");
+                const targetDetails = targetCard.find(".details-container");
+                const textLabel = currentButton.find(".btn-text");
+                const iconElement = currentButton.find("i");
+
+                // Execution of required slide toggle structural transformation logic
+                targetDetails.slideToggle(400, function() {
+                    // Update layout context visual attributes securely based on element evaluation state
+                    if (targetDetails.is(":visible")) {
+                        textLabel.text("Hide Details");
+                        
+                        // jQuery CSS custom property state transitions mapping 
+                        currentButton.css({
+                            "background-color": "var(--danger-btn)",
+                            "border-color": "rgba(0,0,0,0.15)"
+                        });
+                        
+                        iconElement.removeClass("fa-info-circle").addClass("fa-times-circle");
+                    } else {
+                        textLabel.text("Show Details");
+                        
+                        currentButton.css({
+                            "background-color": "var(--primary-btn)",
+                            "border-color": "rgba(255, 255, 255, 0.1)"
+                        });
+                        
+                        iconElement.removeClass("fa-times-circle").addClass("fa-info-circle");
+                    }
+                });
+            });
+
+            // 5. Interaction Events Implementation - Fade Toggle CGPA Output Panel
+            $(".btn-cgpa").on("click", function() {
+                const currentButton = $(this);
+                const targetCard = currentButton.closest(".card");
+                const targetCGPABox = targetCard.find(".cgpa-container");
+                const textLabel = currentButton.find(".btn-text");
+
+                // Execute Fade Toggle animation framework routine mapping 
+                targetCGPABox.fadeToggle(400, function() {
+                    if (targetCGPABox.is(":visible")) {
+                        textLabel.text("Hide CGPA");
+                        currentButton.css("background-color", "var(--warning-btn-hover)");
+                    } else {
+                        textLabel.text("Show CGPA");
+                        currentButton.css("background-color", "var(--secondary-btn)");
+                    }
+                });
+            });
+
+            // 6. Real-Time High-Performance Directory Search Mechanism Engine
+            $("#directory-search").on("keyup", function() {
+                const searchInputText = $(this).val().toLowerCase().trim();
+                let matchingRecordsCounter = 0;
+
+                if (searchInputText === "") {
+                    // Quick state return configuration optimization parameters
+                    $(".card").show();
+                    $("#no-matches-msg").hide();
+                    return;
+                }
+
+                // Explicit JavaScript Object Filter Mapping Engine Context
+                $(".card").each(function() {
+                    const currentCardElement = $(this);
+                    const systemIndexKey = currentCardElement.data("index");
+                    const dataRecordObj = studentDataset[systemIndexKey];
+
+                    // Structural evaluations against clean object fields instead of parsing HTML
+                    const matchingNameCheck = dataRecordObj.name.toLowerCase().includes(searchInputText);
+                    const matchingRollCheck = dataRecordObj.rollNumber.toLowerCase().includes(searchInputText);
+
+                    if (matchingNameCheck || matchingRollCheck) {
+                        currentCardElement.show();
+                        matchingRecordsCounter++;
+                    } else {
+                        currentCardElement.hide();
+                    }
+                });
+
+                // Conditional output flag evaluator logic for active exception visualization elements
+                if (matchingRecordsCounter === 0) {
+                    $("#no-matches-msg").fadeIn(300);
+                } else {
+                    $("#no-matches-msg").hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <section class="hero">
+            <aside class="hero-card">
+                <div class="card-header">
+                    <p class="eyebrow">Registration</p>
+                    <h2>Get started today</h2>
+                </div>
+
+                <form method="post" novalidate>
+                    <div class="form-grid">
+                        <label for="txtName">Full name</label>
+                        <input type="text" id="txtName" name="name" placeholder="Jane Doe" required>
+
+                        <label for="txtEmail">Email address</label>
+                        <input type="email" id="txtEmail" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field-half">
+                            <label for="dtDOB">Date of birth</label>
+                            <input type="date" id="dtDOB" name="dob">
+                        </div>
+                        <div class="field-half">
+                            <label>Gender</label>
+                            <div class="radio-group" role="radiogroup" aria-label="Gender">
+                                <label><input type="radio" name="gender" value="male" checked> Male</label>
+                                <label><input type="radio" name="gender" value="female"> Female</label>
+                                <label><input type="radio" name="gender" value="other"> Other</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="pwdPassword">Password</label>
+                    <input type="password" id="pwdPassword" name="password" placeholder="Choose a secure password" required>
+
+                    <div class="actions">
+                        <button type="submit" class="primary">Create account</button>
+                    </div>
+
+                    <p class="note">By creating an account, you agree to our <a href="#">terms of service</a> and <a href="#">privacy policy</a>.</p>
+                </form>
+            </aside>
+        </section>
+    </div>
+</body>
+</html>

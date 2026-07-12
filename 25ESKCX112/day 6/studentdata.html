@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎓 Student Details</h1>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search by name or roll no...">
+    <button onclick="searchStudent()">Search</button>
+  </div>
+
+  <div id="studentContainer"></div>
+  <p id="noResult" style="display: none;">No student found matching your search.</p>
+
+  <script>
+    // Sample student data
+    const students = [
+      {
+        name: "Aarav Sharma",
+        roll: "101",
+        branch: "electrical",
+        email: "aarav.sharma@school.com",
+        cgpa: "9.1",
+        photo: ""
+      },
+      {
+        name: "pradeep",
+        roll: "102",
+        branch: "computer science",
+        email: "pradeep.tt@school.com",
+        cgpa: "8.7",
+        photo: ""
+      },
+      {
+        name: "parth saraswat",
+        roll: "103",
+        branch: "mechanical",
+        email: "parth.saraswat@school.com",
+        cgpa: "8.3",
+        photo: " "
+      },
+      {
+        name: "tapendra tiwari",
+        roll: "104",
+        branch: "civil",
+        email: "tapendra.tt@school.com",
+        cgpa: "8.1",
+        photo: " "
+      },
+      {
+        name: "prashant jain",
+        roll: "105",
+        branch: "electrical",
+        email: "prashant.jain@school.com",
+        cgpa: "8.5",
+        photo: " "
+      }
+    ];
+
+    const container = document.getElementById('studentContainer');
+    const noResult = document.getElementById('noResult');
+
+    function renderStudents(list) {
+      container.innerHTML = "";
+      if (list.length === 0) {
+        noResult.style.display = "block";
+        return;
+      }
+      noResult.style.display = "none";
+
+      list.forEach(student => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${student.photo}" alt="${student.name}">
+          <h3>${student.name}</h3>
+          <p class="roll">Roll No: ${student.roll}</p>
+          <p>Branch: ${student.branch}</p>
+          <p>CGPA: ${student.cgpa}</p>
+          <p>${student.email}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function searchStudent() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      if (query === "") {
+        renderStudents(students);
+        return;
+      }
+      const filtered = students.filter(s =>
+        s.name.toLowerCase().includes(query) || s.roll.includes(query)
+      );
+      renderStudents(filtered);
+    }
+
+    
+    document.getElementById('searchInput').addEventListener('input', searchStudent);
+
+    
+    renderStudents(students);
+  </script>
+</body>
+</html>

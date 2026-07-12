@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Click Counter</title>
+</head>
+<body>
+  <button id="click-btn">Click Me</button>
+  <p>You clicked the button <span id="count">0</span> times.</p>
+
+  <script>
+    // Start counter at 0
+    let count = 0;
+
+    // Get button and span by ID
+    let button = document.getElementById("click-btn");
+    let display = document.getElementById("count");
+
+    // Add click event
+    button.onclick = function() {
+      count++; // increase counter
+      display.innerText = count; // update the text
+    };
+  </script>
+</body>
+</html>

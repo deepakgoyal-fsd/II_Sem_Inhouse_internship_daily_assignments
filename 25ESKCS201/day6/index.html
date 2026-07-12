@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> js code</title>
+</head>                                                                     
+<body>
+    <h1> hello world </h1>
+    <script>
+        // let student ="branch";
+        // let studentbranch="cse";
+        // let studentrollno="50";
+        // let studentcgpa="8.5";
+        let students = [
+            {
+                name: 'harsh',
+                branch: 'cse',
+                rollno: '50',
+                marks: '90',
+                skills: ['html', 'css', 'js']
+            },      
+            {
+                name: 'virat',
+                branch: 'cse',
+                rollno: '51',
+                marks: '98',
+                skills: ["html", "php", "react"]
+            },
+            {
+                name: 'rohit',
+                branch: 'cse',
+                rollno: '52',
+                marks: '95',
+                skills: ["html", "css", "js"]
+            },
+            {
+                name: 'dhoni',
+                branch: 'cse',
+                rollno: '53',
+                marks: '99',
+                skills: ["html", "css", "js"]
+            }
+
+        ];
+        for (let i = 0; i < students.length; i++) {
+            console.log(students[i]);
+
+        }
+        for (let i = 0; i < students.length; i++) {
+            console.log(students[i].name);
+            console.log(students[i].branch);
+            console.log(students[i].rollno);
+            console.log(students[i].marks);
+            console.log(students[i].skills);
+        }
+
+
+        console.log(JSON.stringify(students));// object to string (json)                              (json parde conveter)
+        let student =
+            `{"name":"harsh","branch":"cse","rollno":"50","marks":"90","skills":["html","css","js"]}`//string to order ya object
+        console.log(JSON.parse(student));
+    </script>
+</body>
+</html>

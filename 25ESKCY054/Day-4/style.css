@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#19e51f;
+}
+
+.timer-container{
+    text-align:center;
+    background:#2ff035;
+    padding:40px 60px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,255,255,.3);
+}
+
+.timer-container h1{
+    color:#30ce4b;
+    margin-bottom:20px;
+    font-size:35px;
+}
+
+#timer{
+    font-size:70px;
+    color:#00ffff;
+    font-weight:bold;
+    letter-spacing:3px;
+}

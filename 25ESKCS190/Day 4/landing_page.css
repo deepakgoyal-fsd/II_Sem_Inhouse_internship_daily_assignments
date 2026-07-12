@@ -1,0 +1,33 @@
+h1{
+    background: whitesmoke;
+    text-align: center;
+    border-radius: 15px;
+
+}
+
+
+nav{
+    background: gray;
+    text-align: center;
+    border-radius: 15px;
+}
+
+nav a{
+    color: black;
+    margin: 60px;
+}
+
+button{
+    background:grey;
+    text-align: center;
+    border-radius: 15px;
+    
+}
+
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    
+}

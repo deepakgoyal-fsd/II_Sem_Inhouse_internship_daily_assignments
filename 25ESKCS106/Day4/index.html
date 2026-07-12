@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackathon 2026 | Event Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+<div class="logo">Hackathon<span>2026</span></div>
+
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#agenda">Agenda</a></li>
+<li><a href="#perks">Perks</a></li>
+<li><a href="#register">Register</a></li>
+</ul>
+
+<div class="theme-box">
+<label class="switch">
+<input type="checkbox" id="themeToggle">
+<span class="slider"></span>
+</label>
+<span id="themeText">🌙 Dark Mode</span>
+</div>
+
+</nav>
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<p class="tagline">
+National Level Hackathon 2026
+</p>
+
+<h1>
+Build. Learn. Innovate.
+</h1>
+
+<p class="hero-text">
+Join passionate developers, designers and innovators for a day of coding,
+learning and exciting prizes.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#register" class="btn primary">
+Register Now
+</a>
+
+<a href="#agenda" class="btn secondary">
+View Agenda
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dynamic-section">
+
+<h2 id="dynamicHeading">
+Ready to Build Something Amazing?
+</h2>
+
+<button id="headingBtn" class="btn primary">
+✨ What's Inside?
+</button>
+
+</section>
+
+<section class="counter-section">
+
+<h2>Community Hype Meter 🚀</h2>
+
+<button id="counterBtn" class="counter-button">
+Count Me In!
+</button>
+
+<p>
+Students Excited:
+<span id="clickCount">0</span>
+</p>
+
+</section>
+
+<section id="agenda">
+
+<div class="section-title">
+<h2>Event Tracks</h2>
+<p>Choose your favourite learning path.</p>
+</div>
+
+<div class="agenda-grid">
+
+<div class="card">
+<h3>Web Development</h3>
+<p>HTML, CSS, JavaScript, React & Full Stack.</p>
+</div>
+
+<div class="card">
+<h3>Artificial Intelligence</h3>
+<p>Machine Learning, Deep Learning & Prompt Engineering.</p>
+</div>
+
+<div class="card">
+<h3>Cyber Security</h3>
+<p>Ethical Hacking, Networking & Security.</p>
+</div>
+
+<div class="card">
+<h3>Cloud Computing</h3>
+<p>AWS, Azure, Docker & DevOps.</p>
+</div>
+
+<div class="card">
+<h3>Competitive Coding</h3>
+<p>Data Structures, Algorithms & Contests.</p>
+</div>
+
+<div class="card">
+<h3>Startup Talks</h3>
+<p>Innovation, Entrepreneurship & Funding.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="perks">
+
+<div class="section-title">
+<h2>Event Perks</h2>
+<p>Everything you get after joining.</p>
+</div>
+
+<div class="perks-container">
+
+<div class="perk">
+<div class="perk-icon">🏆</div>
+<h3>Cash Prizes</h3>
+<p>Prize pool worth ₹1,00,000.</p>
+</div>
+
+<div class="perk">
+<div class="perk-icon">🎁</div>
+<h3>Swag Kit</h3>
+<p>T-Shirts, Stickers & Goodies.</p>
+</div>
+
+<div class="perk">
+<div class="perk-icon">🤝</div>
+<h3>Networking</h3>
+<p>Meet industry experts & recruiters.</p>
+</div>
+
+<div class="perk">
+<div class="perk-icon">📜</div>
+<h3>Certificate</h3>
+<p>Participation certificate for everyone.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="register" class="registration">
+
+<div class="section-title">
+<h2>Register Now</h2>
+<p>Fill the form below.</p>
+</div>
+
+<form id="registrationForm" novalidate>
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" id="name" placeholder="Enter your name">
+<small id="nameError"></small>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="email" placeholder="Enter your email">
+<small id="emailError"></small>
+</div>
+
+<div class="form-group">
+<label>Branch</label>
+<select id="branch">
+<option value="">Select Branch</option>
+<option>CSE</option>
+<option>AI & ML</option>
+<option>IT</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>Mechanical</option>
+<option>Civil</option>
+</select>
+<small id="branchError"></small>
+</div>
+
+<div class="form-group">
+<label>Semester</label>
+<select id="semester">
+<option value="">Select Semester</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+</select>
+<small id="semesterError"></small>
+</div>
+
+<div class="form-group">
+<label>Why do you want to attend?</label>
+<textarea id="comment" rows="5" placeholder="Tell us why..."></textarea>
+<small id="commentError"></small>
+</div>
+
+<button type="submit" class="btn primary">
+Register
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 HackVerse | Built using HTML, CSS & JavaScript
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

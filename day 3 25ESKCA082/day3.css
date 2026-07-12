@@ -1,0 +1,11 @@
+.container-fluid {
+    background-color: #053243;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #053243;
+}

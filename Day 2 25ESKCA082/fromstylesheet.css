@@ -1,0 +1,46 @@
+h2{
+    font-size: 14pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: brown;
+}
+
+.rounded{
+    border-radius: 5px;
+}
+#txtphone{
+    font-size: 10pt;
+    border-radius: 5px;
+}
+.background{
+    background-color: rgb(250, 215, 249);
+}
+body{
+    background-color: rgb(127, 136, 255);
+}
+#frmheading{
+    text-align: center;
+}
+#frmregister{
+    border:2pt;
+    border-style: solid;
+    padding:20px;
+    margin:auto;
+    width: 500px;
+    
+}
+#divform{
+    border:2pt;
+    border-color: bisque;
+    padding: 20px 10px 20px 10px;
+    margin:20px;
+}
+p.default{
+    color:rgb(105, 100, 237);
+}
+p.note{
+    border:1px solid;
+}
+p.note strong{
+    border: inherit;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitZone - Membership Plans</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+header h1{
+    font-size:45px;
+}
+
+header p{
+    margin-top:15px;
+    font-size:18px;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#4f46e5;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+nav{
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:18px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.price{
+    font-size:35px;
+    color:#4f46e5;
+    margin:20px 0;
+}
+
+.review{
+    background:white;
+    padding:20px;
+    border-left:5px solid #4f46e5;
+    margin-bottom:20px;
+    border-radius:10px;
+}
+
+.faq{
+    background:white;
+    margin:15px 0;
+    padding:20px;
+    border-radius:10px;
+}
+
+.social{
+    text-align:center;
+}
+
+.social a{
+    text-decoration:none;
+    color:white;
+    background:#4f46e5;
+    padding:12px 20px;
+    border-radius:25px;
+    display:inline-block;
+    margin:10px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>FitZone Membership</h1>
+<p>Join today and achieve your fitness goals with premium facilities.</p>
+
+<a href="#plans">
+<button>View Plans</button>
+</a>
+</header>
+
+<nav>
+<a href="#plans">Plans</a>
+<a href="#reviews">Reviews</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="plans">
+<h2>Membership Plans</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Starter</h3>
+<p class="price">₹299</p>
+<p>✔ Gym Access</p>
+<p>✔ Locker Facility</p>
+<p>✔ Trainer Support</p>
+<button>Join Now</button>
+</div>
+
+<div class="card">
+<h3>Premium</h3>
+<p class="price">₹699</p>
+<p>✔ Unlimited Access</p>
+<p>✔ Personal Trainer</p>
+<p>✔ Diet Plan</p>
+<button>Join Now</button>
+</div>
+
+<div class="card">
+<h3>Elite</h3>
+<p class="price">₹999</p>
+<p>✔ VIP Membership</p>
+<p>✔ Spa Access</p>
+<p>✔ 24×7 Support</p>
+<button>Join Now</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="reviews">
+
+<h2>What Our Members Say</h2>
+
+<div class="review">
+★★★★★ "Amazing gym with great trainers!" — Rahul
+</div>
+
+<div class="review">
+★★★★★ "Best membership value for money." — Priya
+</div>
+
+<div class="review">
+★★★★★ "Clean environment and modern equipment." — Aman
+</div>
+
+</section>
+
+<section id="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<h3>Is there a free trial?</h3>
+<p>Yes, every new member gets a 3-day free trial.</p>
+</div>
+
+<div class="faq">
+<h3>Can I cancel anytime?</h3>
+<p>Yes. Membership can be cancelled without hidden charges.</p>
+</div>
+
+<div class="faq">
+<h3>Do you provide trainers?</h3>
+<p>Yes, certified trainers are available for Premium and Elite plans.</p>
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Connect With Us</h2>
+
+<div class="social">
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">LinkedIn</a>
+<a href="#">YouTube</a>
+</div>
+
+</section>
+
+<footer>
+
+<h3>FitZone Membership</h3>
+<p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

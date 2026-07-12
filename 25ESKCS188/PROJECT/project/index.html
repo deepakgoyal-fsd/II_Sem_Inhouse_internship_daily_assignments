@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Cover Letter Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#090909,#16001d,#27002d);
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+color:white;
+
+}
+
+.container{
+
+width:900px;
+
+max-width:100%;
+
+background:#141414;
+
+padding:35px;
+
+border-radius:18px;
+
+box-shadow:0 0 35px rgba(255,0,170,.25);
+
+}
+
+h1{
+
+text-align:center;
+
+margin-bottom:8px;
+
+font-size:34px;
+
+color:#ff4fd8;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#bbb;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:18px;
+
+}
+
+input,textarea{
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+outline:none;
+
+border-radius:12px;
+
+background:#1f1f1f;
+
+color:white;
+
+font-size:15px;
+
+}
+
+textarea{
+
+resize:none;
+
+height:120px;
+
+}
+
+button{
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.generate{
+
+background:#ff1493;
+
+color:white;
+
+}
+
+.generate:hover{
+
+background:#ff3ca6;
+
+}
+
+.copy{
+
+background:#5a00ff;
+
+color:white;
+
+}
+
+.copy:hover{
+
+background:#7934ff;
+
+}
+
+.clear{
+
+background:#444;
+
+color:white;
+
+}
+
+.clear:hover{
+
+background:#666;
+
+}
+
+.buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.output{
+
+margin-top:30px;
+
+background:#1c1c1c;
+
+padding:20px;
+
+border-radius:15px;
+
+border:1px solid #ff1493;
+
+min-height:260px;
+
+white-space:pre-wrap;
+
+line-height:1.7;
+
+}
+
+@media(max-width:700px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.buttons{
+
+flex-direction:column;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI Cover Letter Generator</h1>
+
+<p class="subtitle">
+Generate professional cover letters in seconds
+</p>
+
+<div class="grid">
+
+<input id="name" placeholder="Your Name">
+
+<input id="company" placeholder="Company Name">
+
+<input id="job" placeholder="Job Title">
+
+<input id="skills" placeholder="Skills (HTML, CSS, JavaScript...)">
+
+<textarea id="experience" placeholder="Your Experience"></textarea>
+
+<textarea id="why" placeholder="Why do you want this job?"></textarea>
+
+</div>
+
+<div class="buttons">
+
+<button class="generate" onclick="generateLetter()">
+Generate Cover Letter
+</button>
+
+<button class="copy" onclick="copyLetter()">
+Copy Letter
+</button>
+
+<button class="clear" onclick="clearFields()">
+Clear
+</button>
+
+</div>
+
+<div class="output" id="output">
+Your AI-generated cover letter will appear here...
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

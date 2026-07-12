@@ -1,0 +1,49 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../25ESKCS177"
+		},
+		{
+			"path": "../day-1"
+		},
+		{
+			"path": "../day-2"
+		},
+		{
+			"path": "../day-3"
+		},
+		{
+			"path": "../day-4"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../day-6"
+		},
+		{
+			"path": "../day-7"
+		},
+		{
+			"path": "../day-8"
+		},
+		{
+			"path": "../day-9"
+		},
+		{
+			"path": "../day-10"
+		},
+		{
+			"path": "../day-11"
+		},
+		{
+			"path": "../day-12"
+		},
+		{
+			"path": "../day-13/project"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "day-1"
+	}
+}

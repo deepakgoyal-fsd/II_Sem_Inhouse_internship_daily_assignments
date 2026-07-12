@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Card</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#0d1b2a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    width:350px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    text-align:center;
+}
+
+h2{
+    color:#0d1b2a;
+}
+
+.details{
+    display:none;
+    margin-top:15px;
+    background:#f2f2f2;
+    padding:10px;
+    border-radius:10px;
+}
+
+.btn-details{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#007bff;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h2>Palak Gupta</h2>
+
+<p>BTECH Student</p>
+
+<button class="btn-details">Show Details</button>
+
+<div class="details">
+<p><b>College:</b> SKIT College</p>
+<p><b>Semester:</b> 3rd</p>
+<p><b>City:</b> jaipur </p>
+</div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+$(".card").hide().fadeIn(1500);
+
+$(".btn-details").click(function(){
+
+$(this).closest(".card").find(".details").slideToggle();
+
+if($(this).text()=="Show Details"){
+$(this).text("Hide Details");
+$(this).css({
+"background":"red"
+});
+}
+else{
+$(this).text("Show Details");
+$(this).css({
+"background":"green"
+});
+}
+});
+});
+</script>
+</body>
+</html>

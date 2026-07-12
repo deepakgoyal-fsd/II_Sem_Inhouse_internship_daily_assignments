@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse | Interactive Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">Pulse</div>
+      <ul class="nav-links">
+        <li><a href="#counter">Counter</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+      </ul>
+      <button id="modeToggle" class="mode-toggle">Dark Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Build Something That Responds</h1>
+      <p>A small interactive page to try out counters, themes, and form checks.</p>
+    </section>
+
+    <section id="counter" class="counter-section">
+      <h2>Click Counter</h2>
+      <p class="count-display">Count: <span id="countValue">0</span></p>
+      <div class="counter-buttons">
+        <button id="incrementBtn">Click Me</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section id="signup" class="form-section">
+      <h2>Join the List</h2>
+      <form id="signupForm" novalidate>
+        <div class="field">
+          <label for="nameInput">Name</label>
+          <input type="text" id="nameInput" name="name">
+        </div>
+        <div class="field">
+          <label for="emailInput">Email</label>
+          <input type="text" id="emailInput" name="email">
+        </div>
+        <button type="submit">Submit</button>
+        <p id="formMessage" class="form-message"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built in the 30 minute sprint.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

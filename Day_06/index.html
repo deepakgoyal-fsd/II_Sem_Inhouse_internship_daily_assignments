@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civil Registry — Case File Index</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <p class="masthead__eyebrow">DEPT. OF PUBLIC RECORDS &nbsp;·&nbsp; FORM 12-R</p>
+    <h1 class="masthead__title">Civil Registry<span class="masthead__dot">.</span></h1>
+    <p class="masthead__sub">A running index of case files pulled at random from the national roll. Records refresh on request; nothing here is permanent.</p>
+  </div>
+</header>
+
+<main class="registry">
+
+  <section class="deskpanel" aria-label="Search and filter controls">
+    <div class="deskpanel__field">
+      <label class="deskpanel__label" for="search">SEARCH BY NAME</label>
+      <input type="text" id="search" class="deskpanel__input" placeholder="e.g. Delgado, R." autocomplete="off">
+    </div>
+
+    <div class="deskpanel__field deskpanel__field--narrow">
+      <label class="deskpanel__label" for="genderFilter">FILE TYPE</label>
+      <select id="genderFilter" class="deskpanel__input">
+        <option value="all">All records</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <button id="refreshBtn" class="stampbtn" type="button">
+      <span class="stampbtn__label">Pull New Batch</span>
+    </button>
+
+    <div class="tally" role="status">
+      <span class="tally__count" id="count">00</span>
+      <span class="tally__label">files<br>on desk</span>
+    </div>
+  </section>
+
+  <p class="statusline" id="statusline">standing by</p>
+
+  <div id="loading" class="loading">
+    <div class="loading__reel"></div>
+    <p>retrieving records from archive…</p>
+  </div>
+
+  <div id="error" class="errorpanel" hidden>
+    <p><strong>REQUEST DENIED.</strong> The archive did not respond. The connection may be down.</p>
+    <button id="retryBtn" class="stampbtn stampbtn--ghost" type="button">Try Again</button>
+  </div>
+
+  <div id="empty" class="emptypanel" hidden>
+    <p>No matching files. Adjust your search and try again.</p>
+  </div>
+
+  <section id="userContainer" class="filegrid" aria-live="polite"></section>
+
+</main>
+
+<footer class="foot">
+  <p>Data supplied by a third-party public-records simulator. Names, faces, and details are fictitious composites — no file corresponds to a real person.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

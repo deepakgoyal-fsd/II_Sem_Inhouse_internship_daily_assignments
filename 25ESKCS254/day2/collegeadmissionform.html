@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <link rel="stylesheet" href="clgstyle.css">
+</head>
+<body>
+
+<div class="main-box">
+
+    <h2 class="college-name">College Admission Form</h2>
+    <p class="sub-heading">Session 2026-27</p>
+    <hr>
+
+    <form action="#" method="post">
+
+        <label for="name">Student Name</label>
+        <input type="text" id="name" class="text-box"
+        placeholder="Enter your full name" required>
+
+        <label for="father">Father's Name</label>
+        <input type="text" id="father" class="text-box"
+        placeholder="Enter father's name" required>
+
+        <label for="mother">Mother's Name</label>
+        <input type="text" id="mother" class="text-box"
+        placeholder="Enter mother's name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" class="text-box"
+        placeholder="example@gmail.com" required>
+
+        <label for="phone">Mobile Number</label>
+        <input type="tel" id="phone" class="text-box"
+        placeholder="9876543210" maxlength="10" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" class="text-box" required>
+
+        <label>Gender</label>
+
+        <input type="radio" name="gender" required> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+
+        <br><br>
+
+        <label for="course">Course</label>
+
+        <select id="course" class="text-box" required>
+            <option value="">Select Course</option>
+            <option>B.Tech</option>
+            <option>M.Tech</option>
+            <option>MCA</option>
+            <option>MBA</option>
+        </select>
+
+        <label for="branch">Branch</label>
+
+        <select id="branch" class="text-box" required>
+            <option value="">Select Branch</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+        </select>
+
+        <label for="tenth">10th Percentage</label>
+        <input type="number" id="tenth"
+        class="text-box"
+        placeholder="Enter Percentage"
+        min="0"
+        max="100"
+        required>
+
+        <label for="twelfth">12th Percentage</label>
+        <input type="number" id="twelfth"
+        class="text-box"
+        placeholder="Enter Percentage"
+        min="0"
+        max="100"
+        required>
+
+        <label>Hostel Required</label>
+
+        <input type="checkbox"> Yes
+
+        <br><br>
+
+        <label for="photo">Upload Passport Photo</label>
+        <input type="file" id="photo">
+
+        <br><br>
+
+        <label for="address">Permanent Address</label>
+
+        <textarea
+        id="address"
+        rows="4"
+        class="text-box"
+        placeholder="Enter your complete address"
+        required></textarea>
+
+        <br>
+
+        <input type="submit"
+        value="Apply Now"
+        class="my-btn">
+
+    </form>
+
+</div>
+
+</body>
+</html>

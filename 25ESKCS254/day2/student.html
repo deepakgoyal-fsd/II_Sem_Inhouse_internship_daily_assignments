@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2>Student Registration Form</h2>
+
+    <form action="#" method="POST">
+
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name"
+            placeholder="Enter your full name" required minlength="3">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+            placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Phone Number</label>
+            <input type="tel" id="mobile" name="mobile"
+            placeholder="9876543210" maxlength="10" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+
+            <input type="radio" name="gender" value="Male" required> Male
+
+            <input type="radio" name="gender" value="Female"> Female
+
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+
+        <div class="form-group">
+            <label for="branch">Department</label>
+
+            <select id="branch" name="branch" required>
+
+                <option value="">Select Department</option>
+                <option>CSE</option>
+                <option>CSE AI</option>
+                <option>CSE DS</option>
+                <option>IT</option>
+                <option>ECE</option>
+                <option>Mechanical</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="password"
+            placeholder="Enter Password" minlength="6" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cpass">Confirm Password</label>
+            <input type="password" id="cpass"
+            placeholder="Confirm Password"
+            required>
+        </div>
+
+        <div class="form-group">
+            <label>Skills</label><br>
+
+            <input type="checkbox" value="HTML"> HTML
+            <input type="checkbox" value="CSS"> CSS
+            <input type="checkbox" value="JavaScript"> JavaScript
+        </div>
+
+        <div class="form-group">
+            <label for="resume">Upload Resume</label>
+            <input type="file" id="resume">
+        </div>
+
+        <div class="form-group">
+            <label for="about">About Yourself</label>
+
+            <textarea id="about" rows="4"
+            placeholder="Write something about yourself"></textarea>
+
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn">
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

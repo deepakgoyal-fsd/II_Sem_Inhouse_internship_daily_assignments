@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live User Directory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f4f7fb; color: #1f2937; }
+        .page-header { background: #12355b; color: white; padding: 44px 0; }
+        .page-header p { color: #c8ddf5; }
+        .toolbar { margin-top: 24px; }
+        .user-card { height: 100%; border: 0; box-shadow: 0 5px 16px rgba(15, 23, 42, 0.1); transition: transform 0.2s, box-shadow 0.2s; }
+        .user-card:hover { transform: translateY(-5px); box-shadow: 0 10px 22px rgba(15, 23, 42, 0.15); }
+        .alternate-card { background: #eefaf9; }
+        .user-photo { width: 92px; height: 92px; border: 4px solid #dbeafe; border-radius: 50%; object-fit: cover; }
+        .user-email { overflow-wrap: anywhere; }
+        .status-box { min-height: 72px; display: grid; place-items: center; }
+        .empty-state { color: #64748b; font-weight: 600; }
+        footer { margin-top: 50px; padding: 22px; background: #12355b; color: #dbeafe; text-align: center; }
+        footer p { margin: 0; }
+        @media (max-width: 576px) { .page-header { padding: 32px 0; } .toolbar .btn { width: 100%; } }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+           
+            <h1 class="display-6 fw-bold mb-2">Live User Directory</h1>
+            <p class="mb-0">Users below are fetched live from the JSONPlaceholder API.</p>
+
+            <div class="row g-2 toolbar">
+                <div class="col-md-7">
+                    <input id="search" class="form-control form-control-lg" type="search" placeholder="Search by name, email, or company" aria-label="Search users">
+                </div>
+                <div class="col-md-3">
+                    <button id="sortBtn" class="btn btn-outline-light btn-lg w-100" type="button">Sort A-Z</button>
+                </div>
+                <div class="col-md-2">
+                    <button id="refreshBtn" class="btn btn-primary btn-lg w-100" type="button">Refresh</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+            <h2 class="h3 mb-0">Directory Results</h2>
+            <span id="userCount" class="badge text-bg-primary fs-6">Loading users...</span>
+        </div>
+
+        <div id="status" class="status-box" aria-live="polite"></div>
+        <section id="user-container" class="row g-4" aria-live="polite"></section>
+    </main>
+
+    <footer><p>Live User Directory - Made by Piyush Khandelwal</p></footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        let users = [];
+        let isSorted = false;
+
+        function displayUsers(list) {
+            let cards = "";
+
+            for (let i = 0; i < list.length; i++) {
+                const user = list[i];
+                const alternateClass = i % 2 === 0 ? "alternate-card" : "";
+
+                cards += `
+                    <div class="col-sm-6 col-lg-4">
+                        <article class="card user-card ${alternateClass}">
+                            <div class="card-body p-4 text-center">
+                                <img class="user-photo mb-3" src="https://i.pravatar.cc/150?img=${user.id}" alt="${user.name}">
+                                <h3 class="h5">${user.name}</h3>
+                                <p class="text-secondary mb-2">@${user.username}</p>
+                                <p class="user-email mb-2"><strong>Email:</strong> ${user.email}</p>
+                                <p class="mb-2"><strong>Phone:</strong> ${user.phone}</p>
+                                <p class="mb-0"><strong>Company:</strong> ${user.company.name}</p>
+                            </div>
+                        </article>
+                    </div>`;
+            }
+
+            $("#user-container").html(cards);
+            $("#userCount").text(`Showing ${list.length} user${list.length === 1 ? "" : "s"}`);
+        }
+
+        function filterUsers() {
+            const searchText = $("#search").val().toLowerCase().trim();
+            const filteredUsers = users.filter(function (user) {
+                return user.name.toLowerCase().includes(searchText) ||
+                    user.email.toLowerCase().includes(searchText) ||
+                    user.company.name.toLowerCase().includes(searchText);
+            });
+
+            if (filteredUsers.length === 0) {
+                $("#user-container").empty();
+                $("#userCount").text("Showing 0 users");
+                $("#status").html('<p class="empty-state mb-0">No users found. Try another search.</p>');
+                return;
+            }
+
+            $("#status").empty();
+            displayUsers(filteredUsers);
+        }
+
+        function loadUsers() {
+            $("#user-container").empty();
+            $("#status").html('<div class="text-primary fw-bold">Loading users...</div>');
+            $("#userCount").text("Loading users...");
+
+            fetch("https://jsonplaceholder.typicode.com/users")
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error("Could not load users");
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    setTimeout(function () {
+                        users = data;
+                        isSorted = false;
+                        $("#sortBtn").text("Sort A-Z");
+                        $("#status").empty();
+                        filterUsers();
+                    }, 500);
+                })
+                .catch(function () {
+                    $("#status").html('<div class="alert alert-danger mb-0">Unable to load users. Please check your connection and try again. <button id="retryBtn" class="btn btn-sm btn-danger ms-2" type="button">Retry</button></div>');
+                    $("#userCount").text("No users loaded");
+                });
+        }
+
+        $(document).ready(function () {
+            loadUsers();
+
+            $("#search").on("input", filterUsers);
+            $("#refreshBtn").on("click", loadUsers);
+
+            $("#sortBtn").on("click", function () {
+                users.sort(function (a, b) {
+                    return isSorted ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name);
+                });
+                isSorted = !isSorted;
+                $(this).text(isSorted ? "Sort Z-A" : "Sort A-Z");
+                filterUsers();
+            });
+
+            $("#status").on("click", "#retryBtn", loadUsers);
+        });
+    </script>
+</body>
+</html>

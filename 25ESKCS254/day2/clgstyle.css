@@ -1,0 +1,128 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#edf4ff;
+    padding:30px;
+}
+
+/* Main Container */
+
+.main-box{
+    width:650px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+
+.college-name{
+    text-align:center;
+    color:#1d3557;
+    margin-bottom:8px;
+}
+
+.sub-heading{
+    text-align:center;
+    color:#666;
+    margin-bottom:15px;
+}
+
+hr{
+    margin-bottom:20px;
+}
+
+/* Labels */
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:#333;
+}
+
+/* Inputs */
+
+.text-box{
+    width:100%;
+    padding:10px;
+    border:1px solid #cccccc;
+    border-radius:6px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+/* Focus Effect */
+
+.text-box:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+/* Select */
+
+select{
+    background:white;
+}
+
+/* Textarea */
+
+textarea{
+    resize:vertical;
+}
+
+/* Radio & Checkbox */
+
+input[type="radio"],
+input[type="checkbox"]{
+    margin-right:6px;
+    margin-top:8px;
+}
+
+input[type="file"]{
+    margin-top:8px;
+}
+
+/* Button */
+
+.my-btn{
+    width:100%;
+    margin-top:25px;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Hover */
+
+.my-btn:hover{
+    background:#1e4fd0;
+}
+
+/* Responsive */
+
+@media(max-width:700px){
+
+    .main-box{
+        width:100%;
+        padding:20px;
+    }
+
+}

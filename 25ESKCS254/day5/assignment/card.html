@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <div class="header-row">
+                <div>
+                    
+                    <h1>Student Directory</h1>
+                </div>
+                <button id="modeBtn" type="button">Dark Mode</button>
+            </div>
+
+            <div class="search-row">
+                <input type="search" id="search" placeholder="Search by name, branch, or roll number" aria-label="Search students">
+                <p id="studentCount" class="student-count"></p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="intro">
+            <h2>Our Students</h2>
+            <p>Cards on this page are created dynamically from a JavaScript array.</p>
+        </div>
+
+        <div id="emptyMessage" class="empty-message" hidden>No student found. Try another search.</div>
+        <section id="studentContainer" class="row g-4" aria-live="polite"></section>
+    </main>
+
+    <footer>
+        <p>Student Directory - Made by Piyush Khandelwal</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

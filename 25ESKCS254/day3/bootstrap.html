@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Practice Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f4f7fb; color: #1f2937; }
+        .hero { padding: 80px 0; background: #eaf2ff; }
+        .feature-card { transition: transform 0.25s ease; }
+        .feature-card:hover { transform: translateY(-6px); }
+        .feature-icon { color: #2563eb; font-size: 2rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">CodeLearn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <p class="text-primary fw-semibold mb-2">LEARN BY BUILDING</p>
+                    <h1 class="display-5 fw-bold">Build responsive websites with Bootstrap.</h1>
+                    <p class="lead mt-3">Practice layout, components, and responsive design with small projects that are easy to understand.</p>
+                    <a class="btn btn-primary btn-lg mt-2" href="#features">Explore Features</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://picsum.photos/seed/bootstrap-practice/700/450" class="img-fluid rounded-4 shadow" alt="Students working at a desk">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container py-5" id="features">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">What You Will Learn</h2>
+            <p class="text-secondary mb-0">Three important skills for creating better web pages.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <article class="card feature-card shadow-sm h-100 border-0">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">01</div>
+                        <h3 class="h4">Fast Layouts</h3>
+                        <p class="text-secondary">Use Bootstrap containers, rows, and columns to make layouts quickly.</p>
+                        <a class="btn btn-outline-primary" href="#footer">Learn More</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="card feature-card shadow-sm h-100 border-0">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">02</div>
+                        <h3 class="h4">Responsive Design</h3>
+                        <p class="text-secondary">Create pages that adjust well for desktop, tablet, and mobile screens.</p>
+                        <a class="btn btn-outline-primary" href="#footer">Learn More</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="card feature-card shadow-sm h-100 border-0">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">03</div>
+                        <h3 class="h4">Useful Components</h3>
+                        <p class="text-secondary">Use buttons, cards, spacing utilities, and navigation components.</p>
+                        <a class="btn btn-outline-primary" href="#footer">Learn More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4" id="footer">
+        <p class="mb-0">Bootstrap Practice Page - Made by Piyush</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

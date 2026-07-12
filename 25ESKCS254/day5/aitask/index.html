@@ -1,0 +1,315 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro-Level Landing Page | Coming Soon</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom CSS for a Professional Polish */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 120px 0 80px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-title {
+            font-weight: 800;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Countdown Timer */
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .countdown-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00d2ff;
+        }
+
+        /* Services Cards */
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #2c5364;
+            margin-bottom: 20px;
+        }
+
+        /* Registration Form */
+        .registration-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .btn-custom {
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            color: white;
+            border: none;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">AppLaunch</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="target" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-scroll" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link nav-scroll" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link nav-scroll" href="#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <h1 class="hero-title">The Next Generation of Web Solutions</h1>
+            <p class="lead mb-5">Registration opens officially on July 23 th. Don't miss your chance to be an early adopter.</p>
+            
+            <div class="row justify-content-center mb-5" id="countdown">
+                <div class="col-6 col-md-2">
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="days">00</div>
+                        <div>Days</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div>Hours</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div>Minutes</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div>Seconds</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#register" class="btn btn-custom btn-lg nav-scroll">Join the Waitlist Now</a>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Core Services</h2>
+                <p class="text-muted">Everything you need to scale your business seamlessly.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="card service-card p-4">
+                        <div class="card-body">
+                            <i class="fa-solid fa-code service-icon"></i>
+                            <h4 class="card-title fw-bold">Custom Development</h4>
+                            <p class="card-text text-muted">Tailor-made web applications built with modern frameworks and robust architecture.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card p-4">
+                        <div class="card-body">
+                            <i class="fa-solid fa-cloud service-icon"></i>
+                            <h4 class="card-title fw-bold">Cloud Integration</h4>
+                            <p class="card-text text-muted">Seamlessly deploy and manage your applications on scalable cloud infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card p-4">
+                        <div class="card-body">
+                            <i class="fa-solid fa-chart-line service-icon"></i>
+                            <h4 class="card-title fw-bold">Analytics Tracking</h4>
+                            <p class="card-text text-muted">Gain deep insights into your user behavior with real-time data tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="registration-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold">Early Access Waitlist</h2>
+                        <p class="text-muted">Lock in your spot before the official July 23th launch.</p>
+                    </div>
+                    
+                    <form id="registrationForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                                <div class="invalid-feedback">Please enter your first name.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                                <div class="invalid-feedback">Please enter your last name.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="serviceInterest" class="form-label">Primary Interest</label>
+                                <select class="form-select form-control" id="serviceInterest" required>
+                                    <option value="" selected disabled>Choose a service...</option>
+                                    <option value="dev">Custom Development</option>
+                                    <option value="cloud">Cloud Integration</option>
+                                    <option value="analytics">Analytics</option>
+                                </select>
+                                <div class="invalid-feedback">Please select an interest.</div>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button class="btn btn-custom btn-lg w-100" type="submit">Submit Registration</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 AppLaunch Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // 1. Smooth Scrolling with jQuery
+            $('.nav-scroll').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 70 // Offset for sticky navbar
+                    }, 800);
+                }
+            });
+
+            // 2. Countdown Timer Logic (Vanilla JS mixed with jQuery)
+            // Target Date: July 23 of the current year
+            const currentYear = new Date().getFullYear();
+            const launchDate = new Date(`July 23, ${currentYear} 00:00:00`).getTime();
+
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    $('#countdown').html('<h3 class="text-warning">Registration is now LIVE!</h3>');
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Update the HTML
+                $('#days').text(days < 10 ? '0' + days : days);
+                $('#hours').text(hours < 10 ? '0' + hours : hours);
+                $('#minutes').text(minutes < 10 ? '0' + minutes : minutes);
+                $('#seconds').text(seconds < 10 ? '0' + seconds : seconds);
+            }, 1000);
+
+            // 3. Form Validation (Bootstrap native style via JS)
+            const form = document.getElementById('registrationForm');
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault(); // Prevent actual submission for demo
+                    alert("Thanks for joining the waitlist! We'll contact you on July 23th.");
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    return;
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    </script>
+</body>
+</html>

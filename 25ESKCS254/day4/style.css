@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f7ff;
+    color: #1d2939;
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 8%;
+    background: #14213d;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span,
+.tag,
+.card-label {
+    color: #2563eb;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-actions a {
+    color: #e5edff;
+    text-decoration: none;
+}
+
+.nav-actions a:hover {
+    color: #ffffff;
+}
+
+button,
+.primary-link {
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    font: inherit;
+    padding: 11px 18px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover,
+.primary-link:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.hero {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 82px 24px 55px;
+    text-align: center;
+}
+
+.tag,
+.card-label {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.15;
+}
+
+.hero-text {
+    max-width: 620px;
+    margin: 20px auto 30px;
+    color: #526174;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+    max-width: 1000px;
+    margin: 0 auto 70px;
+    padding: 0 24px;
+}
+
+.card {
+    padding: 32px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 8px 22px rgba(30, 41, 59, 0.1);
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 26px;
+}
+
+.card > p:not(.card-label) {
+    color: #526174;
+    line-height: 1.6;
+}
+
+.count {
+    margin: 22px 0;
+    color: #1d4ed8;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.secondary-btn {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.secondary-btn:hover {
+    background: #cbd5e1;
+}
+
+form {
+    margin-top: 24px;
+}
+
+label {
+    display: block;
+    margin: 16px 0 7px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b7c2d0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1d2939;
+    font: inherit;
+}
+
+input:focus {
+    border-color: #2563eb;
+    outline: 2px solid rgba(37, 99, 235, 0.15);
+}
+
+form button {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.error-message,
+.success-message {
+    display: block;
+    min-height: 18px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.error-message {
+    color: #c81e1e;
+}
+
+.success-message {
+    color: #15803d;
+    font-weight: bold;
+}
+
+footer {
+    padding: 20px;
+    background: #14213d;
+    color: #dbeafe;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+.dark {
+    background: #101827;
+    color: #e5e7eb;
+}
+
+.dark .hero-text,
+.dark .card > p:not(.card-label) {
+    color: #bac6d6;
+}
+
+.dark .card {
+    background: #1e293b;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.dark input {
+    border-color: #475569;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.dark .secondary-btn {
+    background: #475569;
+    color: #ffffff;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .nav-actions a {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+    }
+
+    .card {
+        padding: 26px;
+    }
+}

@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+.page-header {
+    padding: 28px 0;
+    background: #12355b;
+    color: #ffffff;
+}
+
+.header-row,
+.search-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.small-title {
+    margin: 0 0 7px;
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+#modeBtn,
+.details-btn {
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#modeBtn:hover,
+.details-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.search-row {
+    margin-top: 24px;
+}
+
+#search {
+    width: min(520px, 100%);
+    padding: 12px 15px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+#search:focus {
+    border-color: #60a5fa;
+    outline: 3px solid rgba(96, 165, 250, 0.3);
+}
+
+.student-count {
+    margin: 0;
+    color: #dbeafe;
+    font-weight: bold;
+}
+
+.intro {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.intro h2 {
+    margin-bottom: 8px;
+}
+
+.intro p {
+    margin: 0;
+    color: #5b6779;
+}
+
+.student-card {
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+.student-card.alternate-card {
+    background: #f8fbff;
+}
+
+.student-photo {
+    width: 90px;
+    height: 90px;
+    border: 4px solid #dbeafe;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.student-name {
+    margin: 12px 0 5px;
+    font-size: 21px;
+}
+
+.student-basic {
+    margin-bottom: 15px;
+    color: #5b6779;
+}
+
+.serial-badge {
+    background: #e0ecff;
+    color: #1d4ed8;
+}
+
+.cgpa-high {
+    background: #198754;
+}
+
+.cgpa-normal {
+    background: #f59e0b;
+}
+
+.details {
+    display: none;
+    margin-top: 16px;
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+    color: #4b5563;
+    text-align: left;
+}
+
+.details p {
+    margin: 6px 0;
+}
+
+.details-btn.open {
+    background: #475569;
+}
+
+.empty-message {
+    margin: 30px auto;
+    color: #64748b;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    padding: 20px;
+    background: #12355b;
+    color: #dbeafe;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+body.dark {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+.dark .page-header,
+.dark footer {
+    background: #0b1220;
+}
+
+.dark .intro p,
+.dark .student-basic,
+.dark .details,
+.dark .empty-message {
+    color: #cbd5e1;
+}
+
+.dark .student-card,
+.dark .student-card.alternate-card {
+    background: #1f2937;
+    color: #e5e7eb;
+}
+
+.dark .details {
+    border-color: #475569;
+}
+
+.dark #search {
+    background: #1f2937;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .page-header {
+        padding: 22px 0;
+    }
+
+    .header-row,
+    .search-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 27px;
+    }
+
+    #modeBtn {
+        align-self: flex-start;
+    }
+
+    .student-count {
+        margin-top: -8px;
+    }
+}

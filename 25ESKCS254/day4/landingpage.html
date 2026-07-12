@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechoWorld - Interactive Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="#home">Techo<span>World</span></a>
+        <div class="nav-actions">
+            <a href="#join">Join Us</a>
+            <button id="themeBtn" type="button" aria-label="Switch to dark mode">Dark Mode</button>
+        </div>
+    </nav>
+
+    <main id="home">
+        <header class="hero">
+            <
+            <h1>Learn by building interactive web pages.</h1>
+            <p class="hero-text">Practice JavaScript basics with a theme switcher, a click counter, and form validation.</p>
+            <a class="primary-link" href="#join">Start Learning</a>
+        </header>
+
+        <section class="content-grid" aria-label="Interactive JavaScript activities">
+            <article class="card counter-card">
+                <p class="card-label">CLICK COUNTER</p>
+                <h2>Practice Button Events</h2>
+                <p>Click the button and watch the score update using JavaScript.</p>
+                <p id="count" class="count" aria-live="polite">0</p>
+                <div class="button-row">
+                    <button id="clickBtn" type="button">Add Click</button>
+                    <button id="resetBtn" class="secondary-btn" type="button">Reset</button>
+                </div>
+            </article>
+
+            <section class="card form-card" id="join">
+                <p class="card-label">JOIN THE COMMUNITY</p>
+                <h2>Be With Us</h2>
+                <p>Enter your details to receive course updates.</p>
+
+                <form id="myForm" novalidate>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" aria-describedby="nameError">
+                    <small id="nameError" class="error-message"></small>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" aria-describedby="emailError">
+                    <small id="emailError" class="error-message"></small>
+
+                    <button type="submit">Submit</button>
+                    <p id="successMessage" class="success-message" aria-live="polite"></p>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Interactive Landing Page - Made by Piyush Khandelwal</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

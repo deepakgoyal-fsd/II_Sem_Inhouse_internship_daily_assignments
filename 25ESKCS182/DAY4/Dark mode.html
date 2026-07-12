@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTravel - Portal</title>
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            /* Forest to earthy-green gradient theme */
+            background: linear-gradient(135deg, #1e4d2b, #4a7c59);
+            transition: 0.4s;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: 0.4s;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e4d2b;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a7c59;
+        }
+
+        /* Dark Mode Button */
+        #darkBtn {
+            padding: 10px 18px;
+            background: #1e4d2b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        #darkBtn:hover {
+            background: #15351e;
+        }
+
+        /* Booking Container Box */
+        .container {
+            width: 420px;
+            background: #fff;
+            margin: 60px auto;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: 0.4s;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #1e4d2b;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border: 2px solid #1e4d2b;
+            outline: none;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            font-size: 14px;
+        }
+
+        .options a {
+            text-decoration: none;
+            color: #1e4d2b;
+        }
+
+        button.action-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background: #1e4d2b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button.action-btn:hover {
+            background: #15351e;
+        }
+
+        .alternative-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .alternative-link a {
+            text-decoration: none;
+            color: #1e4d2b;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #ffffff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            color: #555;
+            transition: 0.4s;
+        }
+
+        /* ---------- DARK MODE PROPERTIES ---------- */
+        .dark-mode {
+            background: linear-gradient(135deg, #0f1a14, #1c2e24);
+            color: white;
+        }
+
+        .dark-mode header {
+            background: #1a241f;
+        }
+
+        .dark-mode footer {
+            background: #1a241f;
+            color: white;
+        }
+
+        .dark-mode nav a {
+            color: white;
+        }
+
+        .dark-mode .container {
+            background: #25332b;
+            color: white;
+        }
+
+        .dark-mode input {
+            background: #33443a;
+            color: white;
+            border: 1px solid #55665c;
+        }
+
+        .dark-mode input::placeholder {
+            color: #aabbb0;
+        }
+
+        .dark-mode .options a,
+        .dark-mode .alternative-link a {
+            color: #82cfa2;
+        }
+
+        .dark-mode .logo {
+            color: #82cfa2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🌿 EcoTravel</div>
+        <nav>
+            <a href="#">Explore</a>
+            <a href="#">Destinations</a>
+            <a href="#">Guides</a>
+            <a href="#">Impact</a>
+        </nav>
+        <button id="darkBtn">🌙 Dark Mode</button>
+    </header>
+
+    <div class="container">
+        <h2>Access EcoPortal</h2>
+        <form>
+            <label>Passport ID / Username</label>
+            <input type="text" placeholder="Enter your identifier" required>
+
+            <label>Passcode</label>
+            <input type="password" placeholder="Enter your secret key" required>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox">
+                    Keep me signed in
+                </label>
+                <a href="#">Need security help?</a>
+            </div>
+
+            <button class="action-btn" type="submit">Verify & Enter</button>
+
+            <div class="alternative-link">
+                <p>New explorer? 
+                    <a href="#">Request Invitation</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 EcoTravel | Roam Responsibly, Leave No Trace</p>
+    </footer>
+
+    <script>
+        // Dark Mode Logic Block
+        const darkBtn = document.getElementById("darkBtn");
+
+        darkBtn.addEventListener("click", function(){
+            document.body.classList.toggle("dark-mode");
+
+            if(document.body.classList.contains("dark-mode")){
+                darkBtn.innerHTML = "☀️ Light Mode";
+            } else {
+                darkBtn.innerHTML = "🌙 Dark Mode";
+            }
+        });
+    </script>
+
+</body>
+</html>

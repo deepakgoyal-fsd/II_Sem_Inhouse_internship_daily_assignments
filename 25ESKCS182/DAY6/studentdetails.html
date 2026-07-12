@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Team Directory</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background-color:#f4f6f9;
+    margin:0;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50; /* Slate Blue Theme color */
+    margin-top:20px;
+}
+
+p{
+    text-align:center;
+}
+
+#search{
+    width:100%;
+    padding:10px;
+    margin:20px 0;
+    font-size:16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.card{
+    background:white;
+    border:1px solid #dcdcdc;
+    border-radius:5px;
+    padding:15px;
+    margin-bottom:20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card h2{
+    color:#2c3e50;
+    margin-top: 0;
+}
+
+button{
+    background:#2c3e50;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button:hover{
+    background:#34495e;
+}
+
+.details{
+    display:none;
+    margin-top:10px;
+    border-top:1px solid #eee;
+    padding-top:10px;
+}
+
+.footer{
+    background:#2c3e50;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Corporate Team Directory</h1>
+
+<p>Filter team members in real-time and review organizational profiles.</p>
+
+<input type="text" id="search" placeholder="Search staff members by name..." onkeyup="searchEmployee()">
+
+<!-- Card 1 -->
+<div class="card">
+    <h2>Alice Morgan</h2>
+    <p>Product Design - Lead UX Specialist</p>
+
+    <button onclick="toggleDetails(this)">Show Profile</button>
+
+    <div class="details">
+        <p><b>Employee ID:</b> EMP-1092</p>
+        <p><b>Email:</b> alice.m@company.com</p>
+        <p><b>Office Ext:</b> 4421</p>
+    </div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+    <h2>David Chen</h2>
+    <p>Engineering - DevOps Architect</p>
+
+    <button onclick="toggleDetails(this)">Show Profile</button>
+
+    <div class="details">
+        <p><b>Employee ID:</b> EMP-3381</p>
+        <p><b>Email:</b> d.chen@company.com</p>
+        <p><b>Office Ext:</b> 8812</p>
+    </div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+    <h2>Sarah Jenkins</h2>
+    <p>Marketing - Operations Manager</p>
+
+    <button onclick="toggleDetails(this)">Show Profile</button>
+
+    <div class="details">
+        <p><b>Employee ID:</b> EMP-7742</p>
+        <p><b>Email:</b> s.jenkins@company.com</p>
+        <p><b>Office Ext:</b> 1205</p>
+    </div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+    <h2>Marcus Vance</h2>
+    <p>Data Science - AI Engineer</p>
+
+    <button onclick="toggleDetails(this)">Show Profile</button>
+
+    <div class="details">
+        <p><b>Employee ID:</b> EMP-5510</p>
+        <p><b>Email:</b> mvance@company.com</p>
+        <p><b>Office Ext:</b> 3991</p>
+    </div>
+</div>
+
+<div class="footer">
+    Internal Operations Portal - Global Directory Infrastructure
+</div>
+
+</div>
+
+<script>
+
+function toggleDetails(button){
+    // Finds the panel element directly next to the clicked button
+    var detailsPanel = button.nextElementSibling;
+
+    if(detailsPanel.style.display === "block"){
+        detailsPanel.style.display = "none";
+        button.innerHTML = "Show Profile";
+    }
+    else{
+        detailsPanel.style.display = "block";
+        button.innerHTML = "Hide Profile";
+    }
+}
+
+function searchEmployee(){
+    // Capture user search input parameter
+    var searchInput = document.getElementById("search").value.toLowerCase();
+    
+    // Select all available employee cards
+    var employeeCards = document.getElementsByClassName("card");
+
+    for(var i = 0; i < employeeCards.length; i++){
+        // Isolate the text within the h2 tag for comparative analysis
+        var employeeName = employeeCards[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase();
+
+        // Check matching string sequence position markers
+        if(employeeName.indexOf(searchInput) > -1){
+            employeeCards[i].style.display = "block";
+        }
+        else{
+            employeeCards[i].style.display = "none";
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>

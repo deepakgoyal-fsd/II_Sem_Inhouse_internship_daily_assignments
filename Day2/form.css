@@ -1,1 +1,27 @@
-
+body{
+    background: #999ca2;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+}
+form{
+background: white;
+padding: 30px;
+width: 550px;
+border-radius: 15px;
+box-shadow: 0 4px 15px;
+}
+button{
+    border-radius: 15px;
+    width: 250px;
+}
+button:hover{
+    background-color: rgb(132, 132, 239);
+}
+input{
+    width: 400px;
+}
+select{
+    width: 200px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <link href="bootstrap.min.css" rel="stylesheet" >
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body class="bg-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Students Records</h2>
+            <input type="text" id="search" class="form-control mb-4" placeholder="Search Student">
+            <div id="container" class="row g-4"></div>
+        </div>
+        <script>
+            const student = [
+                {name : "Vaibhav" , branch :"CSE" , cgpa : 9.0 , img: "images/img1.jpg"},
+                {name : "Teena" , branch :"CSE" , cgpa : 9.9 ,img: "images/img2.jpg"},
+                {name : "UVI" , branch :"CSE" , cgpa : 9.0 ,img: "images/img10.jpeg"},
+                {name : "Riya" , branch :"CSE" , cgpa : 9.0 ,img: "images/img4.jpg"},
+                {name : "Prishita" , branch :"CSE" , cgpa : 8.6 ,img: "images/img4.jpg"},
+                {name : "Prakash" , branch :"CSE" , cgpa : 7.0 ,img: "images/img5.jpg"},
+                {name : "Vidhi" , branch :"CSE" , cgpa : 7.9 ,img: "images/img6.jpg"},
+                {name : "Yuvraj" , branch :"CSE" , cgpa : 9.0 ,img: "images/img7.jpg"},
+                {name : "studentX" , branch :"CSE" , cgpa : 5.5 ,img: "images/img8.jpg"},
+                {name : "can be anyone" , branch :"Civil" , cgpa : 7.8 ,img: "images/img9.jpg"},
+                {name : "error404" , branch :"Mach" , cgpa : 2.0 ,img: "images/img3.jpg"},
+            ];
+            let html = "";
+            for(let i=0;i< student.length;i++){
+                html += `
+                <div class="col-md-4 card-item">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h4>${student[i].name}</h4>
+                            <button class="btn btn-primary btn-sm mt-2">
+                                show details
+                            </button>
+                            <div class="details mt-3" style="display:none;">
+                                <p><strong>branch:</strong>${student[i].branch}</p>
+                                <p><strong>cgpa:</strong>${student[i].cgpa}</p>
+                                <p><strong>Image:</strong></p>
+                                <img src="${student[i].img}" class="img-fluid mt-2" alt="Student Image">        
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            
+            `;
+                
+            }
+            document.getElementById("container").innerHTML =html;
+            
+            $(document).on("click",".btn",function(){
+                $(this).next(".details").slideToggle();
+            });
+            $("#search").keyup(function(){
+                let val = $(this).val().toLowerCase();
+
+                $(".card-item").each(function(){
+                    let name=$(this).find("h4").text().toLowerCase();
+                    if(name.includes(val)){
+                        $(this).show();
+
+                    }
+                    else{
+                        $(this).hide();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

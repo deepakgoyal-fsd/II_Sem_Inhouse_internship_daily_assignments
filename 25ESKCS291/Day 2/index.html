@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form">
+        <h2>College Admission Form</h2>
+
+        <form>
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter your full name" required>
+            <label>Email:</label>
+            <input type="email" placeholder="Enter your email" required>
+            <label>Phone Number:</label>
+            <input type="tel" placeholder="Enter your phone number" required>
+            <label> Alternate Phone Number:</label>
+            <input type="tel" placeholder="Enter alternate phone number" required>
+            <label>Father's name:</label>
+            <input type="text" placeholder="Enter your father's name" required>
+            <label>Date of Birth:</label>
+            <input type="date" required>
+            <label>Gender:</label>
+            <div class="gender">
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+                <input type="radio" name="gender"> Other
+            </div>
+
+            <label>Course:</label>
+            <select required>
+                <option value="">Select Course</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>Civil</option>
+                <option>ME</option>
+                <option>EE</option>
+            </select>
+
+            <label>Address:</label>
+            <textarea rows="2" placeholder="Enter your address"></textarea>
+             <label>City:</label>
+            <input type="text" placeholder="Enter your city name" required>
+            <label>State:</label>
+            <input type="text" placeholder="Enter your state name" required>
+            <label for="pincode">Pincode:</label>
+            <div class="pincode-box">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+                <input type="text" maxlength="1">
+           </div>
+
+            <label>Upload Photo:</label>
+            <input type="file">
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

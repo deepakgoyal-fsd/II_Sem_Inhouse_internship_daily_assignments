@@ -1,0 +1,116 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.form{
+    width: 350px;
+    margin: 50px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+footer{
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+input{
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.show-pass-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+.show-pass-container input{
+    width: auto;
+    margin: 0px;
+}
+.show-pass-container label{
+    margin: 0px;
+    cursor: pointer;
+}
+
+main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.welcome-card{
+    width: 450px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 30px;
+}
+
+.welcome-card h1{
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.welcome-card h2{
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.detail{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 17px;
+}
+
+.detail span:first-child{
+    font-weight: bold;
+    color: #444;
+}
+
+.detail span:last-child{
+    color: #666;
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Admission Form</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:url("background2.jpeg") center/cover no-repeat;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.box{
+    width:420px;
+    background:#273444;
+    border:2px solid #1abc9c;
+    border-radius:10px;
+    padding:28px;
+}
+
+.pic{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    display:block;
+    margin:0 auto 12px;
+}
+
+h2{
+    color:#fff;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    color:#fff;
+    margin:10px 0 5px;
+    font-size:15px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:9px;
+    border:1px solid #bbb;
+    border-radius:4px;
+    outline:none;
+}
+
+textarea{
+    resize:none;
+}
+
+.gen{
+    color:#fff;
+    margin-top:8px;
+}
+
+.gen input{
+    width:auto;
+    margin-right:4px;
+}
+
+.btn{
+    width:100%;
+    padding:11px;
+    margin-top:15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    color:#fff;
+    font-size:15px;
+    background:#1abc9c;
+}
+
+.btn:hover{
+    background:#15967d;
+}
+
+.clr{
+    background:#666;
+}
+
+.clr:hover{
+    background:#444;
+}
+
+.txt{
+    color:#fff;
+    margin-top:10px;
+    font-size:14px;
+}
+
+.txt input{
+    width:auto;
+    margin-right:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="box">
+
+<img src="clgLOGO.jpeg" class="pic" alt="Logo">
+
+<h2>Student Admission Form</h2>
+
+<form>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your name" required>
+
+<label>Father's Name</label>
+<input type="text" placeholder="Father's name" required>
+
+<label>Mother's Name</label>
+<input type="text" placeholder="Mother's name" required>
+
+<label>Email</label>
+<input type="email" placeholder="abc@gmail.com" required>
+
+<label>Mobile Number</label>
+<input type="tel" placeholder="Enter mobile number" required>
+
+<label>Gender</label>
+
+<div class="gen">
+<input type="radio" id="m" name="g">
+<label for="m" style="display:inline;">Male</label>
+
+<input type="radio" id="f" name="g">
+<label for="f" style="display:inline;">Female</label>
+</div>
+
+<label>Date of Birth</label>
+<input type="date" required>
+
+<label>Address</label>
+<textarea rows="3" placeholder="Enter address"></textarea>
+
+<label>State</label>
+<input type="text" placeholder="State">
+
+<label>Pincode</label>
+<input type="text" placeholder="Pincode">
+
+<label>10th Percentage</label>
+<input type="number" min="0" max="100" step="0.01" placeholder="Example: 88.50">
+
+<label>12th Percentage</label>
+<input type="number" min="0" max="100" step="0.01" placeholder="Example: 90.25">
+
+<label>Course</label>
+
+<select required>
+    <option value="">Select Course</option>
+    <option>Computer Science</option>
+    <option>Mechanical Engineering</option>
+    <option>Civil Engineering</option>
+    <option>Electrical Engineering</option>
+</select>
+
+<label>Upload Photo</label>
+<input type="file" accept=".jpg,.jpeg,.png">
+
+<p class="txt">
+<input type="checkbox" required>
+I declare that the information provided above is true.
+</p>
+
+<button class="btn" type="submit">Submit</button>
+
+<button class="btn clr" type="reset">Reset</button>
+
+</form>
+
+</main>
+
+</body>
+</html>

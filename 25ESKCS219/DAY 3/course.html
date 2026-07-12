@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #e8eaf6;
+            color: #212121;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #311b92;
+            color: #ffffff;
+            text-align: center;
+            padding: 32px 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .w1 {
+            width: 90%;
+            max-width: 1050px;
+            margin: 40px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+            margin-bottom: 35px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: #311b92;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        th, td {
+            border: 1px solid #c5cae9;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .g1 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .c1 {
+            flex: 1 1 270px;
+            background-color: #ffffff;
+            padding: 28px;
+            border-radius: 10px;
+            border-top: 6px solid #00bfa5;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+        }
+
+        .c1 h2 {
+            color: #311b92;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .c1 ul {
+            padding-left: 20px;
+        }
+
+        .c1 li {
+            margin-bottom: 10px;
+        }
+
+        .b1 {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 26px;
+            border-radius: 6px;
+            background-color: #00bfa5;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .b1:hover {
+            background-color: #00897b;
+        }
+        
+        a {
+            color: #00bfa5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Courses and Duration</h1>
+        <p>Explore programs available at IIT BOMBAY</p>
+    </header>
+
+    <main class="w1">
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Duration</th>
+            </tr>
+            <tr>
+                <td>B.Tech</td>
+                <td>4 years</td>
+            </tr>
+            <tr>
+                <td>M.Tech</td>
+                <td>2 years</td>
+            </tr>
+           
+        </table>
+
+        <div class="g1">
+            <section class="c1">
+                <h2>B.Tech Branches</h2>
+                <ul>
+                    <li>Computer Science and Engineering</li>
+                    <li>Information Technology</li>
+                    <li>Electronics and Communication Engineering</li>
+                    <li>Electrical Engineering</li>
+                    <li>Civil Engineering</li>
+                    <li>Mechanical Engineering</li>
+                    <li>Automobile Engineering</li>
+                    <li>Artificial Intelligence and Data Science</li>
+                    <li>Internet of Things (IoT)</li>
+                </ul>
+            </section>
+
+            <section class="c1">
+                <h2>M.Tech Branches</h2>
+                <ul>
+                    <li>Cyber Security</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Machine Learning</li>
+                    <li>Data Science</li>
+                </ul>
+            </section>
+
+            
+        </div>
+
+        <a class="b1" href="index.html">Back to Home</a>
+    </main>
+</body>
+</html>

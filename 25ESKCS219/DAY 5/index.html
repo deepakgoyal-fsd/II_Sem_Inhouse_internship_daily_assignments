@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+
+        body.d_thm {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        header {
+            background-color: #334155;
+            color: #ffffff;
+            padding: 25px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        body.d_thm header {
+            background-color: #1e293b;
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .t_bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .t_bar h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        #n_ct {
+            font-weight: bold;
+            color: #3b82f6;
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        #m_tg {
+            background-color: #475569;
+        }
+
+        #m_tg:hover {
+            background-color: #1e293b;
+        }
+
+        .s_wrp {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 35px auto;
+            max-width: 700px;
+            padding: 0 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3b82f6;
+        }
+
+        body.d_thm input[type="text"] {
+            background-color: #1e293b;
+            border-color: #475569;
+            color: #ffffff;
+        }
+
+        .b_res {
+            background-color: #ef4444;
+        }
+
+        .b_res:hover {
+            background-color: #dc2626;
+        }
+
+        #msg_x {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #ef4444;
+            min-height: 20px;
+        }
+
+        #d_cnt {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎓 SKIT Student Directory</h1>
+
+    <div class="t_bar">
+        <h3>Total Students : <span id="n_ct">10</span></h3>
+
+        <button id="m_tg" onclick="t_dm()">
+            🌙 Dark Mode
+        </button>
+    </div>
+</header>
+
+<div class="s_wrp">
+    <input type="text" id="s_in" placeholder="Search Student Name">
+
+    <button onclick="f_src()">
+        Search
+    </button>
+
+    <button class="b_res" onclick="f_rst()">
+        Reset
+    </button>
+</div>
+
+<div id="msg_x"></div>
+
+<div id="d_cnt">
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-image: linear-gradient(rgba(45, 27, 78, 0.82), rgba(45, 27, 78, 0.82)), url("background 5.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .l_bx {
+            width: 360px;
+            background-color: #fafafa;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            border-top: 5px solid #8b5cf6;
+        }
+
+        .l_bx img {
+            display: block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 25px;
+            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 12px;
+            background-color: #8b5cf6;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #6d28d9;
+        }
+
+        .b_lk {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 18px;
+        }
+
+        .b_lk a {
+            color: #8b5cf6;
+            font-size: 13px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .b_lk a:hover {
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <div class="l_bx">
+        <img src="clgLOGO.jpeg" alt="logo">
+        <h1>Student Login</h1>
+
+        <form>
+            <label for="e_in">Email Address</label>
+            <input type="email" id="e_in" name="e_in" placeholder="Enter your email" required>
+
+            <label for="p_in">Password</label>
+            <input type="password" id="p_in" name="p_in" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="b_lk">
+            <a href="form.html">New Admission</a>
+            <a href="index.html">Back Home</a>
+        </div>
+    </div>
+</body>
+</html>

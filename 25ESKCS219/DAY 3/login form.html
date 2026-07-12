@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(rgba(25, 30, 36, 0.85), rgba(25, 30, 36, 0.85)), url("background 5.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bx {
+            width: 370px;
+            background-color: #f8fafc;
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            border-top: 6px solid #d97706;
+        }
+
+        .ig {
+            display: block;
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            font-size: 26px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            transition: 0.2s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #d97706;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            background-color: #d97706;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #b45309;
+        }
+
+        .ln {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .ln a {
+            color: #d97706;
+            font-size: 13px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .ln a:hover {
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body>
+    <div class="bx">
+        <img class="ig" src="clgLOGO.jpg" alt="logo">
+        <h1>Student Login</h1>
+
+        <form>
+            <label for="m1">Email Address</label>
+            <input type="email" id="m1" name="m1" placeholder="Enter your email" required>
+
+            <label for="p1">Password</label>
+            <input type="password" id="p1" name="p1" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="ln">
+            <a href="form.html">New Admission</a>
+            <a href="index.html">Back Home</a>
+        </div>
+    </div>
+</body>
+</html>

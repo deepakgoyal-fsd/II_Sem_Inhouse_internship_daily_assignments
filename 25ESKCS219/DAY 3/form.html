@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #d1d8e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        p, label {
+            color: #f1f2f6;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .bx {
+            width: 420px;
+            background-color: #2f3640;
+            border: 2px solid #353b48;
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin: 25px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        h2 {
+            margin-bottom: 22px;
+            text-align: center;
+            color: #f5f6fa;
+            font-size: 30px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            margin: 5px 0 14px;
+            border: 1px solid #7f8fa6;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f5f6fa;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #44bd32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: #4cd137;
+            transform: scale(1.02);
+        }
+        .btn2 {
+            background-color: #e84118;
+            margin-top: 10px;
+        }
+        .btn2:hover {
+            background-color: #c23616;
+        }
+    </style>
+</head>
+<body>
+    <div class="bx">
+        <img src="clgLOGO.jpg" alt="Logo" style="display: block; margin: 0 auto; width: 95px; height: 95px; border-radius: 50%;">
+        <h2>College Admission Form</h2>
+        <form id="fm1" action="" method="post">
+            <p>Enter your name</p>
+            <input type="text" id="n1" placeholder="Enter your name" required>
+            
+            <p>Enter your father's name</p>
+            <input type="text" id="fn" placeholder="Enter your father's name" required>
+            
+            <p>Enter your mother's name</p>
+            <input type="text" id="mn" placeholder="Enter your mother's name" required>
+            
+            <p>Enter your email address</p>
+            <input type="email" id="em" placeholder="Enter your email address" required>
+            
+            <p>Enter your phone number</p>
+            <input type="tel" id="ph" placeholder="Enter your phone number" required>
+            
+            <p>Select your gender</p>
+            <label for="g1">
+                <input type="radio" value="male" name="gn" id="g1">Male
+            </label>
+            <label for="g2">
+                <input type="radio" value="female" name="gn" id="g2">Female
+            </label>
+            
+            <p>Enter your date of birth</p>
+            <input type="date" id="db" required>
+            
+            <p>Enter your address</p>
+            <input type="text" id="ad" placeholder="Enter your address" required>
+            
+            <p>Enter your state name</p>
+            <input type="text" id="st" placeholder="Enter your state name" required>
+            
+            <p>Pincode of your area</p>
+            <input type="number" id="pc" placeholder="Enter your pincode" required>
+            
+            <p>Enter your 10th percentage</p>
+            <input type="number" id="t1" placeholder="e.g=85.5" min="0" max="100" step="0.001" required>
+            
+            <p>Enter your 12th percentage</p>
+            <input type="number" id="t2" placeholder="e.g=85.5" min="0" max="100" step="0.001" required>
+            
+            <p>Which course are you interested in?</p>
+            <select name="cr" id="cr" required>
+                <option value="cs">Computer Science</option>
+                <option value="me">Mechanical Engineering</option>
+                <option value="ce">Civil Engineering</option>
+                <option value="ee">Electrical Engineering</option>
+            </select>
+            
+            <label>Upload photo :</label>
+            <input type="file" name="pt" id="pt" accept=".jpg,.jpeg,.png" required> 
+            <br><br>
+            
+            <p><b>Declaration:</b></p>
+            <label style="font-size: 13px; font-weight: normal;">
+                <input type="checkbox" id="dc" name="dc" value="agree" required> I hereby declare that the info provided above is true and correct. I understand false info may lead to disqualification.
+            </label>
+            <br><br>
+            
+            <button type="submit">Submit</button>
+            <button type="reset" class="btn2">Reset</button>
+        </form>
+    </div>
+
+<script>
+const f = document.getElementById("fm1");
+
+f.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let v1 = document.getElementById("n1").value.trim();
+    let v2 = document.getElementById("fn").value.trim();
+    let v3 = document.getElementById("mn").value.trim();
+    let v4 = document.getElementById("em").value.trim();
+    let v5 = document.getElementById("ph").value.trim();
+    let v6 = document.getElementById("db").value;
+    let v7 = document.getElementById("ad").value.trim();
+    let v8 = document.getElementById("st").value.trim();
+    let v9 = document.getElementById("pc").value.trim();
+    let v10 = document.getElementById("t1").value;
+    let v11 = document.getElementById("t2").value;
+    let v12 = document.getElementById("pt").value;
+    let v13 = document.getElementById("dc").checked;
+    let v14 = document.querySelector('input[name="gn"]:checked');
+
+    if(v1.length < 3){
+        alert("Enter a valid name.");
+        return;
+    }
+    if(v2.length < 3){
+        alert("Enter a valid father's name.");
+        return;
+    }
+    if(v3.length < 3){
+        alert("Enter a valid mother's name.");
+        return;
+    }
+    let p1 = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if(!p1.test(v4)){
+        alert("Enter a valid email.");
+        return;
+    }
+    let p2 = /^[6-9]\d{9}$/;
+    if(!p2.test(v5)){
+        alert("Phone number must be 10 digits.");
+        return;
+    }
+    if(!v14){
+        alert("Please select your gender.");
+        return;
+    }
+    if(v6 === ""){
+        alert("Select your date of birth.");
+        return;
+    }
+    if(v7.length < 5){
+        alert("Enter your address.");
+        return;
+    }
+    if(v8.length < 3){
+        alert("Enter your state.");
+        return;
+    }
+    if(!/^\d{6}$/.test(v9)){
+        alert("Pincode must be 6 digits.");
+        return;
+    }
+    if(v10 < 0 || v10 > 100){
+        alert("10th percentage must be between 0 and 100.");
+        return;
+    }
+    if(v11 < 0 || v11 > 100){
+        alert("12th percentage must be between 0 and 100.");
+        return;
+    }
+    if(v12 === ""){
+        alert("Please upload your photo.");
+        return;
+    }
+    if(!v13){
+        alert("Please accept the declaration.");
+        return;
+    }
+    
+    alert("Form Submitted Successfully!");
+    window.location.href = "home.html";
+});
+</script>
+</body>
+</html>

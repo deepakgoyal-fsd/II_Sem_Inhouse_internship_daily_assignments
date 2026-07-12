@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+
+        .nw {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #16213e;
+            padding: 15px 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .bw {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .bw img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            margin-right: 15px;
+        }
+
+        .lw {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .lw li {
+            margin-left: 25px;
+        }
+
+        .lw a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lw a:hover {
+            color: #e94560;
+        }
+
+        .lbw {
+            background-color: #e94560;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+
+        .lbw:hover {
+            background-color: #fff;
+            color: #e94560;
+        }
+
+        .hw {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            background-image: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.85)), url("skit.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        .hc {
+            width: 80%;
+            text-align: center;
+        }
+
+        .hc h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hc h3 {
+            color: #e94560;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .hc p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .hb {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .b_cx {
+            background-color: #0f3460;
+            color: #fff;
+            padding: 12px 22px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 2px solid #0f3460;
+        }
+
+        .b_cx:hover {
+            background-color: transparent;
+            border: 2px solid #e94560;
+            color: #e94560;
+        }
+
+        .sw {
+            padding: 45px 35px;
+        }
+
+        .sw h2 {
+            text-align: center;
+            color: #e94560;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .aw {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .aw li {
+            background-color: #16213e;
+            border-bottom: 4px solid #e94560;
+            padding: 20px;
+            width: 42%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .qw {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 40px 50px;
+        }
+
+        footer {
+            background-color: #16213e;
+            text-align: center;
+            padding: 25px;
+            border-top: 2px solid #0f3460;
+        }
+
+        footer a {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+            .nw { flex-direction: column; }
+            .lw { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+            .aw li { width: 90%; }
+            .hc h1 { font-size: 30px; }
+        }
+
+        .info_p {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .r_btn {
+            background-color: #e94560;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            margin: 15px auto;
+        }
+        
+        .r_btn:hover {
+            background-color: #c81e45;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nw">
+        <div class="bw">
+            <img src="clgLOGO.jpeg" alt="logo">
+            <span>IIT BOMBAY</span>
+        </div>
+        <ul class="lw">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="fee.html">Fees</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="form.html">Admission</a></li>
+            <li><a class="lbw" href="login form.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hw">
+            <div class="hc">
+                <h1>Indian Institute Of Technology Bombay</h1>
+                <h3>Admission open for new batch</h3>
+                <p>
+                    IIT Bombay provides engineering education with a practical learning
+                    environment, industry interaction and student development opportunities.
+                </p>
+                <div class="hb">
+                     <a class="b_cx" href="form.html">Apply Now</a>
+                    <a class="b_cx" href="course.html">View Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sw">
+            <h2>About IIT Bombay</h2>
+            <ul class="aw">
+                <li>
+                    IIT Bombay is known as one of the academic excellence centers in Northern India.
+                </li>
+                <li>
+                    Located in Bombay, this college focuses on practical orientation, industrial interaction and student-led
+                    activities for overall personality development.
+                </li>
+                <li>
+                    Green landscaping, academic culture and modern learning facilities create a pleasant and dynamic
+                    campus environment for students.
+                </li>
+            </ul>
+        </section>
+
+        <div class="qw">
+            <a class="b_cx" href="course.html">Courses Details</a>
+            <a class="b_cx" href="fee.html">Fees Structure</a>
+            <a class="b_cx" href="contact.html">Contact Us</a>
+            <a class="b_cx" href="form.html">Admission Form</a>
+        </div>
+    </main>
+
+    
+    
+    <div class="info_p">
+        <p id="d_txt">button clicked 0 times.</p>
+        <h2>Total Clicks: <span id="c_val">0</span></h2>
+        <button class="r_btn" id="r_bt">Reset</button>
+    </div>
+
+</body>
+<script>
+    let v = Number(localStorage.getItem("v_ct")) || 0;
+    
+    let d1 = document.getElementById("d_txt");
+    let c1 = document.getElementById("c_val");
+    
+    if(d1) d1.textContent = `Button clicked ${v} times`;
+    if(c1) c1.textContent = v;
+
+    const b_arr = document.querySelectorAll(".b_cx");
+
+    b_arr.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            v++;
+            localStorage.setItem("v_ct", v);
+            if(d1) d1.textContent = `Button clicked ${v} times`;
+            if(c1) c1.textContent = v;
+            alert(`Total Clicks: ${v}`);
+        });
+    });
+
+    document.getElementById("r_bt").addEventListener("click", function () {
+        v = 0;
+        localStorage.setItem("v_ct", v);
+        if(c1) c1.textContent = v;
+        if(d1) d1.textContent = `Button clicked ${v} times`;
+    });
+</script>
+</html>

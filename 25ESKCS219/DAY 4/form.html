@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('background 5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        p, .t_lb {
+            color: #cbd5e1;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .f_bx {
+            width: 420px;
+            background-color: #1e293b;
+            border-top: 5px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 35px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            text-align: center;
+            color: #f8fafc;
+            font-size: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .rd_wrp {
+            display: inline-block;
+            margin-right: 15px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #8b5cf6;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-2px);
+        }
+
+        .b_res {
+            background-color: #ef4444;
+        }
+
+        .b_res:hover {
+            background-color: #dc2626;
+        }
+
+        .ck_lb {
+            font-size: 13px;
+            font-weight: normal;
+            color: #94a3b8;
+            line-height: 1.5;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="f_bx">
+        <img src="clgLOGO.jpeg" alt="Logo" style="display: block; margin: 0 auto 15px; width: 85px; height: 85px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+        <h2>College Admission Form</h2>
+        
+        <form id="fm_x" action="" method="post">
+            <p>Enter your name</p>
+            <input type="text" id="i_n" placeholder="Enter your name" required>
+            
+            <p>Enter your father's name</p>
+            <input type="text" id="i_fn" placeholder="Enter your father's name" required>
+            
+            <p>Enter your mother's name</p>
+            <input type="text" id="i_mn" placeholder="Enter your mother's name" required>
+            
+            <p>Enter your email address</p>
+            <input type="email" id="i_em" placeholder="Enter your email address" required>
+            
+            <p>Enter your phone number</p>
+            <input type="tel" id="i_ph" placeholder="Enter your phone number" required>
+            
+            <p>Select your gender</p>
+            <label class="rd_wrp" for="r_m">
+                <input type="radio" value="male" name="gnd" id="r_m"> Male
+            </label>
+            <label class="rd_wrp" for="r_f">
+                <input type="radio" value="female" name="gnd" id="r_f"> Female
+            </label>
+            
+            <p>Enter your date of birth</p>
+            <input type="date" id="i_db" required>
+            
+            <p>Enter your address</p>
+            <input type="text" id="i_ad" placeholder="Enter your address" required>
+            
+            <p>Enter your state name</p>
+            <input type="text" id="i_st" placeholder="Enter your state name" required>
+            
+            <p>Pincode of your area</p>
+            <input type="number" id="i_pc" placeholder="Enter your pincode" required>
+            
+            <p>Enter your 10th percentage</p>
+            <input type="number" id="i_t1" placeholder="e.g. 85.5" min="0" max="100" step="0.001" required>
+            
+            <p>Enter your 12th percentage</p>
+            <input type="number" id="i_t2" placeholder="e.g. 85.5" min="0" max="100" step="0.001" required>
+            
+            <p>Which course are you interested in?</p>
+            <select name="crs" id="i_cr" required>
+                <option value="cs">Computer Science</option>
+                <option value="me">Mechanical Engineering</option>
+                <option value="ce">Civil Engineering</option>
+                <option value="ee">Electrical Engineering</option>
+            </select>
+            
+            <p>Upload photo:</p>
+            <input style="padding: 8px;" type="file" name="pic" id="i_pt" accept=".jpg,.jpeg,.png" required> 
+            
+            <p><b>Declaration:</b></p>
+            <label class="ck_lb">
+                <input type="checkbox" id="i_dc" name="dcl" value="agree" required> I hereby declare that the info provided above is true and correct. I understand false info may lead to disqualification.
+            </label>
+            
+            <button type="submit">Submit</button>
+            <button type="reset" class="b_res">Reset</button>
+        </form>
+    </div>
+
+<script>
+const fx = document.getElementById("fm_x");
+
+fx.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let v_n = document.getElementById("i_n").value.trim();
+    let v_f = document.getElementById("i_fn").value.trim();
+    let v_m = document.getElementById("i_mn").value.trim();
+    let v_e = document.getElementById("i_em").value.trim();
+    let v_p = document.getElementById("i_ph").value.trim();
+    let v_d = document.getElementById("i_db").value;
+    let v_a = document.getElementById("i_ad").value.trim();
+    let v_s = document.getElementById("i_st").value.trim();
+    let v_pc = document.getElementById("i_pc").value.trim();
+    let v_t1 = document.getElementById("i_t1").value;
+    let v_t2 = document.getElementById("i_t2").value;
+    let v_pt = document.getElementById("i_pt").value;
+    let v_dc = document.getElementById("i_dc").checked;
+    let v_g = document.querySelector('input[name="gnd"]:checked');
+
+    if(v_n.length < 3){
+        alert("Enter a valid name.");
+        return;
+    }
+    if(v_f.length < 3){
+        alert("Enter a valid father's name.");
+        return;
+    }
+    if(v_m.length < 3){
+        alert("Enter a valid mother's name.");
+        return;
+    }
+    
+    let rx_e = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if(!rx_e.test(v_e)){
+        alert("Enter a valid email.");
+        return;
+    }
+    
+    let rx_p = /^[6-9]\d{9}$/;
+    if(!rx_p.test(v_p)){
+        alert("Phone number must be 10 digits.");
+        return;
+    }
+    if(!v_g){
+        alert("Please select your gender.");
+        return;
+    }
+    if(v_d === ""){
+        alert("Select your date of birth.");
+        return;
+    }
+    if(v_a.length < 5){
+        alert("Enter your address.");
+        return;
+    }
+    if(v_s.length < 3){
+        alert("Enter your state.");
+        return;
+    }
+    if(!/^\d{6}$/.test(v_pc)){
+        alert("Pincode must be 6 digits.");
+        return;
+    }
+    if(v_t1 < 0 || v_t1 > 100){
+        alert("10th percentage must be between 0 and 100.");
+        return;
+    }
+    if(v_t2 < 0 || v_t2 > 100){
+        alert("12th percentage must be between 0 and 100.");
+        return;
+    }
+    if(v_pt === ""){
+        alert("Please upload your photo.");
+        return;
+    }
+    if(!v_dc){
+        alert("Please accept the declaration.");
+        return;
+    }
+    
+    alert("Form Submitted Successfully!");
+    window.location.href = "home.html";
+});
+</script>
+</body>
+</html>

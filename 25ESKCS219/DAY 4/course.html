@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background-color: #2b2d42;
+            border-bottom: 5px solid #ef233c;
+            color: #fff;
+            text-align: center;
+            padding: 40px 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        header p {
+            font-family: 'Verdana', sans-serif;
+            font-size: 15px;
+            color: #8d99ae;
+        }
+
+        .w_bx {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        th {
+            background-color: #2b2d42;
+            color: #fff;
+            font-size: 17px;
+            padding: 18px;
+        }
+
+        td {
+            padding: 16px;
+            color: #4a4e69;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .g_bx {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .c_bx {
+            flex: 1 1 290px;
+            background-color: #fff;
+            padding: 28px;
+            border-radius: 12px;
+            border-left: 6px solid #ef233c;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+
+        .c_bx:hover {
+            transform: translateY(-5px);
+        }
+
+        .c_bx h2 {
+            color: #d90429;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .c_bx ul {
+            padding-left: 22px;
+            font-family: 'Verdana', sans-serif;
+            font-size: 14px;
+        }
+
+        .c_bx li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .c_bx a {
+            color: #d90429;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .x_bt {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            background-color: #2b2d42;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Verdana', sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .x_bt:hover {
+            background-color: #ef233c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Courses and Duration</h1>
+        <p>Explore programs available</p>
+    </header>
+
+    <main class="w_bx">
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Duration</th>
+            </tr>
+            <tr>
+                <td>B.Tech</td>
+                <td>4 years</td>
+            </tr>
+            <tr>
+                <td>M.Tech</td>
+                <td>2 years</td>
+            </tr>
+            
+        </table>
+
+        <div class="g_bx">
+            <section class="c_bx">
+                <h2>B.Tech Branches</h2>
+                <ul>
+                    <li>Computer Science and Engineering</li>
+                    <li>Information Technology</li>
+                    <li>Electronics and Communication Engineering</li>
+                    <li>Electrical Engineering</li>
+                    <li>Civil Engineering</li>
+                    <li>Mechanical Engineering</li>
+                    <li>Automobile Engineering</li>
+                    <li>Artificial Intelligence and Data Science</li>
+                    <li>Internet of Things (IoT)</li>
+                </ul>
+            </section>
+
+            <section class="c_bx">
+                <h2>M.Tech Branches</h2>
+                <ul>
+                    <li>Cyber Security</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Machine Learning</li>
+                    <li>Data Science</li>
+                </ul>
+            </section>
+
+            
+        </div>
+
+        <a class="x_bt" href="index.html">Back to Home</a>
+    </main>
+</body>
+</html>

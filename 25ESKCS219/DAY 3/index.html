@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .nvb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 45px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .brd {
+            display: flex;
+            align-items: center;
+            color: #ecf0f1;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .brd img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .nlk {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nlk li {
+            margin-left: 22px;
+        }
+
+        .nlk a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nlk a:hover {
+            color: #e74c3c;
+        }
+
+        .lbt {
+            background-color: #e74c3c;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 4px;
+        }
+
+        .lbt:hover {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .hr {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            background-image: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url("skit.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 450px;
+        }
+
+        .hrc {
+            width: 80%;
+            text-align: center;
+        }
+
+        .hrc h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hrc h3 {
+            color: #e67e22;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .hrc p {
+            font-size: 18px;
+        }
+
+        .hrb {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btx {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid #e74c3c;
+        }
+
+        .btx:hover {
+            background-color: transparent;
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+
+        .sec {
+            padding: 40px;
+        }
+
+        .sec h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 30px;
+        }
+
+        .abl {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .abl li {
+            background-color: white;
+            border-left: 6px solid #e74c3c;
+            padding: 18px;
+            width: 46%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        .qlk {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer a {
+            color: #e67e22;
+        }
+
+        @media (max-width: 800px) {
+            .nvb {
+                flex-direction: column;
+            }
+            .nlk {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hr {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hrc {
+                width: 100%;
+            }
+            .abl li {
+                width: 100%;
+            }
+        }
+
+        button {
+            padding: 10px 22px;
+            margin: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        #cbx {
+            background-color: #3498db;
+            color: white;
+        }
+
+        #cbx:hover {
+            background-color: #2980b9;
+            transform: scale(1.03);
+        }
+
+        #rbx {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        #rbx:hover {
+            background-color: #a53125;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nvb">
+        <div class="brd">
+            <img src="clgLOGO.jpeg" alt="college logo">
+            <span>IIT BOMBAY</span>
+        </div>
+        <ul class="nlk">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="course.html">Courses</a></li>
+            <li><a href="fee.html">Fees</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="form.html">Admission</a></li>
+            <li><a class="lbt" id="lb1" href="login form.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hr">
+            <div class="hrc">
+                <h1>IIT BOMBAY</h1>
+                <h3>Admission open for new batch</h3>
+                <p>
+                    IIT BOMBAY provides engineering education with a practical learning
+                    environment, industry interaction and student development opportunities.
+                </p>
+                <div class="hrb">
+                     <a class="btx" id="ab1" href="form.html">Apply Now</a>
+                    <a class="btx" id="cb1" href="course.html">View Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <h2>About IIT BOMBAY</h2>
+            <ul class="abl">
+                <li>
+                   IIT BOMBAY is
+                    known as one of the academic excellence centers in Northern India.
+                </li>
+                
+                <li>
+                    Green landscaping, academic culture and modern learning facilities create a pleasant and dynamic
+                    campus environment for students.
+                </li>
+            </ul>
+        </section>
+
+        <div class="qlk">
+            <a class="btx" id="cd1" href="course.html">Courses Details</a>
+            <a class="btx" id="fs1" href="fee.html">Fees Structure</a>
+            <a class="btx" id="cu1" href="contact.html">Contact Us</a>
+            <a class="btx" id="af1" href="form.html">Admission Form</a>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+    <p id="dpx">button clicked 0 times.</p>
+    <h2>Total Clicks: <span id="cnt">0</span></h2>
+
+    <button id="rbx">Reset</button>
+</body>
+<script>
+let c = Number(localStorage.getItem("c_val")) || 0;
+document.getElementById("dpx").textContent = `Button clicked ${c} times`;
+
+const bxs = document.querySelectorAll(".btx");
+
+bxs.forEach(function(x) {
+    x.addEventListener("click", function() {
+        c++;
+        localStorage.setItem("c_val", c);
+        document.getElementById("dpx").textContent = `Button clicked ${c} times`;
+        alert(`Total Clicks: ${c}`);
+    });
+});
+
+document.getElementById("rbx").addEventListener("click", function () {
+    c = 0;
+    localStorage.setItem("c_val", c);
+    let n_cdp = document.getElementById("cnt");
+    if(n_cdp) {
+        n_cdp.textContent = c;
+    }
+});
+</script>
+</html>

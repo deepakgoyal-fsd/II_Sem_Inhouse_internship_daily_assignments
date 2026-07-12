@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #0f766e;
+            color: #ffffff;
+            text-align: center;
+            padding: 35px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .w_bx {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            width: 90%;
+            max-width: 1020px;
+            margin: 45px auto;
+        }
+
+        .c_pnl {
+            flex: 1 1 350px;
+            background-color: #ffffff;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border-left: 6px solid #0f766e;
+        }
+
+        .c_pnl h2 {
+            color: #0f766e;
+            margin-bottom: 18px;
+            font-size: 26px;
+        }
+
+        .c_pnl ul {
+            padding-left: 22px;
+            margin-top: 18px;
+        }
+
+        .c_pnl li {
+            margin-bottom: 12px;
+        }
+
+        .i_pnl {
+            flex: 1 1 350px;
+        }
+
+        .i_pnl img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .x_btn {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            background-color: #0f766e;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .x_btn:hover {
+            background-color: #0d9488;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 800px) {
+            .w_bx {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <p>We are here to help with admission and college inquiries</p>
+    </header>
+
+    <main class="w_bx">
+        <section class="c_pnl">
+            <h2>Get in Touch</h2>
+            <p>For any inquiries or assistance, please feel free to contact us through the following channels:</p>
+            <ul>
+                <li>Email: info@IIT.edu.in</li>
+                <li>Phone: 9874563211</li>
+            </ul>
+            <a class="x_btn" href="index.html">Back to Home</a>
+        </section>
+
+        <div class="i_pnl">
+            <img src="contact.webp" alt="Contact">
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        body {
+            background-color: #f5f0e6;
+            color: #2c2c2c;
+            line-height: 1.8;
+        }
+
+        header {
+            background-color: #6b1427;
+            color: #ffffff;
+            text-align: center;
+            padding: 35px 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .w {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .bx {
+            flex: 1 1 350px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid #d4af37;
+        }
+
+        .bx h2 {
+            color: #6b1427;
+            margin-bottom: 16px;
+            font-size: 26px;
+        }
+
+        .bx ul {
+            padding-left: 22px;
+            margin-top: 16px;
+        }
+
+        .bx li {
+            margin-bottom: 12px;
+        }
+
+        .ig {
+            flex: 1 1 350px;
+        }
+
+        .ig img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .bt {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background-color: #d4af37;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .bt:hover {
+            background-color: #b5952f;
+        }
+
+        @media (max-width: 800px) {
+            .w {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <p>We are here to help with admission and college inquiries</p>
+    </header>
+
+    <main class="w">
+        <section class="bx">
+            <h2>Get in Touch</h2>
+            <p>For any inquiries or assistance, please feel free to contact us through the following channels:</p>
+            <ul>
+                <li>Email: info@IIT.edu.in</li>
+                <li>Phone: 9865236525</li>
+            </ul>
+            <a class="bt" href="index.html">Back to Home</a>
+        </section>
+
+        <div class="ig">
+            <img src="contact.webp" alt="Contact IIT BOMBAY">
+        </div>
+    </main>
+</body>
+</html>

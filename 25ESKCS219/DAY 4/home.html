@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission Successful</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(30, 41, 59, 0.75), rgba(30, 41, 59, 0.75)), url("background 5.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.s_bx {
+    width: 430px;
+    background: #f8fafc;
+    padding: 42px 30px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    border-bottom: 5px solid #10b981;
+}
+
+.m_ig {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.c_mk {
+    font-size: 60px;
+    color: #10b981;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #0f172a;
+    margin: 10px 0 18px;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+
+p {
+    color: #475569;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+button {
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+</style>
+
+</head>
+<body>
+
+<div class="s_bx">
+
+    <img src="clgLOGO.jpeg" class="m_ig" alt="logo">
+
+    <div class="c_mk">✔</div>
+
+    <h1>Admission Successful!</h1>
+
+    <p>
+        Congratulations! 🎉<br><br>
+        Your admission form has been submitted successfully.
+        <br>
+        Our admission team will contact you soon.
+    </p>
+
+    <button onclick="x_hm()">🏠 Home</button>
+
+</div>
+
+<script>
+    function x_hm() {
+        window.location.href = "index.html"; 
+    }
+</script>
+
+</body>
+</html>

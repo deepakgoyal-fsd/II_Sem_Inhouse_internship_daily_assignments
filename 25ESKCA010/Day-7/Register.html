@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Registration Portal</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           Premium Registration Form Stylesheet
+           ========================================================================== */
+
+        :root {
+            --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            
+            /* Color Palette */
+            --color-bg-start: #4f46e5;       /* Indigo 600 */
+            --color-bg-end: #6d28d9;         /* Violet 700 */
+            --color-card-bg: rgba(255, 255, 255, 0.94);
+            --color-text-primary: #1e293b;   /* Slate 800 */
+            --color-text-secondary: #64748b; /* Slate 500 */
+            --color-primary: #4f46e5;        /* Indigo 600 */
+            --color-primary-hover: #4338ca;  /* Indigo 700 */
+            --color-primary-light: #e0e7ff;  /* Indigo 100 */
+            
+            /* Validation Colors */
+            --color-success: #10b981;        /* Emerald 500 */
+            --color-success-light: #ecfdf5;  /* Emerald 50 */
+            --color-error: #f43f5e;          /* Rose 500 */
+            --color-error-light: #fff1f2;    /* Rose 50 */
+            
+            /* Inputs */
+            --color-border: #cbd5e1;         /* Slate 300 */
+            --color-input-bg: #f8fafc;       /* Slate 50 */
+            --color-placeholder: #94a3b8;    /* Slate 400 */
+            
+            /* Shadows & Radius */
+            --shadow-premium: 0 20px 40px -15px rgba(15, 23, 42, 0.3), 
+                              0 0 50px -10px rgba(79, 70, 229, 0.15);
+            --radius-card: 20px;
+            --radius-input: 10px;
+            --radius-pill: 50px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ---------- Global Resets & Setup ---------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #d90000;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ---------- Glowing Background Blobs ---------- */
+        .glow-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            mix-blend-mode: multiply;
+            animation: floatBlobs 20s infinite alternate;
+        }
+
+        .blob-1 {
+            background-color: #38bdf8; /* Sky blue */
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            background-color: #ec4899; /* Pink */
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+
+        @keyframes floatBlobs {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            50% {
+                transform: translate(60px, -40px) scale(1.1);
+            }
+            100% {
+                transform: translate(-30px, 50px) scale(0.95);
+            }
+        }
+
+        /* ---------- App Layout Container ---------- */
+        .app-container {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ---------- Form Card & Layout ---------- */
+        .form-card {
+            background-color: var(--color-card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-premium);
+            padding: 40px;
+            transition: transform var(--transition-normal), opacity var(--transition-normal), display var(--transition-normal);
+        }
+
+        .form-card.fade-out {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            pointer-events: none;
+        }
+
+        .form-header {
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .form-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .form-header .subtitle {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ---------- Progress Section ---------- */
+        .progress-section {
+            background: white;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-percent {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background-color: #f1f5f9;
+            border-radius: var(--radius-pill);
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--color-primary), #6366f1);
+            border-radius: var(--radius-pill);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ---------- Typography & Field Groups ---------- */
+        .field-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+            transition: color var(--transition-fast);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ---------- Inputs, Selects, and Textareas ---------- */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 13px 16px;
+            font-family: var(--font-primary);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            background-color: var(--color-input-bg);
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-input);
+            transition: all var(--transition-fast);
+            outline: none;
+        }
+
+        input::placeholder {
+            color: var(--color-placeholder);
+            font-weight: 400;
+        }
+
+        input:hover,
+        select:hover {
+            border-color: #94a3b8;
+            background-color: #f1f5f9;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--color-primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+        }
+
+        input[type="date"] {
+            min-height: 48px;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 44px;
+            cursor: pointer;
+        }
+
+        select:invalid,
+        select.placeholder-active {
+            color: var(--color-placeholder);
+            font-weight: 400;
+        }
+
+        /* ---------- Form Layout Row ---------- */
+        .row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .row .col {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* ---------- Custom Gender Pills ---------- */
+        .gender-pill-group {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .gender-pill-label {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .gender-pill-label input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .gender-pill-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 14px;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-input);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            background-color: var(--color-input-bg);
+            transition: all var(--transition-fast);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .gender-pill-button svg {
+            transition: stroke var(--transition-fast);
+        }
+
+        .gender-pill-label:hover .gender-pill-button {
+            background-color: #f1f5f9;
+            border-color: #94a3b8;
+            color: var(--color-text-primary);
+        }
+
+        .gender-pill-label input[type="radio"]:checked + .gender-pill-button {
+            background-color: var(--color-primary-light);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        .gender-pill-label input[type="radio"]:checked + .gender-pill-button svg {
+            stroke: var(--color-primary);
+        }
+
+        /* ---------- Error Stacked Fields ---------- */
+        .stacked input {
+            margin-bottom: 10px;
+        }
+        .stacked input:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------- Form Validation Visual States ---------- */
+        .status-indicator {
+            position: absolute;
+            right: 16px;
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-group.success input,
+        .input-group.success select,
+        .input-group.error input,
+        .input-group.error select {
+            padding-right: 44px;
+        }
+
+        .input-group.success input,
+        .input-group.success select {
+            border-color: var(--color-success);
+            background-color: #ffffff;
+        }
+
+        .input-group.success input:focus,
+        .input-group.success select:focus {
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+        }
+
+        .input-group.success .status-indicator {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .input-group.success .status-indicator::after {
+            content: "";
+            width: 10px;
+            height: 5px;
+            border-left: 2.5px solid var(--color-success);
+            border-bottom: 2.5px solid var(--color-success);
+            transform: rotate(-45deg) translate(1px, -1px);
+        }
+
+        .input-group.success .field-label {
+            color: var(--color-success);
+        }
+
+        .input-group.error input,
+        .input-group.error select {
+            border-color: var(--color-error);
+            background-color: var(--color-error-light);
+        }
+
+        .input-group.error input:focus,
+        .input-group.error select:focus {
+            box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15);
+        }
+
+        .input-group.error .status-indicator {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .input-group.error .status-indicator::before,
+        .input-group.error .status-indicator::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 12px;
+            background-color: var(--color-error);
+            border-radius: 1px;
+        }
+
+        .input-group.error .status-indicator::before {
+            transform: rotate(45deg);
+        }
+
+        .input-group.error .status-indicator::after {
+            transform: rotate(-45deg);
+        }
+
+        .input-group.error .field-label {
+            color: var(--color-error);
+        }
+
+        .input-group.error.shake {
+            animation: shake 0.4s linear;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .error-msg {
+            display: block;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--color-error);
+            margin-top: 0;
+            transition: all var(--transition-fast) ease-out;
+        }
+
+        .input-group.error .error-msg {
+            max-height: 40px;
+            opacity: 1;
+            margin-top: 6px;
+        }
+
+        /* ---------- Submit Button Styling ---------- */
+        button[type="submit"] {
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-primary), #6366f1);
+            color: white;
+            border: none;
+            padding: 15px;
+            margin-top: 24px;
+            border-radius: var(--radius-input);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -10px rgba(79, 70, 229, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-fast);
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, var(--color-primary-hover), #4f46e5);
+            box-shadow: 0 12px 24px -8px rgba(79, 70, 229, 0.5);
+            transform: translateY(-1px);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(1px);
+            box-shadow: 0 6px 12px -8px rgba(79, 70, 229, 0.5);
+        }
+
+        button[type="submit"].submitting {
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        button[type="submit"].submitting .btn-text {
+            visibility: hidden;
+        }
+
+        .btn-loader {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all var(--transition-fast);
+        }
+
+        button[type="submit"].submitting .btn-loader {
+            opacity: 1;
+            transform: scale(1);
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ---------- Success Card & Transitions ---------- */
+        .success-card {
+            display: none;
+            background-color: var(--color-card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-premium);
+            padding: 48px 40px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+            transition: all var(--transition-normal);
+        }
+
+        .success-card.fade-in {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .success-icon-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--color-success-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.1);
+        }
+
+        .checkmark-svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--color-success);
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 3.5;
+            stroke: var(--color-success);
+            stroke-miterlimit: 10;
+            fill: none;
+            animation: drawCircle 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: drawCheck 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+        }
+
+        @keyframes drawCircle {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes drawCheck {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .success-card h2 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--color-text-primary);
+        }
+
+        .success-card p {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .success-card p strong {
+            color: var(--color-text-primary);
+        }
+
+        .summary-details {
+            background-color: rgba(241, 245, 249, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.5px;
+            margin-bottom: 10px;
+        }
+
+        .detail-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-row span {
+            color: var(--color-text-secondary);
+        }
+
+        .detail-row strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            background-color: white;
+            color: var(--color-text-primary);
+            border: 1.5px solid var(--color-border);
+            padding: 14px;
+            border-radius: var(--radius-input);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-input-bg);
+            border-color: #94a3b8;
+            color: var(--color-text-primary);
+        }
+
+        /* ---------- Responsive Adjustments ---------- */
+        @media (max-width: 576px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .form-card {
+                padding: 30px 20px;
+            }
+            
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .gender-pill-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background abstract glowing blobs for aesthetics -->
+    <form action="register.php" method="POST" enctype="multipart/form-data">
+    <div class="glow-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Main Form Card -->
+        <div class="form-card" id="formCard">
+            <!-- Progress Bar Section -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span class="progress-label">Registration Progress</span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+            </div>
+
+            <div class="form-header">
+                <h1>Create Account</h1>
+                <p class="subtitle">Please fill in your details to set up your profile.</p>
+            </div>
+
+            <form id="registrationForm" action="register.php" method="POST" novalidate>
+                <!-- Full Name -->
+                <div class="input-group" id="fullnameGroup">
+                    <label class="field-label" for="fullname">Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required autocomplete="name">
+                        <span class="status-indicator"></span>
+                    </div>
+                    <span class="error-msg" id="fullnameError">Please enter your full name (minimum 2 characters).</span>
+                </div>
+
+                <!-- Email -->
+                <div class="input-group" id="emailGroup">
+                    <label class="field-label" for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+                        <span class="status-indicator"></span>
+                    </div>
+                    <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+
+                <!-- Phone and Birth Date Row -->
+                <div class="row">
+                    <div class="col input-group" id="phoneGroup">
+                        <label class="field-label" for="phone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <input type="tel" id="phone" name="phone" placeholder="e.g. +1 555-0199" required autocomplete="tel">
+                            <span class="status-indicator"></span>
+                        </div>
+                        <span class="error-msg" id="phoneError">Enter a valid phone (digits/symbols only, min 7 digits).</span>
+                    </div>
+                    
+                    <div class="col input-group" id="bdateGroup">
+                        <label class="field-label" for="bdate">Birth Date</label>
+                        <div class="input-wrapper">
+                            <input type="date" id="bdate" name="bdate" required>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <span class="error-msg" id="bdateError">You must be at least 13 years old.</span>
+                    </div>
+                </div>
+
+                <!-- Gender (Custom Pills) -->
+                <div class="input-group" id="genderGroup">
+                    <label class="field-label">Gender</label>
+                    <div class="gender-pill-group">
+                        <label class="gender-pill-label">
+                            <input type="radio" name="gender" value="male" checked>
+                            <span class="gender-pill-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                Male
+                            </span>
+                        </label>
+                        <label class="gender-pill-label">
+                            <input type="radio" name="gender" value="female">
+                            <span class="gender-pill-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                Female
+                            </span>
+                        </label>
+                        <label class="gender-pill-label">
+                            <input type="radio" name="gender" value="prefer-not-to-say">
+                            <span class="gender-pill-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                                Prefer not to say
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="input-group" id="address1Group">
+                    <label class="field-label" for="address1">Street Address</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="address1" name="address1" placeholder="123 Main St" required autocomplete="address-line1">
+                        <span class="status-indicator"></span>
+                    </div>
+                    <span class="error-msg" id="address1Error">Please enter your street address.</span>
+                </div>
+
+                <div class="input-group">
+                    <label class="field-label" for="address2">Address Line 2 (Optional)</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="address2" name="address2" placeholder="Suite, Apt, etc." autocomplete="address-line2">
+                    </div>
+                </div>
+
+                <!-- Country and City Row -->
+                <div class="row">
+                    <div class="col input-group" id="countryGroup">
+                        <label class="field-label" for="country">Country</label>
+                        <div class="input-wrapper">
+                            <select id="country" name="country" required autocomplete="country">
+                                <option value="" disabled selected>Select country</option>
+                                <option value="india">India</option>
+                                <option value="usa">USA</option>
+                                <option value="uk">UK</option>
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                            </select>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <span class="error-msg" id="countryError">Please select your country.</span>
+                    </div>
+                    
+                    <div class="col input-group" id="cityGroup">
+                        <label class="field-label" for="city">City</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="city" name="city" placeholder="New York" required autocomplete="address-level2">
+                            <span class="status-indicator"></span>
+                        </div>
+                        <span class="error-msg" id="cityError">Please enter your city.</span>
+                    </div>
+                </div>
+
+                <!-- Region and Postal Row -->
+                <div class="row">
+                    <div class="col input-group" id="regionGroup">
+                        <label class="field-label" for="region">Region / State</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="region" name="region" placeholder="NY" autocomplete="address-level1">
+                        </div>
+                    </div>
+                    
+                    <div class="col input-group" id="postalGroup">
+                        <label class="field-label" for="postal">Postal / ZIP Code</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="postal" name="postal" placeholder="10001" autocomplete="postal-code">
+                            <span class="status-indicator"></span>
+                        </div>
+                        <span class="error-msg" id="postalError">Please enter a valid postal code.</span>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Submit Registration</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Success Message Card -->
+        <div class="success-card" id="successCard">
+            <div class="success-icon-container">
+                <svg class="checkmark-svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h2>Registration Successful!</h2>
+            <p>Your account has been created. A confirmation email has been sent to <strong id="registeredEmail">your email</strong>.</p>
+            <div class="summary-details">
+                <div class="detail-row">
+                    <span>Account Name:</span>
+                    <strong id="summaryName">John Doe</strong>
+                </div>
+                <div class="detail-row">
+                    <span>Contact Number:</span>
+                    <strong id="summaryPhone">+1 555-0199</strong>
+                </div>
+            </div>
+            <button class="btn-secondary" id="resetBtn">Register Another Account</button>
+        </div>
+    </div>
+</form>
+    <!-- Script logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('registrationForm');
+            const formCard = document.getElementById('formCard');
+            const successCard = document.getElementById('successCard');
+            
+            const fields = {
+                fullname: {
+                    el: document.getElementById('fullname'),
+                    group: document.getElementById('fullnameGroup'),
+                    errorEl: document.getElementById('fullnameError'),
+                    validate: (val) => {
+                        const nameRegex = /^[A-Za-z\s'\-]{2,}$/;
+                        return nameRegex.test(val.trim());
+                    }
+                },
+                email: {
+                    el: document.getElementById('email'),
+                    group: document.getElementById('emailGroup'),
+                    errorEl: document.getElementById('emailError'),
+                    validate: (val) => {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return emailRegex.test(val.trim());
+                    }
+                },
+                phone: {
+                    el: document.getElementById('phone'),
+                    group: document.getElementById('phoneGroup'),
+                    errorEl: document.getElementById('phoneError'),
+                    validate: (val) => {
+                        const phoneRegex = /^[+\d\s().-]{7,}$/;
+                        const digitsCount = val.replace(/\D/g, '').length;
+                        return phoneRegex.test(val.trim()) && digitsCount >= 7;
+                    }
+                },
+                bdate: {
+                    el: document.getElementById('bdate'),
+                    group: document.getElementById('bdateGroup'),
+                    errorEl: document.getElementById('bdateError'),
+                    validate: (val) => {
+                        if (!val) return false;
+                        
+                        const birthDate = new Date(val);
+                        const today = new Date();
+                        
+                        let age = today.getFullYear() - birthDate.getFullYear();
+                        const monthDiff = today.getMonth() - birthDate.getMonth();
+                        const dayDiff = today.getDate() - birthDate.getDate();
+                        
+                        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                            age--;
+                        }
+                        
+                        return age >= 13 && birthDate < today;
+                    }
+                },
+                address1: {
+                    el: document.getElementById('address1'),
+                    group: document.getElementById('address1Group'),
+                    errorEl: document.getElementById('address1Error'),
+                    validate: (val) => val.trim().length >= 4
+                },
+                country: {
+                    el: document.getElementById('country'),
+                    group: document.getElementById('countryGroup'),
+                    errorEl: document.getElementById('countryError'),
+                    validate: (val) => val !== "" && val !== null
+                },
+                city: {
+                    el: document.getElementById('city'),
+                    group: document.getElementById('cityGroup'),
+                    errorEl: document.getElementById('cityError'),
+                    validate: (val) => val.trim().length >= 2
+                },
+                postal: {
+                    el: document.getElementById('postal'),
+                    group: document.getElementById('postalGroup'),
+                    errorEl: document.getElementById('postalError'),
+                    validate: (val) => {
+                        if (val.trim() === '') return true;
+                        const postalRegex = /^[A-Z0-9\s-]{3,10}$/i;
+                        return postalRegex.test(val.trim());
+                    }
+                }
+            };
+
+            const submitBtn = document.getElementById('submitBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            const progressBarFill = document.getElementById('progressBarFill');
+            const progressPercent = document.getElementById('progressPercent');
+            
+            const registeredEmail = document.getElementById('registeredEmail');
+            const summaryName = document.getElementById('summaryName');
+            const summaryPhone = document.getElementById('summaryPhone');
+
+            const touchedFields = new Set();
+
+            const todayStr = new Date().toISOString().split('T')[0];
+            fields.bdate.el.setAttribute('max', todayStr);
+
+            function updateProgress() {
+                const requiredKeys = ['fullname', 'email', 'phone', 'bdate', 'address1', 'country', 'city'];
+                let validCount = 0;
+
+                requiredKeys.forEach(key => {
+                    const field = fields[key];
+                    if (field.validate(field.el.value)) {
+                        validCount++;
+                    }
+                });
+
+                const percent = Math.round((validCount / requiredKeys.length) * 100);
+                progressBarFill.style.width = `${percent}%`;
+                progressPercent.textContent = `${percent}%`;
+            }
+
+            function validateField(key, forceShowError = false) {
+                const field = fields[key];
+                const val = field.el.value;
+                const isValid = field.validate(val);
+                const shouldShowFeedback = touchedFields.has(key) || forceShowError;
+
+                if (shouldShowFeedback) {
+                    if (isValid) {
+                        field.group.classList.remove('error');
+                        field.group.classList.add('success');
+                    } else {
+                        field.group.classList.remove('success');
+                        field.group.classList.add('error');
+                    }
+                } else {
+                    field.group.classList.remove('success', 'error');
+                }
+
+                return isValid;
+            }
+
+            function updateSelectStyling() {
+                const select = fields.country.el;
+                if (select.value === "") {
+                    select.classList.add('placeholder-active');
+                } else {
+                    select.classList.remove('placeholder-active');
+                }
+            }
+
+            Object.keys(fields).forEach(key => {
+                const field = fields[key];
+                
+                field.el.addEventListener('input', () => {
+                    validateField(key);
+                    updateProgress();
+                });
+
+                if (key === 'country') {
+                    field.el.addEventListener('change', () => {
+                        updateSelectStyling();
+                        validateField(key);
+                        updateProgress();
+                    });
+                }
+
+                field.el.addEventListener('blur', () => {
+                    touchedFields.add(key);
+                    validateField(key);
+                    updateProgress();
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                let isFormValid = true;
+                let firstInvalidField = null;
+
+                Object.keys(fields).forEach(key => {
+                    touchedFields.add(key);
+                    const isValid = validateField(key, true);
+                    
+                    if (!isValid) {
+                        isFormValid = false;
+                        if (!firstInvalidField) {
+                            firstInvalidField = fields[key];
+                        }
+                    }
+                });
+
+                if (!isFormValid) {
+                    if (firstInvalidField) {
+                        firstInvalidField.el.focus();
+                        firstInvalidField.group.classList.add('shake');
+                        
+                        setTimeout(() => {
+                            firstInvalidField.group.classList.remove('shake');
+                        }, 400);
+                    }
+                    return;
+                }
+
+                submitBtn.classList.add('submitting');
+                
+                setTimeout(() => {
+                    summaryName.textContent = fields.fullname.el.value;
+                    summaryPhone.textContent = fields.phone.el.value;
+                    registeredEmail.textContent = fields.email.el.value;
+                    
+                    formCard.classList.add('fade-out');
+                    
+                    setTimeout(() => {
+                        formCard.style.display = 'none';
+                        successCard.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            successCard.classList.add('fade-in');
+                            submitBtn.classList.remove('submitting');
+                        }, 50);
+                    }, 300);
+                    
+                }, 1200);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                touchedFields.clear();
+                
+                Object.keys(fields).forEach(key => {
+                    fields[key].group.classList.remove('success', 'error', 'shake');
+                });
+                
+                updateSelectStyling();
+                updateProgress();
+
+                successCard.classList.remove('fade-in');
+                
+                setTimeout(() => {
+                    successCard.style.display = 'none';
+                    formCard.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        formCard.classList.remove('fade-out');
+                    }, 50);
+                }, 300);
+            });
+
+            updateSelectStyling();
+            updateProgress();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+   background-color: #2b52b6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+form{
+    width:600px;
+    height: 575px;
+    margin:50px auto;
+    background:white;
+    padding:50px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+
+ .registration-form{
+
+    width:650px;
+
+    background:#fff;
+    padding:30px;
+
+    border-radius:8px;
+
+height:120vh;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+ } 
+  .form{
+    width: 100%;
+    margin-bottom:6px;
+ }
+
+ 
+ input[type = "text"],
+ input[type  = "email"],
+ input[type = "number"],
+ input[type = "date"],
+ select{
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #2f2020;
+    margin-bottom: 6px;
+
+ }
+ .row
+{
+    display: flex;
+    gap: 10px;
+} 
+
+.con{
+    width: 100%;
+     margin-bottom:6px; 
+
+} 
+.sum{
+    width:100%;
+    padding: 9px;
+    background: blue;
+    color: white;
+}
+.pass{
+    
+     width: 100%;
+     margin-bottom:6px;
+}
+.cle{
+    width: 100%;
+}
+
+  

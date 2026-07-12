@@ -1,0 +1,139 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cards Using API</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <h2 class="text-center mb-4">User Records</h2>
+
+    <input type="text" id="search" class="form-control mb-4" placeholder="Search User">
+
+    <div id="container" class="row g-4"></div>
+
+</div>
+
+<script>
+
+fetch("https://dummyjson.com/users")
+.then(response => response.json())
+.then(data => {
+
+    let html = "";
+
+    data.users.forEach(user => {
+
+        html += `
+        <div class="col-md-4">
+
+            <div class="card shadow h-100">
+
+                <img src="https://picsum.photos/300/250?random=${user.id}"
+                     class="card-img-top"
+                     alt="Photo"
+                     style="height:250px;object-fit:cover;">
+
+                <div class="card-body">
+
+                    <h4>${user.firstName} ${user.lastName}</h4>
+
+                    <button class="btn btn-primary btn-sm mt-2 showBtn">
+                        Show Details
+                    </button>
+
+                    <div class="details mt-3" style="display:none;">
+
+                        <p><strong>Age:</strong> ${user.age}</p>
+
+                        <p><strong>Gender:</strong> ${user.gender}</p>
+
+                        <p><strong>Email:</strong> ${user.email}</p>
+
+                        <p><strong>Phone:</strong> ${user.phone}</p>
+
+                        <p><strong>Company:</strong> ${user.company.name}</p>
+
+                        <p><strong>Department:</strong> ${user.company.department}</p>
+
+                        <p><strong>City:</strong> ${user.address.city}</p>
+
+                        <p><strong>State:</strong> ${user.address.state}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById("container").innerHTML = html;
+
+    // Show / Hide Details
+    document.querySelectorAll(".showBtn").forEach(button => {
+
+        button.addEventListener("click", function(){
+
+            let details = this.nextElementSibling;
+
+            if(details.style.display === "none"){
+
+                details.style.display = "block";
+                this.innerHTML = "Hide Details";
+
+            }else{
+
+                details.style.display = "none";
+                this.innerHTML = "Show Details";
+
+            }
+
+        });
+
+    });
+
+    // Search User
+    document.getElementById("search").addEventListener("keyup", function(){
+
+        let value = this.value.toLowerCase();
+
+        document.querySelectorAll(".col-md-4").forEach(card => {
+
+            let name = card.querySelector("h4").innerText.toLowerCase();
+
+            if(name.includes(value)){
+                card.style.display = "";
+            }else{
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+})
+.catch(error => {
+
+    document.getElementById("container").innerHTML =
+    "<h3 class='text-center text-danger'>Unable to load data.</h3>";
+
+    console.log(error);
+
+});
+
+</script>
+
+</body>
+</html>
+```

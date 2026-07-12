@@ -1,0 +1,56 @@
+:root {
+  /* New Midnight Electric Palette */
+  --bg-dark: #0B0E14;      /* Deep Midnight */
+  --card-bg: #151921;      /* Slightly lighter card background */
+  --primary: #00F2FF;      /* Electric Cyan */
+  --accent: #CCFF00;       /* Electric Lime */
+  --text-main: #E0E6ED;    /* Soft White */
+  --text-muted: #94A3B8;   /* Steel Grey */
+  --maroon-old: #7B1E3A;   /* Kept for legacy compatibility if needed */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+}
+
+/* Updated Typography */
+h1, h2, h3, .navbar-brand {
+  color: #FFFFFF;
+  font-family: 'Yatra One', cursive;
+}
+
+/* NAVBAR */
+.pravah-nav { background-color: rgba(11, 14, 20, 0.95); border-bottom: 1px solid #1E293B; }
+.navbar-brand .accent { color: var(--primary); }
+.nav-link:hover { color: var(--accent) !important; }
+.btn-nav-cta { background: var(--primary); color: var(--bg-dark) !important; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0B0E14, #1E293B);
+}
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(0, 242, 255, 0.1), transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(204, 255, 0, 0.08), transparent 35%);
+}
+.fest-title span { color: var(--primary); }
+.time-box { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--primary); }
+.time-box span { color: var(--primary); }
+.btn-cta { background: var(--primary); color: var(--bg-dark); }
+.btn-outline-cta { border: 2px solid var(--primary); color: var(--primary); }
+
+/* SECTIONS */
+.about-section h2 { color: var(--primary); }
+.about-section p { color: var(--text-muted); }
+.motif-box { background: var(--card-bg); border: 1px solid #334155; color: var(--primary); }
+
+/* EVENTS */
+.event-card { background: var(--card-bg); border: 1px solid #334155; }
+.event-card h3 { color: #FFFFFF; }
+.event-day { background: var(--primary); color: var(--bg-dark); }
+.category-Cultural { background: rgba(0, 242, 255, 0.1); color: var(--primary); }
+.category-Technical { background: rgba(204, 255, 0, 0.1); color: var(--accent); }
+.category-Finale { background: rgba(255, 255, 255, 0.1); color: #FFFFFF; }

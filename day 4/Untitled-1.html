@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Fest 2026 | Register Now</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+}
+
+/* Navigation */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:#1e3c72;
+    color:white;
+}
+
+nav h2{
+    font-size:28px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:#ffd700;
+}
+
+/* Hero Section */
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero h2{
+    margin-top:15px;
+    color:#ffd700;
+}
+
+.hero p{
+    margin:20px 0;
+    width:60%;
+    line-height:1.6;
+}
+
+.hero button{
+    padding:15px 35px;
+    border:none;
+    background:#ff9800;
+    color:white;
+    font-size:18px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.hero button:hover{
+    background:#e68900;
+}
+
+/* Countdown */
+
+.countdown{
+    background:#1e3c72;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:20px;
+}
+
+.box{
+    background:white;
+    color:#1e3c72;
+    padding:20px;
+    border-radius:10px;
+    width:100px;
+}
+
+.box h1{
+    font-size:35px;
+}
+
+/* About */
+
+.about{
+    padding:60px 10%;
+    text-align:center;
+}
+
+.about h2{
+    margin-bottom:20px;
+}
+
+.about p{
+    line-height:1.8;
+}
+
+/* Registration */
+
+.register{
+    padding:60px 10%;
+    background:#eef3ff;
+}
+
+.register h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+form{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button[type="submit"]{
+    width:100%;
+    padding:14px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    border-radius:5px;
+}
+
+button[type="submit"]:hover{
+    background:#16305d;
+}
+
+#message{
+    text-align:center;
+    color:green;
+    margin-top:20px;
+    font-weight:bold;
+}
+
+/* Footer */
+
+footer{
+    background:#1e3c72;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    width:90%;
+}
+
+.timer{
+    flex-wrap:wrap;
+}
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+<h2>TechFest 2026</h2>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#register">Register</a></li>
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<h1>TechFest 2026</h1>
+
+<h2>10 July 2026</h2>
+
+<p>
+Join India's biggest technology event featuring coding competitions,
+AI workshops, networking sessions, and exciting prizes.
+</p>
+
+<a href="#register">
+<button>Register Now</button>
+</a>
+
+</section>
+
+<!-- Countdown -->
+
+<section class="countdown">
+
+<h2>Event Starts In</h2>
+
+<div class="timer">
+
+<div class="box">
+<h1 id="days">0</h1>
+<p>Days</p>
+</div>
+
+<div class="box">
+<h1 id="hours">0</h1>
+<p>Hours</p>
+</div>
+
+<div class="box">
+<h1 id="minutes">0</h1>
+<p>Minutes</p>
+</div>
+
+<div class="box">
+<h1 id="seconds">0</h1>
+<p>Seconds</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section class="about" id="about">
+
+<h2>About The Event</h2>
+
+<p>
+TechFest 2026 is a one-day event bringing together students,
+developers, innovators, and industry professionals.
+Attend workshops, coding contests, startup talks,
+and networking sessions to enhance your skills.
+</p>
+
+</section>
+
+<!-- Registration -->
+
+<section class="register" id="register">
+
+<h2>Register Here</h2>
+
+<form id="registrationForm">
+
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="email" id="email" placeholder="Email Address">
+
+<input type="tel" id="phone" placeholder="Phone Number">
+
+<input type="text" id="college" placeholder="College Name">
+
+<button type="submit">Submit Registration</button>
+
+</form>
+
+<p id="message"></p>
+
+</section>
+
+<footer>
+
+<p>© 2026 TechFest | See You on 10 July!</p>
+
+</footer>
+
+<script>
+
+// Countdown Timer
+
+const eventDate = new Date("July 10, 2026 09:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = eventDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML=days;
+document.getElementById("hours").innerHTML=hours;
+document.getElementById("minutes").innerHTML=minutes;
+document.getElementById("seconds").innerHTML=seconds;
+
+},1000);
+
+
+// Registration Validation
+
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let college=document.getElementById("college").value.trim();
+
+let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+let phonePattern=/^[0-9]{10}$/;
+
+if(name==="" || email==="" || phone==="" || college===""){
+    alert("Please fill all fields.");
+    return;
+}
+
+if(!emailPattern.test(email)){
+    alert("Enter a valid email.");
+    return;
+}
+
+if(!phonePattern.test(phone)){
+    alert("Phone number must contain 10 digits.");
+    return;
+}
+
+document.getElementById("message").innerHTML=
+"🎉 Registration Successful! We look forward to seeing you on 10 July.";
+
+document.getElementById("registrationForm").reset();
+
+});
+ 
+</script>
+
+</body>
+</html>

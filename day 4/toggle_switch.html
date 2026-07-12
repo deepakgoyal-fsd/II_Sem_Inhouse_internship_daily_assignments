@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dce8ff, #eef4ff);
+            margin: 0;
+            padding: 0;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #1f2937, #111827);
+            color: #f9fafb;
+        }
+
+        .toggle-wrap {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            width: 60px;
+            height: 32px;
+            background: #cbd5e1;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: 2px solid #94a3b8;
+            padding: 4px;
+        }
+
+        .toggle input {
+            display: none;
+        }
+
+        .toggle .slider {
+            position: absolute;
+            left: 4px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ffffff;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .toggle input:checked + .slider {
+            transform: translateX(26px);
+            background: #fbbf24;
+        }
+
+        .toggle .icon {
+            position: absolute;
+            font-size: 12px;
+            transition: opacity 0.3s ease;
+        }
+
+        .toggle .sun {
+            left: 8px;
+            opacity: 1;
+        }
+
+        .toggle .moon {
+            right: 8px;
+            opacity: 0;
+        }
+
+        .toggle input:checked ~ .sun {
+            opacity: 0;
+        }
+
+        .toggle input:checked ~ .moon {
+            opacity: 1;
+        }
+
+        .login-form {
+            position: relative;
+            width: 400px;
+            background-color: #8b9bce;
+            padding: 25px;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        body.dark .login-form {
+            background-color: #334155;
+            color: #f8fafc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d3e50;
+        }
+
+        body.dark h2 {
+            color: #f8fafc;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2d83aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #236b8a;
+        }
+    </style>
+</head>
+<body>
+<div class="login-form">
+    <div class="toggle-wrap">
+        <label class="toggle" for="themeToggle">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </label>
+    </div>
+    <h2>Register Here</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Enter full name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="Enter phone" required>
+
+        <label>Gender</label>
+        <select name="gender" required>
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label>Address</label>
+        <input type="text" name="address" placeholder="Enter address" required>
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob" required>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        const fields = document.querySelectorAll('input[required], select[required]');
+        for (let field of fields) {
+            if (field.value.trim() === '') {
+                alert('Please fill all required details before registering.');
+                field.focus();
+                return false;
+            }
+        }
+        alert('Registration successful!');
+        return true;
+    }
+
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('change', function () {
+        document.body.classList.toggle('dark', this.checked);
+    });
+</script>
+
+</body>
+</html>

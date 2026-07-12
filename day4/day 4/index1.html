@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Event Registration - 10 July</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f4f7ff, #e9efff);
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 10px;
+    }
+
+    .event-date {
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .main-section {
+      padding: 50px 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .left-panel {
+      background: #eff6ff;
+      padding: 40px;
+    }
+
+    .left-panel h2 {
+      color: #1d4ed8;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .left-panel ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .left-panel li {
+      margin-bottom: 12px;
+    }
+
+    .right-panel {
+      padding: 40px;
+    }
+
+    .right-panel h2 {
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #374151;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .success-message {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 10px;
+      background: #dcfce7;
+      color: #166534;
+      display: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 850px) {
+      .card {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>College Event 2026</h1>
+      <p>Join us for an exciting event filled with learning, networking, and opportunities. Register now and be a part of the celebration.</p>
+      <div class="event-date">Event Date: 10 July 2026</div>
+    </div>
+  </header>
+
+  <section class="main-section">
+    <div class="container">
+      <div class="card">
+        <div class="left-panel">
+          <h2>Why Attend?</h2>
+          <p>This event is open for both students of our college and students from other colleges.</p>
+          <ul>
+            <li>Interactive sessions and workshops</li>
+            <li>Networking with students and faculty</li>
+            <li>Participation certificate</li>
+            <li>Exciting activities and opportunities</li>
+          </ul>
+        </div>
+
+        <div class="right-panel">
+          <h2>Register Now</h2>
+          <form id="registrationForm">
+            <div class="row">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+
+              <div class="form-group">
+                <label for="studentType">Student Type</label>
+                <select id="studentType" name="studentType" required>
+                  <option value="">Select Type</option>
+                  <option value="inside">Inside College</option>
+                  <option value="outside">Outside College</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="insideFields" class="hidden">
+              <div class="row">
+                <div class="form-group">
+                  <label for="department">Department</label>
+                  <input type="text" id="department" name="department" />
+                </div>
+
+                <div class="form-group">
+                  <label for="rollNumber">Roll Number</label>
+                  <input type="text" id="rollNumber" name="rollNumber" />
+                </div>
+              </div>
+            </div>
+
+            <div id="outsideFields" class="hidden">
+              <div class="form-group">
+                <label for="collegeName">College Name</label>
+                <input type="text" id="collegeName" name="collegeName" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message / Notes</label>
+              <textarea id="message" name="message" rows="4" placeholder="Any additional information..."></textarea>
+            </div>
+
+            <button type="submit">Submit Registration</button>
+            <div class="success-message" id="successMessage">
+              Registration submitted successfully!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    &copy; 2026 College Event. All rights reserved.
+  </div>
+
+  <script>
+    const studentType = document.getElementById("studentType");
+    const insideFields = document.getElementById("insideFields");
+    const outsideFields = document.getElementById("outsideFields");
+    const department = document.getElementById("department");
+    const rollNumber = document.getElementById("rollNumber");
+    const collegeName = document.getElementById("collegeName");
+    const form = document.getElementById("registrationForm");
+    const successMessage = document.getElementById("successMessage");
+
+    studentType.addEventListener("change", function () {
+      const selectedType = this.value;
+
+      insideFields.classList.add("hidden");
+      outsideFields.classList.add("hidden");
+
+      department.required = false;
+      rollNumber.required = false;
+      collegeName.required = false;
+
+      if (selectedType === "inside") {
+        insideFields.classList.remove("hidden");
+        department.required = true;
+        rollNumber.required = true;
+      } else if (selectedType === "outside") {
+        outsideFields.classList.remove("hidden");
+        collegeName.required = true;
+      }
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const selectedType = studentType.value;
+
+      if (!fullName || !email || !phone || !selectedType) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      if (selectedType === "inside") {
+        if (!department.value.trim() || !rollNumber.value.trim()) {
+          alert("Please fill in department and roll number.");
+          return;
+        }
+      }
+
+      if (selectedType === "outside") {
+        if (!collegeName.value.trim()) {
+          alert("Please enter your college name.");
+          return;
+        }
+      }
+
+      successMessage.style.display = "block";
+      form.reset();
+      insideFields.classList.add("hidden");
+      outsideFields.classList.add("hidden");
+
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

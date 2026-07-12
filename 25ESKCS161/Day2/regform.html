@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+
+        h3 {
+            color: darkblue;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px 15px;
+            border: 1px solid black;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+        }
+
+        input[type="radio"] {
+    width: auto;
+    padding: 0;
+    margin-right: 5px;
+    margin-bottom: 0;
+                            }  
+
+    </style>
+
+</head>
+
+<body>
+
+    <h3>Registration Form</h3>
+
+    <form>
+
+        <label>Name</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+       
+        <label>Email</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+
+        <label>Phone</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"><br>
+
+        <label>Gender</label><br>
+
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+
+        <label>Password</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password"><br>
+
+        <label>Date of Birth</label><br>
+        <input type="date" id="dob" name="dob"><br>
+
+        <label>Department</label><br>
+        <select id="department" name="department">
+            <option value="core">CS Core</option>
+            <option value="it">IT</option>
+            <option value="ds">Data Science</option>
+            <option value="ai">Artificial Intelligence</option>
+        </select><br>
+
+        <label>Confirm Password</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password"><br>
+
+        <button type="submit" value="Submit">submit</button>
+        <form></form>
+
+    </form>
+
+</body>
+
+</html>

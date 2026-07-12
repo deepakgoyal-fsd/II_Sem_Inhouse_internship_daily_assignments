@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackTheFuture 2026 | Register</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Animated Background Elements -->
+    <div class="bg-gradient-glow"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <!-- Main Wrapper to allow scrolling flow -->
+    <div class="page-wrapper">
+        
+        <!-- Hero & Registration Main Section -->
+        <main class="container hero-container">
+            <!-- Brand/Welcome Section (Left Column) -->
+            <section class="welcome-section">
+                <div class="logo">
+                    <i class="fa-solid fa-terminal"></i> <span>HackTheFuture_</span>
+                </div>
+                <h1>Welcome to the Ultimate Buildathon</h1>
+                <p class="subtitle">Join thousands of developers, designers, and innovators shifting the boundaries of technology. 48 hours. Infinite possibilities.</p>
+                
+                <!-- Hero Event Image -->
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Hackathon Event" class="hero-image">
+                </div>
+
+                <!-- Countdown Timer Container -->
+                <div class="countdown-container">
+                    <p class="countdown-title"><i class="fa-regular fa-clock"></i> Registration Deadline: <strong>July 10</strong></p>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="time-block">
+                            <span id="days">00</span>
+                            <span class="label">Days</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="hours">00</span>
+                            <span class="label">Hrs</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="minutes">00</span>
+                            <span class="label">Mins</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="seconds">00</span>
+                            <span class="label">Secs</span>
+                        </div>
+                    </div>
+                    <p id="deadline-message" class="hidden-msg"></p>
+                </div>
+            </section>
+
+            <!-- Main Glassmorphism Card (Right Column) -->
+            <div class="card-wrapper" id="registrationCard">
+                <section class="form-section">
+                    <header class="form-header">
+                        <h2>Secure Your Slot</h2>
+                        <p>Register your team or build solo. Complete the fields below.</p>
+                    </header>
+
+                    <form id="registrationForm" novalidate>
+                        <!-- Name Input Group -->
+                        <div class="input-group">
+                            <input type="text" id="fullName" required placeholder=" ">
+                            <label for="fullName"><i class="fa-regular fa-user"></i> Full Name</label>
+                            <span class="error-msg">Name must be at least 3 characters.</span>
+                            <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        </div>
+
+                        <!-- Email Input Group -->
+                        <div class="input-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email"><i class="fa-regular fa-envelope"></i> Email Address</label>
+                            <span class="error-msg">Please enter a valid email address.</span>
+                            <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        </div>
+
+                        <!-- Password Input Group -->
+                        <div class="input-group">
+                            <input type="password" id="password" required placeholder=" ">
+                            <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
+                            <span class="error-msg">Password must be at least 8 characters.</span>
+                            <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        </div>
+
+                        <!-- Role Dropdown Group -->
+                        <div class="input-group">
+                            <select id="role" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="developer">Developer</option>
+                                <option value="designer">Designer</option>
+                                <option value="student">Student</option>
+                            </select>
+                            <label for="role" class="select-label"><i class="fa-solid fa-briefcase"></i> Track Role</label>
+                            <span class="error-msg">Please select your track role.</span>
+                            <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Register for Hackathon</span>
+                            <span class="btn-spinner hidden"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Success State Overlay -->
+                <section class="success-section hidden" id="successState">
+                    <div class="success-graphic">
+                        <i class="fa-solid fa-circle-check bounce-in"></i>
+                    </div>
+                    <h2>You're Checked In!</h2>
+                    <p>Your hacker profile payload has been compiled into JSON metadata.</p>
+                    <div class="json-display-wrapper">
+                        <div class="json-header"><span>Output Payload (JSON)</span></div>
+                        <pre><code id="jsonOutput"></code></pre>
+                    </div>
+                    <button class="reset-btn" id="resetBtn">Modify Registration</button>
+                </section>
+            </div>
+        </main>
+
+        <!-- Dynamic Indicator for Scroll Intent -->
+        <div class="scroll-indicator">
+            <span>Explore Event Tracks</span>
+            <i class="fa-solid fa-chevron-down blink-animation"></i>
+        </div>
+
+        <!-- Section 2: Extended Hackathon Details and Info Tracks -->
+        <section class="details-section">
+            <header class="section-heading">
+                <h2>Why Join HackTheFuture?</h2>
+                <p>An ecosystem built to spark radical breakthroughs across foundational tech pillars.</p>
+            </header>
+
+            <div class="info-grid">
+                <!-- Card 1 -->
+                <div class="info-card">
+                    <div class="icon-box"><i class="fa-solid fa-cubes"></i></div>
+                    <h3>Web3 & Architecture</h3>
+                    <p>Construct applications maximizing smart contract design protocols, decentralized identity engines, and distributed compute framework capabilities.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="info-card">
+                    <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Applied Neural Networks</h3>
+                    <p>Integrate open source intelligence layers, modern API inference protocols, and local large language agents to solve systemic infrastructure bottlenecks.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="info-card">
+                    <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Next-Gen UI Systems</h3>
+                    <p>Optimize micro-interaction pipelines, design highly accessible digital frontends, and engineer smooth layout configurations handling vast real-time updates.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Structural Footer Elements -->
+        <footer class="app-footer">
+            <p>&copy; 2026 HackTheFuture Ecosystem. Built strictly with standard semantic layers.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

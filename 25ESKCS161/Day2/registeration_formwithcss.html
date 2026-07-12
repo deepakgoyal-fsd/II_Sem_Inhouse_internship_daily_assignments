@@ -1,0 +1,219 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Admission Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://wallpaperaccess.com/full/2263017.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 650px;
+            margin: auto;
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        fieldset {
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            color: darkgreen;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid gray;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border: 2px solid #4CAF50;
+            outline: none;
+        }
+
+        .gender {
+            margin-top: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        input:hover,
+        select:hover,
+        textarea:hover {
+            border-color: #4CAF50;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>College Admission Form</h2>
+
+<form>
+
+<fieldset>
+
+<legend>Personal Information</legend>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your full name" required>
+
+<label>Father's Name</label>
+<input type="text" placeholder="Enter father's name" required>
+
+<label>Mother's Name</label>
+<input type="text" placeholder="Enter mother's name" required>
+
+<label>Date of Birth</label>
+<input type="date" required>
+
+<label>Gender</label>
+
+<div class="gender">
+<input type="radio" name="gender" required> Male
+
+<input type="radio" name="gender"> Female
+
+<input type="radio" name="gender"> Other
+</div>
+
+<label>Email</label>
+<input type="email" placeholder="example@gmail.com" required>
+
+<label>Mobile Number</label>
+<input type="tel" placeholder="Enter 10-digit mobile number" required>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Address Details</legend>
+
+<label>Address</label>
+<textarea rows="3" placeholder="Enter your address" required></textarea>
+
+<label>City</label>
+<input type="text" placeholder="Enter city" required>
+
+<label>State</label>
+<input type="text" placeholder="Enter state" required>
+
+<label>Pincode</label>
+<input type="number" placeholder="Enter pincode" required>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Academic Details</legend>
+
+<label>Course Applying For</label>
+
+<select required>
+<option value="">--Select Course--</option>
+<option>B.Tech</option>
+<option>BCA</option>
+<option>BBA</option>
+<option>B.Sc</option>
+<option>BA</option>
+<option>B.Com</option>
+</select>
+
+<label>10th Percentage</label>
+<input type="number" placeholder="Enter 10th percentage" required>
+
+<label>12th Percentage</label>
+<input type="number" placeholder="Enter 12th percentage" required>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Upload Documents</legend>
+
+<label>Upload Passport Size Photograph</label>
+<input type="file" accept="image/*" required>
+
+<label>Upload 10th Marksheet</label>
+<input type="file" accept=".pdf,image/*" required>
+
+<label>Upload 12th Marksheet</label>
+<input type="file" accept=".pdf,image/*" required>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Declaration</legend>
+
+<input type="checkbox" required>
+
+I hereby declare that all the information provided is true to the best of my knowledge.
+
+</fieldset>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

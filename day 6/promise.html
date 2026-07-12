@@ -1,0 +1,21 @@
+<script>
+let promise = new Promise(function(resolve, reject) {
+
+    let internet = true;
+
+    if (internet) {
+        resolve("Data received successfully");
+    } else {
+        reject("Internet error");
+    }
+
+});
+
+promise
+    .then(function(result) {
+        console.log(result);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+</script>

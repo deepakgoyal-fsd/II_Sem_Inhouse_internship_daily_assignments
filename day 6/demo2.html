@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const users = fetch('https://jsonplaceholder.typicode.com/users');
+        const data = users.then(response => response.json());
+        //normal fuction
+        //function getUsers(response) {
+        //    return response.json();
+
+            //arrow function
+         //   response => response.json();
+        //}
+        //.then(respone => response.json())
+        //.then(data => {
+        //    console.log("users from api:",data);
+        //   console.log("total users:",data.length);
+        // })
+    </script>
+</body>
+
+</html>

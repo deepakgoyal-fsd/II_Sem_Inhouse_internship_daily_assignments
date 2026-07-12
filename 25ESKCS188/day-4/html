@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#e8e8e8;
+        }
+
+        .container{
+            width:400px;
+            margin:30px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:blue;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select{
+            width:100%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:blue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:darkblue;
+        }
+
+        #message{
+            text-align:center;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<label>Full Name</label>
+<input type="text" id="name">
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Phone Number</label>
+<input type="text" id="phone">
+
+<label>Age</label>
+<input type="number" id="age">
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<input type="radio" name="gender" value="Other"> Other
+
+<br><br>
+
+<label>City</label>
+
+<select id="city">
+    <option>Select City</option>
+    <option>Jaipur</option>
+    <option>Delhi</option>
+    <option>Mumbai</option>
+    <option>Pune</option>
+</select>
+
+<label>Course</label>
+
+<select id="course">
+    <option>Select Course</option>
+    <option>B.Tech</option>
+    <option>BCA</option>
+    <option>MCA</option>
+    <option>B.Sc</option>
+</select>
+
+<label>Password</label>
+<input type="password" id="password">
+
+<label>Confirm Password</label>
+<input type="password" id="confirm">
+
+<input type="checkbox" id="terms">
+I Agree to the Terms & Conditions
+
+<br><br>
+
+<button onclick="validateForm()">Register</button>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+
+function validateForm(){
+
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let phone=document.getElementById("phone").value;
+    let age=document.getElementById("age").value;
+    let password=document.getElementById("password").value;
+    let confirm=document.getElementById("confirm").value;
+    let terms=document.getElementById("terms").checked;
+
+    let message=document.getElementById("message");
+
+    if(name=="" || email=="" || phone=="" || age=="" || password=="" || confirm==""){
+        message.style.color="red";
+        message.innerHTML="Please fill all fields.";
+        return;
+    }
+
+    if(phone.length!=10){
+        message.style.color="red";
+        message.innerHTML="Phone number must contain 10 digits.";
+        return;
+    }
+
+    if(password.length<6){
+        message.style.color="red";
+        message.innerHTML="Password must be at least 6 characters.";
+        return;
+    }
+
+    if(password!=confirm){
+        message.style.color="red";
+        message.innerHTML="Passwords do not match.";
+        return;
+    }
+
+    if(!terms){
+        message.style.color="red";
+        message.innerHTML="Please accept the Terms & Conditions.";
+        return;
+    }
+
+    message.style.color="green";
+    message.innerHTML="Registration Successful!";
+
+}
+
+</script>
+
+</body>
+</html>

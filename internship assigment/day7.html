@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form action="registration.php" method="post" class="form">
+
+        <label>Full Name</label>
+        <input type="text" name="fullname" placeholder="Enter full name">
+
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Enter email address">
+
+        <div class="row">
+            <div class="column">
+                <label>Phone Number</label>
+                <input type="tel" name="phonenumber" placeholder="Enter phone number">
+            </div>
+
+            <div class="column">
+                <label>Birth Date</label>
+                <input type="date" name="birthdate">
+            </div>
+        </div>
+
+        <label>Gender</label>
+
+        <div class="gender">
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="prefer not to say"> Prefer not to say
+        </div>
+
+        <label>Address</label>
+        <input type="text" name="address1" placeholder="Enter street address">
+
+        <input type="text" name="address2" placeholder="Enter street address line 2">
+
+        <div class="row">
+            <div class="column">
+                <select name="country">
+                    <option>Country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>Canada</option>
+                </select>
+            </div>
+            <br>
+            branch:
+            <select name="branch">
+                
+                <option>ai</option>
+                <option>cs</option>
+                <option>ds</option>
+            </select>
+
+            <div class="column">
+                <input type="text" name="city" placeholder="Enter your city">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <input type="text" name="region" placeholder="Enter your region">
+            </div>
+
+            <div class="column">
+                <input type="text" name="postalcode" placeholder="Enter postal code">
+            </div>
+        </div>
+       
+
+        <button type="submit" value="Submit">submit</button>
+
+    </form>
+</div>
+
+</body>
+</html>

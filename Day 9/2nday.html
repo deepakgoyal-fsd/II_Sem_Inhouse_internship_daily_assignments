@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet"href="formStylesheet.css">
+    <style>
+        h1{
+            color:red !important;
+        }
+    </style>
+</head>
+<body style = "background-color: rgb(255, 0, 102);">
+    <center><h1 style = "color: blue;">Registration Form </h1></center>
+    <p> Submit this form for online registration</p>
+    <div id = "divForm">
+        <form action="registration.php" method = "post" class="form">
+            
+            <div class="box">
+                <label for = "txtname">Name:</label>
+                <input type="text" id = "txtname" name="name" required placeholder = " Enter your name "/>
+            </div>
+            
+            <div class="box">
+                <label for = "email">Email Id:</label>
+                <input type="email" id = "txtEmail" name="email" required placeholder = " Enter your Email "/>
+            </div>
+
+            <div class="box">
+                <label for="txtname">Phone No:</label>
+                <input type="text" id = "txtPhone" name="phone" required placeholder = " Enter your Phone No. "/>
+                </label>
+            </div>
+
+            <div class="box">
+                <label for="txtname">CGPA</label>
+                <input type="text" id = "cgpa" name="cgpa" required placeholder = " Enter your CGPA "/>
+                </label>
+            </div>
+
+            <div class = "box">
+                <label for = "txtname">Branch:</label>
+                <select name = "branch" class="form-select">
+                    <option>Select Branch</option>
+                    <option>AI</option>
+                    <option>DS</option>
+                    <option>IOT</option>
+                    <option>CSE</option>
+                </select>
+            </div>
+
+            <div class="gender">
+                <label> Gender:</label>
+                <div class="option">
+                <input type="radio" id = "check-male" name="gender"/>
+                <label for="check-male">male</label>
+                </div>
+
+                <div class="option">
+                <input type="radio" id = "check-female" name="gender"/>
+                <label for="check-female">female</label>
+                </div>
+
+                <div class="option">
+                <input type="radio" id = "check-transgender" name="gender"/>
+                <label for="check-transgender">Transgender</label>
+                </div>
+
+                <div class="option">
+                <input type="radio" id = "check-other" name="gender"/>
+                <label for="check-other">Prefer not to say</label>
+                </div>
+            </div>
+            
+            <div class="box">
+                <label for="dtDOBe">DOB: </label>
+                <input type="date" id ="dtDOB" name="dtDOB" />
+            </div>
+            
+            <div class="box">
+                <label for="pwdPassword">Password: </label>
+                <input type="password" id = "pwdPassword" name="pwdPassword" />
+            </div>
+            
+            <div class="box">
+                <label for="pwdConformPassword">Confirm Password: </label>
+                <input type="password" id = "pwdConfirmPassword" name="pwdConfirmPassword" />
+            </div>
+            
+            <button type="submit">Submit</button>       
+        </form>
+    </div>
+</body>
+</html>

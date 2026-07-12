@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>Registration</title>
+    <link rel="stylesheet" href="reg_form_css.css" />
+    <style>
+        p{
+            font-size:14pt;
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <form class="background">
+        <br>
+        <h1>Registration form</h1>
+        <p>submit this form for online registration</p>
+        <br>
+        <label> Name:<input type="text" id="txtName" required placeholder="Enter your name"/> </label`>
+        <br>
+        <br>
+        <label> Email: <input type="email" id="txtEmail" required placeholder="Enter email"/></label>
+        <br>
+        <label>Phone number: <input type="number" id="txtPhone" required placeholder="Enter phone number"/></label>
+        <br>
+        <label>Select your gender:</label>
+        <label for="check-transgender">Transgender<input type="radio" id="check-transgender" name="gender" checked/></label>
+        <label for="check-male">Male<input type="radio" id="check-male" name="gender" checked/></label>
+        <label for="check-female">Female<input type="radio" id="check-female" name="gender" checked/></label>
+        <label for="check-preferNotToSay">Prefer not to say<input type="radio" id="check-preferNotToSay" name="gender" checked/></label>
+        <br>
+        <label>Date: <input type="date" id="dtDOB" name="dtDOB"/></label><br>
+        <label>Password:<input type="password" id="pwdPassword" required placeholder="Enter password"/> </label>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

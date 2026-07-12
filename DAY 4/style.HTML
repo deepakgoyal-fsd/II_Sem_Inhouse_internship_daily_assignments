@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dark {
+            background-color: #222;
+            color: white;
+        }
+
+        form {
+            width: 300px;
+            margin: auto;
+            border: 1px solid gray;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Application Form</h1>
+
+    <button onclick="toggleMode()" id="modeBtn">
+        Dark Mode
+    </button>
+
+    <h3>Click Counter</h3>
+    <p>Count: <span id="count">0</span></p>
+
+    <button onclick="increase()">Click Me</button>
+    <button onclick="resetCounter()">Reset</button>
+
+    <br><br>
+
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Enter Name"><br>
+
+        <input type="email" id="email" placeholder="Enter Email"><br>
+
+        <input type="tel" placeholder="Phone Number"><br>
+
+        <input type="password" placeholder="Password"><br>
+
+        <input type="number" placeholder="12th Marks"><br>
+
+        <input type="number" id="age" placeholder="Age"><br>
+
+        <p class="error" id="msg"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark");
+
+            let btn = document.getElementById("modeBtn");
+
+            if (document.body.classList.contains("dark"))
+                btn.innerHTML = "Light Mode";
+            else
+                btn.innerHTML = "Dark Mode";
+        }
+
+        let c = 0;
+
+        function increase() {
+            c++;
+            document.getElementById("count").innerHTML = c;
+        }
+
+        function resetCounter() {
+            c = 0;
+            document.getElementById("count").innerHTML = c;
+        }
+
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let age = document.getElementById("age").value;
+
+            if (name == "" || email == "") {
+                document.getElementById("msg").innerHTML =
+                    "Name and Email cannot be empty!";
+                return false;
+            }
+
+            if (age < 18) {
+                document.getElementById("msg").innerHTML =
+                    "Age must be 18 or above.";
+                return false;
+            }
+
+            alert("Form Submitted Successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

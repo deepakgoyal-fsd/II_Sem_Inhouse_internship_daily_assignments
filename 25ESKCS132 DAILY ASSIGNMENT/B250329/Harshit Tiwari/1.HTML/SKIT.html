@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skit Registration Form</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+            background:#ffffff;
+        }
+
+        body{
+            background:#f2f2f2;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:400px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        label{
+            display:block;
+            margin-top:12px;
+            font-weight:bold;
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        input[type="submit"]{
+            background:#007BFF;
+            color:white;
+            border:none;
+            cursor:pointer;
+            margin-top:20px;
+            font-size:16px;
+        }
+
+        input[type="submit"]:hover{
+            background:#0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>SKIT Registration Form</h2>
+
+    <form>
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="Enter mobile number" required>
+
+        <label>Branch</label>
+        <select required>
+            <option value="">Select Branch</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>EE</option>
+            <option>ME</option>
+            <option>CE</option>
+        </select>
+
+        <label>Year</label>
+        <select required>
+            <option value="">Select Year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+        </select>
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm password" required>
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+</body>
+</html>

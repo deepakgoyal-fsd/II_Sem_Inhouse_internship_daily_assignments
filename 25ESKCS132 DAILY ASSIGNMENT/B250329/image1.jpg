@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic HTML Tags Demo</title>
+</head>
+<body>
+
+<!-- Headings -->
+<h1>This is H1 Heading</h1>
+<h2>This is H2 Heading</h2>
+<h3>This is H3 Heading</h3>
+<h4>This is H4 Heading</h4>
+<h5>This is H5 Heading</h5>
+<h6>This is H6 Heading</h6>
+
+<hr>
+
+<!-- Paragraph -->
+<p>
+    This is a paragraph tag. HTML is used to structure web pages.
+</p>
+
+<!-- Line Break -->
+<p>
+    This text is in one line<br>
+    This text is in next line using br tag
+</p>
+
+<hr>
+
+<!-- Text Formatting -->
+<p>
+    <b>Bold Text</b><br>
+    <strong>Strong Text</strong><br>
+    <i>Italic Text</i><br>
+    <em>Emphasized Text</em><br>
+    <u>Underlined Text</u><br>
+    <mark>Highlighted Text</mark><br>
+    <small>Small Text</small><br>
+    <del>Deleted Text</del><br>
+    <ins>Inserted Text</ins>
+</p>
+
+<hr>
+
+<!-- Superscript & Subscript -->
+<p>
+    H<sub>2</sub>O (Subscript)<br>
+    10<sup>2</sup> = 100 (Superscript)
+</p>
+
+<hr>
+
+<!-- Links -->
+<p>
+    <a href="https://www.google.com" target="_blank">
+        Open Google in New Tab
+    </a>
+</p>
+
+<hr>
+
+<!-- Images -->
+<img src="https://via.placeholder.com/150" alt="Sample Image">
+
+<hr>
+
+<!-- Lists -->
+<h3>Unordered List</h3>
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+
+<h3>Ordered List</h3>
+<ol>
+    <li>Frontend</li>
+    <li>Backend</li>
+    <li>Database</li>
+</ol>
+
+<hr>
+
+<!-- Description List -->
+<h3>Description List</h3>
+<dl>
+    <dt>HTML</dt>
+    <dd>HyperText Markup Language</dd>
+
+    <dt>CSS</dt>
+    <dd>Cascading Style Sheets</dd>
+</dl>
+
+<hr>
+
+<!-- Table -->
+<h3>Simple Table</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Year</th>
+    </tr>
+    <tr>
+        <td>Rahul</td>
+        <td>B.Tech</td>
+        <td>2nd</td>
+    </tr>
+    <tr>
+        <td>Anita</td>
+        <td>BCA</td>
+        <td>1st</td>
+    </tr>
+</table>
+
+<hr>
+
+<!-- Block vs Inline -->
+<div>
+    This is a DIV tag (block element)
+</div>
+<div>asdads</div>
+
+<span>
+    This is a SPAN tag (inline element)
+</span>
+<span>
+    This is a SPAN tagasd (inline element)
+</span>
+
+<hr>
+
+<!-- Preformatted Text -->
+<pre>
+This is preformatted text
+    Spaces and line breaks
+        are preserved
+</pre>
+
+<hr>
+
+<!-- Code Tag -->
+<p>
+    HTML example: <code>&lt;h1&gt;Hello&lt;/h1&gt;
+</code>
+</p>
+
+<hr>
+
+<!-- Comments -->
+<p>
+    HTML comments are not visible in browser.
+</p>
+
+<hr>
+
+<!-- <h3>Comparison Demo</h3>
+
+<div style="border:2px solid black; margin:5px;">Block Div</div>
+
+<span style="border:2px solid red; padding:5px;">Inline Span</span>
+
+<button style="border:2px solid green; width:120px; height:40px;">
+  Inline-Block Button
+</button> -->
+</body>
+</html>

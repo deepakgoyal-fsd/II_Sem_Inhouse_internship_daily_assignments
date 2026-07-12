@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <form action="#" method="post">
+
+    <h1>Registration Form</h1>
+
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+       
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number"><br><br>
+
+        <label>Gender:</label><br>
+
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+
+        <br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <label for="course">Select Course:</label><br>
+        <select id="course" name="course">
+            <option value="">--Select--</option>
+            <option value="BCA">BCA</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="MCA">MCA</option>
+        </select>
+
+        <br><br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" cols="30" placeholder="Enter your address"></textarea>
+
+        <br><br>
+
+        <label>Hobbies:</label><br>
+
+        <input type="checkbox" id="reading" name="hobby" value="Reading">
+        <label for="reading">Reading</label>
+
+        <input type="checkbox" id="music" name="hobby" value="Music">
+        <label for="music">Music</label>
+
+        <input type="checkbox" id="sports" name="hobby" value="Sports">
+        <label for="sports">Sports</label>
+
+        <br><br>
+
+         <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+        <br><br>
+
+        <label for="confirm-password">Confirm Password:</label><br>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+
+        <br><br>
+
+       <center> <input type="submit" value="Register"></center>
+        
+
+    </form>
+
+</body>
+</html>

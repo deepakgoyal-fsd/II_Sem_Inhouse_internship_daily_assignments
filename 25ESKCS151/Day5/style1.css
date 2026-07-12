@@ -1,0 +1,338 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:#fff;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+
+    width:100%;
+    padding:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+header h1{
+
+    color:#00f5ff;
+    font-size:35px;
+    letter-spacing:1px;
+}
+
+#search{
+
+    width:320px;
+    padding:14px 20px;
+
+    border:none;
+    outline:none;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.4s;
+}
+
+#search::placeholder{
+    color:#ddd;
+}
+
+#search:focus{
+
+    box-shadow:0 0 20px cyan;
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+    width:90%;
+    margin:auto;
+
+    padding:50px 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:35px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:30px;
+
+    transition:.4s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+
+    overflow:hidden;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px) scale(1.03);
+
+    box-shadow:0 0 30px cyan;
+
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.card img{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid cyan;
+
+    transition:.5s;
+
+}
+
+.card:hover img{
+
+    transform:rotate(10deg) scale(1.08);
+
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.card h2{
+
+    margin-top:20px;
+
+    color:#00f5ff;
+
+}
+
+.card p{
+
+    margin-top:8px;
+
+    color:#ddd;
+
+}
+
+.rating{
+
+    margin:18px 0;
+
+    font-size:20px;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.details-btn{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#00f5ff;
+
+    color:#000;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.details-btn:hover{
+
+    transform:scale(1.08);
+
+    background:#ff4f81;
+
+    color:white;
+
+    box-shadow:0 0 20px #ff4f81;
+
+}
+
+/* ===========================
+   DETAILS
+=========================== */
+
+.details{
+
+    display:none;
+
+    margin-top:20px;
+
+    text-align:left;
+
+    background:rgba(255,255,255,.08);
+
+    padding:18px;
+
+    border-radius:15px;
+
+}
+
+.details p{
+
+    margin:10px 0;
+
+    color:#fff;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+header h1{
+
+font-size:28px;
+
+}
+
+#search{
+
+width:100%;
+
+}
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:25px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.card img{
+
+width:90px;
+
+height:90px;
+
+}
+
+.details-btn{
+
+width:100%;
+
+}
+
+header h1{
+
+text-align:center;
+
+}
+
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+.card{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./pro.css">
+    <style>
+        h1 {
+            color: rgb(1, 1, 6);
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <form class="registration-form">
+
+        <center>
+            <h1>Registration Form</h1>
+        </center>
+
+        <label> Full Name: <br>
+            <input type="text" id="txtName" required placeholder="Enter your name" class="form">
+        </label>
+        <br>
+        <label> Email Address: <br>
+            <input type="email" id="txtemail" required placeholder="Enter your email" class="form">
+        </label>
+        <br>
+
+        <div class="row">
+            <input type="number" placeholder="Enter phone number">
+            <input type="date">
+        </div>
+        <br>
+
+        Gender:
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="check-female" name="gender" checked> Female
+        </label>
+        <label>
+            <input type="radio" id="check-male" name="gender"> Male
+        </label>
+        <label>
+            <input type="radio" id="prefer-not-to-say" name="gender"> Prefer not to say
+        </label>
+        <br>
+        <br>
+
+        <label for="pwdpassword">Enter Password: <br>
+            <input type="password" name="" id="pwdpassword" placeholder="Enter your password">
+        </label>
+        <br>
+        <br>
+        <br>
+
+        <label> Address <br>
+            <input type="text" required placeholder="Enter street address" class="add"><br>
+            <input type="text" required placeholder="Enter street address line 2" class="add">
+        </label>
+        <br>
+        <br>
+
+        <select name="" id="" class="con">
+            <option value="" selected hidden>Country</option>
+            <option value="india">India</option>
+            <option value="australia">Australia</option>
+            <option value="france">France</option>
+        </select>
+        <input type="text" required placeholder="Enter your city" class="con">
+        <br>
+        <input type="text" required placeholder="Enter your region" class="con">
+        <input type="text" required placeholder="Enter your postal code" class="con">
+        <br>
+        <br>
+
+        <label>
+            <input type="checkbox" name="accept_terms" id="accept_terms" required>
+            I accept all terms and conditions
+        </label>
+        <h5></h5>
+
+        <input type="submit" value="Submit" class="sum">
+    </form>
+</body>
+
+</html>

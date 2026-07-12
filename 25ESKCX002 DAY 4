@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apple Banana Game</title>
+<style>
+body {
+  background-color: lightblue;
+  font-family: 'Comic Sans MS';
+  text-align: center;
+}
+
+h1 {
+  color: darkgreen;
+}
+
+#gameCanvas {
+  background-color: white;
+  border: 5px solid green;
+}
+
+p {
+  font-size: 18px;
+  color: darkred;
+}
+
+button {
+  background-color: orange;
+  color: white;
+  font-size: 18px;
+  padding: 8px 20px;
+  border: 3px solid red;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Apple Banana Game!!</h1>
+<p>Move your mouse left and right to catch the fruits!!</p>
+<p>Score: <span id="score">0</span> &nbsp;&nbsp; Lives: <span id="lives">3</span></p>
+
+<canvas id="gameCanvas" width="400" height="500"></canvas>
+<br>
+<button onclick="restartGame()">Restart Game</button>
+
+<script>
+// get canvas
+var canvas = document.getElementById("gameCanvas");
+var ctx = canvas.getContext("2d");
+
+// basket variables
+var basketX = 160;
+var basketWidth = 80;
+var basketHeight = 20;
+
+// game variables
+var score = 0;
+var lives = 3;
+var gameOver = false;
+
+// fruit array
+var fruits = [];
+
+// fruit types (apple = good, banana = good, bomb = bad)
+var fruitTypes = ["apple", "banana", "bomb"];
+
+// timer for spawning fruits
+var spawnCounter = 0;
+
+// move basket with mouse
+canvas.addEventListener("mousemove", function(e) {
+  var rect = canvas.getBoundingClientRect();
+  basketX = e.clientX - rect.left - basketWidth / 2;
+
+  if (basketX < 0) {
+    basketX = 0;
+  }
+  if (basketX + basketWidth > canvas.width) {
+    basketX = canvas.width - basketWidth;
+  }
+});
+
+function spawnFruit() {
+  var randomType = fruitTypes[Math.floor(Math.random() * fruitTypes.length)];
+  var newFruit = {
+    x: Math.random() * (canvas.width - 30),
+    y: 0,
+    size: 30,
+    type: randomType,
+    speed: 3
+  };
+  fruits.push(newFruit);
+}
+
+function drawBasket() {
+  ctx.fillStyle = "brown";
+  ctx.fillRect(basketX, canvas.height - 30, basketWidth, basketHeight);
+}
+
+function drawFruits() {
+  for (var i = 0; i < fruits.length; i++) {
+    var f = fruits[i];
+
+    if (f.type == "apple") {
+      ctx.fillStyle = "red";
+    } else if (f.type == "banana") {
+      ctx.fillStyle = "yellow";
+    } else {
+      ctx.fillStyle = "black";
+    }
+
+    ctx.beginPath();
+    ctx.arc(f.x, f.y, f.size / 2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function updateFruits() {
+  for (var i = 0; i < fruits.length; i++) {
+    fruits[i].y = fruits[i].y + fruits[i].speed;
+  }
+
+  // check if fruit touches basket
+  for (var i = fruits.length - 1; i >= 0; i--) {
+    var f = fruits[i];
+
+    if (f.y > canvas.height - 30 && f.x > basketX && f.x < basketX + basketWidth) {
+      if (f.type == "apple") {
+        score = score + 10;
+      } else if (f.type == "banana") {
+        score = score + 15;
+      } else {
+        lives = lives - 1;
+        if (lives <= 0) {
+          gameOver = true;
+          alert("Game Over! Your score was: " + score);
+        }
+      }
+      fruits.splice(i, 1);
+    }
+
+    // remove fruit if it goes off screen
+    else if (f.y > canvas.height) {
+      fruits.splice(i, 1);
+    }
+  }
+
+  document.getElementById("score").innerHTML = score;
+  document.getElementById("lives").innerHTML = lives;
+}
+
+function gameLoop() {
+  if (gameOver == false) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    spawnCounter++;
+    if (spawnCounter > 40) {
+      spawnFruit();
+      spawnCounter = 0;
+    }
+
+    updateFruits();
+    drawFruits();
+    drawBasket();
+
+    requestAnimationFrame(gameLoop);
+  }
+}
+
+function restartGame() {
+  score = 0;
+  lives = 3;
+  fruits = [];
+  gameOver = false;
+  document.getElementById("score").innerHTML = score;
+  document.getElementById("lives").innerHTML = lives;
+  gameLoop();
+}
+
+// start the game
+gameLoop();
+</script>
+
+</body>
+</html>

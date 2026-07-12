@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+body {
+    color: #ece4e4;
+    background-color: #020202;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    nav {
+        height: 85px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid;
+    }
+
+    .addbtn {
+        button {
+            cursor: pointer;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: all ease 400ms;
+            border: none;
+        }
+    }
+}
+
+nav .addbtn button:hover {
+    background-color: #534b4b63;
+    color: #ece4e4;
+}
+
+nav .addbtn button:active {
+    scale: 1.1;
+}
+
+.modal {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .bg-modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(39, 39, 39, 0.277);
+    z-index: -1;
+    backdrop-filter: blur(5px);
+}
+
+.modal .input-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 8px;
+    background-color: #1c1919;
+    padding: 20px;
+}
+
+input,
+select {
+    height: 35px;
+    width: 95%;
+    border-radius: 5px;
+    border: none;
+    color: #1c1919;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+input {
+    padding: 5px 10px;
+}
+
+
+.input-details button {
+    width: fit-content;
+    background-color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.cards {
+    margin: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.card h1 {
+    font-size: 33px;
+
+}
+
+.card {
+    color: #1b1717;
+    background-color: #e0d9d9;
+    border-radius: 5px;
+    padding: 10px 15px;
+    min-width: 260px;
+
+    .card-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+
+    .card-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #0eb1de;
+        flex-shrink: 0;
+    }
+
+    .card-subtitle {
+        font-size: 13px;
+        opacity: 0.75;
+        margin-top: 2px;
+    }
+
+    .student-name {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .Details {
+        width: fit-content;
+        background-color: #0eb1de;
+        border: none;
+        margin-top: 10px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .card-details{
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all ease 300ms;
+        h6{
+            margin-top: 5px;
+            font-size: 16px;
+        }
+    }
+}
+
+.card-details.show{
+    max-height: 120px;
+    opacity: 1;
+}
+
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.search input {
+    height: 40px;
+    width: 95%;
+    padding: 10px;
+}

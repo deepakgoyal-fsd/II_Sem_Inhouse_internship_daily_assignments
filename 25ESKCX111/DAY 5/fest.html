@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Annual Fest - 10th July</title>
+  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
+  <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
+  <link
+    href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap)"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css)"
+  />
+  <link rel="stylesheet" href="fest.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#home" class="logo" id="logo">Fest<span>2026</span></a>
+
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">10th July | Annual Celebration</p>
+          <h1>College Annual Fest - 10th July</h1>
+          <p class="tagline">
+            Celebrate talent, creativity, music, ideas, and unforgettable campus energy.
+          </p>
+          <div class="hero-actions">
+            <a href="#events" class="btn btn-primary">Join Us</a>
+            <a href="#about" class="btn btn-secondary">Explore Fest</a>
+          </div>
+        </div>
+
+        <div class="countdown-card">
+          <h3>Countdown to Fest Day</h3>
+          <div class="countdown" id="countdown">
+            <div class="time-box">
+              <span id="days">00</span>
+              <small>Days</small>
+            </div>
+            <div class="time-box">
+              <span id="hours">00</span>
+              <small>Hours</small>
+            </div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <small>Minutes</small>
+            </div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <small>Seconds</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro section">
+      <div class="container intro-grid">
+        <div>
+          <p class="section-label">Welcome</p>
+          <h2>A day full of energy, performances, competitions, and campus spirit</h2>
+        </div>
+        <div>
+          <p>
+            Our college annual fest brings together students from every department to
+            showcase talent, build friendships, and create memorable experiences.
+            Expect cultural performances, tech competitions, fun challenges, food,
+            music, and a vibrant atmosphere all day long.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="events section" id="events">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">Events</p>
+            <h2>Featured fest events</h2>
+          </div>
+
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search events..."
+              aria-label="Search events"
+            />
+          </div>
+        </div>
+
+        <div class="events-grid" id="eventsGrid"></div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-grid">
+        <div class="about-card">
+          <i class="fa-solid fa-star"></i>
+          <h3>Purpose</h3>
+          <p>
+            The fest is designed to celebrate student excellence, encourage
+            participation, and promote teamwork, creativity, and leadership.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <i class="fa-solid fa-music"></i>
+          <h3>Excitement</h3>
+          <p>
+            Live music, dance, drama, quiz, coding contests, food stalls, and a lively
+            crowd make this one of the most anticipated campus events of the year.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <i class="fa-solid fa-trophy"></i>
+          <h3>Highlights</h3>
+          <p>
+            Prize-winning competitions, student showcases, cultural acts, networking,
+            and fun moments all packed into a festival atmosphere.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h3>College Annual Fest</h3>
+        <p>Join us on 10th July for a vibrant celebration of talent and community.</p>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p>Email: fest@college.edu</p>
+        <p>Phone: +91 9876543210</p>
+        <p>Address: College Campus, Main Auditorium</p>
+      </div>
+
+      <div>
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 College Annual Fest. All rights reserved.</p>
+  </footer>
+
+  <div class="modal" id="eventModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="fest.js"></script>
+</body>
+</html>

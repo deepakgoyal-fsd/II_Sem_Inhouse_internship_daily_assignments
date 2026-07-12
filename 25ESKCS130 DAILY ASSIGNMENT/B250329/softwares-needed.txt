@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Semantic HTML Demo</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>My College Website</h1>
+        <p>Welcome to Semantic HTML Demo</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Courses</a> |
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>About Section</h2>
+            <p>This section talks about the website.</p>
+        </section>
+
+        <section>
+            <h2>Articles</h2>
+
+            <article>
+                <h3>Article 1</h3>
+                <p>This is an independent article.</p>
+            </article>
+
+            <article>
+                <h3>Article 2</h3>
+                <p>This is another independent article.</p>
+            </article>
+        </section>
+
+        <figure>
+            <img src="https://via.placeholder.com/150" alt="Sample Image">
+            <figcaption>Sample Image Caption</figcaption>
+        </figure>
+
+    </main>
+
+    <aside>
+        <h3>Sidebar</h3>
+        <p>Extra information shown here.</p>
+    </aside>
+
+    <footer>
+        <p>© 2026 B.Tech Training Program</p>
+    </footer>
+
+</body>
+
+</html>

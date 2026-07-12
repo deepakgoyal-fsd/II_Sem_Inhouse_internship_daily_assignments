@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="css/formStylesheet.css"/>
+    <!-- <link rel="icon" type="image/gif" href="ss.png" >  -->
+    <style>
+        
+    </style>
+</head>
+<body>
+  <div>
+    <form>
+         <h1 style ="color: rgb(0, 0, 0);">Registration form</h1>
+        
+        <label >
+            Name:
+            <br>
+        <input type="text" id="txtName" required placeholder="Enter Your Name" class="rounded" class="form"/>
+        </label><br>
+        Email:
+        <br>
+        <input type="email" id="txtEmail" required placeholder="Enter Your Email" class="form"/>
+        </label><br>
+        Phone no:
+        <input type="text" id="txtPhone" required placeholder="Enter Your Phone No." class="form"/>
+        </label><br>
+        <label>
+        <P>
+            Gender:
+            <br>
+          <div>  
+        <input type ="radio" id="chkmale" name="gender" checked />
+        <label for="chkmale">Male</label>
+        <input type="radio" id="chkfemale" name="gender" checked />
+        <label for="chkfemale">Female</label>
+        <input type="radio" id="chktransgender" name="gender" checked />
+        <label for="chktransgender">Transgender</label>
+          </div>
+          </P>
+
+        </label>
+        
+        <label type="dtDOB">DOB</label><br>
+       <input type="date" id="dtDOB" name="dtDOB"/> <br>
+
+       <label type="pwdPassword">Password</label><br>
+       <input type="password" id="pwdPassword" name="pwdPassword"/><br>
+
+       <label type="pwdConfirmPassword">Confirm Password</label><br>
+       <input type="Password" id="pwdPassword" name="pwdPassword"/><br><br>
+       <label >
+    
+        
+     <input type="submit" value="submit" class="reg">
+       
+       </label>
+      
+    </form>
+    </div>
+    
+</body>
+</html>

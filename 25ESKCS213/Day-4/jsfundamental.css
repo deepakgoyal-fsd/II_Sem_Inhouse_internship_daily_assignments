@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#222;
+    transition:.4s;
+}
+
+.head{
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:420px;
+    margin:20px auto;
+    padding:25px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    transition:.4s;
+}
+
+input,
+select,
+textarea,
+button{
+    padding:10px;
+    font-size:16px;
+}
+
+textarea{
+    resize:none;
+    height:80px;
+}
+
+.gender{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+button{
+    cursor:pointer;
+    background:#0077ff;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#005ecc;
+}
+
+.toggle-container{
+    text-align:right;
+    padding:20px;
+}
+
+#modeBtn{
+    width:150px;
+}
+
+
+.dark-mode{
+    background:#1e1e1e;
+    color:white;
+}
+
+.dark-mode .container{
+    background:#2d2d2d;
+    color:white;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+    background:#444;
+    color:white;
+    border:1px solid #666;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder{
+    color:#ddd;
+}
+
+.dark-mode button{
+    background:#ff9800;
+}
+
+.dark-mode button:hover{
+    background:#e68900;
+}

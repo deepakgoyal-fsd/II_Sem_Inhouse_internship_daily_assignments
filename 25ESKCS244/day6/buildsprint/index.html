@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Live User Directory</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark custom-navbar shadow-sm">
+
+        <div class="container">
+
+            <a
+                class="navbar-brand fw-bold"
+                href="#"
+            >
+                <i class="fa-solid fa-users me-2"></i>
+
+                Live User Directory
+            </a>
+
+            <span
+                class="badge rounded-pill user-count-badge"
+                id="user-count"
+            >
+                0 Users
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <header class="hero-section">
+
+        <div class="container text-center">
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-address-book"></i>
+
+            </div>
+
+            <h1 class="fw-bold mt-3">
+
+                Student Directory
+
+            </h1>
+
+            <p class="hero-text">
+
+                Explore student profiles fetched using a live API.
+
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="container pb-5">
+
+        <div class="control-card shadow-sm">
+
+            <div class="row g-3 align-items-center">
+
+                <div class="col-md-8">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                        </span>
+
+                        <input
+                            type="text"
+                            id="search-input"
+                            class="form-control"
+                            placeholder="Search students by name..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <select
+                        id="sort-select"
+                        class="form-select"
+                    >
+
+                        <option value="default">
+                            Default Order
+                        </option>
+
+                        <option value="az">
+                            Name: A to Z
+                        </option>
+
+                        <option value="za">
+                            Name: Z to A
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="user-container"
+            class="row g-4 mt-2"
+        >
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="container text-center">
+
+            <p class="mb-0">
+
+                <i class="fa-solid fa-code me-1"></i>
+
+                Live User Directory | Day 6 Build Sprint
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+    ></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

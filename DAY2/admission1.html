@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Admission Form</title>
+    <style>
+        /* 1. The Page Background & Font */
+        body {
+            /* This is the new background image magic */
+            background-image: url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; /* Stretches the image to cover the whole screen */
+            background-position: center; /* Keeps the best part of the image in the middle */
+            background-attachment: fixed; /* Makes the image stay still when you scroll! */
+            
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #4e342e;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        /* 2. The Form Container */
+        form {
+            /* rgba stands for Red, Green, Blue, Alpha (transparency) */
+            /* 255, 255, 255 is pure white, and 0.95 means it is 95% solid and 5% transparent */
+            background-color: rgba(255, 255, 255, 0.95); 
+            
+            /* A slightly larger, warm shadow to make it lift off the background */
+            box-shadow: 0 15px 35px rgba(62, 39, 35, 0.2); 
+            
+            max-width: 650px; 
+            margin: 0 auto; 
+            padding: 40px;
+            border-radius: 12px; 
+            
+            /* A subtle technique to blur the background specifically behind the form (works on modern browsers) */
+            backdrop-filter: blur(5px);
+        }
+
+        /* The rest of the CSS remains exactly the same! */
+        h1, p {
+            text-align: center;
+            color: #d84315; 
+        }
+        
+        p {
+            margin-bottom: 30px;
+        }
+
+        fieldset {
+            border: 2px solid #f5e6d3;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fffdfa;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d84315;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block; 
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%; 
+            padding: 12px;
+            margin-bottom: 20px; 
+            border: 1px solid #d7ccc8;
+            border-radius: 6px;
+            box-sizing: border-box; 
+            font-family: inherit;
+        }
+
+        input[type="radio"], 
+        input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+            margin-right: 8px;
+        }
+
+        input[type="radio"] + label,
+        input[type="checkbox"] + label {
+            display: inline-block;
+            font-weight: normal;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        button {
+            background-color: #d84315;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s; /* Added a tiny scale effect */
+        }
+
+        button[type="reset"] {
+            background-color: #8d6e63; 
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #bf360c; 
+            transform: translateY(-2px); /* Makes the button "lift" when hovered */
+        }
+        
+        button[type="reset"]:hover {
+            background-color: #5d4037;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#" method="POST">
+        <h1>University Application Form</h1>
+        <p>Please fill out the information below to apply for admission.</p>
+
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+        </fieldset>
+
+        <fieldset>
+            <legend>Academic History</legend>
+            
+            <label for="highSchool">Previous High School / College:</label>
+            <input type="text" id="highSchool" name="highSchool" required>
+
+            <label for="gradYear">Graduation Year:</label>
+            <select id="gradYear" name="gradYear">
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="older">Older</option>
+            </select>
+
+            <label for="gpa">GPA or Percentage:</label>
+            <input type="number" id="gpa" name="gpa" step="0.1" min="0" max="100">
+        </fieldset>
+
+        <fieldset>
+            <legend>Program Selection</legend>
+            
+            <label for="major">Desired Major:</label>
+            <select id="major" name="major">
+                <option value="web-dev">Web Application Development</option>
+                <option value="cinematography">Cinematic Video Production</option>
+                <option value="marketing">Digital Marketing & Advertising</option>
+                <option value="culinary">Culinary Arts & Presentation</option>
+            </select>
+
+            <label>Start Term:</label>
+            <input type="radio" id="fall" name="term" value="fall">
+            <label for="fall">Fall Semester</label>
+            
+            <input type="radio" id="spring" name="term" value="spring">
+            <label for="spring">Spring Semester</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Details</legend>
+            
+            <label for="statement">Statement of Purpose:</label>
+            <textarea id="statement" name="statement" rows="5" cols="50" placeholder="Tell us why you want to join our programs..."></textarea>
+
+            <label for="transcript">Upload Transcript:</label>
+            <input type="file" id="transcript" name="transcript">
+
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the Terms and Conditions</label>
+        </fieldset>
+
+        <button type="submit">Submit Application</button>
+        <button type="reset">Clear Form</button>
+
+    </form>
+
+</body>
+</html>

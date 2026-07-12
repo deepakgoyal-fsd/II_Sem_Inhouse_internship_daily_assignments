@@ -1,0 +1,74 @@
+// ==========================================
+        // 02. DARK MODE TOGGLE (8 min)
+        // ==========================================
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const bodyElement = document.body;
+
+        themeToggleBtn.addEventListener('click', () => {
+            bodyElement.classList.toggle('dark');
+
+            // Update button text based on the active mode
+            if (bodyElement.classList.contains('dark')) {
+                themeToggleBtn.textContent = 'Toggle Light Mode';
+            } else {
+                themeToggleBtn.textContent = 'Toggle Dark Mode';
+            }
+        });
+
+        // ==========================================
+        // 03. CLICK COUNTER (7 min)
+        // ==========================================
+        const clickBtn = document.getElementById('clickBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const counterDisplay = document.getElementById('counterDisplay');
+
+        let count = 0;
+
+        clickBtn.addEventListener('click', () => {
+            count++;
+            counterDisplay.textContent = count;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            counterDisplay.textContent = count;
+        });
+
+        // ==========================================
+        // 04. FORM VALIDATION (10 min)
+        // ==========================================
+        const signupForm = document.getElementById('signupForm');
+        const nameInput = document.getElementById('nameInput');
+        const emailInput = document.getElementById('emailInput');
+
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+
+        signupForm.addEventListener('submit', (event) => {
+            // Prevent default page refreshing behavior upon form submission
+            event.preventDefault();
+
+            // Reset error messages first
+            nameError.textContent = '';
+            emailError.textContent = '';
+
+            let isValid = true;
+
+            // Name validation: Check if empty
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Name field cannot be left empty.';
+                isValid = false;
+            }
+
+            // Email validation: Check if contains '@'
+            if (!emailInput.value.includes('@')) {
+                emailError.textContent = 'Please enter a valid email containing "@".';
+                isValid = false;
+            }
+
+            // If completely valid, process success
+            if (isValid) {
+                alert(`Success! Thank you for subscribing, ${nameInput.value.trim()}!`);
+                signupForm.reset();
+            }
+        });

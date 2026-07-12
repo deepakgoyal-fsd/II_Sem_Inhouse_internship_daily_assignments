@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="css/assign3.css">
+</head>
+<body>
+    <div class="navbar">
+        <b href="#home">Home</b>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="content">
+        <div class="box" id="home">
+            <h1>Welcome To My Website</h1>
+            <p>This is a simple webpage with a navigation bar and content sections.</p>
+            <p>I made this page using basic HTML and CSS.</p>
+        </div>
+
+        <div class="box" id="about">
+            <h2>About Us</h2>
+            <p>
+                We are learning web development. This website is created for practice.
+                It contains a navbar, heading, paragraph, images, list, and contact form.
+            </p>
+        </div>
+
+        <div class="box" id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Web Page Design</li>
+                <li>HTML Practice</li>
+                <li>CSS Styling</li>
+                <li>Basic Website Layout</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>Training Schedule</h2>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Topic</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Day 1</td>
+                    <td>Portfolio Page</td>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <td>Day 2</td>
+                    <td>Registration Form</td>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <td>Day 3</td>
+                    <td>Navigation Bar</td>
+                    <td>Running</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="box" id="gallery">
+            <h2>Gallery</h2>
+            <img src="images/img1.png" alt="Gallery 1">
+            <img src="images/img2.png" alt="Gallery 2">
+            <img src="images/img3.png" alt="Gallery 3">
+        </div>
+
+        <div class="box">
+            <h2>Important Notice</h2>
+            <p>Practice HTML tags daily and complete all assignments on time.</p>
+            <p>Use simple code first, then improve the design step by step.</p>
+        </div>
+
+        <div class="box" id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label><br>
+                <input id="name" type="text" placeholder="Enter your name"><br>
+
+                <label for="email">Email:</label><br>
+                <input id="email" type="email" placeholder="Enter your email"><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" rows="4" placeholder="Enter your message"></textarea><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Simple Website</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,215 @@
+/* --- Core Styling & Dark Palette Theme --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0f111a;
+    --text: #ffffff;
+    --border: #1f2335;
+    --badge-bg: #1e2233;
+    --muted: #7982a9;
+    --card-bg: #161925;
+    --card-border: #23283d;
+    --details-bg: #1e2233;
+    --accent: #00b4d8;
+    --accent-text: #0f111a;
+}
+
+/* Light theme variables */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #ffffff;
+        --text: #0f111a;
+        --border: #e6ecf3;
+        --badge-bg: #f1f4f9;
+        --muted: #495b7a;
+        --card-bg: #ffffff;
+        --card-border: #e6ecf3;
+        --details-bg: #f8fafc;
+        --accent: #006b83;
+        --accent-text: #ffffff;
+    }
+}
+
+/* Explicit dark theme toggle */
+[data-theme="dark"] {
+    --bg: #0f111a;
+    --text: #ffffff;
+    --border: #1f2335;
+    --badge-bg: #1e2233;
+    --muted: #a9b1d6;
+    --card-bg: #161925;
+    --card-border: #23283d;
+    --details-bg: #1e2233;
+    --accent: #00b4d8;
+    --accent-text: #0f111a;
+}
+
+[data-theme="light"] {
+    --bg: #ffffff;
+    --text: #0f111a;
+    --border: #e6ecf3;
+    --badge-bg: #f1f4f9;
+    --muted: #495b7a;
+    --card-bg: #ffffff;
+    --card-border: #e6ecf3;
+    --details-bg: #f8fafc;
+    --accent: #006b83;
+    --accent-text: #ffffff;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    /* Hidden initially to demonstrate jQuery fadeIn layout load */
+    display: none;
+}
+
+/* --- Filter Navigation Tabs Bar --- */
+.filter-nav {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.filter-nav h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-right: auto;
+    color: var(--text);
+}
+
+.badge {
+    background-color: var(--badge-bg);
+    color: var(--muted);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.badge.active,
+.badge:hover {
+    background-color: var(--accent);
+    color: var(--accent-text);
+}
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text);
+    font-size: 1.05rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.theme-toggle:hover {
+    background-color: rgba(0,0,0,0.06);
+}
+
+/* --- Grid Layout for Cards --- */
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Interactive Student Card Structure --- */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+/* Card Image Thumbnails */
+.profile-img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--card-border);
+    background-color: var(--bg);
+}
+
+.student-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.student-info p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+}
+
+/* --- Hidden Details Slide Drawer --- */
+.details-section {
+    display: none;
+    /* Initially collapsed */
+    width: 100%;
+    background-color: var(--details-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    text-align: left;
+    border-left: 3px solid var(--accent);
+}
+
+.details-section p {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    color: var(--muted);
+}
+
+.details-section p strong {
+    color: var(--text);
+}
+
+/* --- Button Action Layout --- */
+.btn-details {
+    background-color: var(--accent);
+    color: var(--accent-text);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1.2rem;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.btn-details:active {
+    transform: scale(0.98);
+}

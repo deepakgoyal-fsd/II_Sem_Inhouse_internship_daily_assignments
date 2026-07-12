@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Landing Page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>SprintPage.io</h1>
+            <div class="nav-links">
+                <button id="themeToggleBtn">Toggle🌙 Mode</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-card">
+            <h2>Interactive Click Counter</h2>
+            <p>Track your feature updates dynamically below:</p>
+            <div class="counter-display" id="counterDisplay">0</div>
+            <button class="counter-btn" id="clickBtn">Count Click</button>
+            <button class="reset-btn" id="resetBtn">Reset</button>
+        </section>
+
+        <section class="section-card">
+            <h2>Get Updates</h2>
+            <form id="signupForm" novalidate>
+                <div class="form-group">
+                    <label for="nameInput">Name</label>
+                    <input type="text" id="nameInput" placeholder="Enter your name">
+                    <div class="error-message" id="nameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailInput">Email Address</label>
+                    <input type="email" id="emailInput" placeholder="you@example.com">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+        
+</body>
+
+</html>

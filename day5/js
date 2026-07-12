@@ -1,0 +1,71 @@
+$(document).ready(function () {
+
+            // Theme toggle: apply saved preference or system preference
+            const themeToggle = $('#theme-toggle');
+            function applyTheme(theme) {
+                if (theme) {
+                    document.documentElement.setAttribute('data-theme', theme);
+                    if (themeToggle.length) themeToggle.text(theme === 'dark' ? '🌙' : '☀️');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+            themeToggle.on('click', function () {
+                const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                applyTheme(next);
+                localStorage.setItem('theme', next);
+            });
+
+
+            // ==========================================
+            // 🌟 BONUS: Smooth Page Load fadeIn Effect
+            // ==========================================
+            $("#dashboard").fadeIn(900);
+
+            // ==========================================
+            // 🚀 MISSIONS 1-4: Action Slide Toggle & Level Ups
+            // ==========================================
+            $(".btn-details").click(function () {
+                // Find relative target elements within context container card
+                const currentCard = $(this).closest(".card");
+                const targetDetails = currentCard.find(".details-section");
+                const currentButton = $(this);
+
+                // Perform smooth sliding open/close action animation
+                targetDetails.slideToggle(350, function () {
+
+                    // LEVEL UP: Dynamically mutate Button text strings based on visible state
+                    if (targetDetails.is(":visible")) {
+                        currentButton.text("Hide Details");
+                    } else {
+                        currentButton.text("Show Details");
+                    }
+                });
+
+                // LEVEL UP: Toggle Color Properties dynamically using jQuery .css()
+                if (currentButton.css("background-color") === "rgb(0, 180, 216)") { // Hex match for #00b4d8
+                    currentButton.css({
+                        "background-color": "#e63946", // Changes button context to Red Alert
+                        "color": "#ffffff"
+                    });
+                    currentCard.css("border-color", "#e63946");
+                } else {
+                    currentButton.css({
+                        "background-color": "#00b4d8", // Reverts back to custom Electric Cyan Blue
+                        "color": "#0f111a"
+                    });
+                    currentCard.css("border-color", "#23283d");
+                }
+            });
+
+            // Active visual helper for navigation filters
+            $(".badge").click(function () {
+                $(".badge").removeClass("active");
+                $(this).addClass("active");
+            });
+
+        });

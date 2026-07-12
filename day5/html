@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory Dashboard (10 Members)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container" id="dashboard">
+        <div class="filter-nav">
+            <h2>Student Directory</h2>
+            <div class="badge active">All Users (10)</div>
+            <div class="badge">Undergraduate</div>
+            <div class="badge">Graduate</div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
+        
+
+        <div class="directory-grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Priya</h3>
+                    <p>Computer Science</p>
+                    <p>3rd Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 8.95</p>
+                    <p><strong>Status:</strong> Enrolled</p>
+                    <p><strong>Email:</strong> crol@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="images/prasenjit.png"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Prasenjit</h3>
+                    <p>Data Science</p>
+                    <p>4th Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 9.20</p>
+                    <p><strong>Status:</strong> Enrolled</p>
+                    <p><strong>Email:</strong> fecl@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="images/loki.png"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Lokesh</h3>
+                    <p>Cyber Security</p>
+                    <p>2nd Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 8.40</p>
+                    <p><strong>Status:</strong> Probation</p>
+                    <p><strong>Email:</strong> caai@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="images/naman.png"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Naman Agarwal</h3>
+                    <p>UI/UX Design</p>
+                    <p>1st Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 7.85</p>
+                    <p><strong>Status:</strong> Enrolled</p>
+                    <p><strong>Email:</strong> tecl@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Jasmeen</h3>
+                    <p>Information Tech</p>
+                    <p>3rd Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 9.12</p>
+                    <p><strong>Status:</strong> Active</p>
+                    <p><strong>Email:</strong> aisha@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="images/mann.png"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Mann Sain</h3>
+                    <p>Mechanical Eng</p>
+                    <p>2nd Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 8.10</p>
+                    <p><strong>Status:</strong> Enrolled</p>
+                    <p><strong>Email:</strong> juan@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Divyanshi</h3>
+                    <p>Bioinformatics</p>
+                    <p>4th Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 9.65</p>
+                    <p><strong>Status:</strong> Dean's List</p>
+                    <p><strong>Email:</strong> chen@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="images/yt.jpeg"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Yash Choudhary</h3>
+                    <p>Cloud Architecture</p>
+                    <p>3rd Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 8.55</p>
+                    <p><strong>Status:</strong> Active</p>
+                    <p><strong>Email:</strong> marcus@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Anju </h3>
+                    <p>Software Eng</p>
+                    <p>1st Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 7.90</p>
+                    <p><strong>Status:</strong> Enrolled</p>
+                    <p><strong>Email:</strong> elena@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <div class="card">
+                <img src="images/naveen.png"
+                    alt="Student Profile" class="profile-img">
+                <div class="student-info">
+                    <h3>Naveen Kumar</h3>
+                    <p>AI / Robotics</p>
+                    <p>4th Year</p>
+                </div>
+                <div class="details-section">
+                    <p><strong>CGPA:</strong> 9.42</p>
+                    <p><strong>Status:</strong> Scholar</p>
+                    <p><strong>Email:</strong> devon@university.edu</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

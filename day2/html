@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Registration</title>
+<link rel="stylesheet" href="css/assign2.css">
+
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <hr>
+    <form>
+        <div class="box" id="box1">
+            <h2>Personal Information</h2>
+        <label>
+            Name:
+            <input type="text" name="txtName" required placeholder="Enter your Name" />
+            
+        </label>
+        <br>
+        <br>
+        <label>
+            Email:
+                    <input type="email" id="txtEmail" required placeholder="Enter your Email" />
+        </label>
+        <br>
+        <br>
+        <label>
+            Phone No:
+            <input type="text" id="txtPhone" required placeholder="Enter your Phon no." />
+        </label>
+        <br>
+        <br>
+        <label>
+            Gender:
+        <input type="radio" id="chkMale" name="gender" checked />
+        <label for="chkMale">Male</label>
+
+        <input type="radio" id="chkFemale" name="gender" checked />
+        <label for="chkFemale">Female</label>
+
+        <input type="radio" id="chkTransgender" name="gender" checked />
+        <label for="chkTransgender">Transgender</label>
+
+        <input type="radio" id="chkOther" name="gender" checked />
+        <label for="chkOther">Prefer not to say</label>
+        </label>
+        <br>
+        <br>
+
+        <label for="dtDOB">DOB:</label>
+        <input type="date" id="dtDOB" name="dtDOB" />
+        <br>
+        <br>
+        </div>  
+
+        <label for="pwdPassword">Password:</label>
+        <input type="password" id="pwdPassword" name="pwdPassword" />
+        <br>
+        <br>
+
+        <label for="pwdConfirmPassword">Confirm Password:</label>
+        <input type="password" id="pwdConfirmPassword" name="pwdConfirmPassword" />
+        <br>
+        <br>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>

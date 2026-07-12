@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: white;
+    color: black;
+}
+
+.navbar {
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dark {
+    background-color: #222;
+    color: white;
+}
+
+.dark .navbar {
+    background-color: #444;
+}
+
+.dark a {
+    color: white;
+}

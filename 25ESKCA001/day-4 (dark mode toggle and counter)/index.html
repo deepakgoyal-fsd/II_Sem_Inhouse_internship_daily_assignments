@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Counter Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>My Website</h2>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <button id="themeBtn">Dark Mode</button>
+    </div>
+
+    <div class="container">
+        <h1>Counter App</h1>
+
+        <h2 id="count">0</h2>
+
+        <button onclick="increase()">+</button>
+        <button onclick="decrease()">-</button>
+        <button onclick="resetCount()">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

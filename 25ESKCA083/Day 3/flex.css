@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+
+.main-container {
+    background-color: #5c3272; 
+    width: 750px;
+    padding: 35px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.blocks-container {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    border-radius: 4px;
+}
+
+.pink-long          { background-color: #d197be; height: 60px; width: 100%; }
+.yellow-square     { background-color: #ecc844; height: 105px; width: 100%; }
+.orange-rect       { background-color: #db7460; height: 75px; width: 100%; }
+.teal-tall         { background-color: #4ed3cb; height: 195px; width: 48%; }
+
+.orange-rect-small { background-color: #db7460; height: 60px; }
+.teal-rect-small   { background-color: #4ed3cb; height: 40px; }
+.yellow-rect-small { background-color: #ecc844; height: 55px; }
+
+.teal-rect-med     { background-color: #4ed3cb; height: 70px; }
+.yellow-rect-med   { background-color: #ecc844; height: 45px; }
+.orange-rect-med   { background-color: #db7460; height: 45px; }
+
+.pink-bottom-long  { background-color: #d197be; height: 65px; width: 100%; }
+
+
+/* --- LEFT SECTION LAYOUT --- */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+}
+
+.left-bottom {
+    display: flex;
+    gap: 15px;
+}
+
+.left-bottom-col {
+    display: flex;
+    flex-direction: column;
+    width: 52%;
+    gap: 15px;
+}
+
+
+/* --- RIGHT SECTION LAYOUT --- */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 15px;
+}
+
+.right-top {
+    display: flex;
+    gap: 15px;
+}
+
+.right-col-1, .right-col-2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 15px;
+}
+
+
+/* --- TEXT SECTION --- */
+.footer-text {
+    color: white;
+    font-size: 48px;
+    letter-spacing: 5px;
+    text-align: center;
+    
+    margin-top: 10px;
+}

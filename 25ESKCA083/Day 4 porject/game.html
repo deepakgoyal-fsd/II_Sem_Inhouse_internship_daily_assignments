@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click The Fruits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden; /* Prevents scrollbars from appearing when fruits are near the edge */
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 0;
+        }
+        /* Style the scoreboard so it stays nicely at the top */
+        .score-board {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+        /* CRITICAL: absolute position allows the fruits to move anywhere */
+        img {
+            position: absolute; 
+            cursor: pointer;
+            transition: transform 0.2s, top 0.2s, left 0.2s; /* Smooth movement */
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Click The Fruits</h2>
+    
+    <div class="score-board"> 
+        <p id="appleCount">Apple Count: 0</p>
+        <p id="bananaCount">Banana Count: 0</p>
+    </div>    
+
+    <img id="apple" src="apple.png" alt="apple" width="100" height="100">
+    <img id="banana" src="banana.png" alt="banana" width="100" height="100">
+
+    <script>
+        let appleCounter = 0;
+        let bananaCounter = 0;
+
+        const appleImg = document.getElementById("apple");
+        const bananaImg = document.getElementById("banana");
+
+        // A reusable function to move any element to a random spot on the screen
+        function moveRandomly(element) {
+            // Subtract 100 so the 100x100 images don't go off the right/bottom edges
+            const maxX = window.innerWidth - 100;
+            const maxY = window.innerHeight - 100;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            // Start Y at 120 so fruits don't hide behind the scoreboard
+            const randomY = Math.floor(Math.random() * (maxY - 120)) + 120; 
+
+            element.style.left = randomX + "px";
+            element.style.top = randomY + "px";
+        }
+
+        // 1. Move fruits to random positions right when the game starts
+        moveRandomly(appleImg);
+        moveRandomly(bananaImg);
+
+        // 2. Handle Apple Clicks
+        appleImg.addEventListener("click", () => {
+            appleCounter++;
+            document.getElementById("appleCount").innerText = "Apple Count: " + appleCounter;
+            moveRandomly(appleImg); // Move ONLY the apple when clicked
+        });
+
+        // 3. Handle Banana Clicks
+        bananaImg.addEventListener("click", () => {
+            bananaCounter++;
+            document.getElementById("bananaCount").innerText = "Banana Count: " + bananaCounter;
+            moveRandomly(bananaImg); // Move ONLY the banana when clicked
+        });
+    </script>
+
+</body>
+</html>

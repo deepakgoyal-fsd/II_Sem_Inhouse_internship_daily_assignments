@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css"/>
+    
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form style="background-color: #3D5A80; padding: 20px; border-radius: 10px; width: 500px; margin: auto;" action="submit.php" method="post">
+        <label for="name" style="font-weight: bold; color: #EDF6F9;">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" style="width: 30%; padding: 5px; margin-top: 5px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;"><br>
+        
+        <label for="email" style="font-weight: bold; color: #EDF6F9;">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email" style="width: 30%; padding: 5px; margin-top: 5px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;"><br><br>
+        
+        <label for="Gender" style="font-weight: bold; color: #EDF6F9;">Gender:</label><br>
+        
+        <input type="radio" id="male" name="gender" value="male" required style="margin-top: 5px; margin-bottom: 10px;">
+        <label for="male" style="font-weight: bold; color: #EDF6F9;">Male</label>
+        
+        <input type="radio" id="female" name="gender" value="female" required style="margin-top: 5px; margin-bottom: 10px;">
+        <label for="female" style="font-weight: bold; color: #EDF6F9;">Female</label>
+        
+        <input type="radio" id="other" name="gender" value="other" required style="margin-top: 5px; margin-bottom: 10px;">
+        <label for="other" style="font-weight: bold; color: #EDF6F9;">Other</label><br><br>
+        
+        <label for="dtdob" style="font-weight: bold; color: #EDF6F9;">Date of Birth:</label>
+        <input type="date" id="dtdob" name="dtdob" required style="width: 30%; padding: 5px; margin-top: 5px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;"><br><br>
+        
+        <input type="submit" value="Submit" style="background-color: #E29578; color: #EDF6F9; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel=""
+</head>
+<body>
+    <form>
+        <input type="text" id="number1" placeholder="enter first no."/>
+        <input type="text" id="number2" placeholder="enter second no."/>
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="sub">Subtract</option>
+            <option value="mul">Multiply</option>
+            <option value="div">Divide</option>
+        </select>
+        <button type="button" onclick="performOperation()">
+            perform operation
+        </button>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function performOperation(){
+            let varl=10;
+            const num1 = parseFloat(document.getElementById("number1").value);
+            const num2 = parseFloat(document.getElementById("number2").value);
+            const operation = document.getElementById("operation").value;
+            let result;
+
+            switch(operation) {
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "sub":
+                    result = num1 - num2;
+                    break;
+                case "mul":
+                    result = num1 * num2;
+                    break;
+                case "div":
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+            if (operation === "div" && num2 === 0) {
+                result = "Cannot divide by zero.";
+            }
+
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+
+    </script>
+
+    
+</body>
+</html>

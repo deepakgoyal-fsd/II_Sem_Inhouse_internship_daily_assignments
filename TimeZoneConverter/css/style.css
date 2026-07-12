@@ -1,0 +1,147 @@
+/* =========================================================
+   CUSTOM STYLESHEET
+   This file adds our own design on top of Bootstrap.
+   Keeps things simple: colors, spacing, hover effects,
+   and dark/light mode support.
+========================================================= */
+
+/* -----------------------------------------------------------
+   Root Variables (Light Mode - Default)
+----------------------------------------------------------- */
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --navbar-bg: #ffffff;
+    --footer-bg: #212529;
+    --footer-text: #f5f7fa;
+    --section-alt-bg: #eef1f6;
+    --border-color: #dee2e6;
+}
+
+/* -----------------------------------------------------------
+   Dark Mode Variables (applied when <body> has .dark-mode)
+----------------------------------------------------------- */
+body.dark-mode {
+    --bg-color: #121417;
+    --text-color: #f1f1f1;
+    --card-bg: #1e2126;
+    --navbar-bg: #1a1c20;
+    --footer-bg: #0c0d0f;
+    --footer-text: #cfcfcf;
+    --section-alt-bg: #191b1f;
+    --border-color: #33363b;
+}
+
+/* -----------------------------------------------------------
+   General Page Styling
+----------------------------------------------------------- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.section-block {
+    padding: 70px 0;
+}
+
+.bg-alt {
+    background-color: var(--section-alt-bg);
+}
+
+/* -----------------------------------------------------------
+   Navbar
+----------------------------------------------------------- */
+.navbar-custom {
+    background-color: var(--navbar-bg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-custom .nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #0d6efd;
+}
+
+/* -----------------------------------------------------------
+   Cards
+----------------------------------------------------------- */
+.card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.info-card {
+    padding: 10px;
+}
+
+.result-card {
+    border: 2px solid #198754;
+}
+
+/* -----------------------------------------------------------
+   Buttons - simple hover effect
+----------------------------------------------------------- */
+.btn {
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* -----------------------------------------------------------
+   Table
+----------------------------------------------------------- */
+.table {
+    color: var(--text-color);
+    background-color: var(--card-bg);
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.08);
+}
+
+/* -----------------------------------------------------------
+   Footer
+----------------------------------------------------------- */
+.footer-custom {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+}
+
+/* -----------------------------------------------------------
+   Form validation styling (simple red border on invalid)
+----------------------------------------------------------- */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    display: none;
+}
+
+.is-invalid ~ .invalid-feedback,
+select.is-invalid + .invalid-feedback {
+    display: block;
+}

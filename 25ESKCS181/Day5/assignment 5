@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Registration Form</title>
+    <style>
+        :root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border: #dbe3f0;
+    --shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+}
+
+body.dark {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #60a5fa;
+    --accent-hover: #3b82f6;
+    --border: #334155;
+    --shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, var(--bg), #e5ecf9);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+.page-shell {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.topbar p {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+.theme-toggle,
+.submit-btn,
+.reset-btn {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.theme-toggle {
+    background: var(--card);
+    color: var(--text);
+    padding: 10px 16px;
+    box-shadow: var(--shadow);
+}
+
+.form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--accent);
+    border-color: transparent;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.submit-btn {
+    background: var(--accent);
+    color: white;
+    padding: 12px 20px;
+}
+
+.submit-btn:hover {
+    background: var(--accent-hover);
+}
+
+.reset-btn {
+    background: #e5e7eb;
+    color: #111827;
+    padding: 12px 20px;
+}
+
+body.dark .reset-btn {
+    background: #334155;
+    color: #e5e7eb;
+}
+
+.message {
+    min-height: 24px;
+    margin-top: 14px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+@media (max-width: 680px) {
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div>
+                <h1>College Registration</h1>
+                <p>New student admission form</p>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+                🌙 Dark Mode
+            </button>
+        </header>
+
+        <main class="form-card">
+            <form id="registration-form">
+                <div class="form-grid">
+                    <label>
+                        Full Name
+                        <input type="text" name="fullName" placeholder="Enter your full name" required />
+                    </label>
+
+                    <label>
+                        Email Address
+                        <input type="email" name="email" placeholder="name@example.com" required />
+                    </label>
+
+                    <label>
+                        Phone Number
+                        <input type="tel" name="phone" placeholder="9876543210" required />
+                    </label>
+
+                    <label>
+                        Date of Birth
+                        <input type="date" name="dob" required />
+                    </label>
+
+                    <label>
+                        Department
+                        <select name="department" required>
+                            <option value="">Select Department</option>
+                            <option>CSE</option>
+                            <option>ECE</option>
+                            <option>Mechanical</option>
+                            <option>Civil</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Year
+                        <select name="year" required>
+                            <option value="">Select Year</option>
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                            <option>4th Year</option>
+                        </select>
+                    </label>
+
+                    <label class="full-width">
+                        Address
+                        <textarea name="address" rows="4" placeholder="Enter your address" required></textarea>
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="submit-btn">Register</button>
+                    <button type="reset" class="reset-btn">Clear</button>
+                </div>
+
+                <p id="form-message" class="message"></p>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+const form = document.getElementById('registration-form');
+const message = document.getElementById('form-message');
+
+function applyTheme(theme) {
+    document.body.classList.toggle('dark', theme === 'dark');
+    toggleButton.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('theme', theme);
+}
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    applyTheme('dark');
+} else {
+    applyTheme('light');
+}
+
+toggleButton.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark');
+    applyTheme(isDark ? 'light' : 'dark');
+});
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const name = formData.get('fullName');
+    message.textContent = `Registration successful for ${name}!`;
+    form.reset();
+});
+
+    </script>
+</body>
+</html>

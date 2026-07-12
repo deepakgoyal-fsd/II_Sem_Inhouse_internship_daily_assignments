@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student management portal</title>
+</head>
+<body>
+    <h1>WELCOME ! KINDLY REGISTER IN THE BELOW FORM </h1>
+    <div class="container">
+        <form action="register.php" method="POST">
+            <label for="name">NAME</label>
+            <br>
+            <input type="text" placeholder="enter your full name" id="name" name="user_name" value="name">
+            <br>
+            <label for="email">EMAIL</label>
+            <br>
+            <input type="email" placeholder="enter your email" id="email" name="user_email" value="email">
+            <br>
+            <label for="branch">BRANCH</label>
+            <br>
+            <input type="text" placeholder="enter your branch" id="branch" name="user_branch" value="branch">
+            <br>
+            <label for="cgpa">CGPA</label>
+            <br>
+            <input type="number" placeholder="enter your current cgpa" id="cgpa" name="user_cgpa" value="cgpa">
+            <br>
+            <label for="mobile">PHONE NUMBER</label>
+            <br>
+            <input type="tel" placeholder="enter your mobile number" id="mobile" name="user_mobile" value="mobile">
+            <br>
+            <label for="city">CITY</label>
+            <br>
+            <input type="text" placeholder="enter your city" id="city" name="user_city" value="city">
+            <br>
+            <br>
+            <button name="btn_submit">SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>

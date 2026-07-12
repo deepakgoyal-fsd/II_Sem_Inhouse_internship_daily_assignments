@@ -1,0 +1,278 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f6efe5;
+    color:#3b2a1e;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(92,60,34,.92);
+    backdrop-filter:blur(8px);
+    z-index:1000;
+}
+
+.logo h2{
+    color:#ffd369;
+    font-size:30px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ffd369;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:150vh;
+    background:url("images/background.jpg") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.overlay h1{
+    font-size:75px;
+    color:#ffd369;
+    margin:20px 0;
+}
+
+.overlay h2{
+    font-size:34px;
+}
+
+.overlay p{
+    font-size:22px;
+    margin:20px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    margin-top:30px;
+    padding:15px 40px;
+    text-decoration:none;
+    background:#ffd369;
+    color:#4b2e18;
+    font-weight:bold;
+    border-radius:40px;
+    transition:.4s;
+}
+
+.btn:hover{
+    background:white;
+    transform:scale(1.05);
+}
+
+/* ================= COUNTDOWN ================= */
+
+#countdown{
+    display:flex;
+    gap:20px;
+    
+}
+
+#countdown div{
+    background:rgba(255,255,255,.15);
+    padding:20px;
+    border-radius:15px;
+    width:100px;
+    backdrop-filter:blur(10px);
+}
+
+#countdown h2{
+    font-size:35px;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:100px 10%;
+}
+
+section h2{
+    text-align:center;
+    font-size:42px;
+    color:#6b3f1d;
+    margin-bottom:40px;
+}
+
+/* ================= ABOUT ================= */
+
+.about p{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    font-size:20px;
+    line-height:35px;
+}
+
+/* ================= EVENTS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#8a4d1f;
+    margin-bottom:15px;
+}
+
+/* ================= TABLE ================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th{
+    background:#8a4d1f;
+    color:white;
+    padding:15px;
+}
+
+table td{
+    padding:15px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f4e6d5;
+}
+
+/* ================= CONTACT ================= */
+
+form{
+    max-width:600px;
+    margin:auto;
+}
+
+input,textarea{
+    width:100%;
+    padding:15px;
+    margin:15px 0;
+    border:none;
+    border-radius:10px;
+    background:#f0e2d2;
+    font-size:17px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#8a4d1f;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#6b3f1d;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#4b2e18;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+footer h3{
+    color:#ffd369;
+    margin-bottom:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.overlay h1{
+    font-size:45px;
+}
+
+.overlay h2{
+    font-size:24px;
+}
+
+#countdown{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+section{
+    padding:80px 7%;
+}
+
+}

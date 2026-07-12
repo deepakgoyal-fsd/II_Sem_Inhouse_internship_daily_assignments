@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Dynamic Student Cards</h3>
+<div id="container"></div>
+
+<script>
+  const students = [
+    { name: "Rahul", cgpa: 8.4 },
+    { name: "Ankit", cgpa: 7.9 },
+    { name: "Priya", cgpa: 9.1 }
+  ];
+
+  let html = "";
+
+  for (let i = 0; i < students.length; i++) {
+    html += `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+        <h4>${students[i].name}</h4>
+        <p>CGPA: ${students[i].cgpa}</p>
+      </div>
+    `;
+  }
+
+  document.getElementById("container").innerHTML = html;
+</script>
+
+</body>
+</html>

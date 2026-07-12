@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h3>Array of Objects Demo</h3>
+    <ul id="list"></ul>
+
+    <script>
+        const students = [
+            { name: "Rahul", branch: "CSE" },
+            { name: "Ankit", branch: "ECE" },
+            { name: "Priya", branch: "IT" }
+        ];
+
+        let html = "";
+
+        for (let i = 0; i < students.length; i++) {
+            html += "<li>" + students[i].name + " - " + students[i].branch + "</li>";
+        }
+
+        document.getElementById("list").innerHTML = html;
+    </script>
+
+</body>
+
+</html>

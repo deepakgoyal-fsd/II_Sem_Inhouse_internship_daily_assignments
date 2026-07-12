@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+
+    <h2 class="text-center mb-4">Student Records</h2>
+
+    <input
+        type="text"
+        id="search"
+        class="form-control mb-4"
+        placeholder="Search Student"
+    >
+    <div id="json"></div>
+
+    <div id="container" class="row g-4"
+    ></div>
+    
+          
+   
+</div>
+
+<script>
+const students = [
+    { name: "Rakesh", branch: "CSE", cgpa: 8.4 },
+    { name: "Kunal", branch: "ECE", cgpa: 8.9 },
+    { name: "Hemant", branch: "IT", cgpa: 9.0 },
+    { name: "Ram",branch: "CE",cgpa: 8.7},
+    { name: "pooja",branch: "CSE(AI)",cgpa: 9.1},
+    { name: "Himanshu",branch: "AI",cgpa: 8.9},
+    { name: "Sachin",branch: "EE",cgpa: 8.8}
+];
+
+let html = "";
+
+students.forEach((student, i) => {
+   html += `
+<div class="col-md-4 card-item mb-4">
+    <div class="card shadow h-100">
+        <div class="card-body text-center">
+
+            <img src="https://i.pravatar.cc/150?img=${i+1}"
+                 class="rounded-circle mb-3"
+                 width="120"
+                 height="120"
+                 style="object-fit:cover;">
+
+            <h5>${student.name}</h5>
+
+            <button class="btn btn-primary btn-sm mt-2"
+                onclick="toggleDetails(${i})">
+                Show Details
+            </button>
+
+            <div id="details-${i}" class="details mt-3" style="display:none;">
+                <p><strong>Branch:</strong> ${student.branch}</p>
+                <p><strong>CGPA:</strong> ${student.cgpa}</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    `;
+});
+
+document.getElementById("container").innerHTML = html;
+
+function toggleDetails(index) {
+    const details = document.getElementById(`details-${index}`);
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+    } else {
+        details.style.display = "none";
+    }
+}
+
+document.getElementById("search").addEventListener("keyup", function () {
+
+    let filter = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card-item");
+
+    cards.forEach(function(card) {
+        let name = card.querySelector("h5").innerText.toLowerCase();
+
+        if (name.includes(filter)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+});  
+
+document.getElementById("json").innerHTML=JSON.stringify(students,["name","cgpa"],4);
+
+
+</script>
+
+</body>
+</html>

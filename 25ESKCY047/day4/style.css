@@ -1,0 +1,173 @@
+/* Custom properties for managing theme states smoothly */
+:root {
+    --bg-color: #f4f7ff;
+    --card-bg: #ffffff;
+    --text-color: #152136;
+    --muted-text: #5e6b85;
+    --nav-bg: rgba(255, 255, 255, 0.82);
+    --border-color: #dfe7f3;
+    --accent: #4f46e5;
+    --accent-2: #22c55e;
+    --shadow: 0 16px 40px rgba(79, 70, 229, 0.12);
+}
+
+/* Dark theme specific class overrides */
+body.dark {
+    --bg-color: #07111f;
+    --card-bg: #111827;
+    --text-color: #f8fafc;
+    --muted-text: #9ca3af;
+    --nav-bg: rgba(17, 24, 39, 0.85);
+    --border-color: #374151;
+    --accent: #818cf8;
+    --accent-2: #34d399;
+    --shadow: 0 16px 42px rgba(0, 0, 0, 0.35);
+}
+
+/* Base structural styles using flex-based layouts */
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #eef4ff 0%, #fdf2ff 100%);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #07111f 0%, #111827 100%);
+}
+
+/* Forces all primary text blocks to adapt dynamically */
+h1, h2, h3, h4, h5, h6, label, .nav-link-custom, .card-title {
+    color: var(--text-color) !important;
+    transition: color 0.3s ease;
+}
+
+/* Handles the description text that needs to remain slightly muted but visible */
+.adaptive-text {
+    color: var(--muted-text) !important;
+    transition: color 0.3s ease;
+    font-size: 1.05rem;
+}
+
+.navbar-custom {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand {
+    color: var(--accent) !important;
+    letter-spacing: 0.04em;
+}
+
+.nav-link-custom {
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-link-custom:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+#themeToggle {
+    border-color: var(--accent);
+    color: var(--accent);
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+#themeToggle:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12);
+}
+
+h1 {
+    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(79, 70, 229, 0.12);
+}
+
+/* Form input styling */
+.form-control {
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.15);
+}
+
+body.dark .form-control {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #ffffff;
+}
+
+body.dark .form-control::placeholder {
+    color: #9ca3af;
+}
+
+body.dark .form-control:focus {
+    background-color: #273449;
+    color: #ffffff;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-success,
+.btn-secondary {
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.16);
+}
+
+/* Click Counter Styles */
+.counter-display {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent) !important;
+    letter-spacing: 0.03em;
+    text-shadow: 0 2px 12px rgba(79, 70, 229, 0.14);
+}
+
+/* Error Typography styling */
+.error-message {
+    color: #ef4444 !important;
+    font-size: 0.875rem;
+    margin-top: 0.4rem;
+    min-height: 1.25rem;
+    font-weight: 600;
+}

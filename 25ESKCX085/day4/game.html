@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        body{
+            position:relative;
+            height: 100vh;
+            margin: 0;
+        }
+        img{
+            width: 100px;
+            position: relative;
+            cursor: pointer;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <p>Lohen:<span id="Lohen">0</span></p>
+    <p>Varka:<span id="Varka">0</span></p>
+    <img src="images/lohen.jpeg" onclick="clickimage('Lohen',this)">
+    <img src="images/varka.jpeg" onclick="clickimage('Varka',this)">
+
+    <script>
+        let Lohen=0,Varka=0;
+        document.querySelectorAll("img").forEach(img=>{
+            img.style.left=Math.random()*(window.innerWidth-100)+"px"; img.style.top=Math.random()*(window.innerHeight-120)+"px";
+        });
+
+            function clickimage(type,img){
+                if(type=="Lohen"){
+                    document.getElementById("Lohen").innerText= ++Lohen;
+                }
+                else{
+                    document.getElementById("Varka").innerText= ++Varka;
+                }
+            img.style.left=Math.random()*(window.innerWidth-100)+"px";
+            img.style.top=Math.random()*(window.innerHeight-120)+"px";
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body{
+    background:#f5f7fa;
+}
+
+.card{
+    border:none;
+    border-radius:12px;
+}
+
+table img{
+    object-fit:cover;
+}
+
+.table-hover tbody tr:hover{
+    background:#f1f8ff;
+}
+
+.btn{
+    border-radius:8px;
+}
+
+.badge{
+    font-size:14px;
+}
+
+h2{
+    font-weight:bold;
+}
+
+.card-body h2{
+    font-size:40px;
+}
+
+.table td{
+    vertical-align:middle;
+}

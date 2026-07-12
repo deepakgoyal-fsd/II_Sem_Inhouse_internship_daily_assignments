@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            /* flex-direction: column-reverse; */
+            gap: 10px;
+        }
+        .menu-itms{
+            display: flex;
+            gap: 10px;
+            margin:auto
+        }
+        .logo{
+            width: 100px;
+        }
+        .menu-itms .item{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Flexbox All Properties Demo</h2>
+
+    <div class="container">
+        <div class="logo">
+            <a href="https://scrumdigital.com" class="navbar-brand">
+                <img class="scrum-logo colorful-logo" src="https://scrumdigital.com/assets/images/logo-scrum.svg" alt="Scrum Digital">
+            </a>
+        </div>
+        <div class="menu-itms">
+            <a class="item" href="#home">Home</a>
+            <a class="item" href="#about">About</a>
+            <a class="item" href="#contact">Contact</a>
+            <a class="item" href="#about">About</a>
+            <a class="item" href="#contact">Contact</a>
+        </div>
+        <div>
+            <button class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</body>
+
+</html>

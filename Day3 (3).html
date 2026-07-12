@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Complete Demo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    /* ============================= */
+    /* FLEX CONTAINER (PARENT) */
+    /* ============================= */
+    .container {
+      border: 2px solid #333;
+      height: 300px;
+
+      display: flex; 
+      /* Parent ko flex container banata hai */
+
+      /* flex-direction: row; */
+      /* row (default) → items left se right */
+
+      /* flex-direction: column; */
+      /* column → items top se bottom */
+
+      /* flex-direction: row-reverse; */
+      /* row-reverse → right se left */
+
+      /* flex-direction: column-reverse; */
+      /* column-reverse → bottom se top */
+
+      /* justify-content: flex-start; */
+      /* main axis start se align */
+
+      /* justify-content: center; */
+      /* main axis ke center mein */
+
+      /* justify-content: flex-end; */
+      /* main axis ke end mein */
+
+      /* justify-content: space-between; */
+      /* items ke beech equal gap, edges pe gap nahi */
+
+      /* justify-content: space-around; */
+      /* items ke around gap, edges pe half gap */
+
+      /* justify-content: space-evenly; */
+      /* items aur edges sab jagah equal gap */
+
+      /* align-items: stretch; */
+      /* cross axis mein full height (default) */
+
+      /* align-items: flex-start; */
+      /* upar align (row mein) */
+
+      /* align-items: center; */
+      /* vertically center */
+
+      /* align-items: flex-end; */
+      /* neeche align */
+
+      /* align-items: baseline; */
+      /* text baseline ke hisaab se align */
+
+      /* flex-wrap: nowrap; */
+      /* ek hi line mein forcefully fit (default) */
+
+      /* flex-wrap: wrap; */
+      /* jagah kam ho to next line */
+
+      /* flex-wrap: wrap-reverse; */
+      /* wrap but reverse direction */
+
+      /* gap: 10px; */
+      /* items ke beech ka gap (modern & best) */
+    }
+
+    /* ============================= */
+    /* FLEX ITEMS (CHILDREN) */
+    /* ============================= */
+    .item {
+      background: lightblue;
+      border: 1px solid #000;
+      padding: 20px;
+      width: 80px;
+      text-align: center;
+
+      /* flex-grow: 1; */
+      /* available space ko grow karke le lega */
+
+      /* flex-shrink: 1; */
+      /* jagah kam ho to shrink karega */
+
+      /* flex-basis: 100px; */
+      /* initial width/size define karta hai */
+
+      /* flex: 1; */
+      /* shorthand → grow:1 shrink:1 basis:0 */
+
+      /* align-self: center; */
+      /* ek single item ka alignment change */
+
+    }
+
+    /* Sirf demo ke liye */
+    .item:nth-child(2) {
+      background: lightcoral;
+
+      /* align-self: flex-end; */
+      /* sirf 2nd item neeche align */
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>Flexbox All Properties Demo</h2>
+
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+
+</body>
+</html>

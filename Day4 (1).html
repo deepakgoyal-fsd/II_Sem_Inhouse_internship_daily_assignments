@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Page</title>
+</head>
+
+<body>
+<h1 class="test">Welcome to the Small Page</h1>
+</body>
+<script>
+    const headingOfPage = document.querySelector('h1');
+    console.log(`Heading of the page is: ${headingOfPage.textContent}`);
+
+    headingOfPage.textContent = "Welcome to the Updated Small Page";
+    headingOfPage.style.color = "red";
+</script>
+
+</html>

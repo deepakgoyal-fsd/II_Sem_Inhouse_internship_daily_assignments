@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    
+    <h3>Student Directory</h3>
+    <!-- FOR Random image 
+    https://i.pravatar.cc/300 -->
+    <input type="text" id="search" placeholder="Search">
+
+    <div id="students"></div>
+
+    <script>
+        const students = [
+            { name: "Rahul", branch: "CSE", cgpa: 8.4 },
+            { name: "Ankit", branch: "ECE", cgpa: 7.9 },
+            { name: "Priya", branch: "IT", cgpa: 9.1 }
+        ];
+
+        function render(data) {
+            let html = "";
+            data.forEach(s => {
+                html += `
+        <div class="card">
+          <h4>${s.name}</h4>
+          <p class="details" style="display:none;">
+            ${s.branch} | CGPA ${s.cgpa}
+          </p>
+          <button class="btn">Show Details</button>
+        </div>
+      `;
+            });
+            $("#students").html(html);
+        }
+
+        render(students);
+
+        $(document).on("click", ".btn", function () {
+            $(this).prev(".details").slideToggle();
+        });
+
+        $("#search").keyup(function () {
+            let val = $(this).val().toLowerCase();
+            $(".card").each(function () {
+                let name = $(this).find("h4").text().toLowerCase();
+                $(this).toggle(name.includes(val));
+            });
+        });
+    </script>
+
+</body>
+
+</html>

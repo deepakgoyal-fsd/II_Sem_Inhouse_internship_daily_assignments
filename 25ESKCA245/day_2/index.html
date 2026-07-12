@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registraion form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+       <form action="">
+            <h2>Registraion From</h2>
+
+            <br>
+            <label for="">Full Name</label>
+            <br>
+            <input type="text" id="name" placeholder="Enter Full Name">
+
+            <br><br>
+            <label for="">Email Address</label>
+            <br>
+            <input type="email" id="email" placeholder="Enter Email Address">
+
+            <br><br>
+            <div id="box1">
+                    <div>
+                        <label for="">Phone Number</label>
+                        <!-- <br> -->
+                        <input type="tel" placeholder="Enter Phone NUmber ">
+                    </div>
+
+               <div>
+                    <!-- <br><br> -->
+                    <label for="">Birth Date</label>
+                    <!-- <br> -->
+                    <input type="date">
+               </div>
+            </div>
+
+            <br>
+            <p>Gender</p>
+            <label for="">Male</label>
+            <input type="radio" name="gender" id="male">
+            <label for="">Female</label>
+            <input type="radio" name="gender" id="female">
+            <label for="">Prefer not to say</label>
+            <input type="radio" name="gender" id="other">
+
+            <br><br>
+            <label for="">Address</label>
+            <br>
+            <input type="text" id="address" placeholder="Enter Street Address">
+            <br><br>
+            <input type="text" id="address" placeholder="Enter Street Address Line 2">
+
+            <br><br>
+            <div id="countryAndCity">
+                <select name="" id="country">Country
+                <option value="">India</option>
+                <option value="">Bharat</option>
+                <option value="">Nepal</option>
+                </select>
+                
+                <input type="text" placeholder="Enter your city">
+
+            </div>
+
+            <br>
+            <div id="regionAndCode">
+                <input type="text" id="region" placeholder="Enter your region" >
+                <input type="text" id="code" placeholder="Enter Pin Code">
+            </div>
+
+
+            <br>    
+            <button type="submit" id="submit">SUBMIT</button>
+
+
+       </form>
+    </div>
+</body>
+</html>

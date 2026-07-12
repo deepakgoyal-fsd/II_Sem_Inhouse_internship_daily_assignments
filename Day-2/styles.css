@@ -1,0 +1,33 @@
+/* styles.css — background and simple layout */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background: linear-gradient(135deg, #f8fafc 0%, #e9eef8 50%, #d6e4fb 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  background: rgba(255,255,255,0.9);
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(20,30,50,0.08);
+  width: 100%;
+  max-width: 520px;
+}
+
+p.title { color: firebrick; margin: 0 0 12px; font-weight:700; }
+label { display:block; margin-top:10px; font-weight:600; }
+input[type="text"], input[type="email"], input[type="date"], input[type="password"] {
+  width:100%; padding:8px; margin-top:6px; border:1px solid #ccd6e6; border-radius:4px; box-sizing:border-box;
+}
+button[type="submit"] { margin-top:14px; padding:10px 14px; background:firebrick; color:#fff; border:0; border-radius:4px; cursor:pointer; }
+button[type="submit"]:hover { opacity:0.95; }

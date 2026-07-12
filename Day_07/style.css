@@ -1,0 +1,285 @@
+/* ==========================================================
+   SKIT REGISTRATION — shared stylesheet
+   Design: registrar's ledger. Navy + gold, serif display,
+   numbered form rows, receipt-style confirmation.
+   ========================================================== */
+:root{
+  --navy:        #1b2a41;
+  --navy-deep:   #101a29;
+  --gold:        #c9a227;
+  --gold-soft:   #e6cf7d;
+  --paper:       #f4f6f8;
+  --card:        #ffffff;
+  --ink:         #1f2933;
+  --ink-soft:    #5a6672;
+  --rule:        #dde3e9;
+  --ok:          #2f6f5e;
+  --ok-bg:       #e7f2ee;
+  --danger:      #b33a3a;
+  --danger-bg:   #fbeaea;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+  --radius: 6px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+a{ color: var(--navy); }
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+/* ---------------- Header ---------------- */
+.site-header{
+  background: var(--navy);
+  border-bottom: 3px solid var(--gold);
+}
+.site-header__bar{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.brand{
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.brand span{ color: var(--gold-soft); }
+
+.site-nav{
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.site-nav a{
+  color: #dfe6ee;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover, .site-nav a.is-active{
+  color: #fff;
+  border-bottom-color: var(--gold);
+}
+
+.site-search{
+  display: flex;
+  gap: 8px;
+}
+.site-search input{
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  font-size: 13px;
+}
+.site-search input::placeholder{ color: #b7c2cd; }
+.site-search button{
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold-soft);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.site-search button:hover{ background: var(--gold); color: var(--navy-deep); }
+
+/* ---------------- Layout / cards ---------------- */
+.page{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+}
+
+.ledger-card{
+  background: var(--card);
+  border-radius: var(--radius);
+  border-left: 5px solid var(--gold);
+  box-shadow: 0 1px 2px rgba(16,26,41,0.04), 0 12px 28px -16px rgba(16,26,41,0.25);
+  padding: 32px 32px 28px;
+}
+
+.ledger-card__eyebrow{
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.ledger-card__title{
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  margin-bottom: 6px;
+}
+
+.ledger-card__sub{
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+/* ---------------- Numbered form rows ---------------- */
+.field-row{
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+}
+.field-row:first-of-type{ border-top: none; }
+
+.field-row__num{
+  flex: 0 0 28px;
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 15px;
+  padding-top: 6px;
+}
+
+.field-row__body{ flex: 1 1 auto; min-width: 0; }
+
+.field-row label{
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.field-row input[type="text"],
+.field-row input[type="email"],
+.field-row input[type="password"],
+.field-row select{
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: #fbfcfd;
+  color: var(--ink);
+}
+.field-row input:focus, .field-row select:focus{
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(27,42,65,0.1);
+}
+
+.choice-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 2px;
+}
+.choice-group label{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.choice-group input{ accent-color: var(--navy); width: 15px; height: 15px; }
+
+.field-hint{
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 5px;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn{
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-primary{
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+}
+.btn-primary:hover{ background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+.btn-block{ width: 100%; margin-top: 22px; }
+
+/* ---------------- Alerts ---------------- */
+.notice{
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  margin-bottom: 22px;
+}
+.notice-error{ background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(179,58,58,0.25); }
+.notice-error ul{ margin: 4px 0 0; padding-left: 18px; }
+.notice-success{ background: var(--ok-bg); color: var(--ok); border: 1px solid rgba(47,111,94,0.25); }
+
+/* ---------------- Receipt (confirmation) ---------------- */
+.receipt{
+  border-top: 2px dashed var(--rule);
+  margin-top: 22px;
+  padding-top: 18px;
+}
+.receipt__row{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+.receipt__row:last-child{ border-bottom: none; }
+.receipt__label{ color: var(--ink-soft); }
+.receipt__value{ font-weight: 600; text-align: right; }
+
+/* ---------------- Footer ---------------- */
+.site-footer{
+  background: var(--navy-deep);
+  color: #c9d2db;
+  text-align: center;
+  padding: 26px 20px;
+  margin-top: 56px;
+}
+.site-footer p{ margin: 0 0 8px; font-size: 13px; }
+.site-footer a{
+  color: #dfe6ee;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 13px;
+}
+.site-footer a:hover{ color: var(--gold-soft); }
+
+@media (max-width: 560px){
+  .ledger-card{ padding: 24px 20px; }
+  .field-row{ flex-direction: column; gap: 4px; }
+  .field-row__num{ padding-top: 0; }
+}

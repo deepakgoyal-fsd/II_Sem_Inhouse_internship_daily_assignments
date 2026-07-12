@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookmarkManager - Dashboard</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Manage and search your personal bookmarks dynamically. CRUD operations with responsive card layout.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Mobile Navigation Toggle Button -->
+    <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Sidebar">
+        <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar-nav">
+            <div class="sidebar-logo">
+                <i class="bi bi-bookmark-star-fill text-indigo"></i>
+                <span>Bookmarks</span>
+            </div>
+            
+            <nav>
+                <div class="sidebar-nav-title">Categories</div>
+                <ul class="category-list">
+                    <li class="category-item">
+                        <a href="#" class="category-link active" data-category="All">
+                            <span><i class="bi bi-grid-fill me-2"></i>All Bookmarks</span>
+                            <span class="category-badge" id="badge-all-count">0</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="Work">
+                            <span><i class="bi bi-briefcase-fill me-2"></i>Work</span>
+                            <span class="category-badge" id="badge-work-count">0</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="Personal">
+                            <span><i class="bi bi-house-door-fill me-2"></i>Personal</span>
+                            <span class="category-badge" id="badge-personal-count">0</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="Study">
+                            <span><i class="bi bi-book-fill me-2"></i>Study</span>
+                            <span class="category-badge" id="badge-study-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- User Footer in Sidebar -->
+            <div class="sidebar-user">
+                <div class="user-info">
+                    <span class="user-name" id="user-display-name">Loading...</span>
+                    <span class="user-email" id="user-display-email">user@example.com</span>
+                </div>
+                <button class="logout-btn" id="logout-trigger" title="Sign Out">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header bar -->
+            <header class="dashboard-header">
+                <div class="search-bar-wrapper">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="form-control form-control-custom search-control" id="search-input" placeholder="Search title or URL...">
+                </div>
+                
+                <button class="btn btn-primary-gradient" id="add-bookmark-btn" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <i class="bi bi-plus-lg me-2"></i>Add Bookmark
+                </button>
+            </header>
+
+            <!-- Bookmarks Grid -->
+            <section class="bookmarks-grid" id="bookmarks-container">
+                <!-- Bookmarks loaded dynamically via JS -->
+                <div class="w-100 text-center py-5">
+                    <div class="spinner-border text-indigo" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+    
+    <!-- Add Bookmark Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom border-0">
+                    <h5 class="modal-title" id="addModalLabel"><i class="bi bi-plus-circle me-2"></i>Add New Bookmark</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="add-bookmark-form">
+                    <div class="modal-body px-4 py-3">
+                        <div class="mb-3">
+                            <label for="add-title" class="form-label text-secondary small fw-semibold">Title</label>
+                            <input type="text" class="form-control form-control-custom" id="add-title" placeholder="e.g. Google Search" required maxlength="150">
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-url" class="form-label text-secondary small fw-semibold">URL</label>
+                            <input type="url" class="form-control form-control-custom" id="add-url" placeholder="https://example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-category" class="form-label text-secondary small fw-semibold">Category</label>
+                            <select class="form-select form-control-custom" id="add-category" required>
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Study">Study</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer modal-footer-custom border-0">
+                        <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary-gradient" id="add-submit-btn">
+                            <span>Save Bookmark</span>
+                            <div class="spinner-border spinner-border-sm ms-2 d-none" id="add-spinner" role="status"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Bookmark Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom border-0">
+                    <h5 class="modal-title" id="editModalLabel"><i class="bi bi-pencil-square me-2"></i>Edit Bookmark</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="edit-bookmark-form">
+                    <input type="hidden" id="edit-id">
+                    <div class="modal-body px-4 py-3">
+                        <div class="mb-3">
+                            <label for="edit-title" class="form-label text-secondary small fw-semibold">Title</label>
+                            <input type="text" class="form-control form-control-custom" id="edit-title" placeholder="e.g. Google Search" required maxlength="150">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-url" class="form-label text-secondary small fw-semibold">URL</label>
+                            <input type="url" class="form-control form-control-custom" id="edit-url" placeholder="https://example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-category" class="form-label text-secondary small fw-semibold">Category</label>
+                            <select class="form-select form-control-custom" id="edit-category" required>
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Study">Study</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer modal-footer-custom border-0">
+                        <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary-gradient" id="edit-submit-btn">
+                            <span>Save Changes</span>
+                            <div class="spinner-border spinner-border-sm ms-2 d-none" id="edit-spinner" role="status"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom border-0 pb-0">
+                    <h5 class="modal-title text-rose" id="deleteModalLabel"><i class="bi bi-exclamation-triangle-fill me-2"></i>Delete?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <p class="text-secondary mb-0">Are you sure you want to delete this bookmark? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer modal-footer-custom border-0 pt-0">
+                    <button type="button" class="btn btn-outline-custom py-2 px-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-primary-gradient bg-rose border-0 py-2 px-3" id="confirm-delete-btn">
+                        <span>Delete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Frontend JS Controller -->
+    <script src="js/app.js"></script>
+</body>
+</html>

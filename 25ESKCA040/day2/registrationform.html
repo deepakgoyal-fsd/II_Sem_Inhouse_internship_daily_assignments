@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA_Compatible" content="ie=edge" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="stylesheet.css"
+</head>
+<body>
+    <form>
+       <center><b><h1 style="color:rgb(1, 43, 54);">Student Registration Form
+
+       </b></h1>
+        <label>
+     Name:
+        <input type="text" id="txtname" required placeholder="Enter name"/>
+    </label>
+    <label>
+        <br><br>
+    Email:
+    <input type="email" id="txtEmail" required
+    placeholder="Enter your Email"/>
+</label>
+<br><br>
+ <label>
+    Phone No:
+    <input type="Phone No" id="txtPhone No" required
+    placeholder="Phone No"/>
+    <br><br>
+</label>
+Gender:
+<input type="radio" id="check-Male" name="gender" checked />
+<label for="check-male">Male </label>
+
+<input type="radio" id="check-Female" name="gender" checked />
+<label for="check-female">Female </label>
+<br><br>
+DOB:
+<input type="date" id="dtDOB" name="dtDOB" checked />
+<label for="dtDOB"></label>
+<br><br>
+Select your City: 
+<select name="City">
+    <option value="Jaipur">Jaipur </option>
+    <option value="Delhi">Delhi </option>
+    <option value="Bangalore">Bangalore </option>
+    <option value="Dubai">Dubai</option>
+</select>
+<br><br>
+Select Course:
+<select name="Course">
+    <option value="Btech">Btech</option>
+    <option value="Mtech">Mtech</option>
+</select>
+<br><br>
+Select Branch:
+    <input type="radio" id="check-Ai" name="Branch">
+<label for="check-Ai">AI</label>
+<input type="radio" id="check-Ds" name="Branch">
+<label for="check-Ds">DS</label>
+<input type="radio" id="check-Iot" name="Branch">
+<label for="check-Iot">IOT</label>
+
+<br><br>
+Address: 
+<input type="text" id="txtAddress" name="Address" required placeholder="Residential ">
+<br><br>
+<label for="pwdPassword">Password:</label>
+<input type="password" id="pwdPassword" name="pwdPassword" checked />
+<b><button  style="color: rgb(231, 237, 237);" type="Submit">submit </button></b>
+
+<br><br>
+<textarea name="Feedback" id="101" placeholder="Give your valuable Feedback" rows="5"></textarea>
+
+
+    </center></form>
+     
+</body>
+</html>

@@ -1,0 +1,36 @@
+body{
+   color: rgb(7, 100, 199);
+   background-color: burlywood;
+   font-size: larger;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+}
+button{
+   background-color: black;
+}
+form{
+   background-color: rgb(222, 188, 159);
+   color: white;
+   box-shadow: 10px 10px 10px 10px grey;
+   border-radius: 10px;
+   width: 600px;
+   align-items: center;
+   justify-content: center;
+}
+input{
+   background-color: rgb(243, 240, 237);
+   color: white;
+   border-radius: 5px;
+   align-items: center;
+   justify-content: center;
+
+}
+button{
+   background-color: rgb(1, 43, 54);
+   color: white;
+   border-radius: 5px;
+   align-items: center;
+   justify-content: center;
+
+}

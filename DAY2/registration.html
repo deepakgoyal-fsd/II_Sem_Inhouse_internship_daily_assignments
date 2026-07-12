@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="register-form">
+            <h2>Registration Form</h2>
+
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" placeholder="Create password" required>
+            </div>
+
+            <div class="input-box">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm password" required>
+            </div>
+
+            <div class="input-box">
+                <label>Date of Birth</label>
+                <input type="date">
+            </div>
+
+            <div class="input-box">
+                <label>Gender</label>
+
+                <div class="gender">
+                    <label>
+                        <input type="radio" name="gender"> Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender"> Female
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender"> Other
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label>Course</label>
+
+                <select>
+                    <option>Select Course</option>
+                    <option>B.Tech</option>
+                    <option>BCA</option>
+                    <option>B.Sc</option>
+                    <option>MCA</option>
+                </select>
+            </div>
+
+
+            <div class="input-box">
+                <label>Address</label>
+                <textarea rows="4" placeholder="Enter your address"></textarea>
+            </div>
+
+            <div class="input-box">
+                <label>
+                    <input type="checkbox">
+                    I agree to the Terms & Conditions
+                </label>
+            </div>
+
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

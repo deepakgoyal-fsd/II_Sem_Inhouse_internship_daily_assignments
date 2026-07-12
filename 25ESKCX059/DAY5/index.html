@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/script.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title">Student Finder</h1>
+
+<!-- Search Bar -->
+<div class="search-box">
+
+    <select class="searchFor">
+        <option value="" selected disabled>Search For</option>
+        <option value="name">Name</option>
+        <option value="id">College ID</option>
+        <option value="rollNo">University Roll No</option>
+        <option value="branch">Branch</option>
+        <option value="year">Year</option>
+        <option value="section">Section</option>
+        <option value="cgpa">CGPA</option>
+    </select>
+
+    <input
+        type="text"
+        class="searchValue"
+        placeholder="Search Student..."
+    >
+
+    <button class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <button class="addStudent"><i class="fa-solid fa-user-plus"></i>
+    Add Student</button>
+
+</div>
+
+    <div class="form-container">
+
+    <form class="form">
+
+        <h2>Submit Student Detail</h2>
+
+        <!-- Full Name -->
+        <div class="input-box">
+            <label>Full Name</label>
+            <input class="name" type="text" placeholder="Enter Your Full Name">
+            <p class="name-error"></p>
+        </div>
+
+        <!-- College ID -->
+        <div class="input-box">
+            <label>College ID</label>
+            <input class="id" type="text" placeholder="Enter Your College ID">
+            <p class="id-error"></p>
+        </div>
+
+        <!-- Roll No -->
+        <div class="input-box">
+            <label>University Roll No</label>
+            <input class="rollNo" type="text" placeholder="Enter Your University Roll No">
+            <p class="rollNo-error"></p>
+        </div>
+
+        <!-- Branch -->
+        <div class="input-box">
+            <label>Branch</label>
+
+            <select class="branch">
+                <option value="" selected disabled>Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="AI">AI</option>
+                <option value="DS">DS</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+            </select>
+
+            <p class="branch-error"></p>
+        </div>
+
+        <!-- Year & Section -->
+        <div class="row">
+
+            <div class="input-box">
+                <label>Year</label>
+
+                <select class="year">
+                    <option value="" selected disabled>Select Year</option>
+                    <option value="1st">1st Year</option>
+                    <option value="2nd">2nd Year</option>
+                    <option value="3rd">3rd Year</option>
+                    <option value="4th">4th Year</option>
+                </select>
+
+                <p class="year-error"></p>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>Section</label>
+
+                <select class="section">
+
+                    <option value="" selected disabled>Select Section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    
+
+                </select>
+
+                <p class="section-error"></p>
+
+            </div>
+
+        </div>
+
+        <!-- CGPA -->
+        <div class="input-box">
+            <label>CGPA</label>
+            <input class="cgpa" type="number" step="0.01">
+            <p class="cgpa-error"></p>
+        </div>
+
+        <button class="form-submit">
+            Submit Student
+        </button>
+
+    </form>
+
+</div>
+    <div class="student-container"></div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

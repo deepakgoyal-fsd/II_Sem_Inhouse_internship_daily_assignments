@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="number" id="number1" placeholder="Enter first number" />
+        <input type="number" id="number2" placeholder="Enter second number" />
+       <select id="operator">
+       <option value="+">+</option>
+       <option value="-">-</option>
+       <option value="*">*</option>
+       <option value="/">/</option>
+       </select>
+       <button type="button" onclick="performArithmeticOperation()">
+           Calculate
+       </button>
+    </form>
+    <h2 id="result">Result: </h2>
+    <script >
+        switch(operator){
+    case "+":
+        result = parseFloat(number1) + parseFloat(number2);
+        break;
+
+    case "-":
+        result = parseFloat(number1) - parseFloat(number2);
+        break;
+
+    case "*":
+        result = parseFloat(number1) * parseFloat(number2);
+        break;
+
+    case "/":
+        if (parseFloat(number2) != 0) {
+            result = parseFloat(number1) / parseFloat(number2);
+        } else {
+            result = "Denominator cannot be zero";
+        }
+        break;
+
+    default:
+        alert("Invalid operator");
+}
+        
+        
+    </script>
+</body>
+</html>

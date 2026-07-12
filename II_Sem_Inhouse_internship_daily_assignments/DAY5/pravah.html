@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAH // Cyber-Fest 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-darker: #05070f;
+    --bg-dark: #090e1a;
+    --bg-card: rgba(10, 16, 32, 0.8);
+    --border-neon: rgba(0, 240, 255, 0.25);
+    --border-neon-hover: rgba(0, 240, 255, 0.8);
+    --text-primary: #f0f5ff;
+    --text-secondary: #8e9bb4;
+    
+    /* Cyberpunk Palette */
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff007f;
+    --neon-yellow: #ffff00;
+    --neon-green: #39ff14;
+    --neon-purple: #9d00ff;
+    
+    --font-cyber: 'Unbounded', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-sans: 'Manrope', sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--bg-darker);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+  }
+  /* Scanline effect */
+  body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 99999;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+  }
+  ::selection {
+    background: var(--neon-pink);
+    color: #fff;
+  }
+  /* Scroll bar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: var(--bg-darker);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 4px;
+    border: 2px solid var(--bg-darker);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-pink);
+  }
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-yellow));
+    z-index: 1000;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--neon-cyan);
+  }
+  /* Utility Styles */
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--neon-pink);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+    text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+  }
+  .eyebrow::before {
+    content:"//";
+    color: var(--neon-cyan);
+  }
+  .section-title {
+    font-family: var(--font-cyber);
+    font-weight: 800;
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .section-title span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--neon-cyan);
+    filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.3));
+  }
+  .section-lead {
+    color: var(--text-secondary);
+    max-width: 600px;
+    font-size: 16px;
+    font-family: var(--font-mono);
+    border-left: 2px solid var(--neon-cyan);
+    padding-left: 15px;
+  }
+  /* Cyber Header / College Banner */
+  .college-banner {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid var(--border-neon);
+    padding: 8px 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-align: center;
+    color: var(--neon-yellow);
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+  }
+  /* ---------- Nav ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    background: rgba(5, 7, 15, 0.8);
+    border-bottom: 1px solid var(--border-neon);
+    transition: all 0.3s ease;
+  }
+  header.scrolled {
+    border-bottom-color: var(--neon-pink);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: var(--font-cyber);
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 8px var(--neon-cyan);
+  }
+  .logo span {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .nav-links a:not(.nav-cta) {
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 6px 0;
+  }
+  .nav-links a:not(.nav-cta)::after {
+    content: "";
+    position: absolute; left: 0; bottom: 0;
+    width: 100%; height: 2px;
+    background: var(--neon-pink);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:not(.nav-cta):hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+  }
+  .nav-links a:not(.nav-cta):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  /* Cyber Button Style */
+  .nav-cta, .btn {
+    position: relative;
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 10px 22px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 8px rgba(0, 240, 255, 0.1);
+  }
+  .nav-cta:hover, .btn:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-darker);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    text-shadow: none;
+  }
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .burger span {
+    width: 24px; height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 5px var(--neon-cyan);
+    transition: all 0.3s ease;
+  }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px 24px;
+    border-bottom: 1px solid var(--border-neon);
+    background: rgba(5, 7, 15, 0.95);
+    font-family: var(--font-mono);
+  }
+  .mobile-menu.open {
+    display: flex;
+  }
+  .mobile-menu a {
+    padding: 12px 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .mobile-menu a:hover {
+    color: var(--neon-pink);
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .burger { display: flex; }
+  }
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 50% 50%, rgba(157, 0, 255, 0.1) 0%, transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero > .wrap { position: relative; z-index: 2; }
+  /* Cyber Glitch Title */
+  .glitch-container {
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 {
+    font-family: var(--font-cyber);
+    font-weight: 900;
+    font-size: clamp(48px, 12vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-shadow: 0px 0px 20px rgba(0, 240, 255, 0.3);
+    position: relative;
+    text-transform: uppercase;
+  }
+  
+  .hero-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--neon-yellow);
+    border: 1px dashed var(--neon-yellow);
+    padding: 6px 16px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.1);
+  }
+  .hero-date .blink-dot {
+    width: 6px; height: 6px;
+    background: var(--neon-yellow);
+    border-radius: 50%;
+    animation: blink 1.2s infinite steps(2);
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  .hero .tagline {
+    font-size: clamp(15px, 2.5vw, 20px);
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 15px auto 40px;
+    font-family: var(--font-sans);
+  }
+  .hero .tagline strong {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+  }
+  /* Countdown Board */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+  }
+  .countdown .unit {
+    background: rgba(10, 16, 32, 0.7);
+    border: 1px solid var(--border-neon);
+    padding: 16px 20px;
+    min-width: 100px;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+    transition: all 0.3s ease;
+  }
+  .countdown .unit::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 8px var(--neon-cyan);
+  }
+  .countdown .unit.tick {
+    border-color: var(--neon-pink);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+  }
+  .countdown .unit.tick::before {
+    background: var(--neon-pink);
+    box-shadow: 0 0 8px var(--neon-pink);
+  }
+  .countdown .unit .num {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 38px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+  }
+  .countdown .unit .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+  }
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-purple) 100%);
+    border-color: var(--neon-pink);
+    color: #fff;
+    font-size: 14px;
+    padding: 14px 32px;
+    clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+  }
+  .btn-primary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--bg-darker);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--border-neon);
+    color: var(--text-primary);
+    font-size: 14px;
+    padding: 14px 32px;
+  }
+  .btn-ghost:hover {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    background: rgba(0, 240, 255, 0.05);
+  }
+  /* ---------- Reveal & Animations ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  section {
+    padding: 90px 0;
+    position: relative;
+  }
+  .section-head {
+    margin-bottom: 50px;
+  }
+  /* ---------- Events ---------- */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Cyber Card Style with Dynamic 3D Transform & Shine */
+  .event-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-neon);
+    padding: 26px 24px;
+    position: relative;
+    clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 290px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  }
+  .event-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: background-color 0.3s ease;
+  }
+  .event-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+    background: rgba(13, 22, 44, 0.9);
+  }
+  .event-card.selected {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.3);
+    background: rgba(255, 0, 127, 0.04);
+  }
+  .event-card.selected::before {
+    background: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+  }
+  .event-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    transform: translateZ(20px);
+  }
+  
+  .event-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    padding: 4px 10px;
+    clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+  }
+  
+  .event-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--neon-yellow);
+    background: rgba(255, 255, 0, 0.1);
+    padding: 3px 8px;
+    border: 1px solid rgba(255, 255, 0, 0.2);
+  }
+  .event-card h3 {
+    font-family: var(--font-cyber);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: #fff;
+    transform: translateZ(30px);
+  }
+  .event-card p {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    margin-bottom: 18px;
+    flex-grow: 1;
+    transform: translateZ(15px);
+  }
+  .event-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    transform: translateZ(20px);
+  }
+  .fee-label {
+    color: var(--neon-yellow);
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+  }
+  .fee-free {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+  }
+  .event-toggle {
+    width: 100%;
+    padding: 11px;
+    background: transparent;
+    border: 1px solid var(--border-neon);
+    color: var(--neon-cyan);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+    transition: all 0.2s ease;
+    transform: translateZ(25px);
+  }
+  .event-toggle:hover {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--neon-cyan);
+  }
+  .event-card.selected .event-toggle {
+    background: var(--neon-pink);
+    border-color: var(--neon-pink);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+  }
+  /* ---------- Registration Section ---------- */
+  .reg-panel {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-neon);
+    clip-path: polygon(25px 0%, 100% 0%, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0% 100%, 0% 25px);
+  }
+  .reg-form {
+    padding: 40px;
+  }
+  .reg-side {
+    padding: 40px;
+    background: linear-gradient(150deg, rgba(0, 240, 255, 0.05) 0%, rgba(157, 0, 255, 0.05) 100%);
+    border-left: 1px solid var(--border-neon);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 576px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+  .field {
+    margin-bottom: 22px;
+  }
+  .field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    margin-bottom: 8px;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+  }
+  .field input, .field select {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(5, 7, 15, 0.8);
+    border: 1px solid var(--border-neon);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    outline: none;
+    clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+    transition: all 0.2s ease;
+  }
+  .field input:focus, .field select:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+  }
+  .field select option {
+    background: var(--bg-darker);
+    color: #fff;
+  }
+  /* Cart Panel within Registration */
+  .cart-panel {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px dashed var(--border-neon);
+    padding: 18px;
+    margin-bottom: 24px;
+    clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+  }
+  .cart-title {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--neon-pink);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 0, 127, 0.2);
+    padding-bottom: 6px;
+  }
+  .cart-items {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+  }
+  .cart-total {
+    border-top: 1px solid rgba(0, 240, 255, 0.2);
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--neon-yellow);
+  }
+  .checklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .chk-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-neon);
+    background: rgba(5, 7, 15, 0.5);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+    transition: all 0.2s ease;
+  }
+  .chk-pill.on {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+  }
+  .chk-pill input { display: none; }
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-pink) 100%);
+    border: none;
+    color: #fff;
+    font-family: var(--font-cyber);
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+    transition: all 0.2s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+  }
+  .submit-btn:hover {
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+    transform: translateY(-2px);
+  }
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .form-msg {
+    margin-top: 15px;
+    padding: 12px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    display: none;
+    border-left: 3px solid transparent;
+  }
+  .form-msg.show { display: block; }
+  .form-msg.error {
+    background: rgba(255, 0, 127, 0.1);
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+  }
+  .form-msg.success {
+    background: rgba(57, 255, 20, 0.1);
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+  }
+  /* College Friendly Guidelines Side Panel */
+  .reg-side h4 {
+    font-family: var(--font-cyber);
+    font-size: 16px;
+    color: var(--neon-yellow);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  .guidelines-list {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  .guidelines-list li {
+    position: relative;
+    padding-left: 15px;
+    list-style: none;
+  }
+  .guidelines-list li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--neon-cyan);
+  }
+  .coordinator-info {
+    border-top: 1px dashed var(--border-neon);
+    padding-top: 15px;
+  }
+  .coordinator-title {
+    font-family: var(--font-cyber);
+    font-size: 11px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .coordinator-list {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  @media (max-width: 860px) {
+    .reg-panel { grid-template-columns: 1fr; }
+    .reg-side { border-left: none; border-top: 1px solid var(--border-neon); }
+  }
+  /* ---------- Enlisted Riders Wall ---------- */
+  .wall-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 35px;
+  }
+  .wall-count {
+    font-family: var(--font-mono);
+    text-align: right;
+  }
+  .wall-count .n {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--neon-yellow);
+    display: block;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.4);
+  }
+  .wall-count .l {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .flow-wall {
+    border: 1px solid var(--border-neon);
+    background: rgba(10, 16, 32, 0.4);
+    padding: 30px 0;
+    overflow: hidden;
+    clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+  }
+  .flow-row {
+    display: flex;
+    gap: 16px;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .flow-row.r1 { animation: driftLeft 38s linear infinite; margin-bottom: 16px; }
+  .flow-row.r2 { animation: driftRight 44s linear infinite; }
+  .flow-wall:hover .flow-row { animation-play-state: paused; }
+  @keyframes driftLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes driftRight {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flow-row.r1, .flow-row.r2 { animation: none; overflow-x: auto; }
+    body::before { display: none; }
+  }
+  .name-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    background: rgba(5, 7, 15, 0.8);
+    border: 1px solid var(--border-neon);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+    transition: all 0.25s ease;
+  }
+  .name-pill:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+    transform: translateY(-2px);
+  }
+  .name-pill .avatar {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800; color: #fff;
+  }
+  .name-pill .ev {
+    font-size: 9.5px;
+    color: var(--neon-yellow);
+    text-transform: uppercase;
+  }
+  .wall-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 14px;
+  }
+  .wall-loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  /* Confetti burst elements */
+  .confetti-piece {
+    position: fixed;
+    width: 6px; height: 6px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: confettiPop 0.8s ease-out forwards;
+  }
+  @keyframes confettiPop {
+    0% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity: 0; }
+  }
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--border-neon);
+    padding: 40px 0;
+    text-align: center;
+    background: rgba(5, 7, 15, 0.9);
+  }
+  footer .logo { justify-content: center; margin-bottom: 12px; }
+  footer p { color: var(--text-secondary); font-family: var(--font-mono); font-size: 12px; }
+  :focus-visible {
+    outline: 2px solid var(--neon-pink);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="college-banner">
+  [ APEX COLLEGE OF TECHNOLOGY ] // DEPARTMENT OF STUDENT AFFAIRS PRESENTS
+</div>
+<header id="siteHeader">
+  <nav>
+    <a href="#top" class="logo">✺<span>PRAVAH</span></a>
+    <div class="nav-links">
+      <a href="#events">Streams</a>
+      <a href="#register">Register</a>
+      <a href="#wall">Netrunners</a>
+      <a href="#register" class="nav-cta">Enlist Now</a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#events">Streams</a>
+    <a href="#register">Register</a>
+    <a href="#wall">Netrunners</a>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-date">
+        <span class="blink-dot"></span> SECURE PROTOCOL INITIATED // 10 JULY 2026 // CAMPUS GROUND ZERO
+      </div>
+      <div class="glitch-container">
+        <h1>PRAVAH</h1>
+      </div>
+      <p class="tagline">The digital stream is surging. One day, 8 specialized nodes, infinite overclock potential. Choose your streams and <strong>overload the grid</strong>.</p>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="unit"><span class="num" id="cd-days">--</span><span class="lbl">Days</span></div>
+        <div class="unit"><span class="num" id="cd-hours">--</span><span class="lbl">Hours</span></div>
+        <div class="unit"><span class="num" id="cd-mins">--</span><span class="lbl">Mins</span></div>
+        <div class="unit"><span class="num" id="cd-secs">--</span><span class="lbl">Secs</span></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#register" class="btn btn-primary">Connect Node Portal →</a>
+        <a href="#events" class="btn btn-ghost">Inspect Nodes</a>
+      </div>
+    </div>
+  </section>
+  <section id="events">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Grid Interfaces</div>
+        <h2 class="section-title">Select <span>Nodes</span></h2>
+        <p class="section-lead">Inspect each digital hub below. Toggle the node status to queue it in your registration deck. You can select multiple nodes.</p>
+      </div>
+      <div class="events-grid reveal" id="eventsGrid"></div>
+    </div>
+  </section>
+  <section id="register">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Secure Connection</div>
+        <h2 class="section-title">Enlist <span>Details</span></h2>
+        <p class="section-lead">Establish your credentials. A single profile coordinates your entire custom node stack.</p>
+      </div>
+      <div class="reg-panel reveal">
+        <form class="reg-form" id="regForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="fullName">Handle / Full Name</label>
+              <input type="text" id="fullName" placeholder="Ananya Sharma" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="email">Net Address / Email</label>
+              <input type="email" id="email" placeholder="you@college.edu" autocomplete="email">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Com Link / Phone</label>
+              <input type="tel" id="phone" placeholder="9876543210" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="year">Year Matrix</label>
+              <select id="year">
+                <option value="">Select Level</option>
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+                <option>Postgraduate</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="college">Institution / Department</label>
+            <input type="text" id="college" placeholder="e.g. Apex College of Technology, CSE" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label>Selected Nodes</label>
+            <div class="checklist" id="eventChecklist"></div>
+          </div>
+          <!-- Checkout Cart Panel -->
+          <div class="cart-panel" id="cartPanel">
+            <div class="cart-title">
+              <span>Selected Node Breakdown</span>
+              <span>Entry Fee</span>
+            </div>
+            <div class="cart-items" id="cartItems">
+              <div class="wall-empty" style="padding:10px 0;">No nodes selected. Click nodes above to add.</div>
+            </div>
+            <div class="cart-total">
+              <span>TOTAL REGISTRATION COST</span>
+              <span id="cartTotalText">₹0</span>
+            </div>
+          </div>
+          <div class="form-msg" id="formMsg"></div>
+          <button type="submit" class="submit-btn" id="submitBtn">Deploy To Grid</button>
+        </form>
+        <div class="reg-side">
+          <div>
+            <h4>General Protocols</h4>
+            <ul class="guidelines-list">
+              <li>Official Institution ID Card is mandatory at the physical terminal entrance.</li>
+              <li>A digital registration slip will be dispatched to your provided net address.</li>
+              <li>Registration fee is collected via scanning UPI at the venue reception desk.</li>
+              <li>Strict discipline and adherence to campus security parameters must be maintained.</li>
+            </ul>
+          </div>
+          
+          <div class="coordinator-info">
+            <div class="coordinator-title">// Student Coordinators</div>
+            <div class="coordinator-list">
+              <div>• Kabir Verma (Net Lead): +91 98989 12345</div>
+              <div>• Riya Sen (Operations): +91 97777 54321</div>
+              <div>• Support Core: support@pravahfest2026.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="wall">
+    <div class="wrap">
+      <div class="wall-head reveal">
+        <div>
+          <div class="eyebrow">Mainframe Registry</div>
+          <h2 class="section-title">Enlisted <span>Netrunners</span></h2>
+        </div>
+        <div class="wall-count">
+          <span class="n" id="wallCount">0</span>
+          <span class="l">Registered</span>
+        </div>
+      </div>
+      <div class="flow-wall reveal" id="flowWall">
+        <div class="wall-loading">Accessing mainframe logs…</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <a href="#top" class="logo">✺<span>PRAVAH</span></a>
+  <p>APEX COLLEGE OF TECHNOLOGY // PRAVAH FEST 2026 // OVERCLOCK INDEPENDENT SECTOR.</p>
+</footer>
+<script>
+(function(){
+  /* ---------------- Data ---------------- */
+  // Alternate events have entry fees (INR). 
+  // Free: Sur Sangam, Code Ka Tandav, Quizzard, Runway Reverie.
+  // Fees: Rhythm Ravaan, Rangmanch, Lens Vaha, Brush Currents.
+  const EVENTS = [
+    { id:'dance',   name:'Rhythm Ravaan',    tag:'Dance',      desc:'Solo & crew street-dance showdown on central arena.', fee: 150 },
+    { id:'music',   name:'Sur Sangam',       tag:'Music',      desc:'Battle of vocal loops and cyberacoustic bands.', fee: 0 },
+    { id:'drama',   name:'Rangmanch',        tag:'Street Play',desc:'Raw, high-decibel street theatre addressing critical code.', fee: 100 },
+    { id:'hack',    name:'Code Ka Tandav',   tag:'Hackathon',  desc:'12-hour hyper-sprint to ship useful cyberware.', fee: 0 },
+    { id:'photo',   name:'Lens Vaha',        tag:'Photography',desc:'Cybernetic snapshot contest; parameters revealed at check-in.', fee: 120 },
+    { id:'quiz',    name:'Quizzard',         tag:'Quiz',       desc:'High-stakes tech, trivia, and net-runner pop culture quiz.', fee: 0 },
+    { id:'art',     name:'Brush Currents',   tag:'Art',        desc:'Live vector canvas styling and physical illustration duel.', fee: 80 },
+    { id:'fashion', name:'Runway Reverie',   tag:'Fashion',    desc:'Neon aesthetic ramp walk celebrating fusion streetgear.', fee: 0 },
+  ];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selectedEvents = new Set();
+  const eventsGrid = document.getElementById('eventsGrid');
+  const eventChecklist = document.getElementById('eventChecklist');
+  const cartItems = document.getElementById('cartItems');
+  const cartTotalText = document.getElementById('cartTotalText');
+  /* ---------------- Scroll progress bar ---------------- */
+  const scrollProgress = document.getElementById('scrollProgress');
+  function updateScrollProgress(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress);
+  updateScrollProgress();
+  /* ---------------- Confetti burst ---------------- */
+  function burstConfetti(originX, originY){
+    if (prefersReducedMotion) return;
+    const colors = ['#00f0ff', '#ff007f', '#ffff00', '#9d00ff'];
+    const pieces = 30;
+    for (let i = 0; i < pieces; i++){
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 80 + Math.random() * 140;
+      const dx = Math.cos(angle) * distance + 'px';
+      const dy = Math.sin(angle) * distance - 30 + 'px';
+      const rot = (Math.random() * 360 - 180) + 'deg';
+      el.style.left = originX + 'px';
+      el.style.top = originY + 'px';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.boxShadow = `0 0 8px ${el.style.background}`;
+      el.style.borderRadius = Math.random() > 0.5 ? '50%' : '1px';
+      el.style.setProperty('--dx', dx);
+      el.style.setProperty('--dy', dy);
+      el.style.setProperty('--rot', rot);
+      document.body.appendChild(el);
+      el.addEventListener('animationend', () => el.remove());
+    }
+  }
+  /* ---------------- Card and Checklist Renderers ---------------- */
+  function renderEventCards(){
+    eventsGrid.innerHTML = EVENTS.map(ev => {
+      const isSel = selectedEvents.has(ev.id);
+      const feeText = ev.fee > 0 ? `₹${ev.fee}` : 'FREE';
+      const feeClass = ev.fee > 0 ? 'fee-label' : 'fee-free';
+      return `
+        <div class="event-card ${isSel ? 'selected' : ''}" data-id="${ev.id}">
+          <div class="event-top">
+            <span class="event-badge">// Node 0${EVENTS.indexOf(ev) + 1}</span>
+            <span class="event-tag">${ev.tag}</span>
+          </div>
+          <h3>${ev.name}</h3>
+          <p>${ev.desc}</p>
+          <div class="event-meta">
+            <span>Access Cost:</span>
+            <span class="${feeClass}">${feeText}</span>
+          </div>
+          <button type="button" class="event-toggle" data-id="${ev.id}">
+            ${isSel ? '✓ CONNECTED' : '+ SYNC NODE'}
+          </button>
+        </div>
+      `;
+    }).join('');
+  }
+  function renderChecklist(){
+    eventChecklist.innerHTML = EVENTS.map(ev => `
+      <label class="chk-pill ${selectedEvents.has(ev.id) ? 'on' : ''}" data-id="${ev.id}">
+        <input type="checkbox" ${selectedEvents.has(ev.id) ? 'checked' : ''} data-id="${ev.id}">
+        ${ev.name}
+      </label>
+    `).join('');
+  }
+  /* ---------------- Cart Management ---------------- */
+  function updateCartSummary(){
+    if (selectedEvents.size === 0) {
+      cartItems.innerHTML = `<div class="wall-empty" style="padding:10px 0; font-size:11px;">No nodes synced. Click nodes above to add.</div>`;
+      cartTotalText.textContent = '₹0';
+      return;
+    }
+    let total = 0;
+    const itemsHTML = Array.from(selectedEvents).map(id => {
+      const ev = EVENTS.find(e => e.id === id);
+      if (!ev) return '';
+      total += ev.fee;
+      const costStr = ev.fee > 0 ? `₹${ev.fee}` : 'FREE';
+      return `
+        <div class="cart-item">
+          <span>• ${ev.name}</span>
+          <span>${costStr}</span>
+        </div>
+      `;
+    }).join('');
+    cartItems.innerHTML = itemsHTML;
+    cartTotalText.textContent = `₹${total}`;
+  }
+  function toggleEvent(id){
+    if (selectedEvents.has(id)) selectedEvents.delete(id);
+    else selectedEvents.add(id);
+    renderEventCards();
+    renderChecklist();
+    updateCartSummary();
+  }
+  eventsGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.event-toggle');
+    if (btn) toggleEvent(btn.dataset.id);
+  });
+  /* ---------------- High Sensitivity Cursor Interaction (3D Hover Effect) ---------------- */
+  eventsGrid.addEventListener('mousemove', (e) => {
+    if (prefersReducedMotion) return;
+    const card = e.target.closest('.event-card');
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // High-sensitivity coordinates relative to center of card
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    const dx = x - xc;
+    const dy = y - yc;
+    
+    // Calculate 3D tilt rotations (higher sensitivity multiplication factor)
+    const rotateY = (dx / xc) * 12; // tilt up to 12 degrees
+    const rotateX = -(dy / yc) * 12;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    card.style.boxShadow = `0 ${Math.abs(rotateX) + 12}px 30px rgba(0, 240, 255, 0.35)`;
+  });
+  eventsGrid.addEventListener('mouseleave', (e) => {
+    const card = e.target.closest('.event-card');
+    if (card) {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      card.style.boxShadow = '';
+    }
+  }, true);
+  eventChecklist.addEventListener('click', (e) => {
+    const pill = e.target.closest('.chk-pill');
+    if (pill) {
+      e.preventDefault();
+      toggleEvent(pill.dataset.id);
+    }
+  });
+  renderEventCards();
+  renderChecklist();
+  updateCartSummary();
+  /* ---------------- Countdown ---------------- */
+  const target = new Date('2026-07-10T00:00:00+05:30').getTime();
+  function tickUnit(el){
+    if (prefersReducedMotion || !el) return;
+    const unit = el.closest('.unit');
+    if (!unit) return;
+    unit.classList.remove('tick');
+    void unit.offsetWidth; // restart animation
+    unit.classList.add('tick');
+  }
+  function updateCountdown(){
+    const now = Date.now();
+    const diff = target - now;
+    const els = {
+      d: document.getElementById('cd-days'),
+      h: document.getElementById('cd-hours'),
+      m: document.getElementById('cd-mins'),
+      s: document.getElementById('cd-secs'),
+    };
+    if (diff <= 0){
+      els.d.textContent = '00'; els.h.textContent = '00';
+      els.m.textContent = '00'; els.s.textContent = '00';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    const newSecs = String(secs).padStart(2,'0');
+    const newMins = String(mins).padStart(2,'0');
+    const newHours = String(hours).padStart(2,'0');
+    const newDays = String(days).padStart(2,'0');
+    if (els.s.textContent !== newSecs) tickUnit(els.s);
+    if (els.m.textContent !== newMins) tickUnit(els.m);
+    if (els.h.textContent !== newHours) tickUnit(els.h);
+    if (els.d.textContent !== newDays) tickUnit(els.d);
+    els.d.textContent = newDays;
+    els.h.textContent = newHours;
+    els.m.textContent = newMins;
+    els.s.textContent = newSecs;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  /* ---------------- Navigation scroll effect & mobile toggle ---------------- */
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+  /* ---------------- Reveal on scroll ---------------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+  /* ---------------- Storage and Backend API Integration ---------------- */
+  // Paste the Web app URL you get from deploying backend-apps-script.gs here:
+  const API_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  const STORAGE_KEY = 'pravah_cyber:registrations';
+  const form = document.getElementById('regForm');
+  const formMsg = document.getElementById('formMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const flowWall = document.getElementById('flowWall');
+  const wallCount = document.getElementById('wallCount');
+  function showMsg(text, type){
+    formMsg.textContent = text;
+    formMsg.className = 'form-msg show ' + type;
+  }
+  function initials(name){
+    return name.trim().split(/\s+/).slice(0,2).map(p => p.charAt(0).toUpperCase()).join('');
+  }
+  function eventNameOf(id){
+    const ev = EVENTS.find(e => e.id === id);
+    return ev ? ev.name : id;
+  }
+  function renderWall(list){
+    wallCount.textContent = list.length;
+    if (!list.length){
+      flowWall.innerHTML = '<div class="wall-empty">No netrunners in queue. Sync your nodes and complete the profile registry to spawn here.</div>';
+      return;
+    }
+    const pills = list.map(r => {
+      const firstEvent = r.events && r.events.length ? eventNameOf(r.events[0]) : 'Enlisted';
+      return `<div class="name-pill"><span class="avatar">${initials(r.name)}</span>${r.name}<span class="ev">· ${firstEvent}</span></div>`;
+    });
+    const mid = Math.ceil(pills.length / 2);
+    const row1 = pills.slice(0, mid);
+    const row2 = pills.slice(mid).length ? pills.slice(mid) : pills.slice(0, mid);
+    // duplicate arrays for seamless marquee movement
+    flowWall.innerHTML = `
+      <div class="flow-row r1">${row1.join('')}${row1.join('')}</div>
+      <div class="flow-row r2">${row2.join('')}${row2.join('')}</div>
+    `;
+  }
+  async function loadRegistrations(){
+    if (!API_URL || API_URL === 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+      // Local fallback
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const list = raw ? JSON.parse(raw) : [];
+        renderWall(list);
+        return list;
+      } catch (err) {
+        renderWall([]);
+        return [];
+      }
+    }
+    try {
+      const res = await fetch(API_URL);
+      const json = await res.json();
+      const list = (json && json.ok && Array.isArray(json.data)) ? json.data : [];
+      renderWall(list);
+      return list;
+    } catch (err) {
+      console.error('Could not retrieve database registry:', err);
+      renderWall([]);
+      return [];
+    }
+  }
+  loadRegistrations();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formMsg.className = 'form-msg';
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const year = document.getElementById('year').value;
+    const college = document.getElementById('college').value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const phoneOk = /^[0-9+\-\s]{7,15}$/.test(phone);
+    if (!name){ showMsg('Deploy Error: Invalid Handle / Full Name.', 'error'); return; }
+    if (!emailOk){ showMsg('Deploy Error: Invalid Net Address / Email.', 'error'); return; }
+    if (!phoneOk){ showMsg('Deploy Error: Invalid Com Link / Phone.', 'error'); return; }
+    if (!college){ showMsg('Deploy Error: Invalid Institution / Branch.', 'error'); return; }
+    if (!year){ showMsg('Deploy Error: Select Year Matrix level.', 'error'); return; }
+    if (selectedEvents.size === 0){ showMsg('Deploy Error: Minimum 1 sync node required.', 'error'); return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Transmitting data packets…';
+    let totalCost = 0;
+    const selectedList = Array.from(selectedEvents);
+    selectedList.forEach(id => {
+      const ev = EVENTS.find(e => e.id === id);
+      if (ev) totalCost += ev.fee;
+    });
+    const entry = {
+      id: Date.now(),
+      name, email, phone, college, year,
+      events: selectedList,
+      totalFee: totalCost
+    };
+    try {
+      if (!API_URL || API_URL === 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        const existing = await loadRegistrations();
+        const updated = [...existing, entry];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        renderWall(updated);
+      } else {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(entry),
+        });
+        const json = await res.json();
+        if (!json || !json.ok) throw new Error((json && json.error) || 'Packet write failed');
+        const updated = await loadRegistrations();
+        renderWall(updated);
+      }
+      showMsg(`Registry Complete. Welcome to the mainframe, ${name.split(' ')[0]}!`, 'success');
+      const btnRect = submitBtn.getBoundingClientRect();
+      burstConfetti(btnRect.left + btnRect.width / 2, btnRect.top + btnRect.height / 2);
+      form.reset();
+      selectedEvents.clear();
+      renderEventCards();
+      renderChecklist();
+      updateCartSummary();
+    } catch (err) {
+      showMsg('Deploy Interrupt: Packet loss detected. Try reconnecting.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Deploy To Grid';
+    }
+  });
+})();
+</script>
+</body>
+</html>

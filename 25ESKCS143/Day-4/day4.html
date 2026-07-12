@@ -120,7 +120,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-          <img src="../internship/image copy.png" class="img-fluid" alt="Hero Image">
+      <img src="imagecopy.png" alt="My Photo" width="150">
 
         </div>
 
@@ -192,8 +192,71 @@
 
     </div>
   </div>
+<h2>🛒 Shopping Order Form</h2>
+
+  <div class="box">
+
+    <input type="text" id="name" placeholder="Enter Name"><br>
+    <input type="email" id="email" placeholder="Enter Email"><br>
+    <input type="tel" id="phone" placeholder="Enter Phone"><br>
 
 
+    <h3>Product Quantity: <span id="count">0</span></h3>
+
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+    <button onclick="reset()">Reset</button>
+
+    <br><br>
+
+    <button onclick="submitOrder()">Submit Order</button>
+    <p id="msg"></p>
+
+  </div>
+  <script>
+    let count = 0;
+
+    function updateDisplay() {
+      document.getElementById("count").innerText = count;
+    }
+
+    function increase() {
+      count++;
+      updateDisplay();
+    }
+
+    function decrease() {
+      if (count > 0) count--;
+      updateDisplay();
+    }
+
+    function reset() {
+      count = 0;
+      updateDisplay();
+    }
+ function submitOrder() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+
+
+      if (!name || !email || !phone) {
+        document.getElementById("msg").innerText = "⚠️ Please fill all details!";
+        document.getElementById("msg").style.color = "red";
+        return;
+      }
+      document.getElementById("msg").style.color = "green";
+      document.getElementById("msg").innerText =
+        "✅ Order placed for " + name + " (Qty: " + count + ")";
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phone").value = "";
+      count = 0;
+      updateDisplay();
+
+    }
+     </script>
   <footer class="bg-dark text-white text-center py-3">
     <p class="mb-0">© 2026 MyShop. All rights reserved.</p>
   </footer>

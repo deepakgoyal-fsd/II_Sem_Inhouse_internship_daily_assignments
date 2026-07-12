@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bloom Flower Shop</title>
+
+<style>
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#e91e63;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+nav{
+background:#c2185b;
+text-align:center;
+padding:10px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+}
+
+section{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:8px;
+}
+
+input{
+padding:10px;
+width:250px;
+}
+
+button{
+background:#e91e63;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.plan{
+border:1px solid gray;
+padding:10px;
+margin:10px 0;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+#result{
+margin-top:20px;
+font-weight:bold;
+font-size:18px;
+color:green;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Bloom Flower Shop 🌸</h1>
+<p>Fresh Flowers Delivered Every Day</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#flowers">Flowers</a>
+<a href="#search">Search</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+<h2>Welcome</h2>
+<p>Find beautiful flowers for birthdays, weddings, anniversaries and every special occasion.</p>
+</section>
+
+<section id="flowers">
+<h2>Available Flowers</h2>
+
+<div class="plan">
+<h3>🌹 Rose</h3>
+<p>₹50 per flower</p>
+</div>
+
+<div class="plan">
+<h3>🌻 Sunflower</h3>
+<p>₹70 per flower</p>
+</div>
+
+<div class="plan">
+<h3>🌷 Tulip</h3>
+<p>₹90 per flower</p>
+</div>
+
+<div class="plan">
+<h3>🌸 Lily</h3>
+<p>₹80 per flower</p>
+</div>
+
+<div class="plan">
+<h3>🌼 Daisy</h3>
+<p>₹40 per flower</p>
+</div>
+
+<div class="plan">
+<h3>🌺 Hibiscus</h3>
+<p>₹60 per flower</p>
+</div>
+
+</section>
+
+<section id="search">
+<h2>Search Flower</h2>
+
+<input type="text" id="flower" placeholder="Enter flower name">
+
+<button onclick="searchFlower()">Search</button>
+
+<p id="result"></p>
+
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+
+<p>📞 +91 9876543210</p>
+<p>📧 bloomflowers@gmail.com</p>
+<p>📍 Jaipur, India</p>
+
+</section>
+
+<footer>
+<p>©2026 Bloom Flower Shop</p>
+</footer>
+
+<script>
+
+function searchFlower(){
+
+let flowers=["rose","sunflower","tulip","lily","daisy","hibiscus"];
+
+let name=document.getElementById("flower").value.toLowerCase();
+
+let result=document.getElementById("result");
+
+if(flowers.includes(name)){
+result.style.color="green";
+result.innerHTML="✅ "+name.charAt(0).toUpperCase()+name.slice(1)+" is available!";
+}
+else{
+result.style.color="red";
+result.innerHTML="❌ Sorry, "+name+" is currently not available.";
+}
+
+}
+
+</script>
+
+</body>
+</html>

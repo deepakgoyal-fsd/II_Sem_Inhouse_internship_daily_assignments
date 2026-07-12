@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contactform.css">
+    <title>Contact form</title>
+</head>
+<body>
+    <div>
+    
+        <form action="action.pfp">
+
+           <table>  
+                <caption><h1>Contact Form</h1></caption>
+            <tr>
+                <td><big>Name : </big></td>
+                <td><input type="text" required></td>
+            </tr>
+             <tr>
+                <td><big>Collage ID : </big></td>
+                <td><input type="text" required></td>
+            </tr>
+             <tr>
+                <td><big>Year : </big></td>
+                <td>
+<select name="Year" id="Year" required>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+                </td>
+            </tr>
+             <tr>
+                <td><big>Branch : </big></td>
+                <td>
+                    <label>
+CS<input type="radio" value="CS" name="branch" required> AI<input type="radio" value="AI" name="branch"> IT<input type="radio" value="IT" name="branch"> IOT<input type="radio" value="IOT" name="branch"> ME<input type="radio" value="ME" name="branch"> CE<input type="radio" value="CE" name="branch">                     
+                    </label>
+                </td>
+            </tr>
+             <tr>
+                <td><big>Section : </big></td>
+                <td><input type="text" required></td>
+            </tr>
+             <tr>
+                <td><big>Email ID : </big></td>
+                <td><input type="email" required></td>
+            </tr>
+             <tr>
+                <td><big>Ph. No. : </big></td>
+                <td><input type="tel" required></td>
+            </tr>
+            </table>   
+            <pre>      
+         <input type="reset" value="Reset" class="res">                  <input type = "submit" value = "Submit" class="sub">
+            </pre>              
+            </form>
+            </div>
+        
+   
+     
+     
+</body>
+</html>

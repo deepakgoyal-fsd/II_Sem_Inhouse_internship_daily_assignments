@@ -1,0 +1,35 @@
+[
+    {
+        "id":1,
+        "name":"bhupesh garg",
+        "email":"bhupeshgarg@gmail.com",
+        "address":{
+            "city": "Jaipur"
+        }
+    },
+
+    {
+        "id":2,
+        "name":"darshan kumawat",
+        "email":"darshankumawat124@gmail.com",
+            "city": "Jaipur"
+        },
+
+    {
+        "id":3,
+        "name":"John Cena",
+        "email":"john.cena5678@gmail.com",
+        "address":{
+            "city": "Jaipur"
+        }
+    },
+
+    {
+        "id":4,
+        "name":"shraddha Mishra",
+        "email":"xyz.123@gmail.com",
+        "address":{
+            "city": "Jaipur"
+        }
+    }
+]

@@ -1,0 +1,26 @@
+body {
+    background-color: #f4f6fb;
+}
+
+.app-navbar {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+.app-footer {
+    background-color: #1f2233;
+    color: #cfd2e6;
+}
+
+.card-soft {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.top-cgpa-row {
+    background-color: #d1f5e0 !important;
+}
+
+.top-cgpa-row td {
+    font-weight: 600;
+}

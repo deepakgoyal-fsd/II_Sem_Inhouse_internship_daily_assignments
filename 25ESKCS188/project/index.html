@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>PortfolioAI | Student Portfolio Generator</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                <i class="fa-solid fa-robot"></i>
+
+                PortfolioAI
+            </h1>
+
+            <p>
+
+                Generate an Interview-Ready Portfolio
+                in Less Than One Minute
+
+            </p>
+
+            <div class="hero-features">
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    AI Summary
+
+                </div>
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-medal"></i>
+
+                    Resume Score
+
+                </div>
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    PDF Download
+
+                </div>
+
+                <div class="feature">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    Professional Resume
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MAIN ================= -->
+
+    <section class="main-container">
+
+        <!-- ================= FORM ================= -->
+
+        <div class="form-card">
+
+            <div class="card-title">
+
+                <h2>
+
+                    Student Information
+
+                </h2>
+
+                <p>
+
+                    Fill the details below and let PortfolioAI
+                    create a professional portfolio automatically.
+
+                </p>
+
+            </div>
+
+            <form id="portfolioForm">
+
+                <!-- ================= PERSONAL ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Personal Information
+
+                </h3>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Full Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Professional Title
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Web Developer">
+
+                    </div>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@gmail.com">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            placeholder="+91 XXXXX XXXXX">
+
+                    </div>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            LinkedIn Profile
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="linkedin"
+                            placeholder="https://linkedin.com/in/">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            GitHub Profile
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="github"
+                            placeholder="https://github.com/">
+
+                    </div>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            City
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="Jaipur">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Upload Photo
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="photo"
+                            accept="image/*">
+
+                    </div>
+
+                </div>
+
+                <!-- ================= EDUCATION ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    Education
+
+                </h3>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            College Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="college"
+                            placeholder="Your College">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Degree
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="degree"
+                            placeholder="B.Tech">
+
+                    </div>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Branch
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="branch"
+                            placeholder="Computer Science">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Graduation Year
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="year"
+                            placeholder="2028">
+
+                    </div>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            CGPA
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cgpa"
+                            placeholder="8.50">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Career Goal
+
+                        </label>
+
+                        <select id="career">
+
+                            <option value="">
+                                Select Career
+                            </option>
+
+                            <option>
+                                Full Stack Developer
+                            </option>
+
+                            <option>
+                                Frontend Developer
+                            </option>
+
+                            <option>
+                                Backend Developer
+                            </option>
+
+                            <option>
+                                Cybersecurity
+                            </option>
+
+                            <option>
+                                Data Science
+                            </option>
+
+                            <option>
+                                Artificial Intelligence
+                            </option>
+
+                            <option>
+                                Cloud Computing
+                            </option>
+
+                            <option>
+                                Android Development
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                                <!-- ================= TECHNICAL SKILLS ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    Technical Skills
+
+                </h3>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Technical Skills (Comma Separated)
+
+                    </label>
+
+                    <textarea
+                        id="skills"
+                        placeholder="HTML, CSS, JavaScript, React, Node.js"></textarea>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Programming Languages
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="languages"
+                            placeholder="C++, Java, Python">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Frameworks
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="frameworks"
+                            placeholder="React, Bootstrap, Express">
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Development Tools
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="tools"
+                        placeholder="Git, VS Code, Figma">
+
+                </div>
+
+
+
+                <!-- ================= PROJECTS ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-diagram-project"></i>
+
+                    Projects
+
+                </h3>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Project 1 Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="project1"
+                            placeholder="Student Portfolio Generator">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Technologies Used
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tech1"
+                            placeholder="HTML, CSS, JavaScript">
+
+                    </div>
+
+                </div>
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Project 2 Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="project2"
+                            placeholder="Hospital Management System">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Technologies Used
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tech2"
+                            placeholder="Java, MySQL">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= CERTIFICATIONS ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    Certifications
+
+                </h3>
+
+                <textarea
+                    id="certificates"
+                    placeholder="Cisco Cybersecurity, AWS Cloud Practitioner"></textarea>
+
+
+
+                <!-- ================= ACHIEVEMENTS ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    Achievements
+
+                </h3>
+
+                <textarea
+                    id="achievements"
+                    placeholder="Hackathon Winner, Coding Competition, Sports etc."></textarea>
+
+
+
+                <!-- ================= HOBBIES ================= -->
+
+                <h3 class="section-title">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    Hobbies & Interests
+
+                </h3>
+
+                <textarea
+                    id="hobbies"
+                    placeholder="Reading, Coding, Chess, Cricket"></textarea>
+
+
+
+                <!-- ================= BUTTONS ================= -->
+
+                <div class="button-group">
+
+                    <button
+                        type="submit"
+                        class="generate-btn">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        Generate Portfolio
+
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="reset-btn">
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        Reset Form
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
+        <!-- ================= PORTFOLIO PREVIEW ================= -->
+
+        <div class="portfolio-card">
+
+            <div class="resume-score-card">
+
+                <h2>
+
+                    Resume Score
+
+                </h2>
+
+                <div id="resumeScore">
+
+                    0%
+
+                </div>
+
+            </div>
+
+            <div class="portfolio-preview">
+
+                <div class="left-side">
+
+                    <img
+                        id="previewImage"
+                        src="https://via.placeholder.com/180">
+
+                    <h2 id="previewName">
+
+                        Your Name
+
+                    </h2>
+
+                    <h4 id="previewTitle">
+
+                        Professional Title
+
+                    </h4>
+
+                    <div class="contact-box">
+
+                        <h3>
+
+                            Contact
+
+                        </h3>
+
+                        <p id="previewEmail"></p>
+
+                        <p id="previewPhone"></p>
+
+                        <p id="previewCity"></p>
+
+                        <p id="previewLinkedin"></p>
+
+                        <p id="previewGithub"></p>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+
+                            Skills
+
+                        </h3>
+
+                        <div id="skillBadges">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="right-side">
+
+                    <section>
+
+                        <h2>
+
+                            Professional Summary
+
+                        </h2>
+
+                        <p id="summary">
+
+                            AI-generated summary will appear here.
+
+                        </p>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Career Objective
+
+                        </h2>
+
+                        <p id="objective">
+
+                            Career objective will appear here.
+
+                        </p>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Education
+
+                        </h2>
+
+                        <p id="educationPreview">
+
+                        </p>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Projects
+
+                        </h2>
+
+                        <div id="projectPreview">
+
+                        </div>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Certifications
+
+                        </h2>
+
+                        <p id="certificatePreview">
+
+                        </p>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Achievements
+
+                        </h2>
+
+                        <p id="achievementPreview">
+
+                        </p>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Strengths
+
+                        </h2>
+
+                        <ul id="strengthList">
+
+                        </ul>
+
+                    </section>
+
+                    <section>
+
+                        <h2>
+
+                            Suggestions
+
+                        </h2>
+
+                        <ul id="suggestionList">
+
+                        </ul>
+
+                    </section>
+
+                    <button
+                        id="downloadBtn">
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                        Download PDF
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="main">
+
+    <div class="blue"></div>
+
+    <div class="form">
+
+        <h2>Registration Form</h2>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter full name">
+
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter email address">
+
+
+        <div class="two">
+
+            <div>
+                <label>Phone Number</label>
+                <input type="text" placeholder="Enter phone number">
+            </div>
+
+            <div>
+                <label>Birth Date</label>
+                <input type="date">
+            </div>
+
+        </div>
+
+
+        <label>Gender</label>
+
+        <div class="gender">
+            <input type="radio" checked> Male
+            <input type="radio"> Female
+            <input type="radio"> Prefer not to say
+        </div>
+
+
+
+        <label>Address</label>
+
+        <input type="text" placeholder="Enter street address">
+
+        <input type="text" placeholder="Enter street address line 2">
+
+
+        <div class="two">
+
+            <select>
+                <option>Country</option>
+            </select>
+
+            <input type="text" placeholder="Enter your city">
+
+        </div>
+
+
+        <div class="two">
+
+            <input type="text" placeholder="Enter your region">
+
+            <input type="text" placeholder="Enter postal code">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

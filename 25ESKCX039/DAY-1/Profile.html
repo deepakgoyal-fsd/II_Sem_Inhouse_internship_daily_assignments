@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff6ec4,#7873f5,#42e695,#ffe53b);
+    background-size:400% 400%;
+    animation:bg 12s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+.header{
+    background:linear-gradient(90deg,#ff512f,#dd2476);
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+.profile-img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    border:6px solid white;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:#ff4b5c;
+    margin-bottom:15px;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+
+.info span:first-child{
+    font-weight:bold;
+    color:#555;
+}
+
+.progress{
+    background:#ddd;
+    border-radius:30px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.progress div{
+    height:14px;
+    border-radius:30px;
+}
+
+.html{width:95%;background:#ff5722;}
+.css{width:90%;background:#2196f3;}
+.js{width:85%;background:#ffc107;}
+.react{width:80%;background:#00bcd4;}
+
+.social{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.social a{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.fb{background:#1877F2;}
+.insta{background:#E1306C;}
+.linkedin{background:#0077B5;}
+.github{background:#333;}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:white;
+    font-weight:bold;
+    background:linear-gradient(90deg,#00c9ff,#92fe9d);
+}
+
+@media(max-width:768px){
+.content{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<img src="HA_PHOTO.jpg" class="profile-img">
+
+<h1>Harshit Jain</h1>
+<h3>Full Stack Web Developer</h3>
+<p>Creative • Passionate • Problem Solver</p>
+</div>
+
+<div class="content">
+
+<div class="card">
+<h2>👤 Personal Information</h2>
+
+<div class="info"><span>Full Name</span><span>Harshit Jain</span></div>
+<div class="info"><span>Age</span><span>20 Years</span></div>
+<div class="info"><span>Gender</span><span>Male</span></div>
+<div class="info"><span>Date of Birth</span><span>22 March 2006</span></div>
+<div class="info"><span>Nationality</span><span>Indian</span></div>
+<div class="info"><span>City</span><span>Jaipur</span></div>
+<div class="info"><span>Email</span><span>hmjain018@gmail.com</span></div>
+<div class="info"><span>Phone</span><span>+91 8949202412</span></div>
+
+</div>
+
+<div class="card">
+<h2>💼 Career</h2>
+
+<div class="info"><span>Profession</span><span>Software Engineer</span></div>
+<div class="info"><span>Education</span><span>B.Tech Computer Science and Enginnering(Data Science)</span></div>
+<div class="info"><span>Languages</span><span>English, Hindi</span></div>
+
+</div>
+
+<div class="card">
+<h2>🛠 Skills</h2>
+
+HTML
+<div class="progress"><div class="html"></div></div>
+
+CSS
+<div class="progress"><div class="css"></div></div>
+
+JavaScript
+<div class="progress"><div class="js"></div></div>
+
+React
+<div class="progress"><div class="react"></div></div>
+
+</div>
+
+<div class="card">
+<h2>❤️ Interests</h2>
+
+<ul>
+<li>💻 Coding</li>
+<li>🎮 Gaming</li>
+<li>📚 Reading Books</li>
+<li>🎵 Music</li>
+<li>✈ Traveling</li>
+<li>📷 Photography</li>
+<li>🏋 Gym</li>
+<li>🍕 Food Lover</li>
+</ul>
+
+<div class="social">
+<a href="#" class="fb">Facebook</a>
+<a href="#" class="insta">Instagram</a>
+<a href="#" class="linkedin">LinkedIn</a>
+<a href="#" class="github">GitHub</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+Designed with html | Colorful Profile Dashboard
+</div>
+
+</div>
+
+</body>
+</html>

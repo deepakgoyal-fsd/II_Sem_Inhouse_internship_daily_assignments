@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#333;
+}
+
+header{
+    background:#0077cc;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+nav{
+    margin-top:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+.hero{
+    text-align:center;
+    padding:40px;
+}
+
+.container{
+    width:400px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+button{
+    padding:10px;
+    width:100%;
+    background:#0077cc;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+.success{
+    color:green;
+    text-align:center;
+    margin-top:10px;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.dark .container{
+    background:#333;
+    color:white;
+}
+
+.dark input{
+    background:#555;
+    color:white;
+    border:1px solid white;
+}
+
+.counter-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.counter-buttons button{
+    width:50%;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>My Landing Page</h1>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+<h2>Welcome!</h2>
+<p>Interactive Landing Page using HTML, CSS and JavaScript.</p>
+
+<button id="darkBtn">🌙 Dark Mode</button>
+</section>
+
+<div class="container">
+
+<h2>Click Counter</h2>
+
+<p>Count: <span id="counter">0</span></p>
+
+<div class="counter-buttons">
+<button id="countBtn">Click Me</button>
+<button id="resetBtn">Reset</button>
+</div>
+
+<hr style="margin:20px 0;">
+
+<h2>Contact Form</h2>
+
+<form id="myForm">
+
+<label>Name</label>
+<input type="text" id="name">
+<div class="error" id="nameError"></div>
+
+<label>Email</label>
+<input type="email" id="email">
+<div class="error" id="emailError"></div>
+
+<label>Password</label>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p class="success" id="success"></p>
+
+</div>
+
+<script>
+// Dark Mode
+const darkBtn = document.getElementById("darkBtn");
+
+darkBtn.addEventListener("click", function () {
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+darkBtn.innerHTML="☀️ Light Mode";
+}else{
+darkBtn.innerHTML="🌙 Dark Mode";
+}
+
+});
+
+// Counter
+let count=0;
+
+document.getElementById("countBtn").addEventListener("click",function(){
+
+count++;
+document.getElementById("counter").textContent=count;
+
+});
+
+document.getElementById("resetBtn").addEventListener("click",function(){
+
+count=0;
+document.getElementById("counter").textContent=count;
+
+});
+
+// Form Validation
+document.getElementById("myForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let valid=true;
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let password=document.getElementById("password").value.trim();
+
+document.getElementById("nameError").textContent="";
+document.getElementById("emailError").textContent="";
+document.getElementById("passwordError").textContent="";
+document.getElementById("success").textContent="";
+
+if(name===""){
+document.getElementById("nameError").textContent="Name is required";
+valid=false;
+}
+
+if(email===""){
+document.getElementById("emailError").textContent="Email is required";
+valid=false;
+}else if(!email.includes("@")){
+document.getElementById("emailError").textContent="Enter a valid email";
+valid=false;
+}
+
+if(password===""){
+document.getElementById("passwordError").textContent="Password is required";
+valid=false;
+}else if(password.length<6){
+document.getElementById("passwordError").textContent="Password must be at least 6 characters";
+valid=false;
+}
+
+if(valid){
+document.getElementById("success").textContent="Form Submitted Successfully!";
+document.getElementById("myForm").reset();
+}
+
+});
+</script>
+
+</body>
+</html>

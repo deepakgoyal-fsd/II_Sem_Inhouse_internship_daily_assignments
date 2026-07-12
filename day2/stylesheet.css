@@ -1,0 +1,61 @@
+p{
+    font-size: 16pt !important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+h1{
+    color:black !important;
+}
+.rounded{
+    border-radius: 10px;
+}
+ #txtPhone{
+    font-size: 10pt;
+    border-radius: 30px;
+ }
+ *{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10pt !important;
+ }
+ .background{
+    background-color:aliceblue;
+ }
+ body{
+    background-color:#B5BAFF;
+
+ }
+ #frmHeading{
+    text-align:center;
+ }
+ #frmRegister{
+    border: 2pt;
+    width: 700px;
+    border-style:inherit;
+    padding: 22px;
+    margin: 30px auto;
+    box-sizing:border-box;
+
+ }
+ #divForm{
+    border: 2px solid !important;
+    width: 525px;
+    border-color:black;
+    border-radius: 5px !important;
+    /*padding: 20px 10px 20px 10px;*/
+    margin: 50px;
+ }
+
+ p.default{
+    color:black;
+
+ }
+ p.note{
+   border:1px solid;
+ }
+ p.note strong{
+    border: inherit;
+ }
+ .btnSubmit:hover{
+    background-color:blueviolet;
+
+ }

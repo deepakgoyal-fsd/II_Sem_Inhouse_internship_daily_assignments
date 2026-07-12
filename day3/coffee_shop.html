@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coffee Haven</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{background:#f7efe8;}
+nav{background:#4e342e;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;}
+.logo{color:#fff;font-size:28px;font-weight:bold;}
+nav ul{display:flex;list-style:none;}
+nav li{margin-left:20px;}
+nav a{color:#fff;text-decoration:none;}
+.hero{height:90vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80") center/cover;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;}
+.hero h1{font-size:55px;}
+.hero p{margin:10px;}
+button{padding:10px 20px;background:#d2691e;color:#fff;border:none;border-radius:5px;cursor:pointer;}
+section{padding:60px;}
+.title{text-align:center;margin-bottom:30px;color:#4e342e;}
+.menu{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.card{background:#fff;width:250px;padding:15px;border-radius:10px;text-align:center;box-shadow:0 0 10px #ccc;}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:8px;}
+.about,.contact{text-align:center;line-height:30px;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo"></div> Coffee Haven</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero" id="home">
+<h1>Fresh Coffee Everyday</h1>
+<p>Warm Moments • Premium Coffee</p>
+<button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+Explore Menu
+</button>
+</div>
+
+<section id="menu">
+<h2 class="title">Our Menu</h2>
+
+<div class="menu">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500">
+<h3>Cappuccino</h3>
+<p>₹180</p><br>
+<button onclick="order('Cappuccino')">Order</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500">
+<h3>Latte</h3>
+<p>₹220</p><br>
+<button onclick="order('Latte')">Order</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=500">
+<h3>Cold Coffee</h3>
+<p>₹250</p><br>
+<button onclick="order('Cold Coffee')">Order</button>
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<h2 class="title">About</h2>
+<div class="about">
+<p>We serve fresh, handcrafted coffee made from premium beans in a cozy atmosphere.</p>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">Contact</h2>
+<div class="contact">
+<p>Jaipur, Rajasthan</p>
+<p> +91 98765 43210</p>
+<p> coffeehaven@gmail.com</p>
+</div>
+</section>
+
+
+<script>
+function order(item){
+alert("Your "+item+" order has been placed ☕");
+}
+</script>
+
+</body>
+</html>

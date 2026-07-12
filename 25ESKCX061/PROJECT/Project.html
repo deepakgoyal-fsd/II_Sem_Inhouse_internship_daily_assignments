@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Step Registration Form</title>
+
+    <link rel="stylesheet" href="Project3.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="progress-bar">
+
+        <div class="step active">Step 1</div>
+        <div class="step">Step 2</div>
+        <div class="step">Step 3</div>
+
+    </div>
+
+    <form id="regForm" action="register.php" method="POST">
+
+        <div class="form-step active">
+
+            <h1>CREATE ACCOUNT</h1>
+
+            <input type="email" name="email" placeholder="Enter your Email" required>
+
+            <input type="password" name="password" placeholder="Enter Password" required minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}" title="Must be at least 8 characters and include one uppercase letter, one lowercase letter, and one number">
+
+            <input type="password" name="confirmpassword" placeholder="Confirm Password" required>
+
+            <button type="button" class="next">Next</button>
+
+        </div>
+
+
+<div class="form-step">
+
+    <h1>PERSONAL DETAILS</h1>
+
+    <input type="text" name="fullname" placeholder="Full Name" required>
+    <label>DOB:</label>
+    <input type="date" name="dob" required>
+
+    <div class="gender">
+        Gender :
+        <label><input type="radio" name="gender"> Male</label>
+
+        <label><input type="radio" name="gender"> Female</label>
+
+        <label><input type="radio" name="gender"> Other</label>
+    </div>
+
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+    <input type="text" name="address" placeholder="Address">
+
+    <input type="text" name="city" placeholder="City">
+
+    <div class="btns">
+        <button type="button" class="prev">Previous</button>
+        <button type="button" class="next">Next</button>
+    </div>
+
+</div>
+     <!-- STEP 3 -->
+
+<div class="form-step">
+
+    <h1>ACADEMIC DETAILS</h1>
+
+    <input type="text" name="college" placeholder="College Name">
+
+    <input type="text" name="course" placeholder="Course (B.Tech, BCA, etc.)">
+
+    <input type="text" name="branch" placeholder="Branch">
+
+    <input type="number" name="semester" placeholder="Current Semester">
+
+    <input type="number" name="cgpa" step="0.01" placeholder="CGPA">
+
+    <select required name="skills">
+        <option value="">Select Skills</option>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>JavaScript</option>
+        <option>PHP</option>
+        <option>Python</option>
+        <option>Java</option>
+    </select>
+
+    <textarea name="about" placeholder="Tell us about yourself..." rows="4"></textarea>
+
+    <div class="btns">
+
+        <button type="button" class="prev">Previous</button>
+
+        <button type="submit">Register</button>
+
+    </div>
+
+</div>
+
+    </form>
+
+</div>
+
+<script src="Project3.js"></script>
+
+</body>
+</html>

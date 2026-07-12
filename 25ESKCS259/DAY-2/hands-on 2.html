@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; background:#f5f7fb; color:#111827; margin:0; padding:32px; display:flex; align-items:center; justify-content:center; min-height:100vh;">
+        <main style="width:100%; max-width:560px;">
+            <form id="registration-form" style="background:#ffffff; padding:24px; border-radius:10px; box-shadow:0 8px 30px rgba(2,6,23,0.08);">
+                <h1 style="margin:0 0 18px; font-size:1.25rem; text-align:center">Registration Form</h1>
+
+                <div style="margin-bottom:12px">
+                    <label for="name" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px" aria-required="true">
+                </div>
+
+                <div style="margin-bottom:12px">
+                    <label for="email" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px" aria-required="true">
+                </div>
+
+                <div style="margin-bottom:12px">
+                    <label for="phone" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px">
+                </div>
+
+                <fieldset style="border:0; padding:0; margin:0 0 12px 0">
+                    <legend style="font-weight:600; color:#4b5563; margin-bottom:6px">Gender</legend>
+                    <div style="display:flex; gap:12px; align-items:center">
+                        <label style="display:flex; gap:6px; align-items:center"><input type="radio" name="gender" value="male"><span style="font-weight:500; color:#374151">Male</span></label>
+                        <label style="display:flex; gap:6px; align-items:center"><input type="radio" name="gender" value="female"><span style="font-weight:500; color:#374151">Female</span></label>
+                        <label style="display:flex; gap:6px; align-items:center"><input type="radio" name="gender" value="other"><span style="font-weight:500; color:#374151">Other</span></label>
+                    </div>
+                </fieldset>
+
+                <div style="margin-bottom:12px">
+                    <label for="dob" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px">
+                </div>
+
+                <div style="margin-bottom:12px">
+                    <label for="department" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Department</label>
+                    <select id="department" name="department" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px">
+                        <option value="">-- Select Department --</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="it">Information Technology</option>
+                        <option value="ec">Electronics & Communication</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="ce">Civil Engineering</option>
+                        <option value="ee">Electrical Engineering</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom:12px; display:flex; gap:12px; align-items:center">
+                    <label style="display:flex; gap:8px; align-items:center"><input type="checkbox" name="newsletter" value="yes"><span style="font-weight:500; color:#374151">Subscribe to our newsletter</span></label>
+                </div>
+
+                <div style="margin-bottom:12px; display:flex; gap:12px; align-items:center">
+                    <label style="display:flex; gap:8px; align-items:center"><input type="checkbox" name="terms" value="yes" aria-required="true"><span style="font-weight:500; color:#374151">I agree to the terms and conditions</span></label>
+                </div>
+
+                <div style="margin-bottom:12px">
+                    <label for="password" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px">
+                </div>
+
+                <div style="margin-bottom:12px">
+                    <label for="confirm_password" style="display:block; margin-bottom:6px; font-weight:600; color:#4b5563">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" style="width:100%; padding:10px 12px; border:1px solid #e6e9ef; border-radius:8px">
+                </div>
+
+                <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:8px">
+                    <button type="reset" style="padding:10px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:700; background:#eef2ff; color:#4f46e5">Reset</button>
+                    <button type="submit" style="padding:10px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:700; background:#4f46e5; color:#fff">Submit</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>

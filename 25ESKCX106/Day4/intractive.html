@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techreya</title>
+    <link rel="stylesheet" href="intractive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Tech Trivia</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Courses</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center;">
+            <a href="#contact" class="btn">Enroll Now</a>
+            <i class="fas fa-moon theme-toggle" id="themeId" title="Toggle Dark/Light Mode" style="cursor: pointer; font-size: 1.2rem; margin-left: 15px;"></i>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Build Your Future With Modern Tech Skills</h1>
+            <p>
+                Learn Web Development, Data Science, Artificial Intelligence,
+                and Cloud Computing through practical learning with industry experts.
+            </p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&auto=format&fit=crop" alt="Students Learning">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Why Choose Us?</h2>
+        <div class="feature-container">
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Practical Learning</h3>
+                <p>Hands-on projects with real-world assignments.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-graduate"></i>
+                <h3>Expert Trainers</h3>
+                <p>Learn from experienced professionals.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Placement Support</h3>
+                <p>Resume building and interview preparation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <h2>Meet Our Trainers</h2>
+        <div class="team-container">
+            <div class="trainer">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Sharma">
+                <h3>Rahul Sharma</h3>
+                <p>Full Stack Developer</p>
+            </div>
+            <div class="trainer">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Neha Tiwari">
+                <h3>Shreya Tiwari</h3>
+                <p>Data Science Specialist</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact & Enrollment</h2>
+        <div class="form-container">
+            <form id="enrollmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Select Course:</label>
+                    <select id="course" name="course">
+                        <option value="webdev">Web Development</option>
+                        <option value="datascience">Data Science (CSE)</option>
+                        <option value="ai">Artificial Intelligence</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn submit-btn">Submit Details</button>
+            </form>
+
+            <div id="greetingMessage" class="greeting-box" style="margin-top: 20px; padding: 15px; border-radius: 5px; display: none; text-align: center; font-weight: bold;"></div>
+        </div>
+    </section>
+
+    <script>
+        const themeToggle = document.getElementById('themeId');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if(document.body.classList.contains('dark-mode')) {
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+            } else {
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+            }
+        });
+
+        const form = document.getElementById('enrollmentForm');
+        const greetingBox = document.getElementById('greetingMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('name').value.trim();
+            const emailInput = document.getElementById('email').value.trim();
+            const courseSelect = document.getElementById('course');
+            const courseName = courseSelect.options[courseSelect.selectedIndex].text;
+
+            if (nameInput === "" || emailInput === "") {
+                alert("Please fill out all fields correctly.");
+                return;
+            }
+
+            greetingBox.innerHTML = `Hello ${nameInput}! ✨ Thanks for choosing our ${courseName} course. We have sent confirmation details to ${emailInput}.`;
+            greetingBox.style.display = 'block';
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>

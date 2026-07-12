@@ -1,0 +1,120 @@
+/* Background */
+body {
+
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2ca48e, #9face6);
+}
+
+/* Top Game Panel */
+p {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#timer,
+#Apple,
+#Banana {
+    color: #ffeb3b;
+    font-size: 24px;
+}
+
+/* Control Panel */
+body > p:first-child {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Dropdown */
+select {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Start Button */
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #ff9800;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #f57c00;
+    transform: scale(1.05);
+}
+
+/* Score Board */
+.scoreboard {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Images */
+img {
+    width: 120px;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+img:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Timer Box */
+.timer-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    img {
+        width: 90px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    button,
+    select {
+        font-size: 14px;    
+    }
+}

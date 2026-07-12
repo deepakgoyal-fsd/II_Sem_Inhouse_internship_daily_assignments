@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    background:#e3e7ec;
+    color:#2d3748;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:12px;
+}
+
+h1 span{
+    color:#2563eb;
+}
+
+.description{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:30px;
+    line-height:1.6;
+    font-size:16px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    border:2px solid #93c5fd;
+    border-radius:8px;
+    outline:none;
+    background:#f8fafc;
+    color:#1f2937;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#f8fafc;
+    border-left:6px solid #2563eb;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card h2{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#475569;
+    margin:6px 0;
+}
+
+button{
+    margin-top:12px;
+    padding:10px 20px;
+    background:#2563eb;
+    color:#ffffff;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.details{
+    display:none;
+    margin-top:15px;
+    background:#e0f2fe;
+    border-left:4px solid #0ea5e9;
+    padding:12px;
+    border-radius:8px;
+}
+
+.details p{
+    color:#1e293b;
+}
+
+.footer{
+    margin-top:35px;
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+
+.container{
+    width:95%;
+    padding:20px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+button{
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Today's Mission: <span>Student Directory</span></h1>
+
+<p class="description">
+Every concept you learn today feeds directly into one real application —
+a fully dynamic Student Directory.
+</p>
+
+<input type="text" id="search" placeholder="Search Student by Name..." onkeyup="searchStudent()">
+
+<div class="cards">
+
+<div class="card">
+<h2>Amandeep</h2>
+<p>CSE - Second Year</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+
+<div class="details">
+<p><b>Roll No:</b> 101</p>
+<p><b>Email:</b> aman@gmail.com</p>
+<p><b>CGPA:</b> 8.92</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Bharat gurjar</h2>
+<p>Information Technology</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 102</p>
+<p><b>Email:</b> bharat@gmail.com</p>
+<p><b>CGPA:</b> 8.45</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Umesh Prajapati</h2>
+<p>Electronics</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 103</p>
+<p><b>Email:</b> rohan@gmail.com</p>
+<p><b>CGPA:</b> 7.98</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Aarav Jain</h2>
+<p>Artificial Intelligence</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 104</p>
+<p><b>Email:</b> aarav@gmail.com</p>
+<p><b>CGPA:</b> 9.31</p>
+</div>
+</div>
+
+<div class="footer">
+Every module today is a building block. Nothing is filler — everything ships in the final product.
+</div>
+
+</div>
+
+<script>
+
+function toggle(button){
+
+var details=button.nextElementSibling;
+
+if(details.style.display==="block"){
+details.style.display="none";
+button.innerHTML="Show Details";
+}
+else{
+details.style.display="block";
+button.innerHTML="Hide Details";
+}
+
+}
+
+function searchStudent(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var cards=document.getElementsByClassName("card");
+
+for(var i=0;i<cards.length;i++){
+
+var name=cards[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase();
+
+if(name.indexOf(input)>-1){
+cards[i].style.display="block";
+}
+else{
+cards[i].style.display="none";
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

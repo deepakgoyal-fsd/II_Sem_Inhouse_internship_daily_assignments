@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        /* Essential styles to make the random positioning work */
+        img {
+            position: absolute;
+            cursor: pointer;
+            width: 100px; /* Adjust based on your images */
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Apple: <span id="apple">0</spanScreenshot_7-7-2026_94622_www.bing.com.jpeg></p>
+    <p>Banana: <span id="banana">0</span></p>
+
+    <img src="apple-blur-bright-588587.jpg" onclick="clickImage('apple', this)">
+    <img src="Screenshot_7-7-2026_94622_www.bing.com.jpeg" onclick="clickImage('banana', this)">
+
+    <script>
+        let apple = 0, banana = 0;
+
+        // Randomly scatter images on initial page load
+        document.querySelectorAll("img").forEach(img => {
+            img.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            img.style.top = Math.random() * (window.innerHeight - 120) + "px";
+        });
+
+        // Function called when an image is clicked
+        function clickImage(type, img) {
+            if (type == "apple") {
+                document.getElementById("apple").innerText = ++apple;
+            } else {
+                document.getElementById("banana").innerText = ++banana;
+            }
+
+            // Move the clicked image to a new random position
+            img.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            img.style.top = Math.random() * (window.innerHeight - 120) + "px";
+        }
+    </script>
+
+</body>
+</html>

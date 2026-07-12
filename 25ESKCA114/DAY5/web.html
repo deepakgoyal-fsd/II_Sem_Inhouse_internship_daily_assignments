@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravah 2026 — College Fest</title>
+<meta name="description" content="Pravah 2026 — the annual cultural, entertainment and technical fest.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   Pravah 2026 — Design tokens (v2)
+   A more editorial, restrained fusion: dark maroon/black
+   grounding sections, muted gold + gulal + marigold accents,
+   warm paper background for content. Unbounded for display,
+   Inter for body/UI. Signature: thin gold hairline arch motif.
+===================================================== */
+:root {
+  --bg:           #FAF6F0;
+  --bg-dark:      #180D0B;
+  --bg-dark-2:    #2B1512;
+  --paper:        #FFFFFF;
+  --ink:          #211410;
+  --ink-soft:     #6E5C52;
+  --cream:        #F3E6D3;
+
+  --gold:         #C99A3E;
+  --gold-bright:  #E8B34E;
+  --marigold:     #DD6B20;
+  --marigold-dark:#B8530F;
+  --gulal:        #A81E2C;
+  --gulal-bright: #C22638;
+
+  --font-display: 'Unbounded', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+
+  --shadow-soft: 0 16px 40px rgba(24, 13, 11, 0.10);
+  --shadow-card: 0 10px 28px rgba(24, 13, 11, 0.14);
+  --ease: cubic-bezier(.16,.8,.3,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ---------------- Scroll progress bar ---------------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--gulal), var(--marigold), var(--gold-bright));
+  z-index: 300; transition: width .1s linear;
+}
+
+/* ---------------- Reveal-on-scroll ---------------- */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal-stagger.in-view > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.in-view > *:nth-child(1) { transition-delay: .02s; }
+.reveal-stagger.in-view > *:nth-child(2) { transition-delay: .10s; }
+.reveal-stagger.in-view > *:nth-child(3) { transition-delay: .18s; }
+.reveal-stagger.in-view > *:nth-child(4) { transition-delay: .26s; }
+.reveal-stagger.in-view > *:nth-child(5) { transition-delay: .34s; }
+.reveal-stagger.in-view > *:nth-child(6) { transition-delay: .42s; }
+.reveal-stagger.in-view > *:nth-child(7) { transition-delay: .50s; }
+.reveal-stagger.in-view > *:nth-child(8) { transition-delay: .58s; }
+.reveal-stagger.in-view > *:nth-child(9) { transition-delay: .66s; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s ease;
+}
+.btn-primary {
+  background: linear-gradient(120deg, var(--gulal-bright), var(--marigold));
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(168, 30, 44, 0.30);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(168, 30, 44, 0.4); }
+.btn-ghost {
+  background: transparent; color: var(--cream); border-color: rgba(243,230,211,0.4);
+}
+.btn-ghost:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+
+.section-head { text-align: center; max-width: 620px; margin: 0 auto 3.4rem; padding: 0 1.5rem; }
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  font-size: 0.74rem; color: var(--gulal); margin: 0 0 0.9rem;
+}
+.section-eyebrow::before, .section-eyebrow::after { content: ""; width: 18px; height: 1px; background: var(--gold); }
+.section-title { font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 700; }
+.section-sub { color: var(--ink-soft); margin-top: 0.9rem; font-size: 1.02rem; }
+
+.dark .section-eyebrow { color: var(--gold-bright); }
+.dark .section-eyebrow::before, .dark .section-eyebrow::after { background: rgba(243,230,211,0.35); }
+.dark .section-title, .dark h3 { color: var(--cream); }
+.dark .section-sub { color: rgba(243,230,211,0.68); }
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 1.3rem 0;
+  transition: background .3s ease, padding .3s ease, box-shadow .3s ease;
+}
+.navbar.scrolled {
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(24,13,11,0.08);
+  padding: 0.7rem 0;
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--gulal), var(--gold-bright));
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.95rem;
+}
+.brand-text { font-weight: 700; font-size: 1.05rem; color: var(--cream); letter-spacing: -.01em; }
+.navbar.scrolled .brand-text { color: var(--ink); }
+.brand-text em { font-style: normal; color: var(--gold-bright); }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-link { font-weight: 500; font-size: 0.9rem; color: var(--cream); position: relative; }
+.navbar.scrolled .nav-link { color: var(--ink); }
+.nav-link:not(.nav-cta):after {
+  content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 1.5px;
+  background: var(--gold-bright); transition: width .25s var(--ease);
+}
+.nav-link:not(.nav-cta):hover:after { width: 100%; }
+.nav-cta {
+  background: linear-gradient(120deg, var(--gulal-bright), var(--marigold));
+  color: #fff !important; padding: 0.55rem 1.3rem; border-radius: 999px; font-weight: 600;
+}
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem;
+}
+.nav-toggle span { width: 22px; height: 2px; background: var(--cream); border-radius: 2px; transition: background .2s ease; }
+.navbar.scrolled .nav-toggle span { background: var(--ink); }
+
+/* ===================== HERO ===================== */
+.hero {
+  position: relative; min-height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 1.5rem 6rem;
+  background: radial-gradient(120% 90% at 20% 0%, #3B1712 0%, var(--bg-dark) 55%, #0F0806 100%);
+}
+.hero-glow {
+  position: absolute; width: 60vw; height: 60vw; max-width: 720px; max-height: 720px;
+  border-radius: 50%; filter: blur(90px); opacity: 0.35; z-index: 0;
+  background: radial-gradient(circle, var(--marigold) 0%, transparent 70%);
+  top: -10%; right: -10%;
+  animation: drift 16s ease-in-out infinite alternate;
+}
+.hero-glow.two {
+  background: radial-gradient(circle, var(--gulal) 0%, transparent 70%);
+  top: auto; bottom: -20%; left: -12%; right: auto;
+  animation-duration: 20s; animation-delay: -6s;
+}
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(-4%, 6%) scale(1.08); }
+}
+.hero-lattice {
+  position: absolute; inset: 0; opacity: 0.06; z-index: 0;
+  background-image:
+    repeating-linear-gradient(45deg, var(--gold-bright) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(-45deg, var(--gold-bright) 0 1px, transparent 1px 34px);
+}
+.hero-content { position: relative; z-index: 2; max-width: 760px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--gold-bright); font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; font-size: 0.76rem; margin-bottom: 1.4rem;
+  opacity: 0; animation: rise .7s var(--ease) forwards; animation-delay: .1s;
+}
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gulal-bright); }
+.hero-title {
+  font-size: clamp(3rem, 8.5vw, 5.6rem); color: var(--cream); font-weight: 800; line-height: 0.98;
+  opacity: 0; animation: rise .8s var(--ease) forwards; animation-delay: .22s;
+}
+.hero-title .accent { color: transparent; -webkit-text-stroke: 1.5px var(--gold-bright); }
+.hero-tagline {
+  font-family: var(--font-display); font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  color: var(--marigold); margin: 1.1rem 0 0.6rem; font-weight: 600;
+  opacity: 0; animation: rise .8s var(--ease) forwards; animation-delay: .34s;
+}
+.hero-sub {
+  color: rgba(243,230,211,0.72); max-width: 540px; margin: 0 auto 2.6rem; font-size: 1.02rem;
+  opacity: 0; animation: rise .8s var(--ease) forwards; animation-delay: .44s;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+.countdown {
+  display: flex; gap: 0.9rem; justify-content: center; margin-bottom: 2.6rem; flex-wrap: wrap;
+  opacity: 0; animation: rise .8s var(--ease) forwards; animation-delay: .56s;
+}
+.cd-box {
+  background: rgba(243,230,211,0.05);
+  border: 1px solid rgba(201,154,62,0.4);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.3rem; min-width: 82px;
+  position: relative; overflow: hidden;
+}
+.cd-num {
+  display: block; font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--cream);
+  font-variant-numeric: tabular-nums;
+}
+.cd-label { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin-top: 0.3rem; }
+
+.hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  opacity: 0; animation: rise .8s var(--ease) forwards; animation-delay: .66s;
+}
+
+.scroll-cue {
+  position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
+  color: rgba(243,230,211,0.5); font-size: 0.72rem; letter-spacing: .1em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 2;
+}
+.scroll-cue .line { width: 1px; height: 30px; background: linear-gradient(rgba(243,230,211,0.6), transparent); animation: pulse-line 1.8s ease-in-out infinite; }
+@keyframes pulse-line { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+
+/* ===================== HIGHLIGHTS STRIP ===================== */
+.highlights { background: var(--paper); padding: 3.4rem 1.5rem; border-bottom: 1px solid rgba(24,13,11,0.06); }
+.highlights-inner {
+  max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+}
+.highlight { text-align: center; }
+.highlight .num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--gulal); font-variant-numeric: tabular-nums; }
+.highlight .label { font-size: 0.82rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .05em; margin-top: 0.3rem; }
+
+/* ===================== CELEBRITY NIGHT ===================== */
+.celebrity {
+  position: relative; overflow: hidden; padding: 6rem 1.5rem;
+  background: radial-gradient(120% 100% at 50% 0%, #3B1712 0%, var(--bg-dark) 60%, #0F0806 100%);
+  text-align: center;
+}
+.celebrity-photo {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, rgba(243,230,211,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 80% 15%, rgba(243,230,211,0.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 65%, rgba(243,230,211,0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 60% 80%, rgba(243,230,211,0.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 90% 60%, rgba(243,230,211,0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 20% 85%, rgba(243,230,211,0.4) 50%, transparent 51%);
+  background-size: 100% 100%;
+  opacity: 0.7;
+}
+.celebrity-beams {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.5;
+  background:
+    conic-gradient(from 200deg at 30% 20%, transparent 0deg, rgba(232,179,78,0.12) 8deg, transparent 20deg 360deg),
+    conic-gradient(from 20deg at 75% 10%, transparent 0deg, rgba(194,38,56,0.12) 10deg, transparent 24deg 360deg);
+  animation: sweep 10s linear infinite;
+}
+@keyframes sweep { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.celebrity-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.celeb-icon { margin-bottom: 0.6rem; animation: twinkle 2.4s ease-in-out infinite; }
+@keyframes twinkle { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+.celeb-title {
+  color: var(--cream); font-size: clamp(2.1rem, 4.6vw, 3.2rem);
+  background: linear-gradient(120deg, var(--gold-bright), var(--cream) 40%, var(--gulal-bright));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.celeb-sub { color: rgba(243,230,211,0.7); margin: 1.1rem auto 2rem; font-size: 1rem; max-width: 560px; }
+.celeb-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2.2rem; }
+.celeb-chip {
+  background: rgba(243,230,211,0.05); border: 1px solid rgba(201,154,62,0.35);
+  border-radius: var(--radius-sm); padding: 0.8rem 1.2rem; min-width: 140px;
+  transition: transform .25s var(--ease), border-color .25s ease;
+}
+.celeb-chip:hover { transform: translateY(-4px); border-color: var(--gold-bright); }
+.chip-label { display: block; font-size: 0.66rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); }
+.chip-value { display: block; font-weight: 600; color: var(--cream); margin-top: 0.2rem; font-size: 0.92rem; }
+
+/* ===================== EVENTS ===================== */
+.events { max-width: 1180px; margin: 0 auto; padding: 6.5rem 1.5rem 2rem; }
+.event-group { margin-bottom: 3.6rem; }
+.group-label {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-display); font-weight: 600; font-size: 1.05rem;
+  color: var(--ink); margin-bottom: 1.6rem;
+}
+.group-dot { width: 9px; height: 9px; border-radius: 2px; transform: rotate(45deg); }
+.group-cultural .group-dot { background: var(--gulal); }
+.group-entertainment .group-dot { background: var(--marigold); }
+.group-technical .group-dot { background: var(--gold); }
+
+.event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.event-card {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  will-change: transform;
+}
+.event-card:hover { transform: translateY(-8px); box-shadow: 0 22px 44px rgba(24,13,11,0.20); }
+.event-img {
+  height: 170px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.event-img img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+  transition: transform .5s var(--ease);
+}
+.event-card:hover .event-img img { transform: scale(1.06); }
+.event-img::before {
+  content: ""; position: absolute; inset: 0; z-index: 2;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 22px);
+}
+.event-cultural .event-img::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(150deg, rgba(168,30,44,0.70), rgba(122,21,32,0.80) 120%);
+}
+.event-entertainment .event-img::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(150deg, rgba(221,107,32,0.70), rgba(184,83,15,0.80) 120%);
+}
+.event-technical .event-img::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(150deg, rgba(232,179,78,0.65), rgba(138,100,20,0.80) 120%);
+}
+.event-meta {
+  position: absolute; bottom: 10px; left: 14px; right: 14px; z-index: 3;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.event-meta .when { color: rgba(255,255,255,0.92); font-size: 0.74rem; font-weight: 600; letter-spacing: .03em; }
+.event-body { padding: 1.3rem 1.4rem 1.5rem; }
+.event-body h3 { font-size: 1.1rem; margin: 0.5rem 0 0.5rem; font-weight: 700; }
+.event-body p { margin: 0 0 0.8rem; color: var(--ink-soft); font-size: 0.9rem; }
+.event-prize {
+  font-size: 0.8rem; font-weight: 600; color: var(--gulal);
+  border-top: 1px dashed rgba(24,13,11,0.12); padding-top: 0.7rem;
+}
+.event-tag {
+  display: inline-block; font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; padding: 0.24rem 0.6rem; border-radius: 4px;
+}
+.tag-cultural { background: rgba(168,30,44,0.1); color: var(--gulal); }
+.tag-entertainment { background: rgba(221,107,32,0.12); color: var(--marigold-dark); }
+.tag-technical { background: rgba(201,154,62,0.16); color: #7A5A18; }
+
+/* ===================== SCHEDULE ===================== */
+.schedule { background: var(--bg-dark); padding: 6.5rem 1.5rem; color: var(--cream); position: relative; }
+.schedule-tabs {
+  display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap;
+  max-width: 900px; margin: 0 auto 2.6rem;
+}
+.s-tab {
+  font-family: var(--font-body); font-weight: 600; font-size: 0.85rem;
+  color: rgba(243,230,211,0.6); background: rgba(243,230,211,0.04);
+  border: 1px solid rgba(243,230,211,0.14); border-radius: 999px;
+  padding: 0.55rem 1.1rem; cursor: pointer; transition: all .25s var(--ease);
+}
+.s-tab:hover { color: var(--cream); border-color: rgba(232,179,78,0.5); }
+.s-tab.active { background: linear-gradient(120deg, var(--gulal-bright), var(--marigold)); color: #fff; border-color: transparent; }
+.s-tab-celeb { color: var(--gold-bright); }
+.schedule-panels { max-width: 640px; margin: 0 auto; position: relative; min-height: 220px; }
+.day-panel {
+  display: none; opacity: 0; transform: translateY(12px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.day-panel.active { display: block; opacity: 1; transform: translateY(0); }
+.day-panel h3 {
+  font-size: 1rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold-bright);
+  margin-bottom: 1.6rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(243,230,211,0.15);
+  display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap;
+}
+.celeb-flag {
+  font-size: 0.68rem; text-transform: none; letter-spacing: normal; font-weight: 700;
+  background: rgba(232,179,78,0.16); color: var(--gold-bright); padding: 0.2rem 0.6rem; border-radius: 999px;
+}
+.timeline { position: relative; padding-left: 1.6rem; }
+.timeline::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: rgba(243,230,211,0.18); }
+.t-item { position: relative; padding-bottom: 1.7rem; }
+.t-item:last-child { padding-bottom: 0; }
+.t-item::before {
+  content: ""; position: absolute; left: -1.6rem; top: 4px; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--bg-dark); border: 2px solid var(--gold-bright);
+}
+.t-time { font-size: 0.75rem; color: var(--gold-bright); font-weight: 600; letter-spacing: .04em; }
+.t-title { font-weight: 600; margin-top: 0.15rem; }
+.t-desc { font-size: 0.85rem; color: rgba(243,230,211,0.62); margin-top: 0.2rem; }
+
+/* ===================== ABOUT ===================== */
+.about { background: var(--paper); padding: 6.5rem 1.5rem; }
+.about-inner {
+  max-width: 1100px; margin: 0 auto; display: grid;
+  grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;
+}
+.about-text p { color: var(--ink-soft); }
+.about-stats { display: flex; gap: 2.4rem; margin-top: 1.9rem; }
+.stat-num { display: block; font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--gulal); }
+.stat-label { font-size: 0.78rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .05em; }
+
+.about-visual { display: flex; justify-content: center; }
+.about-arch {
+  width: 230px; height: 300px; position: relative;
+  border-radius: 115px 115px 16px 16px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+.about-arch img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.about-arch::after {
+  content: ""; position: absolute; inset: 0;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: inherit; pointer-events: none;
+}
+
+/* ===================== VENUE ===================== */
+.venue { background: var(--cream); padding: 6.5rem 1.5rem; }
+.venue-inner {
+  max-width: 1000px; margin: 0 auto 1.6rem; display: grid;
+  grid-template-columns: 1.2fr 0.8fr; gap: 1.6rem; align-items: stretch;
+}
+.venue-map {
+  border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-card);
+  min-height: 320px; background: var(--paper);
+}
+.venue-list { display: grid; gap: 1rem; }
+.venue-card {
+  background: var(--paper); border-radius: var(--radius-md); padding: 0.7rem;
+  box-shadow: var(--shadow-card); transition: transform .25s var(--ease);
+  display: flex; gap: 1rem; align-items: center;
+}
+.venue-card:hover { transform: translateX(4px); }
+.venue-thumb {
+  width: 56px; height: 56px; border-radius: var(--radius-sm); flex-shrink: 0;
+  overflow: hidden; position: relative;
+}
+.venue-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.venue-card-body { padding-right: 0.6rem; }
+.venue-card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; }
+.venue-card p { margin: 0; color: var(--ink-soft); font-size: 0.86rem; }
+.venue-address { text-align: center; color: var(--ink-soft); font-size: 0.9rem; max-width: 1000px; margin: 0 auto; }
+
+/* ===================== FAQ ===================== */
+.faq { max-width: 780px; margin: 0 auto; padding: 6.5rem 1.5rem; }
+.faq-item {
+  border-bottom: 1px solid rgba(24,13,11,0.1);
+}
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.3rem 0; cursor: pointer; background: none; border: none; width: 100%;
+  text-align: left; font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--ink);
+}
+.faq-q .plus { font-size: 1.3rem; color: var(--gulal); transition: transform .3s var(--ease); flex-shrink: 0; }
+.faq-item.open .faq-q .plus { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height .35s var(--ease);
+  color: var(--ink-soft); font-size: 0.92rem;
+}
+.faq-a p { padding: 0 0 1.3rem; margin: 0; }
+
+/* ===================== REGISTER ===================== */
+.register { background: var(--cream); padding: 6.5rem 1.5rem; }
+.register-inner { max-width: 720px; margin: 0 auto; }
+.reg-form {
+  background: var(--paper); border-radius: var(--radius-lg);
+  padding: 2.4rem; box-shadow: var(--shadow-card);
+  display: grid; gap: 1.3rem;
+}
+.form-row { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-row label { font-weight: 600; font-size: 0.85rem; color: var(--ink); }
+.form-row input, .form-row select {
+  font-family: var(--font-body); font-size: 0.98rem;
+  padding: 0.8rem 1rem; border-radius: var(--radius-sm);
+  border: 1.5px solid #E8DCC9; background: var(--bg);
+  color: var(--ink); outline: none; transition: border-color .18s ease, box-shadow .18s ease;
+}
+.form-row input:focus, .form-row select:focus { border-color: var(--marigold); box-shadow: 0 0 0 3px rgba(221,107,32,0.12); }
+.form-row.has-error input, .form-row.has-error select { border-color: var(--gulal); }
+.field-error { font-size: 0.78rem; color: var(--gulal); min-height: 1em; }
+.form-submit { width: 100%; margin-top: 0.4rem; justify-content: center; }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-status { text-align: center; font-weight: 600; min-height: 1.4em; font-size: 0.92rem; }
+.form-status.success { color: #1B7A3D; }
+.form-status.error { color: var(--gulal); }
+
+/* ===================== CONTRIBUTE ===================== */
+.contribute { background: var(--paper); padding: 6.5rem 1.5rem; }
+.contribute-inner { max-width: 720px; margin: 0 auto; }
+.contribute-tracks {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.6rem;
+}
+.track-card {
+  background: var(--bg); border-radius: var(--radius-sm); overflow: hidden; text-align: center;
+  border: 1px solid rgba(24,13,11,0.06); transition: transform .25s var(--ease), border-color .25s ease;
+}
+.track-card:hover { transform: translateY(-4px); border-color: var(--marigold); }
+.track-thumb {
+  height: 64px; overflow: hidden; position: relative;
+}
+.track-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.track-card-body { padding: 0.9rem 0.8rem; }
+.track-card h3 { font-size: 0.88rem; margin-bottom: 0.4rem; }
+.track-card p { margin: 0; font-size: 0.78rem; color: var(--ink-soft); }
+
+/* ===================== CONTACT ===================== */
+.contact { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 6.5rem; }
+.coordinators {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 1.6rem;
+}
+.coord-card {
+  background: var(--bg); border-radius: var(--radius-md); padding: 1.4rem;
+  border-left: 3px solid var(--gulal); box-shadow: var(--shadow-card);
+}
+.coord-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); margin-bottom: 0.5rem; }
+.coord-name { font-weight: 700; margin: 0 0 0.3rem; }
+.coord-detail { margin: 0; font-size: 0.88rem; }
+.coord-detail a:hover { color: var(--gulal); }
+.contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+.contact-card {
+  background: var(--paper); border-radius: var(--radius-md);
+  padding: 1.7rem; text-align: center; box-shadow: var(--shadow-card);
+  transition: transform .25s var(--ease);
+}
+.contact-card:hover { transform: translateY(-4px); }
+.contact-card h3 { font-size: 0.92rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: .04em; }
+.contact-card a:hover { color: var(--gulal); }
+.socials a { color: var(--ink); font-weight: 600; }
+
+/* ===================== FOOTER ===================== */
+.site-footer {
+  text-align: center; padding: 2.2rem 1.5rem; background: var(--bg-dark); color: rgba(243,230,211,0.6);
+  font-size: 0.85rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .about-inner { grid-template-columns: 1fr; text-align: center; }
+  .about-stats { justify-content: center; }
+  .event-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  .coordinators { grid-template-columns: repeat(2, 1fr); }
+  .highlights-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .venue-inner { grid-template-columns: 1fr; }
+  .venue-map { min-height: 240px; }
+  .contribute-tracks { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper); flex-direction: column; align-items: stretch;
+    padding: 1rem 1.5rem 1.6rem; gap: 1rem;
+    box-shadow: 0 12px 24px rgba(24,13,11,0.12);
+    transform: translateY(-8px); opacity: 0; pointer-events: none;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-links .nav-link { color: var(--ink) !important; }
+  .nav-toggle { display: flex; }
+  .nav-cta { text-align: center; justify-content: center; }
+
+  .event-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .coordinators { grid-template-columns: 1fr; }
+  .contribute-tracks { grid-template-columns: 1fr; }
+  .schedule-tabs { gap: 0.4rem; }
+  .s-tab { padding: 0.45rem 0.8rem; font-size: 0.78rem; }
+  .countdown { gap: 0.6rem; }
+  .cd-box { min-width: 62px; padding: 0.75rem 0.8rem; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; animation: none !important; }
+  .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">P</span>
+      <span class="brand-text">PRAVAH <em>26</em></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#events" class="nav-link">Events</a>
+      <a href="#celebrity" class="nav-link">Celebrity Night</a>
+      <a href="#schedule" class="nav-link">Schedule</a>
+      <a href="#venue" class="nav-link">Venue</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#register" class="nav-link nav-cta">Register Now</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== HOME / HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-glow two" aria-hidden="true"></div>
+  <div class="hero-lattice" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span class="dot"></span> 9-Day Annual College Fest &middot; 12–20 December 2026</p>
+    <h1 class="hero-title">PRAVAH <span class="accent">2026</span></h1>
+    <p class="hero-tagline">Padharo Mhare Pravah</p>
+    <p class="hero-sub">Nine days of culture, music and competition — where campus talent takes centre stage.</p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#register" class="btn btn-primary">Register Now</a>
+      <a href="#events" class="btn btn-ghost">Explore Events</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- ===================== HIGHLIGHTS STRIP ===================== -->
+<section class="highlights">
+  <div class="highlights-inner reveal-stagger" id="highlightsGrid">
+    <div class="highlight"><span class="num" data-count="9">0</span><div class="label">Marquee Events</div></div>
+    <div class="highlight"><span class="num" data-count="9">0</span><div class="label">Days</div></div>
+    <div class="highlight"><span class="num" data-count="40" data-suffix="+">0</span><div class="label">Colleges Invited</div></div>
+    <div class="highlight"><span class="num" data-count="100000" data-suffix="+">0</span><div class="label">Prize Pool (₹)</div></div>
+  </div>
+</section>
+
+<!-- ===================== CELEBRITY NIGHT ===================== -->
+<section class="celebrity dark" id="celebrity">
+  <div class="celebrity-photo" aria-hidden="true"></div>
+  <div class="celebrity-beams" aria-hidden="true"></div>
+  <div class="celebrity-inner reveal">
+    <svg class="celeb-icon" viewBox="0 0 24 24" fill="none" stroke="#E8B34E" stroke-width="1.4" stroke-linejoin="round" width="34" height="34"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>
+    <p class="section-eyebrow">The big one</p>
+    <h2 class="section-title celeb-title">Celebrity Night</h2>
+    <p class="celeb-sub">Pravah's headline evening — a live performance from a surprise celebrity guest, announced closer to the fest. Open to every registered attendee, no separate pass required.</p>
+    <div class="celeb-meta">
+      <div class="celeb-chip"><span class="chip-label">Day</span><span class="chip-value">Day 7 · 18 Dec</span></div>
+      <div class="celeb-chip"><span class="chip-label">Venue</span><span class="chip-value">Open-Air Stage</span></div>
+      <div class="celeb-chip"><span class="chip-label">Time</span><span class="chip-value">8:00 PM onward</span></div>
+      <div class="celeb-chip"><span class="chip-label">Guest</span><span class="chip-value">To be announced</span></div>
+    </div>
+    <a href="#register" class="btn btn-primary">Secure Your Spot</a>
+  </div>
+</section>
+
+<!-- ===================== EVENTS ===================== -->
+<section class="events" id="events">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">What's on</p>
+    <h2 class="section-title">9 Events, 3 Worlds</h2>
+    <p class="section-sub">From centre stage to centre screen — pick where you shine. Solo and team entries welcome unless noted.</p>
+  </div>
+
+  <!-- Cultural -->
+  <div class="event-group reveal">
+    <div class="group-label group-cultural">
+      <span class="group-dot"></span> Cultural Events
+    </div>
+    <div class="event-grid reveal-stagger">
+      <article class="event-card event-cultural">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=340&fit=crop" alt="Skit Drama" loading="lazy">
+          <div class="event-meta"><span class="when">Day 1 · 11:00 AM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-cultural">Cultural</span>
+          <h3>Skit / Drama</h3>
+          <p>Teams of 4–10. Bring a story to life on stage — comedy, satire, or social message. 12 minutes on the clock.</p>
+          <div class="event-prize">Prize: ₹8,000 · Runner-up ₹4,000</div>
+        </div>
+      </article>
+      <article class="event-card event-cultural">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=340&fit=crop" alt="Dance Competition" loading="lazy">
+          <div class="event-meta"><span class="when">Day 1 · 2:00 PM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-cultural">Cultural</span>
+          <h3>Dance Competition</h3>
+          <p>Solo or group (up to 12), classical or freestyle. 5-minute set, own soundtrack.</p>
+          <div class="event-prize">Prize: ₹10,000 · Runner-up ₹5,000</div>
+        </div>
+      </article>
+      <article class="event-card event-cultural">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=340&fit=crop" alt="Fashion Show" loading="lazy">
+          <div class="event-meta"><span class="when">Day 1 · 5:00 PM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-cultural">Cultural</span>
+          <h3>Fashion Show</h3>
+          <p>Teams of 8–16 walk a themed ramp. Theme released two weeks before the fest.</p>
+          <div class="event-prize">Prize: ₹12,000 · Runner-up ₹6,000</div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Entertainment -->
+  <div class="event-group reveal">
+    <div class="group-label group-entertainment">
+      <span class="group-dot"></span> Entertainment Events
+    </div>
+    <div class="event-grid reveal-stagger">
+      <article class="event-card event-entertainment">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=340&fit=crop" alt="Music Night" loading="lazy">
+          <div class="event-meta"><span class="when">Day 1 · 7:30 PM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-entertainment">Entertainment</span>
+          <h3>Music Night</h3>
+          <p>Live bands and solo acts, one 15-minute slot each. Instruments provided on request.</p>
+          <div class="event-prize">Best Act: ₹6,000</div>
+        </div>
+      </article>
+      <article class="event-card event-entertainment">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=340&fit=crop" alt="DJ Night" loading="lazy">
+          <div class="event-meta"><span class="when">Day 2 · 8:00 PM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-entertainment">Entertainment</span>
+          <h3>DJ Night</h3>
+          <p>The fest's closing act — open floor, no registration needed to attend.</p>
+          <div class="event-prize">Open entry · Free for all attendees</div>
+        </div>
+      </article>
+      <article class="event-card event-entertainment">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&h=340&fit=crop" alt="Open Mic" loading="lazy">
+          <div class="event-meta"><span class="when">Day 2 · 1:00 PM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-entertainment">Entertainment</span>
+          <h3>Open Mic</h3>
+          <p>Poetry, stand-up, singing — 5 minutes, one mic, your choice of material.</p>
+          <div class="event-prize">Audience Choice: ₹3,000</div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Technical -->
+  <div class="event-group reveal">
+    <div class="group-label group-technical">
+      <span class="group-dot"></span> Technical / Fun Events
+    </div>
+    <div class="event-grid reveal-stagger">
+      <article class="event-card event-technical">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&h=340&fit=crop" alt="Coding Contest" loading="lazy">
+          <div class="event-meta"><span class="when">Day 2 · 10:00 AM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-technical">Technical</span>
+          <h3>Coding Contest</h3>
+          <p>Solo, 2-hour timed contest, 6 problems of increasing difficulty. Language of your choice.</p>
+          <div class="event-prize">Prize: ₹7,000 · Runner-up ₹3,500</div>
+        </div>
+      </article>
+      <article class="event-card event-technical">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1542903660-eedba2cda584?w=600&h=340&fit=crop" alt="Gaming Tournament" loading="lazy">
+          <div class="event-meta"><span class="when">Day 2 · 11:00 AM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-technical">Technical</span>
+          <h3>Gaming Tournament</h3>
+          <p>Squad-based knockout bracket. Game title and squad size confirmed on registration.</p>
+          <div class="event-prize">Prize: ₹9,000 pool</div>
+        </div>
+      </article>
+      <article class="event-card event-technical">
+        <div class="event-img">
+          <img src="https://images.unsplash.com/photo-1606326608690-4e0281b1e588?w=600&h=340&fit=crop" alt="Quiz Competition" loading="lazy">
+          <div class="event-meta"><span class="when">Day 2 · 3:00 PM</span></div>
+        </div>
+        <div class="event-body">
+          <span class="event-tag tag-technical">Technical</span>
+          <h3>Quiz Competition</h3>
+          <p>Teams of 2. General knowledge, pop culture and current affairs across three rounds.</p>
+          <div class="event-prize">Prize: ₹5,000 · Runner-up ₹2,500</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCHEDULE ===================== -->
+<section class="schedule dark" id="schedule">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Nine days</p>
+    <h2 class="section-title">Fest Schedule</h2>
+    <p class="section-sub">A rough run of show — exact timings will be confirmed closer to the date.</p>
+  </div>
+
+  <div class="schedule-tabs reveal" id="scheduleTabs" role="tablist">
+    <button class="s-tab active" data-day="1" role="tab">Day 1</button>
+    <button class="s-tab" data-day="2" role="tab">Day 2</button>
+    <button class="s-tab" data-day="3" role="tab">Day 3</button>
+    <button class="s-tab" data-day="4" role="tab">Day 4</button>
+    <button class="s-tab" data-day="5" role="tab">Day 5</button>
+    <button class="s-tab" data-day="6" role="tab">Day 6</button>
+    <button class="s-tab s-tab-celeb" data-day="7" role="tab">Day 7 ★</button>
+    <button class="s-tab" data-day="8" role="tab">Day 8</button>
+    <button class="s-tab" data-day="9" role="tab">Day 9</button>
+  </div>
+
+  <div class="schedule-panels" id="schedulePanels">
+    <div class="day-panel active" data-day="1">
+      <h3>Day 1 · 12 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">9:00 AM</div><div class="t-title">Opening Ceremony</div><div class="t-desc">Welcome address and fest inauguration — main auditorium.</div></div>
+        <div class="t-item"><div class="t-time">11:00 AM</div><div class="t-title">Skit / Drama</div><div class="t-desc">Main auditorium.</div></div>
+        <div class="t-item"><div class="t-time">4:00 PM</div><div class="t-title">Welcome Mixer</div><div class="t-desc">Campus lawns — meet delegates from other colleges.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="2">
+      <h3>Day 2 · 13 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">10:00 AM</div><div class="t-title">Dance Workshops</div><div class="t-desc">Open-air stage — drop-in sessions before the main event.</div></div>
+        <div class="t-item"><div class="t-time">2:00 PM</div><div class="t-title">Dance Competition</div><div class="t-desc">Open-air stage.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="3">
+      <h3>Day 3 · 14 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">3:00 PM</div><div class="t-title">Ramp Rehearsals</div><div class="t-desc">Main auditorium — walkthrough for registered teams.</div></div>
+        <div class="t-item"><div class="t-time">5:00 PM</div><div class="t-title">Fashion Show</div><div class="t-desc">Main auditorium.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="4">
+      <h3>Day 4 · 15 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">1:00 PM</div><div class="t-title">Art &amp; Photography Exhibits</div><div class="t-desc">Campus lawns — open display, all day.</div></div>
+        <div class="t-item"><div class="t-time">7:30 PM</div><div class="t-title">Music Night</div><div class="t-desc">Open-air stage.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="5">
+      <h3>Day 5 · 16 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">10:00 AM</div><div class="t-title">Coding Contest</div><div class="t-desc">Computer labs, block C.</div></div>
+        <div class="t-item"><div class="t-time">11:00 AM</div><div class="t-title">Gaming Tournament</div><div class="t-desc">Gaming arena, block C.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="6">
+      <h3>Day 6 · 17 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">1:00 PM</div><div class="t-title">Open Mic</div><div class="t-desc">Café lawns.</div></div>
+        <div class="t-item"><div class="t-time">3:00 PM</div><div class="t-title">Quiz Competition</div><div class="t-desc">Main auditorium.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="7">
+      <h3>Day 7 · 18 Dec <span class="celeb-flag">Celebrity Night</span></h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">5:00 PM</div><div class="t-title">Gates Open</div><div class="t-desc">Open-air stage — general seating.</div></div>
+        <div class="t-item"><div class="t-time">8:00 PM</div><div class="t-title">Celebrity Night</div><div class="t-desc">Headline performance — guest announced closer to the date.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="8">
+      <h3>Day 8 · 19 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">11:00 AM</div><div class="t-title">Sports &amp; Fun Games</div><div class="t-desc">Sports complex — informal inter-college matches.</div></div>
+        <div class="t-item"><div class="t-time">6:00 PM</div><div class="t-title">Award Rehearsal</div><div class="t-desc">Main auditorium — prep for closing ceremony.</div></div>
+      </div>
+    </div>
+    <div class="day-panel" data-day="9">
+      <h3>Day 9 · 20 Dec</h3>
+      <div class="timeline">
+        <div class="t-item"><div class="t-time">5:00 PM</div><div class="t-title">Closing Ceremony &amp; Awards</div><div class="t-desc">Main auditorium — prizes across all 9 events.</div></div>
+        <div class="t-item"><div class="t-time">8:00 PM</div><div class="t-title">DJ Night</div><div class="t-desc">Open-air stage — fest finale.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <p class="section-eyebrow">About the fest</p>
+      <h2 class="section-title">Where tradition flows into today</h2>
+      <p>Pravah — meaning "flow" — is our college's annual fest, bringing together the color of Rajasthani culture with the energy of a modern campus. It's nine days of performance, music, and competition, built by students, for students.</p>
+      <p>We blend cultural showcases with technical and gaming events so every kind of talent has a stage: dancers and coders, singers and quizzers, designers and gamers all under one roof.</p>
+      <p>Pravah exists to give you a space to showcase what you're good at, discover what you didn't know you could do, and have a genuinely good time doing it.</p>
+
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">Events</span></div>
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">Days</span></div>
+        <div class="stat"><span class="stat-num">3rd</span><span class="stat-label">Edition</span></div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-arch">
+        <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=460&h=600&fit=crop" alt="Rajasthani cultural celebration">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VENUE ===================== -->
+<section class="venue" id="venue">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Find us</p>
+    <h2 class="section-title">Venue</h2>
+    <p class="section-sub">All nine days run across four spots on campus — everything is a short walk apart.</p>
+  </div>
+
+  <div class="venue-inner">
+    <div class="venue-map reveal">
+      <iframe
+        src="https://www.google.com/maps?q=Jaipur,Rajasthan,India&output=embed"
+        width="100%" height="100%" style="border:0;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Pravah 2026 venue map"></iframe>
+    </div>
+
+    <div class="venue-list reveal-stagger">
+      <div class="venue-card">
+        <div class="venue-thumb"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=112&h=112&fit=crop" alt="Main Auditorium" loading="lazy"></div>
+        <div class="venue-card-body">
+          <h3>Main Auditorium</h3>
+          <p>Skit/Drama, Fashion Show, Quiz, Opening &amp; Closing Ceremony.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-thumb"><img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=112&h=112&fit=crop" alt="Open-Air Stage" loading="lazy"></div>
+        <div class="venue-card-body">
+          <h3>Open-Air Stage</h3>
+          <p>Dance Competition, Music Night, Celebrity Night, DJ Night.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-thumb"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=112&h=112&fit=crop" alt="Block C Labs and Arena" loading="lazy"></div>
+        <div class="venue-card-body">
+          <h3>Block C Labs &amp; Arena</h3>
+          <p>Coding Contest and Gaming Tournament.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-thumb"><img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=112&h=112&fit=crop" alt="Café Lawns" loading="lazy"></div>
+        <div class="venue-card-body">
+          <h3>Café Lawns</h3>
+          <p>Open Mic, food stalls, and the daily hangout spot.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="venue-address reveal">College Campus, Jaipur, Rajasthan &middot; Gates open 8:30 AM daily</p>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq" id="faq">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Good to know</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-list reveal">
+    <div class="faq-item open">
+      <button class="faq-q"><span>Is Pravah open to students from other colleges?</span><span class="plus">+</span></button>
+      <div class="faq-a"><p>Yes. Pravah is inter-college — students from any recognized college or university can register for any event.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span>Is there a registration fee?</span><span class="plus">+</span></button>
+      <div class="faq-a"><p>Entry to the fest grounds is free. Individual competitive events have a nominal fee, payable at the registration desk on the day or in advance via the committee.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span>Can I register for more than one event?</span><span class="plus">+</span></button>
+      <div class="faq-a"><p>Yes, as long as event timings don't clash. Check the schedule above before registering for multiple events.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span>Is on-spot registration available?</span><span class="plus">+</span></button>
+      <div class="faq-a"><p>A limited number of on-spot slots are kept for most events, but registering online in advance guarantees your place.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span>Who do I contact for team-size or rule questions?</span><span class="plus">+</span></button>
+      <div class="faq-a"><p>Reach out to the fest committee using the contact details below — we typically reply within a day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REGISTRATION ===================== -->
+<section class="register" id="register">
+  <div class="register-inner">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Join in</p>
+      <h2 class="section-title">Register for Pravah 2026</h2>
+      <p class="section-sub">Fill this in, pick your event, and we'll see you there.</p>
+    </div>
+
+    <form id="registerForm" class="reg-form reveal" novalidate>
+      <div class="form-row">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+        <span class="field-error" id="err-name"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <span class="field-error" id="err-email"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
+        <span class="field-error" id="err-phone"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="college">College Name</label>
+        <input type="text" id="college" name="college" placeholder="Your college name" required>
+        <span class="field-error" id="err-college"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+          <option>Prefer not to say</option>
+        </select>
+        <span class="field-error" id="err-gender"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="event">Event</label>
+        <select id="event" name="event" required>
+          <option value="" disabled selected>Choose an event</option>
+          <optgroup label="Cultural">
+            <option>Skit / Drama</option>
+            <option>Dance Competition</option>
+            <option>Fashion Show</option>
+          </optgroup>
+          <optgroup label="Entertainment">
+            <option>Music Night</option>
+            <option>DJ Night</option>
+            <option>Open Mic</option>
+          </optgroup>
+          <optgroup label="Technical / Fun">
+            <option>Coding Contest</option>
+            <option>Gaming Tournament</option>
+            <option>Quiz Competition</option>
+          </optgroup>
+        </select>
+        <span class="field-error" id="err-event"></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Submit Registration</button>
+
+      <p class="form-status" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== CONTRIBUTE / VOLUNTEER ===================== -->
+<section class="contribute" id="contribute">
+  <div class="contribute-inner">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Behind the scenes</p>
+      <h2 class="section-title">Contribute to Pravah</h2>
+      <p class="section-sub">Not competing? There's still a place for you — join the crew that makes the nine days happen.</p>
+    </div>
+
+    <div class="contribute-tracks reveal-stagger">
+      <div class="track-card">
+        <div class="track-thumb"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=300&h=128&fit=crop" alt="Volunteering" loading="lazy"></div>
+        <div class="track-card-body"><h3>Volunteering</h3><p>On-ground coordination, registration desks, stage management.</p></div>
+      </div>
+      <div class="track-card">
+        <div class="track-thumb"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=300&h=128&fit=crop" alt="Sponsorship" loading="lazy"></div>
+        <div class="track-card-body"><h3>Sponsorship</h3><p>Help us bring in partners and manage brand relationships.</p></div>
+      </div>
+      <div class="track-card">
+        <div class="track-thumb"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=128&fit=crop" alt="Content and Social" loading="lazy"></div>
+        <div class="track-card-body"><h3>Content &amp; Social</h3><p>Photography, reels, and daily updates across our channels.</p></div>
+      </div>
+      <div class="track-card">
+        <div class="track-thumb"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=300&h=128&fit=crop" alt="Logistics" loading="lazy"></div>
+        <div class="track-card-body"><h3>Logistics</h3><p>Venue setup, vendor coordination, and day-of operations.</p></div>
+      </div>
+    </div>
+
+    <form id="contributeForm" class="reg-form reveal" novalidate>
+      <div class="form-row">
+        <label for="c-name">Full Name</label>
+        <input type="text" id="c-name" name="c-name" placeholder="Your full name" required>
+        <span class="field-error" id="err-c-name"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="c-email">Email</label>
+        <input type="email" id="c-email" name="c-email" placeholder="you@example.com" required>
+        <span class="field-error" id="err-c-email"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="c-phone">Phone Number</label>
+        <input type="tel" id="c-phone" name="c-phone" placeholder="10-digit mobile number" required>
+        <span class="field-error" id="err-c-phone"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="c-college">College Name</label>
+        <input type="text" id="c-college" name="c-college" placeholder="Your college name" required>
+        <span class="field-error" id="err-c-college"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="c-track">Area of Interest</label>
+        <select id="c-track" name="c-track" required>
+          <option value="" disabled selected>Choose where you'd like to help</option>
+          <option>Volunteering</option>
+          <option>Sponsorship &amp; Partnerships</option>
+          <option>Content &amp; Social Media</option>
+          <option>Logistics &amp; Operations</option>
+        </select>
+        <span class="field-error" id="err-c-track"></span>
+      </div>
+
+      <div class="form-row">
+        <label for="c-message">A line about yourself (optional)</label>
+        <input type="text" id="c-message" name="c-message" placeholder="Any relevant experience or availability">
+      </div>
+
+      <button type="submit" class="btn btn-primary form-submit" id="cSubmitBtn">Join the Crew</button>
+
+      <p class="form-status" id="cFormStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="section-head reveal">
+    <p class="section-eyebrow">Reach us</p>
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Have a question that isn't in the FAQ? Here's who to reach out to.</p>
+  </div>
+
+  <div class="coordinators reveal-stagger">
+    <div class="coord-card">
+      <h3>Student Convener</h3>
+      <p class="coord-name">Aditi Sharma</p>
+      <p class="coord-detail"><a href="tel:+911234567891">+91 12345 67891</a></p>
+    </div>
+    <div class="coord-card">
+      <h3>Faculty Coordinator</h3>
+      <p class="coord-name">Dr. Rakesh Verma</p>
+      <p class="coord-detail"><a href="tel:+911234567892">+91 12345 67892</a></p>
+    </div>
+    <div class="coord-card">
+      <h3>Sponsorship &amp; Partnerships</h3>
+      <p class="coord-name">Karan Mehta</p>
+      <p class="coord-detail"><a href="tel:+911234567893">+91 12345 67893</a></p>
+    </div>
+    <div class="coord-card">
+      <h3>Volunteer Coordinator</h3>
+      <p class="coord-name">Priya Nair</p>
+      <p class="coord-detail"><a href="tel:+911234567894">+91 12345 67894</a></p>
+    </div>
+  </div>
+
+  <div class="contact-grid reveal-stagger">
+    <div class="contact-card">
+      <h3>Email</h3>
+      <p><a href="mailto:pravah2026@college.edu">pravah2026@college.edu</a></p>
+    </div>
+    <div class="contact-card">
+      <h3>Phone</h3>
+      <p><a href="tel:+911234567890">+91 12345 67890</a></p>
+    </div>
+    <div class="contact-card">
+      <h3>Location</h3>
+      <p>College Campus, Jaipur, Rajasthan</p>
+    </div>
+    <div class="contact-card">
+      <h3>Follow</h3>
+      <p class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a> &middot;
+        <a href="#" aria-label="Facebook">Facebook</a> &middot;
+        <a href="#" aria-label="YouTube">YouTube</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Pravah Fest Committee — Jaipur, Rajasthan.</p>
+</footer>
+
+<script>
+// =====================================================
+// Pravah 2026 — script
+// Scroll progress, reveal animations, counters, countdown,
+// FAQ accordion, nav behavior, form validation.
+// (No backend — registrations are kept in memory for this page session)
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  initScrollProgress();
+  initNavbar();
+  initCountdown();
+  initReveal();
+  initCounters();
+  initFaq();
+  initScheduleTabs();
+  initRegisterForm();
+  initContributeForm();
+});
+
+/* ---------------- Scroll progress bar ---------------- */
+function initScrollProgress() {
+  const bar = document.getElementById("scrollProgress");
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = scrolled + "%";
+  });
+}
+
+/* ---------------- Navbar: scroll style + mobile toggle ---------------- */
+function initNavbar() {
+  const navbar = document.getElementById("navbar");
+  const toggle = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 40);
+  });
+
+  toggle.addEventListener("click", () => {
+    const isOpen = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", isOpen);
+  });
+
+  links.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      links.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+/* ---------------- Scroll-triggered reveal ---------------- */
+function initReveal() {
+  const targets = document.querySelectorAll(".reveal, .reveal-stagger");
+  if (!("IntersectionObserver" in window) || targets.length === 0) {
+    targets.forEach((t) => t.classList.add("in-view"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+  );
+
+  targets.forEach((t) => observer.observe(t));
+}
+
+/* ---------------- Animated stat counters ---------------- */
+function initCounters() {
+  const nums = document.querySelectorAll(".highlight .num");
+  if (nums.length === 0) return;
+
+  const animate = (el) => {
+    const target = parseInt(el.dataset.count, 10) || 0;
+    const suffix = el.dataset.suffix || "";
+    const duration = 1400;
+    const start = performance.now();
+
+    function frame(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(eased * target);
+      el.textContent = value.toLocaleString("en-IN") + suffix;
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    nums.forEach(animate);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  nums.forEach((n) => observer.observe(n));
+}
+
+/* ---------------- FAQ accordion ---------------- */
+function initFaq() {
+  const items = document.querySelectorAll(".faq-item");
+
+  items.forEach((item) => {
+    const q = item.querySelector(".faq-q");
+    const a = item.querySelector(".faq-a");
+
+    // Set initial max-height for the item that starts open
+    if (item.classList.contains("open")) {
+      a.style.maxHeight = a.scrollHeight + "px";
+    }
+
+    q.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Close all others (single-open accordion)
+      items.forEach((other) => {
+        other.classList.remove("open");
+        other.querySelector(".faq-a").style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add("open");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    });
+  });
+}
+
+/* ---------------- Schedule day tabs ---------------- */
+function initScheduleTabs() {
+  const tabs = document.querySelectorAll(".s-tab");
+  const panels = document.querySelectorAll(".day-panel");
+  if (tabs.length === 0) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const day = tab.dataset.day;
+
+      tabs.forEach((t) => t.classList.toggle("active", t === tab));
+      panels.forEach((p) => {
+        if (p.dataset.day === day) {
+          p.classList.add("active");
+        } else {
+          p.classList.remove("active");
+        }
+      });
+    });
+  });
+}
+
+/* ---------------- Countdown timer ---------------- */
+function initCountdown() {
+  // Fest date — update this to the confirmed date
+  const FEST_DATE = new Date("2026-12-12T09:00:00+05:30").getTime();
+
+  const els = {
+    days: document.getElementById("cd-days"),
+    hours: document.getElementById("cd-hours"),
+    mins: document.getElementById("cd-mins"),
+    secs: document.getElementById("cd-secs"),
+  };
+
+  function tick() {
+    const diff = FEST_DATE - Date.now();
+
+    if (diff <= 0) {
+      els.days.textContent = "00";
+      els.hours.textContent = "00";
+      els.mins.textContent = "00";
+      els.secs.textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    els.days.textContent = String(days).padStart(2, "0");
+    els.hours.textContent = String(hours).padStart(2, "0");
+    els.mins.textContent = String(mins).padStart(2, "0");
+    els.secs.textContent = String(secs).padStart(2, "0");
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* ---------------- Registration form: client-side only ---------------- */
+function initRegisterForm() {
+  const form = document.getElementById("registerForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const status = document.getElementById("formStatus");
+  const fields = ["name", "email", "phone", "college", "gender", "event"];
+
+  // Holds registrations for this browser session only (resets on reload).
+  // Plug in a backend endpoint later if you need this saved permanently.
+  const registrations = [];
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    status.textContent = "";
+    status.className = "form-status";
+
+    const values = {};
+    fields.forEach((f) => (values[f] = form.elements[f].value.trim()));
+
+    const errors = validate(values);
+    showErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      status.textContent = "Please fix the highlighted fields.";
+      status.classList.add("error");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    setTimeout(() => {
+      registrations.push({ ...values, submittedAt: new Date().toISOString() });
+      console.log("Registrations so far:", registrations);
+
+      status.textContent = "Registration successful! See you at Pravah 2026.";
+      status.classList.add("success");
+      form.reset();
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Registration";
+    }, 500);
+  });
+
+  function validate(values) {
+    const errors = {};
+
+    if (!values.name) errors.name = "Full name is required.";
+
+    if (!values.email) {
+      errors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+      errors.email = "Enter a valid email address.";
+    }
+
+    if (!values.phone) {
+      errors.phone = "Phone number is required.";
+    } else if (!/^[6-9]\d{9}$/.test(values.phone.replace(/\D/g, ""))) {
+      errors.phone = "Enter a valid 10-digit phone number.";
+    }
+
+    if (!values.college) errors.college = "College name is required.";
+    if (!values.gender) errors.gender = "Please select a gender.";
+    if (!values.event) errors.event = "Please choose an event.";
+
+    return errors;
+  }
+
+  function showErrors(errors) {
+    fields.forEach((f) => {
+      const row = form.elements[f].closest(".form-row");
+      const errEl = document.getElementById("err-" + f);
+      if (errors[f]) {
+        row.classList.add("has-error");
+        errEl.textContent = errors[f];
+      } else {
+        row.classList.remove("has-error");
+        errEl.textContent = "";
+      }
+    });
+  }
+}
+
+/* ---------------- Contribute / Volunteer form: client-side only ---------------- */
+function initContributeForm() {
+  const form = document.getElementById("contributeForm");
+  if (!form) return;
+
+  const submitBtn = document.getElementById("cSubmitBtn");
+  const status = document.getElementById("cFormStatus");
+  const requiredFields = ["c-name", "c-email", "c-phone", "c-college", "c-track"];
+
+  // Session-only store, same pattern as the event registration form above.
+  const contributors = [];
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    status.textContent = "";
+    status.className = "form-status";
+
+    const values = {};
+    requiredFields.concat(["c-message"]).forEach((f) => {
+      values[f] = form.elements[f].value.trim();
+    });
+
+    const errors = validate(values);
+    showErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      status.textContent = "Please fix the highlighted fields.";
+      status.classList.add("error");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    setTimeout(() => {
+      contributors.push({ ...values, submittedAt: new Date().toISOString() });
+      console.log("Contributors so far:", contributors);
+
+      status.textContent = "Thanks for signing up — the core team will reach out soon!";
+      status.classList.add("success");
+      form.reset();
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Join the Crew";
+    }, 500);
+  });
+
+  function validate(values) {
+    const errors = {};
+
+    if (!values["c-name"]) errors["c-name"] = "Full name is required.";
+
+    if (!values["c-email"]) {
+      errors["c-email"] = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values["c-email"])) {
+      errors["c-email"] = "Enter a valid email address.";
+    }
+
+    if (!values["c-phone"]) {
+      errors["c-phone"] = "Phone number is required.";
+    } else if (!/^[6-9]\d{9}$/.test(values["c-phone"].replace(/\D/g, ""))) {
+      errors["c-phone"] = "Enter a valid 10-digit phone number.";
+    }
+
+    if (!values["c-college"]) errors["c-college"] = "College name is required.";
+    if (!values["c-track"]) errors["c-track"] = "Please choose an area of interest.";
+
+    return errors;
+  }
+
+  function showErrors(errors) {
+    requiredFields.forEach((f) => {
+      const row = form.elements[f].closest(".form-row");
+      const errEl = document.getElementById("err-" + f);
+      if (errors[f]) {
+        row.classList.add("has-error");
+        errEl.textContent = errors[f];
+      } else {
+        row.classList.remove("has-error");
+        errEl.textContent = "";
+      }
+    });
+  }
+}
+</script>
+</body>
+
+</html>

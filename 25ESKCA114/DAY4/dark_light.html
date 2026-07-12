@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Light Dark Theme</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+  <div class="container text-center mt-5">
+    <h2>Bootstrap Theme Toggle</h2>
+
+    <p>This is a simple Light/Dark theme example.</p>
+
+    <button class="btn btn-primary" onclick="toggleTheme()">
+      Toggle Theme
+    </button>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      // Toggle background
+      document.body.classList.toggle("bg-light");
+      document.body.classList.toggle("bg-dark");
+
+      // Toggle text color
+      document.body.classList.toggle("text-dark");
+      document.body.classList.toggle("text-light");
+    }
+  </script>
+
+</body>
+</html>

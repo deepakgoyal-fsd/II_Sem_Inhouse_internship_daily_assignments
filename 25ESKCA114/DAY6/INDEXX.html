@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Directory</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+
+h1{
+    text-align:center;
+}
+
+
+.container{
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+
+}
+
+
+
+.card{
+
+    width:260px;
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0px 0px 10px gray;
+    display:none;
+
+}
+
+
+
+.card img{
+
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+
+}
+
+
+
+.details{
+
+    display:none;
+    margin-top:15px;
+    line-height:25px;
+
+}
+
+
+
+button{
+
+    margin-top:15px;
+    padding:10px 18px;
+    border:none;
+    background:#3498db;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    opacity:0.8;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h1>Student Directory</h1>
+
+
+<div class="container" id="studentContainer"></div>
+
+
+
+<script>
+
+
+$(document).ready(function(){
+
+
+
+// Student Array
+
+const students=[
+
+
+{
+name:"Rahul",
+image:"https://randomuser.me/api/portraits/men/1.jpg",
+branch:"CSE",
+cgpa:"8.4",
+email:"rahul@gmail.com"
+},
+
+
+{
+name:"Ankit",
+image:"https://randomuser.me/api/portraits/men/2.jpg",
+branch:"AI",
+cgpa:"8.7",
+email:"ankit@gmail.com"
+},
+
+
+{
+name:"Priya",
+image:"https://randomuser.me/api/portraits/women/1.jpg",
+branch:"ECE",
+cgpa:"9.1",
+email:"priya@gmail.com"
+},
+
+
+{
+name:"Neha",
+image:"https://randomuser.me/api/portraits/women/2.jpg",
+branch:"IT",
+cgpa:"8.2",
+email:"neha@gmail.com"
+},
+
+
+{
+name:"Aman",
+image:"https://randomuser.me/api/portraits/men/3.jpg",
+branch:"ME",
+cgpa:"7.8",
+email:"aman@gmail.com"
+},
+
+
+{
+name:"Karan",
+image:"https://randomuser.me/api/portraits/men/4.jpg",
+branch:"CSE",
+cgpa:"8.9",
+email:"karan@gmail.com"
+},
+
+
+{
+name:"Riya",
+image:"https://randomuser.me/api/portraits/women/3.jpg",
+branch:"AI",
+cgpa:"9.3",
+email:"riya@gmail.com"
+},
+
+
+{
+name:"Mohit",
+image:"https://randomuser.me/api/portraits/men/5.jpg",
+branch:"ECE",
+cgpa:"7.6",
+email:"mohit@gmail.com"
+},
+
+
+{
+name:"Simran",
+image:"https://randomuser.me/api/portraits/women/4.jpg",
+branch:"IT",
+cgpa:"8.5",
+email:"simran@gmail.com"
+},
+
+
+{
+name:"Arjun",
+image:"https://randomuser.me/api/portraits/men/6.jpg",
+branch:"CSE",
+cgpa:"9.0",
+email:"arjun@gmail.com"
+}
+
+
+];
+
+
+
+
+// Create cards using loop
+
+
+students.forEach(function(student){
+
+
+let card=`
+
+
+<div class="card">
+
+
+<img src="${student.image}">
+
+
+<h2>${student.name}</h2>
+
+
+<button class="toggleBtn">
+Show Details
+</button>
+
+
+
+<div class="details">
+
+<b>Branch:</b> ${student.branch}<br>
+
+<b>CGPA:</b> ${student.cgpa}<br>
+
+<b>Email:</b> ${student.email}
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+$("#studentContainer").append(card);
+
+
+});
+
+
+
+
+// Fade animation on page load
+
+$(".card").fadeIn(1000);
+
+
+
+
+
+// Toggle details
+
+
+$(".toggleBtn").click(function(){
+
+
+$(this).next(".details").slideToggle(500);
+
+
+
+if($(this).text()=="Show Details"){
+
+
+$(this).text("Hide Details");
+
+
+$(this).css("background","#e74c3c");
+
+
+}
+
+else{
+
+
+$(this).text("Show Details");
+
+
+$(this).css("background","#3498db");
+
+
+}
+
+
+});
+
+
+
+});
+
+</script>
+
+
+
+</body>
+</html>

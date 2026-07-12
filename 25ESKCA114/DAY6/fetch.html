@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Cards Grid</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+.profile-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+/* Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #eef2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar */
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    margin: 0 0 8px 0;
+    color: #1e293b;
+    font-size: 1.15rem;
+}
+
+.card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Button */
+.toggle-btn {
+    margin-top: 15px;
+    padding: 8px 14px;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    opacity: 0.8;
+}
+
+/* Hidden details */
+.details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+/* Active state */
+.details.show {
+    max-height: 200px;
+}
+</style>
+
+</head>
+<body>
+
+<div id="user-grid" class="card-grid"></div>
+
+<script>
+const gridContainer = document.getElementById('user-grid');
+
+// Fetch users
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(res => res.json())
+.then(data => {
+
+    data.forEach((user, index) => {
+
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        // 👇 Random profile image
+        const imageUrl = `https://i.pravatar.cc/150?img=${index + 1}`;
+
+        card.innerHTML = `
+            <img src="${imageUrl}" class="profile-img">
+
+            <h3>${user.name}</h3>
+            <p>@${user.username}</p>
+
+            <button class="toggle-btn">Show Details</button>
+
+            <div class="details">
+                <p><b>Email:</b> ${user.email}</p>
+                <p><b>Phone:</b> ${user.phone}</p>
+                <p><b>City:</b> ${user.address.city}</p>
+                <p><b>Company:</b> ${user.company.name}</p>
+            </div>
+        `;
+
+        gridContainer.appendChild(card);
+    });
+
+    // Toggle logic
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+
+        btn.addEventListener('click', function(){
+
+            const details = this.nextElementSibling;
+
+            details.classList.toggle('show');
+
+            if(details.classList.contains('show')){
+                this.textContent = "Hide Details";
+                this.style.background = "#e74c3c";
+            } else {
+                this.textContent = "Show Details";
+                this.style.background = "#3498db";
+            }
+
+        });
+
+    });
+
+})
+.catch(error => console.error('Error:', error));
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:skyblue;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:aquamarine;
+    margin-bottom:20px;
+}
+
+.search-box{
+    width:100%;
+    max-width:450px;
+    margin:20px auto;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    border-radius:8px;
+    border:2px solid #4CAF50;
+    outline:none;
+}
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    width:280px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card h2{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.card p{
+    margin:6px 0;
+    color:#555;
+}
+
+.details{
+    display:none;
+    margin-top:10px;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+    margin-right:5px;
+    color:white;
+}
+
+.view-btn{
+    background:#2196F3;
+}
+
+.cgpa-btn{
+    background:#4CAF50;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+@media(max-width:600px){
+.card{
+width:100%;
+}
+}
+</style>
+
+</head>
+<body>
+
+<h1>Student Directory</h1>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search Student..." onkeyup="searchStudent()">
+</div>
+
+<div class="container" id="studentContainer">
+
+<div class="card">
+
+<img src="https://via.placeholder.com/300x220?text=Student+1">
+
+<div class="card-content">
+
+<h2>Aman Sharma</h2>
+
+<p><b>Roll No:</b> 101</p>
+
+<p><b>Course:</b> B.Tech CSE</p>
+
+<div class="details">
+
+<p><b>Email:</b> aman@gmail.com</p>
+
+<p><b>Phone:</b> 9876543210</p>
+
+<p class="cgpa"><b>CGPA:</b> 8.9</p>
+
+</div>
+
+<button class="view-btn" onclick="toggleDetails(this)">
+View Details
+</button>
+
+<button class="cgpa-btn" onclick="toggleCGPA(this)">
+Hide CGPA
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://via.placeholder.com/300x220?text=Student+2">
+
+<div class="card-content">
+
+<h2>Priya Singh</h2>
+
+<p><b>Roll No:</b> 102</p>
+
+<p><b>Course:</b> B.Tech IT</p>
+
+<div class="details">
+
+<p><b>Email:</b> priya@gmail.com</p>
+
+<p><b>Phone:</b> 9988776655</p>
+
+<p class="cgpa"><b>CGPA:</b> 9.4</p>
+
+</div>
+
+<button class="view-btn" onclick="toggleDetails(this)">
+View Details
+</button>
+
+<button class="cgpa-btn" onclick="toggleCGPA(this)">
+Hide CGPA
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://via.placeholder.com/300x220?text=Student+3">
+
+<div class="card-content">
+
+<h2>Rahul Verma</h2>
+
+<p><b>Roll No:</b> 103</p>
+
+<p><b>Course:</b> BCA</p>
+
+<div class="details">
+
+<p><b>Email:</b> rahul@gmail.com</p>
+
+<p><b>Phone:</b> 9123456789</p>
+
+<p class="cgpa"><b>CGPA:</b> 8.2</p>
+
+</div>
+
+<button class="view-btn" onclick="toggleDetails(this)">
+View Details
+</button>
+
+<button class="cgpa-btn" onclick="toggleCGPA(this)">
+Hide CGPA
+</button>
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+function searchStudent(){
+
+let input=document.getElementById("search").value.toUpperCase();
+
+let cards=document.getElementsByClassName("card");
+
+for(let i=0;i<cards.length;i++){
+
+let name=cards[i].getElementsByTagName("h2")[0];
+
+if(name.innerHTML.toUpperCase().indexOf(input)>-1){
+
+cards[i].style.display="block";
+
+}
+else{
+
+cards[i].style.display="none";
+
+}
+
+}
+
+}
+
+function toggleDetails(button){
+
+let details=button.parentElement.querySelector(".details");
+
+if(details.style.display==="block"){
+
+details.style.display="none";
+
+button.innerHTML="View Details";
+
+}
+
+else{
+
+details.style.display="block";
+
+button.innerHTML="Hide Details";
+
+}
+
+}
+
+function toggleCGPA(button){
+
+let cgpa=button.parentElement.querySelector(".cgpa");
+
+if(cgpa.style.display==="none"){
+
+cgpa.style.display="block";
+
+button.innerHTML="Hide CGPA";
+
+}
+
+else{
+
+cgpa.style.display="none";
+
+button.innerHTML="Show CGPA";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

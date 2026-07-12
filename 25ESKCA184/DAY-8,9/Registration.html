@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="formStylesheet.css">
+</head>
+
+<body>
+    <form class="form" action="process.php" method="post" enctype="multipart/form-data"> 
+        <h1>Registration Form</h1>
+        <br>
+        <label>Name<br>
+            <input type="text" name="name" placeholder="Enter Full Name" class="rounded" required>
+        </label>
+
+        <label>Email<br>
+            <input type="email" name="email" placeholder="Enter Email Address" class="rounded" required>
+        </label>
+
+        <label>branch<br>
+            <input type="text" name="branch" placeholder="Enter Branch" class="rounded">
+        </label>
+
+        <label>CGPA<br>
+            <input type="number" name="cgpa" placeholder="Enter cgpa" class="rounded">
+        </label>
+
+        <label>Phone Number<br>
+            <input type="tel" name="phone_no" placeholder="Enter Phone Number" class="rounded">
+        </label>
+
+
+        <button type="reset" class="button">CLEAR</button>
+        <button type="submit" class="button">SUBMIT</button>
+    </form>
+</body>
+
+</html>

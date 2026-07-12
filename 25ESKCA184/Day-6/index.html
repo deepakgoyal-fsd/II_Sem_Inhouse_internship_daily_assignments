@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Cards</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.js"></script>
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Student Records</h2>
+
+        <input type="text" id="search" class="form-control mb-4" placeholder="Search Student">
+
+        <div id="container" class="row g-4"></div>
+    </div>
+<div id="json"></div>
+    <script>
+        const student = [
+            { name: "TOM", branch: "cse", cgpa: 9 },
+            { name: "BRAD", branch: "ece", cgpa: 0},
+            { name: "Hawk", branch: "it", cgpa: 6 },
+            { name: "TIM", branch: "ds", cgpa: 3 },
+            { name: "BOB", branch: "cse", cgpa: 6 },
+            { name: "Jass", branch: "ds", cgpa: 8 },
+            { name: "JIM", branch: "cse", cgpa: 7 },
+            { name: "DONALD", branch: "it", cgpa: 1 },
+            { name: "Lester", branch: "cse", cgpa: 8.9 },
+            { name: "HANK", branch: "eee", cgpa: -4 },
+            { name: "WHO", branch: "cse", cgpa: 9 }
+            
+        ];
+
+        let html = "";
+
+        for (let i = 0; i < student.length; i++) {
+            html += `
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <div class="card-body">
+                            
+                            <img src="https://i.pravatar.cc/150?img=${i+1}" class="rounded-circle border border-danger border-3 mb-3" alt="Student Image">
+                            <br>
+                            <h4>${student[i].name}</h4>
+
+
+                            <button class="btn btn-danger btn-sm mt-2 showBtn">
+                                Show Details
+                            </button>
+
+                            <div class="details mt-3" style="display:none;">
+                                <p><strong>Branch:</strong> ${student[i].branch}</p>
+                                <p><strong>CGPA:</strong> ${student[i].cgpa}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        document.getElementById("container").innerHTML = html;
+
+        // Show/Hide Details
+        const buttons = document.querySelectorAll(".showBtn");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+
+                const details = this.nextElementSibling;
+
+                if (details.style.display === "none") {
+                    details.style.display = "block";
+                    this.textContent = "Hide Details";
+                } else {
+                    details.style.display = "none";
+                    this.textContent = "Show Details";
+                }
+
+            });
+        });
+
+        // Search Student
+        document.getElementById("search").addEventListener("keyup", function () {
+
+            let value = this.value.toLowerCase();
+
+            document.querySelectorAll(".col-md-4").forEach(card => {
+
+                let name = card.querySelector("h4").textContent.toLowerCase();
+
+                if (name.includes(value)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+            
+        });
+        document.getElementById("json").innerHTML=JSON.stringify(student, ["name","cgpa"],4);
+
+    </script>
+
+</body>
+</html>

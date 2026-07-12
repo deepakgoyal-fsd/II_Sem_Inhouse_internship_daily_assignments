@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fruit Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Apple : <span id="appleCount">0</span></h2>
+<h2>Banana : <span id="bananaCount">0</span></h2>
+<h2>Time Left : <span id="timer">30</span>s</h2>
+
+<div class="gameArea">
+
+    <img src="apple.jfif"
+         id="apple"
+         width="120"
+         onclick="appleClick()">
+
+    <img src="images.jfif"
+         id="banana"
+         width="120"
+         onclick="bananaClick()">
+
+</div>
+
+<div id="gameOver">
+
+    <h1>GAME OVER</h1>
+
+    <br>
+
+    Apple : <span id="finalApple">0</span>
+
+    <br><br>
+
+    Banana : <span id="finalBanana">0</span>
+
+</div>
+
+<script>
+
+let apple = 0;
+let banana = 0;
+let timeLeft = 30;
+let gameRunning = true;
+
+function appleClick(){
+    if (!gameRunning) return;
+
+    apple++;
+    document.getElementById("appleCount").innerHTML = apple;
+    moveImages();
+}
+
+function bananaClick(){
+    if (!gameRunning) return;
+
+    banana++;
+    document.getElementById("bananaCount").innerHTML = banana;
+    moveImages();
+}
+
+let timer = setInterval(function(){
+
+    if(!gameRunning) return;
+
+    timeLeft--;
+
+    document.getElementById("timer").innerHTML = timeLeft;
+
+    if(timeLeft<=0){
+
+        clearInterval(timer);
+
+        gameRunning=false;
+
+        document.getElementById("finalApple").innerHTML=apple;
+
+        document.getElementById("finalBanana").innerHTML=banana;
+
+        document.getElementById("gameOver").style.display="block";
+    }
+
+},1000);
+
+function moveImages(){
+
+    document.getElementById("apple").style.left=Math.random()*700+"px";
+    document.getElementById("apple").style.top=Math.random()*350+"px";
+
+    document.getElementById("banana").style.left=Math.random()*700+"px";
+    document.getElementById("banana").style.top=Math.random()*350+"px";
+}
+
+moveImages();
+
+</script>
+
+</body>
+</html>

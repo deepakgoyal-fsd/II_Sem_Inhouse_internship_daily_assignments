@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap & Responsive Design - Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --dark-bg: #0a0e27;
+      --card-bg: #111638;
+      --accent: #6c63ff;
+      --text-light: #c9d1d9;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(10, 14, 39, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(108, 99, 255, 0.2);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff !important;
+    }
+    .navbar-brand span {
+      color: var(--accent);
+    }
+    .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: var(--accent) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 80px 0 60px;
+    }
+    .hero-section h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .hero-section h1 span {
+      color: var(--accent);
+    }
+    .hero-section p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+    .hero-image-placeholder {
+      background: linear-gradient(135deg, #1a1f4e, #2a2f6e);
+      border: 2px dashed rgba(108, 99, 255, 0.4);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-placeholder::before {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: rgba(108, 99, 255, 0.15);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .hero-image-placeholder svg {
+      position: relative;
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    /* Buttons */
+    .btn-hero {
+      padding: 12px 32px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+    }
+
+    /* Features / Cards Section */
+    .features-section {
+      padding: 60px 0 80px;
+    }
+    .features-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 50px;
+    }
+    .feature-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(108, 99, 255, 0.15);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(108, 99, 255, 0.25);
+      border-color: var(--accent);
+    }
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .feature-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+    .feature-card h5 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .btn-card {
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .btn-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #060918;
+      border-top: 1px solid rgba(108, 99, 255, 0.15);
+      padding: 24px 0;
+    }
+    footer p {
+      margin: 0;
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991.98px) {
+      .hero-section h1 {
+        font-size: 2.2rem;
+      }
+      .hero-section {
+        padding: 50px 0 40px;
+      }
+      .hero-image-placeholder {
+        min-height: 250px;
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      .hero-section p {
+        font-size: 1rem;
+      }
+      .features-section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 36px;
+      }
+      .feature-card {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">&lt;/&gt; <span>BootStrap</span>Labs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Text Column -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h1>Build. Style. <span>Adapt.</span></h1>
+          <p>From Desktop to Mobile, we build it all. Learn Bootstrap grid system, components, and responsive design with hands-on activities.</p>
+          <a href="#features" class="btn btn-primary btn-hero">Get Started</a>
+        </div>
+        <!-- Image Placeholder Column -->
+        <div class="col-lg-6">
+          <div class="hero-image-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(108,99,255,0.4)" viewBox="0 0 16 16">
+              <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+              <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES / CARDS SECTION ==================== -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <h2 class="text-center">Bootstrap Components</h2>
+      <div class="row g-4">
+        <!-- Card 1: Fast -->
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/></svg>
+            </div>
+            <h5>Fast</h5>
+            <p>Built with Bootstrap components. Rapid development with pre-built utilities and classes.</p>
+            <a href="#" class="btn btn-primary btn-card">Learn More</a>
+          </div>
+        </div>
+        <!-- Card 2: Responsive -->
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <h5>Responsive</h5>
+            <p>Looks great on all devices. Mobile-first grid system adapts to any screen size.</p>
+            <a href="#" class="btn btn-primary btn-card">Learn More</a>
+          </div>
+        </div>
+        <!-- Card 3: Customizable -->
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
+            </div>
+            <h5>Customizable</h5>
+            <p>Easy to modify and extend. Customize with Sass variables or utility classes.</p>
+            <a href="#" class="btn btn-primary btn-card">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="container text-center">
+      <p>&copy; 2026 Bootstrap & Responsive Design - Hands-on Activities. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

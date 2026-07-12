@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Hello World
+    <script>
+
+        /*  let studentname = '{"name": "harsh", "branch": "cse", "rollno": 1234, "marks": 90}'; */
+        /*
+       let studentbranch = 'cse';
+       let studentrollno = 1234;
+       let studentmarks = 90;
+       */
+
+        // let studentObj = {
+        //     name: 'harsh',
+        //     active: true,
+        //     branch: 'cse',
+        //     rollno: 1234,
+        //     marks: 90,
+        //     skills: ['html', 'css', 'js']
+        // };
+
+        // let students = '{"name":"harsh","active":true,"branch":"cse","rollno":1234,"marks":90,"skills":["html","css","js"]}';
+        // console.log(JSON.parse(students));
+
+
+        const students = [
+            {
+                name: 'harsh',
+                branch: 'cse',
+                rollno: 1234,
+                marks: 90,
+                skills: [{ key: 'value' }, 'css', 'js']
+            },
+            {
+                name: 'virat',
+                branch: 'cse',
+                rollno: 12345,
+                marks: 100,
+                skills: ['html', 'php', 'react']
+            },
+            {
+                name: 'kamal',
+                branch: 'ece',
+                rollno: 12365,
+                marks: 200,
+                skills: ['html', 'node', 'go', 'java']
+            }
+        ];
+
+        console.log(JSON.stringify(students));
+        /*
+            for(let i = 0; i < students.length; i++){
+                console.log(students[i]);
+            }                
+        */
+
+
+        // JSON.stringify(value, replacer, space)
+    </script>
+
+</html>

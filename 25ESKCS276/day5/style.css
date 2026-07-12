@@ -1,0 +1,174 @@
+/**
+ * style.css — Custom styles for the Student Directory
+ * Extends Bootstrap 5 with modern card design, hover effects,
+ * CGPA color-coding, and responsive tweaks.
+ */
+
+/* ===================== Global ===================== */
+body {
+  background: #f0f2f5;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===================== Navbar ===================== */
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ===================== Search Bar ===================== */
+.search-wrapper {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+.search-wrapper .form-control {
+  border-radius: 50px;
+  padding: 0.6rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s;
+}
+
+.search-wrapper .form-control:focus {
+  box-shadow: 0 2px 12px rgba(13, 110, 253, 0.25);
+}
+
+/* ===================== Student Card ===================== */
+.student-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.student-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.student-card .card-body {
+  padding: 1.5rem;
+}
+
+.student-card .student-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.student-card .student-branch {
+  font-size: 0.82rem;
+  color: #495057;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.student-card .student-branch .bi {
+  color: #0d6efd;
+}
+
+.student-card .student-year {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+/* Year badge */
+.year-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.25em 0.65em;
+  border-radius: 50px;
+  background: #e9ecef;
+  color: #495057;
+  margin-bottom: 0.75rem;
+}
+
+/* ===================== CGPA Area ===================== */
+.cgpa-wrapper {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cgpa-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6c757d;
+  letter-spacing: 0.3px;
+}
+
+.cgpa-masked {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #adb5bd;
+  letter-spacing: 2px;
+}
+
+/* Hidden overlay icon */
+.cgpa-lock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.cgpa-lock:hover {
+  color: #0d6efd;
+}
+
+.cgpa-lock .bi {
+  font-size: 1rem;
+}
+
+/* Revealed CGPA value */
+.cgpa-value {
+  display: none;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Color classes applied after reveal */
+.cgpa-green  { color: #198754; }
+.cgpa-yellow { color: #d4a017; }
+.cgpa-red    { color: #dc3545; }
+
+/* ===================== No Results ===================== */
+.no-results {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6c757d;
+}
+
+.no-results .bi {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ===================== Animations ===================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.student-card {
+  animation: fadeIn 0.35s ease both;
+}
+
+/* staggered delay set via inline style in JS */

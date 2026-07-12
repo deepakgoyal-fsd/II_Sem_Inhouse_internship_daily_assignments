@@ -1,0 +1,98 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background: #f5f3ff;
+}
+
+section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 0;
+}
+
+h1.name {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+    background-color: rgb(173, 134, 209);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+h2 {
+    color: #2f1c6e;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1.5rem 0;
+}
+
+.tech {
+    margin: 5px;
+}
+
+.tech ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech li {
+    margin-bottom: 0.5rem;
+}
+
+/* Scoped table styles for the resume */
+
+/* Education table with visible grid and rounded outer corners */
+.education {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 3px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+}
+
+.education th,
+.education td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Personal details: simple, no cell borders */
+.personal {
+    border-collapse: separate;
+    border-spacing: 0.4rem;
+    width: auto;
+}
+
+.personal td,
+.personal th {
+    border: none;
+    padding: 6px 8px;
+}
+
+/* Sticky navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+}
+.tech{
+    margin: 5px;
+}

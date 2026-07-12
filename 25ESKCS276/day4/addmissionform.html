@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addmission form</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+        /* .maindiv{ */
+            /* border: 3px solid black; */
+        /* } */
+        .box {
+            background-color: rgb(186, 188, 182);
+            text-align: center;
+            border-radius: 20px;
+            width: 50vw;
+            margin: auto;
+            height: 100vh;
+         border: 3px solid black; 
+
+        }
+
+        body {
+            background-color: rgb(247, 244, 240);
+        }
+
+        .boxes {
+            background-color: rgb(190, 171, 171);
+
+            border-radius: 10px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maindiv">
+<div class="box">
+        <div style="background-color: blueviolet; 
+        border-radius: 8px;
+        ">
+            <B id="adf">ADDIMISSION FORM</B><br>
+            Academic year 2026-27
+
+        </div>
+
+        <div class="boxes">
+            <form action="post">
+                <div class="boxes">
+                    <label for="name">enter name</label><br>
+                    <input type="text" id="name" name="name"><br>
+                </div>
+                <div class="boxes"><label for="age">enter age</label><br>
+                    <input type="text" id="age" name="age"><br>
+                </div>
+                <div class="boxes"><label for="email">enter email</label><br>
+                    <input type="email" name="email" id="email"><br>
+                </div>
+
+                <div class="boxes"> <label for="marks">enter 12th percentage</label><br>
+                    <input type="text" name="marks" id="marks"><br>
+                </div>
+
+
+                <div class="boxes">
+                    <label for="male">select gender</label>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male">male</label>
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">female</label><br>
+                </div>
+                <div class="boxes">
+                    <label for="10marks">enter 10th percentage</label><br>
+                    <input type="text" name="10marks" id="10marks"><br>
+
+                </div>
+                <div class="boxes ">
+                    <input type="checkbox" name="board" id="board">
+                    <label for="board">board rbse</label><br>
+                    <div class="boxes"><button style="height: 40px;border-radius: 7px;">submit</button>
+                    </div>
+                    <!-- this is the way to modify the innerhtml using javascript -->
+                    <!-- <script>
+
+
+                        document.getElementById("adf").innerHTML = "ADDMISSION FORM";
+                    </script>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+            </form>
+
+
+        </div>
+        
+
+
+
+    </div>
+    
+</div>
+
+
+        
+     <button id="themeBtn">Toggle Dark Mode</button>
+  <script>
+    $("#themeBtn").click(function () {
+      $("body").toggleClass("dark");
+    });
+  </script>
+</body>
+
+</html>

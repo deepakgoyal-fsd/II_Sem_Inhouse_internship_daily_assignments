@@ -1,0 +1,15 @@
+<script>
+let promise = new Promise(function(resolve) {
+
+    setTimeout(function() {
+        resolve("Promise completed after 2 seconds");
+    }, 2000);
+
+});
+
+promise.then(function(message) {
+    console.log(message);
+}).catch(function(error) {
+    console.error("Error:", error);
+});
+</script>

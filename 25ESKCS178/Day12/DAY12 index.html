@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Student Feedback</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Feedback Form</h1>
+
+<form action="connect.php" method="POST" onsubmit="return validate()">
+
+<input type="text" id="name" name="name" placeholder="Student Name">
+
+<input type="email" id="email" name="email" placeholder="Email">
+
+<input type="text" id="course" name="course" placeholder="Course Name">
+
+<select name="rating" id="rating">
+
+<option value="">Select Rating</option>
+
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+
+</select>
+
+<textarea
+id="feedback"
+name="feedback"
+placeholder="Write Feedback"></textarea>
+
+<button type="submit">
+
+Submit Feedback
+
+</button>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

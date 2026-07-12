@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <h1>Student Details</h1>
+            <div class="addbtn" id="add-btn">
+                <button>Add Details</button>
+            </div>
+        </nav>
+
+        <div class="modal" id="modal">
+            <div class="bg-modal"></div>
+            <div class="input-details">
+                <input type="text" id="name" placeholder="Enter Your Name" required>
+                <select name="Year" id="Year">
+                    <option value="" disabled selected>Select your Year</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input type="text" placeholder="Enter Your CGPA" id="cgpa">
+                <button id="add-details-btn">Add</button>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search Name of the Student">
+        </div>
+        <div class="cards" id="cards"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

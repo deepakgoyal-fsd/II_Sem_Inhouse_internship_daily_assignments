@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celebrity Night Registration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:#fff;
+}
+
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1920&q=80");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero h2{
+color:#FFD700;
+margin-bottom:20px;
+font-size:32px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 40px;
+background:#ff006e;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-size:18px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#d90462;
+}
+
+section{
+padding:70px 10%;
+}
+
+h2{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+}
+
+.form-box{
+max-width:700px;
+margin:auto;
+background:#ffffff10;
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+}
+
+input,select{
+width:100%;
+padding:15px;
+margin-bottom:20px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:16px;
+font-size:18px;
+border:none;
+background:#ff006e;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#d90462;
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:#020617;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero h2{
+font-size:24px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+<div>
+
+<h1>Celebrity Night 2026</h1>
+
+<h2>Live Performance by Darshan Raval</h2>
+
+<p>
+Experience an unforgettable evening filled with music, lights,
+entertainment, and amazing performances.
+Join us on <strong>10 July 2026</strong> and be part of the biggest celebrity night of the year.
+</p>
+
+<a href="#register" class="btn">Register Now</a>
+
+</div>
+
+</div>
+
+<section id="register">
+
+<h2>Event Registration</h2>
+
+<div class="form-box">
+
+<form id="registrationForm">
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Mobile Number" required>
+
+<select required>
+<option value="">Student Type</option>
+<option>Inside College</option>
+<option>Outside College</option>
+</select>
+
+<input type="text" placeholder="College Name" required>
+
+<input type="number" placeholder="Age" required>
+
+<button type="submit">Confirm Registration</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>📅 10 July 2026 | Celebrity Night</p>
+<p>Venue: MNIT Jaipur Ground/p>
+
+</footer>
+
+<script>
+
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("🎉 Registration Successful! See you at Celebrity Night.");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

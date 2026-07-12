@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Event 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+color:#222;
+}
+
+header{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1400&q=80");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero{
+color:#fff;
+max-width:800px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero h2{
+font-size:28px;
+margin-bottom:15px;
+color:#ffd54f;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.7;
+margin-bottom:35px;
+}
+
+.hero a{
+display:inline-block;
+padding:15px 35px;
+background:#ff9800;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-size:18px;
+transition:.3s;
+}
+
+.hero a:hover{
+background:#ff5722;
+transform:translateY(-3px);
+}
+
+section{
+padding:70px 8%;
+}
+
+.title{
+text-align:center;
+font-size:38px;
+margin-bottom:40px;
+color:#0d47a1;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h3{
+color:#1565c0;
+margin-bottom:15px;
+}
+
+.register{
+background:white;
+max-width:850px;
+margin:auto;
+padding:40px;
+border-radius:15px;
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+form{
+display:grid;
+gap:20px;
+}
+
+input,
+select,
+textarea{
+padding:15px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#1976d2;
+}
+
+button{
+padding:15px;
+font-size:18px;
+background:#1565c0;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:8px;
+transition:.3s;
+}
+
+button:hover{
+background:#0d47a1;
+}
+
+#outsideFields{
+display:none;
+}
+
+footer{
+background:#0d47a1;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:60px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+.title{
+font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="hero">
+
+<h1>College Mega Event 2026</h1>
+
+<h2>📅 10 July 2026</h2>
+
+<p>
+Join us for one of the biggest college events filled with innovation,
+competitions, networking, fun activities and exciting prizes.
+Registration is now open for both college students and outside participants.
+</p>
+
+<a href="#registration">Register Now</a>
+
+</div>
+
+</header>
+
+<section>
+
+<h2 class="title">Event Details</h2>
+
+<div class="info">
+
+<div class="card">
+<h3>📅 Date</h3>
+<p>10 July 2026</p>
+</div>
+
+<div class="card">
+<h3>📍 Venue</h3>
+<p>Main Auditorium<br> MNIT Jaipur</p>
+</div>
+
+<div class="card">
+<h3>⏰ Timing</h3>
+<p>09:00 AM onwards</p>
+</div>
+
+<div class="card">
+<h3>🏆 Highlights</h3>
+<p>
+Technical Events<br>
+Gaming<br>
+Workshops<br>
+Certificates<br>
+Prizes
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="registration">
+
+<h2 class="title">Student Registration</h2>
+
+<div class="register">
+
+<form id="registrationForm">
+
+<input
+type="text"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+placeholder="Mobile Number"
+required>
+
+<select id="studentType" required>
+
+<option value="">Select Student Type</option>
+
+<option value="inside">
+Inside College Student
+</option>
+
+<option value="outside">
+Outside College Student
+</option>
+
+</select>
+
+<div id="insideFields">
+
+<input
+type="text"
+placeholder="College Roll Number">
+
+<input
+type="text"
+placeholder="Department">
+
+</div>
+
+<div id="outsideFields">
+
+<input
+type="text"
+placeholder="College Name">
+
+<input
+type="text"
+placeholder="City">
+
+<input
+type="text"
+placeholder="State">
+
+</div>
+
+<select required>
+
+<option value="">Select Event Category</option>
+
+<option>Hackathon</option>
+
+<option>Coding Contest</option>
+
+<option>Workshop</option>
+
+<option>Gaming Tournament</option>
+
+<option>Cultural Event</option>
+
+</select>
+
+<textarea
+rows="4"
+placeholder="Additional Information (Optional)">
+</textarea>
+
+<button type="submit">
+Register Now
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 MNIT Jaipur | Event Registration Portal
+
+</footer>
+
+<script>
+
+const studentType=document.getElementById("studentType");
+
+const inside=document.getElementById("insideFields");
+
+const outside=document.getElementById("outsideFields");
+
+studentType.addEventListener("change",function(){
+
+if(this.value==="outside"){
+
+outside.style.display="block";
+inside.style.display="none";
+
+}else if(this.value==="inside"){
+
+inside.style.display="block";
+outside.style.display="none";
+
+}else{
+
+inside.style.display="none";
+outside.style.display="none";
+
+}
+
+});
+
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("🎉 Registration Submitted Successfully!");
+
+this.reset();
+
+inside.style.display="none";
+
+outside.style.display="none";
+
+});
+
+</script>
+
+</body>
+</html>

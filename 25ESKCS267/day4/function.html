@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <h2 class="logo">MyWebsite</h2>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#counter">Counter</a></li>
+        <li><a href="#form">Register</a></li>
+    </ul>
+
+    <button id="modeBtn"> Dark Mode</button>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+
+    <h1 id="heading">Welcome to My Landing Page</h1>
+
+    <p>Learn HTML, CSS & JavaScript Easily</p>
+
+    <h2 id="greeting"></h2>
+
+    <h3 id="date"></h3>
+
+    <h3 id="time"></h3>
+
+</section>
+
+<!-- Counter -->
+
+<section id="counter">
+
+    <h2>Click Counter</h2>
+
+    <h1 id="count">0</h1>
+
+    <button id="increase">Increase</button>
+
+    <button id="decrease">Decrease</button>
+
+    <button id="reset">Reset</button>
+
+</section>
+
+<!-- Registration Form -->
+
+<section id="form">
+
+<h2>Registration Form</h2>
+
+<form id="myForm">
+
+<input type="text" id="name" placeholder="Enter Name">
+
+<p id="nameError"></p>
+
+<input type="email" id="email" placeholder="Enter Email">
+
+<p id="emailError"></p>
+
+<input type="tel" id="phone" placeholder="Enter Phone">
+
+<p id="phoneError"></p>
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender" value="Male"> Male
+
+<input type="radio" name="gender" value="Female"> Female
+
+<input type="radio" name="gender" value="Other"> Other
+
+<p id="genderError"></p>
+
+<select id="course">
+
+<option value="">Select Course</option>
+
+<option>B.Tech</option>
+
+<option>BCA</option>
+
+<option>BBA</option>
+
+<option>MCA</option>
+
+</select>
+
+<p id="courseError"></p>
+
+<input type="date" id="dob">
+
+<p id="dobError"></p>
+
+<textarea id="address" rows="4" placeholder="Enter Address"></textarea>
+
+<p id="addressError"></p>
+
+<button type="submit">Submit</button>
+
+<button type="reset">Reset</button>
+
+</form>
+
+<h3 id="success"></h3>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 MyWebsite | JavaScript Project</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

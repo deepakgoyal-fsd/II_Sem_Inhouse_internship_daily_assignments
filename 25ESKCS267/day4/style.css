@@ -1,0 +1,19 @@
+body{
+    background:rgb(240, 248, 245);
+    color:rgb(3, 4, 5);
+    transition:0.4s;
+}
+
+.dark{
+    background:#010000;
+    color:rgb(192, 19, 79);
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    background:#5a0b0b;
+    color:rgb(251, 249, 246);
+    cursor:pointer;
+}

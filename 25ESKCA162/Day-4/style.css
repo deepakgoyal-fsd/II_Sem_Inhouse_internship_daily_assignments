@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #dff6ff;
+    overflow: hidden
+}
+
+#bar {
+    background: #222;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 22px
+}
+
+#game {
+    position: relative;
+    height: calc(100vh - 50px)
+}
+
+img {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    cursor: pointer
+}
+
+#over {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: #fff;
+    background: rgba(0, 0, 0, .4)
+}

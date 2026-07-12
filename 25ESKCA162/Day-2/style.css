@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    background: linear-gradient(120deg, #0f4c81, #4facfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0
+}
+
+.container {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    width: 380px
+}
+
+h2 {
+    text-align: center
+}
+
+input,
+select,
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box
+}
+
+button {
+    background: #0f4c81;
+    color: #fff;
+    border: none;
+    cursor: pointer
+}

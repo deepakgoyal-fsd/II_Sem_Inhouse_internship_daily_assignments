@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+
+        <input type="tel" placeholder="Phone" required>
+
+        <select required>
+            <option>Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <input type="date">
+
+        <select required>
+            <option>Department</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>Mechanical</option>
+        </select>
+
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<style>body{
+    background-color:#070505;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    padding:30px;              /* Space inside the form */
+    background:hsla(305, 56%, 38%, 0.551);
+    border:3px solid white;    /* Form border */
+    border-radius:15px;        /* Rounded corners */
+}
+
+input, select{
+    width:200px;
+    padding:12px;              /* Space inside input fields */
+    margin:10px;
+    border:2px solid #00d4ff;  /* Input border */
+    border-radius:12px;        /* Rounded input boxes */
+    background:#333;
+    color:white;
+}
+
+button{
+    width:95%;
+    padding:12px;              /* Button padding */
+    margin:10px;
+    border:2px solid #00d4ff;  /* Button border */
+    border-radius:12px;
+    background:#00bcd4;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0097a7;
+}</style>
+
+</body>
+</html>

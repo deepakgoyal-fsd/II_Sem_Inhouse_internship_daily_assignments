@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Directory</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <h1 class="text-center text-info mb-5">
+        Student Directory
+    </h1>
+
+    <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card student-card">
+
+                <img src="whatsapp-image-2024-06-05-at-11.30.47-pm.jpg"
+                    class="card-img-top">
+
+                <div class="card-body">
+
+                    <h5>John Doe</h5>
+
+                    <p>
+                        Computer Engineering <br>
+                        Year 2
+                    </p>
+
+                    <button class="btn btn-primary btn-details w-100">
+                        Show Details
+                    </button>
+
+                    <div class="details mt-3">
+
+                        <hr>
+
+                        <p>Email : john@gmail.com</p>
+
+                        <p>Phone : 9876543210</p>
+
+                        <p>Skills : HTML, CSS, JavaScript</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card student-card">
+
+                <img src="images/student2.jpg"
+                    class="card-img-top">
+
+                <div class="card-body">
+
+                    <h5>Sarah Khan</h5>
+
+                    <p>
+                        Information Technology <br>
+                        Year 3
+                    </p>
+
+                    <button class="btn btn-primary btn-details w-100">
+                        Show Details
+                    </button>
+
+                    <div class="details mt-3">
+
+                        <hr>
+
+                        <p>Email : sarah@gmail.com</p>
+
+                        <p>Phone : 9123456780</p>
+
+                        <p>Skills : Python, SQL</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card student-card">
+
+                <img src="images/student3.jpg"
+                    class="card-img-top">
+
+                <div class="card-body">
+
+                    <h5>David Smith</h5>
+
+                    <p>
+                        Artificial Intelligence <br>
+                        Year 4
+                    </p>
+
+                    <button class="btn btn-primary btn-details w-100">
+                        Show Details
+                    </button>
+
+                    <div class="details mt-3">
+
+                        <hr>
+
+                        <p>Email : david@gmail.com</p>
+
+                        <p>Phone : 9000000000</p>
+
+                        <p>Skills : Machine Learning</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card student-card">
+
+                <img src="images/student4.jpg"
+                    class="card-img-top">
+
+                <div class="card-body">
+
+                    <h5>Emily Wilson</h5>
+
+                    <p>
+                        Electronics <br>
+                        Year 1
+                    </p>
+
+                    <button class="btn btn-primary btn-details w-100">
+                        Show Details
+                    </button>
+
+                    <div class="details mt-3">
+
+                        <hr>
+
+                        <p>Email : emily@gmail.com</p>
+
+                        <p>Phone : 9898989898</p>
+
+                        <p>Skills : Arduino, C Programming</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript -->
+
+<script src="js/script.js"></script>
+
+<style>
+    body{
+
+    background:#111827;
+
+    color:white;
+
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.student-card{
+
+    background:#1f2937;
+
+    border:none;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    display:none;
+}
+
+.student-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 20px cyan;
+}
+
+.card-img-top{
+
+    height:220px;
+
+    object-fit:cover;
+}
+
+.card-body h5{
+
+    color:#00e5ff;
+}
+
+.details{
+
+    display:none;
+
+    color:#ddd;
+}
+
+.btn-details{
+
+    transition:.3s;
+}
+
+.btn-danger{
+
+    background:#ff4b5c;
+}
+</style>
+
+<script>
+    $(document).ready(function(){
+
+    // Fade In Cards
+
+    $(".student-card").fadeIn(1200);
+
+    // Button Click
+
+    $(".btn-details").click(function(){
+
+        let details = $(this)
+        .closest(".card")
+        .find(".details");
+
+        details.slideToggle(500);
+
+        if($(this).text()=="Show Details"){
+
+            $(this).text("Hide Details");
+
+            $(this)
+            .removeClass("btn-primary")
+            .addClass("btn-danger");
+
+        }
+
+        else{
+
+            $(this).text("Show Details");
+
+            $(this)
+            .removeClass("btn-danger")
+            .addClass("btn-primary");
+
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>

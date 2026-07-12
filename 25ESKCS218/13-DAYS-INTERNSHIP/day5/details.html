@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Directory</title>
+  <script src="[code.jquery.com](https://code.jquery.com/jquery-3.7.1.min.js)"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111827;
+      color: #ffffff;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #1f2937;
+      color: #d1d5db;
+      border: 1px solid #374151;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 14px;
+    }
+
+    .filter-btn:hover {
+      background: #374151;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(90deg, #3b82f6, #22c55e);
+      color: white;
+      border: none;
+    }
+
+    .student-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #2d3748;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .student-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .student-top img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #4b5563;
+    }
+
+    .student-info h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .student-info p {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .btn-details {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      background: #2563eb;
+      color: white;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-details:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-details.active {
+      background: #ef4444;
+    }
+
+    .details {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #374151;
+      color: #d1d5db;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .details p {
+      margin-bottom: 8px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: #374151;
+      color: #e5e7eb;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Student Directory</h1>
+      <div class="filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Undergraduate</button>
+        <button class="filter-btn">Graduate</button>
+        <button class="filter-btn">Favorites</button>
+      </div>
+    </div>
+
+    <div class="student-grid">
+      <div class="card">
+        <div class="student-top">
+          <img src="[i.pravatar.cc](https://i.pravatar.cc/100?img=1)" alt="Student 1">
+          <div class="student-info">
+            <h3>Crol Sare</h3>
+            <p>Major: Marketing | Year: 2</p>
+          </div>
+        </div>
+        <button class="btn-details">Show Details</button>
+        <div class="details">
+          <p><strong>Email:</strong> crol.sare@example.com</p>
+          <p><strong>GPA:</strong> 3.8</p>
+          <p><strong>Clubs:</strong> Debate Club, Marketing Society</p>
+          <div class="badge-row">
+            <span class="badge">Team Lead</span>
+            <span class="badge">Scholarship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="student-top">
+          <img src="[i.pravatar.cc](https://i.pravatar.cc/100?img=2)" alt="Student 2">
+          <div class="student-info">
+            <h3>Fecl Sare</h3>
+            <p>Major: Biology | Year: 3</p>
+          </div>
+        </div>
+        <button class="btn-details">Show Details</button>
+        <div class="details">
+          <p><strong>Email:</strong> fecl.sare@example.com</p>
+          <p><strong>GPA:</strong> 3.6</p>
+          <p><strong>Clubs:</strong> Science Club, Health Society</p>
+          <div class="badge-row">
+            <span class="badge">Research</span>
+            <span class="badge">Volunteer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="student-top">
+          <img src="[i.pravatar.cc](https://i.pravatar.cc/100?img=5)" alt="Student 3">
+          <div class="student-info">
+            <h3>Facl Sare</h3>
+            <p>Major: Design | Year: 1</p>
+          </div>
+        </div>
+        <button class="btn-details">Show Details</button>
+        <div class="details">
+          <p><strong>Email:</strong> facl.sare@example.com</p>
+          <p><strong>GPA:</strong> 3.9</p>
+          <p><strong>Clubs:</strong> Art Club, UI/UX Circle</p>
+          <div class="badge-row">
+            <span class="badge">Creative</span>
+            <span class="badge">Top Performer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="student-top">
+          <img src="[i.pravatar.cc](https://i.pravatar.cc/100?img=8)" alt="Student 4">
+          <div class="student-info">
+            <h3>Taci San</h3>
+            <p>Major: Computer Science | Year: 4</p>
+          </div>
+        </div>
+        <button class="btn-details">Show Details</button>
+        <div class="details">
+          <p><strong>Email:</strong> taci.san@example.com</p>
+          <p><strong>GPA:</strong> 3.7</p>
+          <p><strong>Clubs:</strong> Coding Club, Robotics</p>
+          <div class="badge-row">
+            <span class="badge">Developer</span>
+            <span class="badge">Mentor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $(".container").fadeIn(1000);
+
+      $(".btn-details").click(function () {
+        const details = $(this).siblings(".details");
+
+        details.slideToggle(400);
+
+        $(this).toggleClass("active");
+
+        if ($(this).hasClass("active")) {
+          $(this).text("Hide Details");
+        } else {
+          $(this).text("Show Details");
+        }
+      });
+
+      $(".filter-btn").click(function () {
+        $(".filter-btn").removeClass("active");
+        $(this).addClass("active");
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK MODE LANDING PAGE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>DARK MODE LANDING PAGE</h1>
+    <button id="themeBtn">Dark Mode</button>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="card">
+    <h2>Welcome</h2>
+    <p>This page demonstrates HTML, CSS and JavaScript features.</p>
+</section>
+
+<section class="counter">
+    <h2>Click Counter</h2>
+    <h1 id="count">0</h1>
+    <button onclick="increase()">Click Me</button>
+    <button onclick="resetCounter()">Reset</button>
+</section>
+
+<section class="form">
+    <h2>Contact Form</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <br><br>
+
+    <input type="email" id="email" placeholder="Enter Email">
+    <br><br>
+
+    <button onclick="validate()">Submit</button>
+
+    <p id="message"></p>
+</section>
+
+<script src="script.js"></script>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    text-align:center;
+    background:#f4f4f4;
+    color:black;
+}
+
+header{
+    background:#0077ff;
+    color:white;
+    padding:20px;
+}
+
+nav{
+    background:#333;
+    padding:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+}
+
+.card,.counter,.form{
+    background:white;
+    width:70%;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+button{
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.dark .card,
+.dark .counter,
+.dark .form{
+    background:#444;
+    color:white;
+}
+</style>
+<script>
+// Dark Mode
+const btn = document.getElementById("themeBtn");
+
+btn.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        btn.innerHTML = "Light Mode";
+    }else{
+        btn.innerHTML = "Dark Mode";
+    }
+});
+
+// Click Counter
+let count = 0;
+
+function increase(){
+    count++;
+    document.getElementById("count").innerHTML = count;
+}
+
+function resetCounter(){
+    count = 0;
+    document.getElementById("count").innerHTML = count;
+}
+
+// Form Validation
+function validate(){
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message");
+
+    if(name==="" || email===""){
+        message.innerHTML="Please fill all fields.";
+        message.style.color="red";
+    }
+    else{
+        message.innerHTML="Form submitted successfully!";
+        message.style.color="green";
+    }
+}
+</script>
+
+</body>
+</html>

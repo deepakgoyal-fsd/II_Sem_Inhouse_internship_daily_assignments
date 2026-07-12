@@ -1,0 +1,93 @@
+:root{
+  --primary-color: #ff6b35;  
+  --secondary-color: #00d4ff; 
+  --dark-bg: #0a0a12;
+}
+
+.btn-primary{
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.text-primary{
+  color: var(--secondary-color) !important;
+}
+.btn-primary:hover{
+  background-color: #e55a25 !important;
+}
+
+.custom-navbar-bg {
+    background-color: rgba(0,9,8,0.927);
+    border-radius: 4px;
+}
+
+.hero-section{
+  background-color: rgba(0,9,8,0.927);
+}
+
+.features-section{
+  background-color: rgba(0,9,8,0.927);
+}
+
+.card{
+  background: rgba(255,255,255,0.06) !important;  
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);  
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+.features-section .card{
+  background-color: #111;
+  border: none;
+  color: white;
+}
+
+.team-section{
+  background-color: rgba(0,9,8,0.927);
+}
+.team-section .card{
+  background-color: #111;
+  border: none;
+  color: white;
+}
+
+.contact-section{
+  background-color: rgba(0,9,8,0.927);
+}
+
+.contact-section .form-control,
+.contact-section .form-select{
+  background-color: #111;
+  color: white;
+  border: 1px solid #444;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.contact-section .form-control::placeholder{
+  color: #aaa;
+}
+
+.contact-section .form-control:focus,
+.contact-section .form-select:focus{
+  background-color: #111;
+  color: white;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25);
+}
+
+.contact-section .btn-primary{
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.footer-section{
+  background-color: #000;
+  border-top: 1px solid #333;
+}
+.footer-section a{
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-section a:hover{
+  color: #0d6efd !important;
+}

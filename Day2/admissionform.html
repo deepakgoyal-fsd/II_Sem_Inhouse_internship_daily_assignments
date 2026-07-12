@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIT Admission Form</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+
+    <div class="heading">
+        <img src="skit_logo.png" alt="SKIT Logo" class="logo">
+        <h1>SKIT College Jaipur Admission Form</h1>
+        <p> <b>Fill in all the required details carefully.</b></p>
+    </div>
+
+    <form>
+         <h2>Personal Details</h2>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name" required>
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter your phone number" required>
+
+        <label>Date of Birth</label>
+        <input type="date" required>
+
+        <label>Gender</label>
+
+        <div class="radio-group">
+            <input type="radio" name="gender" required> Male
+            <input type="radio" name="gender"> Female
+        </div>
+
+
+        <h2>Address Details</h2>
+
+        <label>Address</label>
+        <textarea rows="4" placeholder="Enter your address" required></textarea>
+
+        <label>City</label>
+        <input type="text" placeholder="Enter your city" required>
+
+        <label>State</label>
+        <input type="text" placeholder="Enter your state" required>
+
+        <label>Pincode</label>
+        <input type="number" placeholder="Enter pincode" required>
+
+
+        <h2>Academic Details</h2>
+
+        <label>Board</label>
+        <div class="radio-group">
+            <input type="radio" name="board" value="cbse" required> CBSE
+            <input type="radio" name="board" value="icse"> ICSE
+            <input type="radio" name="board" value="state"> State Board
+        </div>
+
+        <label>School Name</label>
+        <input type="text" placeholder="Enter school name" required>
+
+        <label>Passing Year</label>
+        <input type="number" placeholder="Enter passing year" required>
+
+        <label>Percentage</label>
+        <input type="number" placeholder="Enter percentage" required>
+
+
+        <h2>Course Details</h2>
+
+        <label>Select Course</label>
+
+        <select required>
+            <option value="">Choose Course</option>
+            <option>B.Tech</option>
+            <option>BCA</option>
+            <option>BBA</option>
+            <option>B.Com</option>
+            <option>BA</option>
+            <option>B.Sc</option>
+        </select>
+
+        <label>Preferred Branch</label>
+
+        <select required>
+            <option value="">Choose Branch</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Electronics</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+        </select>
+
+
+        <h2>Documents</h2>
+
+        <label>Upload Photograph</label>
+        <input type="file" required>
+
+        <label>Upload Marksheet</label>
+        <input type="file" required>
+
+
+        <div class="checkbox">
+            <input type="checkbox" required>
+            I confirm that all the information provided is correct.
+        </div>
+
+        <button type="submit">Submit Application</button>
+
+    </form>
+
+ </div>
+</body>
+</html>

@@ -1,11 +1,4 @@
-// ================================
-// STUDENT DIRECTORY JAVASCRIPT
-// ================================
 
-
-// -----------------------------
-// SEARCH STUDENT
-// -----------------------------
 
 const searchBox = document.getElementById("search");
 const cards = document.querySelectorAll(".card");
@@ -39,9 +32,6 @@ searchBox.addEventListener("keyup", function () {
 });
 
 
-// -----------------------------
-// DARK MODE
-// -----------------------------
 
 const modeBtn = document.getElementById("modeBtn");
 
@@ -63,15 +53,12 @@ modeBtn.addEventListener("click",function(){
 
 
 
-// -----------------------------
-// SHOW ONLY ONE CARD
-// -----------------------------
 
 cards.forEach(function(card){
 
     card.addEventListener("click",function(){
 
-        // Already open -> restore all cards
+        
 
         if(card.classList.contains("active"))
         {
@@ -88,7 +75,7 @@ cards.forEach(function(card){
         }
 
 
-        // Hide all cards
+        
 
         cards.forEach(function(c){
 
@@ -99,14 +86,14 @@ cards.forEach(function(card){
         });
 
 
-        // Show clicked card
+      
 
         card.style.display="block";
 
         card.classList.add("active");
 
 
-        // Smooth Scroll
+        
 
         card.scrollIntoView({
 
@@ -123,10 +110,7 @@ cards.forEach(function(card){
 
 
 
-// -----------------------------
-// ESC KEY
-// Restore All Cards
-// -----------------------------
+
 
 document.addEventListener("keydown",function(e){
 
@@ -148,9 +132,6 @@ document.addEventListener("keydown",function(e){
 
 
 
-// -----------------------------
-// PAGE LOAD ANIMATION
-// -----------------------------
 
 window.addEventListener("load",function(){
 

@@ -1,0 +1,41 @@
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+}
+
+.hero{
+    background:#0d6efd;
+    color:white;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:50px;
+}
+
+.hero p{
+    font-size:20px;
+    margin:20px 0;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+footer a{
+    color:white;
+    font-size:30px;
+    margin:10px;
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#0d6efd;
+}

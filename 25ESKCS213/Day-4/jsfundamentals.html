@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIT Admission Form</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="jsfundamental.css">
+</head>
+
+<body>
+
+<div class="toggle-container">
+    <button id="modeBtn">🌙 Dark Mode</button>
+</div>
+
+<div class="head">
+    <header>
+        <h1>SKIT COLLEGE</h1>
+        <h3>Admission Form</h3>
+    </header>
+</div>
+
+<form class="container">
+
+    <label for="101">Username</label>
+    <input type="text" id="101" placeholder="Enter your name">
+
+    <label for="102">Email</label>
+    <input type="email" id="102" placeholder="Enter your email">
+
+    <label for="103">Phone Number</label>
+    <input type="tel" id="103" placeholder="Enter phone number">
+
+    <label for="104">Date of Birth</label>
+    <input type="date" id="104">
+
+    <div class="gender">
+        <label>Gender :</label>
+
+        <label>
+            <input type="radio" name="gender">
+            Male
+        </label>
+
+        <label>
+            <input type="radio" name="gender">
+            Female
+        </label>
+    </div>
+
+    <select>
+        <option>Select Course</option>
+        <option>B.Tech</option>
+        <option>B.Sc</option>
+        <option>LLB</option>
+    </select>
+
+    <textarea placeholder="Enter your Address"></textarea>
+
+    <input type="file">
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<script src="jsfundamental.js"></script>
+
+</body>
+</html>

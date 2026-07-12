@@ -1,0 +1,87 @@
+/* General */
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f8f9fa;
+}
+
+/* Navbar */
+.navbar-brand{
+    font-weight:bold;
+    font-size:24px;
+}
+
+.nav-link{
+    margin-left:15px;
+}
+
+/* Hero Section */
+#home{
+    padding:70px 20px;
+}
+
+#home h1{
+    font-size:45px;
+    font-weight:bold;
+}
+
+#home p{
+    font-size:18px;
+    color:gray;
+}
+
+/* Sections */
+section{
+    padding:50px 0;
+}
+
+h2{
+    margin-bottom:30px;
+}
+
+/* Cards */
+.card{
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+/* Contact Form */
+form{
+    max-width:600px;
+    margin:auto;
+}
+
+.form-control{
+    margin-bottom:15px;
+}
+
+/* Footer */
+footer{
+    margin-top:40px;
+}
+
+footer i{
+    font-size:22px;
+    margin:0 8px;
+    cursor:pointer;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+#home h1{
+    font-size:32px;
+}
+
+h2{
+    font-size:28px;
+}
+
+.nav-link{
+    margin-left:0;
+}
+
+}

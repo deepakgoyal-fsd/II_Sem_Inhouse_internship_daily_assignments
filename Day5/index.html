@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            display: none;
+            background-color: #0f172a;
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen font-sans">
+
+    <header class="max-w-6xl mx-auto pt-10 px-6 text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
+            Student Directory
+        </h1>
+        <p class="text-slate-400 mt-2 text-sm">Search and Filter Students (Dashboard Demo)</p>
+        
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+            <div class="relative w-full sm:w-72">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input id="search-input" type="text" placeholder="Search by name or email..." 
+                       class="w-full bg-slate-900 border border-slate-700 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-teal-500 text-slate-200">
+            </div>
+            <div>
+                <select id="filter-select" class="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-teal-500 text-slate-400">
+                    <option value="all">All Departments</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="data-science">Data Science</option>
+                    <option value="cyber-security">Cyber Security</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="directory-grid">
+            
+            <div class="card bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-xl transition-all duration-300 hover:border-slate-600" data-dept="web-dev">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80" alt="Amit Sharma" class="w-24 h-24 rounded-full object-cover border-2 border-slate-600 mb-4">
+                <h3 class="student-name text-lg font-bold text-white">Amit Sharma</h3>
+                <p class="text-xs font-semibold text-teal-400 uppercase tracking-wider mt-1">Web Development</p>
+                <p class="text-sm text-slate-400 mt-1">amit@example.com</p>
+                
+                <div class="details-section hidden w-full border-t border-slate-700 mt-4 pt-4 text-left text-xs space-y-2 text-slate-300">
+                    <p><strong><i class="fa-solid fa-graduation-cap mr-1"></i> ID:</strong> STU-2026-041</p>
+                    <p><strong><i class="fa-solid fa-code mr-1"></i> Tech Stack:</strong> HTML, CSS, JavaScript, jQuery</p>
+                    <p><strong><i class="fa-solid fa-star mr-1"></i> Status:</strong> Active Undergraduate</p>
+                </div>
+                <button class="btn-details w-full mt-5 bg-teal-600 hover:bg-teal-500 text-white font-medium text-sm py-2 px-4 rounded-xl transition-colors duration-200 cursor-pointer">
+                    Show Details
+                </button>
+            </div>
+
+            <div class="card bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-xl transition-all duration-300 hover:border-slate-600" data-dept="web-dev">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Karan Gupta" class="w-24 h-24 rounded-full object-cover border-2 border-slate-600 mb-4">
+                <h3 class="student-name text-lg font-bold text-white">Karan Gupta</h3>
+                <p class="text-xs font-semibold text-teal-400 uppercase tracking-wider mt-1">Web Development</p>
+                <p class="text-sm text-slate-400 mt-1">karan@example.com</p>
+                
+                <div class="details-section hidden w-full border-t border-slate-700 mt-4 pt-4 text-left text-xs space-y-2 text-slate-300">
+                    <p><strong><i class="fa-solid fa-graduation-cap mr-1"></i> ID:</strong> STU-2026-098</p>
+                    <p><strong><i class="fa-solid fa-code mr-1"></i> Tech Stack:</strong> React, Node.js, Next.js</p>
+                    <p><strong><i class="fa-solid fa-star mr-1"></i> Status:</strong> Graduate Specialist</p>
+                </div>
+                <button class="btn-details w-full mt-5 bg-teal-600 hover:bg-teal-500 text-white font-medium text-sm py-2 px-4 rounded-xl transition-colors duration-200 cursor-pointer">
+                    Show Details
+                </button>
+            </div>
+
+            <div class="card bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-xl transition-all duration-300 hover:border-slate-600" data-dept="data-science">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Rahul Verma" class="w-24 h-24 rounded-full object-cover border-2 border-slate-600 mb-4">
+                <h3 class="student-name text-lg font-bold text-white">Rahul Verma</h3>
+                <p class="text-xs font-semibold text-blue-400 uppercase tracking-wider mt-1">Data Science</p>
+                <p class="text-sm text-slate-400 mt-1">rahul@example.com</p>
+                
+                <div class="details-section hidden w-full border-t border-slate-700 mt-4 pt-4 text-left text-xs space-y-2 text-slate-300">
+                    <p><strong><i class="fa-solid fa-graduation-cap mr-1"></i> ID:</strong> STU-2026-114</p>
+                    <p><strong><i class="fa-solid fa-chart-simple mr-1"></i> Tech Stack:</strong> Python, R, SQL, Pandas</p>
+                    <p><strong><i class="fa-solid fa-star mr-1"></i> Status:</strong> Research Scholar</p>
+                </div>
+                <button class="btn-details w-full mt-5 bg-teal-600 hover:bg-teal-500 text-white font-medium text-sm py-2 px-4 rounded-xl transition-colors duration-200 cursor-pointer">
+                    Show Details
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            $("body").fadeIn(1000);
+
+            $(".btn-details").click(function() {
+                var $button = $(this);
+                var $targetDetails = $button.closest(".card").find(".details-section");
+
+                $targetDetails.slideToggle(400, function() {
+                    if ($targetDetails.is(":visible")) {
+                        $button.text("Hide Details");
+                        $button.css({
+                            "background-color": "#3b82f6",
+                            "transition": "background-color 0.3s ease"
+                        });
+                    } else {
+                        $button.text("Show Details");
+                        $button.css({
+                            "background-color": "#0d9488",
+                            "transition": "background-color 0.3s ease"
+                        });
+                    }
+                });
+            });
+
+            $("#search-input, #filter-select").on("keyup change", function() {
+                var searchQuery = $("#search-input").val().toLowerCase();
+                var SelectedDept = $("#filter-select").val();
+
+                $(".card").each(function() {
+                    var nameText = $(this).find(".student-name").text().toLowerCase();
+                    var emailText = $(this).find("p.text-sm").text().toLowerCase();
+                    var cardDept = $(this).data("dept");
+
+                    var matchesSearch = nameText.includes(searchQuery) || emailText.includes(searchQuery);
+                    var matchesFilter = (SelectedDept === "all") || (cardDept === SelectedDept);
+
+                    if (matchesSearch && matchesFilter) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

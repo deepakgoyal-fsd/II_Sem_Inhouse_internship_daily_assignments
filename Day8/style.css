@@ -1,0 +1,170 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+}
+
+/* Card */
+
+.card{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    animation:fadeIn .8s ease;
+}
+
+/* Gradient Header */
+
+.bg-gradient{
+    background:linear-gradient(90deg,#0d6efd,#6610f2);
+}
+
+/* Badge */
+
+.badge{
+    font-size:14px;
+    padding:8px 15px;
+}
+
+/* Photo Preview */
+
+#preview{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #0d6efd;
+    transition:.3s;
+    background:#f8f9fa;
+}
+
+#preview:hover{
+    transform:scale(1.05);
+}
+
+/* Labels */
+
+.form-label{
+    font-weight:600;
+}
+
+/* Inputs */
+
+.form-control,
+.form-select{
+    border-radius:10px;
+    padding:12px;
+    transition:.3s;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 10px rgba(13,110,253,.3);
+}
+
+/* Radio Buttons */
+
+.form-check{
+    margin-right:20px;
+}
+
+/* Button */
+
+.btn{
+    border-radius:10px;
+    padding:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Error Box */
+
+#errorBox{
+    border-radius:10px;
+}
+
+/* Table (Confirmation Page) */
+
+.table th{
+    width:35%;
+    background:#f8f9fa;
+}
+
+.table td{
+    background:#ffffff;
+}
+
+/* Card Shadow */
+
+.shadow-lg{
+    box-shadow:0 12px 30px rgba(0,0,0,.25)!important;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    #preview{
+        width:120px;
+        height:120px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}
+
+@media(max-width:576px){
+
+    h2{
+        font-size:24px;
+    }
+
+    .badge{
+        font-size:12px;
+    }
+
+}

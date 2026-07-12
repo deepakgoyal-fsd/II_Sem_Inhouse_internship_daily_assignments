@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.controls{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+input,select{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    width:220px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 0 10px rgba(0,0,0,.4);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:3px solid #38bdf8;
+}
+
+h3{
+    margin-top:10px;
+}
+
+p{
+    margin:6px 0;
+    color:#cbd5e1;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#10b981;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#059669;
+}
+
+.details{
+    display:none;
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background:#334155;
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Student Directory</h1>
+
+<div class="controls">
+
+<input type="text" id="search" placeholder="Search Student">
+
+<select id="department">
+<option value="All">All Departments</option>
+<option>CSE</option>
+<option>IT</option>
+<option>ECE</option>
+<option>ME</option>
+</select>
+
+</div>
+
+<div class="cards" id="cards"></div>
+
+<script>
+
+const students=[
+{
+name:"AMIT",
+dept:"CSE",
+year:"1st Year",
+email:"amit@gmail.com"
+},
+{
+name:"Riya",
+dept:"IT",
+year:"2nd Year",
+email:"riya@gmail.com"
+},
+{
+name:"Kiran",
+dept:"ECE",
+year:"3rd Year",
+email:"karan@gmail.com"
+},
+{
+name:"Priyansh",
+dept:"ME",
+year:"2nd Year",
+email:"priyansh@gmail.com"
+},
+{
+name:"saksham",
+dept:"CSE",
+year:"4th Year",
+email:"saksham@gmail.com"
+},
+{
+name:"Sneha",
+dept:"IT",
+year:"1st Year",
+email:"sneha@gmail.com"
+},
+{
+name:"Aditya",
+dept:"ECE",
+year:"2nd Year",
+email:"aditya@gmail.com"
+},
+{
+name:"Neha",
+dept:"ME",
+year:"3rd Year",
+email:"neha@gmail.com"
+}
+];
+
+const cards=document.getElementById("cards");
+
+function display(list){
+
+cards.innerHTML="";
+
+list.forEach(student=>{
+
+cards.innerHTML+=`
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?u=${student.name}">
+
+<h3>${student.name}</h3>
+
+<p>${student.dept}</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+
+<p><b>Year:</b> ${student.year}</p>
+
+<p><b>Email:</b> ${student.email}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+display(students);
+
+function toggle(btn){
+
+let details=btn.nextElementSibling;
+
+if(details.style.display==="block"){
+
+details.style.display="none";
+btn.innerHTML="Show Details";
+btn.style.background="#10b981";
+
+}
+else{
+
+details.style.display="block";
+btn.innerHTML="Hide Details";
+btn.style.background="#ef4444";
+
+}
+
+}
+
+document.getElementById("search").addEventListener("keyup",filter);
+
+document.getElementById("department").addEventListener("change",filter);
+
+function filter(){
+
+let text=document.getElementById("search").value.toLowerCase();
+
+let dept=document.getElementById("department").value;
+
+let filtered=students.filter(student=>{
+
+let nameMatch=student.name.toLowerCase().includes(text);
+
+let deptMatch=(dept==="All" || student.dept===dept);
+
+return nameMatch && deptMatch;
+
+});
+
+display(filtered);
+
+}
+
+window.onload=function(){
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach((card,index)=>{
+
+card.style.opacity=0;
+
+setTimeout(()=>{
+
+card.style.transition="0.6s";
+
+card.style.opacity=1;
+
+},index*150);
+
+});
+
+};
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Basic styling to match the dark theme in the mockup */
+        body {
+            background-color: #0f111a;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        /* Hidden by default to allow for the Bonus fadeIn() animation */
+        #directory-wrapper {
+            display: none; 
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            margin: 0 20px 30px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: 500;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .intro-text {
+            color: #a0a6c0;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1e2233;
+            border: 1px solid #2d334a;
+            padding: 20px;
+            border-radius: 12px;
+            width: 240px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avatar {
+    width: 70px;
+    height: 70px;
+    background-color: #3f4766;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    object-fit: cover; 
+    display: block; 
+}
+
+        .student-name {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+        }
+
+        .details {
+            /* Hidden by default for slideToggle() */
+            display: none; 
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #2d334a;
+            font-size: 0.85em;
+            color: #a0a6c0;
+            text-align: left;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        .btn-details {
+            background-color: #20c997;
+            color: #0f111a;
+            font-weight: bold;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: auto; /* Pushes button to the bottom of the card */
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+        
+        .btn-details:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="directory-wrapper">
+        
+        <div class="header-section">
+            <h2>Student Directory</h2>
+            <p class="intro-text">
+                Welcome to the Campus Directory. Here you can browse through our current student profiles to learn more about our diverse academic community. Click the "Show Details" button on any student's card to expand their profile and view additional information, including their academic advisor, current GPA, contact email, and extracurricular involvement.
+            </p>
+        </div>
+
+        <div class="card-container">
+            
+            <!-- Student Card 1 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTQsYz8qsp2WpcnYaqcqKOPiC9DtQI9fLeP-QV00LmoQ&s=10" alt="Alex Johnson" class="avatar">
+                <h3 class="student-name">Alex Johnson</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Computer Science</p>
+                    <p><strong>Year:</strong> Junior</p>
+                    <p><strong>GPA:</strong> 3.8</p>
+                    <p><strong>Email:</strong> a.johnson@edu.com</p>
+                    <p><strong>Activity:</strong> Robotics Club</p>
+                    <p><strong>Advisor:</strong> Dr. Alan Turing</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 2 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTgfhQOPb6SLPsDsvUgcZ12xqFemLgV30y20sd2zR5KQ&s=10" alt="Samantha Lee" class="avatar">
+                <h3 class="student-name">Samantha Lee</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Graphic Design</p>
+                    <p><strong>Year:</strong> Senior</p>
+                    <p><strong>GPA:</strong> 3.9</p>
+                    <p><strong>Email:</strong> s.lee@edu.com</p>
+                    <p><strong>Activity:</strong> Art Collective</p>
+                    <p><strong>Advisor:</strong> Prof. Paula Scher</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 3 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7r1CQbug1YSqrfKampUS08hAzsQcW6DxzfDfDMCE0VQ&s=10" alt="Marcus Cole" class="avatar">
+                <h3 class="student-name">Marcus Cole</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Business Admin</p>
+                    <p><strong>Year:</strong> Sophomore</p>
+                    <p><strong>GPA:</strong> 3.5</p>
+                    <p><strong>Email:</strong> m.cole@edu.com</p>
+                    <p><strong>Activity:</strong> Debate Team</p>
+                    <p><strong>Advisor:</strong> Dr. Peter Drucker</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 4 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIbu8U2IRP4qfwxYde7DI0d-O32yGaDRkY1N_33Opwg&s=10" alt="Priya Patel" class="avatar">
+                <h3 class="student-name">Priya Patel</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Biology</p>
+                    <p><strong>Year:</strong> Freshman</p>
+                    <p><strong>GPA:</strong> 4.0</p>
+                    <p><strong>Email:</strong> p.patel@edu.com</p>
+                    <p><strong>Activity:</strong> Pre-Med Society</p>
+                    <p><strong>Advisor:</strong> Dr. Rosalind Franklin</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 5 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIx6tRwxdExkxhW17RWXJ_1Dd8Z6Ecc6FSKhfoAY07pA&s=10" alt="Liam Smith" class="avatar">
+                <h3 class="student-name">Liam Smith</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Mechanical Eng</p>
+                    <p><strong>Year:</strong> Senior</p>
+                    <p><strong>GPA:</strong> 3.6</p>
+                    <p><strong>Email:</strong> l.smith@edu.com</p>
+                    <p><strong>Activity:</strong> Formula SAE</p>
+                    <p><strong>Advisor:</strong> Prof. Nikola Tesla</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 6 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx2Ub0fEZhO3C3bK9ouADZy3rRkwv3ac-4hnpAIGirbA&s=10" alt="Emma Watson" class="avatar">
+                <h3 class="student-name">Emma Watson</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> English Lit</p>
+                    <p><strong>Year:</strong> Junior</p>
+                    <p><strong>GPA:</strong> 3.7</p>
+                    <p><strong>Email:</strong> e.watson@edu.com</p>
+                    <p><strong>Activity:</strong> Campus Newspaper</p>
+                    <p><strong>Advisor:</strong> Dr. Virginia Woolf</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 7 -->
+            <div class="card">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJoOlI5cxBEd4x5OiSOo4ktU_qbMLbgT_k6QbBr4P2eg&s=10" alt="Noah Garcia" class="avatar">
+                <h3 class="student-name">Noah Garcia</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Physics</p>
+                    <p><strong>Year:</strong> Sophomore</p>
+                    <p><strong>GPA:</strong> 3.9</p>
+                    <p><strong>Email:</strong> n.garcia@edu.com</p>
+                    <p><strong>Activity:</strong> Astronomy Club</p>
+                    <p><strong>Advisor:</strong> Prof. Albert Einstein</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+            <!-- Student Card 8 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu60tsrQbX-ZvCvK4fOLTc4LB0U5DUCBoLcbN__VIdWw&s=10" alt="Olivia Martinez" class="avatar">
+                <h3 class="student-name">Olivia Martinez</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Psychology</p>
+                    <p><strong>Year:</strong> Senior</p>
+                    <p><strong>GPA:</strong> 3.8</p>
+                    <p><strong>Email:</strong> o.martinez@edu.com</p>
+                    <p><strong>Activity:</strong> Peer Counseling</p>
+                    <p><strong>Advisor:</strong> Dr. Carl Jung</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+            
+            <!-- Student Card 9 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1m5vwsldcfts0T41-js8uRacAjd73sGg-lxNmgqLiow&s=10" alt="Ethan Nguyen" class="avatar">
+                <h3 class="student-name">Ethan Nguyen</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Architecture</p>
+                    <p><strong>Year:</strong> Freshman</p>
+                    <p><strong>GPA:</strong> 3.4</p>
+                    <p><strong>Email:</strong> e.nguyen@edu.com</p>
+                    <p><strong>Activity:</strong> Habitat for Humanity</p>
+                    <p><strong>Advisor:</strong> Prof. Zaha Hadid</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+            
+            <!-- Student Card 10 -->
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9ikBgokG3PQ59PLl8B5rP6B54Fm6cc9KaHqymEzLXvg&s=10" alt="Ava Robinson" class="avatar">
+                <h3 class="student-name">Ava Robinson</h3>
+                <div class="details">
+                    <p><strong>Major:</strong> Nursing</p>
+                    <p><strong>Year:</strong> Junior</p>
+                    <p><strong>GPA:</strong> 3.9</p>
+                    <p><strong>Email:</strong> a.robinson@edu.com</p>
+                    <p><strong>Activity:</strong> Student Nurses Assoc.</p>
+                    <p><strong>Advisor:</strong> Dr. Clara Barton</p>
+                </div>
+                <button class="btn-details">Show Details</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Fade in animation when the page first loads
+            $("#directory-wrapper").fadeIn(1200);
+
+            // Expand/Collapse Details
+            $(".btn-details").click(function() {
+                var $button = $(this);
+                var $details = $button.closest(".card").find(".details");
+
+                $details.slideToggle("fast", function() {
+                    
+                    // Change Button Text and Background Color based on visibility
+                    if ($details.is(":visible")) {
+                        $button.text("Hide Details");
+                        $button.css("background-color", "#ff6b6b"); 
+                        $button.css("color", "#ffffff");
+                    } else {
+                        $button.text("Show Details");
+                        $button.css("background-color", "#20c997"); 
+                        $button.css("color", "#0f111a");
+                    }
+                    
+                });
+            });
+        });
+    </script>
+</body>
+</html>

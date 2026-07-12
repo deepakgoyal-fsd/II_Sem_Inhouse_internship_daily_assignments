@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> <div class="main">
+
+    <header>
+        <div class="heading">
+            <h1>SKIT 15 days industrial training feedback</h1>
+        </div> 
+    </header> 
+    <div class="feedback-container">
+        
+        <p>We'd love your thoughts and improve based on your suggestions !</p><br> <br>
+        <form action="process_feedback.php" method="POST" class="feedback-form">
+            <div class="form_group">
+                <label for="name" class="fas fa-user">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" required>
+            </div> <br> 
+            <div class="form_group">
+                <label for="email" class="fas fa-envelope">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <br> <br>
+                <label for="phone" class="fas fa-phone">Phone</label>
+                <input type="tel" name="phone" id="phone" placeholder="Enter your phone number">
+                <br> <br>
+                <label for="roll_no" class="fas fa-id-card"> University Roll Number</label>
+                <input type="text" name="roll_no" id="roll_no" placeholder="Enter your roll number">
+                <br> <br>   
+                <caption>Select the topic which you think was most helpful:</caption> 
+                <br>
+                <input type="radio" name="topic" id="topic1" value="HTML">
+                <label for="topic1">HTML</label>
+                <input type="radio" name="topic" id="topic1" value="CSS">
+                <label for="topic1">CSS</label>
+                <input type="radio" name="topic" id="topic1" value="JavaScript">
+                <label for="topic1">JavaScript</label>
+                <input type="radio" name="topic" id="topic1" value="PHP">
+                <label for="topic1">PHP</label>
+                <input type="radio" name="topic" id="topic1" value="ALL of the above">
+                <label for="topic1">ALL of the above</label>
+            </div> <br>
+            <div class="form_group">
+                <label for="rating" class="fas fa-star">Overall course rating</label>
+                <select name="rating" id="rating">
+                    <option value="" disabled selected>select the ratings</option>
+                    <option value="exellent">Exellent</option>
+                    <option value="good">Good</option>
+                    <option value="average">Average</option>
+                    <option value="poor">Poor</option> 
+                    <option value="very poor">Very Poor</option> 
+                </select>
+            </div><br>
+            <div class="form-group">
+                <label for="feedback"  class="fas fa-comment">Comment</label>
+                <textarea name="feedback" id="feedback" placeholder="Enter your comments" required></textarea>
+            </div>
+            <div class="btn">
+                <button type="submit" class="btn"><i class="submit-btn"></i>Submit Feedback</button>
+            </div> 
+        </form>
+    </div>
+</body>
+</html>

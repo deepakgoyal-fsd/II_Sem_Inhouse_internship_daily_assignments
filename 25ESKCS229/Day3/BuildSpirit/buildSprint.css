@@ -1,0 +1,43 @@
+body {
+    background-color: #030a16;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #051329 !important;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #051329 0%, #0a2246 100%);
+    padding: 80px 0;
+}
+
+.feature-card, .team-card {
+    background-color: #051329;
+    border: 1px solid #112a52;
+    transition: transform 0.2s ease; 
+}
+
+.feature-card:hover, .team-card:hover {
+    transform: translateY(-5px);
+    border-color: #0d6efd;
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+.instructor-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #020710;
+    padding: 20px 0;
+    font-size: 14px;
+}

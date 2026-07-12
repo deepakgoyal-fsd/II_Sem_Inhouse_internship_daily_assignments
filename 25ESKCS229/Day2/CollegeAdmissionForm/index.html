@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div class="registration-container">
+        
+        <div class="form-sidebar">
+            <div class="college-logo">
+                <h1>SKIT M&G JAIPUR</h1>
+                <p>Admissions Portal &bull; 2026</p>
+            </div>
+
+            <div class="photo-upload-zone">
+                <label for="photo">
+                    <div class="avatar-preview" id="previewContainer">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4h16v12H4V4zm2 2v8h12V6H6zm3 5.5l2.5 3 3.5-4.5 4.5 6H5l4-5.5z"/>
+                        </svg>
+                        <span>Attach Passport Photo</span>
+                    </div>
+                </label>
+                <input type="file" id="photo" name="student_photo" accept="image/*" required>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>Ensure photo has a plain background.</p>
+            </div>
+        </div>
+
+        <div class="form-main">
+            <h2>Student Admission Form</h2>
+            
+            <form action="/submit_admissions" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    
+                    <div class="form-group full-width">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="gender-group">
+                            <label class="gender-option" for="male">
+                                <input type="radio" id="male" name="gender" value="male" required> Male
+                            </label>
+                            <label class="gender-option" for="female">
+                                <input type="radio" id="female" name="gender" value="female"> Female
+                            </label>
+                            <label class="gender-option" for="other">
+                                <input type="radio" id="other" name="gender" value="other"> Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="department">Academic Department</label>
+                        <select id="department" name="department" required>
+                            <option value="" disabled selected hidden>Choose your intended major/department...</option>
+                            <option value="engineering">School of Engineering & Architecture</option>
+                            <option value="sciences">Department of Natural Sciences</option>
+                            <option value="business">College of Business & Economics</option>
+                            <option value="humanities">Faculty of Humanities & Arts</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Create Password</label>
+                        <input type="password" id="password" name="password" minlength="8" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_pwd">Confirm Password</label>
+                        <input type="password" id="confirm_pwd" name="confirm_pwd" required>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Submit Application</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    </body>
+</html>

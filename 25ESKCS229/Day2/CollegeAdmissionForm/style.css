@@ -1,0 +1,245 @@
+ :root {
+            --primary: #0f172a; /* Deep Navy */
+            --accent: #b91c1c;  /* Crimson University Red */
+            --text-main: #334155;
+            --bg-light: #f8fafc;
+            --border: #cbd5e1;
+            --radius: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Split-screen container */
+        .registration-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 1050px;
+            display: grid;
+            grid-template-columns: 35% 65%;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Left Side: Editorial Banner & Photo Space */
+        .form-sidebar {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .college-logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .college-logo p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Dynamic-looking Photo Placeholder */
+        .photo-upload-zone {
+            margin: 2rem 0;
+        }
+
+        .avatar-preview {
+            width: 140px;
+            height: 175px; /* Standard passport ratio */
+            border: 2px dashed #64748b;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 1rem;
+        }
+
+        .avatar-preview:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar-preview span {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .avatar-preview svg {
+            fill: #64748b;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Hide the ugly default file input button but keep it accessible */
+        .photo-upload-zone input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .sidebar-footer {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        /* Right Side: The Form */
+        .form-main {
+            padding: 3rem;
+        }
+
+        .form-main h2 {
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 1rem;
+        }
+
+        /* Two-column grid for inputs */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Spans entire width for wide inputs */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            background-color: var(--bg-light);
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Custom styling for Radio Buttons */
+        .gender-group {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            height: 100%;
+        }
+
+        .gender-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .gender-option input {
+            accent-color: var(--accent);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Actions Area */
+        .form-actions {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button[type="submit"] {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #991b1b;
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .registration-container {
+                grid-template-columns: 1fr;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            .form-main {
+                padding: 2rem 1.5rem;
+            }
+        }
+    

@@ -1,0 +1,131 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#6a8cff,#6b5bff);
+    padding:30px;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+}
+
+.form{
+    width:100%;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.form h2{
+    text-align:center;
+    color:#333;
+    margin-bottom:25px;
+    font-size:26px;
+    font-weight:600;
+}
+
+.input-box{
+    width:100%;
+    margin-bottom:18px;
+}
+
+.input-box label,
+.gender-box>label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    color:#555;
+    font-weight:500;
+}
+
+.input-box input,
+.input-box select{
+    width:100%;
+    height:45px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    padding:0 15px;
+    font-size:14px;
+    outline:none;
+    transition:.3s;
+    margin-bottom:10px;
+}
+
+.input-box input:focus,
+.input-box select:focus{
+    border-color:#6b5bff;
+}
+
+.row{
+    display:flex;
+    gap:20px;
+}
+
+.row .input-box{
+    flex:1;
+}
+
+.gender-box{
+    margin-bottom:20px;
+}
+
+.gender-option{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.gender{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#555;
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    height:48px;
+    border:none;
+    border-radius:6px;
+    background:#6b5bff;
+    color:#fff;
+    font-size:16px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#5646f5;
+}
+
+@media(max-width:650px){
+
+.row{
+    flex-direction:column;
+    gap:0;
+}
+
+.gender-option{
+    flex-direction:column;
+    gap:10px;
+}
+
+.form{
+    padding:20px;
+}
+
+}

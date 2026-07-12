@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun & Moon Theme</title>
+
+    <style>
+        body{
+            text-align: center;
+            margin-top: 50px;
+            transition: 0.5s;
+            background-color: white;
+        }
+
+        h1{
+            font-size: 40px;
+        }
+
+        img{
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+        }
+
+        button{
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: royalblue;
+            color: white;
+            border: none;
+        }
+
+        button:hover{
+            background-color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading">☀ Good Morning</h1>
+
+    <img id="themeImage"
+    src="https://media.istockphoto.com/id/1124567572/vector/cute-flat-sun-icon.jpg?s=612x612&w=0&k=20&c=_ekkRvw-dX-3Dt-jH3tG8wonvYJ1NrBHEAEDFm4cGVc=">
+
+    <br>
+
+    <button onclick="brightTheme()">
+        Bright Theme
+    </button>
+
+    <button onclick="darkTheme()">
+        Dark Theme
+    </button>
+ 
+
+
+
+
+<script>
+
+function brightTheme(){
+
+    document.body.style.backgroundColor = "white";
+
+    document.body.style.color = "black";
+
+    document.getElementById("heading").innerHTML = "☀ Good Morning";
+
+    document.getElementById("themeImage").src =
+    "https://media.istockphoto.com/id/1124567572/vector/cute-flat-sun-icon.jpg?s=612x612&w=0&k=20&c=_ekkRvw-dX-3Dt-jH3tG8wonvYJ1NrBHEAEDFm4cGVc=";
+
+}
+
+function darkTheme(){
+
+    document.body.style.backgroundColor = "black";
+
+    document.body.style.color = "white";
+
+    document.getElementById("heading").innerHTML = "🌙 Good Night";
+
+    document.getElementById("themeImage").src =
+    "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/Moon-image-edited?_a=BAVMn6DY0";
+
+function student() {
+    const student = [
+    "Rahul", "CSE", 8, 4 ,"Tarun"]
+console.log(student);
+}
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Symposium Registration | July 10th</title>
+    <style>
+        /* --- CSS STYLES & ANIMATIONS --- */
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* Animated Gradient & Image Background */
+        .hero-section {
+            flex: 1.2;
+            background: linear-gradient(-45deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8), rgba(15, 23, 42, 0.9), rgba(56, 189, 248, 0.8)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            max-width: 500px;
+            text-align: left;
+            z-index: 2;
+        }
+
+        /* Text Animations */
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(#fff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.2s;
+        }
+
+        .date {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fde047;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.4s;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.6s;
+        }
+
+        /* Floating Countdown Timer */
+        .countdown {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.8s, float 4s ease-in-out infinite 1s;
+        }
+
+        .countdown span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Right Form Section */
+        .form-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-color: var(--bg-dark);
+            position: relative;
+        }
+
+        /* Glassmorphism Form with Entry Animation */
+        .glass-form {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.3s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .glass-form h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            gap: 1rem;
+        }
+        .row .input-group {
+            flex: 1;
+        }
+
+        label {
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select {
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            background: rgba(15, 23, 42, 0.8);
+            color: #f8fafc;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Animated Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-size: 200% auto;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.4);
+        }
+
+        .error-text {
+            color: #ef4444;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            min-height: 20px;
+            transition: color 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+            .hero-section, .form-section {
+                flex: none;
+                width: 100%;
+            }
+            .hero-section {
+                padding: 4rem 2rem;
+                min-height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Code & Innovate 2026</h1>
+                <p class="date">📅 July 10th, 2026</p>
+                <p class="description">
+                    Join the brightest engineering minds for a day of competitive coding, networking, and innovation. Secure your spot now!
+                </p>
+                <div id="countdown" class="countdown">
+                    </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <form id="registrationForm" class="glass-form">
+                <h2>Register Here</h2>
+                
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="e.g., Yuvraj Singh Bhati" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="student@example.com" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="branch">Engineering Branch</label>
+                        <select id="branch" required>
+                            <option value="">Select Branch</option>
+                            <option value="cs" selected>Computer Science</option>
+                            <option value="ec">Electronics & Comm.</option>
+                            <option value="me">Mechanical</option>
+                            <option value="ce">Civil</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="institution">Institution</label>
+                    <input type="text" id="institution" placeholder="e.g., SKIT Jaipur" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="skills">Key Skills</label>
+                    <input type="text" id="skills" placeholder="C++, Data Structures, UI/UX..." required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" id="confirm_password" required>
+                    </div>
+                </div>
+
+                <div id="error-message" class="error-text"></div>
+
+                <button type="submit" class="submit-btn">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('registrationForm');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm_password');
+            const errorMessage = document.getElementById('error-message');
+
+            // 1. Password Match Validation
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); 
+                
+                if (password.value !== confirmPassword.value) {
+                    errorMessage.textContent = "Passwords do not match. Please try again.";
+                    errorMessage.style.color = "#ef4444";
+                    confirmPassword.style.borderColor = "#ef4444";
+                    password.style.borderColor = "#ef4444";
+                    
+                    // Add a quick shake animation for error
+                    form.style.transform = "translateX(5px)";
+                    setTimeout(() => form.style.transform = "translateX(-5px)", 100);
+                    setTimeout(() => form.style.transform = "translateX(5px)", 200);
+                    setTimeout(() => form.style.transform = "translateX(0)", 300);
+                } else {
+                    errorMessage.style.color = "#22c55e"; 
+                    errorMessage.textContent = "Registration Successful! Redirecting...";
+                    
+                    confirmPassword.style.borderColor = "#22c55e";
+                    password.style.borderColor = "#22c55e";
+                    
+                    // Simulate form submission reset
+                    setTimeout(() => {
+                        form.reset();
+                        errorMessage.textContent = "";
+                        confirmPassword.style.borderColor = "#334155";
+                        password.style.borderColor = "#334155";
+                    }, 2000);
+                }
+            });
+
+            // 2. Dynamic Countdown Timer to July 10th
+            const countdownElement = document.getElementById('countdown');
+            const targetDate = new Date('July 10, 2026 09:00:00').getTime();
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    countdownElement.innerHTML = "<span>Event is Live!</span>";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                countdownElement.innerHTML = `
+                    <span>${days}d</span>
+                    <span>${hours}h</span>
+                    <span>${minutes}m</span>
+                    <span>${seconds}s</span>
+                `;
+            };
+
+            // Run timer every second
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); 
+        });
+    </script>
+</body>
+</html>

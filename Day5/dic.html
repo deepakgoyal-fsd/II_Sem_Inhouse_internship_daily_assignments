@@ -1,0 +1,307 @@
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <style>
+        /* Basic Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 40px;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #666;
+        }
+
+        /* Controls: Search and Filter */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+        }
+        #searchInput, #courseFilter {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #searchInput {
+            width: 300px;
+        }
+
+        /* Grid Layout for Student Cards */
+        #studentList {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .card p {
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        .view-profile-btn {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .view-profile-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Modal Styles (Hidden by default) */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #aaa;
+        }
+        .close-btn:hover {
+            color: #000;
+        }
+        .modal-content h2 { margin-bottom: 15px; }
+        .modal-content p { margin-bottom: 10px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Student Directory</h1>
+        <p>Search and Filter Students (JavaScript Demo)</p>
+    </div>
+
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search by name or email...">
+        <select id="courseFilter">
+            <option value="">All Courses</option>
+            <option value="Web Development">Web Development</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="React">React</option>
+        </select>
+    </div>
+
+    <div id="studentList"></div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalName">Student Name</h2>
+            <p><strong>Course:</strong> <span id="modalCourse"></span></p>
+            <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+            <hr style="margin: 15px 0;">
+            <p><strong>Bio:</strong> <span id="modalBio"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Sample Student Data
+        const students = [
+            {
+                id: 1,
+                name: "Amit Sharma",
+                course: "Web Development",
+                email: "amit@example.com",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
+                bio: "Amit is passionate about building responsive web applications and loves solving backend logic puzzles."
+            },
+            {
+                id: 2,
+                name: "Neha Verma",
+                course: "JavaScript",
+                email: "neha@example.com",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+                bio: "Neha enjoys creating interactive UI components and is constantly exploring new ECMAScript features."
+            },
+            {
+                id: 3,
+                name: "Rahul Singh",
+                course: "React",
+                email: "rahul@example.com",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+                bio: "Rahul specializes in single-page applications and state management using Redux."
+            },
+            {
+                id: 4,
+                name: "Pooja Mehta",
+                course: "JavaScript",
+                email: "pooja@example.com",
+                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80",
+                bio: "Pooja is a frontend enthusiast who loves creating smooth animations and dynamic web pages."
+            },
+            {
+                id: 5,
+                name: "Karan Gupta",
+                course: "Web Development",
+                email: "karan@example.com",
+                image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=300&q=80",
+                bio: "Karan is a full-stack developer in training, with a strong focus on database architecture."
+            }
+        ];
+
+        $(document).ready(function() {
+            
+            // Render Students Function
+            function renderStudents(data) {
+                const $studentList = $("#studentList");
+                $studentList.empty(); // Clear existing cards
+
+                if(data.length === 0) {
+                    $studentList.append("<p>No students found matching your criteria.</p>");
+                    return;
+                }
+
+                data.forEach(student => {
+                    const cardHTML = `
+                        <div class="card">
+                            <img src="${student.image}" alt="${student.name}">
+                            <h3>${student.name}</h3>
+                            <p>Course: ${student.course}</p>
+                            <p>${student.email}</p>
+                            <button class="view-profile-btn" data-id="${student.id}">View Profile</button>
+                        </div>
+                    `;
+                    $studentList.append(cardHTML);
+                });
+            }
+
+            // Search and Filter Logic (Matching the code in the photo)
+            function filterStudents() {
+                const searchValue = $("#searchInput").val().toLowerCase();
+                const selectedCourse = $("#courseFilter").val();
+
+                const filtered = students.filter(student => {
+                    const matchesSearch = 
+                        student.name.toLowerCase().includes(searchValue) || 
+                        student.email.toLowerCase().includes(searchValue);
+                    
+                    const matchesCourse = 
+                        selectedCourse === "" || student.course === selectedCourse;
+
+                    return matchesSearch && matchesCourse;
+                });
+
+                renderStudents(filtered);
+            }
+
+            // Initial Render
+            renderStudents(students);
+
+            // Event Listeners for Search and Filter
+            $("#searchInput").on("keyup", filterStudents);
+            $("#courseFilter").on("change", filterStudents);
+
+            // Event Listener for "View Profile" Button (Delegated event handling)
+            $("#studentList").on("click", ".view-profile-btn", function() {
+                // Get student ID from the clicked button's data attribute
+                const studentId = $(this).data("id");
+                
+                // Find the student object in the array
+                const student = students.find(s => s.id === studentId);
+
+                if(student) {
+                    // Populate modal with student data
+                    $("#modalName").text(student.name);
+                    $("#modalCourse").text(student.course);
+                    $("#modalEmail").text(student.email);
+                    $("#modalBio").text(student.bio);
+
+                    // Show the modal
+                    $("#profileModal").fadeIn(200);
+                }
+            });
+
+            // Close Modal Logic
+            $(".close-btn").on("click", function() {
+                $("#profileModal").fadeOut(200);
+            });
+
+            // Close modal if user clicks outside of the modal content
+            $(window).on("click", function(event) {
+                if ($(event.target).is("#profileModal")) {
+                    $("#profileModal").fadeOut(200);
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
+"""
+
+with open('student_directory.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+print("Success")

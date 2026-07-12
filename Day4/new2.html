@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Registration Form</title>
+  <style>
+    /* --- Modern Base Variables & Styling --- */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --card-bg: #ffffff;
+      --sidebar-bg: #f8fafc;
+      --text-main: #2d3748;
+      --text-muted: #718096;
+      --primary: #667eea;
+      --primary-hover: #5a6fe0;
+      --border: #e2e8f0;
+      --input-bg: #ffffff;
+      --error: #e53e3e;
+      --radius: 12px;
+    }
+
+    body.dark {
+      --bg-gradient: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      --card-bg: #1f2937;
+      --sidebar-bg: #111827;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #818cf8;
+      --primary-hover: #6366f1;
+      --border: #374151;
+      --input-bg: #374151;
+      --error: #f87171;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      transition: background 0.4s ease;
+    }
+
+    /* --- Layout structure --- */
+    .app-container {
+      display: flex;
+      flex-direction: row;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      width: 100%;
+      max-width: 900px;
+      transition: background 0.4s ease;
+    }
+
+    /* --- Sidebar Widget Area --- */
+    .sidebar {
+      background: var(--sidebar-bg);
+      padding: 40px 30px;
+      width: 30%;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.5rem;
+    }
+    
+    .sidebar p {
+      color: var(--text-muted);
+      margin-top: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .widget-box {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .click-stats {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    /* --- Form Area --- */
+    .form-container {
+      padding: 40px;
+      width: 70%;
+    }
+
+    .form-container h2 {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    /* CSS Grid for side-by-side inputs */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    /* --- Buttons --- */
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background-color 0.2s;
+      width: 100%;
+    }
+
+    button:hover { background-color: var(--primary-hover); }
+    .btn-secondary { background-color: transparent; border: 1px solid var(--border); color: var(--text-main); margin-top: 10px; }
+    .btn-secondary:hover { background-color: var(--border); }
+    
+    /* --- Form Elements --- */
+    .form-group { display: flex; flex-direction: column; }
+    
+    label { 
+      margin-bottom: 8px; 
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    input[type="text"], input[type="password"], select {
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background-color: var(--input-bg);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    input[type="text"]:focus, input[type="password"]:focus, select:focus {
+      border-color: var(--primary);
+    }
+
+    .radio-group, .checkbox-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .radio-group label, .checkbox-group label {
+      font-weight: normal;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .radio-group input, .checkbox-group input { margin-right: 8px; cursor: pointer; }
+
+    /* --- Error Messages --- */
+    .error-msg {
+      color: var(--error);
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none; 
+    }
+    input.error-border, select.error-border { border-color: var(--error); }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .app-container { flex-direction: column; }
+      .sidebar, .form-container { width: 100%; box-sizing: border-box; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--border); padding: 30px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .full-width { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div>
+        <h2>Welcome</h2>
+        <p>Toggle your theme preferences or test our click counter widget below.</p>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+      </div>
+      
+      <div class="widget-box">
+        <div class="click-stats">Clicks: <span id="click-count">0</span></div>
+        <button id="click-btn">Click Me</button>
+        <button id="reset-btn" class="btn-secondary">Reset Counter</button>
+      </div>
+    </aside>
+
+    <main class="form-container">
+      <h2>Create an Account</h2>
+      <form id="registration-form" novalidate>
+        
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Ramkishor Singh">
+            <div id="nameError" class="error-msg">Full Name is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="ramkishor@examp.com">
+            <div id="emailError" class="error-msg">Valid email required (must contain '@')</div>
+          </div>
+
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+              <label><input type="radio" name="gender" value="Male" checked> Male</label>
+              <label><input type="radio" name="gender" value="Female"> Female</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="course">Course</label>
+            <select id="course">
+              <option value="">Select Course</option>
+              <option value="frontend">Frontend Development</option>
+              <option value="backend">Backend Development</option>
+              <option value="fullstack">Fullstack Development</option>
+            </select>
+            <div id="courseError" class="error-msg">Please select a course</div>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Skills</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+              <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+              <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+            </div>
+            <div id="skillsError" class="error-msg">Select at least one skill</div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password">
+            <div id="pwdError" class="error-msg">Password is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password">
+            <div id="cpwdError" class="error-msg">Passwords do not match</div>
+          </div>
+
+          <div class="form-group full-width" style="margin-top: 10px;">
+            <button type="submit">Complete Registration</button>
+          </div>
+
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    // --- Dark Mode Toggle ---
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // --- Click Counter ---
+    let count = 0;
+    const clickCountDisplay = document.getElementById('click-count');
+    document.getElementById('click-btn').addEventListener('click', () => {
+      count++;
+      clickCountDisplay.textContent = count;
+    });
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      count = 0;
+      clickCountDisplay.textContent = count;
+    });
+
+    // --- Form Validation ---
+    const form = document.getElementById('registration-form');
+
+    // Helper function to show/hide errors
+    function toggleError(condition, inputElementId, errorElementId) {
+      const inputEl = document.getElementById(inputElementId);
+      const errorEl = document.getElementById(errorElementId);
+      
+      if (condition) {
+        errorEl.style.display = 'block';
+        if(inputEl) inputEl.classList.add('error-border');
+        return false;
+      } else {
+        errorEl.style.display = 'none';
+        if(inputEl) inputEl.classList.remove('error-border');
+        return true;
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Stop page reload
+      let isValid = true;
+
+      // Validate Name
+      const nameVal = document.getElementById('fullName').value.trim();
+      if (!toggleError(nameVal === '', 'fullName', 'nameError')) isValid = false;
+
+      // Validate Email
+      const emailVal = document.getElementById('email').value.trim();
+      if (!toggleError(emailVal === '' || !emailVal.includes('@'), 'email', 'emailError')) isValid = false;
+
+      // Validate Course
+      const courseVal = document.getElementById('course').value;
+      if (!toggleError(courseVal === '', 'course', 'courseError')) isValid = false;
+
+      // Validate Skills (Checkboxes)
+      const checkedSkills = document.querySelectorAll('input[name="skills"]:checked');
+      if (!toggleError(checkedSkills.length === 0, null, 'skillsError')) isValid = false;
+
+      // Validate Password
+      const pwdVal = document.getElementById('password').value;
+      if (!toggleError(pwdVal === '', 'password', 'pwdError')) isValid = false;
+
+      // Validate Confirm Password
+      const cpwdVal = document.getElementById('confirmPassword').value;
+      if (!toggleError(cpwdVal === '' || cpwdVal !== pwdVal, 'confirmPassword', 'cpwdError')) isValid = false;
+
+      // Submit Success
+      if (isValid) {
+        alert('Registration Successful!');
+        form.reset(); // Clear the form
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        :root {
+            color-scheme: dark light;
+            --bg: #f2f7fb;
+            --panel: #ffffff;
+            --accent: #4b7bec;
+            --accent-strong: #3a5fec;
+            --border: #d9e2ef;
+            --text: #243447;
+            --muted: #6b7c93;
+            --shadow: 0 24px 80px rgba(36, 52, 71, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, rgba(75, 124, 236, 0.18), transparent 32%),
+                        radial-gradient(circle at bottom right, rgba(73, 196, 188, 0.14), transparent 28%),
+                        var(--bg);
+            color: var(--text);
+            display: grid;
+            place-items: center;
+            padding: 32px;
+        }
+
+        .form-card {
+            width: min(100%, 570px);
+            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244, 250, 255, 0.98));
+            border: 1px solid rgba(22, 61, 126, 0.10);
+            border-radius: 36px;
+            box-shadow: 0 32px 110px rgba(36, 52, 71, 0.16);
+            padding: 44px 40px 38px;
+            backdrop-filter: blur(14px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::after {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            top: -52px;
+            right: -42px;
+            background: radial-gradient(circle, rgba(75, 124, 236, 0.25), transparent 58%);
+            filter: blur(22px);
+            pointer-events: none;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            left: -48px;
+            bottom: -36px;
+            background: radial-gradient(circle, rgba(72, 192, 190, 0.18), transparent 58%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        .form-header {
+            display: grid;
+            gap: 18px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(75, 124, 236, 0.14);
+            color: #3166d1;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            width: fit-content;
+            box-shadow: inset 0 0 0 1px rgba(75, 124, 236, 0.12);
+        }
+
+        .form-card h2 {
+            margin: 0;
+            font-size: clamp(2rem, 2.5vw, 2.6rem);
+            letter-spacing: -0.04em;
+            color: #1d3454;
+        }
+
+        .form-subtitle {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 1rem;
+            max-width: 44rem;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--muted);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        select,
+        .dob-select {
+            width: 100%;
+            border: 1px solid #d8dee8;
+            border-radius: 16px;
+            padding: 14px 18px;
+            font-size: 1rem;
+            color: var(--text);
+            background: #fbfdff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        .dob-select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 5px rgba(75, 124, 236, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .field-group {
+            display: grid;
+            gap: 12px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f7faff;
+            border: 1px solid #e4ebf4;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .radio-group input {
+            accent-color: var(--accent);
+            margin: 0;
+        }
+
+        .dob-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .dob-select {
+            width: 100%;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .checkbox-row input {
+            accent-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .submit-row {
+            margin-top: 8px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .submit-row input[type="submit"] {
+            border: none;
+            background: linear-gradient(135deg, #3963e6, #2a4ac8);
+            color: white;
+            padding: 16px 26px;
+            border-radius: 18px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            box-shadow: 0 12px 30px rgba(57, 99, 230, 0.24);
+        }
+
+        .submit-row input[type="submit"]:hover {
+            filter: brightness(1.04);
+        }
+
+        .submit-row input[type="submit"]:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 30px rgba(75, 124, 236, 0.22);
+        }
+
+        @media (max-width: 520px) {
+            .form-card {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="form-card">
+        <div class="form-header">
+            <span class="form-badge">New Student Enrollment</span>
+            <h2>Registration Form</h2>
+            <p class="form-subtitle">Join our community by filling out this beautiful registration form. We keep your details safe and help you get enrolled quickly.</p>
+        </div>
+        <form action="#" method="post" class="form-grid">
+            <div class="field-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="field-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="field-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="field-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" id="male" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" id="female" name="gender" value="Female"> Female</label>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label>Date of Birth</label>
+                <div class="dob-grid">
+                    <select id="dob-day" name="dob-day" class="dob-select" required>
+                        <option value="">Day</option>
+                    </select>
+                    <select id="dob-month" name="dob-month" class="dob-select" required>
+                        <option value="">Month</option>
+                    </select>
+                    <select id="dob-year" name="dob-year" class="dob-select" required>
+                        <option value="">Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="">--Select Department--</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="field-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the Terms and Conditions</label>
+            </div>
+
+            <div class="submit-row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </main>
+
+    <script>
+        const daySelect = document.getElementById('dob-day');
+        const monthSelect = document.getElementById('dob-month');
+        const yearSelect = document.getElementById('dob-year');
+
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        function populateDays(days) {
+            daySelect.innerHTML = '<option value="">Day</option>';
+            for (let i = 1; i <= days; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                daySelect.appendChild(option);
+            }
+        }
+
+        function populateMonths() {
+            monthSelect.innerHTML = '<option value="">Month</option>';
+            monthNames.forEach((month, index) => {
+                const option = document.createElement('option');
+                option.value = index + 1;
+                option.textContent = month;
+                monthSelect.appendChild(option);
+            });
+        }
+
+        function populateYears() {
+            const currentYear = new Date().getFullYear();
+            const startYear = currentYear - 18;
+            const endYear = currentYear - 80;
+            yearSelect.innerHTML = '<option value="">Year</option>';
+            for (let year = startYear; year >= endYear; year--) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            }
+        }
+
+        function getDaysInMonth(year, month) {
+            return new Date(year, month, 0).getDate();
+        }
+
+        function updateDayOptions() {
+            const selectedYear = parseInt(yearSelect.value, 10);
+            const selectedMonth = parseInt(monthSelect.value, 10);
+            if (selectedYear && selectedMonth) {
+                const days = getDaysInMonth(selectedYear, selectedMonth);
+                const previousDay = parseInt(daySelect.value, 10);
+                populateDays(days);
+                if (previousDay && previousDay <= days) {
+                    daySelect.value = previousDay;
+                }
+            }
+        }
+
+        populateMonths();
+        populateYears();
+        populateDays(31);
+
+        yearSelect.addEventListener('change', updateDayOptions);
+        monthSelect.addEventListener('change', updateDayOptions);
+    </script>
+</body>
+</html>

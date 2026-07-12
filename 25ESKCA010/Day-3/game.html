@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top left, #ffecb3 0%, #f9f3c4 30%, #b3e5fc 100%);
+    color: #1d1d33;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1a237e;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+p {
+    font-size: 1.1rem;
+    margin: 0.35rem 0;
+    padding: 0.75rem 1.2rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 999px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 1rem;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+    </style>
+</head>
+<body>
+    
+       <h1> Welcome to the gaming zone.....!! </h1>
+       <p>Apple : <span id="apple">0</span></p>
+       <p>Banana : <span id="banana">0</span></p>
+       <img src="/img//apple.img" alt="" onclick="clickImage('apple',this)">
+       <img src="/img/banana.img" alt="" onclick="clickImage('banana',this)">
+    
+    <script>
+
+  let apple = 0, banana = 0;
+
+        document.querySelectorAll("img").forEach(img=>{
+            img.style.left=Math.random()*(window.innerWidth-100)+"px";
+            img.style.top=Math.random()*(window.innerHeight-120)+"px";
+        });
+        function  clickImage (type,img){
+            if (type == "apple"){
+                document.getElementById("apple").innerText=++apple;
+            } else {
+                document.getElementById("banana").innerText=++banana;
+            }
+            img.style.left=Math.random()*(window.innerWidth-100)+"px";
+            img.style.top=Math.random()*(window.innerHeight-120)+"px";
+        }
+    </script>
+</body>
+</html>

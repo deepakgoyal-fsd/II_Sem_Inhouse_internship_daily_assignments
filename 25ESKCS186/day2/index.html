@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Admission Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>College Admission Form</h1>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter your phone number" required>
+
+            <label>Date of Birth</label>
+            <input type="date" required>
+
+            <label>Gender</label>
+
+            <div class="gender">
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+                <input type="radio" name="gender"> Other
+            </div>
+
+            <label>Choose Course</label>
+
+            <select required>
+                <option>Select Course</option>
+                <option>B.Tech Computer Science</option>
+                <option>B.Tech Information Technology</option>
+                <option>B.Tech Electronics</option>
+                <option>B.Tech Mechanical</option>
+            </select>
+
+            <label>Address</label>
+            <textarea placeholder="Enter your address" rows="4" required></textarea>
+
+            <label>
+                <input type="checkbox" required>
+                I confirm that the above information is correct.
+            </label>
+
+            <br><br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+    </div>
+
+</body>
+</html>

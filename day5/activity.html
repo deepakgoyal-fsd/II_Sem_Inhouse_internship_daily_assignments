@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loops Challenge — Dynamic Student Cards</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e14;
+    --panel:#12161f;
+    --card-a:#151b2b;
+    --card-b:#1a1420;
+    --lime:#c9f31d;
+    --amber:#ffb454;
+    --text:#eceef2;
+    --dim:#8a90a3;
+    --border:#242a3a;
+  }
+  body{
+    background:
+      radial-gradient(circle at 10% 0%, rgba(201,243,29,0.06), transparent 40%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    padding:52px 20px 80px;
+  }
+  .wrap{ max-width:1080px; margin:0 auto; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--lime); display:flex; align-items:center; gap:8px; margin-bottom:12px;
+  }
+  .eyebrow::before{ content:''; width:7px; height:24px; background:var(--lime); display:inline-block; }
+  h1{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:32px; letter-spacing:-0.01em; margin-bottom:6px;}
+  .sub{ color:var(--dim); max-width:560px; font-size:14.5px; margin-bottom:0; }
+
+  .stat-strip{
+    display:flex; align-items:center; gap:28px;
+    background:var(--panel); border:1px solid var(--border); border-radius:14px;
+    padding:16px 22px; margin:28px 0 30px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .stat-strip .num{ font-family:'Space Grotesk', sans-serif; font-size:26px; font-weight:700; color:var(--lime); }
+  .stat-strip .lbl{ font-size:11.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; }
+  .stat-strip .divider{ width:1px; height:32px; background:var(--border); }
+
+  #card-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:18px; }
+
+  .stu-card{
+    border-radius:14px; padding:20px; position:relative; overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .stu-card.alt-a{ background:linear-gradient(160deg, var(--card-a), #10131d); }
+  .stu-card.alt-b{ background:linear-gradient(160deg, var(--card-b), #14101a); }
+
+  .serial{
+    position:absolute; top:14px; right:14px;
+    font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:500;
+    background:rgba(255,255,255,0.06); border:1px solid var(--border);
+    padding:3px 8px; border-radius:20px; color:var(--dim);
+  }
+  .stu-name{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px; margin-bottom:2px; padding-right:44px; }
+  .stu-branch{ color:var(--dim); font-size:12.5px; margin-bottom:16px; }
+
+  .cgpa-row{ display:flex; align-items:center; justify-content:space-between; }
+  .cgpa-label{ font-size:11px; color:var(--dim); text-transform:uppercase; letter-spacing:.06em; }
+  .cgpa-badge{
+    font-family:'JetBrains Mono', monospace; font-weight:600; font-size:13px;
+    padding:4px 11px; border-radius:20px;
+  }
+  .cgpa-badge.high{ background:rgba(201,243,29,0.15); color:var(--lime); border:1px solid rgba(201,243,29,0.35); }
+  .cgpa-badge.std{ background:rgba(255,180,84,0.12); color:var(--amber); border:1px solid rgba(255,180,84,0.3); }
+
+  footer{ margin-top:40px; text-align:center; font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--dim); }
+
+  pre.code-peek{
+    background:var(--panel); border:1px solid var(--border); border-radius:12px;
+    padding:16px 18px; font-family:'JetBrains Mono', monospace; font-size:12px;
+    color:#9db1ff; margin-top:34px; overflow-x:auto;
+  }
+  pre.code-peek b{ color:var(--lime); font-weight:500; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow">Loops Challenge · Array + for-loop → DOM</div>
+  <h1>Arrays + Loops = Web Pages</h1>
+  <p class="sub">One array of student objects, one <code>for</code> loop, one <code>innerHTML</code> injection. Everything below is built at runtime — nothing is hardcoded in the markup.</p>
+
+  <div class="stat-strip">
+    <div>
+      <div class="num" id="totalCount">0</div>
+      <div class="lbl">Total Students</div>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="num" id="highCount">0</div>
+      <div class="lbl">CGPA above 8</div>
+    </div>
+  </div>
+
+  <div id="card-grid"></div>
+
+  
+
+
+ 
+</div>
+
+<script>
+const students = [
+  { name: "Aarav Sharma", branch: "CSE", cgpa: 8.7 },
+  { name: "Isha Verma",   branch: "ECE", cgpa: 7.9 },
+  { name: "Kabir Nair",   branch: "IT",  cgpa: 9.1 },
+  { name: "Meera Iyer",   branch: "CSE", cgpa: 8.2 },
+  { name: "Rohan Kapoor", branch: "AI/ML", cgpa: 7.4 },
+];
+
+// 04 — Bonus: total student count at the top of the page
+document.getElementById('totalCount').textContent = students.length;
+document.getElementById('highCount').textContent = students.filter(s => s.cgpa > 8).length;
+
+// 02 — Write the loop, 03 — Build HTML string
+let html = '';
+
+for (let i = 0; i < students.length; i++) {
+  const s = students[i];
+
+  
+  const altClass = (i % 2 === 0) ? 'alt-a' : 'alt-b';
+
+  // CGPA Badge: different badge color for cgpa > 8
+  const isHigh = s.cgpa > 8;
+  const badgeClass = isHigh ? 'high' : 'std';
+
+  html += `
+    <div class="stu-card ${altClass}">
+      <span class="serial">#${i + 1}</span>
+      <div class="stu-name">${s.name}</div>
+      <div class="stu-branch">${s.branch}</div>
+      <div class="cgpa-row">
+        <span class="cgpa-label">CGPA</span>
+        <span class="cgpa-badge ${badgeClass}">${s.cgpa.toFixed(1)}${isHigh ? ' ★' : ''}</span>
+      </div>
+    </div>
+  `;
+}
+
+
+document.getElementById('card-grid').innerHTML = html;
+</script>
+
+</body>
+</html>

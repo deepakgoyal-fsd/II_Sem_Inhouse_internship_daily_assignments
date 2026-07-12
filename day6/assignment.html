@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live User Directory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e1a;
+    --panel:#121727;
+    --card:#161c30;
+    --border:#5c76ca;
+    --cyan:#22d3ee;
+    --pink:#f472b6;
+    --text:#eef1fb;
+    --dim:#6b3b25;
+  }
+  body{
+    background:
+      radial-gradient(circle at 8% 0%, rgba(34, 238, 156, 0.09), transparent 42%),
+      radial-gradient(circle at 95% 25%, rgba(244,114,182,0.07), transparent 40%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    padding:48px 20px 80px;
+  }
+  .wrap{ max-width:1120px; margin:0 auto; }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--cyan); display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .live-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--cyan);
+    box-shadow:0 0 0 0 rgba(34,211,238,0.6);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(34,211,238,0.5); }
+    70%{ box-shadow:0 0 0 8px rgba(34,211,238,0); }
+    100%{ box-shadow:0 0 0 0 rgba(34,211,238,0); }
+  }
+  h1{ font-family:'Outfit', sans-serif; font-weight:800; font-size:32px; letter-spacing:-0.02em; margin-bottom:6px; }
+  .sub{ color:var(--dim); font-size:14.5px; max-width:560px; margin-bottom:26px; }
+
+  .toolbar{
+    display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+    background:var(--panel); border:1px solid var(--border); border-radius:14px;
+    padding:14px 18px; margin-bottom:28px;
+  }
+  .toolbar input{
+    flex:1; min-width:180px;
+    background:var(--bg); border:1px solid var(--border); color:var(--text);
+    border-radius:10px; padding:9px 14px; font-size:14px;
+  }
+  .toolbar input:focus{ outline:none; border-color:var(--cyan); box-shadow:0 0 0 3px rgba(34,211,238,0.15); }
+  .toolbar input::placeholder{ color:var(--dim); }
+
+  .btn-sort{
+    background:var(--card); border:1px solid var(--border); color:var(--text);
+    border-radius:10px; padding:9px 16px; font-size:13.5px; font-weight:500;
+    display:flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .btn-sort:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .btn-sort.active{ border-color:var(--cyan); color:var(--cyan); background:rgba(34,211,238,0.08); }
+
+  .count-badge{
+    font-family:'JetBrains Mono', monospace; font-size:13px;
+    background:rgba(244,114,182,0.12); color:var(--pink);
+    border:1px solid rgba(244,114,182,0.3);
+    padding:8px 14px; border-radius:20px; white-space:nowrap;
+  }
+  .count-badge b{ color:var(--text); }
+
+  /* Loading state */
+  #loading{
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    padding:80px 0; color:var(--dim); font-family:'JetBrains Mono', monospace; font-size:13px;
+  }
+
+  /* Error state */
+  #error-state{
+    display:none; text-align:center; padding:60px 20px;
+    background:var(--panel); border:1px solid rgba(244,114,182,0.35); border-radius:14px;
+  }
+  #error-state h3{ font-family:'Outfit', sans-serif; margin-bottom:6px; }
+  #error-state p{ color:var(--dim); margin-bottom:18px; font-size:14px; }
+  #retry-btn{
+    background:var(--cyan); border:none; color:#022; font-weight:600;
+    padding:9px 22px; border-radius:10px; cursor:pointer;
+  }
+
+  #empty-state{
+    display:none; text-align:center; padding:60px 20px; color:var(--dim);
+    font-family:'JetBrains Mono', monospace; font-size:13px;
+  }
+
+  /* Bootstrap card overrides — real .card / .row / .col grid underneath */
+  .user-card{
+    background:linear-gradient(160deg, var(--card), #10142380);
+    border:1px solid var(--border);
+    border-radius:14px;
+    height:100%;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .user-card:hover{ transform:translateY(-3px); border-color:var(--cyan); }
+  .user-card .card-body{ padding:20px; }
+
+  .avatar-tile{
+    width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Outfit', sans-serif; font-weight:700; font-size:16px; color:#04121a;
+    flex-shrink:0;
+  }
+  .user-card .card-title{ font-family:'Outfit', sans-serif; font-weight:700; font-size:16px; margin-bottom:0; }
+  .user-card .username{ font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--cyan); }
+
+  .user-card .meta-row{
+    display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--dim); margin-top:6px;
+  }
+  .user-card hr{ border-color:var(--border); opacity:1; margin:14px 0; }
+  .user-card .company{ font-size:12.5px; color:var(--text); }
+  .user-card .company .tag{ color:var(--dim); font-size:11px; }
+
+  footer{ margin-top:40px; text-align:center; font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--dim); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow"><span class="live-dot"></span> </div>
+  <h1>User Directory</h1>
+  
+  <div class="toolbar">
+    <input type="text" id="search-input" placeholder="Search by name…">
+    <button class="btn-sort" id="sort-btn">A–Z Sort</button>
+    <span class="count-badge" id="count-badge">Loading…</span>
+  </div>
+
+  <div id="loading">
+    <div class="spinner-border" style="color:var(--cyan); width:2.2rem; height:2.2rem;" role="status"></div>
+    <div>fetching users…</div>
+  </div>
+
+  <div id="error-state">
+    <h3>Couldn't load the directory</h3>
+    <p id="error-msg">Something went wrong reaching the API.</p>
+    <button id="retry-btn">Retry</button>
+  </div>
+
+  <div id="empty-state">No users match your search.</div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="card-grid"></div>
+
+  
+
+<p>tanish</p></div>
+
+<script>
+const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const palette = ['#22d3ee', '#f472b6', '#a78bfa', '#fbbf24', '#34d399'];
+
+const $grid = document.getElementById('card-grid');
+const $loading = document.getElementById('loading');
+const $errorState = document.getElementById('error-state');
+const $errorMsg = document.getElementById('error-msg');
+const $emptyState = document.getElementById('empty-state');
+const $countBadge = document.getElementById('count-badge');
+const $search = document.getElementById('search-input');
+const $retryBtn = document.getElementById('retry-btn');
+const $sortBtn = document.getElementById('sort-btn');
+
+let allUsers = [];
+let sortAsc = false;
+
+function initials(name){
+  return name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+}
+
+function renderCards(users){
+  if (users.length === 0){
+    $grid.innerHTML = '';
+    $emptyState.style.display = 'block';
+    return;
+  }
+  $emptyState.style.display = 'none';
+
+  $grid.innerHTML = users.map((u, i) => `
+    <div class="col">
+      <div class="card user-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <div class="avatar-tile" style="background:${palette[i % palette.length]}">${initials(u.name)}</div>
+            <div>
+              <div class="card-title">${u.name}</div>
+              <div class="username">@${u.username}</div>
+            </div>
+          </div>
+          <div class="meta-row">✉ ${u.email}</div>
+          <div class="meta-row">📍 ${u.address.city}</div>
+          <hr>
+          <div class="company">
+            <div>${u.company.name}</div>
+            <div class="tag">${u.company.catchPhrase}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateCount(shown, total){
+  $countBadge.innerHTML = `<b>${shown}</b> of <b>${total}</b> users`;
+}
+
+function applyFilters(){
+  const q = $search.value.trim().toLowerCase();
+  let list = q
+    ? allUsers.filter(u => u.name.toLowerCase().includes(q))
+    : allUsers.slice();
+
+  if (sortAsc){
+    list.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  renderCards(list);
+  updateCount(list.length, allUsers.length);
+}
+
+function loadUsers(){
+  $loading.style.display = 'flex';
+  $errorState.style.display = 'none';
+  $grid.innerHTML = '';
+  $emptyState.style.display = 'none';
+  $countBadge.textContent = 'Loading…';
+
+  fetch(API_URL)
+    .then(res => {
+      if (!res.ok){
+        throw new Error(`Server responded with ${res.status}`);
+      }
+      return res.json();
+    })
+    .then(data => {
+      allUsers = data;
+      applyFilters();
+    })
+    .catch(err => {
+      $errorMsg.textContent = err.message || 'Network error — check your connection and try again.';
+      $errorState.style.display = 'block';
+      $countBadge.textContent = 'Error';
+    })
+    .finally(() => {
+      $loading.style.display = 'none';
+    });
+}
+
+$search.addEventListener('input', applyFilters);
+
+$sortBtn.addEventListener('click', () => {
+  sortAsc = !sortAsc;
+  $sortBtn.classList.toggle('active', sortAsc);
+  $sortBtn.textContent = sortAsc ? 'A–Z Sort ✓' : 'A–Z Sort';
+  applyFilters();
+});
+
+$retryBtn.addEventListener('click', loadUsers);
+
+loadUsers();
+</script>
+
+</body>
+</html>

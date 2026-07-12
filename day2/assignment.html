@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Admission Form</title>
+  <style>
+    body {
+      background-color: #e8f4f8;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #1a3c5e;
+      text-align: center;
+    }
+
+    h3 {
+      color: #2d6a9f;
+      background-color: #cce0f5;
+      padding: 5px;
+    }
+
+    p {
+      color: #333333;
+    }
+
+    label {
+      color: #1a3c5e;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="password"],
+    select,
+    textarea {
+      background-color: #f0f8ff;
+      border: 1px solid #2d6a9f;
+      padding: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #1a3c5e;
+      color: white;
+      padding: 6px 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="reset"] {
+      background-color: #aaaaaa;
+      color: white;
+      padding: 6px 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 20px;
+      width: 400px;
+      margin: 0 auto;
+      border: 2px solid #2d6a9f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>College Admission Form</h1>
+
+  <p style="text-align:center;">Please fill out the form below.</p>
+
+  <form>
+
+    <h3>Personal Information</h3>
+
+    <label>First Name:</label><br>
+    <input type="text" name="fname"><br><br>
+
+    <label>Last Name:</label><br>
+    <input type="text" name="lname"><br><br>
+
+    <label>Date of Birth:</label><br>
+    <input type="date" name="dob"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female<br><br>
+
+    <h3>Contact Information</h3>
+
+    <label>Email Address:</label><br>
+    <input type="text" name="email"><br><br>
+
+    <label>Phone Number:</label><br>
+    <input type="text" name="phone"><br><br>
+
+    <label>Address:</label><br>
+    <textarea name="address" rows="3" cols="30"></textarea><br><br>
+
+    <h3>Academic Information</h3>
+
+    <label>Previous School:</label><br>
+    <input type="text" name="school"><br><br>
+
+    <label>Year Graduated:</label><br>
+    <input type="text" name="gradyear"><br><br>
+
+    <label>Course/Program:</label><br>
+    <select name="program">
+      <option value="">--Select--</option>
+      <option value="bscs">BTECH Computer Science</option>
+      <option value="bsit">Information Technology</option>
+      <option value="bsed">CIVIL ENGG.</option>
+      <option value="bsn">MEHANICAL ENGG</option>
+      <option value="bsba">BS Business Administration</option>
+    </select><br><br>
+
+    <label>Are you applying for a scholarship?</label><br>
+    <input type="radio" name="scholarship" value="yes"> Yes
+    <input type="radio" name="scholarship" value="no"> No<br><br>
+
+    <label>How did you hear about us?</label><br>
+    <input type="checkbox" name="referral" value="social"> Social Media<br>
+    <input type="checkbox" name="referral" value="friend"> Friend or Family<br>
+    <input type="checkbox" name="referral" value="school"> School<br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Clear">
+
+  </form>
+
+</body>
+</html>

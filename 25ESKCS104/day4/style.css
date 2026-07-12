@@ -1,0 +1,573 @@
+/* =========================
+   GOOGLE FONT & RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    min-height:100vh;
+    color:#fff;
+    transition:.4s;
+}
+
+/* =========================
+      DARK MODE
+========================= */
+
+body.dark{
+    background:#0f172a;
+    color:#fff;
+}
+
+body.dark .form-box{
+    background:rgba(17,24,39,.85);
+    color:white;
+}
+
+body.dark input,
+body.dark select{
+    background:#1e293b;
+    color:white;
+    border:1px solid #475569;
+}
+
+body.dark input::placeholder{
+    color:#cbd5e1;
+}
+
+body.dark .navbar{
+    background:rgba(15,23,42,.85);
+}
+
+body.dark .hero h1{
+    color:white;
+}
+
+/* =========================
+      NAVBAR
+========================= */
+
+.navbar{
+
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    position:sticky;
+    top:0;
+
+    z-index:999;
+
+}
+
+.logo{
+
+    font-size:28px;
+    font-weight:700;
+
+}
+
+.logo i{
+
+    color:#ffd43b;
+
+}
+
+.navbar ul{
+
+    display:flex;
+    list-style:none;
+    gap:35px;
+
+}
+
+.navbar ul li a{
+
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+
+}
+
+.navbar ul li a:hover{
+
+    color:#ffe082;
+
+}
+
+/* =========================
+      THEME BUTTON
+========================= */
+
+#themeBtn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    color:#2575fc;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+
+    transition:.3s;
+
+    z-index:1000;
+
+}
+
+#themeBtn:hover{
+
+    transform:scale(1.1) rotate(15deg);
+
+}
+
+/* =========================
+      HERO SECTION
+========================= */
+
+.hero{
+
+    width:100%;
+
+    padding:80px 10%;
+
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    text-shadow:0 5px 15px rgba(0,0,0,.25);
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:30px;
+
+    color:#f8fafc;
+
+}
+
+/* =========================
+      MAIN CONTAINER
+========================= */
+
+.container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px 20px;
+
+}
+/* =========================
+      FORM BOX
+========================= */
+
+.form-box{
+
+    width:100%;
+    max-width:650px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.form-box h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:34px;
+
+}
+
+/* =========================
+      INPUTS
+========================= */
+
+.input-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:20px;
+
+}
+
+.input-box label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.input-box input,
+.input-box select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.input-box input:focus,
+.input-box select:focus{
+
+    border:2px solid #ffd43b;
+
+    box-shadow:0 0 15px rgba(255,212,59,.4);
+
+}
+
+/* =========================
+      GENDER
+========================= */
+
+.gender{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:10px;
+
+}
+
+.gender label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+}
+
+/* =========================
+      CHECKBOX
+========================= */
+
+.checkbox{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:20px 0;
+
+}
+
+.checkbox input{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+/* =========================
+      VALIDATION
+========================= */
+
+small{
+
+    color:#ffeb3b;
+
+    margin-top:5px;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+#checkError{
+
+    display:block;
+
+    margin-bottom:15px;
+
+}
+
+/* =========================
+      BUTTON
+========================= */
+
+.submit-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.submit-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.3);
+
+}
+
+/* =========================
+      POPUP
+========================= */
+
+.popup{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1001;
+
+}
+
+.popup-content{
+
+    width:350px;
+
+    background:white;
+
+    color:#222;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    animation:popup .4s ease;
+
+}
+
+.popup-content i{
+
+    font-size:70px;
+
+    color:#22c55e;
+
+    margin-bottom:15px;
+
+}
+
+.popup-content h2{
+
+    margin-bottom:10px;
+
+}
+
+.popup-content p{
+
+    color:#555;
+
+    margin-bottom:20px;
+
+}
+
+.popup-content button{
+
+    border:none;
+
+    background:#2575fc;
+
+    color:white;
+
+    padding:12px 28px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.6);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* =========================
+      RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.navbar ul{
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.hero p{
+
+    font-size:15px;
+
+}
+
+.form-box{
+
+    padding:25px;
+
+}
+
+.gender{
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+}

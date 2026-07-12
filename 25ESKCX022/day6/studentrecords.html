@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Student Records</h2>
+        <!-- Search Input -->
+        <input type="text" id="search" class="form-control mb-4" placeholder="Search student by name...">
+        
+        <!-- Container for dynamically generated cards -->
+        <div id="container" class="row g-4"></div>
+    </div>
+
+    <!-- Official jQuery CDN Script Tag -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        // Corrected student array data
+        const students = [
+            { name: "Bhavika", branch: "DS", cgpa: 9.0 },
+            { name: "Rahul", branch: "CSE", cgpa: 8.4 },
+            { name: "Ankit", branch: "ECE", cgpa: 7.9 },
+            { name: "Priya", branch: "IT", cgpa: 7.0 }
+        ];
+
+        // Function to render the student cards dynamically
+        function renderStudents(filterText = "") {
+            // Clear out the container first
+            $('#container').empty();
+
+            // Loop through the data using jQuery
+            $.each(students, function(index, student) {
+                // If search filter is active, check if the student's name matches
+                if (filterText && !student.name.toLowerCase().includes(filterText.toLowerCase())) {
+                    return; // Skip this student if it doesn't match the search
+                }
+
+                const cardHtml = `
+                <div class="col-md-4">
+                    <div class="card p-3 shadow-sm h-100">
+                        <h5 class="card-title fw-bold text-dark">${student.name}</h5>
+                        <p class="card-text mb-0 text-muted">
+                            <span class="badge bg-primary me-2">${student.branch}</span>
+                            <strong>CGPA:</strong> ${student.cgpa.toFixed(1)}
+                        </p>
+                    </div>
+                </div>`;
+                
+                // Append the card to our HTML container
+                $('#container').append(cardHtml);
+            });
+
+            // Optional: Show a "No records found" message if search doesn't match anyone
+            if ($('#container').children().length === 0) {
+                $('#container').html('<div class="text-center text-muted py-4">No matching students found.</div>');
+            }
+        }
+
+        // Run the rendering function once when the page loads
+        $(document).ready(function() {
+            renderStudents();
+
+            // Add real-time live filtering using the search box
+            $('#search').on('input', function() {
+                const searchVal = $(this).val();
+                renderStudents(searchVal);
+            });
+        });
+    </script>
+</body>
+
+</html>

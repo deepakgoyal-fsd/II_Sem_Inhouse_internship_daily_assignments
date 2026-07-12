@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .test{
+            color: black;
+            font-size: 17px;
+            background-color: rgb(218, 215, 215);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border : 1px solid black;
+        }
+        .formstyle{
+            /* background-color: rgb(255, 255, 255);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 2rem auto; */
+            background-color: rgb(255, 255, 255);
+            margin:auto;
+            /* padding: 5px 5px 5px 10px;
+            
+            border-radius: 8px; */
+            padding: 3rem;
+            /* margin: 50px; */
+            max-width: 350px;
+            border-radius: 8px;
+            
+        }
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(227, 224, 230);
+        }
+        nav{
+            background-color: blueviolet;
+            color: white;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            
+        }
+        .nav-left, .nav-right{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            padding: 0.25rem 0.5rem;
+        }
+        .register{
+            background: rgba(255,255,255,0.12);
+            border-radius: 4px;
+        }
+    </style>
+            <!-- text-decoration: none;
+            color: white;
+        }
+    </style> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+
+     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body class="">
+    <nav>
+        <div class="nav-left">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a class="register" href="">Register</a>
+        </div>
+        
+    </nav>
+    <h2 style="padding: 4px ; border: 2px solid black;">Student Registration</h2>
+<div class="formstyle"><form action="/submit" method="post">
+
+    <label for="name">Name:</label><br>
+    <input placeholder="enter your name" required type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" placeholder="enter email" required  id="email" name="email"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" required placeholder="enter password"  name="password"><br><br>
+
+    <label for="">Gender:</label><br>
+    <input type="radio" name="gender" value="Male" id="male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    <label>Skills:</label><br>
+    <input  type="checkbox" name="html" id=""> HTML
+    <input type="checkbox" name="css"> CSS
+    <input type="checkbox" name="javascript"> JavaScript
+    <br><br>
+     <button id="toggle"  style="background-color: blueviolet; color: white; padding: 6px 10px; ; border: 2px solid black; border-radius: 4px;" type="submit" >
+        submit
+</button>
+    
+</form>
+  </div>
+
+   <p class="test">*Fill this form if you want to become member of our developer community.</p>
+   
+
+
+        <!-- <form>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname">
+</form> -->
+
+
+
+
+
+
+
+   
+    <!-- <button id="name" name="name" >submit</button>
+    <label for="name">enter your name</label>
+    <p class="test">hi</p> -->
+    <!-- <!DOCTYPE html>
+<html>
+<body> -->
+
+<!-- <h2>What Can JavaScript Do?</h2>
+
+<p id="demo">JavaScript can change HTML content.</p>
+
+<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click</button> -->
+<!-- <h1>HACKOVERSE</h1>
+<p>this is a hackathon which is being conducted by the ecell of skit on 20th of july.</p> -->
+<script>
+      
+      
+    //   document.getElementById('toggle').addEventListener("click",function () {
+    //     this.style.backgroundcolour='pink';
+    //   }
+//       document.getElementById("toggle").addEventListener("click", function () {
+//     this.style.backgroundColor = "pink";
+// });          
+    
+
+// <button onclick="document.getElementById('toggle').style.backgroundColor='pink'">
+//     Change Color </button>
+
+
+  function submitForm(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+alert("your form has been submitted successfully ");
+    document.addEventListener("DOMContentLoaded", function() {
+document.querySelectorAll("button").forEach(btn => {
+btn.addEventListener("click", () => {
+document.querySelectorAll("body").forEach(el => el.style.display = "none");
+});
+});
+});
+// window.alert("Do people know that you ");
+// 
+ // window.alert("Do people know that yo");
+</script>
+
+ 
+
+
+</body>
+</html>

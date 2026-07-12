@@ -1,0 +1,4 @@
+on day 7 we learned about php and xampp so we created file of day 7 in htdocs folder 
+and did and learnded about basics of php like how to print using php and all apart from it we also 
+learned how xampp can actually help to set virtual environment and apache and mysql helps in a way.
+so this was all about day 7.

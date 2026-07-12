@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-icon">💬</div>
+          <div>
+            <h1>Feedback Analytics</h1>
+            <p>Track learner sentiment, reviews, and campus experience</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="themeToggle" class="ghost-btn">☀️ Light Mode</button>
+          <button class="primary-btn">Export Report</button>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">Modern student feedback workspace</span>
+          <h2>Register users, collect feedback, and review insights instantly.</h2>
+          <p>
+            Submit feedback for faculty, infrastructure, curriculum, and support services. Admins can monitor trends through dynamic charts and summaries.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn">View Dashboard</button>
+            <button class="secondary-btn">Download Summary</button>
+          </div>
+        </div>
+
+        <div class="auth-panel">
+          <div class="switcher">
+            <button class="tab-btn active" data-auth="login">Login</button>
+            <button class="tab-btn" data-auth="register">Register</button>
+          </div>
+
+          <form class="auth-form active" id="loginForm">
+            <h3>Admin Login</h3>
+            <label>
+              Email
+              <input type="email" id="loginEmail" placeholder="admin@example.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="loginPassword" placeholder="••••••••" required />
+            </label>
+            <button class="primary-btn" type="submit">Sign In</button>
+            <p id="loginStatus">Use demo credentials to unlock insights</p>
+          </form>
+
+          <form class="auth-form" id="registerForm">
+            <h3>Create Account</h3>
+            <label>
+              Full Name
+              <input type="text" id="registerName" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" id="registerEmail" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="registerPassword" placeholder="Create password" required />
+            </label>
+            <button class="primary-btn" type="submit">Register</button>
+            <p id="registerStatus">New users can access feedback submission</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <p class="stat-label">Total Feedback</p>
+          <h3 id="feedbackCountStat">0</h3>
+          <span class="trend positive">Live collection</span>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Average Rating</p>
+          <h3 id="ratingStat">0.0/5</h3>
+          <span class="trend positive">Student satisfaction</span>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Positive Reviews</p>
+          <h3 id="positiveStat">0</h3>
+          <span class="trend neutral">Strong moments</span>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Needs Attention</p>
+          <h3 id="negativeStat">0</h3>
+          <span class="trend warning">Priority issues</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="left-stack">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Add Feedback</h3>
+              <span class="badge accent">New entry</span>
+            </div>
+            <form class="feedback-form" id="feedbackForm">
+              <div class="form-row">
+                <label>
+                  Name
+                  <input type="text" id="feedbackName" placeholder="Your name" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" id="feedbackEmail" placeholder="you@example.com" required />
+                </label>
+              </div>
+              <div class="form-row">
+                <label>
+                  Feedback Category
+                  <select id="feedbackCategory" required>
+                    <option value="Faculty">Faculty</option>
+                    <option value="Infrastructure">Infrastructure</option>
+                    <option value="Curriculum">Curriculum</option>
+                    <option value="Support Services">Support Services</option>
+                  </select>
+                </label>
+                <label>
+                  Learning Mark
+                  <select id="learningMark" required>
+                    <option value="Strong understanding">Strong understanding</option>
+                    <option value="Needs practice">Needs practice</option>
+                    <option value="Needs support">Needs support</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                Subject
+                <input type="text" id="feedbackSubject" placeholder="Short heading" required />
+              </label>
+              <label>
+                Rating
+                <select id="feedbackRating" required>
+                  <option value="5">5 - Excellent</option>
+                  <option value="4">4 - Good</option>
+                  <option value="3">3 - Average</option>
+                  <option value="2">2 - Poor</option>
+                  <option value="1">1 - Very Poor</option>
+                </select>
+              </label>
+              <label>
+                Feedback Message
+                <textarea id="feedbackMessage" rows="4" placeholder="Tell us what went well or what needs improvement" required></textarea>
+              </label>
+              <div class="form-actions">
+                <button class="primary-btn" type="submit">Submit Feedback</button>
+                <button class="secondary-btn" type="reset">Reset</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Recent Feedback</h3>
+              <span id="feedbackCount">0 entries</span>
+            </div>
+            <div class="feedback-list" id="feedbackList"></div>
+          </section>
+        </div>
+
+        <aside class="right-stack">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Analytics Overview</h3>
+              <span class="badge accent">Live charts</span>
+            </div>
+            <div class="chart-card">
+              <div class="chart-ring" id="sentimentChart"><span id="sentimentText">0%</span></div>
+              <div class="chart-legend">
+                <div><span class="legend-dot positive"></span>Positive</div>
+                <div><span class="legend-dot neutral"></span>Neutral</div>
+                <div><span class="legend-dot warning"></span>Negative</div>
+              </div>
+            </div>
+            <div class="progress-list">
+              <div class="progress-item">
+                <div class="progress-label"><span>Faculty</span><strong id="facultyBarLabel">0</strong></div>
+                <div class="progress-bar"><i id="facultyBar"></i></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Infrastructure</span><strong id="infraBarLabel">0</strong></div>
+                <div class="progress-bar"><i id="infraBar"></i></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Curriculum</span><strong id="curriculumBarLabel">0</strong></div>
+                <div class="progress-bar"><i id="curriculumBar"></i></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-label"><span>Support Services</span><strong id="supportBarLabel">0</strong></div>
+                <div class="progress-bar"><i id="supportBar"></i></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Trend Snapshot</h3>
+              <span class="badge neutral">Monthly</span>
+            </div>
+            <div class="trend-chart" id="trendChart"></div>
+          </section>
+        </aside>
+      </section>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

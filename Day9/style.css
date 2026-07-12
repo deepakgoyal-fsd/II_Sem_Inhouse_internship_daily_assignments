@@ -1,0 +1,116 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#0f766e);
+    min-height:100vh;
+}
+
+/* Card */
+
+.card{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+/* Header */
+
+.card-header{
+    background:linear-gradient(90deg,#2563eb,#4f46e5,#06b6d4)!important;
+    padding:20px;
+}
+
+.card-header h2{
+    margin:0;
+    font-weight:600;
+}
+
+/* Card Body */
+
+.card-body{
+    background:#ffffff;
+    padding:30px;
+}
+
+/* Labels */
+
+.form-label{
+    font-weight:600;
+    color:#1f2937;
+}
+
+/* Inputs */
+
+.form-control,
+.form-select{
+    border-radius:10px;
+    padding:12px;
+    transition:.3s;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,.3);
+}
+
+/* Radio Buttons */
+
+.form-check{
+    margin-right:20px;
+}
+
+/* Buttons */
+
+.btn{
+    border-radius:30px;
+    padding:10px 25px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Card Hover */
+
+.card:hover{
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .card-body{
+        padding:20px;
+    }
+
+    .btn{
+        width:100%;
+        margin-bottom:10px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .card-header h2{
+        font-size:24px;
+    }
+
+    .form-control,
+    .form-select{
+        font-size:14px;
+    }
+
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>My Landing Page</h2>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <button id="darkBtn">Dark Mode</button>
+    </nav>
+
+
+    <header>
+        <h1>Welcome to My Website</h1>
+        <p>Learning HTML, CSS and JavaScript.</p>
+    </header>
+
+
+    <section class="counter-section">
+
+        <h2>Click Counter</h2>
+
+        <p>Total Clicks: <span id="count">0</span></p>
+
+        <button id="clickBtn">Click Me</button>
+
+        <button id="resetBtn">Reset</button>
+
+    </section>
+
+
+    <section class="form-section">
+
+        <h2>Contact Form</h2>
+
+        <form id="myForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+            >
+
+            <button type="submit">
+                Submit
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

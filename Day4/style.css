@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+
+nav {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    text-align: center;
+    padding: 40px;
+}
+
+.counter-section,
+.form-section {
+    text-align: center;
+    margin: 30px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 250px;
+}
+
+#message {
+    font-weight: bold;
+}
+
+/* Dark Mode */
+
+.dark {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark nav {
+    background-color: black;
+}

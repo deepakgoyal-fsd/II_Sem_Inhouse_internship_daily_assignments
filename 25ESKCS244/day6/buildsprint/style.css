@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f7fb;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-navbar {
+    background: linear-gradient(
+        135deg,
+        #071952,
+        #0d6efd
+    );
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-brand {
+    font-size: 1.3rem;
+}
+
+.user-count-badge {
+    background: #20c997;
+    color: #ffffff;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+}
+
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        #071952,
+        #0d6efd
+    );
+
+    color: white;
+
+    padding: 65px 20px 110px;
+}
+
+.hero-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+}
+
+.hero-section h1 {
+    font-size: 2.7rem;
+}
+
+.hero-text {
+    color: #dbeafe;
+    font-size: 1.1rem;
+}
+
+.control-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-top: -55px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    min-height: 50px;
+}
+
+.user-card {
+    border: none;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    height: 100%;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.13);
+}
+
+.teal-card {
+    background: #e9fffa;
+}
+
+.user-image {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border: 5px solid #e7f1ff;
+}
+
+.user-name {
+    font-size: 1.25rem;
+
+    font-weight: 700;
+}
+
+.username {
+    color: #6c757d;
+}
+
+.gender-badge {
+    display: inline-block;
+
+    padding: 5px 11px;
+
+    border-radius: 30px;
+
+    font-size: 0.75rem;
+
+    margin-top: 8px;
+}
+
+.male-badge {
+    background: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+.female-badge {
+    background: #fce7f3;
+
+    color: #be185d;
+}
+
+.info-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+
+    color: #4b5563;
+}
+
+.info-item i {
+    color: #0d6efd;
+
+    width: 20px;
+
+    margin-top: 3px;
+}
+
+.company-badge {
+    background: #e7f1ff;
+
+    color: #0d6efd;
+
+    padding: 8px 12px;
+
+    border-radius: 30px;
+
+    display: inline-block;
+
+    font-size: 0.85rem;
+}
+
+.loading-box,
+.error-box,
+.empty-box {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 60px 25px;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+.loading-icon {
+    font-size: 42px;
+
+    color: #0d6efd;
+}
+
+.error-icon {
+    font-size: 45px;
+
+    color: #dc3545;
+}
+
+.empty-icon {
+    font-size: 45px;
+
+    color: #6c757d;
+}
+
+.footer {
+    background: #071952;
+
+    color: #dbeafe;
+
+    padding: 25px 0;
+}
+
+@media (max-width: 576px) {
+
+    .hero-section {
+        padding-top: 45px;
+
+        padding-bottom: 95px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .user-count-badge {
+        font-size: 0.75rem;
+
+        padding: 8px 10px;
+    }
+
+    .control-card {
+        padding: 18px;
+    }
+
+}

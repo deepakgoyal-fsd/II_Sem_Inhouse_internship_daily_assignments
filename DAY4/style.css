@@ -1,0 +1,196 @@
+/* Custom Warm & Vibrant Theme */
+:root {
+    --primary-color: #FF6B6B; /* Vibrant warm coral */
+    --secondary-color: #FFA07A; /* Light salmon */
+    --dark-text: #2D3436;
+    --light-bg: #FFF9F5; /* Warm off-white */
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #FFF9F5 0%, #FFE3D8 100%);
+    padding-top: 80px; 
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--dark-text);
+}
+
+.btn-custom {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-custom:hover {
+    background-color: #FF5252;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Feature Cards */
+.feature-card {
+    background: white;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+/* Testimonials Section */
+.testimonial-section {
+    background-color: white;
+}
+
+.testimonial-card {
+    border-radius: 15px;
+    border: none;
+    background-color: var(--light-bg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.quote-icon {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+/* Meet the Team */
+.team-section {
+    background-color: var(--light-bg);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Pricing Section */
+.pricing-section {
+    background-color: white;
+}
+
+.pricing-card {
+    border-radius: 15px;
+    border: 2px solid #eee;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-color);
+}
+
+.pricing-card.popular {
+    border-color: var(--primary-color);
+    position: relative;
+    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.1);
+}
+
+.badge-popular {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: var(--light-bg);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #FFE3D8;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+}
+
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+/* Interactive Form Fields */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:hover, .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 15px rgba(255, 160, 122, 0.4);
+    background-color: #ffffff;
+}
+
+/* Footer & Social Icons */
+.footer {
+    background-color: var(--dark-text);
+    color: white;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}

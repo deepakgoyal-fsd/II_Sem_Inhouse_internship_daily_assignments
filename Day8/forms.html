@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+<form action="registration.php" method="post" id="registrationForm" enctype="multipart/form-data">
+
+<h1 style="color:blue;">Registration Form</h1>
+
+<label>Name:</label>
+<input type="text" name="name" id="txtName" required placeholder="Enter your Name">
+<br><br>
+
+<label>Email:</label>
+<input type="email" name="email" id="txtEmail" required placeholder="Enter your Email">
+<br><br>
+
+<label>Phone No:</label>
+<input type="text" name="phoneNumber" id="txtPhone" required placeholder="Enter your Phone">
+<br><br>
+
+<p>Gender:</p>
+
+<input type="radio" name="gender" value="Male" checked> Male
+
+<input type="radio" name="gender" value="Female"> Female
+
+<input type="radio" name="gender" value="Transgender"> Transgender
+
+<input type="radio" name="gender" value="Other"> Prefer not to say
+
+<br><br>
+
+<label>Date of Birth:</label>
+
+<input type="date" name="dtDOB">
+
+<br><br>
+
+<label>Password:</label>
+
+<input type="password" name="pwdPassword" required>
+
+<br><br>
+
+<label>Confirm Password:</label>
+
+<input type="password" name="pwdConfirmPassword" required>
+
+<br><br>
+
+<label>Select Photo:</label>
+
+<input type="file" name="myfile" accept="image/*" required>
+
+<br><br>
+
+<button type="submit">Register</button>
+
+</form>
+
+</body>
+
+</html>

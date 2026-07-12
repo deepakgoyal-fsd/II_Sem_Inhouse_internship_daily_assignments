@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0b1f3f;
+  padding: 16px 32px;
+  position: relative;
+}
+
+.logo {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #14b8a6;
+}
+
+.login-btn {
+  background-color: #14b8a6;
+  color: #0b1f3f !important;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+#menu-toggle {
+  display: none;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;  
+  }
+
+  .nav-links {
+    display: none;              
+    flex-direction: column;    
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0b1f3f;
+    padding: 20px;
+    gap: 18px;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+}

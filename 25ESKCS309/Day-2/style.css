@@ -1,0 +1,11 @@
+#login-pages
+        {   background-color: rgb(234, 146, 163);
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        body {
+            background-color: rgb(217, 124, 143);
+        }

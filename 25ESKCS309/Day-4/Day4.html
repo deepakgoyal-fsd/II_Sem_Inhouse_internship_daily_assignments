@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>variable challange</h1>
+    <div class="btns">
+<button class="secondary">
+Contact Us
+</button>
+
+
+    </div>
+    
+    <script>
+      const firstname ="Satyam"
+      const lastname ="Garg";
+      const  studentid="B250314";
+      const  year="2026";
+      const  cgpa="9.2";
+        console.log(`- - - Student Profile - - - `);
+        console.log(`First Name: ${firstname}`);
+        console.log(`Last Name: ${lastname}`);
+        console.log(`Student ID: ${studentid}`);
+        console.log(`Year: ${year}`);
+        console.log(`CGPA: ${cgpa}`);  
+    </script> 
+   
+<script>
+    function calculateArea(radius) {
+        const area = Math.PI * radius * radius;
+        return area;
+    }
+
+    const radius = 5;
+    const circleArea = calculateArea(radius);
+    console.log(`Area of the circle with radius ${radius}: ${circleArea}`);
+</script>
+<script>
+
+    function greetstudent(arg){
+        return `Hello ${arg}`;
+    }
+    console.log(greetstudent("Satyam Garg"));
+</script> 
+<script>
+    const heading = document.querySelector("h1");
+    console.log(heading.textContent);
+    heading.textContent = "JS is live!";
+    heading.style.color = "#16FFBB";
+    heading.classList.add("highlight");
+</script> 
+<script>
+
+const btn = document.querySelector("#myBtn");
+btn.addEventListener("click", function() {
+    let count = parseInt(btn.dataset.count || 0);
+    count++;
+    btn.dataset.count = count;
+    document.querySelector("#display").textContent = `Clicks: ${count}`;
+});
+
+document.querySelector("#nameInput").addEventListener("input", (e) => {
+    document.querySelector("#greeting").textContent = `Hi, ${e.target.value}!`;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        let studentname = 
+        { 
+            name: "Alice", 
+            age: 20,
+            major: "Computer Science", 
+            skills: ["JavaScript", "Python", "HTML"]
+        }
+        console.log(JSON.stringify(studentname));
+        console.log(JSON.parse(JSON.stringify(studentname)));
+        
+        let students = [
+            { name: "Alice", age: 20, major: "Computer Science", skills: ["JavaScript", "Python", "HTML"] },
+            { name: "Bob", age: 22, major: "Mathematics", skills: ["Calculus", "Linear Algebra"] },
+            { name: "Charlie", age: 21, major: "Physics", skills: ["Quantum Mechanics", "Relativity"] }
+        ];
+        console.log(students[0].name);
+        console.log(students[1].skills);
+        console.log(students[2].major);
+
+        for (let i = 0; i < students.length; i++) {
+            console.log(students[i].name);
+        } 
+        
+       let promise = new Promise((resolve, reject) => {
+        let success = true; // Change this to false to test rejection
+        if (success) {
+            resolve("Promise resolved successfully!");
+        } else {
+            reject("Promise rejected.");
+        }
+    });
+
+    promise
+        .then((resolve) => {
+            console.log(resolve);
+        })
+        .catch((reject) => {
+            console.error(reject);
+        });*/
+
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic jquery</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <div class ="container">
+        <div class="header">
+            <h1>Registration Form</h1>
+            <button id="theme-toggle" class="toggle-btn" type="button">🌙 Dark Mode</button>
+        </div>
+     <form id="Registration Form" novalidate>
+
+        <label for="username">USERNAME:</label><br>
+        <input type="text" id="username" name="username" placeholder="username"required><br><br>
+
+        <label for="email">EMAIL:</label><br>
+        <input type="email" id="email" name="email" placeholder="email required" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="password required" required><br><br>
+
+        <label for="confirm password">confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password" required><br>
+        
+        <label> Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+    
+        <h2>Select city</h2>
+        <select name="city">
+            <option value="" disabled selected><label for="city">Choose a city:</label></option>
+            <option value="jaipur">Jaipur</option>
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+        </select><br><br>
+
+        
+            <textarea name="comment" rows="4" cols="40"
+        placeholder="Enter your comment here..."></textarea>
+        <input type="submit" value="Submit">
+     </form>
+    <div class ="counter-card">
+        <strong>Click Counter:</strong> <span id="click-count">0</span>
+        <button id="click-button">Click Me!</button>
+    </div>
+
+    <div class="clear-btn">
+        <button id="clear-button">Clear Form</button>
+    </div>
+
+    <div id="output" class="output">Fill in the form and submit to see validation feedback.</div>
+    </div>
+
+    </div>
+    <script>
+        const form = document.getElementById('Registration Form');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm_password');
+        const gender = document.querySelector('input[name="gender"]:checked');
+        const citySelect = document.querySelector('select[name="city"]');
+        const commentTextarea = document.querySelector('textarea[name="comment"]');
+        const clickCountSpan = document.getElementById('click-count');
+        const clickButton = document.getElementById('click-button');
+        const clearButton = document.getElementById('clear-button');
+        const themeToggleButton = document.getElementById('theme-toggle');
+
+        let clickCount = 0;
+        function updateClickCount() {
+            clickCount++;
+            clickCountSpan.textContent = clickCount;
+        }
+
+        function validateForm(event) {
+            event.preventDefault();
+            let isValid = true;
+            let messages = [];
+
+            if (!usernameInput.value.trim()) {
+                isValid = false;
+                messages.push('Username is required.');
+            }
+
+            if (!emailInput.value.trim()) {
+                isValid = false;
+                messages.push('Email is required.');
+            }
+
+            if (!passwordInput.value.trim()) {
+                isValid = false;
+                messages.push('Password is required.');
+            }
+
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                isValid = false;
+                messages.push('Passwords do not match.');
+            }
+
+            if (!document.querySelector('input[name="gender"]:checked')) {
+                isValid = false;
+                messages.push('Gender is required.');
+            }
+
+            if (!citySelect.value) {
+                isValid = false;
+                messages.push('City is required.');
+            }
+
+            if (!commentTextarea.value.trim()) {
+                isValid = false;
+                messages.push('Comment is required.');
+            }
+
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+
+            if (!isValid) {
+                messages.forEach(msg => {
+                    const p = document.createElement('p');
+                    p.textContent = msg;
+                    outputDiv.appendChild(p);
+                });
+            } else {
+                outputDiv.textContent = 'Form submitted successfully!';
+            }
+         return isValid
+        }
+    form.addEventListener('submit', function(event) {
+        if (!validateForm(event)) {
+            event.preventDefault();
+        }
+         const validationerror = document.getElementById('validationerror')
+    {
+        validationerror.textContent = 'Please fill out all required fields correctly.';
+    }
+    });
+
+    clearButton.addEventListener('click', function() {
+        form.reset();
+        outputDiv.textContent = 'Fill in the form and submit to see validation feedback.';
+        validationerror.textContent = '';
+    });
+
+    clickButton.addEventListener('click', function() {
+    clickCount += 1;
+    clickCountSpan.textContent = clickCount;
+    updateCounter();
+            output.textContent = `Button clicked ${clickCount} time${clickCount === 1 ? '' : 's'}.`;
+        });
+   
+    themeToggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            themeToggleButton.textContent = '🌞 Light Mode';
+        } else {
+            themeToggleButton.textContent = '🌙 Dark Mode';
+        }
+    });
+    updateCounter();
+    </script>
+</body>
+</html>

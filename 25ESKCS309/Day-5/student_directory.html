@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Directory</title>
+<style>
+  /* basic styling, nothing fancy */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  #searchBox {
+    display: block;
+    width: 300px;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  #cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 220px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+
+  .card h3 {
+    margin-top: 0;
+  }
+
+  .details {
+    display: none;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+
+  .toggleBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .noResults {
+    text-align: center;
+    color: gray;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<h1>Student Directory</h1>
+
+<input type="text" id="searchBox" placeholder="Search students by name...">
+
+<div id="cardContainer"></div>
+
+<script>
+  // basic array of student data (this could come from a server later)
+  var students = [
+    { name: "Aarav Sharma", id: "CS101", email: "aarav.sharma@example.com", course: "Data Structures", year: "2nd Year" },
+    { name: "Priya Verma", id: "CS102", email: "priya.verma@example.com", course: "Operating Systems", year: "3rd Year" },
+    { name: "Rohan Mehta", id: "CS103", email: "rohan.mehta@example.com", course: "Web Development", year: "1st Year" },
+    { name: "Ananya Gupta", id: "CS104", email: "ananya.gupta@example.com", course: "Machine Learning", year: "4th Year" },
+    { name: "Karan Singh", id: "CS105", email: "karan.singh@example.com", course: "Databases", year: "2nd Year" },
+    { name: "Neha Joshi", id: "CS106", email: "neha.joshi@example.com", course: "Computer Networks", year: "3rd Year" }
+  ];
+
+  var cardContainer = document.getElementById("cardContainer");
+  var searchBox = document.getElementById("searchBox");
+
+  // function to build all the student cards
+  function displayStudents(list) {
+    cardContainer.innerHTML = ""; // clear old cards first
+
+    if (list.length === 0) {
+      cardContainer.innerHTML = "<p class='noResults'>No students found.</p>";
+      return;
+    }
+
+    for (var i = 0; i < list.length; i++) {
+      var student = list[i];
+
+      // create card div
+      var card = document.createElement("div");
+      card.className = "card";
+
+      // basic info always visible
+      card.innerHTML =
+        "<h3>" + student.name + "</h3>" +
+        "<p>ID: " + student.id + "</p>" +
+        "<div class='details'>" +
+          "<p>Email: " + student.email + "</p>" +
+          "<p>Course: " + student.course + "</p>" +
+          "<p>Year: " + student.year + "</p>" +
+        "</div>" +
+        "<button class='toggleBtn'>Show Details</button>";
+
+      cardContainer.appendChild(card);
+    }
+  }
+
+  // show all students when page loads
+  displayStudents(students);
+
+  // search box - filters students in real time
+  searchBox.addEventListener("keyup", function() {
+    var searchTerm = searchBox.value.toLowerCase();
+
+    var filtered = students.filter(function(student) {
+      return student.name.toLowerCase().indexOf(searchTerm) !== -1;
+    });
+
+    displayStudents(filtered);
+  });
+
+  // handle clicks on the card container (event delegation)
+  cardContainer.addEventListener("click", function(event) {
+
+    // if the "Show Details" button was clicked
+    if (event.target.classList.contains("toggleBtn")) {
+      var card = event.target.parentElement;
+      var details = card.querySelector(".details");
+
+      if (details.style.display === "block") {
+        details.style.display = "none";
+        event.target.innerText = "Show Details";
+      } else {
+        details.style.display = "block";
+        event.target.innerText = "Hide Details";
+      }
+    }
+    // if the card itself (not the button) was clicked -> also toggle details
+    else if (event.target.classList.contains("card") || event.target.tagName === "H3" || event.target.tagName === "P") {
+      var card = event.target.closest(".card");
+      var details = card.querySelector(".details");
+      var btn = card.querySelector(".toggleBtn");
+
+      if (details.style.display === "block") {
+        details.style.display = "none";
+        btn.innerText = "Show Details";
+      } else {
+        details.style.display = "block";
+        btn.innerText = "Hide Details";
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

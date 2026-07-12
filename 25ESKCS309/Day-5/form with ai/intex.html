@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackVerse 2026 | Ultimate Student Hackathon</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-extrabold fs-4 text-gradient" href="#" style="color: var(--accent-primary)">
+                <i class="fa-solid fa-terminal me-2"></i>HackVerse <span class="fs-6 opacity-75">'26</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item"><a class="nav-link px-3" href="#features">Key Tracks</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#metrics">Live Status</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#team">Team Core</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <button id="themeToggle" class="btn btn-sm btn-link text-body text-decoration-none">
+                            <i class="fa-solid fa-circle-half-stroke fs-5"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero & Timeline Banner Section -->
+    <header class="hero-section py-5 text-center border-bottom">
+        <div class="container py-5">
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill bg-danger-subtle text-danger mb-4 fw-semibold small">
+                <i class="fa-solid fa-calendar-check animate-pulse"></i> LIVE ON JULY 10, 2026
+            </div>
+            <h1 class="display-3 fw-black mb-3 tracking-tight">Code. Build. Disrupt.</h1>
+            <p class="lead text-muted mx-auto mb-5" style="max-width: 650px;">
+                Welcome to your college's premier 48-hour innovation incubator. Join top student engineers, designers, and systems architects.
+            </p>
+            
+            <!-- Live Grid Countdown -->
+            <div class="row g-3 justify-content-center mb-5">
+                <div class="col-3 col-md-2">
+                    <div class="p-3 countdown-box">
+                        <h2 id="days" class="fw-bold mb-0 text-primary">00</h2>
+                        <span class="text-uppercase tracking-wider small opacity-50">Days</span>
+                    </div>
+                </div>
+                <div class="col-3 col-md-2">
+                    <div class="p-3 countdown-box">
+                        <h2 id="hours" class="fw-bold mb-0 text-success">00</h2>
+                        <span class="text-uppercase tracking-wider small opacity-50">Hours</span>
+                    </div>
+                </div>
+                <div class="col-3 col-md-2">
+                    <div class="p-3 countdown-box">
+                        <h2 id="mins" class="fw-bold mb-0 text-warning">00</h2>
+                        <span class="text-uppercase tracking-wider small opacity-50">Mins</span>
+                    </div>
+                </div>
+                <div class="col-3 col-md-2">
+                    <div class="p-3 countdown-box">
+                        <h2 id="secs" class="fw-bold mb-0 text-danger">00</h2>
+                        <span class="text-uppercase tracking-wider small opacity-50">Secs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#register" class="btn btn-accent btn-lg px-4 fw-bold">Secure Your Seat</a>
+                <a href="#features" class="btn btn-outline-secondary btn-lg px-4">Explore Tracks</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Track Features Section -->
+    <section id="features" class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Development Track Features</h2>
+            <p class="text-muted text-max">Tailored developmental environments built for modern solutions.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card card-feature h-100 bg-body-tertiary p-4 border-0">
+                    <div class="text-primary fs-1 mb-3"><i class="fa-solid fa-brain"></i></div>
+                    <h4 class="fw-bold">Artificial Intelligence</h4>
+                    <p class="text-muted">Integrate LLMs, neural computation nodes, and predictive structures into actionable web solutions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-feature h-100 bg-body-tertiary p-4 border-0">
+                    <div class="text-success fs-1 mb-3"><i class="fa-solid fa-cubes"></i></div>
+                    <h4 class="fw-bold">Web3 Infrastructure</h4>
+                    <p class="text-muted">Architect decentralized ledgers, cryptographic primitives, and high-throughput smart contract pipelines.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-feature h-100 bg-body-tertiary p-4 border-0">
+                    <div class="text-warning fs-1 mb-3"><i class="fa-solid fa-layer-group"></i></div>
+                    <h4 class="fw-bold">Full-Stack Cloud</h4>
+                    <p class="text-muted">Build scalable architectures with lightning-fast reactive frontends paired with robust server infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Metrics Analytics Panel -->
+    <section id="metrics" class="bg-body-secondary py-5 border-top border-bottom">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center mb-4">
+                <h3 class="fw-bold"><i class="fa-solid fa-chart-simple text-danger me-2"></i>Live Registration Tracker</h3>
+                <p class="text-muted">Dynamic platform activity tracking active applications metrics live.</p>
+            </div>
+            <div class="bg-body p-4 rounded-4 shadow-sm border">
+                <div class="row text-center mb-4 g-2">
+                    <div class="col-6 col-md-3">
+                        <small class="text-muted d-block text-uppercase">Total Registered</small>
+                        <span id="totalReg" class="fs-2 fw-bold text-gradient">412</span>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <small class="text-muted d-block text-uppercase">AI Track</small>
+                        <span id="aiCount" class="fs-3 fw-bold text-primary">154</span>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <small class="text-muted d-block text-uppercase">Web3 Track</small>
+                        <span id="web3Count" class="fs-3 fw-bold text-success">98</span>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <small class="text-muted d-block text-uppercase">Fullstack Track</small>
+                        <span id="fsCount" class="fs-3 fw-bold text-warning">160</span>
+                    </div>
+                </div>
+
+                <!-- Live Track Capacity Visualizers -->
+                <div>
+                    <label class="small text-muted d-flex justify-content-between">AI Track Fill Capacity <span>61%</span></label>
+                    <div class="progress stat-progress-bar mb-3 bg-secondary-subtle">
+                        <div id="aiBar" class="progress-bar bg-primary" style="width: 61%"></div>
+                    </div>
+                    <label class="small text-muted d-flex justify-content-between">Web3 Track Fill Capacity <span>39%</span></label>
+                    <div class="progress stat-progress-bar mb-3 bg-secondary-subtle">
+                        <div id="web3Bar" class="progress-bar bg-success" style="width: 39%"></div>
+                    </div>
+                    <label class="small text-muted d-flex justify-content-between">Fullstack Track Fill Capacity <span>64%</span></label>
+                    <div class="progress stat-progress-bar bg-secondary-subtle">
+                        <div id="fsBar" class="progress-bar bg-warning" style="width: 64%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="register" class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card border border-light-subtle shadow p-4 p-md-5 rounded-4">
+                    <h2 class="fw-bold mb-1 text-center">Secure Your Position</h2>
+                    <p class="text-muted text-center mb-4">Input structural verification options below.</p>
+                    
+                    <form id="hackathonForm" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Developer Full Name</label>
+                            <input type="text" class="form-control form-control-lg fs-6" id="fullName" placeholder="Satyam Garg">
+                            <div class="error-msg" id="nameError"><i class="fa-solid fa-circle-exclamation me-1"></i> Full name must be at least 3 letters.</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Academic Email Address</label>
+                            <input type="email" class="form-control form-control-lg fs-6" id="email" placeholder="satyam@college.edu">
+                            <div class="error-msg" id="emailError"><i class="fa-solid fa-circle-exclamation me-1"></i> Please supply a valid corporate/academic email.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Target Specialization Track</label>
+                            <select class="form-select form-select-lg fs-6" id="track">
+                                <option value="">-- Choose Track Ecosystem --</option>
+                                <option value="ai">AI / Machine Learning Infrastructure</option>
+                                <option value="web3">Web3 & Decentralized Ledger Structures</option>
+                                <option value="fullstack">Full-Stack Distributed Systems</option>
+                            </select>
+                            <div class="error-msg" id="trackError"><i class="fa-solid fa-circle-exclamation me-1"></i> Track mapping option selection required.</div>
+                        </div>
+
+                        <div class="mb-4 p-3 bg-body-tertiary rounded-3 border">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms">
+                                <label class="form-check-label text-muted small" for="terms">
+                                    I agree to preserve cross-collaboration protocol rules and structural engineering ethics rules.
+                                </label>
+                            </div>
+                            <div class="error-msg" id="termsError"><i class="fa-solid fa-circle-exclamation me-1"></i> Compliance acceptance required.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent btn-lg w-100 fw-bold shadow-sm">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section id="team" class="bg-body-tertiary border-top border-bottom py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Organizing Core Council</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-3 text-center">
+                    <div class="p-4 bg-body rounded-4 border shadow-sm">
+                        <div class="rounded-circle bg-primary-subtle text-primary mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 70px; height: 70px; font-size: 1.3rem;">SG</div>
+                        <h5 class="fw-bold mb-1">Satyam Garg</h5>
+                        <p class="text-muted small mb-0">Lead Dev Organizer</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 text-center">
+                    <div class="p-4 bg-body rounded-4 border shadow-sm">
+                        <div class="rounded-circle bg-success-subtle text-success mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 70px; height: 70px; font-size: 1.3rem;">AK</div>
+                        <h5 class="fw-bold mb-1">Aman Kumar</h5>
+                        <p class="text-muted small mb-0">Technical Systems</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 text-center">
+                    <div class="p-4 bg-body rounded-4 border shadow-sm">
+                        <div class="rounded-circle bg-warning-subtle text-warning mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 70px; height: 70px; font-size: 1.3rem;">SR</div>
+                        <h5 class="fw-bold mb-1">Sanya Roy</h5>
+                        <p class="text-muted small mb-0">Operations Control</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="py-5 bg-body">
+        <div class="container text-center">
+            <h4 class="fw-bold mb-3">Connect System Channels</h4>
+            <div class="d-flex justify-content-center gap-4 mb-4 fs-3">
+                <a href="mailto:hackathon@college.edu" class="text-body transition-link opacity-75" style="transition: opacity 0.2s;"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" class="text-body transition-link opacity-75"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-body transition-link opacity-75"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p class="text-muted small mb-0">&copy; 2026 Campus HackVerse Inc. Managed via Bootstrap 5 & jQuery API Engine Layers.</p>
+        </div>
+    </footer>
+
+    <!-- Script Dependecies -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // --- Theme Switch Architecture ---
+            $('#themeToggle').on('click', function() {
+                let htmlTag = $('html');
+                let isDark = htmlTag.attr('data-bs-theme') === 'dark';
+                htmlTag.attr('data-bs-theme', isDark ? 'light' : 'dark');
+            });
+
+            // --- Countdown Timer Mechanics (July 10, 2026) ---
+            const targetTime = new Date("July 10, 2026 09:00:00").getTime();
+            
+            function runCountdown() {
+                const now = new Date().getTime();
+                const delta = targetTime - now;
+
+                if (delta <= 0) {
+                    $('.countdown-box').parent().html("<div class='col-12'><h3 class='text-danger fw-bold'>System Processing: Hackathon Active</h3></div>");
+                    clearInterval(clockInterval);
+                    return;
+                }
+
+                const d = Math.floor(delta / (1000 * 60 * 60 * 24));
+                const h = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((delta % (1000 * 60)) / 1000);
+
+                $('#days').text(d < 10 ? '0' + d : d);
+                $('#hours').text(h < 10 ? '0' + h : h);
+                $('#mins').text(m < 10 ? '0' + m : m);
+                $('#secs').text(s < 10 ? '0' + s : s);
+            }
+            runCountdown();
+            const clockInterval = setInterval(runCountdown, 1000);
+
+            // --- Dynamic Registration Metrics Engine ---
+            setInterval(function() {
+                if(Math.random() > 0.5) {
+                    const tracks = ['ai', 'web3', 'fs'];
+                    const pickedTrack = tracks[Math.floor(Math.random() * tracks.length)];
+                    
+                    let total = parseInt($('#totalReg').text());
+                    $('#totalReg').text(total + 1);
+
+                    if(pickedTrack === 'ai') {
+                        let c = parseInt($('#aiCount').text()) + 1;
+                        $('#aiCount').text(c);
+                        $('#aiBar').css('width', Math.min((c/250)*100, 100) + '%').parent().prev().find('span').text(Math.round((c/250)*100) + '%');
+                    } else if(pickedTrack === 'web3') {
+                        let c = parseInt($('#web3Count').text()) + 1;
+                        $('#web3Count').text(c);
+                        $('#web3Bar').css('width', Math.min((c/250)*100, 100) + '%').parent().prev().find('span').text(Math.round((c/250)*100) + '%');
+                    } else {
+                        let c = parseInt($('#fsCount').text()) + 1;
+                        $('#fsCount').text(c);
+                        $('#fsBar').css('width', Math.min((c/250)*100, 100) + '%').parent().prev().find('span').text(Math.round((c/250)*100) + '%');
+                    }
+                }
+            }, 3500);
+
+            // --- Form Verification Node Systems ---
+            $('#hackathonForm').on('submit', function(event) {
+                event.preventDefault();
+                let structuralValidity = true;
+
+                // Name Analysis
+                if ($('#fullName').val().trim().length < 3) {
+                    $('#nameError').fadeIn();
+                    $('#fullName').addClass('is-invalid');
+                    structuralValidity = false;
+                } else {
+                    $('#nameError').fadeOut();
+                    $('#fullName').removeClass('is-invalid').addClass('is-valid');
+                }
+
+                // Email Analysis
+                let emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailCheck.test($('#email').val().trim())) {
+                    $('#emailError').fadeIn();
+                    $('#email').addClass('is-invalid');
+                    structuralValidity = false;
+                } else {
+                    $('#emailError').fadeOut();
+                    $('#email').removeClass('is-invalid').addClass('is-valid');
+                }
+
+                // Dropdown Allocation
+                let selectedTrack = $('#track').val();
+                if (selectedTrack === "") {
+                    $('#trackError').fadeIn();
+                    $('#track').addClass('is-invalid');
+                    structuralValidity = false;
+                } else {
+                    $('#trackError').fadeOut();
+                    $('#track').removeClass('is-invalid').addClass('is-valid');
+                }
+
+                // Checkbox Evaluation
+                if (!$('#terms').is(':checked')) {
+                    $('#termsError').fadeIn();
+                    structuralValidity = false;
+                } else {
+                    $('#termsError').fadeOut();
+                }
+
+                // Processing execution upon validity confirmation
+                if (structuralValidity) {
+                    // Update registration metric values programmatically 
+                    let total = parseInt($('#totalReg').text()) + 1;
+                    $('#totalReg').text(total);
+
+                    if(selectedTrack === 'ai') {
+                        let c = parseInt($('#aiCount').text()) + 1; $('#aiCount').text(c);
+                        $('#aiBar').css('width', (c/250)*100 + '%').parent().prev().find('span').text(Math.round((c/250)*100) + '%');
+                    } else if (selectedTrack === 'web3') {
+                        let c = parseInt($('#web3Count').text()) + 1; $('#web3Count').text(c);
+                        $('#web3Bar').css('width', (c/250)*100 + '%').parent().prev().find('span').text(Math.round((c/250)*100) + '%');
+                    } else {
+                        let c = parseInt($('#fsCount').text()) + 1; $('#fsCount').text(c);
+                        $('#fsBar').css('width', (c/250)*100 + '%').parent().prev().find('span').text(Math.round((c/250)*100) + '%');
+                    }
+
+                    alert("Pipeline Active: Registration successfully submitted!");
+                    $('#hackathonForm')[0].reset();
+                    $('.form-control, .form-select').removeClass('is-valid');
+                }
+            });
+
+            // Interactive state cleanup during input activity
+            $('#fullName, #email, #track').on('input change', function() {
+                $(this).removeClass('is-invalid');
+                $(this).next('.error-msg').fadeOut();
+            });
+            $('#terms').on('change', function() {
+                $('#termsError').fadeOut();
+            });
+        });
+    </script>
+<!-- Script Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Your Custom External JS Engine -->
+    <script src="app.js"></script>
+</body>
+</html>

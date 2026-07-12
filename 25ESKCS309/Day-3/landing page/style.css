@@ -1,0 +1,264 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#111827;
+color:white;
+}
+
+/* Navbar */
+
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#0f172a;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#38bdf8;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+nav button{
+
+padding:10px 20px;
+border:none;
+border-radius:30px;
+background:#38bdf8;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+
+}
+nav button:hover{
+transform:scale(1.1);
+}
+
+/* Hero */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 8%;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+min-height:90vh;
+}
+
+.left{
+width:50%;
+}
+
+.left h1{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.left p{
+font-size:18px;
+line-height:30px;
+margin-bottom:30px;
+}
+
+.btns button{
+padding:15px 25px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin-right:15px;
+transition:.4s;
+}
+.primary{
+background:white;
+color:#2563eb;
+}
+
+.secondary{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+.btns button:hover{
+transform:translateY(-5px);
+}
+
+.right img{
+width:500px;
+border-radius:20px;
+}
+
+/* Features */
+
+section{
+padding:80px 8%;
+}
+
+h2{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.card{
+background:#1e293b;
+padding:40px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:#2563eb;
+}
+
+.card i{
+font-size:50px;
+color:#38bdf8;
+margin-bottom:20px;
+}
+
+/* Team */
+
+.team{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.member{
+background:#1e293b;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+}
+
+.member:hover{
+transform:scale(1.05);
+}
+
+.member img{
+width:120px;
+height:120px;
+border-radius:50%;
+margin-bottom:20px;
+}
+
+/* Contact */
+
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+input,textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+}
+
+textarea{
+height:150px;
+}
+
+form button{
+padding:15px;
+background:#38bdf8;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+form button:hover{
+background:#2563eb;
+color:white;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#0f172a;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+gap:15px;
+
+}
+
+nav ul{
+flex-direction:column;
+text-align:center;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.left{
+width:100%;
+}
+
+.left h1{
+font-size:40px;
+}
+
+.right img{
+width:100%;
+margin-top:30px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.team{
+grid-template-columns:1fr;
+}
+
+}

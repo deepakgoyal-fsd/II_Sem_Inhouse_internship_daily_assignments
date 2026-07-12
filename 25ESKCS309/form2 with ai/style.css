@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Vibrant Neon Tech Theme & Background Blobs
+   ========================================================================== */
+:root {
+    --bg-dark: #0a051b;
+    --card-dark: rgba(20, 12, 45, 0.6);
+    --neon-purple: #8A2BE2;
+    --neon-pink: #FF007F;
+    --neon-cyan: #00F0FF;
+    --text-glow: 0 0 12px rgba(255, 0, 127, 0.6);
+    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-dark);
+    color: #f1ecff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Moving Mesh Background System */
+.ambient-bg-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background: #060214;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    animation: floatMorph 12s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--neon-purple);
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    width: 600px;
+    height: 600px;
+    background: var(--neon-pink);
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -4s;
+    animation-duration: 18s;
+}
+
+.blob-3 {
+    width: 400px;
+    height: 400px;
+    background: var(--neon-cyan);
+    top: 40%;
+    left: 50%;
+    animation-delay: -2s;
+    animation-duration: 14s;
+}
+
+@keyframes floatMorph {
+    0% { transform: translate(0px, 0px) scale(1) rotate(0deg); border-radius: 50%; }
+    33% { transform: translate(70px, -50px) scale(1.15) rotate(120deg); border-radius: 40% 60% 70% 30%; }
+    66% { transform: translate(-40px, 60px) scale(0.9) rotate(240deg); border-radius: 60% 40% 30% 70%; }
+    100% { transform: translate(0px, 0px) scale(1) rotate(360deg); border-radius: 50%; }
+}
+
+/* ==========================================================================
+   Vibrant Glass Components & Interactivity
+   ========================================================================== */
+.navbar {
+    background: rgba(10, 5, 27, 0.7) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #fff 20%, var(--neon-pink) 50%, var(--neon-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 0, 127, 0.2);
+}
+
+/* Premium Glass Cards */
+.feature-card, .countdown-box, #register .card {
+    background: var(--card-dark) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 127, 0.15) !important;
+    border-radius: 18px !important;
+    transition: var(--transition-bounce) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    border-color: var(--neon-cyan) !important;
+    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.25) !important;
+}
+
+/* Custom Neon Buttons */
+.btn-vibrant {
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: var(--transition-bounce);
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+}
+
+.btn-vibrant:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.6), 0 0 15px rgba(0, 240, 255, 0.3);
+    color: white;
+}
+
+/* Inputs styling */
+.form-control, .form-select {
+    background-color: rgba(10, 5, 27, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+.form-control:focus, .form-select:focus {
+    background-color: rgba(10, 5, 27, 0.8);
+    color: #fff;
+    border-color: var(--neon-cyan) !important;
+    box-shadow: 0 0 0 4px rgba(0, 240, 255, 0.25) !important;
+}
+
+/* Live Counter Styling */
+.live-counter-pill div {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(255, 0, 127, 0.2));
+    border: 1px solid rgba(255, 0, 127, 0.3) !important;
+    box-shadow: var(--text-glow);
+}
+
+/* Light Mode Overrides */
+html[data-bs-theme="light"] {
+    --bg-dark: #f8f6ff;
+    --card-dark: rgba(255, 255, 255, 0.75);
+}
+html[data-bs-theme="light"] body { color: #231942; }
+html[data-bs-theme="light"] .text-gradient {
+    background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+    -webkit-background-clip: text;
+}
+html[data-bs-theme="light"] .navbar { background: rgba(255, 255, 255, 0.8) !important; }
+
+.text-gradient {
+    /* 1. Give the element a background gradient instead of a solid color */
+    background: linear-gradient(45deg, #7000ff, #0d6efd);
+
+    /* 2. Clip that background to the shape of the text letters */
+    -webkit-background-clip: text;
+    background-clip: text; /* Modern standard version */
+
+    /* 3. Make the default text color transparent so the background can shine through! */
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login pages</title>
+    <style>
+        body {
+            background-color: rgb(228, 133, 152);
+        }
+        div{
+            height: 50px;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 0;
+        }
+        .login-pages
+        {   background-color: crimson;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-pages { background: transparent; }
+  input, button { display:block; margin-top:10px; padding:1px; }
+  input[type="radio"]{display:inline;}
+    </style>
+</head>
+<body>
+
+    <h1>Registration Form</h1>
+   
+    <form action="registration_form.php" method="post">
+        <label for="username">USERNAME:</label><br>
+        <input type="text" id="username" name="username" placeholder="username"required><br><br>
+
+        <label for="email">EMAIL:</label><br>
+        <input type="email" id="email" name="email" placeholder="email required" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="password required" required><br><br>
+
+        <label for="confirm password">confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password" required><br>
+        
+        <label> Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+    
+        <h2>Select city</h2>
+        <select name="city">
+            <option value="" disabled selected><label for="city">Choose a city:</label></option>
+            <option value="jaipur">Jaipur</option>
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+        </select><br><br>
+
+        
+            <textarea name="comment" rows="4" cols="40">
+        Enter your comment here...
+            </textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+
+const btn = document.querySelector("#myBtn");
+btn.addEventListener("click", function() {
+    let count = parseInt(btn.dataset.count || 0);
+    count++;
+    btn.dataset.count = count;
+    document.querySelector("#display").textContent = `Clicks: ${count}`;
+});
+
+document.querySelector("#nameInput").addEventListener("input", (e) => {
+    document.querySelector("#greeting").textContent = `Hi, ${e.target.value}!`;
+});
+</script>
+</body>
+</html>

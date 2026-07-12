@@ -1,0 +1,199 @@
+/* ==========================================================================
+   1. Design Variables & Dark/Light System Accents
+   ========================================================================== */
+:root {
+    --accent-primary: #7000ff;
+    --accent-glow: rgba(112, 0, 255, 0.2);
+    --transition-speed: 0.35s;
+}
+
+[data-bs-theme="light"] {
+    --accent-primary: #0d6efd;
+    --accent-glow: rgba(13, 110, 253, 0.15);
+}
+
+/* ==========================================================================
+   2. Global Typography & Core Overrides
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+    
+    /* These two lines force the page elements to respect Bootstrap's dynamic theme colors */
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    
+    /* Smooth theme fade transition */
+    transition: background-color var(--transition-speed) ease, 
+                color var(--transition-speed) ease, 
+                border-color var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease;
+}
+
+/* ==========================================================================
+   3. Custom Component Layout Elements
+   ========================================================================== */
+/* Blurry Translucent Navigation Bar */
+.navbar {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(var(--bs-body-bg-rgb), 0.8) !important;
+}
+
+/* Radial Gradient Background Decorating Hero Section */
+.hero-section {
+    position: relative;
+    background: radial-gradient(circle at top right, var(--accent-glow), transparent 60%);
+}
+
+/* Countdown Grid Containers */
+.countdown-box {
+    background: rgba(var(--bs-body-color-rgb), 0.04);
+    border: 1px solid rgba(var(--bs-body-color-rgb), 0.1);
+    border-radius: 12px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.countdown-box:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-primary);
+}
+
+/* Key Feature Interaction Cards */
+.card-feature {
+    border: 1px solid rgba(var(--bs-body-color-rgb), 0.08);
+    border-radius: 16px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.card-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--accent-glow);
+    border-color: var(--accent-primary);
+}
+
+/* Metrics Dynamic Analytics Component Bars */
+.stat-progress-bar {
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   4. Form Input Field & Interactive Verification Node Styles
+   ========================================================================== */
+.error-msg {
+    font-size: 0.85rem;
+    color: #dc3545;
+    display: none;
+    margin-top: 0.25rem;
+}
+
+/* Accent Themed Submit Buttons */
+.btn-accent {
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-accent:hover {
+    background-color: rgba(112, 0, 255, 0.85);
+    color: white;
+}
+
+[data-bs-theme="light"] .btn-accent:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-accent:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   5. Decorative Visual Micro-Animations
+   ========================================================================== */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+root {
+            --accent-primary: #7000ff;
+            --accent-glow: rgba(112, 0, 255, 0.2);
+            --transition-speed: 0.35s;
+        }
+        
+        [data-bs-theme="light"] {
+            --accent-primary: #0d6efd;
+            --accent-glow: rgba(13, 110, 253, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            backdrop-filter: blur(12px);
+            background: rgba(var(--bs-body-bg-rgb), 0.8) !important;
+        }
+
+        .hero-section {
+            position: relative;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 60%);
+        }
+
+        .countdown-box {
+            background: rgba(var(--bs-body-color-rgb), 0.04);
+            border: 1px solid rgba(var(--bs-body-color-rgb), 0.1);
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+        
+        .countdown-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-primary);
+        }
+
+        .card-feature {
+            border: 1px solid rgba(var(--bs-body-color-rgb), 0.08);
+            border-radius: 16px;
+            transition: all var(--transition-speed);
+        }
+
+        .card-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--accent-glow);
+            border-color: var(--accent-primary);
+        }
+
+        .stat-progress-bar {
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .error-msg {
+            font-size: 0.85rem;
+            color: #dc3545;
+            display: none;
+            margin-top: 0.25rem;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-primary);
+            color: white;
+            border: none;
+        }
+        .btn-accent:hover {
+            background-color: rgba(112, 0, 255, 0.85);
+            color: white;
+        }
+        [data-bs-theme="light"] .btn-accent:hover {
+            background-color: #0b5ed7;
+        }

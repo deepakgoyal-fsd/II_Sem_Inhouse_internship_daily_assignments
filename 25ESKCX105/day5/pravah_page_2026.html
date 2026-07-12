@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravah 2026 | SKIT's Gaming, Esports & Sports Championship</title>
+<meta name="description" content="Pravah 2026 — SKIT's national-level gaming, esports and sports championship. 15–17 July. BGMI, Valorant, Free Fire, Cricket, Football and more, plus a full cultural line-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PRAVAH 2026 — ESPORTS / SPORTS CHAMPIONSHIP EDITION (Black Fire, Readable)
+   Palette: true black / hyper red / electric yellow / blazing orange
+   Type: Archivo Black (display, bold but standard letterforms) ·
+         Plus Jakarta Sans (stat/HUD, legible geometric numerals) ·
+         Inter (body, high-legibility UI font)
+   Signature: diagonal "shard" corners with a subtle flicker — same as
+              the black-fire edition, only the type system changed
+   ============================================================ */
+:root{
+  --black:#050304;
+  --panel:#100607;
+  --panel-2:#1a0a09;
+  --blue:#ff0033;
+  --blue-dim:#7a0018;
+  --green:#ffe600;
+  --green-dim:#998900;
+  --cyan:#ff7a00;
+  --white:#fdf8f4;
+  --dim:#a89088;
+  --line:rgba(255,0,51,0.28);
+  --line-green:rgba(255,230,0,0.24);
+  --ff-display:'Archivo Black', sans-serif;
+  --ff-stat:'Plus Jakarta Sans', sans-serif;
+  --ff-body:'Inter', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black); color:var(--white); font-family:var(--ff-body);
+  overflow-x:hidden; position:relative; line-height:1.6;
+}
+::selection{background:var(--blue); color:#1a0000;}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+img{max-width:100%; display:block;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+
+/* ---------- Background system ---------- */
+#bg-canvas{position:fixed; inset:0; width:100%; height:100%; z-index:0; background:
+  radial-gradient(ellipse at 20% 0%, rgba(255,0,51,0.10) 0%, transparent 45%),
+  radial-gradient(ellipse at 85% 20%, rgba(255,230,0,0.06) 0%, transparent 40%),
+  linear-gradient(180deg, #120607 0%, #0b0f14 55%, #050304 100%);
+}
+.bg-static-fallback{position:fixed; inset:0; z-index:0; display:none;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255,0,51,0.10) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 20%, rgba(255,230,0,0.06) 0%, transparent 40%),
+    linear-gradient(180deg, #120607 0%, #0b0f14 55%, #050304 100%);
+}
+.no-canvas .bg-static-fallback{display:block;}
+.no-canvas #bg-canvas{display:none;}
+
+.grid-floor{
+  position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.35;
+  background-image:
+    linear-gradient(rgba(255,0,51,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,51,0.12) 1px, transparent 1px);
+  background-size:46px 46px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 75%);
+  transform:translate(var(--parx, 0px), var(--pary, 0px));
+}
+.scan-beam{
+  position:fixed; left:0; right:0; top:-20%; height:34%; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, transparent, rgba(255,0,51,0.05) 40%, rgba(255,122,0,0.08) 50%, rgba(255,0,51,0.05) 60%, transparent);
+  animation:scanMove 9s ease-in-out infinite;
+}
+@keyframes scanMove{ 0%,100%{ top:-30%; } 50%{ top:95%; } }
+
+.hud-corner{position:fixed; z-index:6; width:38px; height:38px; pointer-events:none; opacity:.5; animation:hudFlicker 3.2s ease-in-out infinite;}
+@keyframes hudFlicker{ 0%,100%{opacity:.5;} 45%{opacity:.5;} 47%{opacity:.85;} 49%{opacity:.4;} 51%{opacity:.7;} 53%{opacity:.5;} }
+.hud-corner.tl{top:14px; left:14px; background:linear-gradient(135deg, var(--blue), transparent 55%); clip-path:polygon(0 0, 100% 0, 0 100%);}
+.hud-corner.tr{top:14px; right:14px; background:linear-gradient(225deg, var(--green), transparent 55%); clip-path:polygon(100% 0, 100% 100%, 0 0);}
+.hud-corner.bl{bottom:14px; left:14px; background:linear-gradient(45deg, var(--green), transparent 55%); clip-path:polygon(0 100%, 100% 100%, 0 0);}
+.hud-corner.br{bottom:14px; right:14px; background:linear-gradient(315deg, var(--blue), transparent 55%); clip-path:polygon(100% 100%, 0 100%, 100% 0);}
+@media (max-width:700px){ .hud-corner{display:none;} }
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1260px; margin:0 auto; padding:0 32px; position:relative; z-index:2;}
+section{position:relative; z-index:2; padding:130px 0;}
+@media (max-width:768px){ section{padding:80px 0;} .wrap{padding:0 20px;} }
+
+.eyebrow{
+  font-family:var(--ff-stat); font-weight:700; letter-spacing:.3em; font-size:13px;
+  color:var(--blue); text-transform:uppercase; display:inline-flex; align-items:center; gap:12px; margin-bottom:20px;
+}
+.eyebrow::before{content:''; width:10px; height:10px; background:var(--green); box-shadow:0 0 10px var(--green); animation:blink 1.6s ease-in-out infinite;}
+@keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+.section-title{
+  font-family:var(--ff-display); font-weight:800; font-size:clamp(30px,4vw,52px); text-transform:uppercase;
+  color:var(--white); letter-spacing:.01em; margin-bottom:18px; line-height:1.15;
+}
+.section-title em{font-style:normal; color:var(--blue); text-shadow:0 0 34px rgba(255,0,51,0.75);}
+.section-title em.g{color:var(--green); text-shadow:0 0 34px rgba(255,230,0,0.75);}
+.section-lede{max-width:620px; color:var(--dim); font-size:16.5px; font-weight:300;}
+.rule{width:64px; height:2px; background:linear-gradient(90deg, var(--blue), transparent); margin:24px 0;}
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px; padding:16px 32px; font-family:var(--ff-stat); font-weight:700;
+  letter-spacing:.1em; font-size:15px; text-transform:uppercase; border-radius:3px; transition:all .3s cubic-bezier(.2,.8,.2,1);
+  position:relative; clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+.btn-primary{background:linear-gradient(120deg, var(--blue), var(--cyan)); color:#1a0000; box-shadow:0 0 26px rgba(255,0,51,0.45);}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 0 40px rgba(255,0,51,0.7);}
+.btn-ghost{border:1px solid var(--blue-dim); color:var(--cyan); background:rgba(255,0,51,0.05);}
+.btn-ghost:hover{border-color:var(--blue); background:rgba(255,0,51,0.12); transform:translateY(-2px);}
+.btn-green{background:linear-gradient(120deg, var(--green), #9dff7a); color:#241400; box-shadow:0 0 26px rgba(255,230,0,0.4);}
+.btn-sm{padding:11px 22px; font-size:12px;}
+
+/* ---------- Nav ---------- */
+header.nav{
+  position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between;
+  padding:18px 40px; transition:all .4s ease; background:rgba(11,15,20,0.4); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,0,51,0.1);
+}
+header.nav.scrolled{padding:12px 40px; background:rgba(9,12,16,0.86); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); box-shadow:0 10px 30px -14px rgba(0,0,0,0.7);}
+.logo-mark{font-family:var(--ff-display); font-weight:800; font-size:19px; letter-spacing:.06em; color:var(--white); display:flex; align-items:center; gap:8px; text-transform:uppercase;}
+.logo-mark .dot{color:var(--blue); text-shadow:0 0 12px var(--blue);}
+.logo-mark small{display:block; font-family:var(--ff-stat); font-size:9px; letter-spacing:.24em; color:var(--dim); font-weight:600; margin-top:2px;}
+.nav-links{display:flex; gap:30px; align-items:center;}
+.nav-links a{font-family:var(--ff-stat); font-weight:600; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); transition:color .3s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{display:flex; align-items:center; gap:16px;}
+.burger{display:none; flex-direction:column; gap:5px; z-index:120;}
+.burger span{width:26px; height:2px; background:var(--cyan);}
+@media (max-width:960px){ .nav-links{display:none;} .nav-cta .btn-ghost{display:none;} .burger{display:flex;} }
+.mobile-menu{position:fixed; inset:0; background:rgba(6,8,10,0.98); z-index:110; display:none; flex-direction:column; align-items:center; justify-content:center; gap:28px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:var(--ff-display); font-weight:700; font-size:20px; color:var(--white); text-transform:uppercase;}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; padding:160px 24px 60px;}
+.hero-organizer{font-family:var(--ff-stat); font-weight:600; font-size:12.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--dim); margin-bottom:24px; border:1px solid var(--line); padding:9px 20px; border-radius:30px; backdrop-filter:blur(6px);}
+.hero-title{
+  font-family:var(--ff-display); font-weight:900; letter-spacing:.02em; text-transform:uppercase;
+  font-size:clamp(48px, 11vw, 148px); line-height:.92; color:var(--white);
+  text-shadow:0 0 30px rgba(255,0,51,0.65), 0 0 70px rgba(255,0,51,0.35);
+  animation:riseIn 1.2s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-title .g{color:var(--green); text-shadow:0 0 30px rgba(255,230,0,0.75), 0 0 70px rgba(255,230,0,0.4);}
+@keyframes riseIn{ from{opacity:0; transform:translateY(40px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);} }
+.hero-tagline{
+  font-family:var(--ff-stat); font-weight:700; font-size:clamp(15px,2.2vw,24px); letter-spacing:.32em; margin-top:18px; margin-left:.32em;
+  color:var(--cyan); animation:riseIn 1.2s .15s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-sub{margin-top:18px; max-width:520px; color:var(--dim); font-size:15px; font-weight:300; animation:riseIn 1.2s .22s cubic-bezier(.16,1,.3,1) both;}
+.hero-dates{margin-top:30px; font-family:var(--ff-stat); font-weight:700; font-size:20px; letter-spacing:.28em; color:var(--white); display:flex; gap:12px; align-items:center; animation:riseIn 1.2s .3s cubic-bezier(.16,1,.3,1) both;}
+.hero-dates .sep{color:var(--blue-dim);}
+
+.countdown{display:flex; gap:14px; margin-top:44px; animation:riseIn 1.2s .4s cubic-bezier(.16,1,.3,1) both;}
+.cd-box{width:84px; padding:14px 0; text-align:center; border:1px solid var(--line); border-radius:4px; background:linear-gradient(180deg, rgba(255,0,51,0.08), rgba(0,0,0,0.2)); backdrop-filter:blur(8px); clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);}
+.cd-box .num{font-family:var(--ff-display); font-weight:700; font-size:32px; color:var(--cyan); line-height:1; text-shadow:0 0 16px rgba(255,122,0,0.5);}
+.cd-box .lbl{font-family:var(--ff-stat); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); margin-top:8px;}
+@media (max-width:600px){ .cd-box{width:64px; padding:10px 0;} .cd-box .num{font-size:22px;} }
+
+.hero-ctas{display:flex; gap:18px; margin-top:44px; flex-wrap:wrap; justify-content:center; animation:riseIn 1.2s .5s cubic-bezier(.16,1,.3,1) both;}
+.scroll-hint{position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--dim); font-family:var(--ff-stat); font-size:10px; letter-spacing:.2em;}
+.scroll-hint .line{width:1px; height:40px; background:linear-gradient(180deg, var(--blue), transparent); animation:scrollLine 2s ease-in-out infinite;}
+@keyframes scrollLine{ 0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;} }
+
+/* ---------- Broadcast ticker (signature element) ---------- */
+.ticker-wrap{position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,0,51,0.04); overflow:hidden; padding:14px 0;}
+.ticker-track{display:flex; gap:52px; width:max-content; animation:tickerMove 32s linear infinite;}
+@keyframes tickerMove{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.tick-item{display:flex; align-items:center; gap:10px; font-family:var(--ff-stat); font-weight:700; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); white-space:nowrap;}
+.tick-item .tick-live{color:var(--green); font-size:10px;}
+.tick-item b{color:var(--white);}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0; transform:translateY(34px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+/* ---------- About + stats ---------- */
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+@media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+.about-pillars{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px;}
+.pillar{border:1px solid var(--line); padding:20px 18px; border-radius:6px; background:rgba(255,255,255,0.015); transition:border-color .3s, transform .3s;}
+.pillar:hover{border-color:var(--blue); transform:translateY(-4px);}
+.pillar .p-icon{font-size:20px;}
+.pillar h4{font-family:var(--ff-display); font-weight:700; font-size:14px; color:var(--cyan); margin:10px 0 6px; text-transform:uppercase;}
+.pillar p{font-size:12.5px; color:var(--dim); font-weight:300;}
+
+.stats-row{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:32px; border-top:1px solid var(--line); padding-top:28px;}
+@media (max-width:700px){ .stats-row{grid-template-columns:1fr 1fr;} }
+.stat-num{font-family:var(--ff-display); font-weight:800; font-size:clamp(24px,3vw,34px); color:var(--green); text-shadow:0 0 16px rgba(255,230,0,0.4);}
+.stat-lbl{font-family:var(--ff-stat); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); margin-top:4px;}
+
+.about-visual{position:relative; aspect-ratio:4/5; border-radius:8px; overflow:hidden; border:1px solid var(--line);
+  background:radial-gradient(circle at 30% 20%, rgba(255,0,51,0.18), transparent 55%), radial-gradient(circle at 75% 80%, rgba(255,230,0,0.12), transparent 55%), linear-gradient(160deg,#190a09,#0a0505 70%);
+  display:flex; align-items:center; justify-content:center;
+}
+.hud-ring-wrap{position:relative; width:66%; aspect-ratio:1;}
+.hud-ring{position:absolute; inset:0; border:1px solid var(--blue-dim); border-radius:50%; animation:spinSlow 34s linear infinite;}
+.hud-ring:nth-child(2){inset:12%; border-color:rgba(255,230,0,0.35); animation-duration:26s; animation-direction:reverse; border-style:dashed;}
+.hud-ring:nth-child(3){inset:26%; border-color:var(--blue); animation-duration:18s;}
+.hud-center{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--ff-display); font-weight:700; font-size:13px; letter-spacing:.2em; color:var(--cyan); text-align:center;}
+@keyframes spinSlow{ to{ transform:rotate(360deg); } }
+
+/* ---------- Featured events (highlight strip) ---------- */
+.featured-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+@media (max-width:900px){ .featured-grid{grid-template-columns:1fr 1fr;} }
+@media (max-width:640px){ .featured-grid{grid-template-columns:1fr;} }
+.feat-card{
+  position:relative; border:1px solid var(--line); border-radius:6px; padding:26px; overflow:hidden;
+  background:linear-gradient(160deg, rgba(255,0,51,0.06), rgba(255,255,255,0.01) 60%);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1), border-color .3s;
+}
+.feat-card::before{content:''; position:absolute; top:-1px; left:-1px; width:0; height:0; border-style:solid; border-width:20px 20px 0 0; border-color:var(--blue) transparent transparent transparent; opacity:.9; filter:drop-shadow(0 0 8px rgba(255,0,51,0.5));}
+.feat-card::after{content:''; position:absolute; bottom:-1px; right:-1px; width:0; height:0; border-style:solid; border-width:0 0 20px 20px; border-color:transparent transparent var(--green) transparent; opacity:.9; filter:drop-shadow(0 0 8px rgba(255,230,0,0.4));}
+.feat-card:hover{transform:translateY(-6px); border-color:var(--blue);}
+.feat-tag{font-family:var(--ff-stat); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--green); margin-bottom:10px;}
+.feat-icon{font-size:28px; margin-bottom:10px;}
+.feat-name{font-family:var(--ff-display); font-weight:700; font-size:17px; text-transform:uppercase; margin-bottom:8px;}
+.feat-desc{font-size:13px; color:var(--dim); font-weight:300; margin-bottom:16px;}
+.feat-prize{font-family:var(--ff-stat); font-size:14px; color:var(--cyan);}
+
+/* ---------- Arena tabs + event grid (Esports / Sports / Cultural) ---------- */
+.cat-tabs{display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap;}
+.cat-tab{padding:10px 20px; border:1px solid var(--line); border-radius:3px; font-family:var(--ff-stat); font-weight:600; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); transition:all .3s; clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);}
+.cat-tab.active, .cat-tab:hover{border-color:var(--blue); color:var(--cyan); background:rgba(255,0,51,0.08);}
+
+.event-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+@media (max-width:1000px){ .event-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .event-grid{grid-template-columns:1fr;} }
+
+.event-card{position:relative; border-radius:8px; padding:1px; background:linear-gradient(140deg, var(--blue-dim), rgba(255,255,255,0.02) 40%, var(--green-dim) 100%); transition:transform .4s cubic-bezier(.2,.8,.2,1);}
+.event-card:hover{transform:translateY(-7px);}
+.event-card:hover .card-inner{border-color:var(--blue); box-shadow:0 20px 46px -18px rgba(255,0,51,0.35);}
+.card-inner{background:linear-gradient(165deg, #190a09, #0a0505 80%); border:1px solid var(--line); border-radius:7px; padding:26px 22px; height:100%; transition:all .4s; position:relative;}
+.card-inner::before{content:''; position:absolute; top:-1px; left:-1px; width:0; height:0; border-style:solid; border-width:18px 18px 0 0; border-color:var(--blue) transparent transparent transparent; opacity:.85; filter:drop-shadow(0 0 6px rgba(255,0,51,0.5));}
+.card-inner::after{content:''; position:absolute; bottom:-1px; right:-1px; width:0; height:0; border-style:solid; border-width:0 0 18px 18px; border-color:transparent transparent var(--green) transparent; opacity:.85; filter:drop-shadow(0 0 6px rgba(255,230,0,0.4));}
+.card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;}
+.card-icon{font-size:28px; filter:drop-shadow(0 0 10px rgba(255,0,51,0.4));}
+.card-type{font-family:var(--ff-stat); font-size:9px; letter-spacing:.14em; text-transform:uppercase; padding:4px 10px; border:1px solid var(--blue-dim); border-radius:20px; color:var(--cyan);}
+.card-name{font-family:var(--ff-display); font-weight:700; font-size:17px; color:var(--white); margin-bottom:8px; text-transform:uppercase;}
+.card-desc{font-size:13px; color:var(--dim); font-weight:300; margin-bottom:16px; min-height:40px;}
+.card-meta{display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:11px; margin-bottom:18px;}
+.card-meta div span{display:block; color:var(--dim); text-transform:uppercase; letter-spacing:.06em; font-size:9px; margin-bottom:3px; font-family:var(--ff-stat);}
+.card-meta div b{color:var(--cyan); font-weight:500; font-family:var(--ff-body);}
+.card-cta{width:100%; text-align:center; padding:11px 0; border:1px solid var(--blue-dim); border-radius:3px; font-family:var(--ff-stat); font-weight:700; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); transition:all .3s;}
+.card-cta:hover{background:var(--blue); color:#1a0000; border-color:var(--blue);}
+
+/* ---------- Registration ---------- */
+.reg-tiers{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px;}
+@media (max-width:800px){ .reg-tiers{grid-template-columns:1fr;} }
+.tier-card{border:1px solid var(--line); border-radius:6px; padding:32px; background:rgba(255,255,255,0.015);}
+.tier-card .tier-range{font-family:var(--ff-display); font-weight:800; font-size:38px; color:var(--cyan);}
+.tier-card h3{font-family:var(--ff-display); font-weight:700; font-size:18px; margin:8px 0 12px; text-transform:uppercase;}
+.tier-card p{color:var(--dim); font-size:13.5px; font-weight:300;}
+
+.reg-form-panel{margin-top:56px; border:1px solid var(--line); border-radius:10px; padding:40px; background:linear-gradient(160deg, rgba(255,0,51,0.05), transparent);}
+@media (max-width:600px){ .reg-form-panel{padding:26px 20px;} }
+.reg-form-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px;}
+@media (max-width:700px){ .reg-form-grid{grid-template-columns:1fr;} }
+.field{display:flex; flex-direction:column; gap:8px;}
+.field label{font-family:var(--ff-stat); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim);}
+.field input, .field select{background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:4px; padding:12px 14px; color:var(--white); font-family:var(--ff-body); font-size:14px; outline:none; transition:border-color .3s;}
+.field input:focus, .field select:focus{border-color:var(--blue);}
+.reg-note{margin-top:22px; font-size:11.5px; color:var(--dim); font-style:italic;}
+.toast{position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(120%); z-index:200; background:linear-gradient(120deg, var(--blue), var(--cyan)); color:#1a0000; padding:16px 30px; border-radius:4px; font-family:var(--ff-stat); font-weight:700; letter-spacing:.06em; transition:transform .5s cubic-bezier(.2,.8,.2,1); box-shadow:0 20px 40px -12px rgba(0,0,0,0.6);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+.reg-steps{display:flex; align-items:center; gap:8px; margin:0 0 8px; flex-wrap:wrap;}
+.reg-step-dot{display:flex; align-items:center; gap:8px; font-family:var(--ff-stat); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); transition:color .3s;}
+.reg-step-dot span{width:24px; height:24px; border-radius:50%; border:1px solid var(--blue-dim); display:flex; align-items:center; justify-content:center; font-family:var(--ff-display); font-size:11px; color:var(--dim); transition:all .3s;}
+.reg-step-dot.active{color:var(--cyan);}
+.reg-step-dot.active span, .reg-step-dot.done span{border-color:var(--blue); background:var(--blue); color:#1a0000;}
+.reg-step-dot.done span{background:transparent; color:var(--blue);}
+.reg-step-line{flex:1; height:1px; background:var(--blue-dim); max-width:40px; min-width:14px;}
+@media (max-width:700px){ .reg-step-dot{font-size:0;} .reg-step-dot span{font-size:11px;} }
+
+.reg-panel{display:none; margin-top:22px;}
+.reg-panel.active{display:block; animation:riseIn .5s ease both;}
+.step-h{font-family:var(--ff-display); font-weight:800; font-size:22px; text-transform:uppercase; color:var(--white); margin-bottom:8px;}
+.step-p{color:var(--dim); font-size:13.5px; font-weight:300; max-width:520px;}
+
+.welcome-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px;}
+@media (max-width:700px){ .welcome-grid{grid-template-columns:1fr 1fr;} }
+.w-item{border:1px solid var(--line); border-radius:6px; padding:16px; text-align:center;}
+.w-item b{display:block; font-family:var(--ff-display); font-weight:800; font-size:18px; color:var(--green); margin-bottom:6px;}
+.w-item span{font-family:var(--ff-stat); font-size:10.5px; color:var(--dim); letter-spacing:.04em;}
+
+.type-cards{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px;}
+@media (max-width:700px){ .type-cards{grid-template-columns:1fr;} }
+.type-card{text-align:left; border:1px solid var(--line); border-radius:6px; padding:22px; transition:all .3s; background:rgba(255,255,255,0.015);}
+.type-card:hover{border-color:var(--blue-dim); transform:translateY(-3px);}
+.type-card.selected{border-color:var(--blue); background:rgba(255,0,51,0.09); box-shadow:0 12px 30px -14px rgba(255,0,51,0.45);}
+.tc-icon{font-size:24px; margin-bottom:10px;}
+.type-card h4{font-family:var(--ff-display); font-weight:700; font-size:16px; color:var(--white); margin-bottom:8px; text-transform:uppercase;}
+.type-card p{font-size:12px; color:var(--dim); font-weight:300; min-height:32px;}
+.tc-fee{margin-top:12px; font-family:var(--ff-stat); font-weight:700; font-size:13px; color:var(--cyan); letter-spacing:.04em;}
+
+.es-cat-tabs{display:flex; gap:10px; margin:20px 0 16px; flex-wrap:wrap;}
+.es-cat-tab{padding:8px 16px; border:1px solid var(--line); border-radius:3px; font-family:var(--ff-stat); font-weight:600; font-size:11.5px; text-transform:uppercase; color:var(--dim); transition:all .3s;}
+.es-cat-tab.active{border-color:var(--blue); color:var(--cyan); background:rgba(255,0,51,0.08);}
+.event-select-list{display:grid; grid-template-columns:1fr 1fr; gap:10px; max-height:420px; overflow-y:auto; padding-right:6px;}
+@media (max-width:700px){ .event-select-list{grid-template-columns:1fr;} }
+.es-item{display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:5px; padding:12px 14px; cursor:pointer; transition:all .25s; background:rgba(255,255,255,0.012);}
+.es-item:hover{border-color:var(--blue-dim);}
+.es-item.checked{border-color:var(--blue); background:rgba(255,0,51,0.08);}
+.es-checkbox{width:18px; height:18px; border-radius:3px; border:1px solid var(--blue-dim); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; color:transparent; transition:all .25s;}
+.es-item.checked .es-checkbox{background:var(--blue); color:#1a0000; border-color:var(--blue);}
+.es-icon{font-size:18px;}
+.es-info{flex:1; min-width:0;}
+.es-info .es-name{font-size:13.5px; color:var(--white); font-weight:500;}
+.es-info .es-sub{font-size:10.5px; color:var(--dim); margin-top:2px;}
+.es-fee{font-family:var(--ff-stat); font-weight:700; font-size:14px; color:var(--cyan); flex-shrink:0;}
+
+.reg-summary{margin-top:20px; padding:16px 18px; border:1px dashed var(--blue-dim); border-radius:6px; font-family:var(--ff-stat); font-size:13px; color:var(--dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+.reg-summary b{color:var(--cyan);}
+
+.payment-summary{border:1px solid var(--line); border-radius:6px; padding:16px 18px; margin-top:22px;}
+.ps-row{display:flex; justify-content:space-between; font-size:12.5px; color:var(--dim); padding:6px 0;}
+.ps-row.total{border-top:1px dashed var(--blue-dim); margin-top:8px; padding-top:12px; color:var(--white); font-family:var(--ff-display); font-weight:700; font-size:15px; letter-spacing:.02em;}
+.payment-methods{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;}
+@media (max-width:700px){ .payment-methods{grid-template-columns:1fr;} }
+.pm-card{border:1px solid var(--line); border-radius:6px; padding:18px; text-align:center; transition:all .3s;}
+.pm-card.active{border-color:var(--blue); background:rgba(255,0,51,0.08);}
+.pm-icon{font-size:20px; margin-bottom:8px;}
+.pm-card h4{font-family:var(--ff-display); font-weight:700; font-size:14px; margin-bottom:4px; text-transform:uppercase;}
+.pm-card p{font-size:11px; color:var(--dim);}
+.pm-detail{margin-top:20px;}
+.qr-box{width:140px; height:140px; margin:0 auto; border-radius:6px; border:1px solid var(--blue-dim);
+  background:repeating-linear-gradient(0deg, var(--blue) 0 6px, transparent 6px 12px), repeating-linear-gradient(90deg, var(--blue) 0 6px, transparent 6px 12px);
+  background-blend-mode:screen; opacity:.8;}
+.qr-note{text-align:center; font-size:12px; color:var(--dim); margin-top:12px;}
+
+.confirm-box{text-align:center; padding:16px 0;}
+.confirm-check{width:60px; height:60px; margin:0 auto 18px; border-radius:50%; background:linear-gradient(135deg, var(--green), #9dff7a); color:#241400; font-size:28px; display:flex; align-items:center; justify-content:center; box-shadow:0 14px 34px -10px rgba(255,230,0,0.55);}
+.confirm-grid{max-width:520px; margin:24px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:left; border:1px solid var(--line); border-radius:6px; padding:20px;}
+.confirm-grid div span{display:block; color:var(--dim); text-transform:uppercase; letter-spacing:.06em; font-size:9px; margin-bottom:4px; font-family:var(--ff-stat);}
+.confirm-grid div b{color:var(--cyan); font-weight:500; font-size:13px;}
+.confirm-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:28px;}
+.dashboard-panel{max-width:640px; margin:0 auto;}
+.dash-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+@media (max-width:600px){ .dash-grid{grid-template-columns:1fr;} }
+.dash-card{border:1px solid var(--line); border-radius:6px; padding:14px 16px; text-align:left;}
+.dash-card span{display:block; font-family:var(--ff-stat); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); margin-bottom:6px;}
+.dash-card b{color:var(--white); font-size:13px; font-weight:500;}
+
+/* ---------- Celebrity-free — schedule ---------- */
+.day-tabs{display:flex; gap:12px; margin-bottom:44px; flex-wrap:wrap;}
+.day-tab{flex:1; min-width:150px; border:1px solid var(--line); border-radius:6px; padding:16px 18px; text-align:left; transition:all .3s;}
+.day-tab.active{border-color:var(--blue); background:rgba(255,0,51,0.08);}
+.day-tab .d-num{font-family:var(--ff-display); font-weight:800; font-size:22px; color:var(--cyan);}
+.day-tab .d-date{font-family:var(--ff-stat); font-size:10.5px; letter-spacing:.14em; color:var(--dim); text-transform:uppercase;}
+
+.timeline{position:relative; padding-left:32px;}
+.timeline::before{content:''; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:linear-gradient(180deg, var(--blue), var(--green));}
+.t-item{position:relative; padding-bottom:32px;}
+.t-item::before{content:''; position:absolute; left:-32px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px rgba(255,122,0,0.8);}
+.t-item .t-time{font-family:var(--ff-stat); font-weight:700; letter-spacing:.08em; color:var(--cyan); font-size:13px;}
+.t-item h4{font-family:var(--ff-display); font-weight:700; font-size:16.5px; margin:6px 0 4px; color:var(--white); text-transform:uppercase;}
+.t-item .t-venue{font-size:12px; color:var(--dim);}
+
+/* ---------- Prize pool ---------- */
+.prize-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+@media (max-width:1000px){ .prize-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:600px){ .prize-grid{grid-template-columns:1fr;} }
+.prize-card{border:1px solid var(--line); border-radius:6px; padding:20px; text-align:center; background:rgba(255,255,255,0.015); transition:transform .3s, border-color .3s;}
+.prize-card:hover{transform:translateY(-6px); border-color:var(--blue);}
+.prize-card .p-name{font-family:var(--ff-stat); font-size:12px; color:var(--dim); margin-bottom:10px;}
+.prize-card .p-amount{font-family:var(--ff-display); font-weight:800; font-size:24px; color:var(--cyan);}
+.p-breakdown{display:flex; justify-content:space-between; gap:10px; margin-top:14px; padding-top:12px; border-top:1px dashed var(--blue-dim); font-size:11px;}
+.p-breakdown span{display:block; color:var(--dim); text-transform:uppercase; letter-spacing:.06em; font-size:8.5px; margin-bottom:3px; font-family:var(--ff-stat);}
+.p-breakdown b{color:var(--white); font-family:var(--ff-body); font-weight:500;}
+.p-perk{margin-top:10px; font-size:10px; color:var(--green); letter-spacing:.02em;}
+
+/* ---------- Gallery ---------- */
+.masonry{column-count:4; column-gap:14px;}
+@media (max-width:1000px){ .masonry{column-count:3;} }
+@media (max-width:700px){ .masonry{column-count:2;} }
+.g-item{break-inside:avoid; margin-bottom:14px; border-radius:6px; overflow:hidden; position:relative; cursor:pointer; border:1px solid var(--line);}
+.g-item .g-ph{width:100%; display:flex; align-items:center; justify-content:center; color:var(--blue-dim); font-family:var(--ff-display); font-weight:700; font-size:12px; letter-spacing:.1em; background:linear-gradient(160deg, #1c0d0a, #0a0505); transition:transform .5s;}
+.g-item:hover .g-ph{transform:scale(1.06);}
+.g-overlay{position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.8), transparent 55%); display:flex; align-items:flex-end; padding:12px; opacity:0; transition:opacity .3s; font-family:var(--ff-stat); font-size:11.5px; letter-spacing:.06em; color:var(--cyan);}
+.g-item:hover .g-overlay{opacity:1;}
+.lightbox{position:fixed; inset:0; background:rgba(3,4,5,0.95); z-index:300; display:none; align-items:center; justify-content:center; padding:40px;}
+.lightbox.open{display:flex;}
+.lightbox-inner{max-width:560px; width:100%; aspect-ratio:4/5; border-radius:8px; background:linear-gradient(160deg,#1c0d0a,#0a0505); border:1px solid var(--blue); display:flex; align-items:center; justify-content:center; font-family:var(--ff-display); font-weight:700; color:var(--cyan); letter-spacing:.14em; position:relative;}
+.lightbox-close{position:absolute; top:-44px; right:0; font-size:24px; color:var(--cyan);}
+
+/* ---------- Sponsors ---------- */
+.sponsor-track-wrap{overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent);}
+.sponsor-track{display:flex; gap:56px; width:max-content; animation:scrollTrack 26s linear infinite;}
+@keyframes scrollTrack{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.sponsor-slot{width:160px; height:84px; border:1px solid var(--line); border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--dim); font-family:var(--ff-display); font-weight:700; font-size:12px; letter-spacing:.08em; flex-shrink:0; background:rgba(255,255,255,0.015);}
+.sponsor-tiers{display:flex; gap:14px; justify-content:center; margin-top:44px; flex-wrap:wrap;}
+.s-tier{padding:8px 20px; border:1px solid var(--blue-dim); border-radius:30px; font-family:var(--ff-stat); font-weight:600; font-size:11.5px; letter-spacing:.1em; color:var(--cyan);}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{display:flex; justify-content:space-between; align-items:center; padding:22px 4px; font-family:var(--ff-display); font-weight:700; font-size:15.5px; color:var(--white); text-transform:uppercase;}
+.faq-q .plus{font-family:var(--ff-body); font-size:20px; color:var(--blue); transition:transform .35s;}
+.faq-item.open .plus{transform:rotate(135deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.2,.8,.2,1);}
+.faq-a p{padding:0 4px 22px; color:var(--dim); font-size:14px; font-weight:300; max-width:640px;}
+
+/* ---------- Coordinator directory ---------- */
+.coord-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media (max-width:900px){ .coord-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:600px){ .coord-grid{grid-template-columns:1fr;} }
+.coord-card{border:1px solid var(--line); border-radius:6px; padding:18px; background:rgba(255,255,255,0.015);}
+.coord-card .c-event{font-family:var(--ff-stat); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); margin-bottom:8px;}
+.coord-card h4{font-family:var(--ff-display); font-weight:700; font-size:14.5px; margin-bottom:8px; text-transform:uppercase;}
+.coord-card .c-line{font-size:12px; color:var(--dim); display:flex; gap:8px; margin-top:4px;}
+
+/* ---------- Location ---------- */
+.loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center;}
+@media (max-width:900px){ .loc-grid{grid-template-columns:1fr;} }
+.map-frame{border-radius:8px; overflow:hidden; border:1px solid var(--line); aspect-ratio:16/11;}
+.map-frame iframe{width:100%; height:100%; border:0; filter:grayscale(.5) invert(.9) hue-rotate(180deg) contrast(.9);}
+
+/* ---------- Social ---------- */
+.social-row{display:flex; gap:20px; justify-content:center; flex-wrap:wrap;}
+.social-chip{display:flex; align-items:center; gap:10px; padding:15px 26px; border:1px solid var(--line); border-radius:30px; font-family:var(--ff-stat); font-weight:600; letter-spacing:.04em; transition:all .35s;}
+.social-chip:hover{border-color:var(--blue); background:rgba(255,0,51,0.08); transform:translateY(-3px);}
+.social-chip .ic{font-size:18px;}
+
+/* ---------- Footer ---------- */
+footer{position:relative; z-index:2; border-top:1px solid var(--line); padding:64px 0 28px;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px;}
+@media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr; row-gap:32px;} }
+.footer-grid h5{font-family:var(--ff-stat); font-weight:700; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); margin-bottom:16px;}
+.footer-grid a{display:block; font-size:13px; color:var(--dim); margin-bottom:10px; transition:color .3s;}
+.footer-grid a:hover{color:var(--cyan);}
+.footer-bottom{margin-top:54px; padding-top:24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:var(--ff-stat); font-size:11.5px; color:var(--dim);}
+
+.skip-link{position:absolute; left:-999px; top:0; background:var(--blue); color:#1a0000; padding:12px 20px; z-index:999;}
+.skip-link:focus{left:20px; top:20px;}
+:focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<canvas id="bg-canvas"></canvas>
+<div class="bg-static-fallback"></div>
+<div class="grid-floor" id="gridFloor"></div>
+<div class="scan-beam"></div>
+<div class="hud-corner tl"></div><div class="hud-corner tr"></div><div class="hud-corner bl"></div><div class="hud-corner br"></div>
+
+<header class="nav" id="siteNav">
+  <a href="#main" class="logo-mark">PRAVAH<span class="dot">//</span><small>SKIT &middot; 2026</small></a>
+  <nav class="nav-links">
+    <a href="#main">Home</a>
+    <a href="#about">About</a>
+    <a href="#esports">Esports</a>
+    <a href="#sports">Sports</a>
+    <a href="#cultural">Cultural</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#register">Registration</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-cta"><a href="#register" class="btn btn-ghost btn-sm">Register Now</a></div>
+  <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#main">Home</a>
+  <a href="#about">About</a>
+  <a href="#esports">Esports</a>
+  <a href="#sports">Sports</a>
+  <a href="#cultural">Cultural</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#register">Registration</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#register" class="btn btn-primary" style="margin-top:14px;">Register Now</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-organizer">Swami Keshvanand Institute of Technology, Management &amp; Gramothan</div>
+  <h1 class="hero-title">PRAVAH<br><span class="g">2026</span></h1>
+  <div class="hero-tagline">PLAY &middot; COMPETE &middot; CELEBRATE</div>
+  <p class="hero-sub">SKIT's national-level gaming, esports and sports championship — three days of tournaments, live scores and campus-wide competition.</p>
+  <div class="hero-dates"><span>15</span><span class="sep">//</span><span>16</span><span class="sep">//</span><span>17</span><span style="font-family:var(--ff-body); letter-spacing:.06em; font-size:14px; color:var(--dim);">JULY</span></div>
+
+  <div class="countdown" id="countdown">
+    <div class="cd-box"><div class="num" id="cd-days">00</div><div class="lbl">Days</div></div>
+    <div class="cd-box"><div class="num" id="cd-hours">00</div><div class="lbl">Hrs</div></div>
+    <div class="cd-box"><div class="num" id="cd-mins">00</div><div class="lbl">Min</div></div>
+    <div class="cd-box"><div class="num" id="cd-secs">00</div><div class="lbl">Sec</div></div>
+  </div>
+
+  <div class="hero-ctas">
+    <a href="#register" class="btn btn-primary">Register Now</a>
+    <a href="#esports" class="btn btn-ghost">Explore Events</a>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="line"></div></div>
+</section>
+
+<!-- BROADCAST TICKER -->
+<div class="ticker-wrap"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">The Championship</span>
+        <h2 class="section-title">One campus. <em>Every</em> arena.</h2>
+        <p class="section-lede">Pravah 2026 puts esports, sports and cultural competition on the same three-day bracket. From 15–17 July, SKIT and delegations from other colleges compete across digital arenas, playing fields and the main stage — one tournament ecosystem, one campus, one championship.</p>
+        <div class="rule"></div>
+        <p class="section-lede">Queue into a squad, sign up solo, or bring your whole team — every arena has its own venue, coordinator and prize pool, tracked live throughout the festival.</p>
+        <div class="about-pillars">
+          <div class="pillar"><div class="p-icon">🎮</div><h4>Esports</h4><p>BGMI, Valorant &amp; Free Fire squad tournaments.</p></div>
+          <div class="pillar"><div class="p-icon">🏆</div><h4>Sports</h4><p>Ten disciplines from cricket to chess.</p></div>
+          <div class="pillar"><div class="p-icon">🎭</div><h4>Cultural</h4><p>Stage, dance and creative competitions.</p></div>
+          <div class="pillar"><div class="p-icon">🤝</div><h4>Open Entry</h4><p>Welcoming SKIT and other colleges alike.</p></div>
+        </div>
+        <div class="stats-row" id="statsRow">
+          <div class="stat"><div class="stat-num" data-target="3">0</div><div class="stat-lbl">Days</div></div>
+          <div class="stat"><div class="stat-num" data-target="21">0</div><div class="stat-lbl">Events</div></div>
+          <div class="stat"><div class="stat-num" data-target="5000" data-suffix="+">0</div><div class="stat-lbl">Participants</div></div>
+          <div class="stat"><div class="stat-num" data-target="40" data-suffix="+">0</div><div class="stat-lbl">Colleges</div></div>
+          <div class="stat"><div class="stat-num" data-target="250" data-suffix="K+">0</div><div class="stat-lbl">Prize Pool ₹</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="hud-ring-wrap"><div class="hud-ring"></div><div class="hud-ring"></div><div class="hud-ring"></div>
+          <div class="hud-center">PRAVAH<br>CHAMPIONSHIP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED EVENTS -->
+<section id="featured">
+  <div class="wrap">
+    <span class="eyebrow reveal">Featured Events</span>
+    <h2 class="section-title reveal">The <em>marquee</em> match-ups.</h2>
+    <p class="section-lede reveal">Six flagship competitions to watch across the three arenas.</p>
+    <div class="featured-grid reveal" id="featuredGrid"></div>
+  </div>
+</section>
+
+<!-- ESPORTS ARENA -->
+<section id="esports">
+  <div class="wrap">
+    <span class="eyebrow reveal">Esports Arena</span>
+    <h2 class="section-title reveal">Squad up. <em>Queue in.</em></h2>
+    <p class="section-lede reveal">Three tournaments, bracket-style knockouts, live scoreboard tracking.</p>
+    <div class="event-grid reveal" id="esportsGrid"></div>
+  </div>
+</section>
+
+<!-- SPORTS ARENA -->
+<section id="sports">
+  <div class="wrap">
+    <span class="eyebrow reveal">Sports Arena</span>
+    <h2 class="section-title reveal">Ten disciplines. <em class="g">One field.</em></h2>
+    <p class="section-lede reveal">From team sports to precision games — pick your discipline.</p>
+    <div class="cat-tabs reveal" id="sportsTabs">
+      <button class="cat-tab active" data-sport="all">All Sports</button>
+      <button class="cat-tab" data-sport="team">Team Sports</button>
+      <button class="cat-tab" data-sport="individual">Individual Sports</button>
+    </div>
+    <div class="event-grid reveal" id="sportsGrid"></div>
+  </div>
+</section>
+
+<!-- CULTURAL EVENTS -->
+<section id="cultural">
+  <div class="wrap">
+    <span class="eyebrow reveal">Cultural Events</span>
+    <h2 class="section-title reveal">Take the <em>main stage</em>.</h2>
+    <p class="section-lede reveal">Stage, sound and creativity — the competitive spirit off the field.</p>
+    <div class="event-grid reveal" id="culturalGrid"></div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register">
+  <div class="wrap">
+    <span class="eyebrow reveal">Advanced Registration</span>
+    <h2 class="section-title reveal">Enter the <em>bracket</em>.</h2>
+    <p class="section-lede reveal">A guided registration portal — pick individual or team, select your events across all three arenas, and check out with a demo payment.</p>
+
+    <div class="reg-tiers reveal">
+      <div class="tier-card"><div class="tier-range">₹200–250</div><h3>Team Events</h3><p>Esports squads, team sports and group cultural acts — priced per team.</p></div>
+      <div class="tier-card"><div class="tier-range">₹50–70</div><h3>Individual Events</h3><p>Solo sports, solo stage acts and individual competitions — priced per participant.</p></div>
+    </div>
+
+    <div class="reg-form-panel reveal">
+      <div class="reg-steps" id="regSteps">
+        <div class="reg-step-dot active" data-step="1"><span>1</span>Welcome</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step-dot" data-step="2"><span>2</span>Type</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step-dot" data-step="3"><span>3</span>Events</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step-dot" data-step="4"><span>4</span>Details</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step-dot" data-step="5"><span>5</span>Payment</div>
+        <div class="reg-step-line"></div>
+        <div class="reg-step-dot" data-step="6"><span>6</span>Done</div>
+      </div>
+
+      <form id="regForm">
+
+        <!-- STEP 1 -->
+        <div class="reg-panel active" data-panel="1">
+          <h3 class="step-h">Register for Pravah 2026</h3>
+          <p class="step-p">Twenty-one events across esports, sports and cultural arenas. Registration takes under two minutes.</p>
+          <div class="welcome-grid">
+            <div class="w-item"><b>15–17 July</b><span>Championship dates</span></div>
+            <div class="w-item"><b>21</b><span>Events to enter</span></div>
+            <div class="w-item"><b>Open</b><span>To SKIT &amp; other colleges</span></div>
+            <div class="w-item"><b>Certificates</b><span>For every finalist</span></div>
+          </div>
+          <button type="button" class="btn btn-primary" data-next="2" style="margin-top:28px;">Start Registration</button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="reg-panel" data-panel="2">
+          <h3 class="step-h">Individual or team?</h3>
+          <p class="step-p">This decides which events you'll see next.</p>
+          <div class="type-cards" id="typeCards">
+            <button type="button" class="type-card" data-type="individual">
+              <div class="tc-icon">🧍</div><h4>Individual</h4>
+              <p>Solo sports, solo stage acts and single-player competitions.</p>
+              <div class="tc-fee">₹50 – ₹70 / event</div>
+            </button>
+            <button type="button" class="type-card" data-type="team">
+              <div class="tc-icon">👥</div><h4>Team</h4>
+              <p>Esports squads, team sports and group cultural events.</p>
+              <div class="tc-fee">₹200 – ₹250 / team</div>
+            </button>
+          </div>
+          <div style="display:flex; gap:16px; margin-top:28px;">
+            <button type="button" class="btn btn-ghost" data-back="1">Back</button>
+            <button type="button" class="btn btn-primary" data-next="3" id="toStep3Btn" disabled>Continue to Events</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="reg-panel" data-panel="3">
+          <h3 class="step-h">Select your events</h3>
+          <p class="step-p">Filter by arena, choose one or more — the total updates live.</p>
+          <div class="es-cat-tabs" id="esCatTabs"></div>
+          <div class="event-select-list" id="eventSelectList"></div>
+          <div class="reg-summary">
+            <span>Selected: <b id="selCount">0</b></span>
+            <span>Running total: <b id="selTotal">₹0</b></span>
+          </div>
+          <div style="display:flex; gap:16px; margin-top:24px;">
+            <button type="button" class="btn btn-ghost" data-back="2">Back</button>
+            <button type="button" class="btn btn-primary" data-next="4" id="toStep4Btn" disabled>Continue to Details</button>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="reg-panel" data-panel="4">
+          <h3 class="step-h">Participant information</h3>
+          <p class="step-p">We'll use this to confirm your entry and send your registration ID.</p>
+          <div class="reg-form-grid">
+            <div class="field"><label for="regName">Full name</label><input id="regName" type="text" placeholder="As per college ID" required></div>
+            <div class="field"><label for="regEmail">Email address</label><input id="regEmail" type="email" placeholder="you@example.com" required></div>
+            <div class="field"><label for="regPhone">Mobile number</label><input id="regPhone" type="tel" placeholder="10-digit mobile number" required></div>
+            <div class="field"><label for="regCollege">College name</label><input id="regCollege" type="text" placeholder="Your institute name" required></div>
+            <div class="field"><label for="regCourse">Course</label><input id="regCourse" type="text" placeholder="e.g. B.Tech CSE"></div>
+            <div class="field"><label for="regYear">Year / Semester</label><input id="regYear" type="text" placeholder="e.g. 3rd Year / Sem 5"></div>
+          </div>
+
+          <div id="teamFieldsBlock" class="team-fields-block" hidden>
+            <div class="rule" style="margin:24px 0 14px;"></div>
+            <span class="eyebrow" style="margin-bottom:10px;">Team Details</span>
+            <div class="reg-form-grid">
+              <div class="field"><label for="regTeamName">Team name</label><input id="regTeamName" type="text" placeholder="Your team's name"></div>
+              <div class="field"><label for="regTeamCaptain">Team captain</label><input id="regTeamCaptain" type="text" placeholder="Captain's full name"></div>
+              <div class="field" style="grid-column:1 / -1;"><label for="regTeamMembers">Member details</label><input id="regTeamMembers" type="text" placeholder="Names, roll numbers — comma separated"></div>
+            </div>
+          </div>
+
+          <div class="rule" style="margin:24px 0 14px;"></div>
+          <span class="eyebrow" style="margin-bottom:10px;">Uploads &amp; Notes</span>
+          <div class="reg-form-grid">
+            <div class="field"><label for="regIdUpload">Upload college ID</label><input id="regIdUpload" type="file" accept="image/*,.pdf"></div>
+            <div class="field"><label for="regPhotoUpload">Upload profile photo</label><input id="regPhotoUpload" type="file" accept="image/*"></div>
+            <div class="field" style="grid-column:1 / -1;"><label for="regNotes">Special requirements <span style="opacity:.6;">(optional)</span></label><input id="regNotes" type="text" placeholder="Accessibility needs, equipment requests, etc."></div>
+          </div>
+
+          <div style="display:flex; gap:16px; margin-top:28px;">
+            <button type="button" class="btn btn-ghost" data-back="3">Back</button>
+            <button type="button" class="btn btn-primary" data-next="5" id="toStep5Btn">Continue to Payment</button>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="reg-panel" data-panel="5">
+          <h3 class="step-h">Payment</h3>
+          <p class="step-p">This is a demo checkout — no real payment is processed on this preview site.</p>
+          <div class="payment-summary" id="paymentSummary"></div>
+          <div class="payment-methods" id="paymentMethods">
+            <button type="button" class="pm-card active" data-method="upi"><div class="pm-icon">📲</div><h4>UPI</h4><p>Pay via any UPI app</p></button>
+            <button type="button" class="pm-card" data-method="qr"><div class="pm-icon">▦</div><h4>Scan QR</h4><p>Scan &amp; pay instantly</p></button>
+            <button type="button" class="pm-card" data-method="gateway"><div class="pm-icon">💳</div><h4>Card / Netbanking</h4><p>Secure payment gateway</p></button>
+          </div>
+          <div class="pm-detail" id="pmDetailUpi"><div class="field"><label for="regUpiId">UPI ID</label><input id="regUpiId" type="text" placeholder="yourname@upi"></div></div>
+          <div class="pm-detail" id="pmDetailQr" hidden><div class="qr-box" aria-hidden="true"></div><p class="qr-note">Scan with any UPI app to pay <b id="qrAmount">₹0</b></p></div>
+          <div class="pm-detail" id="pmDetailGateway" hidden><p class="qr-note">You'll be redirected to a secure payment gateway on launch — this preview simulates a successful payment.</p></div>
+          <div style="display:flex; gap:16px; margin-top:28px;">
+            <button type="button" class="btn btn-ghost" data-back="4">Back</button>
+            <button type="submit" class="btn btn-primary">Complete Payment</button>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="reg-panel" data-panel="6">
+          <div class="confirm-box">
+            <div class="confirm-check">✓</div>
+            <h3 class="step-h">Registration Successful!</h3>
+            <p class="step-p">A confirmation email will be sent once the live registration desk goes live.</p>
+            <div class="confirm-grid" id="confirmGrid"></div>
+            <div class="confirm-actions">
+              <button type="button" class="btn btn-ghost" id="downloadReceiptBtn">Download Receipt</button>
+              <a href="#schedule" class="btn btn-ghost">View Schedule</a>
+              <button type="button" class="btn btn-primary" id="viewDashboardBtn">View Dashboard</button>
+            </div>
+          </div>
+          <div class="dashboard-panel" id="dashboardPanel" hidden>
+            <div class="rule" style="margin:32px 0 18px;"></div>
+            <span class="eyebrow">Participant Dashboard</span>
+            <h4 style="font-family:var(--ff-display); font-weight:700; font-size:18px; margin:10px 0 20px; text-transform:uppercase;">Your Pravah Overview</h4>
+            <div class="dash-grid" id="dashGrid"></div>
+            <button type="button" class="btn btn-ghost btn-sm" id="newRegBtn" style="margin-top:22px;">Register for Another Event</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE SCHEDULE -->
+<section id="schedule">
+  <div class="wrap">
+    <span class="eyebrow reveal">Live Schedule</span>
+    <h2 class="section-title reveal">The <em>run of show</em>.</h2>
+    <p class="section-lede reveal">Each day builds toward its evening finals. Tap a day to see the full timeline.</p>
+    <div class="day-tabs reveal" id="dayTabs">
+      <button class="day-tab active" data-day="1"><div class="d-num">Day 01</div><div class="d-date">15 July</div></button>
+      <button class="day-tab" data-day="2"><div class="d-num">Day 02</div><div class="d-date">16 July</div></button>
+      <button class="day-tab" data-day="3"><div class="d-num">Day 03</div><div class="d-date">17 July</div></button>
+    </div>
+    <div id="dayPanels" class="reveal"></div>
+  </div>
+</section>
+
+<!-- PRIZE POOL -->
+<section id="prizes">
+  <div class="wrap">
+    <span class="eyebrow reveal">Event-wise Prize Pools</span>
+    <h2 class="section-title reveal">Compete for <em>more</em>.</h2>
+    <p class="section-lede reveal">Every event carries its own prize purse, winner and runner-up rewards, plus participation certificates.</p>
+    <div class="prize-grid reveal" id="prizeGrid"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <span class="eyebrow reveal">Gallery</span>
+    <h2 class="section-title reveal">Moments from the <em>arena</em>.</h2>
+    <p class="section-lede reveal">A first look from past editions — match points, finals and crowd energy.</p>
+    <div class="masonry reveal" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="wrap">
+    <span class="eyebrow reveal">Partners</span>
+    <h2 class="section-title reveal">Backed by <em>brands</em> we're proud of.</h2>
+  </div>
+  <div class="sponsor-track-wrap reveal" style="margin-top:28px;"><div class="sponsor-track" id="sponsorTrack"></div></div>
+  <div class="wrap">
+    <div class="sponsor-tiers reveal">
+      <span class="s-tier">Title Sponsor — Slot Open</span>
+      <span class="s-tier">Gaming Partner — Slot Open</span>
+      <span class="s-tier">Sports Partner — Slot Open</span>
+      <span class="s-tier">F&amp;B Partner — Slot Open</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap" style="max-width:900px;">
+    <span class="eyebrow reveal">Good to Know</span>
+    <h2 class="section-title reveal">Frequently asked <em>questions</em>.</h2>
+    <div id="faqList" class="reveal"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Coordinator Directory</span>
+    <h2 class="section-title reveal">Talk to the <em>team</em>.</h2>
+    <p class="section-lede reveal">Every event has a dedicated coordinator for rules, schedules and on-ground queries.</p>
+    <div class="coord-grid reveal" id="coordGrid"></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div class="reveal">
+        <span class="eyebrow">Opening Ceremony</span>
+        <h2 class="section-title">Gyan Mandir <em>Auditorium</em></h2>
+        <p class="section-lede">SKIT Campus, Jagatpura, Jaipur, Rajasthan. The opening ceremony kicks off Day 1 — arrive early, seating is first-come.</p>
+        <div class="rule"></div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Swami+Keshvanand+Institute+of+Technology+Management+and+Gramothan+Jaipur" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+      </div>
+      <div class="map-frame reveal">
+        <iframe loading="lazy" title="SKIT Campus Map" src="https://www.google.com/maps?q=Swami+Keshvanand+Institute+of+Technology+Management+and+Gramothan+Jaipur&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center; display:flex;">Follow Along</span>
+    <h2 class="section-title reveal" style="text-align:center;">Stay in the <em>game</em>.</h2>
+    <div class="social-row reveal">
+      <a href="#" class="social-chip"><span class="ic">📸</span> Instagram</a>
+      <a href="#" class="social-chip"><span class="ic">👥</span> Facebook</a>
+      <a href="#" class="social-chip"><span class="ic">💼</span> LinkedIn</a>
+      <a href="#" class="social-chip"><span class="ic">▶️</span> YouTube</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#main" class="logo-mark" style="margin-bottom:14px; display:inline-flex;">PRAVAH<span class="dot">//</span></a>
+        <p style="font-size:13px; color:var(--dim); max-width:280px; margin-top:6px;">Swami Keshvanand Institute of Technology, Management &amp; Gramothan &middot; 15–17 July 2026</p>
+      </div>
+      <div><h5>Quick Links</h5><a href="#esports">Esports</a><a href="#sports">Sports</a><a href="#register">Register</a><a href="#faq">FAQ</a></div>
+      <div><h5>Championship</h5><a href="#about">About Pravah</a><a href="#gallery">Gallery</a><a href="#sponsors">Sponsors</a><a href="#contact">Coordinators</a></div>
+      <div><h5>Follow</h5><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">LinkedIn</a><a href="#">YouTube</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Pravah, SKIT. All rights reserved.</span>
+      <span>Play. Compete. Celebrate.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><div class="lightbox-inner" id="lightboxInner"><button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button></div></div>
+<div class="toast" id="toast">Registration received.</div>
+
+<script>
+/* ============================================================
+   DATA — esports, sports, cultural
+   ============================================================ */
+const EVENTS = [
+  /* ESPORTS — all team */
+  {id:'bgmi', domain:'esports', group:'team', cat:'esports', icon:'🎮', name:'BGMI Tournament', type:'Squad (4)',
+    desc:'Classic squad format, points + chicken dinners decide it.',
+    fee:200, prize:'₹15,000', venue:'Gaming Arena, CS Block', coord:{name:'Coordinator TBA', phone:'To be announced', email:'bgmi.pravah@skit.ac.in'}},
+  {id:'valorant', domain:'esports', group:'team', cat:'esports', icon:'💻', name:'Valorant Tournament', type:'Team (5)',
+    desc:'Bracket-style knockout on standard competitive maps.',
+    fee:220, prize:'₹15,000', venue:'Gaming Arena, CS Block', coord:{name:'Coordinator TBA', phone:'To be announced', email:'valorant.pravah@skit.ac.in'}},
+  {id:'freefire', domain:'esports', group:'team', cat:'esports', icon:'🔥', name:'Free Fire Tournament', type:'Squad (4)',
+    desc:'Fast-paced squad battles across multiple rounds.',
+    fee:200, prize:'₹12,000', venue:'Gaming Arena, CS Block', coord:{name:'Coordinator TBA', phone:'To be announced', email:'freefire.pravah@skit.ac.in'}},
+
+  /* SPORTS — mixed team/individual */
+  {id:'cricket', domain:'sports', group:'team', cat:'team', icon:'🏏', name:'Cricket', type:'Team (11)',
+    desc:'Knockout T10 format across the group stage and finals.',
+    fee:250, prize:'₹20,000', venue:'SKIT Cricket Ground', coord:{name:'Coordinator TBA', phone:'To be announced', email:'cricket.pravah@skit.ac.in'}},
+  {id:'football', domain:'sports', group:'team', cat:'team', icon:'⚽', name:'Football', type:'Team (11)',
+    desc:'Seven-a-side group stage, eleven-a-side finals.',
+    fee:250, prize:'₹20,000', venue:'SKIT Football Ground', coord:{name:'Coordinator TBA', phone:'To be announced', email:'football.pravah@skit.ac.in'}},
+  {id:'volleyball', domain:'sports', group:'team', cat:'team', icon:'🏐', name:'Volleyball', type:'Team (6)',
+    desc:'Best-of-three sets, straight knockout bracket.',
+    fee:220, prize:'₹12,000', venue:'SKIT Volleyball Court', coord:{name:'Coordinator TBA', phone:'To be announced', email:'volleyball.pravah@skit.ac.in'}},
+  {id:'basketball', domain:'sports', group:'team', cat:'team', icon:'🏀', name:'Basketball', type:'Team (5)',
+    desc:'Fast-break 5-on-5, group stage into knockouts.',
+    fee:220, prize:'₹12,000', venue:'SKIT Basketball Court', coord:{name:'Coordinator TBA', phone:'To be announced', email:'basketball.pravah@skit.ac.in'}},
+  {id:'kabaddi', domain:'sports', group:'team', cat:'team', icon:'🤼', name:'Kabaddi', type:'Team (7)',
+    desc:'Raids, tackles and all-out attack — classic 7-a-side.',
+    fee:240, prize:'₹14,000', venue:'SKIT Kabaddi Court', coord:{name:'Coordinator TBA', phone:'To be announced', email:'kabaddi.pravah@skit.ac.in'}},
+  {id:'badminton', domain:'sports', group:'individual', cat:'individual', icon:'🏸', name:'Badminton', type:'Singles',
+    desc:'Best-of-three straight knockout, singles format.',
+    fee:70, prize:'₹6,000', venue:'SKIT Indoor Sports Complex', coord:{name:'Coordinator TBA', phone:'To be announced', email:'badminton.pravah@skit.ac.in'}},
+  {id:'tabletennis', domain:'sports', group:'individual', cat:'individual', icon:'🏓', name:'Table Tennis', type:'Singles',
+    desc:'Fast-paced singles knockout across group tables.',
+    fee:60, prize:'₹5,000', venue:'SKIT Indoor Sports Complex', coord:{name:'Coordinator TBA', phone:'To be announced', email:'tt.pravah@skit.ac.in'}},
+  {id:'athletics', domain:'sports', group:'individual', cat:'individual', icon:'🏃', name:'Athletics', type:'Individual',
+    desc:'Track events — 100m, 200m and 4x100m relay heats.',
+    fee:50, prize:'₹6,000', venue:'SKIT Athletics Track', coord:{name:'Coordinator TBA', phone:'To be announced', email:'athletics.pravah@skit.ac.in'}},
+  {id:'chess', domain:'sports', group:'individual', cat:'individual', icon:'♟️', name:'Chess', type:'Individual',
+    desc:'Swiss-format rapid chess, five rounds.',
+    fee:50, prize:'₹4,000', venue:'Seminar Hall 2, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'chess.pravah@skit.ac.in'}},
+  {id:'carrom', domain:'sports', group:'individual', cat:'individual', icon:'🔘', name:'Carrom', type:'Individual',
+    desc:'Singles knockout, straight-elimination format.',
+    fee:50, prize:'₹4,000', venue:'Seminar Hall 2, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'carrom.pravah@skit.ac.in'}},
+
+  /* CULTURAL — mixed team/individual */
+  {id:'standup', domain:'cultural', group:'individual', cat:'cultural', icon:'🎤', name:'Stand-up Comedy', type:'Individual',
+    desc:'Five minutes on the mic. Make the room lose it.',
+    fee:60, prize:'₹6,000', venue:'Seminar Hall 1, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'standup.pravah@skit.ac.in'}},
+  {id:'treasure', domain:'cultural', group:'team', cat:'cultural', icon:'🗺️', name:'Treasure Hunt', type:'Team (2–4)',
+    desc:'Clues across campus. First team to the final marker wins.',
+    fee:220, prize:'₹10,000', venue:'Central Lawn, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'treasurehunt.pravah@skit.ac.in'}},
+  {id:'facepaint', domain:'cultural', group:'individual', cat:'cultural', icon:'🎨', name:'Face Painting', type:'Individual',
+    desc:'One canvas, one face, ninety minutes to impress the judges.',
+    fee:50, prize:'₹4,000', venue:'Art Court, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'facepaint.pravah@skit.ac.in'}},
+  {id:'solodance', domain:'cultural', group:'individual', cat:'cultural', icon:'💃', name:'Solo Dance', type:'Individual',
+    desc:'Any style, any story — the stage is yours for 3 minutes.',
+    fee:70, prize:'₹8,000', venue:'Open Air Theatre, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'solodance.pravah@skit.ac.in'}},
+  {id:'groupdance', domain:'cultural', group:'team', cat:'cultural', icon:'👯', name:'Group Dance', type:'Team (6–12)',
+    desc:'Formation, sync and energy — bring the full crew.',
+    fee:250, prize:'₹18,000', venue:'Open Air Theatre, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'groupdance.pravah@skit.ac.in'}},
+  {id:'singing', domain:'cultural', group:'individual', cat:'cultural', icon:'🎵', name:'Singing Competition', type:'Individual',
+    desc:'One song, live accompaniment optional, all genres welcome.',
+    fee:60, prize:'₹7,000', venue:'Gyan Mandir Auditorium, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'singing.pravah@skit.ac.in'}},
+  {id:'bob', domain:'cultural', group:'team', cat:'cultural', icon:'🎸', name:'Battle of Bands', type:'Team (3–7)',
+    desc:'Original or covers — plug in and take the main stage.',
+    fee:240, prize:'₹20,000', venue:'Open Air Theatre, SKIT', coord:{name:'Coordinator TBA', phone:'To be announced', email:'bob.pravah@skit.ac.in'}},
+  {id:'photo', domain:'cultural', group:'individual', cat:'cultural', icon:'📸', name:'Photography', type:'Individual',
+    desc:'Capture Pravah as it happens — theme announced on Day 1.',
+    fee:50, prize:'₹5,000', venue:'Campus-wide', coord:{name:'Coordinator TBA', phone:'To be announced', email:'photo.pravah@skit.ac.in'}},
+];
+
+const FEATURED_IDS = ['bgmi','valorant','cricket','football','bob','kabaddi'];
+
+const SCHEDULE = {
+  1:[
+    {time:'9:00 AM', title:'Registration Desk Opens', venue:'Main Gate, SKIT Campus'},
+    {time:'11:00 AM', title:'Opening Ceremony', venue:'Gyan Mandir Auditorium'},
+    {time:'1:00 PM', title:'Cricket — Group Stage', venue:'SKIT Cricket Ground'},
+    {time:'2:00 PM', title:'BGMI Tournament — Qualifiers', venue:'Gaming Arena, CS Block'},
+    {time:'4:00 PM', title:'Chess — Round 1–3', venue:'Seminar Hall 2'},
+    {time:'6:30 PM', title:'Solo Dance', venue:'Open Air Theatre'},
+  ],
+  2:[
+    {time:'10:00 AM', title:'Valorant Tournament', venue:'Gaming Arena, CS Block'},
+    {time:'11:00 AM', title:'Football — Group Stage', venue:'SKIT Football Ground'},
+    {time:'1:00 PM', title:'Basketball &amp; Volleyball', venue:'SKIT Courts'},
+    {time:'3:00 PM', title:'Group Dance', venue:'Open Air Theatre'},
+    {time:'5:00 PM', title:'Badminton &amp; Table Tennis Finals', venue:'SKIT Indoor Sports Complex'},
+    {time:'8:00 PM', title:'Battle of Bands', venue:'Open Air Theatre'},
+  ],
+  3:[
+    {time:'10:00 AM', title:'Free Fire Tournament', venue:'Gaming Arena, CS Block'},
+    {time:'11:00 AM', title:'Kabaddi Finals', venue:'SKIT Kabaddi Court'},
+    {time:'1:00 PM', title:'Cricket &amp; Football Finals', venue:'SKIT Grounds'},
+    {time:'4:00 PM', title:'Athletics — Track Finals', venue:'SKIT Athletics Track'},
+    {time:'6:00 PM', title:'Closing Ceremony &amp; Prize Distribution', venue:'Gyan Mandir Auditorium'},
+  ],
+};
+
+const FAQS = [
+  {q:'Who can participate?', a:'Pravah is open to all SKIT students as well as students from other colleges, across the esports, sports and cultural arenas.'},
+  {q:'How can I register?', a:'Use the Register Now button to jump to the registration portal — choose individual or team, select your events, and check out through the guided steps.'},
+  {q:'What are the registration fees?', a:'Team events range from ₹200–₹250 and individual events range from ₹50–₹70. Exact fees for each event are shown on its event card and in the registration form.'},
+  {q:'Are outside colleges allowed?', a:'Yes — Pravah welcomes delegations from other institutes across every arena: esports, sports and cultural.'},
+  {q:'What is the payment process?', a:'The registration portal supports UPI, QR-code payments and card/netbanking through a payment gateway. This preview site simulates checkout — live payments go live closer to the event.'},
+  {q:'Where are events conducted?', a:'Across the SKIT campus — esports in the Gaming Arena (CS Block), sports across dedicated grounds and courts, and cultural events at the Open Air Theatre and Gyan Mandir Auditorium. Each event card lists its exact venue.'},
+];
+
+const GALLERY_H = [260,340,220,300,380,240,320,260,300,240,360,220];
+
+/* ============================================================
+   RENDERERS
+   ============================================================ */
+function money(n){ return '₹'+n; }
+
+function eventCardHTML(e){
+  return `
+    <div class="event-card">
+      <div class="card-inner">
+        <div class="card-top"><span class="card-icon">${e.icon}</span><span class="card-type">${e.type}</span></div>
+        <div class="card-name">${e.name}</div>
+        <div class="card-desc">${e.desc}</div>
+        <div class="card-meta">
+          <div><span>Fee</span><b>${money(e.fee)}</b></div>
+          <div><span>Prize Pool</span><b>${e.prize}</b></div>
+          <div><span>Venue</span><b>${e.venue}</b></div>
+          <div><span>Coordinator</span><b>${e.coord.name}</b></div>
+        </div>
+        <button class="card-cta" data-reg="${e.id}">Register for This Event</button>
+      </div>
+    </div>`;
+}
+function wireRegisterButtons(root){
+  root.querySelectorAll('[data-reg]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const ev = EVENTS.find(x=>x.id===btn.dataset.reg);
+      regState.type = ev.group;
+      regState.selectedIds = [ev.id];
+      document.querySelectorAll('.type-card').forEach(c=>c.classList.toggle('selected', c.dataset.type===ev.group));
+      document.getElementById('toStep3Btn').disabled = false;
+      goToStep(3);
+    });
+  });
+}
+
+/* Featured */
+document.getElementById('featuredGrid').innerHTML = FEATURED_IDS.map(id=>{
+  const e = EVENTS.find(x=>x.id===id);
+  return `
+  <div class="feat-card">
+    <div class="feat-tag">${e.domain}</div>
+    <div class="feat-icon">${e.icon}</div>
+    <div class="feat-name">${e.name}</div>
+    <div class="feat-desc">${e.desc}</div>
+    <div class="feat-prize">Prize Pool ${e.prize}</div>
+  </div>`;
+}).join('');
+
+/* Esports grid (no filter needed, only 3) */
+document.getElementById('esportsGrid').innerHTML = EVENTS.filter(e=>e.domain==='esports').map(eventCardHTML).join('');
+wireRegisterButtons(document.getElementById('esportsGrid'));
+
+/* Sports grid with team/individual filter */
+function renderSports(filter){
+  const list = EVENTS.filter(e=>e.domain==='sports' && (filter==='all' || e.group===filter));
+  const grid = document.getElementById('sportsGrid');
+  grid.innerHTML = list.map(eventCardHTML).join('');
+  wireRegisterButtons(grid);
+}
+document.getElementById('sportsTabs').addEventListener('click', (e)=>{
+  const tab = e.target.closest('.cat-tab');
+  if(!tab) return;
+  document.querySelectorAll('#sportsTabs .cat-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  renderSports(tab.dataset.sport);
+});
+renderSports('all');
+
+/* Cultural grid */
+document.getElementById('culturalGrid').innerHTML = EVENTS.filter(e=>e.domain==='cultural').map(eventCardHTML).join('');
+wireRegisterButtons(document.getElementById('culturalGrid'));
+
+/* Broadcast ticker */
+const tickerItems = EVENTS.map(e=>`<div class="tick-item"><span class="tick-live">●</span><b>${e.name}</b> — ${e.venue}</div>`);
+document.getElementById('tickerTrack').innerHTML = tickerItems.concat(tickerItems).join('');
+
+/* ============================================================
+   ANIMATED STATS
+   ============================================================ */
+(function initStats(){
+  const statsRow = document.getElementById('statsRow');
+  if(!statsRow) return;
+  const nums = statsRow.querySelectorAll('.stat-num');
+  let done = false;
+  function animate(){
+    if(done) return; done = true;
+    nums.forEach(el=>{
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400;
+      const start = performance.now();
+      function step(now){
+        const p = Math.min((now-start)/dur, 1);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.round(eased*target) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  const statsIO = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ animate(); statsIO.unobserve(en.target); } });
+  }, {threshold:0.4});
+  statsIO.observe(statsRow);
+})();
+
+/* ============================================================
+   ADVANCED REGISTRATION SYSTEM — state + step engine
+   ============================================================ */
+const regState = { type:null, selectedIds:[], personal:{}, team:{}, payment:{method:'upi'}, regId:null, total:0 };
+const regForm = document.getElementById('regForm');
+const stepDots = document.querySelectorAll('.reg-step-dot');
+
+function goToStep(step){
+  document.querySelectorAll('.reg-panel').forEach(p=> p.classList.toggle('active', p.dataset.panel===String(step)));
+  stepDots.forEach(d=>{
+    const n = parseInt(d.dataset.step,10);
+    d.classList.toggle('active', n===step);
+    d.classList.toggle('done', n<step);
+  });
+  if(step===3) renderEventSelect('all');
+  if(step===5) renderPaymentSummary();
+  if(step===6) renderConfirmation();
+  document.getElementById('register').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* Step 2 */
+document.getElementById('typeCards').addEventListener('click', (e)=>{
+  const card = e.target.closest('.type-card');
+  if(!card) return;
+  document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('selected'));
+  card.classList.add('selected');
+  regState.type = card.dataset.type;
+  regState.selectedIds = [];
+  document.getElementById('toStep3Btn').disabled = false;
+});
+
+/* Step 3 */
+function eventsForType(){ return EVENTS.filter(e=>e.group===regState.type); }
+function renderEsCatTabs(){
+  const domains = [...new Set(eventsForType().map(e=>e.domain))];
+  const tabsEl = document.getElementById('esCatTabs');
+  if(domains.length <= 1){ tabsEl.innerHTML = ''; return; }
+  tabsEl.innerHTML = `<button type="button" class="es-cat-tab active" data-esc="all">All</button>` +
+    domains.map(d=>`<button type="button" class="es-cat-tab" data-esc="${d}">${d.charAt(0).toUpperCase()+d.slice(1)}</button>`).join('');
+}
+function renderEventSelect(filterDomain){
+  renderEsCatTabs();
+  const list = eventsForType().filter(e=> filterDomain==='all' || e.domain===filterDomain);
+  document.getElementById('eventSelectList').innerHTML = list.map(e=>{
+    const checked = regState.selectedIds.includes(e.id);
+    return `
+    <div class="es-item ${checked?'checked':''}" data-es="${e.id}">
+      <div class="es-checkbox">${checked?'✓':''}</div>
+      <div class="es-icon">${e.icon}</div>
+      <div class="es-info"><div class="es-name">${e.name}</div><div class="es-sub">${e.venue}</div></div>
+      <div class="es-fee">${money(e.fee)}</div>
+    </div>`;
+  }).join('');
+  updateSelectionSummary();
+}
+document.getElementById('esCatTabs').addEventListener('click', (e)=>{
+  const tab = e.target.closest('.es-cat-tab');
+  if(!tab) return;
+  document.querySelectorAll('.es-cat-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  renderEventSelect(tab.dataset.esc);
+});
+document.getElementById('eventSelectList').addEventListener('click', (e)=>{
+  const item = e.target.closest('.es-item');
+  if(!item) return;
+  const id = item.dataset.es;
+  const idx = regState.selectedIds.indexOf(id);
+  if(idx>-1) regState.selectedIds.splice(idx,1); else regState.selectedIds.push(id);
+  item.classList.toggle('checked');
+  item.querySelector('.es-checkbox').textContent = item.classList.contains('checked') ? '✓' : '';
+  updateSelectionSummary();
+});
+function computeTotal(){
+  return regState.selectedIds.reduce((sum,id)=>{
+    const ev = EVENTS.find(e=>e.id===id);
+    return sum + (ev ? ev.fee : 0);
+  }, 0);
+}
+function updateSelectionSummary(){
+  regState.total = computeTotal();
+  document.getElementById('selCount').textContent = regState.selectedIds.length;
+  document.getElementById('selTotal').textContent = '₹'+regState.total;
+  document.getElementById('toStep4Btn').disabled = regState.selectedIds.length===0;
+}
+
+/* Step 4 */
+const teamBlock = document.getElementById('teamFieldsBlock');
+function refreshTeamBlockVisibility(){ teamBlock.hidden = regState.type !== 'team'; }
+
+/* Step 5 */
+document.getElementById('paymentMethods').addEventListener('click', (e)=>{
+  const card = e.target.closest('.pm-card');
+  if(!card) return;
+  document.querySelectorAll('.pm-card').forEach(c=>c.classList.remove('active'));
+  card.classList.add('active');
+  regState.payment.method = card.dataset.method;
+  document.getElementById('pmDetailUpi').hidden = card.dataset.method!=='upi';
+  document.getElementById('pmDetailQr').hidden = card.dataset.method!=='qr';
+  document.getElementById('pmDetailGateway').hidden = card.dataset.method!=='gateway';
+});
+function renderPaymentSummary(){
+  const rows = regState.selectedIds.map(id=>{
+    const ev = EVENTS.find(e=>e.id===id);
+    return `<div class="ps-row"><span>${ev.icon} ${ev.name}</span><span>${money(ev.fee)}</span></div>`;
+  }).join('');
+  document.getElementById('paymentSummary').innerHTML = rows + `<div class="ps-row total"><span>Total Payable</span><span>₹${regState.total}</span></div>`;
+  document.getElementById('qrAmount').textContent = '₹'+regState.total;
+}
+
+/* Step 6 */
+function makeRegId(){ return 'PRV26-'+Math.random().toString(36).slice(2,7).toUpperCase(); }
+function renderConfirmation(){
+  if(!regState.regId) regState.regId = makeRegId();
+  const eventNames = regState.selectedIds.map(id=>EVENTS.find(e=>e.id===id).name).join(', ');
+  document.getElementById('confirmGrid').innerHTML = `
+    <div><span>Registration ID</span><b>${regState.regId}</b></div>
+    <div><span>Participant</span><b>${regState.personal.name || '—'}</b></div>
+    <div><span>Events</span><b>${eventNames}</b></div>
+    <div><span>Amount Paid</span><b>₹${regState.total} (Demo)</b></div>
+    <div><span>Payment Status</span><b>Confirmed</b></div>
+    <div><span>Payment Method</span><b>${regState.payment.method.toUpperCase()}</b></div>
+  `;
+}
+document.getElementById('downloadReceiptBtn').addEventListener('click', ()=>{
+  const lines = [
+    'PRAVAH 2026 — REGISTRATION RECEIPT',
+    '-----------------------------------',
+    'Registration ID: '+regState.regId,
+    'Participant: '+(regState.personal.name||'—'),
+    'College: '+(regState.personal.college||'—'),
+    'Email: '+(regState.personal.email||'—'),
+    'Phone: '+(regState.personal.phone||'—'),
+    'Participant Type: '+regState.type,
+    'Events: '+regState.selectedIds.map(id=>EVENTS.find(e=>e.id===id).name).join(', '),
+    'Amount Paid: ₹'+regState.total+' (Demo — no real payment processed)',
+    'Payment Method: '+regState.payment.method.toUpperCase(),
+    'Issued: '+new Date().toLocaleString(),
+  ];
+  const blob = new Blob([lines.join('\n')], {type:'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = regState.regId+'-receipt.txt';
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+});
+document.getElementById('viewDashboardBtn').addEventListener('click', ()=>{
+  const panel = document.getElementById('dashboardPanel');
+  panel.hidden = !panel.hidden;
+  if(!panel.hidden){
+    const eventNames = regState.selectedIds.map(id=>EVENTS.find(e=>e.id===id).name).join(', ');
+    document.getElementById('dashGrid').innerHTML = `
+      <div class="dash-card"><span>Status</span><b>Confirmed</b></div>
+      <div class="dash-card"><span>Registration ID</span><b>${regState.regId}</b></div>
+      <div class="dash-card"><span>Registered Events</span><b>${eventNames}</b></div>
+      <div class="dash-card"><span>Payment</span><b>₹${regState.total} — ${regState.payment.method.toUpperCase()}</b></div>
+      <div class="dash-card"><span>Championship Dates</span><b>15–17 July 2026</b></div>
+      <div class="dash-card"><span>Announcements</span><b>None yet — check back soon</b></div>
+    `;
+  }
+});
+document.getElementById('newRegBtn').addEventListener('click', ()=>{
+  regState.type = null; regState.selectedIds = []; regState.regId = null;
+  document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('toStep3Btn').disabled = true;
+  document.getElementById('dashboardPanel').hidden = true;
+  regForm.reset();
+  goToStep(1);
+});
+
+regForm.addEventListener('click', (e)=>{
+  const nextBtn = e.target.closest('[data-next]');
+  const backBtn = e.target.closest('[data-back]');
+  if(nextBtn){
+    const targetStep = parseInt(nextBtn.dataset.next,10);
+    const panel = nextBtn.closest('.reg-panel');
+    const requiredFields = panel.querySelectorAll('input[required], select[required]');
+    for(const f of requiredFields){ if(!f.reportValidity()) return; }
+    if(targetStep===4) refreshTeamBlockVisibility();
+    if(panel.dataset.panel==='4'){
+      regState.personal = {
+        name: document.getElementById('regName').value,
+        email: document.getElementById('regEmail').value,
+        phone: document.getElementById('regPhone').value,
+        college: document.getElementById('regCollege').value,
+        course: document.getElementById('regCourse').value,
+        year: document.getElementById('regYear').value,
+      };
+      regState.team = {
+        name: document.getElementById('regTeamName').value,
+        captain: document.getElementById('regTeamCaptain').value,
+        members: document.getElementById('regTeamMembers').value,
+      };
+    }
+    goToStep(targetStep);
+  }
+  if(backBtn) goToStep(parseInt(backBtn.dataset.back,10));
+});
+regForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  regState.regId = makeRegId();
+  goToStep(6);
+});
+
+/* prize pool grid — winner / runner-up breakdown, derived from each event's total pool */
+function splitPrize(totalStr){
+  const total = parseInt(totalStr.replace(/[^\d]/g,''), 10);
+  const winner = Math.round(total*0.6/100)*100;
+  const runner = Math.round(total*0.3/100)*100;
+  return {winner:'₹'+winner.toLocaleString('en-IN'), runner:'₹'+runner.toLocaleString('en-IN')};
+}
+document.getElementById('prizeGrid').innerHTML = EVENTS.map(e=>{
+  const split = splitPrize(e.prize);
+  return `
+  <div class="prize-card">
+    <div class="p-name">${e.icon} ${e.name}</div>
+    <div class="p-amount">${e.prize}</div>
+    <div class="p-breakdown">
+      <div><span>Winner</span><b>${split.winner}</b></div>
+      <div><span>Runner-up</span><b>${split.runner}</b></div>
+    </div>
+    <div class="p-perk">+ Certificates &amp; Pravah Merch</div>
+  </div>`;
+}).join('');
+
+/* schedule / timeline */
+const dayPanels = document.getElementById('dayPanels');
+function renderDay(day){
+  dayPanels.innerHTML = `<div class="day-panel active"><div class="timeline">
+    ${SCHEDULE[day].map(item=>`
+      <div class="t-item">
+        <div class="t-time">${item.time}</div>
+        <h4>${item.title}</h4>
+        <div class="t-venue">${item.venue}</div>
+      </div>
+    `).join('')}
+  </div></div>`;
+}
+document.getElementById('dayTabs').addEventListener('click', (e)=>{
+  const tab = e.target.closest('.day-tab');
+  if(!tab) return;
+  document.querySelectorAll('.day-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  renderDay(tab.dataset.day);
+});
+renderDay(1);
+
+/* gallery */
+const galleryLabels = ['Match Point','Crowd Energy','Finals Day','Gaming Arena','Stadium Lights','Team Huddle','Backstage','Award Moment','Podium','Rally','Squad Up','Celebration'];
+document.getElementById('galleryGrid').innerHTML = GALLERY_H.map((h,i)=>`
+  <div class="g-item" data-label="${galleryLabels[i%galleryLabels.length]}">
+    <div class="g-ph" style="height:${h}px;">▣</div>
+    <div class="g-overlay">${galleryLabels[i%galleryLabels.length]}</div>
+  </div>
+`).join('');
+const lightbox = document.getElementById('lightbox');
+const lightboxInner = document.getElementById('lightboxInner');
+document.getElementById('galleryGrid').addEventListener('click', (e)=>{
+  const item = e.target.closest('.g-item');
+  if(!item) return;
+  lightboxInner.innerHTML = `<button class="lightbox-close" id="lightboxClose2" aria-label="Close">&times;</button>${item.dataset.label}`;
+  lightbox.classList.add('open');
+  document.getElementById('lightboxClose2').addEventListener('click', ()=>lightbox.classList.remove('open'));
+});
+document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+/* sponsors track */
+const sponsorNames = ['Volt Energy','Apex Gear','Nimbus Cloud','Circuit Wear','Vertex Foods','Prism Telecom'];
+document.getElementById('sponsorTrack').innerHTML = [...sponsorNames, ...sponsorNames].map(n=>`<div class="sponsor-slot">${n}</div>`).join('');
+
+/* FAQ */
+document.getElementById('faqList').innerHTML = FAQS.map((f,i)=>`
+  <div class="faq-item" data-i="${i}">
+    <button class="faq-q" aria-expanded="false"><span>${f.q}</span><span class="plus">+</span></button>
+    <div class="faq-a"><p>${f.a}</p></div>
+  </div>
+`).join('');
+document.getElementById('faqList').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.faq-q');
+  if(!btn) return;
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(o=>{ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; o.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+  if(!isOpen){
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight+'px';
+    btn.setAttribute('aria-expanded','true');
+  }
+});
+
+/* coordinator directory */
+document.getElementById('coordGrid').innerHTML = EVENTS.map(e=>`
+  <div class="coord-card">
+    <div class="c-event">${e.icon} ${e.name}</div>
+    <h4>${e.coord.name}</h4>
+    <div class="c-line">📞 ${e.coord.phone}</div>
+    <div class="c-line">✉️ ${e.coord.email}</div>
+  </div>
+`).join('');
+
+/* ============================================================
+   NAV, MOBILE MENU
+   ============================================================ */
+const nav = document.getElementById('siteNav');
+window.addEventListener('scroll', ()=>{ nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
+
+/* ============================================================
+   COUNTDOWN — to 15 July 2026, 09:00 local
+   ============================================================ */
+const target = new Date('2026-07-15T09:00:00');
+function tickCountdown(){
+  const now = new Date();
+  let diff = target - now;
+  if(diff < 0) diff = 0;
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+tickCountdown();
+setInterval(tickCountdown, 1000);
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+
+/* ============================================================
+   MOUSE PARALLAX — grid floor drifts with cursor
+   ============================================================ */
+(function initParallax(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(window.matchMedia('(pointer: coarse)').matches) return;
+  const grid = document.getElementById('gridFloor');
+  let tx=0, ty=0, cx=0, cy=0;
+  window.addEventListener('mousemove', (e)=>{
+    tx = (e.clientX / innerWidth - 0.5) * 18;
+    ty = (e.clientY / innerHeight - 0.5) * 18;
+  }, {passive:true});
+  function loop(){
+    cx += (tx-cx)*0.04; cy += (ty-cy)*0.04;
+    grid.style.setProperty('--parx', cx.toFixed(2)+'px');
+    grid.style.setProperty('--pary', cy.toFixed(2)+'px');
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+/* ============================================================
+   BACKGROUND ANIMATION — canvas particles, energy streaks
+   ============================================================ */
+(function initBackground(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('bg-canvas');
+  if(!canvas || !canvas.getContext || reduceMotion){
+    document.body.classList.add('no-canvas');
+    return;
+  }
+  const ctx = canvas.getContext('2d');
+  let w, h, dpr;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+    w = canvas.width = innerWidth * dpr;
+    h = canvas.height = innerHeight * dpr;
+    canvas.style.width = innerWidth+'px';
+    canvas.style.height = innerHeight+'px';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const isSmall = innerWidth < 700;
+  const PARTICLE_COUNT = isSmall ? 36 : 80;
+  const particles = Array.from({length:PARTICLE_COUNT}, ()=>spawnParticle());
+  function spawnParticle(){
+    const isGreen = Math.random() < 0.35;
+    return {
+      x: Math.random()*w, y: Math.random()*h,
+      r: (Math.random()*1.6+0.5) * dpr,
+      speed: (Math.random()*0.3+0.06) * dpr,
+      drift: (Math.random()-0.5) * 0.14 * dpr,
+      alpha: Math.random()*0.5+0.15,
+      pulse: Math.random()*Math.PI*2,
+      color: isGreen ? '255,230,0' : '255,0,51',
+    };
+  }
+  const STREAK_COUNT = isSmall ? 2 : 4;
+  const streaks = Array.from({length:STREAK_COUNT}, ()=>spawnStreak());
+  function spawnStreak(){
+    return { x: Math.random()*w, y: -50, len: (Math.random()*140+80)*dpr, speed:(Math.random()*3+2)*dpr, alpha: Math.random()*0.3+0.15 };
+  }
+
+  let lastTime = performance.now();
+  let running = true;
+  document.addEventListener('visibilitychange', ()=>{ running = !document.hidden; if(running) requestAnimationFrame(loop); });
+
+  function loop(now){
+    if(!running) return;
+    const dt = Math.min(now - lastTime, 50); lastTime = now;
+    ctx.clearRect(0,0,w,h);
+
+    particles.forEach(p=>{
+      p.y -= p.speed*dt*0.06;
+      p.x += p.drift*dt*0.06 + Math.sin(p.pulse)*0.05*dpr;
+      p.pulse += 0.01*dt;
+      if(p.y < -10) { p.y = h+10; p.x = Math.random()*w; }
+      if(p.x < -10) p.x = w+10; if(p.x > w+10) p.x = -10;
+      const a = p.alpha * (0.6+0.4*Math.sin(p.pulse));
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${p.color},${a})`;
+      ctx.shadowColor = `rgba(${p.color},0.7)`;
+      ctx.shadowBlur = 5*dpr;
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+
+    streaks.forEach(s=>{
+      s.y += s.speed*dt*0.09;
+      if(s.y - s.len > h){ s.y = -20; s.x = Math.random()*w; }
+      const grad = ctx.createLinearGradient(s.x, s.y-s.len, s.x, s.y);
+      grad.addColorStop(0, 'rgba(255,0,51,0)');
+      grad.addColorStop(1, `rgba(255,122,0,${s.alpha})`);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.4*dpr;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y-s.len);
+      ctx.lineTo(s.x, s.y);
+      ctx.stroke();
+    });
+
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

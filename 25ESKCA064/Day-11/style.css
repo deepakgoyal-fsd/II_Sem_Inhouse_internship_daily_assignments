@@ -1,0 +1,70 @@
+:root {
+--bg-primary: #f1f5f9;
+--nav-bg: #0f172a;
+--card-bg: #ffffff;
+--accent-primary: #3b82f6;
+--text-main: #334155;
+}
+
+body {
+background-color: var(--bg-primary);
+color: var(--text-main);
+font-family: 'Inter', system-ui, sans-serif;
+}
+
+.custom-navbar {
+background-color: var(--nav-bg) !important;
+border-bottom: 4px solid var(--accent-primary);
+}
+
+.custom-navbar .nav-link {
+color: #cbd5e1;
+transition: 0.2s;
+}
+
+.custom-navbar .nav-link.active, .custom-navbar .nav-link:hover {
+color: #fff !important;
+}
+
+.custom-footer {
+background-color: var(--nav-bg);
+}
+
+.glass-card {
+background: var(--card-bg);
+border-radius: 12px;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-custom {
+background: white;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.table-custom thead {
+background-color: #f8fafc;
+color: #475569;
+border-bottom: 2px solid #e2e8f0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+background-color: rgba(241, 245, 249, 0.5);
+}
+
+.table-hover tbody tr:hover {
+background-color: rgba(59, 130, 246, 0.05);
+}
+
+.highlight {
+background-color: #fef08a;
+font-weight: bold;
+padding: 0 2px;
+border-radius: 2px;
+}
+
+.stat-card {
+border-left: 4px solid var(--accent-primary);
+}

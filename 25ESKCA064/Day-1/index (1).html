@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rthym Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html{
+            scroll-behavior:smooth;
+        }
+        body{
+            background: #0d1117;
+            color:rgb(70, 176, 214);
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .navbar{
+            background: rgba(145, 142, 207, 0.7);
+            backdrop-filter:blur(8px);
+        }
+        .hero{
+            height:100vh;
+            background-image: url(music.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position:relative;
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items: center;
+            text-align: center;
+            color:white;
+        }
+        .about{
+            background-color: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .hero video{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index:-2;
+        }
+        .overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height:100%;
+            background: rgba(0,0,0,.6);
+            z-index: -1;
+        }
+        .btn-custom{
+            background: #e1d16c;
+            color: rgb(53, 55, 175);
+            transition: .4s;
+        }
+        .card img{
+            width: 100%;
+            height:180px;
+            object-fit: cover;
+            border-radius: 10;
+            margin-bottom: 15px;
+        }
+        .card:hover{
+            transform:translateY(-10px);
+        }
+        section{
+            padding:80px 0;
+        }
+        footter{
+            background: rgb(130, 125, 207);
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Rhythm Studio</a>
+            <button class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+        <span class=navbar-toggler-icon></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#music">Music</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+        </ul>
+    </div>
+                </div>
+    </nav>
+
+    <sevtion class="hero">
+        <video autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div>
+            <h1 class="display-3 fw-bold">
+                Rhythm Studio
+            </h1>
+            <p class="lead">
+                Music That Speaks To Your Soul
+            </p>
+            <a href="#music" class="btn btn-custom btn-lg">
+                 Play Music
+            </a>
+        </div>
+    </sevtion>
+
+    <section id="music">
+        <div class="container">
+            <h2 class="text-center mb-5">
+                Music Collection
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card p-3">
+                        <img src="lofi.jpg" class="card-top">
+                        <h4>Lo-fi</h4>
+                        <p>Relaxing study music.</p>
+                        <audio controls>
+                            <source src="lofi.mp3">
+                        </audio>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                   <div class="card p-3">
+                    <img src="instrumental.jpg" class="card-top">
+                    <h4>Instrumental</h4>
+                    <p>Peaceful instrumental tunes.</p>
+                    <audio controls>
+                        <source src="instrumental.mp3">
+                    </audio>
+                   </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3">
+                        <img src="classical.jpg" class="card-top">
+                     <h4>Classical</h4>
+                     <p>Timeless classical melodies.</p>
+                     <audio controls>
+                         <source src="classical.mp3">
+                     </audio>
+                    </div>
+                 </div>
+                 <div class="col-md-3">
+                    <div class="card p-3">
+                        <img src="bollywood.jpg" class="card-top">
+                     <h4>Bollywood</h4>
+                     <p>Popular Bollywood songs.</p>
+                     <audio controls>
+                         <source src="bollywood.mp3">
+                     </audio>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="container text-center">
+            <h2>
+                About Rhythm Studio
+            </h2>
+            <p>
+                Rhythm Studio is a modern music platform where you can discover different genres, enjoy beautiful melodies,and explore the world of music.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                Contact Us
+            </h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <input
+                        type="text"
+                        class="form-control mb-3"
+                        placeholder="Your Name">
+                        <input
+                        type="email"
+                        class="form-control mb-3"
+                        placeholder="Your Email">
+
+                        <textarea 
+                        class="form-control mb-3"
+                        rows="5"
+                        placeholder="Message"></textarea>
+
+                        <button class="btn btn-custom w-100">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h4>
+            Rhythm Studio
+        </h4>
+
+        <p>
+            Made with Bootstrap
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        const audios=document.querySelectorAll("audio");
+        audios.forEach(audio=>{
+            audio.addEventListener("play",()=>{
+                audio.forEach(other=>{
+                    if(other!==audio){
+                        other.pause();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,49 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <form action="submit">
+        <h1>Registration Form</h1>
+        <label for="name">Enter Name: </label><br>
+        <input type="text" placeholder="enter name" id="name" ><br><br>
+        <label name="num" for="num">Enter Number: </label><br>
+        <input type="number" placeholder="enter number" id="num" ><br><br>
+         <label for="email">Enter Email: </label><br>
+        <input type="text" placeholder="enter email" id="email" ><br><br>
+        
+         <label for="password">Enter Password: </label><br>
+        <input type="password" placeholder="enter password" class="password"><br><br>
+         <label for="cpassword">Confirm Password: </label><br>
+        <input type="password" placeholder="confirm password" class="cpassword"><br><br>
+        
+        <label for="profession">Choose Profession: </label><br>
+        <select name="profession" id="profession">
+            <option>Student</option>
+            <option>Teacher</option>
+            <option>Researcher</option>
+            </select><br><br><br>
+            <label for="dob">DOB: </label><br>
+            <input type="date" id="dob"><br><br>
+            <div>
+            <label for="gender">Gender: </label>
+            <input type="radio" name="gender"
+            >
+            <label for="male">Male</label>
+            <input type="radio" name="gender">
+            <label for="female">Female</label>
+            <input type="radio" name="gender">
+            <label for="other">Other</label>
+            </div><br><br>
+            <label for="address">Address:</label><br>
+            <textarea id="address" ></textarea>
+        <hr>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>

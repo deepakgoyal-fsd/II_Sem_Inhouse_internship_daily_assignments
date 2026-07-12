@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms-lets learn it</title>
+</head>
+<body>
+    <form action="post">
+    <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <div>
+    <input type="radio" id="male" gender="gender" value="male">
+    <label for="male">male</label>
+    <input type="radio" id="female" gender="gender" value="female">
+    <label for="female">female</label>
+    </div>
+    <div>
+        <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+        <label for="subscribe">Subscribe to newsletter</label>
+    </div>
+    <div>
+        <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message"></textarea>
+    </div>
+    <div>
+        <select id="country" name="country">
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+    </div>
+    
+    </form>
+    
+</body>
+</html>

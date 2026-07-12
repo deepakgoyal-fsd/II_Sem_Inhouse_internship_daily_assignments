@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAH 2026 — Navras | SKIT Jaipur</title>
+<meta name="description" content="Pravah 2026 — the annual techno-cultural festival of SKIT Jaipur. 26 years of magic and memories, celebrating the Navras — nine emotions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#170B3B;
+    --bg-mid:#20103F;
+    --bg-panel:#2C1760;
+    --panel-line:rgba(244,239,255,0.12);
+    --ink:#F4EFFF;
+    --muted:#B0A2CF;
+    --gold:#F5A623;
+    --rose:#E9527A;
+    --teal:#2FD9C4;
+    --shadow: 0 20px 60px rgba(8,3,25,0.55);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 20% -10%, #3a1e78 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 10%, #4a1f56 0%, transparent 45%),
+      var(--bg-deep);
+    color:var(--ink);
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--rose); color:#fff; }
+  h1,h2,h3,.display{ font-family:'Cinzel',serif; letter-spacing:.03em; margin:0; }
+  .script{ font-family:'Cormorant Garamond',serif; font-style:italic; }
+  a{ color:inherit; text-decoration:none; }
+  img{max-width:100%;display:block;}
+  .eyebrow{
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.15rem;
+    color:var(--gold); letter-spacing:.08em; margin-bottom:.6rem; display:block;
+  }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 6vw; }
+  section{ position:relative; padding:7rem 0; }
+  .btn{
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding:.95rem 2.1rem; border-radius:2px; border:1px solid var(--gold);
+    background:transparent; color:var(--gold); font-family:'Poppins',sans-serif;
+    font-weight:600; letter-spacing:.06em; font-size:.85rem; text-transform:uppercase;
+    cursor:pointer; transition:.35s ease;
+  }
+  .btn:hover{ background:var(--gold); color:var(--bg-deep); box-shadow:0 8px 30px rgba(245,166,35,.35); }
+  .btn.solid{ background:var(--gold); color:var(--bg-deep); }
+  .btn.solid:hover{ background:var(--rose); border-color:var(--rose); color:#fff; }
+
+  /* ============ INTRO 3D DOOR ============ */
+  #intro{
+    position:fixed; inset:0; z-index:999; perspective:1800px;
+    display:flex;
+  }
+  #intro .panel{
+    width:50%; height:100%; position:relative;
+    background:linear-gradient(160deg,#2C1760,#170B3B 70%);
+    display:flex; align-items:center; justify-content:center;
+    transition: transform 1.4s cubic-bezier(.76,0,.24,1), opacity 1.4s ease;
+    transform-style:preserve-3d;
+  }
+  #intro .panel.left{ transform-origin:left center; border-right:1px solid var(--panel-line); }
+  #intro .panel.right{ transform-origin:right center; }
+  #intro.open .panel.left{ transform:rotateY(-108deg); opacity:0; }
+  #intro.open .panel.right{ transform:rotateY(108deg); opacity:0; }
+  #intro.hidden{ pointer-events:none; visibility:hidden; }
+  #intro .mark{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; transition:opacity .5s ease;
+  }
+  #intro.open .mark{ opacity:0; }
+  #intro .mark .rasa-ring{
+    width:120px;height:120px;border-radius:50%; margin-bottom:1.4rem;
+    border:1px solid var(--gold); position:relative;
+    animation:ringspin 6s linear infinite;
+  }
+  #intro .mark .rasa-ring::before,
+  #intro .mark .rasa-ring::after{
+    content:""; position:absolute; border-radius:50%;
+    border:1px dashed rgba(245,166,35,.4);
+  }
+  #intro .mark .rasa-ring::before{ inset:14px; }
+  #intro .mark .rasa-ring::after{ inset:30px; border-color:rgba(233,82,122,.4); animation:ringspin 4s linear infinite reverse; }
+  @keyframes ringspin{ to{ transform:rotate(360deg);} }
+  #intro h1{ font-size:2.6rem; color:var(--ink); }
+  #intro p{ color:var(--muted); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; margin-top:.5rem; }
+  #intro .skip{
+    position:absolute; bottom:6vh; left:50%; transform:translateX(-50%);
+    z-index:5; font-size:.75rem; letter-spacing:.15em; text-transform:uppercase;
+    color:var(--muted); background:none; border:1px solid rgba(244,239,255,.25);
+    padding:.7rem 1.5rem; cursor:pointer; border-radius:2px;
+  }
+  #intro .skip:hover{ color:var(--gold); border-color:var(--gold); }
+  #intro .loadbar{ width:220px; height:2px; background:rgba(244,239,255,.15); margin-top:1.6rem; overflow:hidden; }
+  #intro .loadbar span{ display:block; height:100%; width:0%; background:var(--gold); animation:load 2.6s ease forwards; }
+  @keyframes load{ to{ width:100%; } }
+
+  /* ============ NAV ============ */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.4rem 6vw; transition:.4s ease;
+  }
+  nav.scrolled{ background:rgba(23,11,59,.85); backdrop-filter:blur(10px); padding:1rem 6vw; border-bottom:1px solid var(--panel-line); }
+  nav .logo{ font-family:'Cinzel',serif; font-size:1.3rem; letter-spacing:.1em; }
+  nav .logo span{ color:var(--gold); }
+  nav ul{ list-style:none; display:flex; gap:2.4rem; margin:0; padding:0; }
+  nav ul a{
+    font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+    position:relative; padding-bottom:4px;
+  }
+  nav ul a::after{
+    content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold);
+    transition:.3s ease;
+  }
+  nav ul a:hover, nav ul a.active{ color:var(--ink); }
+  nav ul a:hover::after, nav ul a.active::after{ width:100%; }
+  #navToggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; z-index:210; }
+  #navToggle span{ width:26px; height:2px; background:var(--ink); }
+
+  /* ============ HERO / HOME ============ */
+  #home{ min-height:100vh; display:flex; align-items:center; padding-top:8rem; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center; width:100%; }
+  .hero-copy h1{ font-size:clamp(2.6rem,5vw,4.4rem); line-height:1.05; }
+  .hero-copy h1 em{ font-style:italic; font-family:'Cormorant Garamond',serif; color:var(--gold); font-weight:500; }
+  .hero-copy p.lede{ color:var(--muted); font-size:1.05rem; max-width:480px; margin:1.4rem 0 2.2rem; line-height:1.7; }
+  .hero-stats{ display:flex; gap:2.6rem; margin-top:3rem; }
+  .hero-stats div b{ font-family:'Cinzel',serif; font-size:1.8rem; display:block; color:var(--gold); }
+  .hero-stats div span{ font-size:.75rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+  .hero-cta{ display:flex; gap:1rem; flex-wrap:wrap; }
+
+  /* the Navras prism */
+  .prism-stage{ perspective:1400px; display:flex; align-items:center; justify-content:center; height:460px; }
+  .prism{
+    position:relative; width:1px; height:1px; transform-style:preserve-3d;
+    animation:spinPrism 34s linear infinite;
+  }
+  .prism:hover{ animation-play-state:paused; }
+  @keyframes spinPrism{ from{ transform:rotateY(0deg) rotateX(-6deg);} to{ transform:rotateY(360deg) rotateX(-6deg);} }
+  .face{
+    position:absolute; width:168px; height:220px; left:-84px; top:-110px;
+    border:1px solid rgba(244,239,255,.18);
+    background:linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
+    backdrop-filter:blur(2px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    padding:1rem; border-radius:6px;
+  }
+  .face .dot{ width:11px; height:11px; border-radius:50%; margin-bottom:.7rem; box-shadow:0 0 16px 2px currentColor; }
+  .face .sk{ font-family:'Cinzel',serif; font-size:1rem; letter-spacing:.04em; }
+  .face .en{ font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--muted); font-size:.9rem; margin-top:.2rem; }
+
+  /* ============ ABOUT ============ */
+  #about{ background:linear-gradient(180deg, transparent, rgba(44,23,96,.35), transparent); }
+  .section-head{ max-width:640px; margin-bottom:3.2rem; }
+  .section-head h2{ font-size:clamp(2rem,3.6vw,2.8rem); }
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .about-copy p{ color:var(--muted); line-height:1.85; margin-bottom:1.2rem; }
+  .about-copy strong{ color:var(--ink); }
+
+  .rasa-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .rasa-card{ perspective:1000px; height:150px; }
+  .rasa-card .inner{
+    position:relative; width:100%; height:100%; transform-style:preserve-3d;
+    transition:transform .7s cubic-bezier(.4,.2,.2,1);
+  }
+  .rasa-card:hover .inner{ transform:rotateY(180deg); }
+  .rasa-face{
+    position:absolute; inset:0; backface-visibility:hidden; border-radius:6px;
+    border:1px solid var(--panel-line); display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:.7rem;
+  }
+  .rasa-face.front{ background:rgba(255,255,255,.04); }
+  .rasa-face.back{
+    transform:rotateY(180deg); background:var(--bg-panel);
+    font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--muted); font-size:.85rem;
+  }
+  .rasa-face .dot{ width:9px; height:9px; border-radius:50%; margin-bottom:.5rem; box-shadow:0 0 12px 1px currentColor; }
+  .rasa-face .sk{ font-family:'Cinzel',serif; font-size:.85rem; }
+  .rasa-face .en{ color:var(--muted); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; margin-top:.15rem; }
+
+  .about-strip{ display:flex; gap:2.2rem; margin-top:2.6rem; flex-wrap:wrap; }
+  .about-strip div{ flex:1; min-width:140px; border-top:1px solid var(--panel-line); padding-top:.8rem; }
+  .about-strip b{ display:block; font-family:'Cinzel',serif; color:var(--gold); font-size:1rem; margin-bottom:.2rem; }
+  .about-strip span{ color:var(--muted); font-size:.85rem; }
+
+  /* ============ REGISTRATION ============ */
+  #register{ background:radial-gradient(ellipse at 80% 20%, rgba(233,82,122,.12), transparent 55%); }
+  .reg-wrap{ display:grid; grid-template-columns:.8fr 1.2fr; gap:3.5rem; }
+  .reg-info h2{ font-size:clamp(2rem,3.6vw,2.6rem); margin-bottom:1rem; }
+  .reg-info p{ color:var(--muted); line-height:1.8; margin-bottom:1.6rem; }
+  .reg-info ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.9rem; }
+  .reg-info li{ display:flex; gap:.8rem; color:var(--muted); font-size:.92rem; align-items:flex-start; }
+  .reg-info li .num{ font-family:'Cinzel',serif; color:var(--gold); font-size:.85rem; }
+
+  .card-3d-stage{ perspective:1600px; }
+  .reg-card{
+    background:linear-gradient(155deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+    border:1px solid var(--panel-line); border-radius:10px; padding:2.4rem;
+    box-shadow:var(--shadow); transform-style:preserve-3d; transition:transform .15s ease;
+  }
+  .field{ margin-bottom:1.3rem; }
+  .field label{ display:block; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem; }
+  .field input, .field select, .field textarea{
+    width:100%; padding:.85rem 1rem; background:rgba(255,255,255,.04);
+    border:1px solid var(--panel-line); border-radius:4px; color:var(--ink); font-family:'Poppins',sans-serif; font-size:.92rem;
+    transition:.25s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--gold); background:rgba(245,166,35,.06);
+  }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+  .field small.err{ display:none; color:var(--rose); font-size:.72rem; margin-top:.35rem; }
+  .field.invalid input, .field.invalid select{ border-color:var(--rose); }
+  .field.invalid small.err{ display:block; }
+  .radio-group{ display:flex; gap:1.6rem; margin-top:.3rem; }
+  .radio-group label{ display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--ink); text-transform:none; letter-spacing:0; }
+  .reg-card button[type="submit"]{ width:100%; margin-top:.6rem; justify-content:center; }
+
+  #successOverlay{
+    position:fixed; inset:0; background:rgba(10,4,26,.85); backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center; z-index:500; opacity:0; pointer-events:none; transition:.35s ease;
+    perspective:1200px;
+  }
+  #successOverlay.show{ opacity:1; pointer-events:all; }
+  .success-card{
+    background:var(--bg-panel); border:1px solid var(--gold); padding:3rem 2.6rem; border-radius:10px;
+    text-align:center; max-width:380px; transform:rotateX(25deg) scale(.9); opacity:0; transition:.5s cubic-bezier(.34,1.56,.64,1);
+  }
+  #successOverlay.show .success-card{ transform:rotateX(0) scale(1); opacity:1; }
+  .success-card .dot{ width:56px; height:56px; border-radius:50%; border:2px solid var(--gold); margin:0 auto 1.2rem; display:flex; align-items:center; justify-content:center; font-size:1.6rem; color:var(--gold); }
+  .success-card h3{ font-size:1.4rem; margin-bottom:.6rem; }
+  .success-card p{ color:var(--muted); font-size:.9rem; line-height:1.6; margin-bottom:1.6rem; }
+
+  /* ============ CONTACT / FOOTER ============ */
+  #contact{ padding-bottom:4rem; }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+  .contact-copy p{ color:var(--muted); line-height:1.8; margin-bottom:1.6rem; max-width:420px; }
+  .contact-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1rem; }
+  .contact-list li{ display:flex; gap:1rem; align-items:center; color:var(--ink); font-size:.95rem; }
+  .contact-list li .ic{ width:38px; height:38px; border:1px solid var(--panel-line); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); flex-shrink:0; }
+  .social-row{ display:flex; gap:1rem; margin-top:1.8rem; }
+  .social-row a{ width:42px; height:42px; border:1px solid var(--panel-line); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:.3s; }
+  .social-row a:hover{ border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
+  .map-card{
+    border:1px solid var(--panel-line); border-radius:10px; padding:2rem; background:rgba(255,255,255,.03);
+    perspective:800px;
+  }
+  .map-card .inner{ transition:transform .4s ease; transform-style:preserve-3d; }
+  .map-card:hover .inner{ transform:rotateY(6deg) rotateX(3deg); }
+  .map-card h3{ font-size:1.1rem; margin-bottom:.6rem; }
+  .map-card p{ color:var(--muted); font-size:.88rem; line-height:1.7; }
+
+  footer{ border-top:1px solid var(--panel-line); padding:2.2rem 0; text-align:center; }
+  footer p{ color:var(--muted); font-size:.8rem; letter-spacing:.04em; }
+  footer p span{ color:var(--gold); }
+
+  @media (max-width:900px){
+    .hero-grid, .about-grid, .reg-wrap, .contact-grid{ grid-template-columns:1fr; }
+    .prism-stage{ height:340px; order:-1; }
+    nav ul{
+      position:fixed; top:0; right:0; height:100vh; width:72vw; max-width:320px;
+      background:rgba(23,11,59,.98); flex-direction:column; padding:7rem 2.4rem; gap:1.8rem;
+      transform:translateX(100%); transition:.4s ease; border-left:1px solid var(--panel-line);
+    }
+    nav ul.open{ transform:translateX(0); }
+    #navToggle{ display:flex; }
+    .rasa-cards{ grid-template-columns:repeat(3,1fr); }
+    .field-row{ grid-template-columns:1fr; }
+    #intro h1{ font-size:1.9rem; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .prism{ animation:none; }
+    *{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ INTRO 3D DOOR ANIMATION ============ -->
+<div id="intro">
+  <div class="panel left">
+    <div class="mark">
+      <div class="rasa-ring"></div>
+      <h1>PRAVAH <span class="script">2026</span></h1>
+      <p>26 years of magic &amp; memories</p>
+      <div class="loadbar"><span></span></div>
+    </div>
+  </div>
+  <div class="panel right"></div>
+  <button class="skip" id="skipIntro">Enter the fest ↦</button>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav id="mainNav">
+  <a href="#home" class="logo">PRAVAH<span>.</span></a>
+  <ul id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#register">Registration</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ============ HOME ============ -->
+<section id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">SKIT Jaipur presents</span>
+      <h1>The Navras <br><em>Nine Emotions,</em><br>One Festival.</h1>
+      <p class="lede">Pravah is the annual techno-cultural festival of Swami Keshvanand Institute of Technology, Management &amp; Gramothan. In 2026, we journey through the Navras — the nine primal emotions of the Natyashastra — across three days of music, dance, drama, art and technology.</p>
+      <div class="hero-cta">
+        <a href="#register" class="btn solid">Register Now</a>
+        <a href="#about" class="btn">Explore the Rasas</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>26</b><span>Years running</span></div>
+        <div><b>9</b><span>Rasas celebrated</span></div>
+        <div><b>3</b><span>Days of Pravah</span></div>
+      </div>
+    </div>
+    <div class="prism-stage">
+      <div class="prism" id="prism"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="section-head">
+          <span class="eyebrow">About the fest</span>
+          <h2>26 years of Pravah</h2>
+        </div>
+        <div class="about-copy">
+          <p><strong>Pravah</strong> is SKIT Jaipur's flagship annual techno-cultural celebration, running alongside its technical counterpart <strong>Aaveg</strong>. Every year the fest draws thousands of students from across the region for competitions, performances and workshops spanning dance, music, drama, fine arts, fashion and literature.</p>
+          <p>The <strong>Navras</strong> — Shringara, Hasya, Karuna, Raudra, Veera, Bhayanaka, Bibhatsya, Adbhuta and Shanta — are the nine emotions outlined in Bharata's <em class="script">Natyashastra</em>, the ancient treatise on performing arts. Indian classical forms like Bharatnatyam, Kathak and Odissi are built around evoking these very rasas in an audience. Pravah 2026 takes this idea as its theme: every stage, every act, every corner of campus becomes an expression of one of these nine emotions.</p>
+        </div>
+        <div class="about-strip">
+          <div><b>Techno-Cultural</b><span>Music, dance, drama, art &amp; tech events</span></div>
+          <div><b>SKIT Jaipur</b><span>Jagatpura, Jaipur, Rajasthan</span></div>
+          <div><b>Open Entry</b><span>Students from all colleges welcome</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-head" style="margin-bottom:1.4rem;">
+          <span class="eyebrow">Hover a card</span>
+          <h2 style="font-size:1.6rem;">The Nine Rasas</h2>
+        </div>
+        <div class="rasa-cards" id="rasaCards"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTRATION ============ -->
+<section id="register">
+  <div class="wrap reg-wrap">
+    <div class="reg-info">
+      <span class="eyebrow">Join us</span>
+      <h2>Register for Pravah 2026</h2>
+      <p>Fill in your details below to reserve your spot. Solo or team, performer or spectator — every rasa needs its audience.</p>
+      <ul>
+        <li><span class="num">01</span> Fill the form with your accurate details</li>
+        <li><span class="num">02</span> Choose your event category and participation type</li>
+        <li><span class="num">03</span> Submit — your confirmation appears instantly on screen</li>
+        <li><span class="num">04</span> Our team reaches out with your entry pass &amp; schedule</li>
+      </ul>
+    </div>
+    <div class="card-3d-stage">
+      <form class="reg-card" id="regForm" novalidate>
+        <div class="field-row">
+          <div class="field" data-field="name">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" placeholder="e.g. Raunak Sharma">
+            <small class="err">Please enter your full name.</small>
+          </div>
+          <div class="field" data-field="email">
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="you@example.com">
+            <small class="err">Please enter a valid email.</small>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field" data-field="phone">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" placeholder="10-digit mobile number">
+            <small class="err">Please enter a valid 10-digit number.</small>
+          </div>
+          <div class="field" data-field="college">
+            <label for="college">College / institution</label>
+            <input type="text" id="college" placeholder="e.g. SKIT Jaipur">
+            <small class="err">Please enter your college name.</small>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field" data-field="year">
+            <label for="year">Year of study</label>
+            <select id="year">
+              <option value="">Select year</option>
+              <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+            </select>
+            <small class="err">Please select your year.</small>
+          </div>
+          <div class="field" data-field="event">
+            <label for="eventCat">Event category</label>
+            <select id="eventCat">
+              <option value="">Select an event</option>
+              <option>Dance</option><option>Music</option><option>Drama &amp; Theatre</option>
+              <option>Fine Arts</option><option>Fashion</option><option>Literary &amp; Debate</option>
+              <option>Tech (Aaveg)</option><option>Just attending</option>
+            </select>
+            <small class="err">Please choose an event category.</small>
+          </div>
+        </div>
+        <div class="field">
+          <label>Participation type</label>
+          <div class="radio-group">
+            <label><input type="radio" name="ptype" value="Solo" checked> Solo</label>
+            <label><input type="radio" name="ptype" value="Team"> Team</label>
+            <label><input type="radio" name="ptype" value="Spectator"> Spectator</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" rows="3" placeholder="Team members, special requests, etc."></textarea>
+        </div>
+        <button type="submit" class="btn solid">Submit registration</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Success overlay -->
+<div id="successOverlay">
+  <div class="success-card">
+    <div class="dot">✓</div>
+    <h3>You're registered!</h3>
+    <p id="successMsg">Welcome to Pravah 2026. Keep an eye on your inbox for your entry pass and schedule.</p>
+    <button class="btn" id="closeSuccess">Close</button>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Contact the Pravah team</h2>
+      <p>Have a question about events, sponsorships or media passes? Reach out through any of the channels below.</p>
+      <ul class="contact-list">
+        <li><span class="ic">@</span> pravah@skit.ac.in</li>
+        <li><span class="ic">☏</span> +91 141 XXX XXXX</li>
+        <li><span class="ic">◎</span> SKIT, Jagatpura, Jaipur — 302017</li>
+      </ul>
+      <div class="social-row">
+        <a href="https://www.instagram.com/skitpravah/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/pravah.skit/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a href="https://pravah.skit.ac.in/" target="_blank" rel="noopener" aria-label="Website">WEB</a>
+      </div>
+    </div>
+    <div class="map-card">
+      <div class="inner">
+        <h3>Swami Keshvanand Institute of Technology, Management &amp; Gramothan</h3>
+        <p>Ramnagaria, Jagatpura, Jaipur, Rajasthan 302017 — home to Pravah &amp; Aaveg, SKIT's annual techno-cultural celebrations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Pravah <span>2026</span> · SKIT Jaipur · Fan-made concept site, built for demonstration purposes</p>
+</footer>
+
+<script>
+  // ---------- Data: the Navras ----------
+  const rasas = [
+    { sk:"Shringara", en:"Love", color:"#E9527A" },
+    { sk:"Hasya",     en:"Laughter", color:"#F5D142" },
+    { sk:"Karuna",    en:"Compassion", color:"#8FA6C9" },
+    { sk:"Raudra",    en:"Anger", color:"#E14B3B" },
+    { sk:"Veera",     en:"Courage", color:"#F5A623" },
+    { sk:"Bhayanaka", en:"Fear", color:"#7C6B94" },
+    { sk:"Bibhatsya", en:"Disgust", color:"#7E57C2" },
+    { sk:"Adbhuta",   en:"Wonder", color:"#D7C24A" },
+    { sk:"Shanta",    en:"Peace", color:"#2FD9C4" },
+  ];
+
+  // ---------- Build the 3D prism ----------
+  const prism = document.getElementById('prism');
+  const N = rasas.length;
+  const radius = 230;
+  rasas.forEach((r, i) => {
+    const angle = (360 / N) * i;
+    const face = document.createElement('div');
+    face.className = 'face';
+    face.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+    face.style.color = r.color;
+    face.innerHTML = `
+      <span class="dot" style="background:${r.color}"></span>
+      <span class="sk">${r.sk}</span>
+      <span class="en">${r.en}</span>`;
+    prism.appendChild(face);
+  });
+
+  // ---------- Build the About flip-cards ----------
+  const descriptions = {
+    Shringara:"The rasa of love, beauty and romantic longing.",
+    Hasya:"The rasa of laughter, comedy and joyful mischief.",
+    Karuna:"The rasa of compassion, sorrow and empathy.",
+    Raudra:"The rasa of anger, fury and righteous rage.",
+    Veera:"The rasa of courage, heroism and valour.",
+    Bhayanaka:"The rasa of fear, dread and the unknown.",
+    Bibhatsya:"The rasa of disgust, aversion and revulsion.",
+    Adbhuta:"The rasa of wonder, astonishment and awe.",
+    Shanta:"The rasa of peace, stillness and tranquility."
+  };
+  const cardsWrap = document.getElementById('rasaCards');
+  rasas.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'rasa-card';
+    card.innerHTML = `
+      <div class="inner">
+        <div class="rasa-face front" style="color:${r.color}">
+          <span class="dot" style="background:${r.color}"></span>
+          <span class="sk">${r.sk}</span>
+          <span class="en">${r.en}</span>
+        </div>
+        <div class="rasa-face back">${descriptions[r.sk]}</div>
+      </div>`;
+    cardsWrap.appendChild(card);
+  });
+
+  // ---------- Intro animation ----------
+  const intro = document.getElementById('intro');
+  const skipBtn = document.getElementById('skipIntro');
+  function openIntro(){
+    intro.classList.add('open');
+    setTimeout(()=> intro.classList.add('hidden'), 1500);
+  }
+  setTimeout(openIntro, 2800);
+  skipBtn.addEventListener('click', openIntro);
+
+  // ---------- Nav scroll + mobile toggle ----------
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navLinks.querySelectorAll('a').forEach(x => x.classList.remove('active'));
+      a.classList.add('active');
+    });
+  });
+
+  // ---------- Registration form (frontend-only) ----------
+  const form = document.getElementById('regForm');
+  const overlay = document.getElementById('successOverlay');
+  const successMsg = document.getElementById('successMsg');
+
+  function setInvalid(fieldEl, isInvalid){
+    fieldEl.classList.toggle('invalid', isInvalid);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('fullName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const college = document.getElementById('college');
+    const year = document.getElementById('year');
+    const eventCat = document.getElementById('eventCat');
+
+    const nameField = name.closest('.field');
+    const emailField = email.closest('.field');
+    const phoneField = phone.closest('.field');
+    const collegeField = college.closest('.field');
+    const yearField = year.closest('.field');
+    const eventField = eventCat.closest('.field');
+
+    const nameOk = name.value.trim().length > 1;
+    setInvalid(nameField, !nameOk); if(!nameOk) valid = false;
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    setInvalid(emailField, !emailOk); if(!emailOk) valid = false;
+
+    const phoneOk = /^[6-9]\d{9}$/.test(phone.value.trim());
+    setInvalid(phoneField, !phoneOk); if(!phoneOk) valid = false;
+
+    const collegeOk = college.value.trim().length > 1;
+    setInvalid(collegeField, !collegeOk); if(!collegeOk) valid = false;
+
+    const yearOk = year.value !== "";
+    setInvalid(yearField, !yearOk); if(!yearOk) valid = false;
+
+    const eventOk = eventCat.value !== "";
+    setInvalid(eventField, !eventOk); if(!eventOk) valid = false;
+
+    if(!valid) return;
+
+    successMsg.textContent = `Welcome to Pravah 2026, ${name.value.trim().split(' ')[0]}! You're registered for ${eventCat.value}. Keep an eye on your inbox for your entry pass and schedule.`;
+    overlay.classList.add('show');
+    form.reset();
+  });
+
+  document.getElementById('closeSuccess').addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+
+  // ---------- Subtle tilt on the registration card ----------
+  const regCard = document.querySelector('.reg-card');
+  const stage = document.querySelector('.card-3d-stage');
+  stage.addEventListener('mousemove', (e) => {
+    const rect = stage.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    regCard.style.transform = `rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+  });
+  stage.addEventListener('mouseleave', () => { regCard.style.transform = 'rotateY(0) rotateX(0)'; });
+</script>
+</body>
+</html>

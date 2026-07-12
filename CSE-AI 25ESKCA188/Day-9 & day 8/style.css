@@ -1,0 +1,23 @@
+body {
+
+    background: linear-gradient(135deg, #888aa0, #35363a);
+
+    min-height: 100vh;
+
+}
+
+.card {
+
+    border-radius: 20px;
+
+    box-shadow: 0px 8px 20px red;
+
+}
+
+img {
+
+    border-radius: 50%;
+
+    border: 5px solid white;
+
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>registration</title>
+    <img src=" " alt="" srcset="">
+    <link rel="stylesheet" href="hee.css">
+    <style>
+        h1 {
+            color: blue;
+        }
+
+        label {
+            color: red;
+        }
+
+        ::placeholder {
+            color: black;
+        }
+
+        br {
+            background-color: rgb(76, 201, 159);
+        }
+    </style>\
+</head>
+
+<body id="body">
+
+    <form class="registration-form">
+
+        <center>
+            <h1>Registration form </h1>
+        </center>
+
+        <label> Full Name: <br>
+            <input type="text" id="txtName" required placeholder="Entre your name " class="form">
+        </label>
+        <br>
+        <label> Email Address : <br>
+            <input type="email" id="txtemail" required placeholder="Entre your email " class="form">
+        </label>
+        <br>
+        <div class="row">
+
+            <input type="number" placeholder="Enter phone number">
+            <input type="date">
+
+        </div>
+
+
+        Gender
+        <br>
+        <br>
+        <label>
+            <input type="radio" id="cheak-female" name="gendre" checked>
+        </label>
+        <label>
+            female
+            <input type="radio" id="cheak-male" name="gendre" placeholder="">
+        </label>
+        <label>Male </label>
+        <input type="radio" id="preefered not to say" name="gendre">
+        <label>Preefered not to say </label>
+        <br>
+
+        <label for="pwdpassoward">entre passwaord
+            <input type="password" name="" id="pwdpassoward" placeholder="entre your passoward" checked>
+            <br>
+            <br>
+            <br>
+            <div> </div>
+            <label for=""> Address <br>
+                <div>Enter your address</div>
+                <input type="text" required placeholder="Entre street address" class="add"><br>
+                <div> Entre the line 2</div>
+                <input type="text" required placeholder="entre street address line 2" class="add">
+            </label>
+            <div></div>
+
+            <br>
+            <select name="" id="" class="con">
+                <option value="" selected hidden> country</option>
+                <option value=""> india</option>
+                <option value=""> austrilia</option>
+                <option value=""> japan</option>
+                <option value=""> us</option>
+                <option value=""> uk</option>
+                <option value=""> pakisthan</option>
+                <option value=""> none of this</option>
+                <option value=""> austrilia</option>
+                <option value=""> jermany</option>
+            </select>
+            <input type="text" required placeholder="entre your city" class="con">
+            <div></div>
+            <br>
+            <input type="text" required placeholder="entre your region" class="con">
+            <input type="text" required placeholder="entre your postel code" class="con">
+            <br>
+            <label for=""><input type="radio" name="" id="" required>
+                I accect all terms and conditions
+
+            </label>
+            <h5></h5>
+            <input type="submit" value="sumbit" class="sum">
+            <style>
+           
+            </style>
+    </form>
+</body>
+
+</html>

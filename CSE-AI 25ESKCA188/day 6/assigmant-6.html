@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Directory</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f2f2f2;
+            padding: 40px;
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+
+        .btn-details {
+            margin-top: 15px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+        }
+
+        .details {
+            display: none;
+            margin-top: 15px;
+            text-align: left;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Directory</h1>
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img
+                src="https://th.bing.com/th/id/OIP.VZIMcRtH7JeoYqWuz_re7gHaE7?w=252&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>Raunak sharma</h3>
+            <p>Data Science</p>
+            <button class="btn-details">Show Details</button>
+            <div class="details">
+                <p><strong>Age:</strong> 19</p>
+                <p><strong>Email:</strong> raunak@gmail.com</p>
+                <p><strong>City:</strong> India</p>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card">
+            <img
+                src="https://th.bing.com/th/id/OIP.EIs49hf7u4KKglO69IXwNAHaHa?w=172&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>Anirudh </h3>
+            <p>Software Engineering</p>
+            <button class="btn-details">Show Details</button>
+            <div class="details">
+                <p><strong>Age:</strong> 20</p>
+                <p><strong>Email:</strong> anirudh@gmail.com</p>
+                <p><strong>City:</strong> Chicago</p>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card">
+            <img
+                src="https://th.bing.com/th/id/OIP.lGbo6eNjqJ9WSnCi_jvWewHaKc?w=119&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>Akhilesh Sharma</h3>
+            <p>Information Technology</p>
+            <button class="btn-details">Show Details</button>
+            <div class="details">
+                <p><strong>Age:</strong> 21</p>
+                <p><strong>Email:</strong> akhiles@gmail.com</p>
+                <p><strong>City:</strong> US</p>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card">
+            <img
+                src="https://th.bing.com/th/id/OIP.45AOKWJcPBA472z9iMM3owHaHa?w=199&h=200&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+            <h3>rahul Garg</h3>
+            <p>Artificial Intelligence</p>
+            <button class="btn-details">Show Details</button>
+            <div class="details">
+                <p><strong>Age:</strong> 20</p>
+                <p><strong>Email:</strong> rahul@gmail.com</p>
+                <p><strong>City:</strong> Boston</p>
+            </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="https://as1.ftcdn.net/v2/jpg/00/62/17/26/1000_F_62172609_xJXVs9SHCcmkJSxVaMff5TaKv9KZcCSQ.jpg">
+            <h3>Akshra Sharma</h3>
+            <p>Cyber Security</p>
+            <button class="btn-details">Show Details</button>
+            <div class="details">
+                <p><strong>Age:</strong> 20</p>
+                <p><strong>Email:</strong> akshra@gmail.com</p>
+                <p><strong>City:</strong> Seattle</p>
+            </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="card">
+            <img
+                src="https://th.bing.com/th?q=Student+Transparent+Background&w=120&h=120&c=1&rs=1&qlt=70&r=0&o=7&cb=1&dpr=1.3&pid=InlineBlock&rm=3&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247">
+            <h3>Tanshul Bagra</h3>
+            <p>Data Science</p>
+            <button class="btn-details">Show Details</button>
+            <div class="details">
+                <p><strong>Age:</strong> 19</p>
+                <p><strong>Email:</strong> tanshul@gmail.com</p>
+                <p><strong>City:</strong> California</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Bonus: Fade in page
+            $("body").fadeIn(1000);
+
+            $(".btn-details").click(function () {
+                let details = $(this).siblings(".details");
+                details.slideToggle(500);
+
+                if ($(this).text() === "Show Details") {
+                    $(this).text("Hide Details");
+                    $(this).css({
+                        "background": "crimson"
+                    });
+                } else {
+                    $(this).text("Show Details");
+                    $(this).css({
+                        "background": "#007bff"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

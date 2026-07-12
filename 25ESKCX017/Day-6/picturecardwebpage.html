@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🎓 Student Directory
+    </div>
+
+    <input type="text" placeholder="Search Students...">
+
+    <img class="user" src="https://i.pravatar.cc/150?img=65">
+
+</header>
+
+<div class="container">
+
+<!-- Student 1 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=1">
+
+<h2>Akshat Sharma</h2>
+
+<p class="branch">Computer Science</p>
+
+<div class="info">
+
+<p>Roll : 25ESKCX017</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(1)">View Profile</button>
+
+</div>
+
+<!-- Student 2 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=2">
+
+<h2>Rahul Verma</h2>
+
+<p class="branch">Information Technology</p>
+
+<div class="info">
+
+<p> Roll : 25ESIT018</p>
+
+<p>Semester : III</p>
+
+
+
+</div>
+<button onclick="showStudent(2)">View Profile</button>
+
+</div>
+
+<!-- Student 3 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=3">
+
+<h2>Aditi Singh</h2>
+
+<p class="branch">AI & ML</p>
+
+<div class="info">
+
+<p> Roll : 25AIML011</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(3)">View Profile</button>
+
+</div>
+
+<!-- Student 4 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=4">
+
+<h2>Rohan Patel</h2>
+
+<p class="branch">Electronics</p>
+
+<div class="info">
+
+<p> Roll : 25ECE021</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(4)">View Profile</button>
+
+</div>
+
+<!-- Student 5 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=5">
+
+<h2>Priya Mehta</h2>
+
+<p class="branch">Computer Science</p>
+
+<div class="info">
+
+<p> Roll : 25CSE029</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(5)">View Profile</button>
+
+</div>
+
+<!-- Student 6 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=6">
+
+<h2>Kunal Sharma</h2>
+
+<p class="branch">Mechanical</p>
+
+<div class="info">
+
+<p> Roll : 25ME010</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(6)">View Profile</button>
+
+</div>
+
+<!-- Student 7 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=7">
+
+<h2>Sneha Agarwal</h2>
+
+<p class="branch">Civil</p>
+
+<div class="info">
+
+<p> Roll : 25CE008</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(7)">View Profile</button>
+
+</div>
+
+<!-- Student 8 -->
+
+<div class="card">
+
+<img src="https://i.pravatar.cc/150?img=8">
+
+<h2>Aditya Joshi</h2>
+
+<p class="branch">Data Science</p>
+
+<div class="info">
+
+<p> Roll : 25DS014</p>
+
+<p> Semester : III</p>
+
+
+
+</div>
+
+<button onclick="showStudent(8)">View Profile</button>
+
+</div>
+
+</div>
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <img id="studentImage" src="" alt="Student">
+
+        <h2 id="studentName"></h2>
+
+        <hr>
+
+        <p><strong> Roll No:</strong> <span id="studentRoll"></span></p>
+
+        <p><strong> Branch:</strong> <span id="studentBranch"></span></p>
+
+        <p><strong> Semester:</strong> <span id="studentSemester"></span></p>
+
+        <p><strong> CGPA:</strong> <span id="studentCgpa"></span></p>
+
+        <p><strong> Attendance:</strong> <span id="studentAttendance"></span></p>
+
+        <p><strong> Email:</strong> <span id="studentEmail"></span></p>
+
+        <p><strong>Phone:</strong> <span id="studentPhone"></span></p>
+
+        <p><strong> Address:</strong> <span id="studentAddress"></span></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Product Description Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#0f0f0f,#1c1025,#30002d);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:30px;
+
+}
+
+.container{
+
+width:90%;
+max-width:800px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,0,180,.3);
+
+border-radius:20px;
+
+padding:35px;
+
+box-shadow:0 0 40px rgba(255,0,180,.25);
+
+}
+
+h1{
+
+text-align:center;
+font-size:38px;
+margin-bottom:10px;
+color:#ff4fd8;
+
+}
+
+.subtitle{
+
+text-align:center;
+opacity:.8;
+margin-bottom:25px;
+
+}
+
+input[type=text]{
+
+width:100%;
+padding:15px;
+
+background:#222;
+
+border:none;
+
+border-radius:10px;
+
+color:white;
+
+margin-bottom:20px;
+
+font-size:16px;
+
+}
+
+input[type=file]{
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+font-size:18px;
+
+background:#ff2ebd;
+
+border:none;
+
+color:white;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-weight:bold;
+
+}
+
+button:hover{
+
+transform:scale(1.03);
+
+box-shadow:0 0 20px #ff2ebd;
+
+}
+
+img{
+
+display:none;
+
+width:250px;
+
+margin:20px auto;
+
+border-radius:15px;
+
+border:3px solid #ff2ebd;
+
+}
+
+.loader{
+
+display:none;
+
+text-align:center;
+
+margin:20px;
+
+font-size:18px;
+
+color:#ff80dd;
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+50%{opacity:.3;}
+
+}
+
+.output{
+
+margin-top:25px;
+
+padding:20px;
+
+border-radius:15px;
+
+background:#1b1b1b;
+
+border:1px solid rgba(255,255,255,.1);
+
+}
+
+#description{
+
+margin-top:15px;
+
+line-height:1.8;
+
+min-height:120px;
+
+}
+
+.stats{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+}
+
+.card{
+
+width:48%;
+
+background:#2a2a2a;
+
+padding:15px;
+
+border-radius:12px;
+
+text-align:center;
+
+}
+
+.copyBtn{
+
+margin-top:20px;
+
+background:#6d00ff;
+
+}
+
+footer{
+
+margin-top:25px;
+
+text-align:center;
+
+font-size:14px;
+
+opacity:.6;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI Product Description Generator</h1>
+
+<p class="subtitle">Generate premium AI-powered product descriptions instantly.</p>
+
+<input
+type="text"
+id="productName"
+placeholder="Enter Product Name">
+
+<input
+type="file"
+id="productImage"
+accept="image/*">
+
+<img id="preview">
+
+<button id="generateBtn">
+✨ Generate with AI
+</button>
+
+<div class="loader" id="loader">
+🤖 AI is analyzing your product...
+</div>
+
+<div class="output">
+
+<h2>Generated Description</h2>
+
+<p id="description">
+Your AI-generated description will appear here.
+</p>
+
+<div class="stats">
+
+<div class="card">
+
+<h3>AI Confidence</h3>
+
+<p id="confidence">--</p>
+
+</div>
+
+<div class="card">
+
+<h3>Quality Score</h3>
+
+<p id="rating">⭐⭐⭐⭐⭐</p>
+
+</div>
+
+</div>
+
+<button class="copyBtn" onclick="copyText()">
+📋 Copy Description
+</button>
+
+</div>
+
+<footer>
+
+Made with ❤️ using AI
+
+</footer>
+
+</div>
+
+<script>
+
+const preview=document.getElementById("preview");
+
+document.getElementById("productImage").addEventListener("change",function(){
+
+const file=this.files[0];
+
+if(file){
+
+preview.src=URL.createObjectURL(file);
+
+preview.style.display="block";
+
+}
+
+});
+
+const descriptions=[
+
+"Introducing a premium-quality product engineered with exceptional craftsmanship and modern design. Built using durable materials, it offers reliability, style, and outstanding performance. Whether for personal or professional use, this product delivers unmatched value while enhancing your everyday experience.",
+
+"Experience the perfect balance of innovation, elegance, and functionality. Designed for customers who appreciate premium quality, this product provides comfort, efficiency, and long-lasting durability in every use.",
+
+"Upgrade your lifestyle with this modern product featuring superior build quality and exceptional performance. Crafted to exceed expectations, it combines style with practicality, making it an ideal choice for every customer."
+
+];
+
+function typeWriter(text){
+
+let i=0;
+
+const output=document.getElementById("description");
+
+output.innerHTML="";
+
+let speed=25;
+
+let typing=setInterval(()=>{
+
+output.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(typing);
+
+}
+
+},speed);
+
+}
+
+document.getElementById("generateBtn").onclick=function(){
+
+document.getElementById("loader").style.display="block";
+
+document.getElementById("description").innerHTML="";
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.display="none";
+
+const name=document.getElementById("productName").value || "This product";
+
+const random=descriptions[Math.floor(Math.random()*descriptions.length)];
+
+typeWriter(name+" - "+random);
+
+document.getElementById("confidence").innerHTML=(92+Math.floor(Math.random()*8))+"%";
+
+},2000);
+
+}
+
+function copyText(){
+
+const text=document.getElementById("description").innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Description Copied!");
+
+}
+
+</script>
+
+</body>
+</html>

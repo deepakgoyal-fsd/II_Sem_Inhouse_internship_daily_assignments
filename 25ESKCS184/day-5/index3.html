@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hackathon Finder</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f172a;color:#fff}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:#111827;position:sticky;top:0}
+nav a{color:#fff;text-decoration:none;margin:0 12px}
+.hero{height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#2563eb,#06b6d4);text-align:center}
+.hero h1{font-size:54px}
+.hero p{margin:15px 0;font-size:18px}
+button{padding:12px 24px;border:none;border-radius:25px;background:#fff;color:#2563eb;font-weight:bold;cursor:pointer}
+section{padding:70px 8%}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#1e293b;padding:25px;border-radius:12px;transition:.3s}
+.card:hover{transform:translateY(-8px)}
+.counter{font-size:42px;font-weight:bold}
+form input,form textarea{width:100%;padding:12px;margin:10px 0;border:none;border-radius:6px}
+form button{background:#2563eb;color:#fff}
+footer{padding:20px;text-align:center;background:#111827}
+#top{display:none;position:fixed;right:20px;bottom:20px;padding:12px 16px;border-radius:50%}
+</style>
+</head>
+<body>
+
+<nav>
+<h2>HackFinder</h2>
+<div>
+<a href="#about">About</a>
+<a href="#hackathons">Hackathons</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>Find Your Next Hackathon</h1>
+<p>Discover coding competitions, build projects and win exciting prizes.</p>
+<button id="learn">Explore</button>
+</div>
+
+<section id="about">
+<h2>About</h2><br>
+<p>HackFinder helps students discover online and offline hackathons from top companies and universities.</p><br>
+<div class="cards">
+<div class="card"><div class="counter" data-count="500">0</div>Hackathons</div>
+<div class="card"><div class="counter" data-count="20000">0</div>Participants</div>
+<div class="card"><div class="counter" data-count="150">0</div>Organizers</div>
+</div>
+</section>
+
+<section id="hackathons">
+<h2>Featured Hackathons</h2><br>
+<div class="cards">
+<div class="card"><h3>AI Innovation Challenge</h3><p>Build AI solutions and compete for exciting prizes.</p></div>
+<div class="card"><h3>Web Development Sprint</h3><p>Create responsive websites using HTML,CSS and JavaScript.</p></div>
+<div class="card"><h3>Cyber Security Cup</h3><p>Show your ethical hacking and security skills.</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2><br>
+<form>
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea rows="5" placeholder="Message"></textarea>
+<button type="button">Send</button>
+</form>
+</section>
+
+<footer>©2026 HackFinder</footer>
+
+<button id="top">↑</button>
+
+<script>
+$("#learn").click(function(){$("html,body").animate({scrollTop:$("#about").offset().top},700);});
+$(window).scroll(function(){if($(this).scrollTop()>200){$("#top").fadeIn();}else{$("#top").fadeOut();}});
+$("#top").click(function(){$("html,body").animate({scrollTop:0},700);});
+$(".counter").each(function(){let t=$(this),c=t.data("count");$({n:0}).animate({n:c},{duration:1800,step:function(){t.text(Math.floor(this.n));},complete:function(){t.text(c);}});});
+</script>
+
+</body>
+</html>

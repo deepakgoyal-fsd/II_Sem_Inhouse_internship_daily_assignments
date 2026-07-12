@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackathon Finder</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#071320;
+color:white;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+z-index:1000;
+transition:.4s;
+}
+
+nav.scrolled{
+background:#10243c;
+box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
+
+nav h2{
+color:#40c9ff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+padding:0 8%;
+background:
+linear-gradient(rgba(4,13,30,.75),rgba(4,13,30,.8)),
+url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:60px;
+max-width:650px;
+}
+
+.hero span{
+color:#40c9ff;
+}
+
+.hero p{
+margin:20px 0;
+max-width:600px;
+color:#d6d6d6;
+line-height:1.7;
+}
+
+.btn{
+display:inline-block;
+padding:14px 30px;
+background:#2f7df6;
+color:white;
+text-decoration:none;
+border-radius:50px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+background:#4fa3ff;
+}
+
+section{
+padding:90px 8%;
+}
+
+.title{
+font-size:38px;
+text-align:center;
+margin-bottom:50px;
+}
+
+.search-box{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:60px;
+}
+
+.search-box input{
+
+width:320px;
+padding:15px;
+border:none;
+border-radius:8px;
+background:#16293f;
+color:white;
+}
+
+.search-box button{
+
+padding:15px 30px;
+border:none;
+background:#2f7df6;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#132238;
+padding:25px;
+border-radius:15px;
+border:1px solid #223853;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 30px rgba(47,125,246,.3);
+}
+
+.card h3{
+margin-bottom:10px;
+color:#40c9ff;
+}
+
+.tag{
+display:inline-block;
+padding:6px 12px;
+background:#24476f;
+border-radius:20px;
+font-size:14px;
+margin-top:15px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+text-align:center;
+}
+
+.num{
+font-size:45px;
+font-weight:bold;
+color:#40c9ff;
+}
+
+.testimonial{
+display:none;
+text-align:center;
+font-size:20px;
+font-style:italic;
+max-width:700px;
+margin:auto;
+}
+
+.active{
+display:block;
+}
+
+.contact{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+input,textarea{
+
+width:100%;
+padding:14px;
+margin:10px 0;
+background:#16293f;
+border:none;
+border-radius:8px;
+color:white;
+}
+
+footer{
+background:#0d1c2e;
+padding:30px;
+text-align:center;
+margin-top:40px;
+}
+
+#top{
+position:fixed;
+right:20px;
+bottom:20px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:#2f7df6;
+color:white;
+font-size:20px;
+display:none;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.contact{
+grid-template-columns:1fr;
+}
+
+nav{
+padding:15px 5%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>HackFinder</h2>
+
+<div>
+
+<a href="#search">Search</a>
+
+<a href="#hackathons">Hackathons</a>
+
+<a href="#stats">Stats</a>
+
+<a href="#reviews">Reviews</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<h1>Find Your Next <span>Hackathon</span> & Build Amazing Projects</h1>
+
+<p>Discover online and offline hackathons from top companies, universities and communities. Register, compete and win exciting prizes.</p>
+
+<a href="#search" class="btn">Find Hackathons</a>
+
+</div>
+
+</section>
+
+<section id="search">
+
+<h2 class="title">Search Hackathons</h2>
+
+<div class="search-box">
+
+<input type="text" id="searchInput" placeholder="Search by title or category...">
+
+<button onclick="searchHackathon()">Search</button>
+
+</div>
+
+</section>
+
+<section id="hackathons">
+
+<h2 class="title">Featured Hackathons</h2>
+
+<div class="grid" id="hackathonGrid">
+
+<div class="card">
+
+<h3>AI Innovation Challenge</h3>
+
+<p>Build AI-powered solutions and compete for ₹2,00,000 prize pool.</p>
+
+<span class="tag">Artificial Intelligence</span>
+
+</div>
+
+<div class="card">
+
+<h3>Web Dev Sprint</h3>
+
+<p>Create beautiful websites using HTML, CSS and JavaScript.</p>
+
+<span class="tag">Web Development</span>
+
+</div>
+
+<div class="card">
+
+<h3>Blockchain HackFest</h3>
+
+<p>Develop decentralized applications using Ethereum.</p>
+
+<span class="tag">Blockchain</span>
+
+</div>
+
+<div class="card">
+
+<h3>HealthTech Challenge</h3>
+
+<p>Innovate healthcare solutions using modern technology.</p>
+
+<span class="tag">Healthcare</span>
+
+</div>
+
+<div class="card">
+
+<h3>Cyber Security Cup</h3>
+
+<p>Compete in ethical hacking and security challenges.</p>
+
+<span class="tag">Cyber Security</span>
+
+</div>
+
+<div class="card">
+
+<h3>Open Source Marathon</h3>
+
+<p>Contribute to open-source projects and win goodies.</p>
+
+<span class="tag">Open Source</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="stats">
+
+<h2 class="title">Platform Statistics</h2>
+
+<div class="stats">
+
+<div>
+
+<div class="num" data-target="850">0</div>
+
+<p>Hackathons</p>
+
+</div>
+
+<div>
+
+<div class="num" data-target="120">0</div>
+
+<p>Countries</p>
+
+</div>
+
+<div>
+
+<div class="num" data-target="45000">0</div>
+
+<p>Participants</p>
+
+</div>
+
+<div>
+
+<div class="num" data-target="150">0</div>
+
+<p>Organizers</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="reviews">
+
+<h2 class="title">What Students Say</h2>
+
+<div class="testimonial active">
+
+"I found my first hackathon through HackFinder and won second prize!"
+
+</div>
+
+<div class="testimonial">
+
+"The clean interface makes finding hackathons incredibly easy."
+
+</div>
+
+<div class="testimonial">
+
+"Best place to discover online coding competitions."
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact Us</h2>
+
+<div class="contact">
+
+<div class="card">
+
+<h3>HackFinder</h3>
+
+<p>📧 support@hackfinder.com</p>
+
+<p>📍 India</p>
+
+<p>☎ +91 9876543210</p>
+
+<p>Helping students discover hackathons worldwide.</p>
+
+</div>
+
+<div class="card">
+
+<input placeholder="Full Name">
+
+<input placeholder="Email">
+
+<textarea rows="6" placeholder="Message"></textarea>
+
+<a href="#" class="btn">Send Message</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 HackFinder | Built using HTML, CSS, JavaScript & jQuery
+
+</footer>
+
+<button id="top">↑</button>
+
+<script>
+
+$(window).scroll(function(){
+
+$("nav").toggleClass("scrolled",$(this).scrollTop()>50);
+
+$("#top").toggle($(this).scrollTop()>250);
+
+});
+
+$("#top").click(function(){
+
+$("html,body").animate({scrollTop:0},700);
+
+});
+
+$(".num").each(function(){
+
+let t=$(this);
+
+let target=t.data("target");
+
+$({count:0}).animate({count:target},{
+
+duration:2000,
+
+step:function(){
+
+t.text(Math.floor(this.count));
+
+},
+
+complete:function(){
+
+t.text(target);
+
+}
+
+});
+
+});
+
+let i=0;
+
+setInterval(function(){
+
+let t=$(".testimonial");
+
+t.removeClass("active").fadeOut(300);
+
+i=(i+1)%t.length;
+
+$(t[i]).addClass("active").fadeIn(500);
+
+},3000);
+
+function searchHackathon(){
+
+let input=document.getElementById("searchInput").value.toLowerCase();
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+if(card.innerText.toLowerCase().includes(input)){
+
+card.style.display="block";
+
+}
+
+else if(card.parentElement.id=="hackathonGrid"){
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

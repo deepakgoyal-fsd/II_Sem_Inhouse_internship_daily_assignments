@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Luxury Villa",
+    "city": "Jaipur",
+    "price": 25000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
+  },
+  {
+    "id": 2,
+    "name": "Modern Apartment",
+    "city": "Delhi",
+    "price": 18000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600"
+  },
+  {
+    "id": 3,
+    "name": "Family House",
+    "city": "Mumbai",
+    "price": 30000,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600"
+  },
+  {
+    "id": 4,
+    "name": "Studio Flat",
+    "city": "Pune",
+    "price": 12000,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=600"
+  },
+  {
+    "id": 5,
+    "name": "Premium Bungalow",
+    "city": "Ahmedabad",
+    "price": 45000,
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "rating": 5.0,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600"
+  },
+  {
+    "id": 6,
+    "name": "Cozy Cottage",
+    "city": "Shimla",
+    "price": 15000,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600"
+  },
+  {
+    "id": 7,
+    "name": "Sea View Apartment",
+    "city": "Goa",
+    "price": 35000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600"
+  },
+  {
+    "id": 8,
+    "name": "Mountain Cabin",
+    "city": "Manali",
+    "price": 20000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1448630360428-65456885c650?w=600"
+  },
+  {
+    "id": 9,
+    "name": "Royal Duplex",
+    "city": "Udaipur",
+    "price": 28000,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600"
+  },
+  {
+    "id": 10,
+    "name": "Smart Home",
+    "city": "Bangalore",
+    "price": 32000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600"
+  },
+  {
+    "id": 11,
+    "name": "Green Residency",
+    "city": "Hyderabad",
+    "price": 22000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600"
+  },
+  {
+    "id": 12,
+    "name": "Skyline Penthouse",
+    "city": "Chandigarh",
+    "price": 50000,
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "rating": 5.0,
+    "image": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600"
+  }
+]

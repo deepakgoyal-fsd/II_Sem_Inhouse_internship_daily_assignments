@@ -1,0 +1,324 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/* Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#ffd54f;
+    border-radius:50%;
+    top:-200px;
+    right:-200px;
+    filter:blur(120px);
+    opacity:.35;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#64b5f6;
+    border-radius:50%;
+    left:-180px;
+    bottom:-150px;
+    filter:blur(120px);
+    opacity:.30;
+    z-index:-2;
+}
+
+/* Navbar */
+
+.navbar{
+    padding:15px 0;
+    transition:.4s;
+}
+
+.glass{
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(12px);
+}
+
+.navbar-brand{
+    font-size:30px;
+}
+
+.nav-link{
+    color:white !important;
+    margin-left:20px;
+    font-weight:500;
+}
+
+.nav-link:hover{
+    color:#ffc107 !important;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:90px;
+}
+
+.hero h1{
+    font-size:60px;
+    font-weight:700;
+}
+
+.hero h1 span{
+    color:#ffc107;
+}
+
+.hero p{
+    margin:25px 0;
+    font-size:20px;
+    color:#555;
+}
+
+.hero-img{
+    width:100%;
+    max-width:550px;
+    transition:.5s;
+}
+
+.hero-img:hover{
+    transform:scale(1.05);
+}
+
+/* Inputs */
+
+.form-control,
+.form-select{
+    border:none;
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow:0 0 15px #ffc107;
+}
+
+/* Cards */
+
+.house-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    position:relative;
+}
+
+.house-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+.house-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:22px;
+}
+
+.city{
+    color:#777;
+    font-size:15px;
+}
+
+.price{
+    color:#ff5722;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.rating{
+    color:#ffc107;
+}
+
+.features{
+    display:flex;
+    justify-content:space-between;
+    margin:18px 0;
+    font-size:15px;
+}
+
+.features span{
+    background:#f3f3f3;
+    padding:8px 12px;
+    border-radius:10px;
+}
+
+.favorite{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:45px;
+    height:45px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:22px;
+    transition:.3s;
+}
+
+.favorite:hover{
+    color:red;
+    transform:scale(1.1);
+}
+
+.btn-rent{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:12px;
+    background:#ffc107;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-rent:hover{
+    background:#ff9800;
+    color:white;
+}
+
+/* Statistics */
+
+.glass{
+    background:white;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* About */
+
+#about h2{
+    margin-bottom:20px;
+}
+
+#about p{
+    line-height:1.8;
+    color:#555;
+}
+
+/* Footer */
+
+footer{
+    background:#111827;
+    color:white;
+}
+
+footer h2{
+    color:#ffc107;
+}
+
+.social{
+    margin-top:20px;
+}
+
+.social i{
+    font-size:28px;
+    margin:0 12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.social i:hover{
+    color:#ffc107;
+    transform:translateY(-5px);
+}
+
+/* Loader */
+
+#loader{
+    padding:80px;
+}
+
+/* Scroll Button */
+
+#topBtn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#ffc107;
+    color:black;
+    display:none;
+    font-size:24px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    cursor:pointer;
+}
+
+#topBtn:hover{
+    background:#ff9800;
+    color:white;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.hero{
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero-img{
+    margin-top:40px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:34px;
+}
+
+.features{
+    flex-direction:column;
+    gap:10px;
+}
+
+.card-body{
+    padding:18px;
+}
+
+.price{
+    font-size:24px;
+}
+
+}

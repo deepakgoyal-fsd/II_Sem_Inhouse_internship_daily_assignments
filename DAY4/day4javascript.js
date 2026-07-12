@@ -1,0 +1,33 @@
+function showMood(){
+
+let name=document.getElementById("name").value;
+let mood=document.getElementById("mood").value;
+let output=document.getElementById("output");
+let body=document.getElementById("body");
+
+if(name=="" || mood==""){
+output.innerHTML="Please enter your name and select a mood.";
+return;
+}
+
+if(mood=="happy"){
+body.style.background="linear-gradient(45deg,#facc15,#f97316)";
+output.innerHTML="😊 Welcome "+name+"! Keep Smiling!";
+}
+
+else if(mood=="excited"){
+body.style.background="linear-gradient(45deg,#ec4899,#8b5cf6)";
+output.innerHTML="🤩 Awesome "+name+"! Let's create something amazing!";
+}
+
+else if(mood=="focused"){
+body.style.background="linear-gradient(45deg,#2563eb,#0f172a)";
+output.innerHTML="💻 Stay focused "+name+"! Success is loading...";
+}
+
+else if(mood=="relaxed"){
+body.style.background="linear-gradient(45deg,#14b8a6,#0f766e)";
+output.innerHTML="🌙 Relax "+name+"! Enjoy your peaceful moment.";
+}
+
+}

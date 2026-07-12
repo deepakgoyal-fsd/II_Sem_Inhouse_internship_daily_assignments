@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Landing Page</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+header{
+    background:pink;
+    color:black;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:#333;
+    text-align:center;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    text-align:center;
+    padding:40px;
+}
+
+.container h2{
+    margin-bottom:20px;
+}
+
+.container p{
+    margin-bottom:20px;
+}
+
+input{
+    padding:10px;
+    width:250px;
+}
+
+button{
+    padding:10px 20px;
+    background:#0077cc;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+button:hover{
+    background:green;
+}
+
+#message{
+    margin-top:20px;
+    color:blue;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.card{
+    background:white;
+    width:300px;
+    margin:40px auto;
+    padding:20px;
+    border-radius:10px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0px 0px 10px gray;
+}
+
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>My Interactive Landing Page</h1>
+
+<p>Welcome to my HTML CSS JavaScript Assignment</p>
+
+</header>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">About</a>
+
+<a href="#">Services</a>
+
+<a href="#">Contact</a>
+
+</nav>
+
+<div class="container">
+
+<h2>Hello Visitor!</h2>
+
+<p>Enter your name below.</p>
+
+<input type="text" id="name" placeholder="Enter your name">
+
+<br>
+
+<button onclick="showMessage()">Submit</button>
+
+<p id="message"></p>
+
+<div class="card">
+
+<h3>Simple Card</h3>
+
+<p>
+Move your mouse over this card to see the hover effect.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>Created by Ritika | Beginner HTML CSS JavaScript Project</p>
+
+</footer>
+
+<script>
+
+function showMessage(){
+
+let username=document.getElementById("name").value;
+
+if(username=="")
+{
+document.getElementById("message").innerHTML="Please enter your name.";
+}
+else
+{
+document.getElementById("message").innerHTML="Welcome "+username+"! Have a great day.";
+}
+
+}
+
+</script>
+
+</body>
+</html>

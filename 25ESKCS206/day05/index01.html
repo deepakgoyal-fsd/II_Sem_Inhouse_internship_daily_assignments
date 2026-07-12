@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <style>
+        :root {
+            --bg-color: #0b111e;
+            --card-bg: #131c2e;
+            --accent-color: #00f2fe;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --success-green: #059669;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #ffffff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Module 1: Search Box */
+        .search-container {
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background-color: var(--card-bg);
+            border: 2px solid #1e293b;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Module 2 & 4: Student Cards & Show/Hide Animations */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #1e293b;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .student-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .student-role {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .toggle-btn:hover {
+            background: #1e293b;
+            color: white;
+        }
+
+        /* Smooth expandable section (Module 4) */
+        .collapsible-info {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+            opacity: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 0 solid #1e293b;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .collapsible-info.expanded {
+            max-height: 100px; /* Approximate max height for the text content */
+            opacity: 1;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top-width: 1px;
+        }
+
+        /* Module 3: Detail View Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 8, 16, 0.8);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid var(--accent-color);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body .meta {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-body p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .no-results {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Student Directory</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchBox" class="search-input" placeholder="Search students by name in real time...">
+        </div>
+
+        <div class="directory-grid" id="directoryGrid"></div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock Data Source
+        const studentsData = [
+            { id: 1, name: "Alex Rivera", role: "Fullstack Dev", email: "alex@school.edu", bio: "Passionate about building scalable cloud architectures and brewing the perfect espresso.", project: "E-Commerce Microservices" },
+            { id: 2, name: "Chloe Chen", role: "UI/UX Designer", email: "chloe@school.edu", bio: "Fascinated by human-centered design systems and digital accessibility frameworks.", project: "Fintech Mobile Wallet" },
+            { id: 3, name: "Marcus Johnson", role: "Data Scientist", email: "marcus@school.edu", bio: "Specializing in natural language processing and predictive machine learning models.", project: "AI Mental Health Chatbot" },
+            { id: 4, name: "Sarah Smalls", role: "Frontend Dev", email: "sarah@school.edu", bio: "Creative engineer focused on fluid UI animations, CSS layouts, and modern reactive frameworks.", project: "Interactive Learning Canvas" }
+        ];
+
+        // DOM Elements
+        const directoryGrid = document.getElementById('directoryGrid');
+        const searchBox = document.getElementById('searchBox');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModal = document.getElementById('closeModal');
+        const modalBody = document.getElementById('modalBody');
+
+        // --- Module 2: Render Cards Dynamically ---
+        function renderDirectory(students) {
+            directoryGrid.innerHTML = '';
+            
+            if (students.length === 0) {
+                directoryGrid.innerHTML = '<div class="no-results">No students found matching that name.</div>';
+                return;
+            }
+
+            students.forEach(student => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                // Attach student ID to dataset for tracking clicks
+                card.dataset.id = student.id;
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div>
+                            <div class="student-name">${student.name}</div>
+                            <div class="student-role">${student.role}</div>
+                        </div>
+                        <button class="toggle-btn" data-toggle="true">Quick View</button>
+                    </div>
+                    <div class="collapsible-info">
+                        <strong>Email:</strong> ${student.email}<br>
+                        <strong>Project:</strong> ${student.project}
+                    </div>
+                `;
+
+                // Setup Click Routing (Differentiates between Toggle click and Card Body click)
+                card.addEventListener('click', (e) => {
+                    if (e.target.hasAttribute('data-toggle')) {
+                        e.stopPropagation(); // Prevents launching the global detail view modal
+                        toggleQuickView(card);
+                    } else {
+                        openDetailView(student);
+                    }
+                });
+
+                directoryGrid.appendChild(card);
+            });
+        }
+
+        // --- Module 1: Real-Time Filter Logic ---
+        searchBox.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const filteredStudents = studentsData.filter(student => 
+                student.name.toLowerCase().includes(searchTerm)
+            );
+            renderDirectory(filteredStudents);
+        });
+
+        // --- Module 4: Show / Hide Info with Smooth CSS Transition ---
+        function toggleQuickView(cardElement) {
+            const collapsible = cardElement.querySelector('.collapsible-info');
+            const btn = cardElement.querySelector('.toggle-btn');
+            
+            collapsible.classList.toggle('expanded');
+            
+            if (collapsible.classList.contains('expanded')) {
+                btn.textContent = 'Hide Details';
+            } else {
+                btn.textContent = 'Quick View';
+            }
+        }
+
+        // --- Module 3: Detail View Modal Control ---
+        function openDetailView(student) {
+            modalBody.innerHTML = `
+                <h2>${student.name}</h2>
+                <div class="meta">${student.role}</div>
+                <p><strong>Contact:</strong> ${student.email}</p>
+                <p><strong>Capstone Project:</strong> ${student.project}</p>
+                <p><strong>Biography:</strong> ${student.bio}</p>
+            `;
+            modalOverlay.classList.add('active');
+        }
+
+        function closeDetailView() {
+            modalOverlay.classList.remove('active');
+        }
+
+        // Modal Close Observers
+        closeModal.addEventListener('click', closeDetailView);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeDetailView();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeDetailView();
+        });
+
+        // Initial Directory Load
+        renderDirectory(studentsData);
+    </script>
+</body>
+</html>

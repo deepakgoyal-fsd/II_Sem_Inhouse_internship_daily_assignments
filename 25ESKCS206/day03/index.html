@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnCode - Become a Full Stack Developer</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+
+    <style>
+        /* Custom styles to match the CodePro theme */
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #3b82f6;
+        }
+        /* Smooth hover animation for cards (Bonus Challenge) */
+        .hover-card {
+            transition: transform 0.2s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">LearnCode</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Why Learn With Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Our Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary btn-sm px-3" href="#contact">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section text-white py-5">
+        <div class="container my-5">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="display-4 fw-bold mb-3">Learn. Build.<br>Become a <span class="text-primary">Full Stack Developer</span>.</h1>
+                    <p class="lead text-light opacity-75 mb-4">
+                        Join our expert-led bootcamp and build real-world projects that get you hired.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
+                        <a href="#features" class="btn btn-primary btn-lg">Explore Courses</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Download Syllabus</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="bg-secondary bg-opacity-25 rounded-3 p-5 border border-secondary d-flex justify-content-center align-items-center" style="min-height: 300px;">
+                        <i class="bi bi-laptop text-primary" style="font-size: 6rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="py-5 bg-light">
+        <div class="container text-center py-4">
+            <h2 class="fw-bold mb-5">Why Learn With Us?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 hover-card">
+                        <div class="card-body">
+                            <i class="bi bi-people-fill feature-icon mb-3"></i>
+                            <h4 class="card-title fw-bold h5">Expert Trainers</h4>
+                            <p class="card-text text-muted small">Learn direct from industry professionals who know the market.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 hover-card">
+                        <div class="card-body">
+                            <i class="bi bi-code-slash feature-icon mb-3"></i>
+                            <h4 class="card-title fw-bold h5">Hands-on Projects</h4>
+                            <p class="card-text text-muted small">Build real projects for real experience, not just theoretical quizzes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 hover-card">
+                        <div class="card-body">
+                            <i class="bi bi-briefcase-fill feature-icon mb-3"></i>
+                            <h4 class="card-title fw-bold h5">Placement Support</h4>
+                            <p class="card-text text-muted small">We help you land your dream job with resume building and mock interviews.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-5">
+        <div class="container text-center py-4">
+            <h2 class="fw-bold mb-5">Meet the Team</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="images.jpg" alt="Web Development Bootcamp" class="img-fluid rounded-3 shadow">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-1">Alex Johnson</h5>
+                            <p class="text-primary small mb-2">Lead Instructor</p>
+                            <p class="card-text text-muted small">Ex-Senior Software Engineer at top tech firm.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="imagi.webp" alt="Web Development Bootcamp" class="img-fluid rounded-3 shadow">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-1">Sarah Smith</h5>
+                            <p class="text-primary small mb-2">UI/UX Mentor</p>
+                            <p class="card-text text-muted small">Designing professional web interfaces for 8+ years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-4" style="max-width: 600px;">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Get In Touch</h2>
+                <p class="text-muted">Have questions? Fill out the form and our team will reach out shortly.</p>
+            </div>
+            <div class="card border-0 shadow-sm p-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label small fw-bold">Full Name</label>
+                        <input type="text" class="form-line form-control" id="nameInput" placeholder="John Doe" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label small fw-bold">Email Address</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="messageInput" class="form-label small fw-bold">Your Inquiry</label>
+                        <textarea class="form-control" id="messageInput" rows="4" placeholder="Tell us about your learning goals..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4 text-center">
+        <div class="container">
+            <p class="mb-0 small opacity-70">&copy; 2026 CodePro Training Institute. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

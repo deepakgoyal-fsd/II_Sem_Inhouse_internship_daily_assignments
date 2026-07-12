@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ADMISSION FORM</title>
+
+    <style>
+        body{
+            background-color:#2f608b;
+            font-family:Arial, sans-serif;
+        }
+
+        .form{
+            width:550px;
+            margin:auto;
+            margin-top:30px;
+            background:rgba(255, 255, 255, 0.563);
+            border:2px solid rgb(221, 221, 231);
+            border-radius:10px;
+            padding:20px;
+        }
+
+        h1{
+            
+            text-align:center;
+            color:rgb(211, 192, 47);
+        }
+
+        h3{
+            text-align:center;
+            color:rgb(47, 106, 53);
+        }
+
+        label{
+            font-weight:bold;
+            color:rgb(146, 42, 92);
+        }
+
+        input, select, textarea{
+            width:100%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:12px;
+            border:1px solid gray;
+            border-radius:5px;
+        }
+
+        input[type="radio"]{
+            width:auto;
+        }
+
+        input[type="submit"]{
+            width:48%;
+            background:green;
+            color:white;
+            border:none;
+            padding:10px;
+        }
+
+        input[type="reset"]{
+            width:48%;
+            background:red;
+            color:white;
+            border:none;
+            padding:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form">
+
+<h1>SKIT Jaipur</h1>
+<h3>Admission Application Form</h3>
+
+<form>
+
+<label>Application Number</label>
+<input type="text" placeholder="APP2026001">
+
+<label>Full Name</label>
+<input type="text">
+
+<label>Father's Name</label>
+<input type="text">
+
+<label>Mother's Name</label>
+<input type="text">
+
+<label>Date of Birth</label>
+<input type="date">
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+
+<br><br>
+
+<label>Course Applying For</label>
+
+<select>
+    <option>B.Tech</option>
+    <option>M.Tech</option>
+    <option>MCA</option>
+    <option>MBA</option>
+</select>
+
+<label>Branch Preference</label>
+
+<select>
+    <option>Computer Science</option>
+    <option>Information Technology</option>
+    <option>Mechanical</option>
+    <option>Civil</option>
+    <option>Electrical</option>
+</select>
+
+<label>Email</label>
+<input type="email">
+
+<label>Mobile Number</label>
+<input type="tel">
+
+<label>Address</label>
+<textarea rows="4"></textarea>
+
+<label>Upload Passport Size Photo</label>
+<input type="file">
+
+<label>Declaration</label>
+<br>
+<input type="radio" name="agree"> I declare that the above information is correct.
+
+<br><br>
+
+<input type="submit" value="Apply Now">
+<input type="reset" value="Clear Form">
+
+</form>
+
+</div>
+
+</body>
+</html>

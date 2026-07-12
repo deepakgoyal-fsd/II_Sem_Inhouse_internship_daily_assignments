@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MasterChef Cooking Academy</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff8f2;
+    color:#333;
+}
+
+/* Navigation */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:#d35400;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav h2{
+    color:white;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+}
+
+/* Hero Section */
+
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1500&q=80") center/cover;
+}
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:18px;
+    max-width:600px;
+}
+
+button{
+    padding:13px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff9800;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e67e22;
+}
+
+/* Sections */
+
+section{
+    padding:70px 8%;
+}
+
+h2{
+    color:#d35400;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.counter{
+    font-size:42px;
+    font-weight:bold;
+    color:#ff6600;
+}
+
+/* Form */
+
+form input,
+form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+form button{
+    background:#d35400;
+}
+
+/* Footer */
+
+footer{
+    padding:20px;
+    text-align:center;
+    background:#d35400;
+    color:white;
+}
+
+/* Scroll Button */
+
+#top{
+    display:none;
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    padding:12px 16px;
+    border-radius:50%;
+    background:#ff9800;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>🍳 MasterChef Academy</h2>
+
+<div>
+
+<a href="#about">About</a>
+<a href="#courses">Courses</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</nav>
+
+<div class="hero">
+
+<h1>Learn to Cook Like a Professional Chef</h1>
+
+<p>
+Discover delicious recipes, baking techniques, and international cuisines with expert chefs.
+</p>
+
+<button id="learn">Explore Courses</button>
+
+</div>
+
+<section id="about">
+
+<h2>About Us</h2>
+
+<br>
+
+<p>
+MasterChef Academy provides practical cooking classes for beginners and professionals. Learn hands-on with experienced chefs in a friendly environment.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="counter" data-count="2000">0</div>
+Students
+</div>
+
+<div class="card">
+<div class="counter" data-count="75">0</div>
+Cooking Courses
+</div>
+
+<div class="card">
+<div class="counter" data-count="30">0</div>
+Professional Chefs
+</div>
+
+</div>
+
+</section>
+
+<section id="courses">
+
+<h2>Popular Courses</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🍛 Indian Cuisine</h3>
+<p>Traditional curries, breads, sweets and authentic recipes.</p>
+</div>
+
+<div class="card">
+<h3>🍝 Italian Cooking</h3>
+<p>Fresh pasta, pizza, risotto and homemade sauces.</p>
+</div>
+
+<div class="card">
+<h3>🍰 Baking</h3>
+<p>Cakes, cookies, pastries and chocolate desserts.</p>
+</div>
+
+<div class="card">
+<h3>🥗 Healthy Cooking</h3>
+<p>Nutritious meals for a healthy lifestyle.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Join Our Classes</h2>
+
+<br>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email Address">
+
+<textarea rows="5" placeholder="Tell us which course you're interested in"></textarea>
+
+<button type="button">Register Now</button>
+
+</form>
+
+</section>
+
+<footer>
+
+© 2026 MasterChef Cooking Academy | All Rights Reserved
+
+</footer>
+
+<button id="top">↑</button>
+
+<script>
+
+$("#learn").click(function(){
+
+$("html,body").animate({
+scrollTop:$("#about").offset().top
+},700);
+
+});
+
+$(window).scroll(function(){
+
+if($(this).scrollTop()>200){
+
+$("#top").fadeIn();
+
+}
+
+else{
+
+$("#top").fadeOut();
+
+}
+
+});
+
+$("#top").click(function(){
+
+$("html,body").animate({
+scrollTop:0
+},700);
+
+});
+
+$(".counter").each(function(){
+
+let t=$(this);
+
+let target=t.data("count");
+
+$({count:0}).animate({
+
+count:target
+
+},{
+
+duration:2000,
+
+step:function(){
+
+t.text(Math.floor(this.count));
+
+},
+
+complete:function(){
+
+t.text(target);
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8".>
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title> Registration Form</title>
+        <link rel="stylesheet" href="formstyle.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <h2>  Registration Form</h2>
+            <form>
+                <label> Full Name</label>
+                <input type="text" placeholder="Enter your name" required>
+                <div class="row">
+                <div class="input-box">
+                    <label>Mobile No</label>
+                    <input type="tel" placeholder="Enter mobile number" required>
+
+                </div>
+                <div class="input-box">
+                    <label>Email Id </label>
+                    <input type="email" placeholder="Enter email" required>
+
+                </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-box">
+                        <label>Date of Birth</label>
+                        <input type="date" required>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-box">
+                        <label> Gender</label><br><br>
+                        <input type="radio" name="Gender"> Male
+                        <input type="radio" name="Gender"> Female
+                        <input type="radio" name="Gender"> Transgender
+                    <input type="radio" name="Gender"> Prefer not to say
+                    </div>
+                </div>
+                <label> Address</label>
+                <input type="text" placeholder="Enter street address">
+                <input type="text" placeholder="Enter street address line 2">
+                <div class="row">
+                    <div>
+                        <label>Country</label>
+                        <select>
+                            <option>America</option>
+                            <option>Japan</option>
+                            <option>India</option>
+                            <option>Nepal</option>
+
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Enter your city">
+                        <input type="text" placeholder="Enter postal code">
+                    </div>
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </body>
+</html>

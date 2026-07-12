@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Banana Counter Game</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    background:#dff6ff;
+    overflow:hidden;
+}
+
+h1{
+    margin-top:20px;
+}
+
+#info{
+    font-size:22px;
+    margin:15px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#gameArea{
+    position:relative;
+    width:100vw;
+    height:80vh;
+}
+
+#fruit{
+    position:absolute;
+    width:80px;
+    height:80px;
+    cursor:pointer;
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<h1>🍎 Apple Banana Counter Game 🍌</h1>
+
+<div id="info">
+Time: <span id="time">60</span>s |
+Apple: <span id="appleCount">0</span> |
+Banana: <span id="bananaCount">0</span>
+</div>
+
+<button onclick="startGame()">Start Game</button>
+
+<div id="gameArea">
+    <img id="fruit">
+</div>
+
+<script>
+let fruit=document.getElementById("fruit");
+let time=document.getElementById("time");
+let appleCount=0;
+let bananaCount=0;
+let seconds=60;
+let timer;
+let current="apple";
+
+function randomPosition(){
+
+let area=document.getElementById("gameArea");
+
+let x=Math.random()*(area.clientWidth-90);
+let y=Math.random()*(area.clientHeight-90);
+
+fruit.style.left=x+"px";
+fruit.style.top=y+"px";
+}
+
+function showFruit(){
+
+if(current=="apple")
+    fruit.src="https://www.bing.com/images/search?view=detailV2&ccid=kori7Y8N&id=D3AF233235AC6D727740A8A0FC30F9FF31071813&thid=OIP.kori7Y8NQzmHi4RLlD-T9AHaE5&mediaurl=https%3a%2f%2fimages.pexels.com%2fphotos%2f39803%2fpexels-photo-39803.jpeg%3fcs%3dsrgb%26dl%3dfood-healthy-apple-39803.jpg%26fm%3djpg&exph=3264&expw=4928&q=apple+image+in+jpg&mode=overlay&FORM=IQFRBA&ck=84A9E0C89398770320A3FB3EE8D9DD93&selectedIndex=0&idpp=serp";
+else
+    fruit.src="https://www.bing.com/th/id/OIP.ae5d4SN21vAAvEB9UBx8dwHaHw?w=193&h=202&c=8&rs=1&qlt=90&o=6&pid=ImgAns&rm=2");
+fruit.style.display="block";
+
+}
+
+function startGame(){
+
+appleCount=0;
+bananaCount=0;
+seconds=60;
+
+document.getElementById("appleCount").innerHTML=0;
+document.getElementById("bananaCount").innerHTML=0;
+time.innerHTML=seconds;
+
+current="apple";
+showFruit();
+
+clearInterval(timer);
+
+timer=setInterval(function(){
+
+seconds--;
+time.innerHTML=seconds;
+
+if(seconds<=0){
+clearInterval(timer);
+fruit.style.display="none";
+alert("Game Over!\n\nApple = "+appleCount+"\nBanana = "+bananaCount);
+}
+
+},1000);
+
+}
+
+fruit.onclick=function(){
+
+if(current=="apple"){
+
+appleCount++;
+document.getElementById("appleCount").innerHTML=appleCount;
+current="banana";
+
+}
+else{
+
+bananaCount++;
+document.getElementById("bananaCount").innerHTML=bananaCount;
+current="apple";
+
+}
+
+showFruit();
+
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Student Records</h2>
+
+        <input
+            type="text"
+            id="search"
+            class="form-control mb-4"
+            placeholder="Search Student"
+        >
+
+        <div id="container" class="row g-4"></div>
+    </div>
+
+    <script>
+        const students = [
+            { name: "kahkashi", branch: "AI", CGPA: 9.0 },
+            { name: "khushi", branch: "AI", CGPA: 9.1 },
+            { name: "kumud", branch: "AI", CGPA: 7.2 },
+            { name: "kartik", branch: "AI", CGPA: 6.6 },
+            { name: "bhati", branch: "AI", CGPA: 6.5 }
+        ];
+
+        let html = "";
+
+        for (let i = 0; i < students.length; i++) {
+
+            html += `
+                <div class="col-md-4 card-item">
+                    <div class="card shadow">
+                        <div class="card-body">
+
+                            <h4>${students[i].name}</h4>
+
+                            <button class="btn btn-primary btn-sm mt-2 show-btn">
+                                Show Details
+                            </button>
+
+                            <div class="details mt-3" style="display:none;">
+                                <p><strong>Branch:</strong> ${students[i].branch}</p>
+                                <p><strong>CGPA:</strong> ${students[i].CGPA}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        document.getElementById("container").innerHTML = html;
+
+        $(document).on("click", ".show-btn", function () {
+            $(this).next(".details").slideToggle();
+        });
+    </script>
+
+</body>
+</html>

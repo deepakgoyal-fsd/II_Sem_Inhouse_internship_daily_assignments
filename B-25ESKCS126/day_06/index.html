@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Photo Gallery</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">
+        Photo Gallery
+        <span id="count" class="badge bg-primary"></span>
+    </h1>
+
+    <div class="row mb-4">
+
+        <div class="col-md-6 mx-auto">
+
+            <input
+            type="text"
+            id="search"
+            class="form-control"
+            placeholder="Search Photos...">
+
+        </div>
+
+    </div>
+
+    <div id="loading" class="text-center">
+
+        <div class="spinner-border text-primary"></div>
+
+        <p>Loading Photos...</p>
+
+    </div>
+
+    <div id="error" class="alert alert-danger d-none"></div>
+
+    <div class="row" id="cards"></div>
+
+</div>
+
+<script src="script.js">
+</script>
+
+</body>
+</html>

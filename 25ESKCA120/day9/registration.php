@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Student Registration</h1>
+
+    <form action="registration.php" method="POST">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Branch</label>
+            <select name="branch" required>
+                <option value="">Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="CSE(AI)">CSE(AI)</option>
+                <option value="ECE">ECE</option>
+                <option value="ME">ME</option>
+                <option value="CE">CE</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Roll No</label>
+            <input type="text" name="rollno" placeholder="Enter Roll Number" required>
+        </div>
+
+        <div class="form-group">
+            <label>College ID</label>
+            <input type="text" name="collegeid" placeholder="Enter College ID" required>
+        </div>
+
+        <div class="form-group">
+            <label>CGPA</label>
+            <input type="number" name="cgpa" min="0" max="10" step="0.01" placeholder="Enter CGPA" required>
+        </div>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

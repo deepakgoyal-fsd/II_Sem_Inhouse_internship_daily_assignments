@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    
+</head>
+<body>
+
+<h2>Simple Calculator</h2>
+
+<input type="number" id="number1" placeholder="Enter First Number">
+
+<select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select>
+
+<input type="number" id="number2" placeholder="Enter Second Number">
+
+
+
+<button onclick="performArithmeticOperators()">perform Arithmetic Operators
+</button>
+
+<h3 id="result">Result : </h3>
+
+<script>
+
+function performArithmeticOperators(){
+
+    const number1 = Number(document.getElementById("number1").value);
+    const number2 = Number(document.getElementById("number2").value);
+    const operator = document.getElementById("operator").value;
+
+    let result;
+
+    switch(operator){
+
+        case "+":
+            result = number1 + number2;
+            break;
+
+        case "-":
+            result = number1 - number2;
+            break;
+
+        case "*":
+            result = number1 * number2;
+            break;
+
+        case "/":
+            if(number2==0){
+                result = "Division by zero is not allowed";
+            }else{
+                result = number1 / number2;
+            }
+            break;
+
+        default:
+            result = "Invalid Operator";
+    }
+
+    document.getElementById("result").innerHTML = "Result : " + result;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                
+                <div id="alertBox" class="alert alert-danger d-none"></div>
+
+                <div class="card p-4 mb-4">
+                    <h3>Student Join Portal</h3>
+                    <form id="studentForm" action="submit.php" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Your Name:</label>
+                            <input type="text" id="usernameInput" name="name" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Form</button>
+                    </form>
+                </div>
+
+                <div class="card p-4 text-center">
+                    <h5>Interaction Counter</h5>
+                    <h2 id="counterDisplay" class="text-success">0</h2>
+                    <button id="clickMeBtn" class="btn btn-secondary">Click Counter</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

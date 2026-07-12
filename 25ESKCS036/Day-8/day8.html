@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="regstyle.css">
+</head>
+
+<body>
+    <div class="whole">
+        <form class="background" action="day8.php" method="post">
+            <h1>REGISTRATION FORM</h1>
+            <p>Submit this form for online registration</p>
+
+            <label for="txtName">Name:</label>
+            <input type="text" name="txtName" id="txtName" required placeholder="Enter Your Name" class="rounded">
+
+            <label for="txtEmail">Email:</label>
+            <input type="email" name="txtEmail" id="txtEmail" required placeholder="Enter Your Email" class="rounded">
+
+            <div class="row">
+                <div class="column">
+                    <label for="PhoneNo">Phone Number:</label>
+                    <input type="text" name="PhoneNo" id="PhoneNo" required placeholder="Enter Your Phone Number" class="rounded">
+
+                    <label for="branch">Branch:</label>
+                    <select name="branch" id="branch" class="rounded">
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="MECH">MECH</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="Password">Password:</label>
+                    <input type="password" name="Password" id="Password" required placeholder="Enter Your Password" class="rounded">
+                </div>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+
+</html>

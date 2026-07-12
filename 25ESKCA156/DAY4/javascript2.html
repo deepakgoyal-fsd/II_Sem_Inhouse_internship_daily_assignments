@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="sumbit.php" method="post">
+        <input id="number1" type="text" placeholder="Enter your first number">
+        <input id="number2" type="text" placeholder="Enter your second number">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button type="button" onclick="performoperation()">Calculate</button>
+        <div id="Result"></div>
+    </form>
+    <script>
+        function performoperation(){
+            let num1=10;
+            const pi=3.14;
+           const number1=parseFloat(document.getElementById("number1").value);
+           const number2= parseFloat(document.getElementById("number2").value);
+           const operator= document.getElementById("operator").value;
+           let result;
+           switch(operator){
+            case "+":
+                result= number1+number2;
+                break;
+            case "-":
+                result= number1-number2;
+                break;
+            case "*":
+                result= number1*number2;
+                break;
+            case "/":
+                if(number2===0){
+                    result="Error: Division by zero";
+                }else{
+                result= number1/number2;
+                }
+                break;
+            default:
+                result="Invalid operator";
+           }
+           const resultDiv=document.getElementById("Result");
+           resultDiv.innerHTML=result;
+
+        }
+    </script>
+</body>
+</html>

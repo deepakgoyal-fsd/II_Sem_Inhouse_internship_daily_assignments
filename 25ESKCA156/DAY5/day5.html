@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravaah '26 | College Fest</title>
+    <link rel="stylesheet" href="day5.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Ambient Background Lighting -->
+    <div class="glow-bg"></div>
+    <div class="glow-bg-2"></div>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="app-viewport">
+
+        <!-- VIEW 1: SIDE-BY-SIDE LANDING & EVENT EXPLORER -->
+        <section id="landing-view" class="view active">
+            <div class="split-layout">
+                
+                <!-- Left Side: Fest Branding & Intro -->
+                <div class="left-hero">
+                    <p class="subtitle">THE ULTIMATE COLLEGE FEST</p>
+                    <h1 class="glitch-title">PRAVAAH</h1>
+                    <p class="date-tag">✨ July 10, 2026 ✨</p>
+                    <p class="description">
+                        Ride the wave of culture, talent, and intense innovation. 
+                        <strong>Pravaah '26</strong> brings together top students across the nation for an unforgettable celebration of creativity and skill. Witness the grandest spectacle of the academic year. Are you ready to flow?
+                    </p>
+                    <button class="btn primary-btn pulse" onclick="switchView('register-view')">Secure Your Pass Now</button>
+                </div>
+
+                <!-- Right Side: Interactive Events Explorer -->
+                <div class="right-explorer">
+                    <h3 class="section-title">Explore the Events</h3>
+                    
+                    <!-- Quick Event Select Tabs -->
+                    <div class="event-tabs">
+                        <button class="tab-btn active" onclick="showEventDetails('bands')">🎸 Music</button>
+                        <button class="tab-btn" onclick="showEventDetails('dance')">💃 Dance</button>
+                        <button class="tab-btn" onclick="showEventDetails('hack')">💻 Tech</button>
+                        <button class="tab-btn" onclick="showEventDetails('drama')">🎭 Drama</button>
+                    </div>
+
+                    <!-- Dynamic Card Box -->
+                    <div class="dynamic-event-card">
+                        <div class="card-image-placeholder" id="event-display-img">🎸</div>
+                        <div class="card-body">
+                            <h4 id="event-display-title">Battle of the Bands</h4>
+                            <p class="time-meta">⏰ <strong>Time:</strong> 11:00 AM onwards | <strong>Venue:</strong> Main Auditorium</p>
+                            <p id="event-display-desc" class="event-text">
+                                Watch the loudest, most electric bands clash for glory. Amplifiers cranked to eleven, heavy basslines, and insane drum solos await.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VIEW 2: GLASSMORPHIC REGISTRATION FORM -->
+        <section id="register-view" class="view">
+            <div class="form-card">
+                <h2>Join the Flow</h2>
+                <p class="form-subtitle">Fill in your details to secure your festival pass.</p>
+                
+                <form id="registration-form" onsubmit="handleRegistration(event)">
+                    <div class="input-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">College Email ID</label>
+                        <input type="email" id="email" required placeholder="john@college.edu">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="1234567890">
+                        </div>
+                        <div class="input-group">
+                            <label for="eventSelect">Primary Event Interest</label>
+                            <select id="eventSelect" required>
+                                <option value="" disabled selected>Select an event</option>
+                                <option value="Battle of Bands">🎸 Battle of Bands</option>
+                                <option value="Choreo Night">💃 Choreo Night (Dance)</option>
+                                <option value="HackFest">💻 HackFest (Hackathon)</option>
+                                <option value="Street Play">🎭 Street Play (Dramatics)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn secondary-btn" onclick="switchView('landing-view')">Back to Home</button>
+                        <button type="submit" class="btn primary-btn">Submit Details</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- VIEW 3: DYNAMIC PASS GENERATOR -->
+        <section id="success-view" class="view">
+            <div class="success-card">
+                <div class="success-icon">🎉</div>
+                <h2>Registration Confirmed!</h2>
+                <p class="success-msg">Your details have successfully processed. Here is your entry pass:</p>
+                
+                <div class="ticket-box">
+                    <div class="ticket-header">PRAVAAH '26 VIP PASS</div>
+                    <div class="ticket-body">
+                        <p><strong>Name:</strong> <span id="display-name"></span></p>
+                        <p><strong>Email:</strong> <span id="display-email"></span></p>
+                        <p><strong>Phone:</strong> <span id="display-phone"></span></p>
+                        <p><strong>Event Track:</strong> <span id="display-event" class="badge"></span></p>
+                    </div>
+                    <div class="ticket-footer">Present this pass at entry gates on July 10th</div>
+                </div>
+
+                <button class="btn primary-btn" onclick="resetForm()">Return Home</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

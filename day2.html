@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <script>
+        function checkPassword() {
+            let pass = document.getElementById("password").value;
+            let cpass = document.getElementById("confirmPassword").value;
+
+            if (pass !== cpass) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body style="background-color:#c0e8ff; font-family:Arial, sans-serif;">
+
+    <center>
+        <h1 style="color:#d11a45;">REGISTRATION FORM</h1>
+        <p style="color:#d11a6a;">Submit this form for Online Registration</p>
+    </center>
+
+    <center>
+        <div style="background:white; width:60%; padding:30px; border-radius:10px; border:2px solid #ff99cc; text-align:left;">
+
+            <form action="#" onsubmit="return checkPassword()">
+
+                <p>
+                    <label><b>Name:</b></label><br>
+                    <input type="text" name="name" placeholder="Enter your name" required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <p>
+                    <label><b>Email:</b></label><br>
+                    <input type="email" name="email" placeholder="Enter your email" required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <p>
+                    <label><b>Phone:</b></label><br>
+                    <input type="tel" name="phone" placeholder="Enter 10-digit phone number"
+                        pattern="[0-9]{10}" maxlength="10" required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <p>
+                    <label><b>Gender:</b></label><br>
+
+                    <input type="radio" name="gender" value="Male" checked>
+                    Male
+
+                    <input type="radio" name="gender" value="Female">
+                    Female
+
+                    <input type="radio" name="gender" value="Prefer not to say">
+                    Prefer not to say
+                </p>
+
+                <p>
+                    <label><b>Date of Birth:</b></label><br>
+                    <input type="date" name="dob" required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <p>
+                    <label><b>Department:</b></label><br>
+                    <input type="text" name="department"
+                        placeholder="Enter your department"
+                        required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <p>
+                    <label><b>Address:</b></label><br>
+
+                    <input type="text" name="address1"
+                        placeholder="Street Address"
+                        required
+                        style="width:90%; padding:8px; margin-bottom:10px;"><br>
+
+                    <input type="text" name="address2"
+                        placeholder="Street Address Line 2"
+                        style="width:90%; padding:8px; margin-bottom:10px;"><br>
+
+                    <input type="text" name="country"
+                        placeholder="Country"
+                        required
+                        style="width:43%; padding:8px;">
+
+                    <input type="text" name="city"
+                        placeholder="City"
+                        required
+                        style="width:43%; padding:8px; margin-left:2%;"><br><br>
+
+                    <input type="text" name="region"
+                        placeholder="State / Region"
+                        required
+                        style="width:43%; padding:8px;">
+
+                    <input type="text" name="postal"
+                        placeholder="Postal Code"
+                        maxlength="6"
+                        required
+                        style="width:43%; padding:8px; margin-left:2%;">
+                </p>
+
+                <p>
+                    <label><b>Password:</b></label><br>
+                    <input type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        minlength="6"
+                        required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <p>
+                    <label><b>Confirm Password:</b></label><br>
+                    <input type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        minlength="6"
+                        required
+                        style="width:90%; padding:8px;">
+                </p>
+
+                <br>
+
+                <center>
+
+                    <input type="submit"
+                        value="Submit"
+                        style="background:#ff66b3;
+                               color:white;
+                               padding:12px 30px;
+                               border:none;
+                               border-radius:5px;
+                               cursor:pointer;
+                               font-weight:bold;">
+
+                    <input type="reset"
+                        value="Clear"
+                        style="background:#dddddd;
+                               padding:12px 30px;
+                               border:none;
+                               border-radius:5px;
+                               cursor:pointer;
+                               margin-left:10px;
+                               font-weight:bold;">
+
+                </center>
+
+            </form>
+
+        </div>
+    </center>
+
+</body>
+</html>

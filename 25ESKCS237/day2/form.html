@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Portal</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#dbeafe;
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 0 15px rgba(0,0,0,0.3);
+        }
+
+        h2{
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:25px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#333;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=tel],
+        input[type=date],
+        select,
+        textarea{
+            width:100%;
+            padding:10px;
+            margin-top:6px;
+            margin-bottom:15px;
+            border:1px solid #999;
+            border-radius:6px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus{
+            border:2px solid #0d6efd;
+            outline:none;
+        }
+
+        .radio,
+        .checkbox{
+            margin-top:8px;
+            margin-bottom:18px;
+        }
+
+        .radio input,
+        .checkbox input{
+            margin-right:5px;
+        }
+
+        .radio label,
+        .checkbox label{
+            font-weight:normal;
+            margin-right:20px;
+        }
+
+        .btn{
+            text-align:center;
+            margin-top:25px;
+        }
+
+        input[type=submit]{
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:12px 28px;
+            border-radius:6px;
+            cursor:pointer;
+            margin-right:10px;
+            font-size:15px;
+        }
+
+        input[type=submit]:hover{
+            background:#0b5ed7;
+        }
+
+        input[type=reset]{
+            background:#dc3545;
+            color:white;
+            border:none;
+            padding:12px 28px;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:15px;
+        }
+
+        input[type=reset]:hover{
+            background:#bb2d3b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration Portal</h2>
+
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name">
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Password</label>
+        <input type="password" placeholder="Create a password">
+
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="Enter your mobile number">
+
+        <label>Date of Birth</label>
+        <input type="date">
+
+        <label>Gender</label>
+
+        <div class="radio">
+            <input type="radio" name="gender"> Male
+            <input type="radio" name="gender"> Female
+            <input type="radio" name="gender"> Other
+        </div>
+
+        <label>Branch</label>
+
+        <select>
+            <option>Select Your Branch</option>
+            <option>Computer Science Engineering</option>
+            <option>Information Technology</option>
+            <option>Electronics Engineering</option>
+            <option>Mechanical Engineering</option>
+            <option>Civil Engineering</option>
+        </select>
+
+        <label>Semester</label>
+
+        <select>
+            <option>Select Semester</option>
+            <option>1st Semester</option>
+            <option>2nd Semester</option>
+            <option>3rd Semester</option>
+            <option>4th Semester</option>
+            <option>5th Semester</option>
+            <option>6th Semester</option>
+            <option>7th Semester</option>
+            <option>8th Semester</option>
+        </select>
+
+        <label>College ID</label>
+        <input type="text" placeholder="Enter your College ID">
+
+        <label>Programming Languages Known</label>
+
+        <div class="checkbox">
+            <input type="checkbox"> C
+            <input type="checkbox"> C++
+            <input type="checkbox"> Java
+            <input type="checkbox"> Python
+        </div>
+
+        <label>Areas of Interest</label>
+
+        <div class="checkbox">
+            <input type="checkbox"> Web Development
+            <input type="checkbox"> Artificial Intelligence
+            <input type="checkbox"> Data Science
+            <input type="checkbox"> Cyber Security
+        </div>
+
+       
+
+        <label>Address</label>
+
+        <textarea rows="4" placeholder="Enter your complete address"></textarea>
+
+        <div class="btn">
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

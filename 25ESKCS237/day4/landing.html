@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+    <img src="data:image/png;base64,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">
+    <h1>Nexora</h1>
+</div>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <div>
+            <button id="themeBtn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Welcome to Nexora</h1>
+        <p>Build modern websites with HTML, CSS, and JavaScript through real-world projects.</p>
+    </header>
+
+    <!-- Counter -->
+    <section class="counter">
+        <h2>Visitor Activity</h2>
+
+        <h1 id="count">0</h1>
+
+        <button id="clickBtn">Explore</button>
+        <button id="resetBtn">Reset</button>
+    </section>
+
+
+
+    <!-- Form -->
+    <section class="form-section">
+
+        <h2> Join Us</h2>
+
+        <form id="myForm">
+
+            <input type="text" id="name" placeholder="Enter Name">
+            <small id="nameError"></small>
+
+            <input type="email" id="email" placeholder="Enter Email">
+            <small id="emailError"></small>
+           
+            <button type="submit">Submit</button>
+
+        </form>
+
+    </section>
+
+<script src="script.js"></script>
+
+</body>
+<h4>Nikhil Poonia</h4>
+</html>

@@ -1,0 +1,8 @@
+body{background:#f8fafc;color:#0f1724;font-family:Inter,Arial,Helvetica,sans-serif}
+.dark-mode{background:#0b1220;color:#e6eef8}
+.dark-mode .card{background:#071226;color:#e6eef8}
+.card{border:1px solid rgba(15,23,36,0.06)}
+.hero{padding-top:12px}
+.invalid-feedback{color:#dc3545}
+#formMessage.text-success{color:#198754}
+#formMessage.text-danger{color:#dc3545}

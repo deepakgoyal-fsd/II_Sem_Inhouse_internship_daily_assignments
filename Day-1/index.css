@@ -1,0 +1,61 @@
+body {
+  font-family: 'Sofia', Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.profile-card {
+  max-width: 820px;
+  margin: 48px auto;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 45%, #e6f0ff 100%);
+  box-shadow: 0 8px 28px rgba(16, 24, 40, 0.08);
+  border: 1px solid rgba(13,110,253,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, rgba(13,110,253,1), rgba(102,16,242,0.9));
+}
+
+.profile-picture {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: 6px solid rgba(13,110,253,0.08);
+}
+
+.profile {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.name {
+  font-size: 16px;
+  margin: 0 0 6px 0;
+}
+
+.email {
+  font-size: 15px;
+  color: #6c757d;
+  margin: 0 0 12px 0;
+}
+
+.tag-list .badge {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.65rem;
+}
+
+@media (max-width: 576px) {
+  .profile-card { margin: 24px 12px; }
+  .profile-picture { width: 120px; height: 120px; }
+  .profile { font-size: 20px; }
+}

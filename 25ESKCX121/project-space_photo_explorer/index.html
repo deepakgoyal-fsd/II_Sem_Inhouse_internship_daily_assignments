@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellarView // Space Photo Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="stars-container"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fa-solid fa-satellite-dish pulse-icon"></i>
+                <h1>STELLAR<span>VIEW</span></h1>
+            </div>
+            <p class="subtitle">Deep Space Exploration Portal via NASA API Engine</p>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <section class="panel control-panel">
+            <h3><i class="fa-solid fa-sliders"></i> Control Deck</h3>
+            
+            <div class="control-group">
+                <label for="date-input">Target Mission Date</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="date" id="date-input">
+                </div>
+            </div>
+
+            <div class="button-stack">
+                <button id="search-btn" class="btn btn-primary">
+                    <i class="fa-solid fa-shuttle-space"></i> Launch Mission
+                </button>
+                <button id="random-btn" class="btn btn-accent">
+                    <i class="fa-solid fa-dice"></i> Warp to Random Date
+                </button>
+                <button id="fav-btn" class="btn btn-secondary">
+                    <i class="fa-regular fa-bookmark"></i> Archive to Collection
+                </button>
+            </div>
+        </section>
+
+        <section class="panel viewport-panel">
+            <div id="loader" class="loader-container hidden">
+                <div class="orbit-spinner">
+                    <div class="orbit"></div>
+                    <div class="orbit"></div>
+                    <div class="orbit"></div>
+                </div>
+                <p>Decoding Deep Space Telemetry...</p>
+            </div>
+
+            <div id="content-area" class="content-fade">
+                <div class="viewport-header">
+                    <span id="photo-date" class="badge"></span>
+                    <h2 id="photo-title"></h2>
+                </div>
+                
+                <div id="media-container" class="media-frame">
+                    </div>
+                
+                <div class="info-footer">
+                    <button id="read-more-btn" class="btn btn-text">
+                        <i class="fa-solid fa-circle-info"></i> Read Mission Intel
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel collection-panel">
+            <h3><i class="fa-solid fa-box-archive"></i> Saved Coordinates</h3>
+            <div id="favorites-grid" class="favorites-grid">
+                </div>
+        </section>
+    </main>
+
+    <div id="intel-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Mission Intel</h3>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="photo-explanation"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

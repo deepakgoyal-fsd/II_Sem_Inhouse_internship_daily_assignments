@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Directory</title>
+
+<link rel="stylesheet" href="jquery.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>Student Directory</h1>
+
+<p>Manage and Explore Student Profiles</p>
+
+</header>
+
+<div class="top">
+
+<input
+type="text"
+id="search"
+placeholder="Search Student..."
+>
+
+<div class="filters">
+
+<button class="filter active" data-type="All">All</button>
+
+<button class="filter" data-type="Undergraduate">Undergraduate</button>
+
+<button class="filter" data-type="Graduate">Graduate</button>
+
+</div>
+
+</div>
+
+<div id="studentContainer"></div>
+
+</div>
+
+<script src="jquery.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Details</title>
+<link rel="stylesheet" href="stylesheet.css">
+
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Student Details</h1>
+
+<input type="text" id="search" placeholder="Search Student..." onkeyup="searchStudent()">
+
+<div class="cards">
+
+<div class="card" id="shyama">
+
+<h2>Shyama</h2>
+
+<button onclick="show('detail1')">
+Show Details
+</button>
+
+<div class="details" id="detail1">
+
+<p><b>Name :</b> Shyama</p>
+
+<p><b>Age :</b> 20</p>
+
+<p><b>CGPA :</b> 8.95</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card" id="charu">
+
+<h2>Charu</h2>
+
+<button onclick="show('detail2')">
+Show Details
+</button>
+
+<div class="details" id="detail2">
+
+<p><b>Name :</b> Charu</p>
+
+<p><b>Age :</b> 21</p>
+
+<p><b>CGPA :</b> 9.12</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

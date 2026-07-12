@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <input type="number" id="number1" placeholder="Enter first number">
+    <input type="number" id="number2" placeholder="Enter second number">
+
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+    </select>
+
+    <button onclick="calculate()">Perform Arithmetic Operation</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+    function calculate() {
+        // 1. Fetch values from inputs when the button is clicked
+        const number1 = parseFloat(document.getElementById("number1").value);
+        const number2 = parseFloat(document.getElementById("number2").value);
+        const operator = document.getElementById("operator").value;
+        
+        let result;
+
+        // 2. Check if the inputs are actual numbers
+        if (isNaN(number1) || isNaN(number2)) {
+            document.getElementById("result").innerText = "Please enter valid numbers.";
+            return;
+        }
+
+        // 3. Perform the calculation based on the selected operator
+        switch(operator) {
+            case "+":
+                result = number1 + number2;
+                break;
+            case "-":
+                result = number1 - number2;
+                break;
+            case "*":
+                result = number1 * number2;
+                break;
+            case "/":
+                // Handle division by zero edge case
+                if (number2 === 0) {
+                    result = "Cannot divide by zero";
+                } else {
+                    result = number1 / number2;
+                }
+                break;
+            default:
+                result = "Invalid Operator";
+        }
+
+        // 4. Update the <h3> element to display the final output
+        document.getElementById("result").innerText = "Result: " + result;
+    }
+    </script> 
+
+</body>
+</html>

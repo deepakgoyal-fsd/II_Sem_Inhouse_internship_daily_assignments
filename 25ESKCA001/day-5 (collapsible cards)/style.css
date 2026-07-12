@@ -1,0 +1,21 @@
+body{
+    background:#f4f4f4;
+}
+
+.student-card{
+    transition:0.3s;
+}
+
+.student-card:hover{
+    transform:scale(1.03);
+    cursor:pointer;
+}
+
+.card img{
+    height:250px;
+    object-fit:cover;
+}
+
+h1{
+    font-weight:bold;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Registration Form</h1>
+    <form action="#">
+      <div class="fieldContainer">
+        <label for="userName">Full Name</label>
+        <input type="text" id="userName" name="userName" placeholder="Enter full name">
+      </div>
+      <div class="fieldContainer">
+        <label for="userEmail">Email Address</label>
+        <input type="email" id="userEmail" name="userEmail" placeholder="Enter email address">
+      </div>
+      <div class="fieldContainer">
+        <label for="userContact">Phone Number</label>
+        <input type="tel" id="userContact" name="userContact" placeholder="Enter phone number">
+        <label for="userDOB">Birth Date</label>
+        <input type="date" id="userDOB" name="userDOB">
+      </div>
+      <div class="fieldContainer">
+        <p>Gender</p>
+        <div>
+          <input type="radio" id="male" name="male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="female">
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="other">
+          <label for="other">Prefer not to say</label>
+        </div>
+      </div>
+      <div class="fieldContainer">
+        <label for="userAddress">Address</label>
+        <input name="userAddress" id="userAddress" placeholder="Enter street address"></input>
+        <input name="userAddressLine2" id="userAddressLine2" placeholder="Enter street address line 2"></input>
+      </div>
+      <div class="fieldContainer" id="formFooter">
+        <div id="regionContainer">
+          <select name="country" id="country">
+            <option value="India">India</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="USA">USA</option>
+            <option value="Russia">Russia</option>
+            <option value="Afghanistan">Afghanistan</option>
+          </select>
+          <input type="text" name="city" placeholder="Enter your city">
+        </div>
+        <div>
+          <input type="text" name="region" placeholder="Enter your region">
+          <input type="text" name="postalCode" placeholder="Enter your postal code">
+        </div>
+      </div>
+      <button class="formButton" type="submit">Submit</button>
+      <button class="formButton" type="reset">Reset Form</button>
+    </form>
+  </div>
+</body>
+
+</html>

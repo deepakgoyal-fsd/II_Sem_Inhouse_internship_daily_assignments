@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusConnect Pro</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            CampusConnect
+
+        </a>
+
+        <button class="navbar-toggler"
+
+            type="button"
+
+            data-bs-toggle="collapse"
+
+            data-bs-target="#navbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+
+            id="navbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a class="nav-link active" href="#">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+
+                        href="#dashboard">
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+
+                        href="#students">
+
+                        Students
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+
+                        href="#analytics">
+
+                        Analytics
+
+                    </a>
+
+              <li class="nav-item ms-lg-3">
+
+    <button class="btn btn-outline-warning" id="darkModeBtn">
+
+        <i class="fa-solid fa-moon"></i>
+
+    </button>
+
+</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6"
+
+data-aos="fade-right">
+
+<span class="badge bg-info">
+
+AI Powered Dashboard
+
+</span>
+
+<h1 class="display-3 fw-bold mt-4">
+
+Manage Students
+
+Smarter Than Ever
+
+</h1>
+
+<p class="lead mt-4">
+
+CampusConnect helps you manage student records,
+
+track CGPA,
+
+search instantly,
+
+filter by department,
+
+and analyze performance
+
+through a modern Bootstrap dashboard.
+
+</p>
+
+<div class="mt-5">
+
+<a
+
+href="#dashboard"
+
+class="btn btn-primary btn-lg me-3">
+
+Get Started
+
+</a>
+
+<a
+
+href="#students"
+
+class="btn btn-outline-light btn-lg">
+
+Students
+
+</a>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 text-center"
+
+data-aos="fade-left">
+
+<img
+
+src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900"
+
+class="img-fluid hero-image">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section
+
+class="dashboard py-5"
+
+id="dashboard">
+
+<div class="container">
+
+<div class="row text-center mb-5">
+
+<div class="col-lg-12">
+
+<h2 class="fw-bold">
+
+Dashboard Overview
+
+</h2>
+
+<p class="text-muted">
+
+Real-time student statistics
+
+</p>
+
+</div>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stat-card">
+
+<div class="card-body">
+
+<i class="fa-solid fa-users"></i>
+
+<h2 id="studentCount">
+
+0
+
+</h2>
+
+<p>
+
+Students
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="card stat-card">
+
+<div class="card-body">
+
+<i class="fa-solid fa-star"></i>
+
+<h2 id="favoriteCount">
+
+0
+
+</h2>
+
+<p>
+
+Favorites
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+    <div class="card stat-card">
+
+        <div class="card-body">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            <h2 id="departmentCount">
+
+                6
+
+            </h2>
+
+            <p>
+
+                Departments
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+    <div class="card stat-card">
+
+        <div class="card-body">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h2 id="averageCgpa">
+
+                0.0
+
+            </h2>
+
+            <p>
+
+                Average CGPA
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= STUDENT SECTION ================= -->
+
+<section
+
+class="students py-5"
+
+id="students">
+
+<div class="container">
+
+<div class="row mb-5">
+
+<div class="col-lg-12 text-center">
+
+<h2 class="fw-bold">
+
+Student Directory
+
+</h2>
+
+<p class="text-muted">
+
+Search, Filter and Manage Students
+
+<button class="btn btn-danger" id="exportPDF">
+    <i class="fa-solid fa-file-pdf"></i>
+    Export PDF
+</button>
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="row g-3 mb-5">
+
+<div class="col-lg-5">
+
+<input
+
+type="text"
+
+class="form-control form-control-lg"
+
+id="searchBox"
+
+placeholder="🔍 Search Student">
+
+</div>
+
+
+
+<div class="col-lg-3">
+
+<select
+
+class="form-select form-select-lg"
+
+id="departmentFilter">
+
+<option value="All">
+
+All Departments
+
+</option>
+
+<option value="CSE">
+
+Computer Science
+
+</option>
+
+<option value="IT">
+
+Information Technology
+
+</option>
+
+<option value="ECE">
+
+Electronics
+
+</option>
+
+<option value="ME">
+
+Mechanical
+
+</option>
+
+<option value="Civil">
+
+Civil
+
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="col-lg-3">
+
+<select
+
+class="form-select form-select-lg"
+
+id="sortOption">
+
+<option value="az">
+
+Sort A-Z
+
+</option>
+
+<option value="za">
+
+Sort Z-A
+
+</option>
+
+<option value="high">
+
+Highest CGPA
+
+</option>
+
+<option value="low">
+
+Lowest CGPA
+
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="col-lg-1">
+
+<button
+
+class="btn btn-success btn-lg w-100"
+
+data-bs-toggle="modal"
+
+data-bs-target="#addStudentModal">
+
+<i class="fa-solid fa-plus"></i>
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div
+
+class="row"
+
+id="studentContainer">
+
+<!--
+
+Cards will be generated
+
+using JavaScript
+
+-->
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ANALYTICS ================= -->
+
+<section
+
+class="analytics py-5"
+
+id="analytics">
+
+<div class="container">
+
+<div class="row mb-5">
+
+<div class="col-lg-12 text-center">
+
+<h2 class="fw-bold">
+
+Analytics
+
+</h2>
+
+<p class="text-muted">
+
+Top Performer & Activity
+
+</p>
+
+</div>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-6">
+
+<div class="card h-100">
+
+<div class="card-body">
+
+<h4>
+
+🏆 Top Performer
+
+</h4>
+
+<div id="topStudent">
+
+Loading...
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="card h-100">
+
+<div class="card-body">
+
+<h4>
+
+📢 Recent Activity
+
+</h4>
+
+<ul class="list-group">
+
+<li class="list-group-item">
+
+Student Added
+
+</li>
+
+<li class="list-group-item">
+
+CGPA Updated
+
+</li>
+
+<li class="list-group-item">
+
+Favorite Changed
+
+</li>
+
+<li class="list-group-item">
+
+Dashboard Loaded
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h3 class="text-center mb-4">
+                Student CGPA Chart
+            </h3>
+
+            <canvas id="cgpaChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="footer py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4">
+
+                <h3>
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    CampusConnect
+
+                </h3>
+
+                <p class="mt-3">
+
+                    A modern Student Management Dashboard built using
+                    HTML, CSS, Bootstrap, JavaScript and jQuery.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <h5>
+
+                    Quick Links
+
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li><a href="#">Home</a></li>
+
+                    <li><a href="#dashboard">Dashboard</a></li>
+
+                    <li><a href="#students">Students</a></li>
+
+                    <li><a href="#analytics">Analytics</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>
+
+                    Technologies
+
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li>Bootstrap 5</li>
+
+                    <li>JavaScript</li>
+
+                    <li>jQuery</li>
+
+                    <li>Font Awesome</li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5>
+
+                    Contact
+
+                </h5>
+
+                <p>
+
+                    campusconnect@example.com
+
+                </p>
+
+                <div class="social-icons">
+
+                    <i class="fab fa-facebook"></i>
+
+                    <i class="fab fa-instagram"></i>
+
+                    <i class="fab fa-linkedin"></i>
+
+                    <i class="fab fa-github"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+
+            © 2026 CampusConnect. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= ADD STUDENT MODAL ================= -->
+
+<div class="modal fade"
+
+    id="addStudentModal"
+
+    tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4>
+
+                    Add New Student
+
+                </h4>
+
+                <button
+
+                    class="btn-close"
+
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="studentName"
+
+                            placeholder="Student Name">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input
+
+                            type="email"
+
+                            class="form-control"
+
+                            id="studentEmail"
+
+                            placeholder="Email">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="studentBranch"
+
+                            placeholder="Department">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input
+
+                            type="number"
+
+                            class="form-control"
+
+                            id="studentCgpa"
+
+                            placeholder="CGPA">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="studentCity"
+
+                            placeholder="City">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="studentSkills"
+
+                            placeholder="Skills (Comma separated)">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+
+                    class="btn btn-secondary"
+
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button
+
+                    class="btn btn-primary"
+
+                    id="saveStudent">
+
+                    Save Student
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= SCRIPTS ================= -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+    duration:1000,
+
+    once:true
+
+});
+
+</script>
+
+<div class="modal fade" id="studentModal" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">Add Student</h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+
+
+
+            <div class="modal-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <input id="name" class="form-control" placeholder="Full Name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <input id="city" class="form-control" placeholder="City">
+                    </div>
+
+                    <div class="col-md-6">
+                        <input id="email" class="form-control" placeholder="Email">
+                    </div>
+
+                    <div class="col-md-6">
+                        <input id="phone" class="form-control" placeholder="Phone">
+                    </div>
+
+                    <div class="col-md-4">
+                        <select id="department" class="form-select">
+                            <option>CSE</option>
+                            <option>IT</option>
+                            <option>ECE</option>
+                            <option>Mechanical</option>
+                            <option>Civil</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <select id="year" class="form-select">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input id="cgpa" type="number" step="0.1" class="form-control" placeholder="CGPA">
+                    </div>
+
+                    <div class="col-12">
+                        <input id="image" class="form-control" placeholder="Image URL">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-success"
+                    id="saveStudent">
+
+                    Save Student
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/data.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script src="js/app.js"></script>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+<div id="liveToast" class="toast">
+
+<div class="toast-header">
+
+<strong class="me-auto">CampusConnect</strong>
+
+<button class="btn-close" data-bs-dismiss="toast"></button>
+
+</div>
+
+<div class="toast-body" id="toastBody">
+
+Done
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+
+</html>

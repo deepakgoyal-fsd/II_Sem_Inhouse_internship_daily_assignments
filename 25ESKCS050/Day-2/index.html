@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <style>
+      <style>
+        /* 1. Page Background */
+        body {
+            background-color: lightblue;
+            font-family: Arial;
+        }
+
+        /* 2. Main Form Container */
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px; /* Box radius */
+        }
+
+        /* 3. Section Boxes */
+        fieldset {
+            border: 2px solid blue;
+            border-radius: 5px; /* Box radius for sections */
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+
+        /* 4. Spacing out rows to make the form long */
+        div {
+            margin-bottom: 15px;
+        }
+
+        /* 5. Input Fields spacing */
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+        }
+
+        /* 6. Blue Button */
+        button {
+            width: 100%;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 5px; /* Box radius for button */
+            border: none;
+        }
+    </style>
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>College Admission Form</h1>
+        <form action="#">
+            
+            <fieldset>
+                <legend>Personal Details</legend>
+                <div class="item"><label>First Name:</label><input type="text" placeholder="First Name" required></div>
+                <div class="item"><label>Last Name:</label><input type="text" placeholder="Last Name" required></div>
+                <div class="item"><label>Email ID:</label><input type="email" placeholder="email@gmail.com" required></div>
+                <div class="item"><label>Mobile Number:</label><input type="tel" placeholder="10 Digit Number" required></div>
+                <div class="item"><label>Date of Birth:</label><input type="date" required></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Academic Details</legend>
+                <div class="item">
+                    <label>Select Course:</label>
+                    <select required>
+                        <option value="">-- Choose Course --</option>
+                        <option>B.Tech (Computer Science)</option>
+                        <option>BCA (Applications)</option>
+                        <option>B.Sc (Data Science)</option>
+                    </select>
+                </div>
+                <div class="item"><label>10th Percentage (%):</label><input type="number" placeholder="e.g. 80" required></div>
+                <div class="item"><label>12th Percentage (%):</label><input type="number" placeholder="e.g. 85" required></div>
+                <div class="item"><label>Permanent Address:</label><textarea placeholder="Enter address details"></textarea></div>
+            </fieldset>
+
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </div>
+
+</body>
+</html>

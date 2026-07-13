@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CodeSphere Hub</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">CodeSphere</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#services">Programs</a></li>
+<li><a href="#mentors">Mentors</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<button>Join Today</button>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Empowering Tomorrow's Developers</h1>
+
+<p>
+Master Software Engineering, Cloud Computing,
+Cyber Security and modern technologies with practical learning.
+</p>
+
+<a href="#services" class="btn">Browse Programs</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700" alt="Students">
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>Our Programs</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fas fa-code"></i>
+
+<h3>Software Engineering</h3>
+
+<p>
+Build applications using C++, Java, Python and Full Stack technologies.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-cloud"></i>
+
+<h3>Cloud Computing</h3>
+
+<p>
+Learn AWS, Azure, Docker and modern deployment practices.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-shield-halved"></i>
+
+<h3>Cyber Security</h3>
+
+<p>
+Understand ethical hacking, networking and digital security.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="mentors">
+
+<h2>Meet Our Mentors</h2>
+
+<div class="team-container">
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/50.jpg" alt="">
+
+<h3>Arjun Mehta</h3>
+
+<p>Software Architect</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/55.jpg" alt="">
+
+<h3>Neha Kapoor</h3>
+
+<p>Cloud Specialist</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+
+<h3>Rohan Patel</h3>
+
+<p>Cyber Security Analyst</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Connect With Us</h2>
+
+<form id="contactForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<textarea placeholder="Write your message..." required></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+</section>
+
+<footer>
+
+<p>© 2026 CodeSphere Hub | Learn • Build • Innovate</p>
+
+</footer>
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+
+document.getElementById("message").innerHTML=
+"Welcome <b>"+name+"</b>! Your enquiry has been received.";
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

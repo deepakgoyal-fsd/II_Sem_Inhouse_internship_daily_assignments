@@ -1,0 +1,11 @@
+/* Basic layout properties for Day 8 */
+
+body {
+    background-color: #f4f6f9;
+    padding-top: 40px;
+}
+
+.card {
+    border-radius: 8px;
+    border: 1px solid #e0e4ec;
+}

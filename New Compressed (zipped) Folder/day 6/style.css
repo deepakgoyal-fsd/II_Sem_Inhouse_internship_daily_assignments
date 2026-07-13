@@ -1,0 +1,35 @@
+/* Custom presentation rules for dynamic network cards */
+
+body {
+    background-color: #f4f6f9;
+    padding-top: 30px;
+}
+
+h2 {
+    color: #2b303a;
+    font-weight: bold;
+}
+
+/* Card layout adjustments */
+.card {
+    border: 1px solid #e0e4ec;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: transform 0.2s ease;
+}
+
+/* Elevate the card slightly when hovered */
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-title {
+    color: #198754;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #495057;
+}

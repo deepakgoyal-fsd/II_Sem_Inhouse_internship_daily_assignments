@@ -1,0 +1,16 @@
+/* Basic structural adjustments for Day 7 form template */
+
+body {
+    background-color: #f4f6f9;
+    padding-top: 50px;
+}
+
+.card {
+    border: 1px solid #e0e4ec;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}

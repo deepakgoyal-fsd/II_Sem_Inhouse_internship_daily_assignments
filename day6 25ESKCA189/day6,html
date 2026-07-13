@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Student Details</h2>
+        <input type="text" id="search" class="form-control mb-4" placeholder="Search">
+        <div id="container" class="row g-4"></div>
+    </div>
+    <script>
+        const students = [
+            { name: "John Doe", branch: "CSE", cgpa: "10" },
+            { name: "Jane Smith", branch: "ECE", cgpa: "9.5" },
+            { name: "Alice Johnson", branch: "ME", cgpa: "9.2" },
+            { name: "Bob Brown", branch: "CE", cgpa: "8.8" },
+            { name: "Charlie Davis", branch: "CSE", cgpa: "9.0" },
+            { name: "David Wilson", branch: "ECE", cgpa: "8.5" },
+            { name: "Eva Martinez", branch: "ME", cgpa: "9.3" },
+            { name: "Frank Thomas", branch: "CE", cgpa: "8.9" },
+            { name: "Grace Lee", branch: "CSE", cgpa: "9.1" },
+            { name: "Hannah White", branch: "ECE", cgpa: "9.4" },
+
+
+        ];
+        let html = "";
+        for (let i = 0; i < students.length; i++) {
+            html += `
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4>${students[i].name}</h4>
+                    <button class="btn btn-primary btn-sm mt-2 toggle-details" type="button">
+                        SHOW DETAILS
+                    </button>
+                    <div class="details mt-3 d-none">
+                        <p class="mb-1"><strong>Branch:</strong> ${students[i].branch}</p>
+                        <p class="mb-0"><strong>CGPA:</strong> ${students[i].cgpa}</p>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+        }
+        document.getElementById("container").innerHTML = html;
+
+        document.getElementById("container").addEventListener("click", function (event) {
+            if (!event.target.classList.contains("toggle-details")) {
+                return;
+            }
+
+            const details = event.target.nextElementSibling;
+            const isHidden = details.classList.contains("d-none");
+
+            details.classList.toggle("d-none");
+            event.target.textContent = isHidden ? "HIDE DETAILS" : "SHOW DETAILS";
+        });
+    </script>
+    rishbah jain
+
+</body>
+
+</html>

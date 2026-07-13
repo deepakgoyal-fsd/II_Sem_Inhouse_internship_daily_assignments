@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body > 
+    <button class="dark-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+
+    
+<div class="container">
+    <h1>Registration Form</h1>
+
+
+    <form onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text"  id="name" placeholder="Enter name" required>  <br><br>
+
+        <label for="email">Email:</label><br>
+        <input  type="email" id="email" placeholder="Enter email" required><br><br>
+<div class="gender">
+        <label> GENDER</label>
+
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female
+        <input type="radio" name="gender">Other
+    </div>
+
+        <label for="date"> DOB:</label>
+        <input type="date" id="date" required><br><br>
+       <label for="tel">Phone</label><br>
+        <input type="tel" id="tel" placeholder="Enter phone number" required><br><br>
+        <label for="department">Department</label><br>
+        <select>
+            <option hidden>---Select Department---</option>
+            <option name="department" id="CS">CS</option>
+            <option name="department" id="AI">AI</option>
+            <option name="department" id="CE">CE</option>
+            <option name="department" id="ME">ME</option>
+            
+            
+        </select><br><br>
+        <label for="password">Password</label><br>
+        <input type="password" placeholder="Enter password" name="password" id="password" required><br><br>
+        
+        <button type="submit" onclick="countClick()">Login</button>
+
+<p id="counter">Button Clicks: 0</p>
+
+        
+
+
+    </form>
+</div>
+<script src="script.js"></script>
+    
+</body>
+</html>

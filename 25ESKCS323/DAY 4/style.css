@@ -1,0 +1,154 @@
+body{
+
+    margin:0;
+
+    padding:0;
+
+    font-family:Arial, sans-serif;
+
+    background:linear-gradient(135deg,#667eea,#764ba2);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+padding:40px 0;
+
+}
+.container{
+
+    width:400px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+.gender{
+    display:flex;
+    gap:25px;
+    margin-bottom:20px;
+}
+
+
+h1{
+
+text-align:center;
+
+margin-bottom:25px;
+color: #5B5FEF;
+
+}
+label{
+
+font-weight:bold;
+
+display:block;
+
+margin-bottom:6px;
+
+}
+input,
+select{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:18px;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+box-sizing:border-box;
+
+font-size:15px;
+
+}
+
+button{
+
+width:100%;
+
+padding:12px;
+
+background : #5B5FEF;
+
+color:white;
+
+border: none;
+
+border-radius:8px;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+input:focus,
+select:focus{
+
+outline:none;
+
+border-color:#5a4fcf;
+
+box-shadow:0 0 8px rgba(90,79,207,.3);
+
+}
+button:hover{
+
+background:#4433bb;
+
+transform:translateY(-3px);
+
+}
+::placeholder{
+
+color:#999;
+
+}
+.dark-btn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:auto;
+    padding:10px 18px;
+}
+
+#counter{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+    color:#5B5FEF;
+}
+
+.dark{
+    background:linear-gradient(135deg,#1d1d1d,#333);
+}
+
+.dark .container{
+    background:#222;
+    color:white;
+}
+
+.dark input,
+.dark select{
+    background:#333;
+    color:white;
+    border:1px solid #666;
+}
+
+.dark label,
+.dark h1{
+    color:white;
+}

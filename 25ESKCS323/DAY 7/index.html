@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello World
+    <script>
+        let students = [
+    {
+        name: "shreya",
+        branch: "cs",
+        rollno: 1234,
+        marks: 98,
+        skills: ["html", "css", "js"]
+    },
+    {
+        name: "virat",
+        branch: "cs",
+        rollno: 12345,
+        marks: 98,
+        skills: ["html", "css", "js"]
+    },
+    {
+        name: "kamal",
+        branch: "cs",
+        rollno: 12344,
+        marks: 99,
+        skills: ["html", "css", "js"]
+    }
+];
+
+console.log(JSON.stringify(students));
+
+for (let i = 0; i < students.length; i++) {
+    console.log(students[i]);
+}
+    
+    </script>
+</body>
+</html>

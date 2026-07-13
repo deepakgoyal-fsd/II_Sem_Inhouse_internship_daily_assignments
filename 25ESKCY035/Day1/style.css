@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(173, 198, 206);
+    margin: 20px;
+}
+
+h1 {
+    color: rgb(3, 3, 3);
+    text-align: center;
+}
+
+h2 {
+    color: rgb(75, 45, 1);
+}
+
+.profile img {
+    width: 100px;
+    height: 150px;
+    border: 2px solid black;
+    object-fit: cover;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
+.profile {
+    text-align: center;
+}
+
+.profile-text {
+    font-weight: bold;
+}
+
+.footer-text {
+    text-align: center;
+    font-weight: bold;
+}

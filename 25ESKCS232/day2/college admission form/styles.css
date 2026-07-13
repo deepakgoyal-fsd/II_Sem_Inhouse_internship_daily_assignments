@@ -1,0 +1,101 @@
+.input-group{
+    background: rgba(246, 143, 243, 0.153);
+    padding: 0;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.input-group label{
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.input-group input{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.output-group{
+     background: rgba(246, 143, 243, 0.153);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+.output-group label{
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.output-group input{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.class-group{
+    background: rgba(246, 143, 243, 0.153);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.class-group label{
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.class-group input{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.submit-group{
+    background: rgba(246, 143, 243, 0.153);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.submit-group label{
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.submit-group input{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.input-group,
+.output-group,
+.class-group,
+.submit-group{
+    width: 65%;
+    margin: 30px auto;
+    padding: 25px;
+}
+.input-group:hover,
+.output-group:hover,
+.class-group:hover,
+.submit-group:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(138,43,226,0.3);
+    transition: all 0.3s ease;
+}
+input{
+    border-radius: 10px;
+    border: 1px solid #d4b5ff;
+    padding: 10px;
+    transition: 0.3s;
+}
+body{
+    background: linear-gradient(135deg,#fdf4ff,#f3e8ff,#ffffff);
+}

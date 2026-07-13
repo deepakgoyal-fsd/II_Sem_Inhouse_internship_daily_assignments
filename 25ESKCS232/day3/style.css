@@ -1,0 +1,391 @@
+body{
+    font-family: 'Poppins', sans-serif;
+
+    background:
+    radial-gradient(circle at top left,#FFD9CC 0%,transparent 35%),
+    radial-gradient(circle at top right,#FFE8DE 0%,transparent 30%),
+    radial-gradient(circle at bottom left,#FFD4C6 0%,transparent 30%),
+    linear-gradient(to bottom,#FFF9F6,#FFF0EA);
+
+    color:#433434;
+}
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:400px;
+
+height:400px;
+
+
+background:#FFCBB8;
+
+
+filter:blur(130px);
+
+top:-120px;
+
+left:-120px;
+
+border-radius:50%;
+
+z-index:-1;
+
+opacity:.55;
+
+}
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:350px;
+
+height:350px;
+
+background:#FFDCCF;
+
+filter:blur(120px);
+
+bottom:-120px;
+
+right:-120px;
+
+border-radius:50%;
+
+z-index:-1;
+
+opacity:.65;
+
+}
+
+.navbar{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(15px);
+    padding:18px 0;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.logo{
+    height:55px;
+}
+.nav-link{
+    color:#2E2A47;
+    font-weight:500;
+    margin-left:20px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#D97A5B;
+}
+.btn-primary{
+    background:#D97A5B;
+    border:none;
+    border-radius:50px;
+    padding:10px 24px;
+    font-weight:600;
+}
+
+.btn-primary:hover{
+    background:white !important;
+    color:#D97A5B !important;
+    border:2px solid #D97A5B !important;
+    transform:translateY(-2px);
+}
+.secondary-btn{
+    background:white;
+    color:#D97A5B;
+    border:2px solid #D97A5B;
+    border-radius:50px;
+    padding:10px 24px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.secondary-btn:hover{
+    background:#D97A5B;
+    color:white;
+    transform:translateY(-2px);
+}
+
+
+.hero{
+
+padding:100px 0;
+
+text-align:center;
+
+}
+.hero h1{
+
+font-size:60px;
+
+font-weight:700;
+
+color:#2E2A47;
+
+line-height:1.2;
+
+margin-bottom:25px;
+
+}
+.hero p{
+
+max-width:700px;
+
+margin:auto;
+
+color:#6E6987;
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+.hero-buttons{
+background: #C97C7C;
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+}
+.hero-image{
+
+margin-top:60px;
+
+}
+.hero-image img{
+
+width:80%;
+
+max-width:700px;
+
+}
+.stat-card h2{
+    color:#D97A5B;
+}
+.achievement-heading{
+    padding-top:60px;
+    padding-bottom:25px;
+}
+
+.achievement-heading h2{
+    font-size:42px;
+    font-weight:700;
+    color:#433434;
+}
+
+.achievement-heading p{
+    max-width:700px;
+    margin:20px auto 0;
+    color:#6b5555;
+    line-height:1.8;
+    font-size:17px;
+}
+.services{
+    padding:100px 0;
+}
+.services h2{
+    font-size:42px;
+    font-weight:700;
+    color:#433434;
+}
+
+.services p{
+    color:#6b5555;
+}
+.service-card{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    height:100%;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(217,122,91,.20);
+
+}
+.service-card i{
+
+    font-size:50px;
+
+    color:#D97A5B;
+
+    margin-bottom:20px;
+
+}
+.service-card h4{
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+.service-card a{
+
+    text-decoration:none;
+
+    color:#D97A5B;
+
+    font-weight:600;
+
+}
+.team{
+padding:100px 0;
+}
+
+.team-card{
+
+background:rgba(255,255,255,.75);
+
+border-radius:22px;
+
+padding:35px;
+
+text-align:center;
+
+transition:.3s;
+
+height:100%;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.team-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.team-card img{
+
+width:140px;
+
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+margin-bottom:20px;
+
+border:5px solid #FFD9CC;
+
+}
+
+.team-card h6{
+
+color:#D97A5B;
+
+margin-bottom:15px;
+
+}
+.contact{
+
+padding:100px 0;
+
+}
+
+.contact form{
+
+background:rgba(255,255,255,.75);
+
+padding:35px;
+
+border-radius:20px;
+
+}
+
+.form-control{
+
+border-radius:12px;
+
+padding:12px;
+
+}
+
+.form-control:focus{
+
+box-shadow:none;
+
+border-color:#D97A5B;
+
+}
+footer{
+
+padding:40px 0;
+
+background:rgba(255,255,255,.6);
+
+backdrop-filter:blur(10px);
+
+}
+
+footer a{
+
+font-size:24px;
+
+margin:0 12px;
+
+color:#D97A5B;
+
+transition:.3s;
+
+}
+
+footer a:hover{
+
+color:#C86447;
+
+}
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.team-card{
+
+margin-bottom:20px;
+
+}
+
+}

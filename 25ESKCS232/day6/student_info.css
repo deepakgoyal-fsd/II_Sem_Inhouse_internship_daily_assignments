@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+body{
+    background:#41b0e8;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+=======
+body{
+    background:#41b0e8;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+>>>>>>> 9c940f7eab83dfe77285822bc50a32f74164b2dd
+}

@@ -1,0 +1,19 @@
+/* Custom dashboard visual styling enhancements */
+
+body {
+    background-color: #f4f6f9;
+    padding-top: 30px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+}

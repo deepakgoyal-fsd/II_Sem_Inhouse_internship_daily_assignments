@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Directory</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🎓 Student Directory</h1>
+
+        <p>Department of Computer Science</p>
+
+    </header>
+
+    <section class="container">
+
+        <!-- Student 1 -->
+
+        <div class="card"
+            data-name="Aki Hayakawa"
+            data-id="CSE101"
+            data-branch="Computer Science"
+            data-cgpa="8.9"
+            data-email="aki0834com"
+            data-phone="9876543210">
+
+            <img src="Aki.jfif">
+
+            <h2>Aki Hayakawa</h2>
+
+            <h4>Computer Science</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+        <!-- Student 2 -->
+
+        <div class="card"
+            data-name="Megumi Fushiguru"
+            data-id="IT102"
+            data-branch="Information Technology"
+            data-cgpa="9.2"
+            data-email="megumi4571@gmail.com"
+            data-phone="9123456789">
+
+            <img src="Meguni.jfif">
+
+            <h2>Megumi Fushiguru</h2>
+
+            <h4>Information Technology</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+        <!-- Student 3 -->
+
+        <div class="card"
+            data-name="Mikasa Akerman"
+            data-id="ECE103"
+            data-branch="Electronics"
+            data-cgpa="8.3"
+            data-email="mikasa7837@gmail.com"
+            data-phone="9988776655">
+
+            <img src="Mikasa.jfif">
+
+            <h2>Mikasa Akerman</h2>
+
+            <h4>Electronics</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+        <!-- Student 4 -->
+
+        <div class="card"
+            data-name="Nobara Kugisaki"
+
+            data-id="ME104"
+            data-branch="Mechanical"
+            data-cgpa="8.6"
+            data-email="nobara3682@gmail.com"
+            data-phone="9988123456">
+
+            <img src="Nobara.jfif">
+
+            <h2>Nobara Kugisaki</h2>
+
+            <h4>Mechanical</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+        <!-- Student 5 -->
+
+        <div class="card"
+            data-name="Light Yagami"
+            data-id="CE105"
+            data-branch="Civil"
+            data-cgpa="9.0"
+            data-email="light9282gmail.com"
+            data-phone="9871203456">
+
+            <img src="Light.jfif">
+
+            <h2>Light Yagami</h2>
+
+            <h4>Civil Engineering</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+        <!-- Student 6 -->
+
+        <div class="card"
+            data-name="Giyu Tomioka"
+            data-id="CSE106"
+            data-branch="Computer Science"
+            data-cgpa="9.6"
+            data-email="giyu2369@gmail.com"
+            data-phone="9999111122">
+
+            <img src="Giyu.jfif">
+
+            <h2>Giyu Tomioka</h2>
+
+            <h4>Computer Science</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+         <!-- student 7 -->
+
+          <div class="card"
+           data-name="Nezuko Kamado"
+            data-id="CSE107"
+            data-branch="Computer Science"
+            data-cgpa="9.1"
+            data-email="nezuko@gmail.com"
+            data-phone="7300311263">
+            
+            <img src="nezuko.jfif">
+
+            <h2>Nezuko Kamado</h2>
+
+            <h4>Computer Science</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+        <!-- student 8 -->
+
+          <div class="card"
+           data-name="Near"
+            data-id="CSE108"
+            data-branch="Computer Science"
+            data-cgpa="9.8"
+            data-email="near7753@gmail.com"
+            data-phone="8967348732">
+            
+            <img src="near.jfif">
+
+            <h2>Near</h2>
+
+            <h4>Computer Science</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+         </div>
+        <!-- student 9 -->
+
+          <div class="card"
+           data-name="Anya Forger"
+            data-id="CSE109"
+            data-branch="Computer Science"
+            data-cgpa="9.8"
+            data-email="anya1981@gmail.com"
+            data-phone="9257119957">
+            
+            <img src="anya.jfif">
+
+            <h2>Anya Forger</h2>
+
+            <h4>Computer Science</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+          <!-- student 10 -->
+
+          <div class="card"
+           data-name="Zenitsu Agatsuma"
+            data-id="CSE110"
+            data-branch="AI"
+            data-cgpa="9.0"
+            data-email="zenitsu6598@gmail.com"
+            data-phone="9257119957">
+            
+            <img src="Zenitsu.jfif">
+
+            <h2>Zenitsu Agatsuma</h2>
+
+            <h4>AI</h4>
+
+            <button class="detailsBtn">View Details</button>
+
+        </div>
+
+    </section>
+
+    <!-- Popup -->
+
+    <div class="popup">
+
+        <div class="popup-content">
+
+            <span class="close">&times;</span>
+
+            <h2>Student Details</h2>
+
+            <p><strong>Name:</strong> <span id="name"></span></p>
+
+            <p><strong>ID:</strong> <span id="id"></span></p>
+
+            <p><strong>Branch:</strong> <span id="branch"></span></p>
+
+            <p><strong>CGPA:</strong> <span id="cgpa"></span></p>
+
+            <p><strong>Email:</strong> <span id="email"></span></p>
+
+            <p><strong>Phone:</strong> <span id="phone"></span></p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

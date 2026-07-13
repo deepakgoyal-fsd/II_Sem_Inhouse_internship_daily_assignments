@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <section>
+
+    <div class="login-box">
+        <form action="process_form.php" method="post" 
+       enctype="multipart/form-data" onsubmit="return validatePasswords();">
+            <h2>Register</h2>
+            <div class="input-box">
+                <input type="text" id="txtName" name="txtName" placeholder="Enter your name : " >
+                <label>Name</label>
+            </div>
+            <div id="nameError" class="field-error"></div>
+            <div class="input-box">
+                <input type="email" id="txtEmail" name="txtEmail" placeholder="Enter your mail :" >
+                <label>Email</label>
+            </div>
+            <div id="emailError" class="field-error"></div>
+            <div class="input-box">
+                <input type="text" id="txtPhno" name="txtPhno" placeholder="Enter your Phone number : " >
+                <label>Phone No.</label>
+            </div>
+            <div id="phoneError" class="field-error"></div>
+        <div id="txtGender" class="input-box gender-box">
+            <span class="gender-label">Gender</span>
+            <div class="gender-options">
+                <label class="gender-option">
+                    <input type="radio" name="txtGender" value="male">
+                    <span>Male</span>
+                </label>
+                <label class="gender-option">
+                    <input type="radio" name="txtGender" value="female">
+                    <span>Female</span>
+                </label>
+                <label class="gender-option">
+                    <input type="radio" name="txtGender" value="transgender">
+                    <span>Transgender</span>
+                </label>
+                <label class="gender-option">
+                    <input type="radio" name="txtGender" value="prefer-not-to-say">
+                    <span>Prefer not to say</span>
+                </label>
+            </div>
+        </div>
+            <div class="input-box">
+                <select id="txtDepartment" name="txtDepartment">
+                    <option value="">Select your department</option>
+                    <option value="artificial intelligence">Artificial Intelligence</option>
+                    <option value="computer science">Computer Science</option>
+                    <option value="civil engineering">Civil Engineering</option>
+                    <option value="mechanical engineering">Mechanical Engineering</option>
+                    <option value="electrical engineering">Electrical Engineering</option>
+                    <option value="information technology">Information Technology</option>
+                    <option value="internet of things">Internet of Things</option>
+                    <option value="data science">Data Science</option>
+                </select>
+                <label>Department</label>
+            </div>
+            <div id="departmentError" class="field-error"></div>
+            <div class="input-box">
+                <input type="file" id="myFile" name="myFile" accept="image/*">
+                <label>Upload Image</label>
+            </div>
+            <div class="field-note">Max size: 20MB</div>
+            <div id="imageError" class="field-error"></div>
+            <div class="input-box">
+                <input type="date" id="txtDob" name="txtDob" >
+                <label>Date of Birth</label>
+            </div>
+            <div id="dobError" class="field-error"></div>
+            <div class="input-box password-box">
+                <input type="password" id="txtPassword" name="txtPassword" placeholder="Enter your password :" >
+                <label>Password</label>
+                <span class="toggle-password" onclick="togglePassword('txtPassword', this)">👁️</span>
+            </div>
+            <div class="input-box password-box">
+                <input type="password" id="txtConfirmpassword" name="txtConfirmpassword" placeholder="Enter your password again :" >
+                <label>Confirm Password</label>
+                <span class="toggle-password" onclick="togglePassword('txtConfirmpassword', this)">👁️</span>
+            </div>
+            <div id="passwordError" class="error-message" aria-live="polite"></div>
+            <div class="remember-forgot">
+                <label><input type="checkbox" id="rememberMe">Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Register</button>
+            <div class="register-link">
+                <p>Already have an account?<a href="#">Login</a></p>
+            </div>
+        </form>
+    </div>
+</section> 
+<script>
+function togglePassword(inputId, icon) {
+    const input = document.getElementById(inputId);
+    const isPassword = input.type === "password";
+    input.type = isPassword ? "text" : "password";
+    icon.textContent = isPassword ? "🙈" : "👁️";
+}
+
+function validatePasswords() {
+    const name = document.getElementById("txtName").value.trim();
+    const email = document.getElementById("txtEmail").value.trim();
+    const phone = document.getElementById("txtPhno").value.trim();
+    const department = document.getElementById("txtDepartment").value.trim();
+    const dob = document.getElementById("txtDob").value;
+    const password = document.getElementById("txtPassword").value;
+    const confirmPassword = document.getElementById("txtConfirmpassword").value;
+    const rememberMe = document.getElementById("rememberMe").checked;
+    
+    // Clear all errors first
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("phoneError").textContent = "";
+    document.getElementById("departmentError").textContent = "";
+    document.getElementById("imageError").textContent = "";
+    document.getElementById("dobError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+
+    // Validate each field
+    let isValid = true;
+
+    if (!name) {
+        document.getElementById("nameError").textContent = "Name cannot be empty.";
+        isValid = false;
+    }
+
+    if (!email) {
+        document.getElementById("emailError").textContent = "Email cannot be empty.";
+        isValid = false;
+    }
+
+    if (!phone) {
+        document.getElementById("phoneError").textContent = "Phone number cannot be empty.";
+        isValid = false;
+    } else if (phone.length !== 10 || isNaN(phone)) {
+        document.getElementById("phoneError").textContent = "Phone number must be 10 digits.";
+        isValid = false;
+    }
+
+    const imageInput = document.getElementById("myFile");
+    const imageFile = imageInput ? imageInput.files[0] : null;
+
+    if (!department) {
+        document.getElementById("departmentError").textContent = "Department cannot be empty.";
+        isValid = false;
+    }
+
+    if (!imageFile) {
+        document.getElementById("imageError").textContent = "Please upload an image.";
+        isValid = false;
+    } else if (imageFile.size > 20 * 1024 * 1024) {
+        document.getElementById("imageError").textContent = "Image must be 20MB or smaller.";
+        isValid = false;
+    }
+
+    if (!dob) {
+        document.getElementById("dobError").textContent = "Date of Birth cannot be empty.";
+        isValid = false;
+    }
+
+    if (!password) {
+        document.getElementById("passwordError").textContent = "Password cannot be empty.";
+        isValid = false;
+    } else if (password.length < 8) {
+        document.getElementById("passwordError").textContent = "Password must be at least 8 digits long.";
+        isValid = false;
+    } else if (password !== confirmPassword) {
+        document.getElementById("passwordError").textContent = "Passwords do not match.";
+        isValid = false;
+    }
+
+    if (!rememberMe) {
+        document.getElementById("passwordError").textContent = "Please check the Remember me box.";
+        isValid = false;
+    }
+
+    return isValid;
+}
+</script>
+</body>
+</html>

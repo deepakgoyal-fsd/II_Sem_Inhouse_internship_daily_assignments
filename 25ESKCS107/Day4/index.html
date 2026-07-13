@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">MySite</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button id="modeBtn" class="mode-btn">🌙 Dark Mode</button>
+  </nav>
+
+  <div class="container">
+    <h1>Create Account</h1>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" placeholder="Enter your age" min="1" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" required>
+        <option value="" disabled selected>Select gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="course">Course</label>
+      <select id="course" required>
+        <option value="" disabled selected>Select a course</option>
+        <option value="web-dev">Web Development</option>
+        <option value="data-science">Data Science</option>
+        <option value="design">UI/UX Design</option>
+        <option value="marketing">Digital Marketing</option>
+      </select>
+
+
+      <label for="docs">Upload Documents</label>
+      <input type="file" id="docs" multiple>
+
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const btn = document.getElementById('modeBtn');
+    const body = document.body;
+
+    btn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        btn.textContent = '☀️ Light Mode';
+      } else {
+        btn.textContent = '🌙 Dark Mode';
+      }
+    });
+  </script>
+
+</body>
+</html>

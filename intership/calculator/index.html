@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan EMI Calculator | Plan Your Loan Repayment Instantly</title>
+  <meta name="description" content="A free, accurate Loan EMI Calculator. Calculate your monthly EMI, total interest, payoff date and view a full amortization schedule with prepayment support." />
+  <meta name="keywords" content="EMI calculator, loan calculator, monthly installment, amortization schedule, prepayment calculator" />
+  <meta name="author" content="EMI Ledger" />
+
+  <!-- Open Graph tags for social sharing -->
+  <meta property="og:title" content="Loan EMI Calculator" />
+  <meta property="og:description" content="Calculate your monthly EMI, total interest and full repayment schedule in seconds." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Zilla Slab (display/numbers), Source Sans 3 (body), JetBrains Mono (data/table) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ SKIP LINK (Accessibility) ============ -->
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#top" class="navbar__brand" aria-label="EMI Ledger home">
+        <span class="brand__mark" aria-hidden="true">₹</span>
+        <span class="brand__text">EMI<em>Ledger</em></span>
+      </a>
+
+      <nav class="navbar__nav" id="primaryNav" aria-label="Primary navigation">
+        <a href="#calculator">Calculator</a>
+        <a href="#learn">Learn</a>
+        <a href="#faq">FAQ</a>
+        <a href="#disclaimer">Disclaimer</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__inner">
+        <p class="eyebrow">FREE &middot; INSTANT &middot; NO SIGN-UP</p>
+        <h1 class="hero__title">Know your EMI<br />before you sign.</h1>
+        <p class="hero__sub">
+          Enter your loan details below and get your exact monthly installment, total interest,
+          payoff date and a full month-by-month repayment ledger &mdash; instantly, and entirely in your browser.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section class="calculator" id="calculator" aria-label="EMI Calculator">
+      <div class="calculator__grid">
+
+        <!-- ---------- INPUT PANEL ---------- -->
+        <form class="panel input-panel" id="emiForm" novalidate>
+          <div class="panel__header">
+            <h2>Loan Details</h2>
+            <label class="currency-select">
+              <span class="visually-hidden">Display currency</span>
+              <select id="currencySelect" name="currency" aria-label="Currency">
+                <option value="INR" data-symbol="₹" selected>₹ INR</option>
+                <option value="USD" data-symbol="$">$ USD</option>
+                <option value="EUR" data-symbol="€">€ EUR</option>
+                <option value="GBP" data-symbol="£">£ GBP</option>
+              </select>
+            </label>
+          </div>
+
+          <!-- Loan Amount -->
+          <div class="field">
+            <div class="field__label-row">
+              <label for="loanAmount">Loan Amount</label>
+              <div class="field__input-wrap">
+                <span class="field__prefix" id="loanAmountSymbol">₹</span>
+                <input type="text" inputmode="numeric" id="loanAmount" name="loanAmount" value="1000000" aria-describedby="loanAmountError" />
+              </div>
+            </div>
+            <input type="range" id="loanAmountRange" min="10000" max="20000000" step="10000" value="1000000" aria-label="Loan amount slider" />
+            <p class="error-msg" id="loanAmountError" role="alert"></p>
+          </div>
+
+          <!-- Down Payment -->
+          <div class="field">
+            <div class="field__label-row">
+              <label for="downPayment">Down Payment <span class="optional-tag">optional</span></label>
+              <div class="field__input-wrap">
+                <span class="field__prefix" id="downPaymentSymbol">₹</span>
+                <input type="text" inputmode="numeric" id="downPayment" name="downPayment" value="0" aria-describedby="downPaymentError" />
+              </div>
+            </div>
+            <input type="range" id="downPaymentRange" min="0" max="20000000" step="10000" value="0" aria-label="Down payment slider" />
+            <p class="error-msg" id="downPaymentError" role="alert"></p>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="field">
+            <div class="field__label-row">
+              <label for="interestRate">Interest Rate</label>
+              <div class="field__input-wrap">
+                <input type="text" inputmode="decimal" id="interestRate" name="interestRate" value="8.5" aria-describedby="interestRateError" />
+                <span class="field__suffix">%</span>
+              </div>
+            </div>
+            <input type="range" id="interestRateRange" min="0.1" max="30" step="0.05" value="8.5" aria-label="Interest rate slider" />
+            <div class="field__toggle" role="radiogroup" aria-label="Interest rate period">
+              <button type="button" class="toggle-btn is-active" data-rate-mode="annual">Annual</button>
+              <button type="button" class="toggle-btn" data-rate-mode="monthly">Monthly</button>
+            </div>
+            <p class="error-msg" id="interestRateError" role="alert"></p>
+          </div>
+
+          <!-- Loan Tenure -->
+          <div class="field">
+            <div class="field__label-row">
+              <label for="loanTenure">Loan Tenure</label>
+              <div class="field__input-wrap">
+                <input type="text" inputmode="numeric" id="loanTenure" name="loanTenure" value="20" aria-describedby="loanTenureError" />
+              </div>
+            </div>
+            <input type="range" id="loanTenureRange" min="1" max="40" step="1" value="20" aria-label="Loan tenure slider" />
+            <div class="field__toggle" role="radiogroup" aria-label="Tenure unit">
+              <button type="button" class="toggle-btn is-active" data-tenure-mode="years">Years</button>
+              <button type="button" class="toggle-btn" data-tenure-mode="months">Months</button>
+            </div>
+            <p class="error-msg" id="loanTenureError" role="alert"></p>
+          </div>
+
+          <!-- Extra Monthly Payment -->
+          <div class="field">
+            <div class="field__label-row">
+              <label for="extraPayment">Extra Monthly Payment <span class="optional-tag">prepayment</span></label>
+              <div class="field__input-wrap">
+                <span class="field__prefix" id="extraPaymentSymbol">₹</span>
+                <input type="text" inputmode="numeric" id="extraPayment" name="extraPayment" value="0" aria-describedby="extraPaymentError" />
+              </div>
+            </div>
+            <input type="range" id="extraPaymentRange" min="0" max="100000" step="500" value="0" aria-label="Extra monthly payment slider" />
+            <p class="error-msg" id="extraPaymentError" role="alert"></p>
+          </div>
+
+          <!-- Monthly Income (for affordability estimate) -->
+          <div class="field">
+            <div class="field__label-row">
+              <label for="monthlyIncome">Monthly Income <span class="optional-tag">for affordability check</span></label>
+              <div class="field__input-wrap">
+                <span class="field__prefix" id="monthlyIncomeSymbol">₹</span>
+                <input type="text" inputmode="numeric" id="monthlyIncome" name="monthlyIncome" value="" placeholder="optional" />
+              </div>
+            </div>
+          </div>
+
+          <div class="panel__actions">
+            <button type="submit" class="btn btn--primary" id="calculateBtn">Calculate EMI</button>
+            <button type="button" class="btn btn--ghost" id="resetBtn">Reset</button>
+          </div>
+        </form>
+
+        <!-- ---------- RESULT PANEL (passbook stub) ---------- -->
+        <div class="panel result-panel" id="resultPanel" aria-live="polite">
+          <div class="stub">
+            <div class="stub__top">
+              <p class="stub__label">Your Monthly EMI</p>
+              <p class="stub__emi" id="emiOutput">₹0</p>
+              <div class="stub__badge" id="affordabilityBadge">
+                <span id="affordabilityText">Enter details</span>
+              </div>
+            </div>
+
+            <div class="stub__perforation" aria-hidden="true"></div>
+
+            <dl class="stub__breakdown">
+              <div class="breakdown__row">
+                <dt>Effective Loan Amount</dt>
+                <dd id="effectiveLoanOutput">₹0</dd>
+              </div>
+              <div class="breakdown__row">
+                <dt>Total Interest Payable</dt>
+                <dd id="totalInterestOutput">₹0</dd>
+              </div>
+              <div class="breakdown__row">
+                <dt>Total Amount Payable</dt>
+                <dd id="totalAmountOutput">₹0</dd>
+              </div>
+              <div class="breakdown__row">
+                <dt>Loan Payoff Date</dt>
+                <dd id="payoffDateOutput">&mdash;</dd>
+              </div>
+              <div class="breakdown__row" id="monthsSavedRow" hidden>
+                <dt>Time Saved by Prepayment</dt>
+                <dd id="monthsSavedOutput">&mdash;</dd>
+              </div>
+            </dl>
+
+            <div class="stub__chart-wrap">
+              <canvas id="pieChart" width="180" height="180" role="img" aria-label="Pie chart showing principal versus interest split"></canvas>
+              <ul class="chart-legend">
+                <li><span class="dot dot--principal"></span> Principal <strong id="legendPrincipal">0%</strong></li>
+                <li><span class="dot dot--interest"></span> Interest <strong id="legendInterest">0%</strong></li>
+              </ul>
+            </div>
+
+            <div class="progress-bar" aria-hidden="true">
+              <div class="progress-bar__principal" id="progressPrincipal"></div>
+              <div class="progress-bar__interest" id="progressInterest"></div>
+            </div>
+
+            <p class="affordability-disclaimer">
+              * Affordability is a rough estimate based on the 40% income-to-EMI guideline. It does not account for your existing debts, expenses or credit profile &mdash; always consult a financial advisor.
+            </p>
+
+            <div class="stub__actions">
+              <button type="button" class="btn btn--small" id="copyBtn">📋 Copy Result</button>
+              <button type="button" class="btn btn--small" id="shareBtn">🔗 Share</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AMORTIZATION SCHEDULE ============ -->
+    <section class="amortization" id="amortization" aria-label="Amortization schedule">
+      <div class="section__inner">
+        <h2>Repayment Ledger</h2>
+        <p class="section__sub">A complete month-by-month breakdown of every payment, split into principal and interest.</p>
+
+        <div class="table-wrap" id="tableWrap">
+          <table class="ledger-table" id="amortTable">
+            <thead>
+              <tr>
+                <th scope="col">Month</th>
+                <th scope="col">Payment Date</th>
+                <th scope="col">EMI</th>
+                <th scope="col">Principal</th>
+                <th scope="col">Interest</th>
+                <th scope="col">Extra Payment</th>
+                <th scope="col">Balance</th>
+              </tr>
+            </thead>
+            <tbody id="amortBody">
+              <tr><td colspan="7" class="table-empty">Calculate your EMI to view the full schedule.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEARN / INFO SECTIONS ============ -->
+    <section class="learn" id="learn" aria-label="Learn about EMI">
+      <div class="section__inner">
+
+        <article class="info-block">
+          <h2>How EMI Is Calculated</h2>
+          <p>Every EMI (Equated Monthly Installment) is calculated using a fixed reducing-balance formula. It keeps your monthly payment constant while the split between principal and interest changes every month.</p>
+          <div class="formula-card">
+            <p class="formula">EMI = P &times; r &times; (1 + r)<sup>n</sup> &divide; [(1 + r)<sup>n</sup> &minus; 1]</p>
+            <ul class="formula-key">
+              <li><strong>P</strong> &mdash; Principal (effective loan amount after down payment)</li>
+              <li><strong>r</strong> &mdash; Monthly interest rate (annual rate &divide; 12 &divide; 100)</li>
+              <li><strong>n</strong> &mdash; Number of monthly installments (tenure in months)</li>
+            </ul>
+          </div>
+          <div class="example-card">
+            <h3>Worked Example</h3>
+            <p>Loan of <strong>₹10,00,000</strong> at <strong>8.5% p.a.</strong> for <strong>20 years (240 months)</strong>:</p>
+            <ul>
+              <li>Monthly rate, r = 8.5 &divide; 12 &divide; 100 = 0.007083</li>
+              <li>EMI = 10,00,000 &times; 0.007083 &times; (1.007083)<sup>240</sup> &divide; [(1.007083)<sup>240</sup> &minus; 1]</li>
+              <li><strong>EMI ≈ ₹8,678 / month</strong></li>
+              <li>Total paid over 20 years ≈ ₹20,82,720, of which ≈ ₹10,82,720 is interest</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="info-block">
+          <h2>Factors That Affect Your EMI</h2>
+          <div class="card-grid">
+            <div class="mini-card">
+              <h3>Principal Amount</h3>
+              <p>A larger loan amount directly increases your EMI, assuming rate and tenure stay the same.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Interest Rate</h3>
+              <p>Even a small change in rate compounds over the loan tenure and can shift your EMI noticeably.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Loan Tenure</h3>
+              <p>A longer tenure lowers your EMI but increases the total interest you pay over the loan's life.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Down Payment</h3>
+              <p>Paying more upfront reduces the principal being financed, lowering both EMI and total interest.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="info-block">
+          <h2>Benefits of Prepayment</h2>
+          <div class="card-grid">
+            <div class="mini-card">
+              <h3>Less Total Interest</h3>
+              <p>Extra payments reduce your outstanding principal early, so future interest is calculated on a smaller balance.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Shorter Tenure</h3>
+              <p>Consistent prepayments can shave months, even years, off your original loan schedule.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Debt-Free Sooner</h3>
+              <p>Closing a loan earlier frees up your monthly cash flow for savings or other investments.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Lower Lifetime Cost</h3>
+              <p>The earlier a prepayment is made, the more interest it saves &mdash; time matters as much as amount.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="info-block">
+          <h2>Tips to Reduce Your EMI</h2>
+          <ol class="tips-list">
+            <li>Make a larger down payment to shrink the principal being financed.</li>
+            <li>Compare interest rates across lenders before committing &mdash; a lower rate compounds savings.</li>
+            <li>Opt for a longer tenure only if you genuinely need a lower monthly outflow; it costs more in total interest.</li>
+            <li>Make small, regular prepayments whenever you have surplus cash.</li>
+            <li>Maintain a strong credit profile &mdash; it is one of the biggest levers for negotiating a better rate.</li>
+            <li>Refinance or transfer your loan if a significantly lower rate becomes available elsewhere.</li>
+            <li>Avoid stretching your EMI beyond roughly 40% of your monthly income.</li>
+          </ol>
+        </article>
+
+        <article class="info-block did-you-know">
+          <h2>Did You Know?</h2>
+          <div class="card-grid">
+            <div class="fact-card">In the early years of a loan, most of your EMI goes toward interest, not principal &mdash; that only flips later in the tenure.</div>
+            <div class="fact-card">Paying just one extra EMI a year on a 20-year home loan can shorten the tenure by several years.</div>
+            <div class="fact-card">A 1% drop in interest rate on a large, long-tenure loan can save an amount comparable to a small car.</div>
+            <div class="fact-card">Prepaying early in the loan life saves far more interest than prepaying the same amount later.</div>
+            <div class="fact-card">EMI as a concept became widespread only once amortization tables could be computed at scale &mdash; today your browser does it instantly.</div>
+          </div>
+        </article>
+
+        <article class="info-block" id="faq">
+          <h2>Frequently Asked Questions</h2>
+          <div class="accordion" id="faqAccordion">
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">What is EMI?</button></h3>
+              <div class="accordion__panel"><p>EMI stands for Equated Monthly Installment &mdash; a fixed payment made every month toward repaying a loan, covering both principal and interest.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">Does a longer tenure always mean I pay more?</button></h3>
+              <div class="accordion__panel"><p>Yes, in total. A longer tenure lowers your monthly EMI but increases the total interest paid over the life of the loan.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">What is the difference between flat rate and reducing balance rate?</button></h3>
+              <div class="accordion__panel"><p>A flat rate is calculated on the full original principal for the whole tenure. A reducing balance rate (used by this calculator) is calculated only on the outstanding balance, so interest decreases as you repay.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">How does a down payment affect my EMI?</button></h3>
+              <div class="accordion__panel"><p>A down payment reduces the effective loan amount that is financed, which lowers both your EMI and the total interest payable.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">What does the extra monthly payment field do?</button></h3>
+              <div class="accordion__panel"><p>It simulates a fixed prepayment added to every EMI. That extra amount goes entirely toward principal, shortening your tenure and reducing total interest.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">Is this calculator accurate for any currency?</button></h3>
+              <div class="accordion__panel"><p>The math is currency-agnostic. The currency selector only changes the displayed symbol; it does not convert values between currencies.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">How is the loan payoff date calculated?</button></h3>
+              <div class="accordion__panel"><p>It is calculated by adding the total number of months required to repay the loan &mdash; accounting for any prepayments &mdash; to today's date.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">What does the affordability indicator mean?</button></h3>
+              <div class="accordion__panel"><p>It compares your EMI to the monthly income you enter, using a common 40% guideline. It is a rough estimate only, not financial advice.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">Can I switch between annual and monthly interest rate input?</button></h3>
+              <div class="accordion__panel"><p>Yes. Use the Annual/Monthly toggle under the interest rate field; the calculator converts internally so results stay accurate.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">Does this calculator include processing fees or other bank charges?</button></h3>
+              <div class="accordion__panel"><p>No. This is a pure EMI and interest calculator. It intentionally excludes bank-specific fees, insurance or charges, which vary by lender.</p></div>
+            </div>
+
+            <div class="accordion__item">
+              <h3><button class="accordion__trigger" aria-expanded="false">Is my data saved anywhere?</button></h3>
+              <div class="accordion__panel"><p>No. All calculations run locally in your browser. Only your theme preference is stored, in your browser's local storage.</p></div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ DISCLAIMER ============ -->
+    <section class="disclaimer" id="disclaimer" aria-label="Disclaimer">
+      <div class="section__inner">
+        <h2>Disclaimer</h2>
+        <p>This calculator is provided for educational and estimation purposes only. It does not constitute financial advice, and results may differ from figures offered by any bank or lending institution due to processing fees, insurance, taxes, rate variations or rounding conventions used by the lender. Always confirm final figures with your lender before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark" aria-hidden="true">₹</span>
+        <span class="brand__text">EMI<em>Ledger</em></span>
+      </div>
+      <p class="footer__note">Built with HTML, CSS &amp; vanilla JavaScript &mdash; no frameworks, no tracking, no data leaves your browser.</p>
+      <p class="footer__copy">&copy; <span id="footerYear"></span> EMI Ledger. Educational project &mdash; not a financial institution.</p>
+    </div>
+  </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <!-- ============ TOAST (for copy confirmation) ============ -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+body{
+font-family:Arial, sans-serif;
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:white;
+padding:100px 0;
+}
+
+.hero h1{
+font-size:50px;
+font-weight:bold;
+}
+
+.hero p{
+font-size:20px;
+margin:20px 0;
+}
+
+.feature{
+text-align:center;
+padding:20px;
+transition:.3s;
+border:none;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.feature:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+height:280px;
+object-fit:cover;
+}
+
+footer{
+margin-top:20px;
+}
+
+@media(max-width:768px){
+
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:35px;
+}
+
+}

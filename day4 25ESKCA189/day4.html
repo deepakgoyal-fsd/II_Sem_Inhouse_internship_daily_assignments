@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a545b;
+        }
+
+        img {
+            width: 100px;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p>banana:<span id="banana">0</span></p>
+    <p>apple:<span id="apple">0</span></p>
+    <p>time left:<span id="timer">10s</span></p>
+    <img src="banana.jpeg" onclick="clickimage('banana',this)">
+    <img src="apple.jpeg" onclick="clickimage('apple',this)">
+    <script>
+        let apple = 0, banana = 0;
+        document.querySelectorAll("img").forEach(img => {
+            img.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            img.style.top = Math.random() * (window.innerHeight - 120) + "px";
+        });
+        function clickimage(type, img) {
+            if (type == "apple") {
+                document.getElementById("apple").innerText = ++apple;
+            }
+            else {
+                document.getElementById("banana").innerText = ++banana;
+            }
+            img.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            img.style.top = Math.random() * (window.innerHeight - 120) + "px";
+
+        }
+        function timer() {
+            let timeLeft = 10;
+            const timerElement = document.getElementById("timer");
+            const countdown = setInterval(() => {
+                timeLeft--;
+                timerElement.innerText = `${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    alert("Time up! Your score is: Apple: " + apple + " Banana: " + banana);
+                    darkMode();
+                }
+            }, 1000);
+        }
+        timer();
+
+        function darkMode() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+
+    </script>
+</body>
+
+</html>

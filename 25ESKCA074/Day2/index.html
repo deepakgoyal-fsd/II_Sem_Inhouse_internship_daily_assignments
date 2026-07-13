@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+<body class="bodycolor">
+
+    <center>
+        <h1>Registration Form</h1>
+    </center>    
+
+    <div class="divform">
+        <form>
+
+            <p><label for="txtName"> Full name </label>
+            <input type="text" name="name" id="txtName" required placeholder="Enter your name" class="rounded"></p>
+
+            <p>Email<input type="mail" name="mail" id="mail" required placeholder="Enter mail id" class="rounded"> </p>
+
+            <p><label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" required placeholder="Enter phone number" class="rounded"></p>
+
+            <p><label for="dtDOB" class="sameline">DOB</label>
+            <input type="date" name="dob" id="dtDOB" required placeholder="Enter date of birth" class="rounded"></p>
+
+
+            <p><legend>Gender</legend>
+
+            <label for="gen-m" class="choose">Male</label>
+            <input type="radio" name="gender" id="gen-m"> &nbsp;
+
+            <label for="gen-fm" class="choose">Female</label>
+            <input type="radio" name="gender" id="gen-fm"> &nbsp;
+
+            <label for="gen-oth" class="choose">Transgender</label>
+            <input type="radio" name="gender" id="gen-oth"> &nbsp;
+
+            <label for="gen-not" class="choose">Prefer not to say</label>
+            <input type="radio" name="gender" id="gen-not"></p>
+
+            <p><legend>Department</legend>
+            <select value="dep" id="dep" class="rounded">
+                <option hidden>Choose department</option>
+                <option>CS</option>
+               <option>ME</option>
+                <option>CE</option>
+                <option>EE</option>
+            </select></p>
+        
+            <p>Password<input type="password" name="pwd" id="pwd"     placeholder="Enter password" class="rounded"></p>
+
+            <input type="button" value="Submit" id="button">
+        </form>
+    </div>
+</body>
+</html>

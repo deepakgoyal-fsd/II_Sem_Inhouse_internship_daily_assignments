@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Landing Page</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+
+<body class="bodycolor">
+
+    <center>
+        <h1>Interactive Landing Page</h1>
+        <p>Simple Registration Form with Dark Mode and Click Counter</p>
+    </center>
+
+    <hr>
+
+    <!-- Dark Mode Button -->
+    <center>
+        <button id="darkBtn">Dark Mode</button>
+    </center>
+
+    <hr>
+
+    <!-- Click Counter -->
+    <center>
+        <h2>Click Counter</h2>
+
+        <p>Count : <span id="count">0</span></p>
+
+        <button id="clickBtn">Click Me</button>
+        <button id="resetBtn">Reset</button>
+    </center>
+
+    <hr>
+
+    <div class="divform">
+
+        <form id="myForm">
+
+            <p>
+                <label for="txtName">Full Name</label>
+                <input type="text" id="txtName" placeholder="Enter your name" class="rounded">
+                <br>
+                <span id="nameError"></span>
+            </p>
+
+            <p>
+                <label for="mail">Email</label>
+                <input type="email" id="mail" placeholder="Enter mail id" class="rounded">
+                <br>
+                <span id="emailError"></span>
+            </p>
+
+            <p>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" placeholder="Enter phone number" class="rounded">
+            </p>
+
+            <p>
+                <label for="dtDOB">DOB</label>
+                <input type="date" id="dtDOB" class="rounded">
+            </p>
+
+            <p>
+                <strong>Gender</strong><br>
+
+                <label>Male</label>
+                <input type="radio" name="gender">
+
+                <label>Female</label>
+                <input type="radio" name="gender">
+
+                <label>Transgender</label>
+                <input type="radio" name="gender">
+
+                <label>Prefer not to say</label>
+                <input type="radio" name="gender">
+            </p>
+
+            <p>
+                <strong>Department</strong><br>
+
+                <select id="dep" class="rounded">
+                    <option hidden>Choose Department</option>
+                    <option>CS</option>
+                    <option>ME</option>
+                    <option>CE</option>
+                    <option>EE</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="pwd">Password</label>
+                <input type="password" id="pwd" placeholder="Enter password" class="rounded">
+            </p>
+
+            <input type="submit" value="Submit" id="button">
+
+        </form>
+
+    </div>
+
+    <script src="../JS/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 align="center">Student Registration Form</h1>
+
+<div class="container">
+
+<form action="submit.php" method="post" enctype="multipart/form-data" id="myForm">
+
+<label>Full Name</label><br>
+<input type="text" name="name" id="name"><br>
+<span id="nameError"></span><br>
+
+<label>Email</label><br>
+<input type="text" name="email" id="email"><br>
+<span id="emailError"></span><br>
+
+<label>Phone</label><br>
+<input type="text" name="phone"><br><br>
+
+<label>Date of Birth</label><br>
+<input type="date" name="dob"><br><br>
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender" value="Male"> Male
+
+<input type="radio" name="gender" value="Female"> Female
+
+<input type="radio" name="gender" value="Other"> Other
+
+<br><br>
+
+<label>Course</label><br>
+
+<select name="course">
+
+<option value="">Select Course</option>
+
+<option>CSE</option>
+
+<option>ME</option>
+
+<option>CE</option>
+
+<option>EE</option>
+
+</select>
+
+<br><br>
+
+<label>Address</label><br>
+
+<textarea name="address" id="address"></textarea>
+
+<br>
+
+<span id="addressError"></span>
+
+<br><br>
+
+<label>Password</label><br>
+
+<input type="password" name="password"><br><br>
+
+<label>Profile Photo</label><br>
+
+<input type="file" name="photo"><br><br>
+
+<input type="submit" value="Register">
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

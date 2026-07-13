@@ -1,0 +1,46 @@
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#f2f2f2;
+
+}
+
+.container{
+
+    width:500px;
+    margin:auto;
+    margin-top:40px;
+
+}
+
+form{
+
+    background:white;
+    padding:20px;
+    border:1px solid black;
+
+}
+
+input[type=text]{
+
+    width:100%;
+    padding:8px;
+
+}
+
+input[type=submit]{
+
+    margin-top:10px;
+    padding:8px 15px;
+
+}
+
+.card{
+
+    margin-top:30px;
+    background:lightblue;
+    border:2px solid navy;
+    padding:20px;
+    text-align:center;
+
+}

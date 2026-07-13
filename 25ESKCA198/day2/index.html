@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card shadow p-4">
+
+<h2 class="text-center mb-4">Student Registration Form</h2>
+
+<form id="registrationForm">
+
+<div class="mb-3">
+<label>Full Name</label>
+<input type="text" class="form-control" id="fullname" required>
+</div>
+
+<div class="mb-3">
+<label>Email</label>
+<input type="email" class="form-control" id="email" required>
+</div>
+
+<div class="mb-3">
+<label>Phone</label>
+<input type="tel" class="form-control" id="phone" required>
+</div>
+
+<div class="mb-3">
+<label>Password</label>
+<input type="password" class="form-control" id="password" required>
+</div>
+
+<div class="mb-3">
+<label>Confirm Password</label>
+<input type="password" class="form-control" id="confirmPassword" required>
+</div>
+
+<div class="mb-3">
+
+<label class="d-block">Gender</label>
+
+<input type="radio" name="gender"> Male
+
+<input type="radio" name="gender"> Female
+
+<input type="radio" name="gender"> Other
+
+</div>
+
+<div class="mb-3">
+
+<label>Branch</label>
+
+<select class="form-select" id="branch">
+
+<option>Select Branch</option>
+
+<option>CSE</option>
+
+<option>IT</option>
+
+<option>ECE</option>
+
+<option>Mechanical</option>
+
+<option>Civil</option>
+
+</select>
+
+</div>
+
+<div class="mb-3">
+
+<label>Date Of Birth</label>
+
+<input type="date" class="form-control">
+
+</div>
+
+<div class="mb-3">
+
+<label>Address</label>
+
+<textarea class="form-control" rows="4"></textarea>
+
+</div>
+
+<button class="btn btn-primary w-100">
+Register
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

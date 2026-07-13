@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="number1" placeholder="Enter First Number"/>
+        <input type="text" id="number2" placeholder="Enter Second Number"/>
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="*">*</option>
+        </select>
+        <button type="button" onclick="performArithmeticOperations()">
+            Perform Arithmetic Operation
+        </button>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function performArithmeticOperations(){
+            const number1 = parseFloat(document.getElementById("number1").value);
+            const number2 = parseFloat(document.getElementById("number2").value);
+            const operator=document.getElementById("operator").value;
+            let result=0;
+            if (isNaN(number1) || isNaN(number2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+            switch(operator){
+                case "+":
+                    result=number1+number2;
+                    break;
+                
+                case "-":
+                    result=number1-number2;
+                    break;
+
+                case "*":
+                    result = number1*number2;
+                    break;
+                
+                case "/":
+                    if(number2 == 0){
+                        alert("Division by 0 is not possible");
+                        return;
+                    }
+                    result = number1/number2;
+                    break;
+            }
+            const resultDiv= document.getElementById("result");
+            resultDiv.innerHTML = `Result : ${result}`;
+        }
+    </script>
+    
+</body>
+</html>

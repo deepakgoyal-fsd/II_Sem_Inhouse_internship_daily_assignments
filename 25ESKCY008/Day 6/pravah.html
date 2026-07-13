@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAH 2026 — SKIT Jaipur's Annual Fest | July 11–13</title>
+<meta name="description" content="Pravah — the annual fest of Swami Keshvanand Institute of Technology, Management & Gramothan, Jaipur. Three days. One current. July 11–13, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================= RESET ============================= */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+}
+img { max-width:100%; display:block; }
+button, input, select, textarea { font:inherit; color:inherit; }
+a { color:inherit; text-decoration:none; }
+ul { list-style:none; }
+
+/* ============================= TOKENS ============================= */
+:root{
+  --bg:#070B14;
+  --bg-alt:#0B1220;
+  --surface:#111B2E;
+  --surface-2:#16223A;
+  --line: rgba(146,160,190,0.16);
+  --text:#EDF1FA;
+  --text-muted:#8E9BBB;
+  --text-faint:#5C6788;
+
+  --cyan:#26E0C9;
+  --violet:#7B61FF;
+  --coral:#FF6F5E;
+  --amber:#FFB84D;
+
+  --flow-grad: linear-gradient(120deg, var(--cyan) 0%, var(--violet) 52%, var(--coral) 100%);
+  --flow-grad-soft: linear-gradient(120deg, rgba(38,224,201,0.18), rgba(123,97,255,0.18) 52%, rgba(255,111,94,0.18) 100%);
+
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+
+  --ease: cubic-bezier(.22,1,.36,1);
+  --maxw: 1220px;
+}
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family:'Manrope', sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+.font-display{ font-family:'Unbounded', sans-serif; }
+.font-mono{ font-family:'Space Mono', monospace; }
+
+::selection{ background: var(--violet); color:#fff; }
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================= LAYOUT HELPERS ============================= */
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+.section{ position:relative; padding:130px 0; }
+.section--tight{ padding:90px 0; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+  color: var(--cyan); margin-bottom:18px;
+}
+.eyebrow::before{ content:""; width:22px; height:1px; background: var(--cyan); display:inline-block; }
+.heading-xl{ font-family:'Unbounded', sans-serif; font-weight:700; font-size:clamp(2.1rem, 4.6vw, 3.6rem); line-height:1.08; letter-spacing:-0.01em; }
+.heading-l{ font-family:'Unbounded', sans-serif; font-weight:600; font-size:clamp(1.6rem, 3vw, 2.4rem); line-height:1.15; }
+.lede{ color: var(--text-muted); font-size:1.08rem; max-width:640px; }
+.grad-text{
+  background: var(--flow-grad);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  background-size:220% 220%;
+  animation: gradShift 8s ease-in-out infinite;
+}
+@keyframes gradShift{
+  0%,100%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+}
+
+/* reveal-on-scroll */
+[data-reveal]{ opacity:0; transform:translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-reveal].in-view{ opacity:1; transform:translateY(0); }
+[data-reveal="stagger"] > *{ opacity:0; transform:translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+[data-reveal="stagger"].in-view > *{ opacity:1; transform:translateY(0); }
+[data-reveal="stagger"].in-view > *:nth-child(1){ transition-delay:.02s; }
+[data-reveal="stagger"].in-view > *:nth-child(2){ transition-delay:.10s; }
+[data-reveal="stagger"].in-view > *:nth-child(3){ transition-delay:.18s; }
+[data-reveal="stagger"].in-view > *:nth-child(4){ transition-delay:.26s; }
+[data-reveal="stagger"].in-view > *:nth-child(5){ transition-delay:.34s; }
+[data-reveal="stagger"].in-view > *:nth-child(6){ transition-delay:.42s; }
+
+/* buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:15px 30px; border-radius:100px; border:1px solid transparent;
+  font-family:'Space Mono', monospace; font-size:13.5px; letter-spacing:.06em; text-transform:uppercase;
+  cursor:pointer; transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s ease, border-color .35s ease;
+  white-space:nowrap;
+}
+.btn--primary{ background: var(--flow-grad); color:#04070E; font-weight:700; background-size:180% 180%; }
+.btn--primary:hover{ transform:translateY(-3px); box-shadow:0 14px 34px -12px rgba(123,97,255,.55); background-position:100% 0; }
+.btn--ghost{ background:transparent; border-color:var(--line); color:var(--text); }
+.btn--ghost:hover{ border-color:var(--cyan); color:var(--cyan); transform:translateY(-3px); }
+
+/* ============================= AMBIENT FLOW CANVAS (signature, fixed backdrop) ============================= */
+#flow-canvas{
+  position:fixed; inset:0; width:100%; height:100%; z-index:0; opacity:.55; pointer-events:none;
+}
+
+/* cursor ripple canvas */
+#ripple-canvas{
+  position:fixed; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;
+}
+
+/* ============================= NAV ============================= */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:22px 0; transition: padding .4s var(--ease), background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.is-scrolled{
+  padding:14px 0; background:rgba(7,11,20,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom-color: var(--line);
+}
+.nav__inner{ display:flex; align-items:center; justify-content:space-between; }
+.nav__logo{ display:flex; align-items:center; gap:10px; font-family:'Unbounded',sans-serif; font-weight:700; font-size:1.15rem; letter-spacing:.02em; }
+.nav__logo-mark{ width:14px; height:14px; border-radius:50%; background:var(--flow-grad); box-shadow:0 0 16px rgba(123,97,255,.7); }
+.nav__links{ display:flex; align-items:center; gap:34px; }
+.nav__link{
+  position:relative; font-size:14px; color:var(--text-muted); font-weight:600; padding:4px 0;
+  transition: color .3s ease;
+}
+.nav__link::after{
+  content:""; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background:var(--flow-grad); transition: width .35s var(--ease);
+}
+.nav__link:hover, .nav__link.is-active{ color:var(--text); }
+.nav__link:hover::after, .nav__link.is-active::after{ width:100%; }
+.nav__cta{ display:flex; align-items:center; gap:18px; }
+.nav__toggle{
+  display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;
+}
+.nav__toggle span{ width:22px; height:2px; background:var(--text); border-radius:2px; transition: transform .35s var(--ease), opacity .35s var(--ease); }
+.nav__toggle.is-open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav__toggle.is-open span:nth-child(2){ opacity:0; }
+.nav__toggle.is-open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ============================= HERO ============================= */
+.hero{
+  position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+  padding:150px 0 80px; overflow:hidden;
+}
+.hero__inner{ position:relative; z-index:2; text-align:center; }
+.hero__badge{
+  display:inline-flex; align-items:center; gap:10px; margin:0 auto 26px; padding:8px 18px 8px 8px;
+  border:1px solid var(--line); border-radius:100px; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.05em;
+  color:var(--text-muted); background:rgba(255,255,255,0.02);
+}
+.hero__badge b{ background:var(--flow-grad); color:#04070E; padding:3px 10px; border-radius:100px; font-weight:700; }
+.hero__title{
+  font-family:'Unbounded', sans-serif; font-weight:800; letter-spacing:-0.02em;
+  font-size:clamp(3.6rem, 15vw, 9.5rem); line-height:.92; text-transform:uppercase;
+}
+.hero__title span{ display:block; }
+.hero__sub{
+  margin:26px auto 0; max-width:560px; color:var(--text-muted); font-size:1.15rem;
+}
+.hero__meta{
+  margin-top:20px; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+  font-family:'Space Mono', monospace; font-size:13px; color:var(--text-faint); letter-spacing:.04em;
+}
+.hero__meta .dot{ width:4px; height:4px; border-radius:50%; background:var(--text-faint); }
+
+.hero__actions{ margin-top:42px; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
+
+/* countdown */
+.countdown{
+  margin:56px auto 0; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;
+}
+.countdown__unit{
+  position:relative; width:104px; padding:20px 0 16px; text-align:center;
+  background: var(--surface); border:1px solid var(--line); border-radius:var(--radius-m);
+  overflow:hidden;
+}
+.countdown__unit::before{
+  content:""; position:absolute; inset:0; background:var(--flow-grad-soft); opacity:.5;
+}
+.countdown__num{ position:relative; font-family:'Unbounded',sans-serif; font-weight:700; font-size:2.1rem; display:block; }
+.countdown__label{ position:relative; display:block; margin-top:6px; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.countdown__colon{ font-family:'Unbounded',sans-serif; font-size:1.8rem; color:var(--text-faint); }
+
+.hero__scrollcue{
+  position:absolute; bottom:36px; left:50%; transform:translateX(-50%); z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-faint);
+}
+.hero__scrollcue .line{ width:1px; height:40px; background:linear-gradient(var(--cyan), transparent); animation: pulseDown 1.8s ease-in-out infinite; }
+@keyframes pulseDown{ 0%{ transform:scaleY(0.4); transform-origin:top; opacity:.4; } 50%{ transform:scaleY(1); opacity:1; } 100%{ transform:scaleY(0.4); transform-origin:bottom; opacity:.4; } }
+
+/* ============================= WAVE DIVIDER ============================= */
+.wave-divider{ position:relative; width:100%; height:90px; overflow:hidden; line-height:0; z-index:1; }
+.wave-divider svg{ position:absolute; top:0; left:0; width:200%; height:100%; animation: waveScroll 22s linear infinite; }
+.wave-divider--slow svg{ animation-duration:34s; opacity:.55; }
+@keyframes waveScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ============================= ABOUT ============================= */
+.about__grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:start; }
+.about__text p{ color:var(--text-muted); margin-top:18px; font-size:1.02rem; max-width:520px; }
+.stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.stat-card{
+  padding:26px 22px; border:1px solid var(--line); border-radius:var(--radius-m); background:var(--surface);
+  transition: transform .4s var(--ease), border-color .4s ease;
+}
+.stat-card:hover{ transform:translateY(-6px); border-color:rgba(38,224,201,.5); }
+.stat-card__num{ font-family:'Unbounded',sans-serif; font-weight:700; font-size:2.2rem; }
+.stat-card__label{ margin-top:6px; color:var(--text-muted); font-size:13px; letter-spacing:.02em; }
+
+/* ============================= EVENTS ============================= */
+.section-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap; margin-bottom:46px; }
+.filters{ display:flex; gap:10px; flex-wrap:wrap; }
+.filter-btn{
+  padding:9px 18px; border-radius:100px; border:1px solid var(--line); background:transparent; color:var(--text-muted);
+  font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
+  transition: all .3s ease;
+}
+.filter-btn:hover{ color:var(--text); border-color:var(--text-faint); }
+.filter-btn.is-active{ background:var(--flow-grad); color:#04070E; border-color:transparent; font-weight:700; }
+
+.event-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+.event-card{
+  position:relative; padding:30px 26px; border-radius:var(--radius-l); border:1px solid var(--line);
+  background:var(--surface); overflow:hidden; cursor:default;
+  transform-style:preserve-3d; transition: border-color .4s ease, transform .1s linear;
+  will-change:transform;
+}
+.event-card::before{
+  content:""; position:absolute; inset:0; opacity:0; background:var(--flow-grad-soft); transition:opacity .4s ease;
+}
+.event-card:hover::before{ opacity:1; }
+.event-card.is-hidden{ display:none; }
+.event-card__tag{
+  display:inline-block; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--cyan); border:1px solid rgba(38,224,201,.35); padding:5px 12px; border-radius:100px; position:relative;
+}
+.event-card__icon{ font-size:2.1rem; margin-top:22px; position:relative; }
+.event-card__title{ font-family:'Unbounded',sans-serif; font-weight:600; font-size:1.25rem; margin-top:14px; position:relative; }
+.event-card__desc{ margin-top:10px; color:var(--text-muted); font-size:.94rem; position:relative; }
+.event-card__foot{ margin-top:20px; display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-size:11.5px; color:var(--text-faint); position:relative; }
+
+/* ============================= SCHEDULE ============================= */
+.day-tabs{ display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap; }
+.day-tab{
+  flex:1; min-width:160px; padding:18px 20px; border-radius:var(--radius-m); border:1px solid var(--line);
+  background:var(--surface); cursor:pointer; text-align:left; transition: all .35s var(--ease);
+}
+.day-tab:hover{ border-color:var(--text-faint); }
+.day-tab.is-active{ border-color:var(--violet); background:linear-gradient(160deg, rgba(123,97,255,.14), transparent); }
+.day-tab__num{ font-family:'Space Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:.1em; text-transform:uppercase; }
+.day-tab__date{ font-family:'Unbounded',sans-serif; font-weight:600; font-size:1.1rem; margin-top:6px; }
+
+.timeline{ display:none; flex-direction:column; }
+.timeline.is-active{ display:flex; }
+.timeline-item{
+  display:grid; grid-template-columns:110px 1fr; gap:26px; padding:24px 0; border-bottom:1px solid var(--line);
+}
+.timeline-item:first-child{ padding-top:0; }
+.timeline-item:last-child{ border-bottom:none; }
+.timeline-item__time{ font-family:'Space Mono',monospace; color:var(--cyan); font-size:14px; }
+.timeline-item__title{ font-family:'Unbounded',sans-serif; font-weight:500; font-size:1.05rem; }
+.timeline-item__venue{ margin-top:5px; color:var(--text-muted); font-size:13.5px; }
+
+/* ============================= PRO NIGHT BANNER ============================= */
+.pronight{
+  position:relative; border-radius:var(--radius-l); padding:70px 50px; overflow:hidden;
+  background: radial-gradient(120% 140% at 20% 20%, rgba(123,97,255,.25), transparent 60%),
+              radial-gradient(120% 140% at 80% 80%, rgba(255,111,94,.22), transparent 60%),
+              var(--surface);
+  border:1px solid var(--line);
+  text-align:center;
+}
+.pronight__eyebrow{ font-family:'Space Mono',monospace; letter-spacing:.2em; text-transform:uppercase; font-size:12px; color:var(--amber); }
+.pronight__title{ font-family:'Unbounded',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,3.6rem); margin-top:16px; }
+.pronight__sub{ margin:16px auto 0; max-width:520px; color:var(--text-muted); }
+
+/* ============================= MOMENTS / GALLERY ============================= */
+.moments{ display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+.moment-tile{
+  aspect-ratio:3/4; border-radius:var(--radius-m); position:relative; overflow:hidden; border:1px solid var(--line);
+  display:flex; align-items:flex-end; padding:18px;
+}
+.moment-tile span{ position:relative; font-family:'Space Mono',monospace; font-size:12px; color:rgba(255,255,255,.9); letter-spacing:.04em; }
+.moment-tile::before{ content:""; position:absolute; inset:0; opacity:.85; background-size:200% 200%; animation: gradShift 10s ease-in-out infinite; }
+.moment-tile:nth-child(1)::before{ background-image:linear-gradient(135deg, #26E0C9, #113); }
+.moment-tile:nth-child(2)::before{ background-image:linear-gradient(135deg, #7B61FF, #113); }
+.moment-tile:nth-child(3)::before{ background-image:linear-gradient(135deg, #FF6F5E, #113); }
+.moment-tile:nth-child(4)::before{ background-image:linear-gradient(135deg, #FFB84D, #113); }
+.moment-tile:nth-child(5)::before{ background-image:linear-gradient(135deg, #26E0C9, #7B61FF); }
+.moment-tile:nth-child(6)::before{ background-image:linear-gradient(135deg, #7B61FF, #FF6F5E); }
+.moment-tile:nth-child(7)::before{ background-image:linear-gradient(135deg, #FF6F5E, #FFB84D); }
+.moment-tile:nth-child(8)::before{ background-image:linear-gradient(135deg, #FFB84D, #26E0C9); }
+.moment-tile::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.55), transparent 60%); }
+
+/* ============================= SPONSORS MARQUEE ============================= */
+.marquee{ overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:34px 0; }
+.marquee__track{ display:flex; width:max-content; gap:70px; animation:marqueeScroll 26s linear infinite; }
+.marquee__item{ font-family:'Unbounded',sans-serif; font-weight:600; font-size:1.3rem; color:var(--text-faint); white-space:nowrap; letter-spacing:.02em; }
+@keyframes marqueeScroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+/* ============================= REGISTER ============================= */
+.register__grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; }
+.register__list{ margin-top:26px; display:flex; flex-direction:column; gap:16px; }
+.register__list li{ display:flex; gap:12px; color:var(--text-muted); font-size:.95rem; }
+.register__list li::before{ content:"→"; color:var(--cyan); font-weight:700; }
+
+.form-card{ padding:38px; border-radius:var(--radius-l); border:1px solid var(--line); background:var(--surface); }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.field{ margin-bottom:18px; }
+.field label{ display:block; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.field input, .field select{
+  width:100%; padding:13px 16px; border-radius:var(--radius-s); border:1px solid var(--line); background:var(--bg-alt);
+  color:var(--text); font-size:14.5px; transition: border-color .3s ease, background .3s ease;
+}
+.field input::placeholder{ color:var(--text-faint); }
+.field input:focus, .field select:focus{ border-color:var(--cyan); background:var(--surface-2); outline:none; }
+.form-note{ margin-top:16px; font-size:12.5px; color:var(--text-faint); }
+.form-msg{ margin-top:16px; font-size:13.5px; padding:12px 16px; border-radius:var(--radius-s); display:none; }
+.form-msg.is-success{ display:block; background:rgba(38,224,201,.12); border:1px solid rgba(38,224,201,.4); color:var(--cyan); }
+
+/* ============================= FOOTER ============================= */
+.footer{ padding:70px 0 34px; border-top:1px solid var(--line); }
+.footer__top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; }
+.footer__brand-title{ font-family:'Unbounded',sans-serif; font-weight:700; font-size:1.4rem; }
+.footer__brand-sub{ margin-top:12px; color:var(--text-muted); font-size:.92rem; max-width:280px; }
+.footer h4{ font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint); margin-bottom:16px; }
+.footer ul li{ margin-bottom:10px; }
+.footer ul li a{ color:var(--text-muted); font-size:14px; transition:color .3s ease; }
+.footer ul li a:hover{ color:var(--cyan); }
+.footer__social{ display:flex; gap:12px; margin-top:4px; }
+.footer__social a{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+  transition: all .3s ease;
+}
+.footer__social a:hover{ border-color:var(--cyan); color:var(--cyan); transform:translateY(-3px); }
+.footer__bottom{
+  margin-top:60px; padding-top:26px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  font-size:12.5px; color:var(--text-faint); font-family:'Space Mono',monospace;
+}
+
+/* back to top */
+.to-top{
+  position:fixed; bottom:26px; right:26px; z-index:90; width:48px; height:48px; border-radius:50%;
+  background:var(--surface); border:1px solid var(--line); color:var(--text); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transform:translateY(12px);
+  transition: all .4s var(--ease);
+}
+.to-top.is-visible{ opacity:1; pointer-events:auto; transform:translateY(0); }
+.to-top:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+/* ============================= RESPONSIVE ============================= */
+@media (max-width: 980px){
+  .about__grid, .register__grid{ grid-template-columns:1fr; gap:40px; }
+  .event-grid{ grid-template-columns:repeat(2, 1fr); }
+  .moments{ grid-template-columns:repeat(2, 1fr); }
+  .footer__top{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 720px){
+  .nav__links{
+    position:fixed; top:0; right:0; height:100vh; width:min(78vw, 320px); background:var(--bg-alt);
+    flex-direction:column; align-items:flex-start; justify-content:center; gap:26px; padding:40px;
+    transform:translateX(100%); transition: transform .45s var(--ease); border-left:1px solid var(--line);
+  }
+  .nav__links.is-open{ transform:translateX(0); }
+  .nav__toggle{ display:flex; }
+  .nav__cta .btn--ghost{ display:none; }
+  .form-row{ grid-template-columns:1fr; }
+  .event-grid{ grid-template-columns:1fr; }
+  .moments{ grid-template-columns:repeat(2, 1fr); }
+  .countdown__unit{ width:78px; padding:14px 0 12px; }
+  .countdown__num{ font-size:1.5rem; }
+  .section{ padding:90px 0; }
+  .section-head{ flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="flow-canvas" aria-hidden="true"></canvas>
+<canvas id="ripple-canvas" aria-hidden="true"></canvas>
+
+<!-- ============================= NAV ============================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#top" class="nav__logo"><span class="nav__logo-mark"></span> PRAVAH</a>
+    <nav class="nav__links" id="navLinks">
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#events">Events</a>
+      <a class="nav__link" href="#schedule">Schedule</a>
+      <a class="nav__link" href="#moments">Moments</a>
+      <a class="nav__link" href="#register">Register</a>
+    </nav>
+    <div class="nav__cta">
+      <a href="#register" class="btn btn--ghost" style="padding:10px 22px;">Register</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <div class="hero__badge">SKIT · JAIPUR PRESENTS <b>2026</b></div>
+    <h1 class="hero__title">
+      <span><span class="grad-text">PRAVAH</span></span>
+    </h1>
+    <p class="hero__sub">Pravah — the current that moves everything forward. Three days of music, tech, art and adrenaline, all flowing into one unforgettable fest.</p>
+    <div class="hero__meta">
+      <span>JULY 11–13, 2026</span>
+      <span class="dot"></span>
+      <span>SKIT CAMPUS, JAIPUR</span>
+      <span class="dot"></span>
+      <span>OPEN TO ALL COLLEGES</span>
+    </div>
+
+    <div class="countdown font-mono" id="countdown" aria-label="Countdown to Pravah">
+      <div class="countdown__unit"><span class="countdown__num" id="cd-days">00</span><span class="countdown__label">Days</span></div>
+      <span class="countdown__colon">:</span>
+      <div class="countdown__unit"><span class="countdown__num" id="cd-hours">00</span><span class="countdown__label">Hours</span></div>
+      <span class="countdown__colon">:</span>
+      <div class="countdown__unit"><span class="countdown__num" id="cd-mins">00</span><span class="countdown__label">Mins</span></div>
+      <span class="countdown__colon">:</span>
+      <div class="countdown__unit"><span class="countdown__num" id="cd-secs">00</span><span class="countdown__label">Secs</span></div>
+    </div>
+
+    <div class="hero__actions">
+      <a href="#register" class="btn btn--primary">Register Now</a>
+      <a href="#events" class="btn btn--ghost">Explore Events</a>
+    </div>
+  </div>
+
+  <div class="hero__scrollcue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 2400 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="waveGrad1" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#26E0C9" stop-opacity="0.35"/>
+        <stop offset="50%" stop-color="#7B61FF" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#FF6F5E" stop-opacity="0.35"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,120 C200,180 400,60 600,110 C800,160 1000,40 1200,100 C1400,160 1600,60 1800,110 C2000,160 2200,60 2400,110 L2400,200 L0,200 Z" fill="url(#waveGrad1)"/>
+    <path d="M2400,120 C2600,180 2800,60 3000,110 C3200,160 3400,40 3600,100 C3800,160 4000,60 4200,110 C4400,160 4600,60 4800,110 L4800,200 L2400,200 Z" fill="url(#waveGrad1)" transform="translate(-2400,0)"/>
+  </svg>
+</div>
+
+<!-- ============================= ABOUT ============================= -->
+<section class="section section--tight" id="about">
+  <div class="wrap about__grid">
+    <div class="about__text" data-reveal>
+      <span class="eyebrow">The Current</span>
+      <h2 class="heading-xl">Pravah means <span class="grad-text">flow</span>.<br>This July, it's SKIT's.</h2>
+      <p>Pravah is the annual techno-cultural fest of Swami Keshvanand Institute of Technology, Management &amp; Gramothan, Jaipur — three days where music, code, dance and design converge into one current.</p>
+      <p>From hackathons that run past midnight to pro nights that fill the amphitheatre, Pravah brings together students from colleges across Rajasthan for competitions, performances and the kind of chaos you'll be talking about till next July.</p>
+    </div>
+    <div class="stat-grid" data-reveal="stagger">
+      <div class="stat-card"><div class="stat-card__num grad-text">3</div><div class="stat-card__label">Days of non-stop energy</div></div>
+      <div class="stat-card"><div class="stat-card__num grad-text">40+</div><div class="stat-card__label">Events across 5 arenas</div></div>
+      <div class="stat-card"><div class="stat-card__num grad-text">15+</div><div class="stat-card__label">Colleges expected</div></div>
+      <div class="stat-card"><div class="stat-card__num grad-text">₹3L+</div><div class="stat-card__label">In prizes up for grabs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= EVENTS ============================= -->
+<section class="section" id="events">
+  <div class="wrap">
+    <div class="section-head">
+      <div data-reveal>
+        <span class="eyebrow">Dive In</span>
+        <h2 class="heading-l">Choose your current</h2>
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="technical">Technical</button>
+        <button class="filter-btn" data-filter="cultural">Cultural</button>
+        <button class="filter-btn" data-filter="gaming">Gaming</button>
+        <button class="filter-btn" data-filter="literary">Literary</button>
+      </div>
+    </div>
+
+    <div class="event-grid" id="eventGrid" data-reveal="stagger">
+      <div class="event-card" data-category="technical">
+        <span class="event-card__tag">Technical</span>
+        <div class="event-card__icon">⚡</div>
+        <h3 class="event-card__title">CodeStorm</h3>
+        <p class="event-card__desc">A 24-hour overnight hackathon. Build something real, fuelled by chai and deadline panic.</p>
+        <div class="event-card__foot"><span>Team of 4</span><span>₹40,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="technical">
+        <span class="event-card__tag">Technical</span>
+        <div class="event-card__icon">🤖</div>
+        <h3 class="event-card__title">RoboRush</h3>
+        <p class="event-card__desc">Build and battle bots through a maze arena. Speed, strategy and a little bit of destruction.</p>
+        <div class="event-card__foot"><span>Team of 3</span><span>₹25,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="cultural">
+        <span class="event-card__tag">Cultural</span>
+        <div class="event-card__icon">🎤</div>
+        <h3 class="event-card__title">Sur Sangam</h3>
+        <p class="event-card__desc">Solo and group singing across genres — classical, indie, Bollywood, everything in between.</p>
+        <div class="event-card__foot"><span>Solo / Group</span><span>₹20,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="cultural">
+        <span class="event-card__tag">Cultural</span>
+        <div class="event-card__icon">💃</div>
+        <h3 class="event-card__title">Thirak</h3>
+        <p class="event-card__desc">The dance battle. Solo, duo and crew formats — bring your best choreography and better attitude.</p>
+        <div class="event-card__foot"><span>Crew of 6–12</span><span>₹30,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="cultural">
+        <span class="event-card__tag">Cultural</span>
+        <div class="event-card__icon">🎭</div>
+        <h3 class="event-card__title">Rangmanch</h3>
+        <p class="event-card__desc">Street play and drama. Twelve minutes to say something that matters, loudly.</p>
+        <div class="event-card__foot"><span>Team of 8–15</span><span>₹18,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="cultural">
+        <span class="event-card__tag">Cultural</span>
+        <div class="event-card__icon">👗</div>
+        <h3 class="event-card__title">Ramp Rebellion</h3>
+        <p class="event-card__desc">The fashion show. A themed runway judged on concept, styling and stage presence.</p>
+        <div class="event-card__foot"><span>Crew of 10–16</span><span>₹28,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="gaming">
+        <span class="event-card__tag">Gaming</span>
+        <div class="event-card__icon">🎮</div>
+        <h3 class="event-card__title">Arena Clash</h3>
+        <p class="event-card__desc">BGMI and Valorant tournaments on the big screen. Bracket-style, LAN-only, no excuses.</p>
+        <div class="event-card__foot"><span>Squad of 4</span><span>₹22,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="literary">
+        <span class="event-card__tag">Literary</span>
+        <div class="event-card__icon">🖋️</div>
+        <h3 class="event-card__title">Wordsmith</h3>
+        <p class="event-card__desc">Debate, spoken word and extempore rolled into one high-stakes literary showdown.</p>
+        <div class="event-card__foot"><span>Solo / Duo</span><span>₹12,000 pool</span></div>
+      </div>
+      <div class="event-card" data-category="technical">
+        <span class="event-card__tag">Technical</span>
+        <div class="event-card__icon">📐</div>
+        <h3 class="event-card__title">Circuit Rush</h3>
+        <p class="event-card__desc">On-the-spot electronics and PCB design challenge. Components provided, sleep not included.</p>
+        <div class="event-card__foot"><span>Team of 2</span><span>₹15,000 pool</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider wave-divider--slow">
+  <svg viewBox="0 0 2400 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,100 C200,40 400,160 600,100 C800,40 1000,160 1200,100 C1400,40 1600,160 1800,100 C2000,40 2200,160 2400,100 L2400,200 L0,200 Z" fill="url(#waveGrad1)"/>
+    <path d="M2400,100 C2600,40 2800,160 3000,100 C3200,40 3400,160 3600,100 C3800,40 4000,160 4200,100 C4400,40 4600,160 4800,100 L4800,200 L2400,200 Z" fill="url(#waveGrad1)" transform="translate(-2400,0)"/>
+  </svg>
+</div>
+
+<!-- ============================= SCHEDULE ============================= -->
+<section class="section" id="schedule">
+  <div class="wrap">
+    <div data-reveal style="margin-bottom:46px;">
+      <span class="eyebrow">The Flow of Days</span>
+      <h2 class="heading-l">Three days, one current</h2>
+    </div>
+
+    <div class="day-tabs" id="dayTabs">
+      <button class="day-tab is-active" data-day="1"><div class="day-tab__num">Day One</div><div class="day-tab__date">Jul 11 · Ignite</div></button>
+      <button class="day-tab" data-day="2"><div class="day-tab__num">Day Two</div><div class="day-tab__date">Jul 12 · Surge</div></button>
+      <button class="day-tab" data-day="3"><div class="day-tab__num">Day Three</div><div class="day-tab__date">Jul 13 · Crescendo</div></button>
+    </div>
+
+    <div class="timeline is-active" data-timeline="1">
+      <div class="timeline-item"><div class="timeline-item__time">09:00</div><div><div class="timeline-item__title">Opening Ceremony &amp; Lamp Lighting</div><div class="timeline-item__venue">Main Amphitheatre</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">10:30</div><div><div class="timeline-item__title">CodeStorm — Hackathon Kickoff</div><div class="timeline-item__venue">CS Block, Lab 4</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">12:00</div><div><div class="timeline-item__title">Ramp Rebellion — Auditions</div><div class="timeline-item__venue">Seminar Hall</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">15:00</div><div><div class="timeline-item__title">Arena Clash — Group Stage</div><div class="timeline-item__venue">Gaming Zone, Block C</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">18:30</div><div><div class="timeline-item__title">Sur Sangam — Solo Finals</div><div class="timeline-item__venue">Open Air Theatre</div></div></div>
+    </div>
+
+    <div class="timeline" data-timeline="2">
+      <div class="timeline-item"><div class="timeline-item__time">09:30</div><div><div class="timeline-item__title">RoboRush — Qualifiers</div><div class="timeline-item__venue">Mechanical Yard</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">11:00</div><div><div class="timeline-item__title">Wordsmith — Debate Rounds</div><div class="timeline-item__venue">Conference Hall</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">13:30</div><div><div class="timeline-item__title">CodeStorm — Final Submissions</div><div class="timeline-item__venue">CS Block, Lab 4</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">16:00</div><div><div class="timeline-item__title">Rangmanch — Street Play Finals</div><div class="timeline-item__venue">Main Lawns</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">19:00</div><div><div class="timeline-item__title">Thirak — Dance Battle Finals</div><div class="timeline-item__venue">Main Amphitheatre</div></div></div>
+    </div>
+
+    <div class="timeline" data-timeline="3">
+      <div class="timeline-item"><div class="timeline-item__time">10:00</div><div><div class="timeline-item__title">Circuit Rush — Live Build</div><div class="timeline-item__venue">EC Block Lab</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">12:30</div><div><div class="timeline-item__title">Ramp Rebellion — Final Walk</div><div class="timeline-item__venue">Main Amphitheatre</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">15:30</div><div><div class="timeline-item__title">Arena Clash — Grand Finals</div><div class="timeline-item__venue">Gaming Zone, Block C</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">18:00</div><div><div class="timeline-item__title">Awards &amp; Closing Ceremony</div><div class="timeline-item__venue">Main Amphitheatre</div></div></div>
+      <div class="timeline-item"><div class="timeline-item__time">20:00</div><div><div class="timeline-item__title">PRO NIGHT — Artist Live</div><div class="timeline-item__venue">Main Amphitheatre</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PRO NIGHT ============================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="pronight" data-reveal>
+      <div class="pronight__eyebrow">Closing Night</div>
+      <h2 class="pronight__title grad-text">PRO NIGHT</h2>
+      <p class="pronight__sub">The current peaks on Day Three. Headline artist reveal dropping soon on our socials — passes are limited, don't sleep on this one.</p>
+      <div class="hero__actions" style="margin-top:34px;">
+        <a href="#register" class="btn btn--primary">Grab a Pass</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= MOMENTS ============================= -->
+<section class="section" id="moments">
+  <div class="wrap">
+    <div data-reveal style="margin-bottom:46px;">
+      <span class="eyebrow">Last Year's Current</span>
+      <h2 class="heading-l">Moments from Pravah 2025</h2>
+    </div>
+    <div class="moments" data-reveal="stagger">
+      <div class="moment-tile"><span>Opening Ceremony</span></div>
+      <div class="moment-tile"><span>CodeStorm — Overnight</span></div>
+      <div class="moment-tile"><span>Thirak Finals</span></div>
+      <div class="moment-tile"><span>Pro Night Crowd</span></div>
+      <div class="moment-tile"><span>Ramp Rebellion</span></div>
+      <div class="moment-tile"><span>RoboRush Arena</span></div>
+      <div class="moment-tile"><span>Sur Sangam</span></div>
+      <div class="moment-tile"><span>Closing Fireworks</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= SPONSORS ============================= -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span class="marquee__item">Title Sponsor</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Powered By</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Associate Sponsor</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Media Partner</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Gaming Partner</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Title Sponsor</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Powered By</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Associate Sponsor</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Media Partner</span>
+    <span class="marquee__item">·</span>
+    <span class="marquee__item">Gaming Partner</span>
+  </div>
+</div>
+
+<!-- ============================= REGISTER ============================= -->
+<section class="section" id="register">
+  <div class="wrap register__grid">
+    <div data-reveal>
+      <span class="eyebrow">Join the Current</span>
+      <h2 class="heading-xl">Register for<br><span class="grad-text">Pravah 2026</span></h2>
+      <p class="lede" style="margin-top:18px;">One form, every event. Pick your arena below and we'll route you to the right coordinator.</p>
+      <ul class="register__list">
+        <li>Entry is open to all colleges across Rajasthan and beyond</li>
+        <li>Team events require a designated team lead to register</li>
+        <li>Campus passes cover all three days, including Pro Night</li>
+        <li>Confirmation and event passes are sent over email</li>
+      </ul>
+    </div>
+
+    <div class="form-card" data-reveal>
+      <form id="regForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">Full name</label>
+            <input type="text" id="fname" name="fname" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="98xxxxxxxx" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@college.edu" required>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="college">College / Institute</label>
+            <input type="text" id="college" name="college" placeholder="e.g. SKIT, Jaipur" required>
+          </div>
+          <div class="field">
+            <label for="event">Event</label>
+            <select id="event" name="event" required>
+              <option value="" disabled selected>Choose an event</option>
+              <option>CodeStorm — Hackathon</option>
+              <option>RoboRush</option>
+              <option>Sur Sangam</option>
+              <option>Thirak — Dance Battle</option>
+              <option>Rangmanch — Street Play</option>
+              <option>Ramp Rebellion</option>
+              <option>Arena Clash — Gaming</option>
+              <option>Wordsmith</option>
+              <option>Circuit Rush</option>
+              <option>Just the Campus Pass</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%; margin-top:8px;">Submit Registration</button>
+        <p class="form-note">This form is a front-end demo — connect it to a backend or form service (e.g. Google Forms, your own API) to collect real entries.</p>
+        <div class="form-msg" id="formMsg">You're in the current 🌊 — check your inbox for confirmation shortly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-title font-display">PRAVAH</div>
+        <p class="footer__brand-sub">The annual fest of Swami Keshvanand Institute of Technology, Management &amp; Gramothan, Jaipur. July 11–13, 2026.</p>
+        <div class="footer__social" style="margin-top:22px;">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="X / Twitter">X</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#moments">Moments</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#">Rulebook</a></li>
+          <li><a href="#">Accommodation</a></li>
+          <li><a href="#">Sponsor Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>SKIT Campus, Ramnagaria,<br>Jagatpura, Jaipur — 302017</li>
+          <li><a href="mailto:pravah@skit.ac.in">pravah@skit.ac.in</a></li>
+          <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Pravah — SKIT Jaipur. All rights reserved.</span>
+      <span>Made with a current of chai and code.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============================= NAV SCROLL STATE ============================= */
+  var nav = document.getElementById('nav');
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    nav.classList.toggle('is-scrolled', y > 40);
+    toTop.classList.toggle('is-visible', y > 600);
+  }, { passive:true });
+
+  toTop.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  /* ============================= MOBILE NAV ============================= */
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('.nav__link').forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* active link highlight */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinkEls = document.querySelectorAll('.nav__link');
+  if ('IntersectionObserver' in window){
+    var navObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          navLinkEls.forEach(function(l){
+            l.classList.toggle('is-active', l.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    sections.forEach(function(s){ navObserver.observe(s); });
+  }
+
+  /* ============================= SCROLL REVEAL ============================= */
+  if ('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15 });
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ============================= COUNTDOWN ============================= */
+  var target = new Date('2026-07-11T00:00:00+05:30').getTime();
+  var elDays = document.getElementById('cd-days');
+  var elHours = document.getElementById('cd-hours');
+  var elMins = document.getElementById('cd-mins');
+  var elSecs = document.getElementById('cd-secs');
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function tickCountdown(){
+    var now = Date.now();
+    var diff = target - now;
+    if (diff <= 0){
+      elDays.textContent = '00'; elHours.textContent = '00'; elMins.textContent = '00'; elSecs.textContent = '00';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    elDays.textContent = pad(d);
+    elHours.textContent = pad(h);
+    elMins.textContent = pad(m);
+    elSecs.textContent = pad(s);
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  /* ============================= EVENT FILTERS ============================= */
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var eventCards = document.querySelectorAll('.event-card');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var filter = btn.getAttribute('data-filter');
+      eventCards.forEach(function(card){
+        var match = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.classList.toggle('is-hidden', !match);
+      });
+    });
+  });
+
+  /* card tilt effect */
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches){
+    eventCards.forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(700px) rotateX(' + (y * -8) + 'deg) rotateY(' + (x * 8) + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
+
+  /* ============================= SCHEDULE TABS ============================= */
+  var dayTabs = document.querySelectorAll('.day-tab');
+  var timelines = document.querySelectorAll('.timeline');
+  dayTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      dayTabs.forEach(function(t){ t.classList.remove('is-active'); });
+      tab.classList.add('is-active');
+      var day = tab.getAttribute('data-day');
+      timelines.forEach(function(tl){
+        tl.classList.toggle('is-active', tl.getAttribute('data-timeline') === day);
+      });
+    });
+  });
+
+  /* ============================= FORM ============================= */
+  var form = document.getElementById('regForm');
+  var formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    formMsg.classList.add('is-success');
+    form.reset();
+    setTimeout(function(){ formMsg.classList.remove('is-success'); }, 6000);
+  });
+
+  /* ============================= AMBIENT FLOW CANVAS ============================= */
+  var flowCanvas = document.getElementById('flow-canvas');
+  var fctx = flowCanvas.getContext('2d');
+  var W, H;
+  function resizeFlow(){
+    W = flowCanvas.width = window.innerWidth;
+    H = flowCanvas.height = window.innerHeight;
+  }
+  resizeFlow();
+  window.addEventListener('resize', resizeFlow);
+
+  var flowLines = [];
+  var lineCount = window.innerWidth < 720 ? 4 : 7;
+  var palette = ['#26E0C9', '#7B61FF', '#FF6F5E', '#FFB84D'];
+  for (var i = 0; i < lineCount; i++){
+    flowLines.push({
+      offset: Math.random() * 1000,
+      amp: 40 + Math.random() * 70,
+      speed: 0.15 + Math.random() * 0.25,
+      yBase: (i + 0.5) / lineCount,
+      color: palette[i % palette.length],
+      width: 1 + Math.random() * 1.5
+    });
+  }
+
+  var t = 0;
+  function drawFlow(){
+    fctx.clearRect(0, 0, W, H);
+    flowLines.forEach(function(line){
+      fctx.beginPath();
+      fctx.strokeStyle = line.color;
+      fctx.globalAlpha = 0.12;
+      fctx.lineWidth = line.width;
+      var yBase = H * line.yBase;
+      for (var x = 0; x <= W; x += 14){
+        var y = yBase + Math.sin((x * 0.004) + t * line.speed + line.offset) * line.amp;
+        if (x === 0) fctx.moveTo(x, y); else fctx.lineTo(x, y);
+      }
+      fctx.stroke();
+    });
+    fctx.globalAlpha = 1;
+    t += reduceMotion ? 0 : 0.03;
+    requestAnimationFrame(drawFlow);
+  }
+  drawFlow();
+
+  /* ============================= CURSOR RIPPLE ============================= */
+  var rippleCanvas = document.getElementById('ripple-canvas');
+  var rctx = rippleCanvas.getContext('2d');
+  var RW, RH;
+  function resizeRipple(){
+    RW = rippleCanvas.width = window.innerWidth;
+    RH = rippleCanvas.height = window.innerHeight;
+  }
+  resizeRipple();
+  window.addEventListener('resize', resizeRipple);
+
+  var ripples = [];
+  var lastRipple = 0;
+  var pointerSupported = window.matchMedia('(hover: hover)').matches && !reduceMotion;
+
+  function addRipple(x, y){
+    var now = Date.now();
+    if (now - lastRipple < 60) return;
+    lastRipple = now;
+    var colors = ['#26E0C9', '#7B61FF', '#FF6F5E'];
+    ripples.push({ x:x, y:y, r:2, maxR: 46 + Math.random()*20, alpha:0.35, color: colors[Math.floor(Math.random()*colors.length)] });
+    if (ripples.length > 40) ripples.shift();
+  }
+
+  if (pointerSupported){
+    window.addEventListener('mousemove', function(e){ addRipple(e.clientX, e.clientY); }, { passive:true });
+  }
+
+  function drawRipples(){
+    rctx.clearRect(0, 0, RW, RH);
+    for (var i = ripples.length - 1; i >= 0; i--){
+      var r = ripples[i];
+      r.r += 1.4;
+      r.alpha -= 0.012;
+      if (r.alpha <= 0 || r.r >= r.maxR){ ripples.splice(i, 1); continue; }
+      rctx.beginPath();
+      rctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
+      rctx.strokeStyle = r.color;
+      rctx.globalAlpha = Math.max(r.alpha, 0);
+      rctx.lineWidth = 1.2;
+      rctx.stroke();
+    }
+    rctx.globalAlpha = 1;
+    requestAnimationFrame(drawRipples);
+  }
+  drawRipples();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registry — Live Search Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="registry-header">
+  <span class="stamp-seal">OFFICE OF THE REGISTRAR</span>
+  <h1>Student Registry — Live Search</h1>
+  <p class="subtitle">A living index of enrolled records. Type to search, tap a tab to jump the shelf, or filter by <span>department</span> and <span>status</span>.</p>
+</header>
+
+<div class="drawer">
+  <div class="search-row">
+    <span class="search-icon-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </span>
+    <input id="searchInput" type="text" placeholder="Search by name, roll no, department, or email…" autocomplete="off">
+    <select id="sortSelect">
+      <option value="name">Sort: Name (A–Z)</option>
+      <option value="roll">Sort: Roll No.</option>
+      <option value="gpa">Sort: GPA (high–low)</option>
+      <option value="year">Sort: Year</option>
+    </select>
+    <button id="addStudentBtn" class="add-btn" type="button">+ New Record</button>
+  </div>
+  <div class="chip-rows" id="deptChips"></div>
+  <div class="chip-rows" id="statusChips">
+    <button class="chip status-active" data-status="Active">Active</button>
+    <button class="chip status-leave" data-status="OnLeave">On Leave</button>
+    <button class="chip status-grad" data-status="Graduated">Graduated</button>
+  </div>
+</div>
+
+<div class="main-area">
+  <div class="cards-wrap">
+    <span class="result-stamp" id="resultStamp">— records found</span>
+    <div class="cards-grid" id="cardsGrid"></div>
+    <div class="empty-state" id="emptyState" hidden>No matching records in the drawer. Try another name, ID, or clear a filter.</div>
+    <div class="loading-state" id="loadingState">Opening the drawer…</div>
+    <div class="error-banner" id="errorBanner" hidden></div>
+  </div>
+  <nav class="alpha-rail" id="alphaRail" aria-label="Jump to letter"></nav>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

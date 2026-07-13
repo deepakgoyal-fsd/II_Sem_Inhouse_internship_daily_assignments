@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #bb7b66;
+        }
+        form{
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            width: auto;
+        }
+        input, select, button{
+            width: 720px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+             text-align: center;
+             border-radius: 10px;
+        }
+
+        #result{
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(0, 101, 195);
+        }
+
+    </style>
+<body>
+    <form>
+        <h1>Simple Calculator</h1>
+        <input type="text" id="number1" placeholder="Enter first number"/>
+        <input type="text" id="number2" placeholder="Enter second number"/>
+        <select id="operator">
+            <option value="">Select Operator</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button type="button"
+        onclick="PerformArithmeticOperator()">Calculate</button>
+        <div id="result"></div>
+    </form>
+    <script src="js/arithematic.js">
+
+    </script>
+    
+
+          
+
+        
+    
+</body>
+</html>

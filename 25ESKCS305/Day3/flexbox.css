@@ -1,0 +1,58 @@
+/* Resetting some default browser junk */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #0f172a; /* Dark sleek background just like the prompt image */
+    color: #ffffff;
+}
+
+/* --- THE FLEXBOX MAGIC STARTS HERE --- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes Logo left, Links center, Button right */
+    align-items: center;        /* Centers everything vertically so nothing looks weird */
+    padding: 1rem 2rem;
+    background-color: #1e293b;  /* Slightly lighter dark blue for the bar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem; /* The magical 'gap' property from Phase 2 to space out links! */
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect so it feels like a real website */
+.nav-links a:hover {
+    color: #38bdf8; /* Nice neon blue highlight */
+}
+
+/* Styling the Login Button */
+.login-btn {
+    background-color: #38bdf8;
+    color: #0f172a;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #0ea5e9;
+}

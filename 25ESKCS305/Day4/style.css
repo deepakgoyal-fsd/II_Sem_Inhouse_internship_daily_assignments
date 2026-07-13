@@ -1,0 +1,104 @@
+
+:root {
+    --bg-color: #f7f8fc;
+    --card-bg: #ffffff;
+    --text-color: #223047;
+    --muted-text: #6b7280;
+    --nav-bg: #ffffff;
+    --border-color: #e4e8f0;
+    --accent-color: #4f7cff;
+    --accent-soft: #eef4ff;
+}
+
+body.dark {
+    --bg-color: #121826;
+    --card-bg: #1b2333;
+    --text-color: #f3f6fb;
+    --muted-text: #aab4c2;
+    --nav-bg: #141c2b;
+    --border-color: #2f3a4d;
+    --accent-color: #7da2ff;
+    --accent-soft: #223047;
+}
+
+body {
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-color));
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, label, .nav-link-custom, .card-title {
+    color: var(--text-color) !important;
+    transition: color 0.3s ease;
+}
+
+.adaptive-text {
+    color: var(--muted-text) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-custom {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.nav-link-custom {
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.nav-link-custom:hover {
+    opacity: 1;
+    color: var(--accent-color) !important;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.7rem 0.8rem;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.15);
+}
+
+body.dark .form-control {
+    background-color: #2a3244;
+    border-color: #3e4a5d;
+    color: #ffffff;
+}
+
+body.dark .form-control::placeholder {
+    color: #b5bec9;
+}
+
+body.dark .form-control:focus {
+    background-color: #303b4f;
+    color: #ffffff;
+}
+
+.counter-display {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent-color) !important;
+}
+
+.error-message {
+    color: #e74c3c !important;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+}

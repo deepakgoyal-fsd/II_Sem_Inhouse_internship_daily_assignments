@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Registration form</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#415365,#4f6478);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            padding:30px;
+        }
+
+        .container{
+            width:500px;
+            background:rgb(150, 124, 124);
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            text-align:center;
+            color:#222426;
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-top:12px;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=tel],
+        input[type=date],
+        select,
+        textarea{
+            width:100%;
+            padding:10px;
+            border:1px solid gray;
+            border-radius:8px;
+            margin-bottom:10px;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        .btn{
+            width:48%;
+            padding:10px;
+            border:none;
+            border-radius:8px;
+            background:#171818;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            margin-top:15px;
+        }
+
+        .btn:hover{
+            background:#1c1d1d;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Registration form</h1>
+
+<form>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter Full Name" required>
+
+<label>Father's Name</label>
+<input type="text" placeholder="Enter Father's Name"required>
+
+<label>Mother's Name</label>
+<input type="text" placeholder="Enter Mother's Name"required>
+
+<label>Date of Birth</label>
+<input type="date"required>
+
+<label>Gender</label>
+<input type="radio" name="gender"required> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"required> Other
+
+<label>Email</label>
+<input type="email" placeholder="Enter Email"required>
+ c
+<label>Mobile Number</label>
+<input type="tel" placeholder="Enter Mobile Number [0-10]"required>
+
+<label>Department</label>
+<select>
+    <option>Select Department</option>
+    <option>Computer Science</option>
+    <option>Information Technology</option>
+    <option>Mechanical</option>
+    <option>Civil</option>
+    <option>Electronics</option>
+</select required>
+
+<label>Address</label>
+<textarea rows="4" placeholder="Enter Address"></textarea required>
+
+<label>Upload Photo</label>
+<input type="file"required>
+
+<input type="submit" value="Submit" class="btn">
+<input type="reset" value="Reset" class="btn">
+
+</form>
+
+</div>
+
+
+</body>
+</html> 
+</head>
+
+
+
+
+
+
+
+</body>
+</html>

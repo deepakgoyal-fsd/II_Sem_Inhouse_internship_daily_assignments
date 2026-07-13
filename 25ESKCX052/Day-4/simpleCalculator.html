@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <form>
+        <input type="text" id="number1" placeholder="Enter first number" />
+        <input type="text" id="number2" placeholder="Enter second number" />
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button type="button" onclick="performArithmeticOperations()">
+            Perform Arithmetic Operation
+        </button>
+        <div id="result"></div>
+    </form>
+
+    <script src="js/arithmetic.js" defer></script>
+
+</body>
+</html>

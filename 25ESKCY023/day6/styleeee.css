@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+
+    background:#E9E3FF;
+
+    padding:40px;
+
+}
+
+h1{
+
+    text-align:center;
+
+    font-size:55px;
+
+    margin-bottom:10px;
+
+    color:#222;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:gray;
+
+    margin-bottom:40px;
+
+    font-size:22px;
+
+}
+
+#container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:0.3s;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card img{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.card h2{
+
+    margin-top:20px;
+
+    color:#222;
+
+    font-size:24px;
+
+}
+
+.username{
+
+    color:#6C4DFF;
+
+    margin-top:12px;
+
+    font-size:20px;
+
+}
+
+.email{
+
+    margin-top:10px;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+.phone{
+
+    margin-top:5px;
+
+    color:#777;
+
+    font-size:15px;
+
+}

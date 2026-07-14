@@ -1,0 +1,1016 @@
+/* ===========================
+   GOOGLE FONT & RESET
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0d1117;
+    color:#ffffff;
+    line-height:1.7;
+    transition:0.4s;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:40px;
+    color:#00d9ff;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#bdbdbd;
+    font-size:18px;
+}
+
+/* ===========================
+        NAVBAR
+=========================== */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(13,17,23,.95);
+    backdrop-filter:blur(12px);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#00d9ff;
+}
+
+.logo i{
+    margin-right:8px;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    color:white;
+    font-size:17px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00d9ff;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+#theme-toggle{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#00d9ff;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.btn{
+    padding:12px 26px;
+    background:#00d9ff;
+    color:white;
+    border-radius:30px;
+    font-weight:600;
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 20px #00d9ff;
+}
+
+/* ===========================
+        HERO
+=========================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    padding-top:130px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-content h1{
+    font-size:60px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-content span{
+    color:#00d9ff;
+}
+
+.hero-content p{
+    font-size:19px;
+    color:#bdbdbd;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.primary-btn,
+.secondary-btn{
+
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:35px;
+    font-weight:600;
+    transition:.4s;
+
+}
+
+.primary-btn{
+
+    background:#00d9ff;
+    color:white;
+
+}
+
+.secondary-btn{
+
+    border:2px solid #00d9ff;
+    color:#00d9ff;
+
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.hero-image{
+
+    flex:1;
+
+}
+
+.hero-image img{
+
+    max-width:520px;
+    margin:auto;
+    animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+        ABOUT
+=========================== */
+
+.about-container{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+.about-image img{
+
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,217,255,.25);
+
+}
+
+.about-text h3{
+
+    font-size:35px;
+    margin-bottom:20px;
+
+}
+
+.about-text p{
+
+    color:#cfcfcf;
+    margin-bottom:20px;
+    font-size:17px;
+
+}
+
+.about-text .btn{
+
+    display:inline-block;
+    margin-top:15px;
+
+}
+/* ===========================
+        SERVICES
+=========================== */
+
+.services{
+    background:#111827;
+}
+
+.services-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:#1b2430;
+    padding:35px 25px;
+    border-radius:20px;
+    text-align:center;
+    transition:.4s;
+    border:1px solid transparent;
+}
+
+.service-card i{
+    font-size:50px;
+    color:#00d9ff;
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.service-card p{
+    color:#cfcfcf;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    border:1px solid #00d9ff;
+    box-shadow:0 10px 30px rgba(0,217,255,.25);
+}
+
+/* ===========================
+      WHY CHOOSE US
+=========================== */
+
+.why-us{
+    background:#0d1117;
+}
+
+.why-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.why-card{
+    background:#161b22;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+}
+
+.why-card i{
+    font-size:45px;
+    color:#00d9ff;
+    margin-bottom:20px;
+}
+
+.why-card h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.why-card p{
+    color:#cfcfcf;
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+    background:#1f2937;
+}
+
+/* ===========================
+        STATISTICS
+=========================== */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat-box{
+    background:#1b2430;
+    padding:35px;
+    border-radius:18px;
+    transition:.4s;
+}
+
+.stat-box h2{
+    font-size:50px;
+    color:#00d9ff;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#d6d6d6;
+    font-size:18px;
+}
+
+.stat-box:hover{
+    transform:scale(1.05);
+    box-shadow:0 8px 25px rgba(0,217,255,.2);
+}
+
+/* ===========================
+          TEAM
+=========================== */
+
+.team{
+    background:#111827;
+}
+
+.team-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+
+.team-card{
+    background:#1b2430;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(0,217,255,.25);
+}
+
+.team-card img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:auto;
+    border:5px solid #00d9ff;
+    margin-bottom:20px;
+}
+
+.team-card h3{
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.team-card h4{
+    color:#00d9ff;
+    margin-bottom:15px;
+    font-weight:500;
+}
+
+.team-card p{
+    color:#cfcfcf;
+    font-size:15px;
+    line-height:1.7;
+}
+/* ===========================
+        TESTIMONIALS
+=========================== */
+
+.testimonials{
+    background:#0d1117;
+}
+
+.testimonial-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.testimonial-card{
+    background:#1b2430;
+    padding:30px;
+    border-radius:20px;
+    transition:.4s;
+    text-align:center;
+}
+
+.testimonial-card i{
+    font-size:35px;
+    color:#00d9ff;
+    margin-bottom:20px;
+}
+
+.testimonial-card p{
+    color:#d8d8d8;
+    font-style:italic;
+    margin-bottom:20px;
+    line-height:1.8;
+}
+
+.testimonial-card h4{
+    color:#fff;
+}
+
+.testimonial-card span{
+    color:#00d9ff;
+    font-size:15px;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(0,217,255,.25);
+}
+
+/* ===========================
+             FAQ
+=========================== */
+
+.faq{
+    background:#111827;
+}
+
+.faq-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.faq details{
+    background:#1b2430;
+    margin-bottom:18px;
+    padding:18px 22px;
+    border-radius:12px;
+}
+
+.faq summary{
+    cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+    color:#00d9ff;
+}
+
+.faq p{
+    margin-top:15px;
+    color:#d5d5d5;
+    line-height:1.8;
+}
+
+/* ===========================
+          CONTACT
+=========================== */
+
+.contact{
+    background:#0d1117;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-info h3{
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+.contact-info p{
+    margin-bottom:20px;
+    color:#d4d4d4;
+    font-size:17px;
+}
+
+.contact-info i{
+    color:#00d9ff;
+    margin-right:10px;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#1b2430;
+    color:#fff;
+    font-size:16px;
+}
+
+.contact-form textarea{
+    resize:none;
+}
+
+.contact-form button{
+    width:200px;
+    border:none;
+    cursor:pointer;
+}
+
+/* ===========================
+         GOOGLE MAP
+=========================== */
+
+.map iframe{
+    border-radius:20px;
+}
+
+/* ===========================
+        NEWSLETTER
+=========================== */
+
+.newsletter{
+    text-align:center;
+    background:#111827;
+}
+
+.newsletter h2{
+    font-size:38px;
+    color:#00d9ff;
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    color:#d4d4d4;
+    margin-bottom:30px;
+}
+
+.newsletter-form{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.newsletter-form input{
+    width:350px;
+    padding:15px;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+}
+
+.newsletter-form button{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#00d9ff;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.newsletter-form button:hover{
+    transform:translateY(-4px);
+}
+
+/* ===========================
+           FOOTER
+=========================== */
+
+footer{
+    background:#05080d;
+    padding:70px 8% 30px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:40px;
+}
+
+.footer-about p{
+    color:#cfcfcf;
+    margin-top:15px;
+    line-height:1.8;
+}
+
+.footer-links ul,
+.footer-services ul{
+    margin-top:15px;
+}
+
+.footer-links li,
+.footer-services li{
+    margin-bottom:12px;
+    color:#d4d4d4;
+}
+
+.footer-links a{
+    color:#d4d4d4;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#00d9ff;
+}
+
+.footer-social h3{
+    margin-bottom:20px;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+}
+
+.social-icons a{
+    width:45px;
+    height:45px;
+    background:#1b2430;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    color:#fff;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:#00d9ff
+    transformtranslateY(-5px);
+}
+
+footer hr{
+    margin:40px 0 20px;
+    border-color:#333;
+}
+
+.copyright{
+    text-align:center;
+    color:#bdbdbd;
+}
+/* ===========================
+        LIGHT MODE
+=========================== */
+
+body.light-mode{
+    background:#f5f7fb;
+    color:#222;
+}
+
+body.light-mode header{
+    background:#ffffff;
+}
+
+body.light-mode .navbar a{
+    color:#222;
+}
+
+body.light-mode .section-title p,
+body.light-mode p{
+    color:#555;
+}
+
+body.light-mode .service-card,
+body.light-mode .why-card,
+body.light-mode .team-card,
+body.light-mode .testimonial-card,
+body.light-mode .stat-box,
+body.light-mode .faq details,
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea{
+    background:#ffffff;
+    color:#222;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+body.light-mode footer{
+    background:#111;
+    color:white;
+}
+
+body.light-mode .footer-links a{
+    color:#ddd;
+}
+
+/* ===========================
+        ANIMATIONS
+=========================== */
+
+.service-card,
+.team-card,
+.why-card,
+.testimonial-card,
+.stat-box{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero-content{
+    animation:slideLeft 1s ease;
+}
+
+.hero-image{
+    animation:slideRight 1s ease;
+}
+
+@keyframes slideLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes slideRight{
+
+    from{
+        opacity:0;
+        transform:translateX(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+/* ===========================
+        SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#00d9ff;
+    border-radius:10px;
+}
+
+/* ===========================
+      RESPONSIVE TABLET
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+
+    flex-direction:column;
+    text-align:center;
+
+}
+
+.about-container{
+
+    grid-template-columns:1fr;
+
+}
+
+.contact-container{
+
+    grid-template-columns:1fr;
+
+}
+
+.hero-content h1{
+
+    font-size:45px;
+
+}
+
+.nav-links{
+
+    gap:18px;
+
+}
+
+}
+
+/* ===========================
+      RESPONSIVE MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.navbar{
+
+    flex-direction:column;
+    gap:15px;
+
+}
+
+.nav-links{
+
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+
+}
+
+.hero{
+
+    padding-top:170px;
+
+}
+
+.hero-content h1{
+
+    font-size:35px;
+
+}
+
+.hero-content p{
+
+    font-size:16px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    width:90%;
+
+}
+
+.section-title h2{
+
+    font-size:32px;
+
+}
+
+.team-card img{
+
+    width:140px;
+    height:140px;
+
+}
+
+.newsletter-form{
+
+    flex-direction:column;
+
+}
+
+.newsletter-form input{
+
+    width:100%;
+
+}
+
+.newsletter-form button{
+
+    width:100%;
+
+}
+
+.contact-form button{
+
+    width:100%;
+
+}
+
+.social-icons{
+
+    justify-content:center;
+
+}
+
+.footer-container{
+
+    text-align:center;
+
+}
+
+}
+
+/* ===========================
+      EXTRA HOVER EFFECTS
+=========================== */
+
+.service-card:hover,
+.team-card:hover,
+.why-card:hover,
+.stat-box:hover,
+.testimonial-card:hover{
+
+    transform:translateY(-12px) scale(1.02);
+
+}
+
+.btn:hover,
+.primary-btn:hover,
+.secondary-btn:hover{
+
+    box-shadow:0 10px 30px rgba(0,217,255,.4);
+
+}

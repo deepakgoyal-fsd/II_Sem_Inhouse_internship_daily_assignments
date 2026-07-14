@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravah 2026 | Annual Cultural & Technical Fest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Custom Neon Glows */
+        .glow-blue {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+        .glow-pink {
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.6), 0 0 20px rgba(236, 72, 153, 0.4);
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="logoCanvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-40"></canvas>
+
+    <nav class="fixed top-0 w-full z-50 glassmorphism px-6 py-4 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-pink-500 animate-pulse flex items-center justify-center font-orbitron font-bold text-white text-xl">P</div>
+            <span class="font-orbitron text-2xl font-black tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-pink-500">PRAVAH</span>
+        </div>
+        <div class="space-x-8 hidden md:flex font-medium tracking-wide">
+            <a href="#home" class="hover:text-cyan-400 transition">Home</a>
+            <a href="#about" class="hover:text-pink-400 transition">Theme</a>
+            <a href="#events" class="hover:text-cyan-400 transition">Events</a>
+            <a href="#register" class="bg-gradient-to-r from-cyan-500 to-pink-500 px-5 py-2 rounded-full text-white font-bold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20">Register Now</a>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 relative">
+        <div class="animate-fade-in space-y-6 max-w-4xl">
+            <h1 class="font-orbitron text-6xl md:text-8xl font-black tracking-tighter uppercase mb-2">
+                <span class="text-cyan-400 glow-blue">PRA</span><span class="text-pink-500 glow-pink">VAH</span>
+            </h1>
+            <p class="text-xl md:text-2xl tracking-widest text-gray-400 uppercase font-orbitron">The Ultimate Confluence of Mind & Culture</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 my-8">
+                <span class="glassmorphism border border-cyan-500/30 text-cyan-300 font-orbitron px-6 py-3 rounded-full text-lg shadow-md">
+                    ⚡ Technical
+                </span>
+                <span class="glassmorphism border border-pink-500/30 text-pink-300 font-orbitron px-6 py-3 rounded-full text-lg shadow-md">
+                    🎭 Cultural
+                </span>
+            </div>
+
+            <div class="inline-block glassmorphism px-8 py-4 rounded-2xl border border-white/10 shadow-2xl">
+                <p class="text-sm uppercase tracking-widest text-gray-400">Mark the Date</p>
+                <p class="text-3xl font-bold font-orbitron text-white mt-1">JULY 10, 2026</p>
+            </div>
+
+            <div class="pt-8">
+                <a href="#register" class="inline-block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-lg font-bold uppercase tracking-wider text-white shadow-xl hover:shadow-cyan-500/20 transform hover:-translate-y-1 transition-all duration-300">
+                    Secure Your Pass
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">The Core Essence</h2>
+                <p class="text-gray-300 leading-relaxed text-lg">
+                    <strong>Pravah</strong> signifies continuous flow. It is the brilliant intersection where technological logic clashes and harmonizes with vibrant cultural expression. 
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    From intense cyber hackathons to breathtaking stage performances, Pravah 2026 is a sandbox for the visionary engineer and the expressive artist alike. Come witness the currents collide.
+                </p>
+            </div>
+            <div class="glassmorphism p-8 rounded-3xl border border-white/10 relative overflow-hidden group">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-all"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all"></div>
+                <h3 class="text-2xl font-bold font-orbitron mb-4 text-cyan-400">Why Attend?</h3>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-center"><span class="text-pink-500 mr-2">✓</span> $5000+ Total Prize Pools</li>
+                    <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Premium Industry Mentors</li>
+                    <li class="flex items-center"><span class="text-pink-500 mr-2">✓</span> High-Energy Live Pro-Night</li>
+                    <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> National Recognition Certificates</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-24 bg-black/40 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-orbitron text-white">Featured Flagships</h2>
+                <p class="text-gray-400 mt-2">Choose your battleground</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glassmorphism p-6 rounded-2xl transform hover:-translate-y-2 transition-all duration-300 group border-t-2 border-t-cyan-500">
+                    <span class="text-xs uppercase font-bold text-cyan-400 tracking-widest">Technical</span>
+                    <h3 class="text-2xl font-bold font-orbitron my-2 group-hover:text-cyan-300 transition">Mega Hackathon</h3>
+                    <p class="text-gray-400 text-sm mb-6">Build real-world solutions under a rigorous 24-hour time constraint.</p>
+                    <a href="#register" class="text-white font-bold underline decoration-cyan-400 hover:text-cyan-400">Join Event &rarr;</a>
+                </div>
+
+                <div class="glassmorphism p-6 rounded-2xl transform hover:-translate-y-2 transition-all duration-300 group border-t-2 border-t-purple-500">
+                    <span class="text-xs uppercase font-bold text-purple-400 tracking-widest">Fusion</span>
+                    <h3 class="text-2xl font-bold font-orbitron my-2 group-hover:text-purple-300 transition">Robo War & Art</h3>
+                    <p class="text-gray-400 text-sm mb-6">Unleash automated metal beasts alongside interactive generative digital art pieces.</p>
+                    <a href="#register" class="text-white font-bold underline decoration-purple-400 hover:text-purple-400">Join Event &rarr;</a>
+                </div>
+
+                <div class="glassmorphism p-6 rounded-2xl transform hover:-translate-y-2 transition-all duration-300 group border-t-2 border-t-pink-500">
+                    <span class="text-xs uppercase font-bold text-pink-400 tracking-widest">Cultural</span>
+                    <h3 class="text-2xl font-bold font-orbitron my-2 group-hover:text-pink-300 transition">Symphony & Dance</h3>
+                    <p class="text-gray-400 text-sm mb-6">The ultimate stage for battle of the bands and traditional choreography fusion.</p>
+                    <a href="#register" class="text-white font-bold underline decoration-pink-400 hover:text-pink-400">Join Event &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="glassmorphism p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl relative">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold font-orbitron text-white">Registration Portal</h2>
+                <p class="text-gray-400 text-sm mt-1">Claim your spots before registrations close.</p>
+            </div>
+
+            <form id="registrationForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-2">Full Name</label>
+                    <input type="text" id="fullName" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-2">Email Address</label>
+                        <input type="email" id="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-2">Primary Domain</label>
+                        <select id="domain" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-pink-400 transition">
+                            <option value="" disabled selected class="text-gray-500">Select Track</option>
+                            <option value="technical">Technical Track Only</option>
+                            <option value="cultural">Cultural Track Only</option>
+                            <option value="both">Both (All Access pass)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-bold py-4 rounded-xl font-orbitron text-lg uppercase tracking-wider hover:scale-[1.01] transition transform shadow-lg shadow-purple-500/20 mt-4">
+                    Submit Registration
+                </button>
+            </form>
+
+            <div id="successCard" class="hidden absolute inset-0 bg-slate-950/95 rounded-3xl flex flex-col justify-center items-center text-center p-8 z-20 transition-all duration-500">
+                <div class="w-20 h-20 bg-green-500/20 border border-green-500 text-green-400 rounded-full flex items-center justify-center text-4xl mb-4 animate-bounce">
+                    ✓
+                </div>
+                <h3 class="text-3xl font-bold font-orbitron text-white mb-2">You are In!</h3>
+                <p class="text-gray-300 max-w-md">Your registration data for <span id="confName" class="text-cyan-400 font-bold"></span> has been successfully logged. We will see you on July 10th!</p>
+                <button id="closeSuccess" class="mt-6 text-sm text-gray-400 hover:text-white underline">Register another person</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center border-t border-white/5 text-xs text-gray-500 tracking-wide">
+        &copy; 2026 Pravah Fest Committee. All rights reserved. Designed with Flux and Flow.
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('logoCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Particle configuration modeling continuous flows ("Pravah")
+        const particleCount = 65;
+        const particles = [];
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 3 + 1,
+                // Merging blue (tech) and pink (cultural) hues
+                color: i % 2 === 0 ? 'rgba(56, 189, 248, 0.4)' : 'rgba(236, 72, 153, 0.4)',
+                speedX: Math.random() * 1 - 0.5,
+                speedY: Math.random() * 1.5 + 0.5, // Tending to flow consistently downwards
+                waveIntensity: Math.random() * 20 + 10,
+                waveSpeed: Math.random() * 0.02 + 0.005,
+                seed: Math.random() * 100
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach((p) => {
+                p.seed += p.waveSpeed;
+                // Add horizontal dynamic waving vector to the linear velocity
+                let currentX = p.x + Math.sin(p.seed) * p.waveIntensity;
+                p.y += p.speedY;
+
+                // Loop borders smoothly
+                if (p.y > height) {
+                    p.y = -10;
+                    p.x = Math.random() * width;
+                }
+
+                ctx.beginPath();
+                ctx.arc(currentX, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = p.color;
+                ctx.fill();
+            });
+
+            ctx.shadowBlur = 0; // Reset canvas wide blur parameters
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // jQuery handling Form Submissions, Input Logic & Dynamic Interactivity 
+        $(document).ready(function() {
+            $('#registrationForm').on('submit', function(e) {
+                e.preventDefault(); // Stop raw reload behavior
+                
+                // Fetch field states
+                const nameValue = $('#fullName').val();
+                
+                // Inject name validation into confirmation box template safely
+                $('#confName').text(nameValue);
+                
+                // Show completion modal
+                $('#successCard').fadeIn(400).removeClass('hidden');
+            });
+
+            $('#closeSuccess').on('click', function() {
+                $('#successCard').fadeOut(300, function() {
+                    $('#registrationForm')[0].reset();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4+ Challenge</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4 class="mb-0">Mission 4+ Challenge Form</h4>
+                </div>
+                <div class="card-body p-4">
+
+                    <!-- Error Alert Box: Displays all errors at once -->
+                    <?php if (!empty($errors)): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <h6 class="alert-heading fw-bold">Validation Errors Found:</h6>
+                            <ul class="mb-0 ps-3">
+                                <?php foreach ($errors as $error): ?>
+                                    <li><?php echo htmlspecialchars($error); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Success Alert Box -->
+                    <?php if (!empty($success_message)): ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo htmlspecialchars($success_message); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Input Form -->
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
+                        
+                        <!-- Email Input Field -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" 
+                                   value="<?php echo htmlspecialchars($email); ?>" placeholder="name@example.com">
+                        </div>
+
+                        <!-- Phone Input Field -->
+                        <div class="mb-4">
+                            <label for="phone" class="form-label fw-semibold">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" name="phone" 
+                                   value="<?php echo htmlspecialchars($phone); ?>" placeholder="e.g., 9876543210">
+                            <div class="form-text">Must be exactly 10 digits.</div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Details</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

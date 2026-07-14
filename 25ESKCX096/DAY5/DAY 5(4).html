@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Student Hub</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma,sans-serif;
+}
+
+body{
+    background:#fafafa;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:#6f42c1;
+    margin-bottom:25px;
+}
+
+.controls{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+input,select{
+    width:230px;
+    padding:10px;
+    border:2px solid #6f42c1;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.students{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.student-box{
+    background:#ffffff;
+    border-left:6px solid #6f42c1;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 12px rgba(0,0,0,0.12);
+    transition:.3s;
+}
+
+.student-box:hover{
+    transform:translateY(-6px);
+}
+
+.student-box img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:3px solid #6f42c1;
+}
+
+.student-box h2{
+    margin:12px 0 6px;
+    color:#333;
+}
+
+.student-box p{
+    color:#666;
+}
+
+.btn{
+    margin-top:12px;
+    padding:10px 18px;
+    background:#6f42c1;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#59359b;
+}
+
+.info{
+    display:none;
+    margin-top:12px;
+    background:#f3ecff;
+    padding:10px;
+    border-radius:6px;
+    text-align:left;
+}
+
+@media(max-width:768px){
+.students{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Campus Student Hub</h1>
+
+<div class="controls">
+
+<input type="text" id="searchBox" placeholder="Search Student">
+
+<select id="branchSelect">
+    <option value="All">All Branches</option>
+    <option>Computer</option>
+    <option>Electrical</option>
+    <option>Civil</option>
+    <option>Mechanical</option>
+</select>
+
+</div>
+
+<div class="students" id="studentList"></div>
+
+<script>
+
+const studentData=[
+
+{
+name:"Ankit",
+branch:"Computer",
+year:"1st Year",
+email:"ankit@gmail.com"
+},
+
+{
+name:"Pooja",
+branch:"Electrical",
+year:"2nd Year",
+email:"pooja@gmail.com"
+},
+
+{
+name:"Rohan",
+branch:"Civil",
+year:"3rd Year",
+email:"rohan@gmail.com"
+},
+
+{
+name:"Megha",
+branch:"Mechanical",
+year:"4th Year",
+email:"megha@gmail.com"
+},
+
+{
+name:"Deepak",
+branch:"Computer",
+year:"2nd Year",
+email:"deepak@gmail.com"
+},
+
+{
+name:"Isha",
+branch:"Electrical",
+year:"1st Year",
+email:"isha@gmail.com"
+}
+
+];
+
+const studentList=document.getElementById("studentList");
+
+function showStudents(list){
+
+studentList.innerHTML="";
+
+list.forEach(student=>{
+
+studentList.innerHTML+=`
+
+<div class="student-box">
+
+<img src="https://i.pravatar.cc/150?img=${Math.floor(Math.random()*70)}">
+
+<h2>${student.name}</h2>
+
+<p>${student.branch}</p>
+
+<button class="btn" onclick="showInfo(this)">More Info</button>
+
+<div class="info">
+
+<p><strong>Year:</strong> ${student.year}</p>
+
+<p><strong>Email:</strong> ${student.email}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+showStudents(studentData);
+
+function showInfo(button){
+
+let info=button.nextElementSibling;
+
+if(info.style.display==="block"){
+    info.style.display="none";
+    button.innerHTML="More Info";
+}
+else{
+    info.style.display="block";
+    button.innerHTML="Less Info";
+}
+
+}
+
+document.getElementById("searchBox").addEventListener("keyup",filterStudents);
+document.getElementById("branchSelect").addEventListener("change",filterStudents);
+
+function filterStudents(){
+
+let text=document.getElementById("searchBox").value.toLowerCase();
+
+let branch=document.getElementById("branchSelect").value;
+
+let result=studentData.filter(student=>{
+
+let nameMatch=student.name.toLowerCase().includes(text);
+
+let branchMatch=(branch==="All" || student.branch===branch);
+
+return nameMatch && branchMatch;
+
+});
+
+showStudents(result);
+
+}
+
+</script>
+
+</body>
+</html>

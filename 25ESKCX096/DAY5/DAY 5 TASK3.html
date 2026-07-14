@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Information Object</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#e8f1f8;
+    font-family:Verdana, sans-serif;
+}
+
+.container{
+    width:520px;
+    margin:70px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:18px;
+    color:#333;
+    margin:15px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Information</h2>
+
+    <p id="info"></p>
+    <p id="language"></p>
+    <p id="interest"></p>
+
+</div>
+
+<script>
+
+let student = {
+
+    name: "Rishav Raj",
+    branch: "Data Science",
+    year: 2,
+    city: "Patna",
+
+    languages: ["C", "Java", "JavaScript"],
+
+    interests: ["Coding", "Reading", "Photography"]
+
+};
+
+let details = `Hello! I am ${student.name}, studying ${student.branch} in Year ${student.year}. I live in ${student.city}.`;
+
+document.getElementById("info").innerHTML = details;
+
+document.getElementById("language").innerHTML =
+`My favourite programming language is ${student.languages[1]}.`;
+
+document.getElementById("interest").innerHTML =
+`One of my interests is ${student.interests[0]}.`;
+
+console.log(details);
+console.log(student.languages[1]);
+console.log(student.interests[0]);
+
+</script>
+
+</body>
+</html>

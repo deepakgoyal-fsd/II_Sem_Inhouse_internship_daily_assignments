@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+
+    <style>
+        body{
+            font-family: Verdana, sans-serif;
+            margin:0;
+            background:#f5f5f5;
+        }
+
+        nav{
+            background:#2c3e50;
+            padding:15px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 20px;
+            font-weight:bold;
+        }
+
+        .container{
+            width:70%;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        input{
+            width:90%;
+            padding:10px;
+            margin:10px 0;
+        }
+
+        button{
+            padding:10px 18px;
+            margin:8px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            background:#3498db;
+            color:white;
+        }
+
+        button:hover{
+            background:#2980b9;
+        }
+
+        .dark-mode{
+            background:#222;
+            color:white;
+        }
+
+        .dark-mode .container{
+            background:#333;
+            color:white;
+        }
+
+        #count{
+            font-size:22px;
+            font-weight:bold;
+            color:green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+
+        <h1>Welcome to My Interactive Website</h1>
+
+        <form>
+            <input type="text" placeholder="Enter your Name" required><br>
+
+            <input type="email" placeholder="Enter your Email" required><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Button Click Counter</h2>
+
+        <p>Count: <span id="count">0</span></p>
+
+        <button onclick="increaseCount()">Increase Count</button>
+
+        <button onclick="toggleDarkMode()">Toggle Theme</button>
+
+    </div>
+
+    <script>
+
+        let count = 0;
+
+        function increaseCount(){
+            count++;
+            document.getElementById("count").innerHTML = count;
+        }
+
+        function toggleDarkMode(){
+            document.body.classList.toggle("dark-mode");
+        }
+
+    </script>
+
+</body>
+</html>

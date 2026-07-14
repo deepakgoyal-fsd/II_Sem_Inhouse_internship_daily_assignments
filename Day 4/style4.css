@@ -1,0 +1,293 @@
+/* Body */
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:#f4f7fb;
+    color:#333;
+}
+
+/* Header */
+
+header{
+    background-color:#1f3c88;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    
+}
+
+header h2{
+    margin:0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+/* Hero Section */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+    background-color:#d6eaf8;
+}
+
+.hero h1{
+    color:#1f3c88;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.hero button{
+    background-color:#3498db;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.hero button:hover{
+    background-color:#21618c;
+}
+
+/* About Section */
+
+.about{
+    padding:40px;
+    text-align:center;
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:250px;
+    background:white;
+    margin:15px;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid lightgray;
+}
+
+.card:hover{
+    box-shadow:0px 0px 10px skyblue;
+}
+
+/* Counter */
+
+.counter{
+    text-align:center;
+    padding:40px;
+    background:#eef5ff;
+}
+
+.counter button{
+    background:#3498db;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.counter button:hover{
+    background:#4d687a;
+}
+
+/* Greeting */
+
+.greeting{
+    text-align:center;
+    padding:40px;
+}
+
+.greeting input{
+    width:200px;
+    padding:60px;
+    border-radius:8px;
+    border:1px solid gray;
+}
+
+.greeting input:hover{
+    box-shadow:0px 0px 8px skyblue;
+}
+
+.greeting button{
+    padding:10px 20px;
+    margin-left:20px;
+    margin-top:10px;
+    background:#3498db;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.greeting button:hover{
+    background:#21618c;
+}
+
+/* Contact Form */
+
+.contact{
+    padding:40px;
+    text-align:center;
+}
+
+form{
+    width:350px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid lightgray;
+}
+
+label{
+    display:block;
+    text-align:left;
+    margin-top:15px;
+    margin-bottom:5px;
+}
+
+input[type="text"],
+input[type="email"]{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid gray;
+    box-sizing:border-box;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover{
+    box-shadow:0px 0px 8px skyblue;
+}
+
+input[type="submit"]{
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    background:#3498db;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+input[type="submit"]:hover{
+    background:#21618c;
+}
+
+/* Error Message */
+
+small{
+    color:red;
+    display:block;
+    text-align:left;
+    margin-top:5px;
+}
+
+/* Footer */
+
+footer{
+    background:#1f3c88;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+
+/* Dark Mode */
+
+.dark{
+    background:#1b1b1b;
+    color:white;
+}
+
+.dark header{
+    background:black;
+}
+
+.dark .hero{
+    background:#2b2b2b;
+}
+
+.dark .hero h1{
+    color:white;
+}
+
+.dark .card{
+    background:#333;
+    color:white;
+}
+
+.dark form{
+    background:#333;
+}
+
+.dark input{
+    background:#444;
+    color:white;
+    border:1px solid gray;
+}
+
+.dark footer{
+    background:black;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+    text-align:center;
+}
+
+nav{
+    margin-top:15px;
+}
+
+nav a{
+    display:block;
+    margin:10px 0;
+}
+
+.cards{
+    flex-direction:column;
+    align-items:center;
+}
+
+form{
+    width:90%;
+}
+
+.greeting input{
+    width:90%;
+    margin-bottom:15px;
+}
+
+.greeting button{
+    margin-left:0;
+}
+
+}      

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Date</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align:center;
+            background-color:#f4f4f4;
+            margin-top:100px;
+        }
+
+        .box{
+            background:white;
+            width:350px;
+            margin:auto;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        button{
+            padding:10px 20px;
+            background-color:#0d6efd;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background-color:#0b5ed7;
+        }
+
+        #demo{
+            margin-top:20px;
+            font-size:20px;
+            color:green;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Today's Date</h2>
+
+    <button onclick="displayDate()">
+        Click Here
+    </button>
+
+    <p id="demo"></p>
+
+</div>
+
+<script>
+
+function displayDate()
+{
+    document.getElementById("demo").innerHTML = Date();
+}
+
+</script>
+
+</body>
+</html>

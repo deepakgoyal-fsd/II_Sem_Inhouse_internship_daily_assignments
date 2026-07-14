@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravah 2026</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1620; --panel:#0F212D; --panel-2:#142A38; --line:#1F3A48;
+    --teal:#3ED6C4; --violet:#8B7CF6; --magenta:#F45FA0;
+    --text:#EAF3F1; --muted:#8CA3AF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--text); font-family:'Inter',sans-serif;
+    overflow-x:hidden; position:relative;
+  }
+  h1,h2,h3,.brand,.btn{ font-family:'Space Grotesk',sans-serif; }
+
+  /* ---------- attention background ---------- */
+  .blob-field{ position:fixed; inset:0; z-index:-1; overflow:hidden; }
+  .blob{ position:absolute; border-radius:50%; filter:blur(80px); opacity:0.55; }
+  .blob1{ width:480px; height:480px; background:var(--teal); top:-120px; left:-100px; animation:float1 16s ease-in-out infinite; }
+  .blob2{ width:420px; height:420px; background:var(--violet); bottom:-140px; right:-80px; animation:float2 20s ease-in-out infinite; }
+  .blob3{ width:360px; height:360px; background:var(--magenta); top:40%; left:50%; animation:float3 24s ease-in-out infinite; }
+  @keyframes float1{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(80px,60px);} }
+  @keyframes float2{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(-70px,-50px);} }
+  @keyframes float3{ 0%,100%{transform:translate(-50%,-50%) scale(1);} 50%{transform:translate(-40%,-55%) scale(1.15);} }
+  @media (prefers-reduced-motion: reduce){ .blob{ animation:none !important; } }
+
+  /* ---------- navbar ---------- */
+  .navbar{ background:rgba(10,22,32,0.7); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .navbar-brand{ font-weight:700; letter-spacing:-0.02em; background:linear-gradient(90deg,var(--teal),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .nav-link{ color:var(--muted) !important; font-weight:500; }
+  .nav-link:hover, .nav-link.active{ color:var(--text) !important; }
+  .btn-flow{ background:linear-gradient(90deg,var(--teal),var(--violet)); border:none; color:#08131C; font-weight:600;
+    box-shadow:0 0 0 rgba(62,214,196,0); transition:box-shadow .3s, transform .15s; }
+  .btn-flow:hover{ opacity:0.95; color:#08131C; box-shadow:0 8px 30px rgba(62,214,196,0.35); transform:translateY(-1px); }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:150px 0 70px; text-align:center; position:relative; }
+  .hero::before{ content:''; position:absolute; top:10px; left:50%; transform:translateX(-50%);
+    width:380px; height:380px; background:radial-gradient(circle, rgba(62,214,196,0.28), transparent 70%);
+    filter:blur(50px); z-index:-1; pointer-events:none; }
+  .eyebrow{ font-size:12px; letter-spacing:0.25em; color:var(--teal); text-transform:uppercase; }
+  .eyebrow .spark{ margin:0 6px; }
+  .hero h1{ font-size:clamp(46px,9vw,80px); font-weight:700; margin:10px 0; line-height:1.02; letter-spacing:-0.02em;
+    background:linear-gradient(90deg,var(--teal),var(--violet),var(--magenta),var(--teal)); -webkit-background-clip:text; background-clip:text; color:transparent;
+    background-size:300% auto; animation:shine 8s linear infinite; text-shadow:0 0 60px rgba(139,124,246,0.25); }
+  @keyframes shine{ to{ background-position:300% center; } }
+  .hero p.lead{ color:var(--muted); max-width:560px; margin:0 auto 22px; font-size:16.5px; }
+  .date-pill{ display:inline-block; padding:9px 22px; border:1px solid var(--line); border-radius:999px;
+    background:rgba(15,33,45,0.7); backdrop-filter:blur(6px); margin-bottom:28px; font-size:14px; letter-spacing:0.02em; }
+
+  /* ---------- hero stats ---------- */
+  .hero-stats{ max-width:700px; margin:44px auto 0; }
+  .stat-chip{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 8px; text-align:center;
+    transition:border-color .2s, transform .2s; }
+  .stat-chip:hover{ border-color:var(--teal); transform:translateY(-3px); }
+  .stat-num{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px;
+    background:linear-gradient(90deg,var(--teal),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat-label{ font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-top:3px; }
+
+  /* ---------- register CTA / reveal ---------- */
+  .register-cta{ background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:56px 30px; text-align:center; position:relative; overflow:hidden; }
+  .register-cta::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%, rgba(139,124,246,0.15), transparent 60%); pointer-events:none; }
+  .register-cta .cta-icon{ font-size:38px; margin-bottom:14px; }
+  .register-cta h3{ font-size:24px; margin-bottom:8px; }
+  .register-cta p{ color:var(--muted); font-size:14.5px; max-width:420px; margin:0 auto 24px; }
+  #registerFormBody{ display:none; }
+  #registerFormBody.reveal-anim{ animation:fadeSlide .5s ease; }
+
+  /* ---------- students: details + filters ---------- */
+  .details-label{ font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal); margin-bottom:14px; font-weight:600; }
+  .stat-big{ font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; line-height:1;
+    background:linear-gradient(90deg,var(--teal),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .event-breakdown-item{ display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--text); padding:8px 0; border-bottom:1px solid var(--line); }
+  .event-breakdown-item:last-child{ border-bottom:none; }
+  .event-breakdown-item .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px; background:var(--teal); }
+  .filter-chip{ background:var(--panel-2); border:1px solid var(--line); color:var(--muted); padding:6px 15px; border-radius:999px;
+    font-size:12.5px; cursor:pointer; transition:all .2s; user-select:none; }
+  .filter-chip:hover{ border-color:var(--teal); color:var(--text); }
+  .filter-chip.active{ border-color:var(--teal); color:#08131C; background:linear-gradient(90deg,var(--teal),var(--violet)); }
+
+  /* ---------- services ---------- */
+  .section-title{ font-weight:700; font-size:32px; margin-bottom:8px; }
+  .section-sub{ color:var(--muted); margin-bottom:40px; }
+  .service-card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px; height:100%; transition:transform .2s, border-color .2s; }
+  .service-card:hover{ transform:translateY(-4px); border-color:var(--teal); }
+  .service-icon{ font-size:26px; width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,rgba(62,214,196,0.15),rgba(139,124,246,0.15)); color:var(--teal); margin-bottom:16px; }
+
+  /* ---------- form card ---------- */
+  .form-card{ background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:36px; position:relative; overflow:hidden; }
+  .form-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal),var(--violet),var(--magenta)); }
+  .form-control, .form-select{ background:var(--panel-2); border:1px solid var(--line); color:var(--text); }
+  .form-control:focus, .form-select:focus{ background:var(--panel-2); border-color:var(--teal); color:var(--text); box-shadow:0 0 0 0.2rem rgba(62,214,196,0.2); }
+  .form-control::placeholder{ color:#4E6572; }
+  .form-label{ font-weight:500; font-size:13.5px; }
+  .form-label .req{ color:var(--teal); }
+  .form-text{ color:var(--muted); }
+  .progress{ height:6px; background:var(--panel-2); }
+  .progress-bar{ background:linear-gradient(90deg,var(--teal),var(--violet)); }
+  .step-page{ display:none; animation:fadeSlide .4s ease; }
+  .step-page.active{ display:block; }
+  @keyframes fadeSlide{ from{opacity:0; transform:translateX(14px);} to{opacity:1; transform:translateX(0);} }
+  .team-member{ border:1px solid var(--line); border-radius:10px; padding:16px; margin-bottom:14px; background:var(--panel-2); }
+  .invalid-feedback{ display:none; }
+  .was-validated-field.is-invalid ~ .invalid-feedback, .is-invalid ~ .invalid-feedback{ display:block; }
+
+  /* ---------- students table ---------- */
+  .students-card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:28px; }
+  .table{ color:var(--text); }
+  .table thead th{ color:var(--teal); border-bottom-color:var(--line); font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; }
+  .table td, .table th{ border-color:var(--line); vertical-align:middle; }
+  .badge-event{ background:rgba(139,124,246,0.18); color:var(--violet); font-weight:500; }
+
+  footer{ color:var(--muted); text-align:center; padding:30px 0; font-size:13px; border-top:1px solid var(--line); margin-top:60px; }
+
+  /* ---------- success overlay ---------- */
+  #successOverlay{ position:fixed; inset:0; background:rgba(6,14,20,0.85); backdrop-filter:blur(6px); z-index:2000; display:none; align-items:center; justify-content:center; }
+  #successOverlay.show{ display:flex; }
+  .success-box{ background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:44px 36px; text-align:center; max-width:420px; position:relative; z-index:2; }
+  .success-box h2{ font-size:26px; margin:14px 0 8px; }
+  .success-box p{ color:var(--muted); font-size:14px; }
+  .success-box .regid{ margin-top:16px; color:var(--teal); font-family:'Space Grotesk'; font-size:13px; }
+  #confettiCanvas{ position:fixed; inset:0; z-index:2001; pointer-events:none; }
+</style>
+</head>
+<body>
+
+<div class="blob-field">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Pravah 2026</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" style="border-color:var(--line);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-flow btn-sm px-3" href="#register" onclick="revealForm(event)">Register Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME / HERO -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="eyebrow">✦ College Fest <span class="spark">·</span> AI Edition ✦</div>
+    <h1>PRAVAH 2026</h1>
+    <p class="lead mx-auto">The flow of ideas, powered by AI. Compete, build, and connect with the brightest minds on campus.</p>
+    <div><span class="date-pill">📅 10th July 2026 &nbsp;·&nbsp; 📍 Main Campus</span></div>
+    <div><a href="#register" class="btn btn-flow btn-lg px-4" onclick="revealForm(event)">Register Now <i class="bi bi-arrow-right ms-1"></i></a></div>
+
+    <div class="row hero-stats justify-content-center g-3">
+      <div class="col-6 col-md-3"><div class="stat-chip"><div class="stat-num">500+</div><div class="stat-label">Participants</div></div></div>
+      <div class="col-6 col-md-3"><div class="stat-chip"><div class="stat-num">7</div><div class="stat-label">Events</div></div></div>
+      <div class="col-6 col-md-3"><div class="stat-chip"><div class="stat-num">1</div><div class="stat-label">Epic Day</div></div></div>
+      <div class="col-6 col-md-3"><div class="stat-chip"><div class="stat-num">AI</div><div class="stat-label">Powered</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="container py-5">
+  <div class="text-center">
+    <div class="section-title">What Pravah Offers</div>
+    <div class="section-sub">Everything you need for a great fest experience.</div>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="service-card">
+        <div class="service-icon"><i class="bi bi-cpu"></i></div>
+        <h5>AI-Themed Events</h5>
+        <p class="text-secondary small mb-0">Hackathons, prompt challenges, and quizzes built around real-world AI.</p>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="service-card">
+        <div class="service-icon"><i class="bi bi-people"></i></div>
+        <h5>Team Formation</h5>
+        <p class="text-secondary small mb-0">Register solo or as a team of up to 6 — teammates added right in the form.</p>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="service-card">
+        <div class="service-icon"><i class="bi bi-patch-check"></i></div>
+        <h5>ID Verification</h5>
+        <p class="text-secondary small mb-0">Quick, optional ID upload for faster on-site check-in.</p>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="service-card">
+        <div class="service-icon"><i class="bi bi-headset"></i></div>
+        <h5>Live Support</h5>
+        <p class="text-secondary small mb-0">Reach the organizing team anytime via the Contact Us section above.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION FORM -->
+<section id="register" class="container py-5">
+  <div class="text-center mb-4">
+    <div class="section-title">Register for Pravah</div>
+    <div class="section-sub">Two quick steps — takes under two minutes.</div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <div class="register-cta" id="registerCTA">
+        <div class="cta-icon">🌊</div>
+        <h3>Ready to join the flow?</h3>
+        <p>Click below to open the registration form — it only takes about two minutes to complete.</p>
+        <button type="button" class="btn btn-flow btn-lg px-4" onclick="revealForm(event)">Register Now <i class="bi bi-arrow-right ms-1"></i></button>
+      </div>
+
+      <div id="registerFormBody">
+      <div class="d-flex justify-content-between small text-secondary mb-2">
+        <span id="stepLabel">Step 1 of 2 · Main Registration</span>
+        <span id="stepPercent">50%</span>
+      </div>
+      <div class="progress mb-4 rounded-pill">
+        <div class="progress-bar rounded-pill" id="progressBar" style="width:50%"></div>
+      </div>
+
+      <div class="form-card">
+        <form id="pravahForm" novalidate>
+
+          <!-- PAGE 1 -->
+          <div class="step-page active" id="page1">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Full Name <span class="req">*</span></label>
+                <input type="text" class="form-control" name="fullName" placeholder="e.g. Ananya Sharma" required>
+                <div class="invalid-feedback">Please enter your full name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">College Name <span class="req">*</span></label>
+                <input type="text" class="form-control" name="college" placeholder="e.g. MNIT Jaipur" required>
+                <div class="invalid-feedback">Please enter your college name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Branch <span class="req">*</span></label>
+                <input type="text" class="form-control" name="branch" placeholder="e.g. Computer Science" required>
+                <div class="invalid-feedback">Please enter your branch.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Year <span class="req">*</span></label>
+                <select class="form-select" name="year" required>
+                  <option value="">Select year</option>
+                  <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+                </select>
+                <div class="invalid-feedback">Please select your year.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label d-block">Gender <span class="req">*</span></label>
+                <div class="btn-group w-100" role="group" id="genderGroup">
+                  <input type="radio" class="btn-check" name="gender" id="genderF" value="Female" autocomplete="off">
+                  <label class="btn btn-outline-light" for="genderF">Female</label>
+                  <input type="radio" class="btn-check" name="gender" id="genderM" value="Male" autocomplete="off">
+                  <label class="btn btn-outline-light" for="genderM">Male</label>
+                  <input type="radio" class="btn-check" name="gender" id="genderO" value="Other" autocomplete="off">
+                  <label class="btn btn-outline-light" for="genderO">Other</label>
+                </div>
+                <div class="small text-danger mt-1" id="genderError" style="display:none;">Please select a gender.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email <span class="req">*</span></label>
+                <input type="email" class="form-control" name="email" placeholder="you@example.com" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Mobile Number <span class="req">*</span></label>
+                <input type="tel" class="form-control" name="mobile" placeholder="10-digit number" maxlength="10" required>
+                <div class="invalid-feedback">Please enter a valid 10-digit number.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Event Selection <span class="req">*</span></label>
+                <select class="form-select" name="event" required>
+                  <option value="">Select an event</option>
+                  <option>AI Hackathon</option><option>Prompt Engineering Challenge</option>
+                  <option>Robo Race</option><option>Tech Quiz</option>
+                  <option>Paper Presentation</option><option>Gaming Arena</option><option>Cultural Night</option>
+                </select>
+                <div class="invalid-feedback">Please select an event.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Team Size <span class="req">*</span></label>
+                <input type="number" class="form-control" name="teamSize" min="1" max="6" placeholder="1 if solo" required>
+                <div class="form-text">Enter 1 if participating solo. Max 6.</div>
+                <div class="invalid-feedback">Enter a team size between 1 and 6.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Upload ID Card <span class="text-secondary fw-normal">(optional)</span></label>
+                <input type="file" class="form-control" id="idCardInput" accept="image/*,.pdf">
+                <div class="form-text" id="fileNameText">Not used for storage in this demo — shown for UI only.</div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+              <button type="button" class="btn btn-flow px-4" id="toPage2">Continue <i class="bi bi-arrow-right ms-1"></i></button>
+            </div>
+          </div>
+
+          <!-- PAGE 2 -->
+          <div class="step-page" id="page2">
+            <div id="teamMembersContainer"></div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Payment Mode <span class="req">*</span></label>
+                <select class="form-select" name="paymentMode" required>
+                  <option value="">Select payment mode</option>
+                  <option>UPI</option><option>Bank Transfer</option><option>Pay at Venue</option>
+                </select>
+                <div class="invalid-feedback">Please select a payment mode.</div>
+              </div>
+              <div class="col-md-6" id="txnField" style="display:none;">
+                <label class="form-label">Transaction / UTR ID <span class="text-secondary fw-normal">(if paid online)</span></label>
+                <input type="text" class="form-control" name="txnId" placeholder="Transaction reference">
+              </div>
+            </div>
+
+            <div class="form-check mt-4 p-3 rounded-3" style="background:var(--panel-2); border:1px solid var(--line);">
+              <input class="form-check-input" type="checkbox" id="declareCheck">
+              <label class="form-check-label small text-secondary" for="declareCheck">
+                I confirm that the details provided are accurate and I agree to abide by the rules and code of conduct of Pravah 2026.
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-light px-4" id="toPage1"><i class="bi bi-arrow-left me-1"></i> Back</button>
+              <button type="submit" class="btn btn-flow px-4" id="submitBtn" disabled>Submit Registration</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTERED STUDENTS -->
+<section id="students" class="container py-5">
+  <div class="text-center mb-4">
+    <div class="section-title">Who's Joining the Flow</div>
+    <div class="section-sub">Live registrations, organized by event, updated in real time.</div>
+  </div>
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="students-card h-100">
+        <div class="details-label">Details</div>
+        <div class="stat-big" id="totalCountBig">0</div>
+        <div class="text-secondary small mb-3">Total Registrations</div>
+        <hr style="border-color:var(--line);">
+        <div class="text-secondary small mb-1" style="letter-spacing:0.05em;">Registrations by Event</div>
+        <div id="eventBreakdown">
+          <div class="text-secondary small py-3">No registrations yet.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="students-card">
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+          <div class="d-flex flex-wrap gap-2" id="eventFilters">
+            <span class="filter-chip active" data-event="all">All</span>
+          </div>
+          <span class="badge rounded-pill text-bg-dark border" id="studentCount">0 registered</span>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th>#</th><th>Name</th><th>College</th><th>Event</th><th>Team Size</th><th>Reg. ID</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+              <tr><td colspan="6" class="text-center text-secondary py-4">Loading registrations…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Pravah 2026 · 10th July 2026 · Made with <i class="bi bi-heart-fill" style="color:var(--magenta);"></i> for the flow of ideas
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal fade" id="contactModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background:var(--panel); color:var(--text); border:1px solid var(--line);">
+      <div class="modal-header" style="border-color:var(--line);">
+        <h5 class="modal-title">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-2"><i class="bi bi-envelope me-2" style="color:var(--teal);"></i> pravah2026@college.edu</p>
+        <p class="mb-2"><i class="bi bi-telephone me-2" style="color:var(--teal);"></i> +91 98765 43210</p>
+        <p class="mb-0"><i class="bi bi-geo-alt me-2" style="color:var(--teal);"></i> Main Campus Auditorium, College Road</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div id="successOverlay">
+  <canvas id="confettiCanvas"></canvas>
+  <div class="success-box">
+    <div style="font-size:44px;">🌊✨</div>
+    <h2>You're in the flow!</h2>
+    <p>Your registration for Pravah 2026 has been received. Get ready to ride the current of ideas on 10th July — a confirmation email with your schedule is on its way.</p>
+    <div class="regid" id="regIdDisplay"></div>
+    <button class="btn btn-flow mt-3 px-4" id="closeSuccessBtn">Awesome, thanks!</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+const form = document.getElementById('pravahForm');
+const page1 = document.getElementById('page1');
+const page2 = document.getElementById('page2');
+const progressBar = document.getElementById('progressBar');
+const stepLabel = document.getElementById('stepLabel');
+const stepPercent = document.getElementById('stepPercent');
+
+function revealForm(e){
+  if(e) e.preventDefault();
+  document.getElementById('registerCTA').style.display = 'none';
+  const body = document.getElementById('registerFormBody');
+  body.style.display = 'block';
+  body.classList.add('reveal-anim');
+  document.getElementById('register').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.getElementById('idCardInput').addEventListener('change', function(){
+  const t = document.getElementById('fileNameText');
+  t.textContent = this.files.length ? ('✓ ' + this.files[0].name + ' selected (not stored in this demo)') : 'Not used for storage in this demo — shown for UI only.';
+});
+
+function fieldValid(el){
+  if(!el) return true;
+  if(el.name === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+  if(el.name === 'mobile') return /^[0-9]{10}$/.test(el.value.trim());
+  if(el.name === 'teamSize') return el.value !== '' && +el.value >= 1 && +el.value <= 6;
+  return el.value.trim() !== '';
+}
+
+function validatePage(pageEl){
+  let valid = true;
+  pageEl.querySelectorAll('[required]').forEach(el=>{
+    const ok = fieldValid(el);
+    el.classList.toggle('is-invalid', !ok);
+    if(!ok) valid = false;
+  });
+  const genderChecked = pageEl.querySelector('input[name="gender"]:checked');
+  const genderErr = document.getElementById('genderError');
+  if(pageEl === page1){
+    if(!genderChecked){ genderErr.style.display='block'; valid = false; } else { genderErr.style.display='none'; }
+  }
+  return valid;
+}
+
+document.getElementById('toPage2').addEventListener('click', ()=>{
+  if(!validatePage(page1)) return;
+  page1.classList.remove('active');
+  page2.classList.add('active');
+  progressBar.style.width = '100%';
+  stepLabel.textContent = 'Step 2 of 2 · Team & Confirmation';
+  stepPercent.textContent = '100%';
+  window.scrollTo({top: document.getElementById('register').offsetTop - 90, behavior:'smooth'});
+  buildTeamFields();
+});
+
+document.getElementById('toPage1').addEventListener('click', ()=>{
+  page2.classList.remove('active');
+  page1.classList.add('active');
+  progressBar.style.width = '50%';
+  stepLabel.textContent = 'Step 1 of 2 · Main Registration';
+  stepPercent.textContent = '50%';
+});
+
+function buildTeamFields(){
+  const teamSize = +form.teamSize.value || 1;
+  const container = document.getElementById('teamMembersContainer');
+  container.innerHTML = '';
+  if(teamSize > 1){
+    const heading = document.createElement('div');
+    heading.className = 'text-secondary small mb-3';
+    heading.textContent = `Add details for your ${teamSize - 1} other team member(s):`;
+    container.appendChild(heading);
+    for(let i=2; i<=teamSize; i++){
+      const div = document.createElement('div');
+      div.className = 'team-member';
+      div.innerHTML = `
+        <div class="small mb-2" style="color:var(--teal); font-weight:600;">Team Member ${i}</div>
+        <div class="row g-2">
+          <div class="col-md-6"><input type="text" class="form-control form-control-sm" placeholder="Full name" name="tm${i}_name"></div>
+          <div class="col-md-6"><input type="email" class="form-control form-control-sm" placeholder="Email" name="tm${i}_email"></div>
+        </div>`;
+      container.appendChild(div);
+    }
+  }
+}
+
+form.paymentMode.addEventListener('change', ()=>{
+  document.getElementById('txnField').style.display =
+    (form.paymentMode.value === '' || form.paymentMode.value === 'Pay at Venue') ? 'none' : 'block';
+});
+
+const declareCheck = document.getElementById('declareCheck');
+const submitBtn = document.getElementById('submitBtn');
+declareCheck.addEventListener('change', ()=>{ submitBtn.disabled = !declareCheck.checked; });
+
+/* ---------- storage: registered students (shared) ---------- */
+async function saveStudent(data){
+  const id = 'S' + Date.now() + Math.floor(Math.random()*1000);
+  try{
+    const result = await window.storage.set('student:' + id, JSON.stringify(data), true);
+    if(!result) console.error('Failed to save registration.');
+  }catch(err){ console.error('Storage error while saving:', err); }
+  return id;
+}
+
+const eventColors = {
+  'AI Hackathon':'#3ED6C4', 'Prompt Engineering Challenge':'#8B7CF6', 'Robo Race':'#F45FA0',
+  'Tech Quiz':'#FFD166', 'Paper Presentation':'#5FB5F4', 'Gaming Arena':'#F4915F', 'Cultural Night':'#B15FF4'
+};
+let allStudents = [];
+let currentFilter = 'all';
+
+function renderTable(){
+  const tbody = document.getElementById('studentsTableBody');
+  const countBadge = document.getElementById('studentCount');
+  const filtered = currentFilter === 'all' ? allStudents : allStudents.filter(s => s.event === currentFilter);
+  countBadge.textContent = filtered.length + ' registered';
+  if(filtered.length === 0){
+    tbody.innerHTML = '<tr><td colspan="6" class="text-center text-secondary py-4">No registrations in this event yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = filtered.map((s,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td>${escapeHtml(s.fullName)}</td>
+      <td>${escapeHtml(s.college)}</td>
+      <td><span class="badge badge-event rounded-pill" style="background:${(eventColors[s.event]||'#3ED6C4')}2e; color:${eventColors[s.event]||'#3ED6C4'};">${escapeHtml(s.event)}</span></td>
+      <td>${s.teamSize}</td>
+      <td class="text-secondary small">${s.regId}</td>
+    </tr>`).join('');
+}
+
+function renderBreakdownAndFilters(){
+  const breakdownEl = document.getElementById('eventBreakdown');
+  const filtersEl = document.getElementById('eventFilters');
+  const counts = {};
+  allStudents.forEach(s => { counts[s.event] = (counts[s.event]||0) + 1; });
+  const events = Object.keys(counts).sort((a,b)=> counts[b]-counts[a]);
+
+  document.getElementById('totalCountBig').textContent = allStudents.length;
+
+  if(events.length === 0){
+    breakdownEl.innerHTML = '<div class="text-secondary small py-3">No registrations yet.</div>';
+  } else {
+    breakdownEl.innerHTML = events.map(ev => `
+      <div class="event-breakdown-item">
+        <span><span class="dot" style="background:${eventColors[ev]||'#3ED6C4'}"></span>${escapeHtml(ev)}</span>
+        <strong>${counts[ev]}</strong>
+      </div>`).join('');
+  }
+
+  filtersEl.innerHTML = '<span class="filter-chip' + (currentFilter==='all'?' active':'') + '" data-event="all">All</span>' +
+    events.map(ev => `<span class="filter-chip${currentFilter===ev?' active':''}" data-event="${escapeHtml(ev)}">${escapeHtml(ev)}</span>`).join('');
+
+  filtersEl.querySelectorAll('.filter-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      currentFilter = chip.dataset.event;
+      filtersEl.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      renderTable();
+    });
+  });
+}
+
+async function loadStudents(){
+  const tbody = document.getElementById('studentsTableBody');
+  try{
+    const list = await window.storage.list('student:', true);
+    if(!list || !list.keys || list.keys.length === 0){
+      allStudents = [];
+      renderBreakdownAndFilters();
+      tbody.innerHTML = '<tr><td colspan="6" class="text-center text-secondary py-4">No one has registered yet — be the first to join the flow!</td></tr>';
+      document.getElementById('studentCount').textContent = '0 registered';
+      return;
+    }
+    const students = [];
+    for(const key of list.keys){
+      try{
+        const res = await window.storage.get(key, true);
+        if(res && res.value) students.push(JSON.parse(res.value));
+      }catch(e){ /* skip unreadable entry */ }
+    }
+    students.sort((a,b)=> (b.ts||0) - (a.ts||0));
+    allStudents = students;
+    renderBreakdownAndFilters();
+    renderTable();
+  }catch(err){
+    console.error('Storage error while loading:', err);
+    tbody.innerHTML = '<tr><td colspan="6" class="text-center text-danger py-4">Could not load registrations right now.</td></tr>';
+  }
+}
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+/* ---------- confetti ---------- */
+function fireConfetti(){
+  const canvas = document.getElementById('confettiCanvas');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d');
+  const colors = ['#3ED6C4','#8B7CF6','#F45FA0','#FFD166'];
+  const pieces = Array.from({length:120}, ()=>({
+    x: Math.random()*canvas.width, y: -20 - Math.random()*canvas.height*0.3,
+    w: 6+Math.random()*6, h: 8+Math.random()*8,
+    speed: 2+Math.random()*3, drift: (Math.random()-0.5)*2,
+    rot: Math.random()*360, rotSpeed: (Math.random()-0.5)*8,
+    color: colors[Math.floor(Math.random()*colors.length)]
+  }));
+  let frame = 0;
+  function tick(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    let stillFalling = false;
+    pieces.forEach(p=>{
+      p.y += p.speed; p.x += p.drift; p.rot += p.rotSpeed;
+      if(p.y < canvas.height + 20) stillFalling = true;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI/180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    frame++;
+    if(stillFalling && frame < 240) requestAnimationFrame(tick);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  tick();
+}
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  if(!validatePage(page2)) return;
+  if(!declareCheck.checked) return;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  const regId = 'PRAVAH-' + Math.floor(100000 + Math.random()*900000);
+  const data = {
+    fullName: form.fullName.value.trim(),
+    college: form.college.value.trim(),
+    branch: form.branch.value.trim(),
+    year: form.year.value,
+    gender: (form.querySelector('input[name="gender"]:checked')||{}).value || '',
+    email: form.email.value.trim(),
+    mobile: form.mobile.value.trim(),
+    event: form.event.value,
+    teamSize: +form.teamSize.value,
+    paymentMode: form.paymentMode.value,
+    regId: regId,
+    ts: Date.now()
+  };
+
+  await saveStudent(data);
+
+  document.getElementById('regIdDisplay').textContent = 'Reference ID: ' + regId;
+  document.getElementById('successOverlay').classList.add('show');
+  fireConfetti();
+  loadStudents();
+
+  submitBtn.textContent = 'Submit Registration';
+});
+
+document.getElementById('closeSuccessBtn').addEventListener('click', ()=>{
+  document.getElementById('successOverlay').classList.remove('show');
+  form.reset();
+  page2.classList.remove('active');
+  page1.classList.add('active');
+  progressBar.style.width = '50%';
+  stepLabel.textContent = 'Step 1 of 2 · Main Registration';
+  stepPercent.textContent = '50%';
+  submitBtn.disabled = true;
+  document.getElementById('teamMembersContainer').innerHTML = '';
+  document.getElementById('fileNameText').textContent = 'Not used for storage in this demo — shown for UI only.';
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+loadStudents();
+</script>
+</body>
+</html>

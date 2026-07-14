@@ -1,0 +1,65 @@
+ body{
+
+font-family: Arial, sans-serif;
+
+background:#f8f9fa;
+
+}
+
+.hero{
+
+padding:80px 0;
+
+background:#e9f5ff;
+
+}
+
+.hero h1{
+
+font-size:50px;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+margin-bottom:25px;
+
+}
+
+.hero img{
+
+border-radius:15px;
+
+}
+
+.card{
+
+transition:0.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.card img{
+
+height:220px;
+
+object-fit:cover;
+
+}
+
+footer{
+
+margin-top:40px;
+
+}

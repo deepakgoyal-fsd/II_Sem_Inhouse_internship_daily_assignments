@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apple Banana Counter</title>
+<style>
+  body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 40px;
+  }
+  h1 {
+    color: #333;
+  }
+  #timerSelect button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  #timerSelect button:hover {
+    background: #45a049;
+  }
+  #fruitBox {
+    margin-top: 30px;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+  img:hover {
+    transform: scale(1.05);
+  }
+  .counters {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  .counters p {
+    margin: 8px 0;
+  }
+  #timeLeft {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: 15px;
+  }
+  #result {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Apple 🍎 vs Banana 🍌 Counter</h1>
+
+  <!-- Timer select buttons -->
+  <div id="timerSelect">
+    <p>Timer chuno aur game shuru karo:</p>
+    <button onclick="startGame(5)">5 Minute</button>
+    <button onclick="startGame(10)">10 Minute</button>
+  </div>
+
+  <!-- Game area, shuru me hidden -->
+  <div id="gameArea" class="hidden">
+    <p id="timeLeft"></p>
+    <p>Image pe click karo, counter badh jayega!</p>
+
+    <div id="fruitBox">
+      <img id="fruitImg" src="" alt="fruit">
+    </div>
+
+    <div class="counters">
+      <p>Apple Count: <span id="appleCount">0</span></p>
+      <p>Banana Count: <span id="bananaCount">0</span></p>
+    </div>
+  </div>
+
+  <p id="result"></p>
+
+<script>
+  let appleCount = 0;
+  let bananaCount = 0;
+  let currentFruit = "";
+  let timerInterval;
+  let totalSeconds = 0;
+
+  const appleURL = "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg";
+  const bananaURL = "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg";
+
+  const fruitImg = document.getElementById("fruitImg");
+  const appleCountEl = document.getElementById("appleCount");
+  const bananaCountEl = document.getElementById("bananaCount");
+  const timeLeftEl = document.getElementById("timeLeft");
+  const resultEl = document.getElementById("result");
+  const gameArea = document.getElementById("gameArea");
+  const timerSelect = document.getElementById("timerSelect");
+
+  // Random image dikhane ka function
+  function showRandomFruit() {
+    const randomNum = Math.random();
+    if (randomNum < 0.5) {
+      fruitImg.src = appleURL;
+      currentFruit = "apple";
+    } else {
+      fruitImg.src = bananaURL;
+      currentFruit = "banana";
+    }
+  }
+
+  // Image click hone par counter badhana
+  fruitImg.addEventListener("click", function () {
+    if (currentFruit === "apple") {
+      appleCount++;
+      appleCountEl.textContent = appleCount;
+    } else {
+      bananaCount++;
+      bananaCountEl.textContent = bananaCount;
+    }
+    showRandomFruit();
+  });
+
+  // Game start karne ka function
+  function startGame(minutes) {
+    // Reset everything
+    appleCount = 0;
+    bananaCount = 0;
+    appleCountEl.textContent = 0;
+    bananaCountEl.textContent = 0;
+    resultEl.textContent = "";
+
+    totalSeconds = minutes * 60;
+
+    timerSelect.classList.add("hidden");
+    gameArea.classList.remove("hidden");
+
+    showRandomFruit();
+    updateTimerDisplay();
+
+    timerInterval = setInterval(function () {
+      totalSeconds--;
+      updateTimerDisplay();
+
+      if (totalSeconds <= 0) {
+        endGame();
+      }
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    const mins = Math.floor(totalSeconds / 60);
+    const secs = totalSeconds % 60;
+    timeLeftEl.textContent = "Time Left: " + mins + "m " + (secs < 10 ? "0" + secs : secs) + "s";
+  }
+
+  function endGame() {
+    clearInterval(timerInterval);
+    fruitImg.src = "";
+    gameArea.classList.add("hidden");
+    timerSelect.classList.remove("hidden");
+
+    resultEl.textContent = "Game Over! Apple: " + appleCount + " | Banana: " + bananaCount;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Friends Directory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f6f9; }
+        .friend-card img { height: 180px; object-fit: cover; }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">Drishti's Friends Directory</h1>
+        <p class="text-muted">Know My Friends from Various Cities.</p>
+    </div>
+    <div class="row mb-4 g-3">
+        <div class="col-md-8">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by name or email...">
+        </div>
+        <div class="col-md-4">
+            <select id="citiesFilter" class="form-select">
+                <option value="">All Cities</option>
+                <option value="Faridabad">Faridabad</option>
+                <option value="Behror">Behror</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Gwalior">Gwalior</option>
+                <option value="Haridwar">Haridwar</option>
+                <option value="Bhilwara">Bhilwara</option>
+                <option value="Jaipur">Jaipur</option>
+            </select>
+        </div>
+    </div>
+    <div class="row g-4" id="friendsList"></div>
+</div>
+<script>
+    const friends = [
+        { name: "Khushi", email: "khushi@faridabad.com", city: "Faridabad", image: "https://i.pinimg.com/736x/f1/81/c0/f181c0fc8387146d3ab00411378b767b.jpg" },
+        { name: "Varun", email: "varun@behror.com", city: "Behror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVCRaXknaZ1UDjTFIArogNmWzo9m-cx6jN72cdS6wqM7Khi-P5GzUcHOjT&s=10" },
+        { name: "Manya", email: "manya@chandigarh.com", city: "Chandigarh", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHoBRxZs6_NdFhAZqbaKsuIvlmNZJt2TKdabg5vzOE9cRjKPACTCaNLXU&s=10" },
+        { name: "Anusha-Vanshu", email: "anusha-vanshu@gwalior.com", city: "Gwalior", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7fH9_3u6OxebyEVgXFFFZiCCRdsMBcGLTuIdTj0b_1g&s=10" },
+        { name: "Charvi", email: "charvi@haridwar.com", city: "Haridwar", image: "https://i.pinimg.com/736x/89/f8/e1/89f8e12ca061610a4581c7bade577843.jpg" },
+        { name: "Gaurav", email: "gaurav@bhilwara.com", city: "Bhilwara", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7WCMv5QgXqNMIn5fomUzbPwN110Rwlje-zM-svgWP07-cm5z_7P9oH53Q&s=10" }
+    ];
+    const friendsListContainer = document.getElementById("friendsList");
+    const searchInput = document.getElementById("searchInput");
+    const citiesFilter = document.getElementById("citiesFilter");
+    function renderFriends(data) {
+        friendsListContainer.innerHTML = "";
+        if (data.length === 0) {
+            friendsListContainer.innerHTML = `<p class="text-center text-muted">No friends found</p>`;
+            return;
+        }
+        data.forEach(friend => {
+            friendsListContainer.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card friend-card shadow-sm">
+                        <img src="${friend.image}" class="card-img-top" alt="${friend.name}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${friend.name}</h5>
+                            <p class="mb-1 text-primary">City: ${friend.city}</p>
+                            <p class="text-muted small">${friend.email}</p>
+                            <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                        </div>
+                    </div>
+                </div>`;
+        });
+    }
+    function filterFriends() {
+        const searchValue = searchInput.value.toLowerCase();
+        const selectedCity = citiesFilter.value;
+        const filtered = friends.filter(friend => {
+            const matchesSearch = friend.name.toLowerCase().includes(searchValue) || friend.email.toLowerCase().includes(searchValue);
+            const matchesCity = selectedCity === "" || friend.city === selectedCity;
+            return matchesSearch && matchesCity;
+        });
+        renderFriends(filtered);
+    }
+    searchInput.addEventListener("keyup", filterFriends);
+    citiesFilter.addEventListener("change", filterFriends);
+    renderFriends(friends);
+</script>
+</body>
+</html>

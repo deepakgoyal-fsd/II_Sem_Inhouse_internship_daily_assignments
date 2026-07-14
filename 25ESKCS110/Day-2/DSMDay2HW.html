@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Drishti's Sample College Admission Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f7f6;
+                margin: 0;
+                padding: 20px;
+            }
+            .form-container {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                text-align: center; 
+                color: #000000; 
+                background-color: rgb(106, 224, 224); 
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 0;
+            }
+            h2 {
+                color: #333;
+                border-bottom: 2px solid rgb(106, 224, 224);
+                padding-bottom: 5px;
+                margin-top: 25px;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .radio-group label {
+                display: inline;
+                font-weight: normal;
+                margin-right: 15px;
+            }
+            input[type="text"],
+            input[type="date"],
+            input[type="tel"],
+            input[type="email"],
+            select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box; 
+            }
+            input[type="radio"] {
+                width: auto;
+                margin-right: 5px;
+            }
+            button[type="submit"] {
+                width: 100%;
+                background-color: rgb(74, 218, 247);
+                color: rgb(255, 255, 255);
+                padding: 12px;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #0000b3; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <h1>COLLEGE ADMISSION FORM</h1>
+             <form>
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group radio-group">
+                    <label style="display: block; font-weight: bold;">Gender</label>
+                    <input type="radio" name="gender" value="Male" id="male" required><label for="male">Male</label>
+                    <input type="radio" name="gender" value="Female" id="female"><label for="female">Female</label>
+                    <input type="radio" name="gender" value="Other" id="other"><label for="other">Other</label>
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <select id="nationality" name="nationality" required>
+                        <option value="indian">Indian</option>
+                        <option value="american">American</option>
+                        <option value="british">British</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="korean">Korean</option>
+                    </select>
+                </div>
+                <h2>Contact Information</h2>
+                <div class="form-group">
+                    <label>Mobile No. :</label>
+                    <input type="tel" placeholder="e.g.9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="E-mail">
+                </div>
+                <h2>Academic Details</h2>
+                <div class="form-group">
+                    <label>Last School Attended:</label>
+                    <input type="text" placeholder="School Name">
+                </div>
+                <div class="form-group">
+                    <label>Standard X Percentage:</label>
+                    <input type="text" placeholder="Enter Percentage">
+                </div>
+                <div class="form-group">
+                    <label>Standard XII Stream:</label>
+                    <input type="text" placeholder="Enter Stream">
+                </div>
+                <div class="form-group">
+                    <label>Standard XII Percentage:</label>
+                    <input type="text" placeholder="Enter Percentage">
+                </div>
+                <button type="submit">SUBMIT APPLICATION</button>
+            </form>
+        </div>
+
+    </body>
+</html>

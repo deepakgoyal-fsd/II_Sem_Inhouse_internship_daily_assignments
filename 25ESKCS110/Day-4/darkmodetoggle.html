@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dark {
+      background: #222;
+      color: white;
+    }
+
+
+
+const students = [{
+  name: "John Doe",
+  age: 20,
+  courses: ["Math", "Science", "History"],
+},
+{
+  name: "John Doe2",
+  age: 20,
+  courses: ["Math", "Science", "History"],
+},
+{
+  name: "John Doe",
+  age: 20,
+  courses: ["Math", "Science", "History"],
+}];
+
+students[0].courses[0]
+
+
+
+student.courses[student.courses.length - 1]  ;
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+  <button id="themeBtn">Toggle Dark Mode</button>
+  <script>
+    $("#themeBtn").click(function () {
+      $("body").toggleClass("dark");
+    });
+  </script>
+</body>
+
+</html>

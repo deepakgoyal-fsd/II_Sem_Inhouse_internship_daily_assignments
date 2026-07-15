@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #dacfcf;
+    }
+
+    h1{
+        color: rgb(12, 65, 236);
+    }
+
+    form{
+        display: inline-block;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input{
+        background-color: lightgray;
+        padding: 8px;
+        width: 250px;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    button{
+        width: 300px;
+        height: 50px;
+        background-color: rgb(12, 65, 236);
+        color: white;
+        border: 3px solid #900be9;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: rgb(7, 45, 170);
+    }
+
+    .success{
+        color: green;
+        font-weight: bold;
+    }
+
+    .error{
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>LOGIN FORM</h1>
+
+<form id="registerForm">
+
+    <label><b>Name:</b></label><br>
+    <input type="text" placeholder="Enter your username" required><br><br>
+
+    <label><b>Email:</b></label><br>
+    <input type="email" placeholder="Enter your email" required><br><br>
+
+    <label><b>Phone No.:</b></label><br>
+    <input type="tel" placeholder="Enter your phone number" required><br><br>
+
+    <label><b>Gender:</b></label><br>
+    <input type="radio" id="male" name="gender" required>
+    <label for="male">Male</label>
+
+    <input type="radio" id="female" name="gender">
+    <label for="female">Female</label>
+    <br><br>
+
+    <label><b>Password:</b></label><br>
+    <input type="password" id="password" placeholder="Enter your password" required><br><br>
+
+    <label><b>Confirm Password:</b></label><br>
+    <input type="password" id="confirmPassword" placeholder="Confirm your password" required><br><br>
+
+    <p id="message"></p>
+
+    <button type="submit"><strong>Login</strong></button>
+
+</form>
+
+<script>
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const message = document.getElementById("message");
+
+function checkPasswordMatch() {
+    if (confirmPassword.value === "") {
+        message.textContent = "";
+        return false;
+    }
+
+    if (password.value === confirmPassword.value) {
+        message.textContent = "Passwords match ✅";
+        message.className = "success";
+        return true;
+    } else {
+        message.textContent = "Passwords do not match ❌";
+        message.className = "error";
+        return false;
+    }
+}
+
+password.addEventListener("keyup", checkPasswordMatch);
+confirmPassword.addEventListener("keyup", checkPasswordMatch);
+
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+    if (!checkPasswordMatch()) {
+        event.preventDefault();
+        alert("Passwords do not match!");
+    } else {
+        alert("Login Successful!");
+    }
+});
+</script>
+
+</body>
+</html>

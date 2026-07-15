@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+</head>
+<body>
+   
+    <center>
+    <h1 style="color: rgb(12, 65, 236);">LOGIN FORM</h1>  
+        <form>
+        <label>NAME:</label>
+        <input type="text" style="background-color: lightgray;" placeholder="Enter your username" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" style="background-color: lightgray;" placeholder="Enter your email" required><br><br>
+
+          <label>phone no.:</label>
+        <input type="number" style="background-color: lightgray;" placeholder="Enter your phone number" required><br><br>
+
+          <label> Gender : </label>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label><br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password" style="background-color: lightgray;" placeholder="Enter your password" required><br><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword" style="background-color: lightgray;" placeholder="Confirm your password" required><br><br>
+
+        <button type="submit"style="background-color: rgb(12, 65, 236);"><strong style="width: 300px; height: 100px;">Login</strong></button>
+
+
+        <style>
+         button{
+            margin-right: 20px;
+            border: 5px solid #900be9;
+            block-size: 100px;
+            width: 300px;
+        }
+        </style>
+
+
+         </center>
+    </form> 
+
+     <script>
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const message = document.getElementById("message");
+
+    function checkPasswordMatch() {
+      if (password.value === confirmPassword.value) {
+        message.textContent = "Passwords match ✅";
+        message.className = "success";
+        return true;
+      } else {
+        message.textContent = "Passwords do not match ❌";
+        message.className = "error";
+        return false;
+      }
+    }
+
+    confirmPassword.addEventListener("keyup", checkPasswordMatch);
+    password.addEventListener("keyup", checkPasswordMatch);
+
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      if (!checkPasswordMatch()) {
+        e.preventDefault(); // Stop form submission
+      }
+    });
+  </script>
+
+</body>
+</html>

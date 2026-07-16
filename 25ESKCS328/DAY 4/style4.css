@@ -1,0 +1,33 @@
+body{
+    font-family: Arial;
+    text-align:center;
+    margin:30px;
+    background:white;
+    color:black;
+}
+
+nav a{
+    margin:15px;
+    text-decoration:none;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    cursor:pointer;
+}
+
+.dark{
+    background:black;
+    color:white;
+}
+
+.dark button{
+    background:white;
+    color:black;
+}
+
+input{
+    padding:10px;
+    width:250px;
+}

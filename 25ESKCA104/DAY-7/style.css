@@ -1,0 +1,28 @@
+body {
+    background-color: #0f172a !important;
+}
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.bg-teal {
+    background-color: #115e59 !important; 
+}
+.bg-default {
+    background-color: #1e293b !important;
+}
+.avatar-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0dcaf0;
+    margin: 0 auto 15px auto;
+}
+::placeholder {
+    color: #cbd5e1 !important;
+}

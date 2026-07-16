@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Landing Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:black;
+    text-align:center;
+}                                                                                        
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+nav{
+    background:navy;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+}
+
+.container{
+    width:300px;
+    margin:30px auto;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    background-color: rgba(40, 168, 207, 0.8);
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+#counter{
+    font-size:25px;
+    margin:20px;
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Contact</a>
+</nav>
+
+<h1>Welcome to My Landing Page</h1>
+<p>Simple HTML, CSS & JavaScript Project</p>
+
+<div class="container">
+
+<form id="myForm">
+    <input type="text" id="name" placeholder="Enter Name" required>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <button type="submit">Submit</button>
+</form>
+
+<h2>Counter</h2>
+
+<p id="counter">0</p>
+
+<button id="increase">Increase</button>
+<button id="reset">Reset Counter</button>
+
+<button id="darkBtn">Dark Mode</button>
+
+</div>
+
+<script>
+// Form
+document.getElementById("myForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    alert("Form Submitted Successfully");
+});
+
+// Counter
+let count = 0;
+
+document.getElementById("increase").addEventListener("click", function () {
+    count++;
+    document.getElementById("counter").innerHTML = count;
+});
+
+document.getElementById("reset").addEventListener("click", function () {
+    count = 0;
+    document.getElementById("counter").innerHTML = count;
+});
+
+
+// Dark Mode
+document.getElementById("darkBtn").addEventListener("click",function(){
+    document.body.classList.toggle("dark");
+});
+</script>
+
+</body>
+</html>

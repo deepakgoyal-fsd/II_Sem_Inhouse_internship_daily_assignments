@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset Button</title>
+</head>
+<body>
+
+<input type="text" id="name" placeholder="Enter Name">
+<br><br>
+
+<input type="email" id="email" placeholder="Enter Email">
+<br><br>
+
+<button id="resetBtn">Reset</button>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    let name = document.getElementById("name").value.trim();
+
+    if (name === "") {
+        event.preventDefault();
+        document.getElementById("message").innerHTML = "This field is required.";
+    } else {
+        document.getElementById("message").innerHTML = "";
+    }
+});
+</script>
+
+</body>
+</html>

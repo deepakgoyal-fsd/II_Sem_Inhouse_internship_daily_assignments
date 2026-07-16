@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Shopping Website</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="bi bi-cart"></i> ShopOnline
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navfiles">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navfiles">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <a class="btn btn-danger ms-2" href="#pricing">Buy Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="blue-gradient-bg text-white py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-6 pt-5">
+                    <h1 class="display-4">Buy Best Headphones</h1>
+                    <p class="lead">This is the best headphone with very good sound quality and very cheap price. Buy it today.</p>
+                    <a href="#pricing" class="btn btn-warning btn-lg">Buy Now</a>
+                    <a href="#features" class="btn btn-outline-light btn-lg">Read More</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" alt="headphone" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-3 text-center my-card">
+                        <div class="card-body">
+                            <i class="bi bi-truck text-primary fs-1"></i>
+                            <h3>Free Shipping</h3>
+                            <p>We send your items very fast to your home for free.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center my-card">
+                        <div class="card-body">
+                            <i class="bi bi-shield text-success fs-1"></i>
+                            <h3>Safe Money</h3>
+                            <p>Your payment is safe with us. We use good security.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center my-card">
+                        <div class="card-body">
+                            <i class="bi bi-telephone text-danger fs-1"></i>
+                            <h3>24 Support</h3>
+                            <p>Call us anytime you want. We help you always.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pricing" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Prices</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-center p-3 my-card">
+                        <div class="card-body">
+                            <h3>Normal Pack</h3>
+                            <h2 class="text-success">$50</h2>
+                            <hr>
+                            <p>Good Sound</p>
+                            <p>10 Hours Battery</p>
+                            <p>No Noise Cancel</p>
+                            <a href="#" class="btn btn-primary w-100">Select</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center p-3 border-danger my-card">
+                        <div class="card-body">
+                            <span class="badge bg-danger">POPULAR</span>
+                            <h3>Super Pack</h3>
+                            <h2 class="text-danger">$100</h2>
+                            <hr>
+                            <p>Best Sound</p>
+                            <p>40 Hours Battery</p>
+                            <p>Noise Cancel On</p>
+                            <a href="#" class="btn btn-danger w-100">Select</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reviews" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5">What People Say</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card bg-secondary text-white p-3 m-2">
+                        <p>"This product is very good. I use it everyday for my music."</p>
+                        <h5>- Rahul Kumar</h5>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-secondary text-white p-3 m-2">
+                        <p>"Very fast delivery. Box came in good condition."</p>
+                        <h5>- Amit Sharma</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="team" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Team Members</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center my-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" class="card-img-top" alt="boss">
+                        <div class="card-body">
+                            <h3>Rishi Gour</h3>
+                            <p class="text-danger">Main Founder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center my-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80" class="card-img-top" alt="coder">
+                        <div class="card-body">
+                            <h3>John Walker</h3>
+                            <p class="text-danger">Web Coder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center my-card">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80" class="card-img-top" alt="helper">
+                        <div class="card-body">
+                            <h3>Sam Wilson</h3>
+                            <p class="text-danger">Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">FAQ Questions</h2>
+            <div class="accordion" id="faqbox">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#box1">
+                            Is it waterproof?
+                        </button>
+                    </h2>
+                    <div id="box1" class="accordion-collapse collapse show" data-bs-parent="#faqbox">
+                        <div class="accordion-body">
+                            Yes it is waterproof. You can use it in small rain.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#box2">
+                            How to return item?
+                        </button>
+                    </h2>
+                    <div id="box2" class="accordion-collapse collapse" data-bs-parent="#faqbox">
+                        <div class="accordion-body">
+                            Send us email and we take it back in 10 days.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Support Team</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <form>
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control mb-3" placeholder="Your name">
+                            
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control mb-3" placeholder="Your email">
+                            
+                            <label class="form-label">Your Question</label>
+                            <textarea class="form-control mb-3" rows="3" placeholder="Write here"></textarea>
+                            
+                            <button type="submit" class="btn btn-primary w-100">Submit Form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black text-white py-4 text-center">
+        <div class="container">
+            <div class="mb-3">
+                <a href="#" class="text-white mx-2 fs-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white mx-2 fs-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white mx-2 fs-3"><i class="bi bi-twitter"></i></a>
+            </div>
+            <p>Copyright 2026 ShopOnline Store Website.</p>
+        </div>
+    </footer>
+
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Login Page</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+.container img{
+    width:100px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input[type=text],
+input[type=password]{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+.loginbtn{
+    width:100%;
+    padding:12px;
+    background:#007BFF;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.loginbtn:hover{
+    background:#0056b3;
+}
+
+.clearbtn{
+    width:48%;
+    padding:10px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.cancelbtn{
+    width:48%;
+    padding:10px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
+
+.extra{
+    margin-top:20px;
+}
+
+.extra a{
+    text-decoration:none;
+    color:blue;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+<h2>Login Form</h2>
+
+<form>
+
+<input type="text" placeholder="Enter Username" required>
+
+<input type="password" id="pass" placeholder="Enter Password" required>
+
+<label>
+<input type="checkbox" onclick="showPassword()">
+Show Password
+</label>
+
+<br><br>
+
+<button class="loginbtn" type="submit">
+Login
+</button>
+
+<div class="buttons">
+
+<input class="clearbtn" type="reset" value="Clear">
+
+<button class="cancelbtn" type="button">
+Cancel
+</button>
+
+</div>
+
+<div class="extra">
+
+<p><a href="#">Forgot Password?</a></p>
+
+<p>Don't have an account?
+<a href="#">Register Here</a>
+</p>
+
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+function showPassword(){
+
+var x=document.getElementById("pass");
+
+if(x.type==="password")
+{
+x.type="text";
+}
+else
+{
+x.type="password";
+}
+
+}
+
+</script>
+
+</body>
+</html>

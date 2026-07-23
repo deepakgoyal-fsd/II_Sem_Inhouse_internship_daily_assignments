@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body id="hello">
+    <h1 id="hell">REGISTRATION FORM</h1>
+    <form class="background"  action="registration.php" method="post" enctype="multipart/form-data">
+        
+        <input type="file" name="myfile" accept="image/*" required>
+
+        <label>
+    NAME:
+        <input type="text"  name="full Name" id="txtName" required placeholder="Enter your name"/>
+            <br><br>
+            </label>
+            <label>
+
+    BRANCH:
+        <br>
+          <input type="text" name="branch" id="txtBranch" required placeholder="Enter your branch"> 
+          <br><br>
+            </label> 
+
+        <label>
+    EMAIL:
+    <br>
+         <input type="email"  name="email "id="txtEmail" required placeholder="Enter  your email"/>   
+        </label>
+        <br><br>
+    </label>
+             PHONE NUMBER:
+            <input type="text"  name="phonenumber "id="txtNumber" required placeholder="Enter the phonenumber"/>
+        </label>
+        <br><br>
+         GENDER:
+         <br>
+           <input type="radio" id="check-male" name="gender" />
+           <label for="check-male">MALE</label>
+
+           <input type="radio" id="check-female" nem="gender"/>
+           <label for="check-female">FEMALE</label>           
+
+           <input type="date" id="dtOOB" name="dtOOB"/>
+           <label for="dtOOB">DOB</label>
+           <br><br>
+
+           <label for="pwdPassword">Password</label> 
+           <input type="password" id="pwdPassword" name="pwdPassword"/> 
+
+
+           <label for="pwdConformPassword"> Confirm Password </label>
+           <input type="password" id="pwdConformPassword" name="pwdConformPassword" />  
+           
+           <br>
+
+           <label>
+
+            SKILLS:
+              <br><br>
+            <input type="checkbox" value="region" name="INDIA">
+           </label>
+
+    <button type="submit">
+        SUBMIT
+    </button>
+
+    </form>
+</body>       
+</html>                                                                                                      

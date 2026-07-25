@@ -82,10 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         body.dark-mode .form-group label { color: #cbd5e1; }
         body.dark-mode .form-group input { background: rgba(0, 0, 0, 0.3); color: white; border-color: rgba(255, 255, 255, 0.12); }
-        body.dark-mode .form-group input:focus { background: rgba(0, 0, 0, 0.5); border-color: #818cf8; }
+        body.dark-mode .form-group input:focus { background: rgba(0, 0, 0, 0.5); border-color: #10B981; box-shadow:0 0 0 3px rgba(16,185,129,.16); }
         body.dark-mode .eye-icon { color: #cbd5e1; }
         body.dark-mode .links-area { color: #94a3b8; }
-        body.dark-mode .links-area a { color: #818cf8; }
+        body.dark-mode .links-area a { color: #34D399; }
 
         
         body.light-mode {
@@ -99,23 +99,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         body.light-mode .form-group label { color: #475569; }
         body.light-mode .form-group input { background: rgba(255, 255, 255, 0.7); color: #0f172a; border-color: rgba(0, 0, 0, 0.15); }
-        body.light-mode .form-group input:focus { background: white; border-color: #4f46e5; }
+        body.light-mode .form-group input:focus { background: white; border-color: #10B981; box-shadow:0 0 0 3px rgba(16,185,129,.14); }
         body.light-mode .eye-icon { color: #475569; }
         body.light-mode .links-area { color: #64748b; }
-        body.light-mode .links-area a { color: #4f46e5; }
+        body.light-mode .links-area a { color: #059669; }
         body.light-mode .header-section p { color: #475569; }
 
         
         .theme-toggle {
             position: absolute;
             top: 20px; right: 20px;
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            background: #10B981;
             color: white; border: none;
             padding: 10px 18px;
             border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(99,102,241,0.4);
+            box-shadow: 0 4px 14px rgba(16,185,129,0.28);
             z-index: 50;
         }
 
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .header-section { text-align: center; margin-bottom: 1.8rem; }
-        .header-section h2 { margin: 0; font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #6366f1, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header-section h2 { margin: 0; font-size: 2.2rem; font-weight: 800; color:#34D399; }
         .header-section p { font-size: 0.9rem; color: #94a3b8; margin-top: 6px; }
 
         .form-group { margin-bottom: 1.2rem; }
@@ -143,8 +143,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .password-wrapper { position: relative; }
         .eye-icon { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); cursor: pointer; user-select: none; font-size: 1rem; z-index: 5; }
         
-        .btn-signup { width: 100%; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; padding: 0.9rem; border-radius: 14px; font-weight: 700; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 0.8rem; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4); }
-        .btn-signup:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5); }
+        .btn-signup { width: 100%; background: #10B981; color: #06281F; border: none; padding: 0.9rem; border-radius: 14px; font-weight: 700; cursor: pointer; font-size: 1rem; transition: 0.2s; margin-top: 0.8rem; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.26); }
+        .btn-signup:hover { background:#059669; color:#fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.34); }
         
         .links-area { text-align: center; margin-top: 1.5rem; font-size: 0.95rem; position: relative; z-index: 15; }
         .links-area a { text-decoration: none; font-weight: 700; }

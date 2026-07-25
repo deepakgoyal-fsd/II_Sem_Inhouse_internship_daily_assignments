@@ -5,9 +5,10 @@ function flash(string $type, string $text): void { $_SESSION['flash'] = ['type' 
 function consume_flash(): ?array { $f = $_SESSION['flash'] ?? null; unset($_SESSION['flash']); return $f; }
 function avatar_url(?string $path, string $name): string {
     if ($path && is_file(__DIR__ . '/' . $path)) return e($path);
-    return 'https://ui-avatars.com/api/?background=4f46e5&color=fff&bold=true&name=' . rawurlencode($name);
+    return 'https://ui-avatars.com/api/?background=10b981&color=06281f&bold=true&name=' . rawurlencode($name);
 }
 function room_image(array $room): string {
+    if (!empty($room['image_path']) && is_file(__DIR__ . '/' . $room['image_path'])) return $room['image_path'];
     $type = strtolower($room['room_type'] ?? '');
     if (str_contains($type, 'single')) return 'images/single_occupancy_(premium_ac)_1.jpg';
     if (str_contains($type, '3-bed')) return 'images/triple_sharing_(standard_ac)_1.jpg';

@@ -13,10 +13,8 @@ if ($conn->connect_error) {
 
 $conn->set_charset('utf8mb4');
 
-
 $conn->query("CREATE DATABASE IF NOT EXISTS `$dbName` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
 $conn->select_db($dbName);
-
 
 $conn->query("CREATE TABLE IF NOT EXISTS users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -32,7 +30,6 @@ $conn->query("CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-
 $conn->query("CREATE TABLE IF NOT EXISTS rooms (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     room_number VARCHAR(50) NOT NULL,
@@ -42,7 +39,6 @@ $conn->query("CREATE TABLE IF NOT EXISTS rooms (
     available_beds INT UNSIGNED NOT NULL DEFAULT 0,
     image_path VARCHAR(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
-
 
 $conn->query("CREATE TABLE IF NOT EXISTS room_requests (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -58,7 +54,6 @@ $conn->query("CREATE TABLE IF NOT EXISTS room_requests (
     FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-
 $conn->query("ALTER TABLE users ADD COLUMN IF NOT EXISTS phone_number VARCHAR(50) DEFAULT NULL");
 $conn->query("ALTER TABLE users ADD COLUMN IF NOT EXISTS fathers_name VARCHAR(255) DEFAULT NULL");
 $conn->query("ALTER TABLE users ADD COLUMN IF NOT EXISTS mothers_name VARCHAR(255) DEFAULT NULL");
@@ -73,11 +68,8 @@ $conn->query("ALTER TABLE rooms ADD COLUMN IF NOT EXISTS fees_per_sem DECIMAL(10
 $conn->query("ALTER TABLE rooms ADD COLUMN IF NOT EXISTS available_beds INT UNSIGNED NOT NULL DEFAULT 0");
 $conn->query("ALTER TABLE rooms ADD COLUMN IF NOT EXISTS image_path VARCHAR(255) DEFAULT NULL");
 
-// Useful indexes keep the dashboard and filtered request lists responsive as data grows.
-// Older MySQL releases do not support IF NOT EXISTS for indexes, so ignore an existing-index error.
 try { $conn->query("CREATE INDEX idx_requests_user_status ON room_requests (user_id, status)"); } catch (mysqli_sql_exception $e) {}
 try { $conn->query("CREATE INDEX idx_requests_status_created ON room_requests (status, created_at)"); } catch (mysqli_sql_exception $e) {}
-
 
 $conn->query("UPDATE rooms SET available_beds = COALESCE(available_beds, 0) WHERE available_beds IS NULL");
 $conn->query("UPDATE rooms SET fees_per_sem = COALESCE(fees_per_sem, 0) WHERE fees_per_sem IS NULL");
@@ -85,7 +77,6 @@ $conn->query("UPDATE rooms SET image_path = 'single_premium.jpg' WHERE room_type
 $conn->query("UPDATE rooms SET image_path = 'double_ac.jpg' WHERE room_type LIKE '%2-Bed%' AND (image_path IS NULL OR image_path = '')");
 $conn->query("UPDATE rooms SET image_path = 'triple_ac.jpg' WHERE room_type LIKE '%3-Bed%' AND (image_path IS NULL OR image_path = '')");
 $conn->query("UPDATE rooms SET image_path = 'double_nonac.jpg' WHERE room_type LIKE '%4-Bed%' AND (image_path IS NULL OR image_path = '')");
-
 
 $roomCount = $conn->query("SELECT COUNT(*) as count FROM rooms")->fetch_assoc()['count'];
 if ($roomCount == 0) {

@@ -53,12 +53,12 @@ if (isset($_SESSION['user_role'])) {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         body.dark-mode .role-card:hover {
-            border-color: #6366f1;
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
-            background: #1e2a42;
+            border-color: #10B981;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.16);
+            background: #1E293B;
         }
-        body.dark-mode .icon-wrapper { background: #232f48; }
-        body.dark-mode .icon-wrapper i { color: #818cf8; }
+        body.dark-mode .icon-wrapper { background: rgba(16,185,129,.14); }
+        body.dark-mode .icon-wrapper i { color: #10B981; }
         body.dark-mode .role-title { color: #ffffff; }
         body.dark-mode .role-desc { color: #94a3b8; }
         body.dark-mode .role-features li { color: #cbd5e1; }
@@ -77,12 +77,12 @@ if (isset($_SESSION['user_role'])) {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
         body.light-mode .role-card:hover {
-            border-color: #6366f1;
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+            border-color: #10B981;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.15);
             background: #ffffff;
         }
-        body.light-mode .icon-wrapper { background: #eff6ff; }
-        body.light-mode .icon-wrapper i { color: #4f46e5; }
+        body.light-mode .icon-wrapper { background: #D1FAE5; }
+        body.light-mode .icon-wrapper i { color: #059669; }
         body.light-mode .role-title { color: #0f172a; }
         body.light-mode .role-desc { color: #64748b; }
         body.light-mode .role-features li { color: #334155; }
@@ -177,7 +177,7 @@ if (isset($_SESSION['user_role'])) {
 
         .role-features li::before {
             content: "•";
-            color: #6366f1;
+            color: #10B981;
             font-weight: bold;
             font-size: 1.2rem;
         }

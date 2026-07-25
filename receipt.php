@@ -67,7 +67,7 @@ if (!$data || ($_SESSION['user_role'] !== 'admin' && $data['user_id'] != $_SESSI
         .sig-line { width: 100%; border-top: 1px solid #0f172a; padding-top: 8px; font-size: 0.9rem; font-weight: 700; color: #334155; }
 
         .print-btn-area { text-align: center; margin-bottom: 20px; }
-        .btn-print { background: #4f46e5; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 12px rgba(83, 91, 242, 0.2); }
+        .btn-print { background: #10B981; color: #06281F; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.22); }
         
         @media print {
             .print-btn-area { display: none; }
@@ -95,7 +95,7 @@ if (!$data || ($_SESSION['user_role'] !== 'admin' && $data['user_id'] != $_SESSI
             <div class="title-area">
                 <h1>SWAMI KESHVANAND INSTITUTE OF TECHNOLOGY, MANAGEMENT & GRAMOTHAN</h1>
                 <p>Ramnagaria, Jagatpura, Jaipur, Rajasthan 302017</p>
-                <p style="color: #6366f1; font-size: 0.9rem; margin-top: 5px;">KESHVANAND BOYS HOSTEL (KBH)</p>
+                <p style="color: #059669; font-size: 0.9rem; margin-top: 5px;">KESHVANAND BOYS HOSTEL (KBH)</p>
             </div>
         </div>
 
@@ -105,7 +105,7 @@ if (!$data || ($_SESSION['user_role'] !== 'admin' && $data['user_id'] != $_SESSI
         <table class="details-table">
             <tr>
                 <td class="label">Receipt No / Transaction ID</td>
-                <td class="value" style="font-weight:700; color:#4f46e5;">KBH-<?=date('Y', strtotime($data['created_at']))?>-<?=str_pad($data['id'], 5, '0', STR_PAD_LEFT)?></td>
+                <td class="value" style="font-weight:700; color:#059669;">KBH-<?=date('Y', strtotime($data['created_at']))?>-<?=str_pad($data['id'], 5, '0', STR_PAD_LEFT)?></td>
                 <td class="label">Date & Time</td>
                 <td class="value"><?php echo date('d-M-Y h:i A'); ?></td>
             </tr>

@@ -42,7 +42,7 @@ if (!$data || ($_SESSION['user_role'] !== 'admin' && $data['user_id'] != $_SESSI
         .amount-box { background: #f4f4f5; padding: 15px; border-radius: 6px; text-align: right; font-size: 1.2rem; font-weight: bold; border: 1px solid #ccc; }
         .footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: #777; border-top: 1px solid #ddd; padding-top: 10px; }
         .print-btn-area { text-align: center; margin-bottom: 20px; }
-        .btn-print { background: #4f46e5; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+        .btn-print { background: #10B981; color: #06281F; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; }
         
        
         @media print {

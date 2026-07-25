@@ -144,8 +144,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
-        body.dark-mode .role-card:hover { border-color: #6366f1; background: rgba(30, 42, 66, 0.88); }
-        body.dark-mode .icon-wrapper { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+        body.dark-mode .role-card:hover { border-color: #10B981; background: rgba(30, 41, 59, 0.96); box-shadow: 0 18px 38px rgba(2, 6, 23, 0.42); }
+        body.dark-mode .icon-wrapper { background: rgba(16, 185, 129, 0.16); color: #10B981; }
         body.dark-mode .form-container { 
             background: rgba(24, 34, 53, 0.82); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
@@ -153,9 +153,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             -webkit-backdrop-filter: blur(16px);
         }
         body.dark-mode .input-group input { background: rgba(15, 23, 42, 0.7); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15); }
-        body.dark-mode .input-group input:focus { border-color: #6366f1; }
+        body.dark-mode .input-group input:focus { border-color: #10B981; box-shadow: 0 0 0 3px rgba(16,185,129,.16); }
         body.dark-mode .tab-btn { color: #94a3b8; }
-        body.dark-mode .tab-btn.active { color: #6366f1; border-bottom-color: #6366f1; }
+        body.dark-mode .tab-btn.active { color: #10B981; border-bottom-color: #10B981; }
         body.dark-mode .back-btn { color: #94a3b8; }
         body.dark-mode .back-btn:hover { color: #ffffff; }
 
@@ -173,8 +173,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
-        body.light-mode .role-card:hover { border-color: #6366f1; background: rgba(255, 255, 255, 0.95); }
-        body.light-mode .icon-wrapper { background: rgba(99, 102, 241, 0.12); color: #4f46e5; }
+        body.light-mode .role-card:hover { border-color: #10B981; background: rgba(255, 255, 255, 0.95); }
+        body.light-mode .icon-wrapper { background: rgba(16, 185, 129, 0.12); color: #059669; }
         body.light-mode .form-container { 
             background: rgba(255, 255, 255, 0.88); 
             border: 1px solid rgba(0, 0, 0, 0.08); 
@@ -183,9 +183,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             -webkit-backdrop-filter: blur(16px);
         }
         body.light-mode .input-group input { background: rgba(255, 255, 255, 0.8); color: #0f172a; border: 1px solid rgba(0, 0, 0, 0.15); }
-        body.light-mode .input-group input:focus { border-color: #6366f1; background: #ffffff; }
+        body.light-mode .input-group input:focus { border-color: #10B981; background: #ffffff; box-shadow:0 0 0 3px rgba(16,185,129,.14); }
         body.light-mode .tab-btn { color: #64748b; }
-        body.light-mode .tab-btn.active { color: #6366f1; border-bottom-color: #6366f1; }
+        body.light-mode .tab-btn.active { color: #059669; border-bottom-color: #10B981; }
         body.light-mode .back-btn { color: #64748b; }
         body.light-mode .back-btn:hover { color: #0f172a; }
 
@@ -242,12 +242,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         .input-group input { width: 100%; padding: 0.8rem 1rem; border-radius: 12px; font-size: 0.95rem; outline: none; }
 
         .btn-submit {
-            width: 100%; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white;
+            width: 100%; background: #10B981; color: #06281f;
             border: none; padding: 0.85rem; border-radius: 12px; font-weight: 700; font-size: 1rem;
-            cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); margin-top: 0.5rem;
+            cursor: pointer; box-shadow: 0 6px 16px rgba(16, 185, 129, 0.22); margin-top: 0.5rem;
         }
 
-        .btn-submit:hover { opacity: 0.95; transform: translateY(-1px); }
+        .btn-submit:hover { background:#059669; color:#fff; opacity: 1; transform: translateY(-2px); }
 
         .theme-toggle-btn {
             position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%;

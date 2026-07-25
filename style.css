@@ -1,0 +1,63 @@
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --card-surface: rgba(255, 255, 255, 0.92);
+    --text: #0f172a;
+}
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: url('images/hostel_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0; padding: 2rem;
+    min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* Ultra Modern Glass Card Effect */
+.card {
+    background: var(--card-surface);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 2rem;
+}
+.form-group { margin-bottom: 1.25rem; }
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+input, select {
+    width: 100%; padding: 0.75rem;
+    border: 2px solid #cbd5e1; border-radius: 8px;
+    box-sizing: border-box; font-size: 1rem;
+}
+button {
+    background: var(--primary); color: white; border: none;
+    padding: 0.75rem 1.5rem; border-radius: 8px;
+    cursor: pointer; font-weight: 600; font-size: 1rem;
+}
+button:hover { background: var(--primary-hover); }
+
+/* Analytical Stats Cards Design Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.stat-card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; border-left: 5px solid var(--primary); }
+.stat-num { font-size: 2rem; font-weight: bold; color: var(--text); margin-top: 0.5rem; }
+
+/* Interactive Map/Floor Plan CSS Grid Configuration */
+.floor-plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.room-box { border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: white; position: relative; }
+.room-img { width: 100%; height: 150px; object-fit: cover; }
+.badge { position: absolute; top: 10px; right: 10px; padding: 0.25rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; }
+.badge-available { background: #22c55e; }
+.badge-full { background: #ef4444; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; background: white; border-radius: 8px; overflow: hidden; }
+th, td { text-align: left; padding: 1rem; border-bottom: 1px solid #cbd5e1; }
+th { background: #f1f5f9; }
+.status { padding: 0.35rem 0.75rem; border-radius: 9999px; font-size: 0.85rem; font-weight: bold; }
+.status-Pending { background: #fef3c7; color: #d97706; }
+.status-Approved { background: #dcfce7; color: #15803d; }
+.status-Rejected { background: #fee2e2; color: #b91c1c; }
+.nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; color: white; }

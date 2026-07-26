@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 60px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .directory-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  body.dark-mode h1 {
+    color: #f8fafc;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 3px solid #f1f5f9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .card h4 {
+    margin: 0 0 6px;
+    font-size: 1.25rem;
+    color: #0f172a;
+  }
+
+  body.dark-mode .card h4 {
+    color: #f8fafc;
+  }
+
+  .card p.meta {
+    margin: 0 0 20px;
+    color: #2563eb;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .btn-details {
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    background: #0f172a;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+
+  .btn-details:hover {
+    background: #1e293b;
+  }
+
+  .btn-details.active {
+    background: #16a34a;
+    color: #ffffff;
+  }
+
+  .details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .details p {
+    margin: 8px 0;
+    color: #475569;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .details span {
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  /* --- Dark Mode Styles --- */
+  body.dark-mode {
+    background-color: #0f172a;
+    color: #f8fafc;
+  }
+
+  #darkModeBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #0f172a;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  body.dark-mode #darkModeBtn {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  body.dark-mode .card {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  body.dark-mode .card img {
+    border-color: #334155;
+  }
+
+  body.dark-mode .card p.meta {
+    color: #60a5fa;
+  }
+
+  body.dark-mode .btn-details {
+    background: #334155;
+    color: #f8fafc;
+  }
+  
+  body.dark-mode .btn-details:hover {
+    background: #475569;
+  }
+
+  body.dark-mode .details {
+    border-top-color: #334155;
+  }
+
+  body.dark-mode .details p {
+    color: #cbd5e1;
+  }
+
+  body.dark-mode .details span {
+    color: #f8fafc;
+  }
+</style>
+</head>
+<body>
+
+<button id="darkModeBtn">Dark Mode</button>
+
+<div class="directory-container">
+  <h1>Student Directory</h1>
+  <p class="subtitle">Meet our brilliant tech and engineering students</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Suhani">
+      <h4>Suhani</h4>
+      <p class="meta">Computer Science</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span> suhani@gmail.com</p>
+        <p><span>CGPA:</span> 8.0</p>
+        <p><span>Clubs:</span> Chess Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" alt="Dev">
+      <h4>Dev</h4>
+      <p class="meta">Mechanical Engineering</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span> dev@gmail.com</p>
+        <p><span>CGPA:</span> 8.5</p>
+        <p><span>Clubs:</span> Tennis Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150" alt="Tara">
+      <h4>Tara</h4>
+      <p class="meta">AI/ML Enthusiast</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span> tara@gmail.com</p>
+        <p><span>CGPA:</span> 7.9</p>
+        <p><span>Clubs:</span> Photography Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150" alt="Tejas">
+      <h4>Tejas</h4>
+      <p class="meta">Full Stack Enthusiast</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span> tejas@gmail.com</p>
+        <p><span>CGPA:</span> 8.2</p>
+        <p><span>Clubs:</span> Web Development Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Prakarti">
+      <h4>Prakarti</h4>
+      <p class="meta">Electrical Engineering</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span> prakarti@gmail.com</p>
+        <p><span>CGPA:</span> 7.6</p>
+        <p><span>Clubs:</span> Drama Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150" alt="Vivan">
+      <h4>Vivan</h4>
+      <p class="meta">Computer Science</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span> vivan@gmail.com</p>
+        <p><span>CGPA:</span> 8.0</p>
+        <p><span>Clubs:</span> Chess Club</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("darkModeBtn");
+
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      btn.textContent = "Light Mode";
+    } else {
+      btn.textContent = "Dark Mode";
+    }
+  });
+
+  $(document).ready(function () {
+    // Container animation
+    $(".directory-container").hide().fadeIn(800);
+
+    // Slide Toggle Logic
+    $(".btn-details").click(function () {
+      var $btn = $(this);
+      var $details = $btn.closest(".card").find(".details");
+
+      $details.slideToggle(300, function () {
+        if ($details.is(":visible")) {
+          $btn.text("Hide Details").addClass("active");
+        } else {
+          $btn.text("Show Details").removeClass("active");
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

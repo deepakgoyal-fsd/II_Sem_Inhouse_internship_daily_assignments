@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let studentName = "Harsh";
+        // let studentBranch = "CSE";
+        // let studentRollNo = 123;
+        // let studentMarks = 90;
+
+        let students = [{
+            name: "Harsh",
+            branch: "CSE",
+            rollno: 1234,
+            marks: 90,
+            skills: ['html', 'css', 'js']
+        },
+        {
+            name: "Kamal",
+            branch: "CSE",
+            rollno: 12345,
+            marks: 100,
+            skills: ['react', 'php', 'js']
+        },
+        {
+            name: "Rahul",
+            branch: "CSE",
+            rollno: 12346,
+            marks: 93,
+            skills: ['js', 'jqeury', 'js']
+        }];
+
+        console.log(students[1]);
+        console.log(students[0].name);
+        console.log(students.length);
+        console.log(students[0].skills);
+        console.log(students[0].skills[0]);
+
+        for(let i = 0; i < students.length; i++){
+            console.log(students[i]);
+        }           
+
+        let studentObj1 = {"name":"Raja","branch":"CSE","rollNo":1234};
+        console.log(JSON.stringify(studentObj1));
+
+        let studentObj2 = '{"name":"Raja","branch":"CSE","rollNo":1234}';
+        console.log(JSON.parse(studentObj2));
+
+        let res;
+        fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(data => {
+            console.log(data[3]);
+        });
+
+
+    </script>
+</body>
+</html>

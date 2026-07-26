@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Live Search System</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+            LOADING SCREEN
+    ========================== -->
+
+    <div id="loader">
+
+        <div class="spinner"></div>
+
+        <h2>Loading Student Portal...</h2>
+
+    </div>
+
+    <!-- =========================
+            NAVIGATION BAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            Student Portal
+
+        </div>
+
+        <ul>
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#">Students</a></li>
+
+            <li><a href="#">Dashboard</a></li>
+
+            <li><a href="#">Contact</a></li>
+
+        </ul>
+
+        <!-- Dark Mode Button -->
+
+        <button id="themeBtn">
+
+            🌙 Dark Mode
+
+        </button>
+
+    </nav>
+
+    <!-- =========================
+                HERO
+    ========================== -->
+
+    <header>
+
+        <h1>
+
+            Student Live Search & Management System
+
+        </h1>
+
+        <p>
+
+            Search • Manage • Organize Students Easily
+
+        </p>
+
+    </header>
+
+    <!-- =========================
+            DASHBOARD
+    ========================== -->
+
+    <section class="dashboard">
+
+        <div class="box">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h2 id="totalStudents">
+
+                0
+
+            </h2>
+
+            <p>Total Students</p>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2 id="onlineStudents">
+
+                0
+
+            </h2>
+
+            <p>Online Students</p>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h2 id="favoriteStudents">
+
+                0
+
+            </h2>
+
+            <p>Favorites</p>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <h2 id="searchCount">
+
+                0
+
+            </h2>
+
+            <p>Search Results</p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+            SEARCH SECTION
+    ========================== -->
+
+    <section class="searchSection">
+
+        <input
+
+            type="text"
+
+            id="searchBox"
+
+            placeholder="Search by Name, Roll Number, Branch, Year, Email..."
+
+        >
+
+    </section>
+
+    <!-- =========================
+            FILTERS
+    ========================== -->
+
+    <section class="filters">
+
+        <select id="branchFilter">
+
+            <option value="All">
+
+                All Branches
+
+            </option>
+
+            <option>
+
+                Computer Science
+
+            </option>
+
+            <option>
+
+                Information Technology
+
+            </option>
+
+            <option>
+
+                Artificial Intelligence
+
+            </option>
+
+            <option>
+
+                Electronics
+
+            </option>
+
+            <option>
+
+                Mechanical
+
+            </option>
+
+            <option>
+
+                Civil
+
+            </option>
+
+            <option>
+
+                Electrical
+
+            </option>
+
+        </select>
+
+        <select id="yearFilter">
+
+            <option value="All">
+
+                All Years
+
+            </option>
+
+            <option>
+
+                First Year
+
+            </option>
+
+            <option>
+
+                Second Year
+
+            </option>
+
+            <option>
+
+                Third Year
+
+            </option>
+
+            <option>
+
+                Fourth Year
+
+            </option>
+
+        </select>
+
+        <select id="sortStudents">
+
+            <option value="default">
+
+                Sort Students
+
+            </option>
+
+            <option value="name">
+
+                Name (A-Z)
+
+            </option>
+
+            <option value="roll">
+
+                Roll Number
+
+            </option>
+
+            <option value="cgpa">
+
+                Highest CGPA
+
+            </option>
+
+        </select>
+
+    </section>
+
+    <!-- =========================
+            ADD STUDENT BUTTON
+    ========================== -->
+
+    <section class="addSection">
+
+        <button id="addStudentBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add Student
+
+        </button>
+
+    </section>
+
+    <!-- =========================
+            STUDENT CARDS
+    ========================== -->
+
+    <main id="studentContainer">
+
+        <!-- JavaScript will generate cards here -->
+
+    </main>
+
+    <!-- =========================
+            ADD STUDENT MODAL
+    ========================== -->
+
+    <div id="studentModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+
+            <h2>Add Student</h2>
+
+            <form id="studentForm">
+
+                <input type="text" placeholder="Full Name" id="name">
+
+                <input type="text" placeholder="Roll Number" id="roll">
+
+                <input type="text" placeholder="Branch" id="branch">
+
+                <input type="text" placeholder="Year" id="year">
+
+                <input type="number" placeholder="CGPA" id="cgpa">
+
+                <input type="email" placeholder="Email" id="email">
+
+                <input type="text" placeholder="Phone Number" id="phone">
+
+                <input type="text" placeholder="Image URL" id="image">
+
+                <button type="submit">
+
+                    Save Student
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+            TOAST MESSAGE
+    ========================== -->
+
+    <div id="toast">
+
+        Student Added Successfully
+
+    </div>
+
+    <!-- =========================
+            FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+
+            Student Live Search System
+
+        </h3>
+
+        <p>
+
+            Developed using HTML • CSS • JavaScript
+
+        </p>
+
+        <p>
+
+            © 2026 All Rights Reserved
+
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

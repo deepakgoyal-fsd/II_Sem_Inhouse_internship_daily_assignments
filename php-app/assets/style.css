@@ -1,0 +1,50 @@
+/* Global Hackathon 2026 — custom styles */
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f5f7fa;
+  color: #222;
+}
+
+.hero-section {
+  min-height: 90vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 4rem 1rem;
+}
+
+.cd-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  backdrop-filter: blur(6px);
+}
+.cd-box span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffc107;
+  line-height: 1;
+}
+.cd-box small {
+  display: block;
+  margin-top: .25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .75rem;
+  color: #ddd;
+}
+
+.seat-panel {
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.card { border: none; border-radius: 14px; }
+
+@media (max-width: 576px) {
+  .cd-box span { font-size: 1.75rem; }
+}

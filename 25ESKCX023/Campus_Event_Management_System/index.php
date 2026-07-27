@@ -1294,7 +1294,7 @@ Connecting Students Through Innovation, Culture & Sports
 
 <p>
 
-Developed by <b>Akansha Sharma</b>
+Developed by <b>Bhavika Sharma</b>
 
 </p>
 

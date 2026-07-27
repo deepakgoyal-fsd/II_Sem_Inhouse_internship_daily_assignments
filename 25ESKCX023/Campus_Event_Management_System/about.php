@@ -210,7 +210,7 @@ departments actively participate and showcase their talents.
 
 <footer>
 
-<p>&copy; 2026 SKIT Campus Event Management System | Developed by Akansha Sharma</p>
+<p>&copy; 2026 SKIT Campus Event Management System | Developed by Bhavika Sharma</p>
 
 </footer>
 

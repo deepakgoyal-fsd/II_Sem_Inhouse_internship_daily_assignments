@@ -205,7 +205,7 @@ For any event-related queries, registration issues, or technical support, feel f
 
 <footer>
 
-<p>© 2026 SKIT Campus Event Management System | Developed by Akansha Sharma</p>
+<p>© 2026 SKIT Campus Event Management System | Developed by Bhavika Sharma</p>
 
 </footer>
 

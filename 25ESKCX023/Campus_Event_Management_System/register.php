@@ -1,5 +1,5 @@
 <?php
-include("includes/db_connect.php");
+include("includes/db.php");
 
 if(isset($_POST['submit']))
 {
@@ -44,7 +44,7 @@ if(isset($_POST['submit']))
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:url("images/skit.jpg") no-repeat center center;
+    background:url("images/skit.jpeg") no-repeat center center;
     background-size:cover;
 }
 

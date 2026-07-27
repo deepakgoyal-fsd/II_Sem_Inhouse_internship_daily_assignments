@@ -40,7 +40,7 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:url("images/skit.jpg") no-repeat center center/cover;
+background:url("images/skit.jpeg") no-repeat center center/cover;
 height:100vh;
 display:flex;
 justify-content:center;

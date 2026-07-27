@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration Form</title>
+    
+</head>
+<body>
+    <div class="login"> 
+        <h2><b>Registration Form</b></h2>
+    <form>
+        <lable>Name:</lable>
+        <input type="text" placeholder="Enter Name" name="name" required><br><br>
+
+        <lable>Email:</lable>
+        <input type="email" placeholder="Enter Email" name="email" required><br><br>
+
+        <lable>Phone No:</lable>
+        <input type="tel" placeholder="Enter Phone No" name="phone no" pattern="[0-9]{10}" required><br><br>
+
+        <lable>Gender:</lable>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+        
+        <input type="radio" id="other" name="gender" value="other" required>
+        <label for="other">Other</label><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="branch">Branch:</label>
+        <select id="branch">
+            <option value="">Select Branch</option>
+            <option value="CS">CS</option>
+            <option value="EE">Electrical</option>
+            <option value="ECE">ECE</option>
+            <option value="ME">Mechanical</option>
+            <option value="Civil">Civil</option>
+            <option value="IT">IT</option>
+        </select><br></br>
+
+        <label for="file">Choose File:</label>
+        <input type="file" placeholder="browse file" required><br><br>
+
+        <label for="about">About You:</label>
+        <textarea id="about" name="about" rows="5" cols="40" placeholder="Write about yourself...."></textarea><br><br>
+        
+        <button type="submit">Submit</button><br><br>
+    </form>
+   
+</div>
+</body>
+</html>

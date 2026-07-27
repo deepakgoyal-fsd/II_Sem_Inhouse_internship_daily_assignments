@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 18%),
+                        radial-gradient(circle at bottom right, rgba(47, 94, 137, 0.2), transparent 20%),
+                        linear-gradient(180deg, #13243e 0%, #0d1a28 100%);
+            color: #f4f7fb;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 18px 28px;
+            border-radius: 18px;
+            background: rgba(10, 20, 36, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #fff;
+        }
+
+        .main a {
+            color: rgba(255, 255, 255, 0.88);
+            margin-left: 26px;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .main a:hover {
+            color: #8cd7ff;
+        }
+
+        #toggleBtn {
+            margin-left: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+            padding: 10px 18px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.08);
+            color: #eef4fb;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        #toggleBtn:hover {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .container {
+            width: min(100%, 540px);
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 34px 36px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(10px);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 2rem;
+            letter-spacing: 0.04em;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-top: 18px;
+            color: #d9e4f5;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        select,
+        textarea,
+        input[type=file] {
+            width: 100%;
+            padding: 14px 16px;
+            margin-top: 8px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: #eef4fb;
+            outline: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        input[type=text]::placeholder,
+        input[type=email]::placeholder,
+        input[type=password]::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.52);
+        }
+
+        input[type=text]:focus,
+        input[type=email]:focus,
+        input[type=password]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #5fb8ff;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .gender,
+        .skills {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            color: #eef4fb;
+        }
+
+        .gender label,
+        .skills label {
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gender input,
+        .skills input {
+            margin: 0;
+        }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: space-between;
+            margin-top: 28px;
+        }
+
+        .btns button {
+            flex: 1 1 48%;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #4ca8ff, #1f67d0);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btns button[type="reset"] {
+            background: rgba(255, 255, 255, 0.12);
+            color: #dbe8ff;
+        }
+
+        .btns button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(34, 106, 178, 0.25);
+        }
+
+        .error {
+            display: block;
+            margin-top: 6px;
+            color: #ff8989;
+            font-size: 0.9rem;
+            min-height: 18px;
+        }
+
+        .counter {
+            margin-top: 26px;
+            text-align: center;
+            font-size: 1rem;
+            color: #dde8ff;
+        }
+
+        .counter span {
+            display: inline-flex;
+            min-width: 48px;
+            justify-content: center;
+            padding: 6px 10px;
+            margin-left: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .main {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .container {
+                padding: 28px 22px;
+            }
+
+            .btns {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <nav>
+        <div class="logo">My Website</div>
+        <div class="main">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+
+            <button id="toggleBtn">Dark</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="myForm">
+
+            <label>Name</label>
+            <input type="text" id="name">
+            <small class="error" id="nameError"></small>
+
+            <label>Email</label>
+            <input type="email" id="email">
+            <small class="error" id="emailError"></small>
+
+            <label>Password</label>
+            <input type="password" id="password">
+            <small class="error" id="passwordError"></small>
+            
+            <label>Gender</label>
+            <div class="gender">
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+            </div>
+            <small class="error" id="genderError"></small>
+            
+            <label>Select Course</label>
+            <select id="course">
+                <option value="">--Select Course</option>
+                <option>BTech CSE</option>
+                <option>BTech IT</option>
+                <option>BTech DS</option>
+                <option>BTech AI</option>
+            </select>
+            <small class="error" id="courseError"></small>
+            
+            <label>Skills</label>
+            <div class="skills">
+                <input type="checkbox" class="skill">HTML <br>
+                <input type="checkbox" class="skill">CSS <br>
+                <input type="checkbox" class="skill">JavaScript <br>
+                <input type="checkbox" class="skill">PHP <br>
+            </div>
+            <small class="error" id="skillError"></small>
+            
+            <label>Upload Resume</label>
+            <input type="file" id="resume">
+            <small class="error" id="resumeError"></small>    
+            
+            <label>About Yourself</label>
+            <textarea id="about" placeholder="Write something about yourself"></textarea>  
+            <small class="error" id="aboutError"></small>
+
+            <div class="btns">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+            
+            <div class="counter">
+                Submit Count
+                <span id="count">0</span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let submitCount = 0;
+        document.getElementById("myForm").addEventListener("submit", function(event){
+            event.preventDefault();
+            submitCount++;
+            document.getElementById("count").innerHTML = submitCount;
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let course = document.getElementById("course").value;
+            let skills = document.querySelectorAll(".skill:checked");
+            let resume = document.getElementById("resume").value;
+            let about = document.getElementById("about").value.trim();
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("genderError").innerHTML = "";
+            document.getElementById("courseError").innerHTML = "";
+            document.getElementById("skillError").innerHTML = "";
+            document.getElementById("resumeError").innerHTML = "";
+            document.getElementById("aboutError").innerHTML = "";
+
+            let valid = true;
+            if(name == ""){
+                document.getElementById("nameError").innerHTML = "Name is required";
+                valid = false;
+            }
+            if(email == ""){
+                document.getElementById("emailError").innerHTML = "Email is required";
+                valid = false;
+            }
+            if(password == ""){
+                document.getElementById("passwordError").innerHTML = "Password is required";
+                valid = false;
+            }
+            if(!gender){
+                document.getElementById("genderError").innerHTML = "Select your gender";
+                valid = false;
+            }
+            if(course == ""){
+                document.getElementById("courseError").innerHTML = "Select a course";
+                valid = false;
+            }
+            if(skills.length == 0){
+                document.getElementById("skillError").innerHTML = "Select at least one skill";
+                valid = false;
+            }
+            if(resume == ""){
+                document.getElementById("resumeError").innerHTML = "Upload your resume";
+                valid = false;
+            }
+            if(about == ""){
+                document.getElementById("aboutError").innerHTML = "About yourself is required"
+            }
+            if(valid){
+                alert("Form submitted Successfully!");
+            }
+
+        });
+
+        let dark = false;
+        document.getElementById("toggleBtn").addEventListener("click", function(){
+            if(!dark){
+                document.body.style.background = "darkgrey"; 
+                document.querySelector(".container").style.background = "black";
+                document.querySelector(".container").style.color = "white";
+                this.innerHTML = "light";
+                dark = true;
+            }else{
+                document.body.style.background = "burlywood"; 
+                document.querySelector(".container").style.background = "white";
+                document.querySelector(".container").style.color = "black";
+                this.innerHTML = "Dark";
+                dark = false;
+            }
+        });
+    </script>
+</body>
+</html>

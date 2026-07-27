@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f7ff;
+    color: #0f172a;
+    padding: 30px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .directory-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #475569;
+    margin-bottom: 30px;
+    font-size: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 2px solid #94a3b8;
+  }
+
+  .card h4 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+  }
+
+  .card p.meta {
+    margin: 0 0 14px;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .btn-details {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-details:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+  }
+
+  .btn-details.active {
+    background: #16a34a;
+  }
+
+  .details {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #cbd5e1;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #334155;
+  }
+
+  .details span {
+    font-weight: bold;
+    color: #0f172a;
+  }
+
+  body.dark-mode {
+    background-color: #0f172a;
+    color: #e2e8f0;
+  }
+
+  #darkModeBtn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #111827;
+    color: #ffffff;
+  }
+
+  body.dark-mode #darkModeBtn {
+    background-color: #e2e8f0;
+    color: #111827;
+  }
+
+  body.dark-mode .card {
+    background: #1e293b;
+    border-color: #334155;
+    color: #e2e8f0;
+  }
+
+  body.dark-mode .card p.meta {
+    color: #cbd5e1;
+  }
+
+  body.dark-mode .details {
+    color: #cbd5e1;
+    border-top-color: #334155;
+  }
+
+  body.dark-mode .details span {
+    color: #f8fafc;
+  }
+</style>
+</head>
+<body>
+
+<div class="directory-container">
+  <button id="darkModeBtn">Dark</button>
+  <h1>Student Directory</h1>
+  <p class="subtitle">A simple list of students with quick details.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      
+     <img src="woman (1).png" title="people stickers" alt="Student photo">
+      <h4>Aisha</h4>
+      <p class="meta">Computer Science</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span>aisha@gmail.com</p>
+        <p><span>CGPA:</span>8.0</p>
+        <p><span>Clubs:</span>Chess Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="man (1).png" title="people stickers" alt="Student photo">
+      <h4>Rohit</h4>
+      <p class="meta">Mechanical Engineering</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span>rohit@gmail.com</p>
+        <p><span>CGPA:</span>8.5</p>
+        <p><span>Clubs:</span>Tennis Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="woman (2).png" title="people stickers" alt="Student photo">
+      <h4>Priya</h4>
+      <p class="meta">AI/ML Enthusiast</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span>priya@gmail.com</p>
+        <p><span>CGPA:</span>7.9</p>
+        <p><span>Clubs:</span>Photography Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="man (2).png" title="people stickers" alt="Student photo">
+      <h4>Kunal</h4>
+      <p class="meta">Full Stack Enthusiast</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span>kunal@gmail.com</p>
+        <p><span>CGPA:</span>8.2</p>
+        <p><span>Clubs:</span>Web Development Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="woman.png" title="people stickers" alt="Student photo">
+      <h4>Nisha</h4>
+      <p class="meta">Electrical Engineering</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span>nisha@gmail.com</p>
+        <p><span>CGPA:</span>7.6</p>
+        <p><span>Clubs:</span>Drama Club</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="man.png" title="people stickers" alt="Student photo">
+      <h4>Aarav</h4>
+      <p class="meta">Computer Science</p>
+      <button class="btn-details">Show Details</button>
+      <div class="details">
+        <p><span>Email:</span>aarav@gmail.com</p>
+        <p><span>CGPA:</span>8.0</p>
+        <p><span>Clubs:</span>Chess Club</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("darkModeBtn");
+
+  btn.addEventListener("click",() => {
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+      btn.textContent ="Light";
+    }else{
+      btn.textContent ="Dark";
+    }
+  });
+
+$(document).ready(function () {
+
+  $(".directory-container").hide().fadeIn(800);
+
+  $(".btn-details").click(function () {
+    var $btn = $(this);
+    var $details = $btn.closest(".card").find(".details");
+
+    $details.slideToggle(300, function () {
+      if ($details.is(":visible")) {
+        $btn.text("Hide Details").addClass("active");
+      } else {
+        $btn.text("Show Details").removeClass("active");
+      }
+    });
+  });
+
+});
+</script>
+
+</body>
+</html>

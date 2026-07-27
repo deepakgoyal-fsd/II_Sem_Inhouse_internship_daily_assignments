@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin']))
 
 include("../includes/db.php");
 
-$id = $_GET['id'];
+$id = (int)$_GET['id'];
 
 $result = mysqli_query($conn,"SELECT * FROM events WHERE id='$id'");
 $row = mysqli_fetch_assoc($result);

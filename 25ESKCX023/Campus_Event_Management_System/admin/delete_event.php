@@ -11,7 +11,7 @@ include("../includes/db.php");
 
 if(isset($_GET['id']))
 {
-    $id = $_GET['id'];
+    $id = (int)$_GET['id'];
 
     // Get image name
     $query = mysqli_query($conn,"SELECT image FROM events WHERE id='$id'");

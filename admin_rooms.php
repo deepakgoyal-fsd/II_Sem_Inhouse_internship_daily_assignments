@@ -4,12 +4,33 @@ if (($_SESSION['user_role'] ?? '') !== 'admin') { header('Location: login.php');
 
 function rooms_redirect(): void { header('Location: admin_rooms.php'); exit; }
 function save_room_images(mysqli $conn, int $roomId): void {
-    $delete = array_map('intval', $_POST['delete_image'] ?? []);
-    if ($delete) { $placeholders = implode(',', array_fill(0, count($delete), '?')); $types = 'i' . str_repeat('i', count($delete)); $values = array_merge([$roomId], $delete); $q = $conn->prepare("SELECT id,image_path FROM room_images WHERE room_id=? AND id IN ($placeholders)"); $q->bind_param($types, ...$values); $q->execute(); $files=$q->get_result(); while($f=$files->fetch_assoc()){ $absolute=__DIR__.'/'.$f['image_path']; if(is_file($absolute)) unlink($absolute); } $q=$conn->prepare("DELETE FROM room_images WHERE room_id=? AND id IN ($placeholders)"); $q->bind_param($types, ...$values); $q->execute(); }
+    $delete = array_values(array_filter(array_map('intval', $_POST['delete_image'] ?? [])));
+    $coverRemoved = false;
+    if ($delete) {
+        $placeholders = implode(',', array_fill(0, count($delete), '?'));
+        $types = 'i' . str_repeat('i', count($delete));
+        $values = array_merge([$roomId], $delete);
+        $cover = $conn->query("SELECT id FROM room_images WHERE room_id=$roomId ORDER BY sort_order,id LIMIT 1")->fetch_assoc();
+        $coverRemoved = $cover && in_array((int)$cover['id'], $delete, true);
+        $q = $conn->prepare("SELECT id,image_path FROM room_images WHERE room_id=? AND id IN ($placeholders)");
+        $q->bind_param($types, ...$values); $q->execute(); $files=$q->get_result();
+        while($f=$files->fetch_assoc()){ $absolute=__DIR__.'/'.$f['image_path']; if(is_file($absolute)) unlink($absolute); }
+        $q=$conn->prepare("DELETE FROM room_images WHERE room_id=? AND id IN ($placeholders)"); $q->bind_param($types, ...$values); $q->execute();
+    }
+    $uploads=$_FILES['room_images']??$_FILES['images']??null;
+    $selected=$uploads ? count(array_filter($uploads['name']??[])) : 0;
     $count=(int)$conn->query("SELECT COUNT(*) c FROM room_images WHERE room_id=$roomId")->fetch_assoc()['c'];
-    $uploads=$_FILES['room_images']??$_FILES['images']??null; $selected=$uploads ? count(array_filter($uploads['name']??[])) : 0;
     if ($count + $selected > 3) throw new Exception('A room can have a maximum of 3 images.');
-    if (!$uploads) return;
+
+    if ($coverRemoved && $selected) {
+        $q=$conn->prepare('UPDATE room_images SET sort_order=sort_order+? WHERE room_id=?'); $q->bind_param('ii',$selected,$roomId); $q->execute();
+        $count = 0;
+    } else {
+        $images=$conn->query("SELECT id FROM room_images WHERE room_id=$roomId ORDER BY sort_order,id"); $order=0;
+        while($image=$images->fetch_assoc()){ $order++; $q=$conn->prepare('UPDATE room_images SET sort_order=? WHERE id=?'); $q->bind_param('ii',$order,$image['id']); $q->execute(); }
+        $count=$order;
+    }
+    if (!$uploads || !$selected) return;
     $directory=__DIR__.'/uploads/rooms'; if(!is_dir($directory) && !mkdir($directory,0755,true) && !is_dir($directory)) throw new Exception('Could not create the room image directory.');
     foreach($uploads['name'] as $index=>$name){ if($name==='') continue; if($uploads['error'][$index]!==UPLOAD_ERR_OK) throw new Exception('One of the room images could not be uploaded.'); if($uploads['size'][$index]>5*1024*1024) throw new Exception('Each room image must be smaller than 5 MB.'); $ext=strtolower(pathinfo($name,PATHINFO_EXTENSION)); if(!in_array($ext,['jpg','jpeg','png','webp'],true)) throw new Exception('Use only JPG, JPEG, PNG, or WEBP room images.'); $path='uploads/rooms/room_'.$roomId.'_'.bin2hex(random_bytes(8)).'.'.$ext; if(!move_uploaded_file($uploads['tmp_name'][$index],__DIR__.'/'.$path)) throw new Exception('Could not save a room image.'); $order=++$count; $q=$conn->prepare('INSERT INTO room_images (room_id,image_path,sort_order) VALUES (?,?,?)');$q->bind_param('isi',$roomId,$path,$order);$q->execute(); }
 }

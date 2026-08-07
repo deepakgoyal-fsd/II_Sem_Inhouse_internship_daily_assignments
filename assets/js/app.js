@@ -6,9 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('hostel-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
   }));
   document.querySelectorAll('[data-confirm]').forEach(el => el.addEventListener('click', (event) => {
-    event.preventDefault(); const go = () => window.location.assign(el.href);
-    if (window.Swal) Swal.fire({title: 'Are you sure?', text: el.dataset.confirm, icon: 'warning', showCancelButton: true, confirmButtonColor: '#10B981', cancelButtonColor: '#475569', confirmButtonText: 'Yes, continue'}).then(r => r.isConfirmed && go());
-    else if (confirm(el.dataset.confirm)) go();
+    event.preventDefault();
+    const form = el.closest('form');
+    const continueAction = () => {
+      // Confirmation controls are either form submissions or links.  Check the
+      // element type explicitly so a button can never be treated as a link with
+      // an undefined target.
+      if (form instanceof HTMLFormElement) form.submit();
+      else if (el instanceof HTMLAnchorElement && el.href) window.location.assign(el.href);
+    };
+    if (window.Swal) Swal.fire({title: 'Are you sure?', text: el.dataset.confirm, icon: 'warning', showCancelButton: true, confirmButtonColor: '#10B981', cancelButtonColor: '#475569', confirmButtonText: 'Yes, continue'}).then(result => { if (result.isConfirmed) continueAction(); });
+    else if (confirm(el.dataset.confirm)) continueAction();
   }));
   const search = document.querySelector('[data-room-search]');
   if (search) search.addEventListener('input', () => document.querySelectorAll('[data-room]').forEach(card => card.hidden = !card.dataset.room.includes(search.value.toLowerCase())));

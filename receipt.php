@@ -57,14 +57,14 @@ if (!$data || ($_SESSION['user_role'] !== 'admin' && $data['user_id'] != $_SESSI
         .amount-box { background: #f1f5f9; padding: 18px; border-radius: 8px; text-align: right; font-size: 1.3rem; font-weight: 800; border: 1px solid #cbd5e1; margin-bottom: 40px; color: #1e1b4b; }
         
       
-        .signature-container { display: flex; justify-content: space-between; margin-top: 50px; padding: 0 10px; }
-        .sig-block { width: 45%; display: flex; flex-direction: column; }
-        .sig-block.left { align-items: flex-start; text-align: left; }
-        .sig-block.right { align-items: flex-end; text-align: right; }
+        .signature-container { display: grid; grid-template-columns: minmax(0, 45%) minmax(0, 45%); grid-template-rows: auto auto; justify-content: space-between; align-items: flex-start; margin-top: 50px; padding: 0 10px; }
         
         .student-name-display { margin: 0 0 10px 0; font-size: 1.1rem; font-weight: 700; color: #1e293b; font-family: 'Courier New', Courier, monospace; font-style: italic; min-height: 50px; display: flex; align-items: flex-end; }
         .sig-image { height: 50px; max-width: 180px; object-fit: contain; margin-bottom: 10px; display: block; }
         .sig-line { width: 100%; border-top: 1px solid #0f172a; padding-top: 8px; font-size: 0.9rem; font-weight: 700; color: #334155; }
+        .signature-placeholder { min-height: 60px; }
+        .student-signature-line { text-align: left; }
+        .incharge-signature-line { text-align: right; }
 
         .print-btn-area { text-align: center; margin-bottom: 20px; }
         .btn-print { background: #10B981; color: #06281F; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.22); }
@@ -153,17 +153,10 @@ if (!$data || ($_SESSION['user_role'] !== 'admin' && $data['user_id'] != $_SESSI
      
         <div style="display:flex;align-items:center;gap:14px;padding:12px;background:#f8fafc;border-radius:10px;margin-bottom:20px;color:#475569;font-size:.8rem;"><div id="qrCode" style="width:70px;height:70px;background:white;padding:4px;"></div><div><strong>Digital verification</strong><br>Scan to verify receipt reference KBH-<?=date('Y', strtotime($data['created_at']))?>-<?=str_pad($data['id'], 5, '0', STR_PAD_LEFT)?>.</div></div>
         <div class="signature-container">
-          
-            <div class="sig-block left">
-                <div class="student-name-display"><?php echo htmlspecialchars($data['name']); ?></div>
-                <div class="sig-line">Student Name & Signature</div>
-            </div>
-            
-            
-            <div class="sig-block right">
-                <img src="images/incharge_sig_2.png" class="sig-image" alt="Incharge Signature" onerror="this.src='https://placehold.co/150x50?text=AUTHORIZED+SIGNATURE'">
-                <div class="sig-line">Hostel Incharge Signature</div>
-            </div>
+            <div class="student-name-display"><?php echo htmlspecialchars($data['name']); ?></div>
+            <div class="signature-placeholder" aria-hidden="true"></div>
+            <div class="sig-line student-signature-line">Student Name & Signature</div>
+            <div class="sig-line incharge-signature-line">Hostel Incharge Signature</div>
         </div>
 
         <div class="footer" style="text-align: center; margin-top: 50px; font-size: 0.8rem; color: #64748b;">

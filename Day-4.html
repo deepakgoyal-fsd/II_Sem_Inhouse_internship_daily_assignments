@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Registration Form</title>
+
+    <style>
+        body {
+            border: 13px solid rgb(5, 115, 118);
+            padding: 20px;
+            margin: 20px;
+            background-color: rgb(11, 215, 202);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: 0.4s;
+        }
+
+        h2 {
+            color: #003333;
+        }
+
+        form {
+            width: 450px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        input, select, textarea {
+            width: 90%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            margin-top: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+        }
+
+        input[type="submit"] {
+            width: 120px;
+            background-color: teal;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkcyan;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            padding: 10px 18px;
+            font-size: 15px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: #222;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* DARK MODE */
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+            border-color: #00e5ff;
+        }
+
+        body.dark-mode h2 {
+            color: #00e5ff;
+        }
+
+        body.dark-mode form {
+            background: rgba(255,255,255,0.08);
+        }
+
+        body.dark-mode input,
+        body.dark-mode select,
+        body.dark-mode textarea {
+            background-color: #2b2b2b;
+            color: white;
+            border: 1px solid #00e5ff;
+        }
+
+        body.dark-mode input::placeholder,
+        body.dark-mode textarea::placeholder {
+            color: #cccccc;
+        }
+
+        body.dark-mode .toggle-btn {
+            background: white;
+            color: black;
+        }
+
+        body.dark-mode input[type="submit"] {
+            background: #00bcd4;
+            color: black;
+        }
+
+        body.dark-mode input[type="submit"]:hover {
+            background: #00e5ff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+
+    <h2>College Registration Form</h2>
+
+    <form>
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        <br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required>
+        <br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="number" id="phone" name="phone" placeholder="Enter your phone number" required>
+        <br><br>
+
+        <label>Gender:</label><br>
+
+        <input type="radio" id="male" name="Gender" value="male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="Gender" value="female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="Gender" value="other">
+        <label for="other">Other</label>
+
+        <br><br>
+
+        <label for="course">Course:</label><br>
+
+        <select id="course" name="course" required>
+            <option value="">Select</option>
+            <option value="b.tech">B.Tech</option>
+            <option value="bsc">B.Sc</option>
+            <option value="bcom">B.Com</option>
+            <option value="ba">B.A</option>
+        </select>
+
+        <br><br>
+
+        <label for="address">Address:</label><br>
+
+        <textarea id="address" rows="4" placeholder="Enter your address"></textarea>
+
+        <br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+
+            let btn = document.querySelector(".toggle-btn");
+
+            if (document.body.classList.contains("dark-mode")) {
+                btn.innerHTML = "☀️ Light Mode";
+            } else {
+                btn.innerHTML = "🌙 Dark Mode";
+            }
+        }
+    </script>
+
+</body>
+</html>

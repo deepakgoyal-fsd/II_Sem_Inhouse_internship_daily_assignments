@@ -1,0 +1,15 @@
+body{
+background:#f8f9fa;
+}
+
+.hero{
+background:#6f42c1;
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+.card img{
+height:250px;
+object-fit:cover;
+}

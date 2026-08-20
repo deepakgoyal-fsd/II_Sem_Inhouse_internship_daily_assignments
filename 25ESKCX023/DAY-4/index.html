@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Admission Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+        <h2>EduPortal</h2>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#form">Admission</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button id="themeBtn">🌙 Dark Mode</button>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>College Admission Portal</h1>
+
+            <p>
+                Begin your academic journey with us.
+                Fill in the admission form below and
+                become a part of our learning community.
+            </p>
+
+            <button id="clickBtn">Click Me</button>
+
+            <button id="resetBtn">Reset</button>
+
+            <h3>Total Clicks :
+                <span id="count">0</span>
+            </h3>
+
+        </div>
+
+    </section>
+
+
+    <!-- Admission Form -->
+
+    <section class="form-section" id="form">
+
+        <div class="container">
+
+            <h2>Admission Form</h2>
+
+            <form id="admissionForm">
+
+                <div class="input-box">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required>
+
+                    <small id="nameError"></small>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required>
+
+                    <small id="emailError"></small>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Date of Birth</label>
+
+                    <input
+                        type="date"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Gender</label>
+
+                    <select required>
+
+                        <option value="">Select</option>
+
+                        <option>Male</option>
+
+                        <option>Female</option>
+
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Course</label>
+
+                    <select required>
+
+                        <option value="">Choose Course</option>
+
+                        <option>B.Tech</option>
+
+                        <option>BCA</option>
+
+                        <option>B.Sc</option>
+
+                        <option>B.Com</option>
+
+                        <option>BA</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-box full">
+
+                    <label>Address</label>
+
+                    <textarea
+                        rows="4"
+                        placeholder="Enter your address"></textarea>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Upload Marksheet</label>
+
+                    <input
+                        type="file">
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Percentage</label>
+
+                    <input
+                        type="number"
+                        placeholder="Enter percentage">
+                </div>
+
+                <button class="submit-btn">
+                    Submit Application
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section id="about">
+
+        <h2>Why Choose Us?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Experienced Faculty</h3>
+                <p>Learn from highly qualified teachers.</p>
+            </div>
+
+            <div class="card">
+                <h3>Modern Campus</h3>
+                <p>Smart classrooms and digital labs.</p>
+            </div>
+
+            <div class="card">
+                <h3>Placement Support</h3>
+                <p>Strong career guidance and internships.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer id="contact">
+
+        <p>
+            © 2026 EduPortal |
+            Email : admission@eduportal.com
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

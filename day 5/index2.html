@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Duel - 2 Player Game</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+canvas{
+background:#222;
+border:5px solid cyan;
+box-shadow:0 0 25px cyan;
+}
+
+#winner{
+position:absolute;
+top:20px;
+font-size:40px;
+color:gold;
+font-weight:bold;
+}
+
+#info{
+position:absolute;
+bottom:20px;
+color:white;
+text-align:center;
+font-size:18px;
+}
+</style>
+
+</head>
+<body>
+
+
+<div id="winner"></div>
+
+<canvas id="game" width="1000" height="600"></canvas>
+
+<div id="info">
+Player 1: WASD Move | F Attack<br>
+Player 2: Arrow Keys Move | L Attack
+</div>
+
+<script>
+
+const canvas=document.getElementById("game");
+const ctx=canvas.getContext("2d");
+
+const winner=document.getElementById("winner");
+
+const keys={};
+
+document.addEventListener("keydown",e=>keys[e.key]=true);
+document.addEventListener("keyup",e=>keys[e.key]=false);
+
+const p1={
+x:100,
+y:250,
+size:40,
+color:"cyan",
+hp:100
+};
+
+const p2={
+x:860,
+y:250,
+size:40,
+color:"red",
+hp:100
+};
+
+function drawPlayer(p){
+
+ctx.fillStyle=p.color;
+
+ctx.shadowColor=p.color;
+ctx.shadowBlur=20;
+
+ctx.fillRect(p.x,p.y,p.size,p.size);
+
+ctx.shadowBlur=0;
+
+}
+
+function healthBars(){
+
+ctx.fillStyle="white";
+ctx.fillText("P1",30,30);
+
+ctx.fillStyle="gray";
+ctx.fillRect(60,15,200,20);
+
+ctx.fillStyle="lime";
+ctx.fillRect(60,15,p1.hp*2,20);
+
+ctx.fillStyle="white";
+ctx.fillText("P2",760,30);
+
+ctx.fillStyle="gray";
+ctx.fillRect(790,15,200,20);
+
+ctx.fillStyle="lime";
+ctx.fillRect(790,15,p2.hp*2,20);
+
+}
+
+function move(){
+
+if(keys["w"]) p1.y-=5;
+if(keys["s"]) p1.y+=5;
+if(keys["a"]) p1.x-=5;
+if(keys["d"]) p1.x+=5;
+
+if(keys["ArrowUp"]) p2.y-=5;
+if(keys["ArrowDown"]) p2.y+=5;
+if(keys["ArrowLeft"]) p2.x-=5;
+if(keys["ArrowRight"]) p2.x+=5;
+
+}
+
+function distance(){
+
+let dx=p1.x-p2.x;
+let dy=p1.y-p2.y;
+
+return Math.sqrt(dx*dx+dy*dy);
+
+}
+
+let cooldown1=0;
+let cooldown2=0;
+
+function attack(){
+
+if(cooldown1>0) cooldown1--;
+if(cooldown2>0) cooldown2--;
+
+if(keys["f"] && cooldown1==0){
+
+if(distance()<70){
+
+p2.hp-=10;
+
+}
+
+cooldown1=25;
+
+}
+
+if(keys["l"] && cooldown2==0){
+
+if(distance()<70){
+
+p1.hp-=10;
+
+}
+
+cooldown2=25;
+
+}
+
+}
+
+function border(p){
+
+if(p.x<0)p.x=0;
+if(p.y<0)p.y=0;
+if(p.x>canvas.width-p.size)p.x=canvas.width-p.size;
+if(p.y>canvas.height-p.size)p.y=canvas.height-p.size;
+
+}
+
+function game(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+move();
+
+attack();
+
+border(p1);
+border(p2);
+
+drawPlayer(p1);
+drawPlayer(p2);
+
+healthBars();
+
+if(p1.hp<=0){
+
+winner.innerHTML="🏆 Player 2 Wins!";
+return;
+
+}
+
+if(p2.hp<=0){
+
+winner.innerHTML="🏆 Player 1 Wins!";
+return;
+
+}
+
+requestAnimationFrame(game);
+
+}
+
+game();
+
+</script>
+
+</body>
+</html>

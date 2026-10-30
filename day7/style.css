@@ -1,0 +1,176 @@
+/* Registration Form — Purple & Grey Theme */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --purple-deep: #4c1d95;
+  --purple-main: #7c3aed;
+  --purple-soft: #a78bfa;
+  --purple-glow: rgba(124, 58, 237, 0.25);
+  --grey-50: #f9fafb;
+  --grey-100: #f3f4f6;
+  --grey-200: #e5e7eb;
+  --grey-400: #9ca3af;
+  --grey-600: #4b5563;
+  --grey-800: #1f2937;
+  --white: #ffffff;
+  --radius: 12px;
+  --shadow: 0 20px 50px rgba(76, 29, 149, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  color: var(--grey-800);
+  background:
+    radial-gradient(circle at top left, rgba(167, 139, 250, 0.35), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(156, 163, 175, 0.4), transparent 40%),
+    linear-gradient(160deg, var(--grey-100) 0%, #ede9fe 45%, var(--grey-200) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--purple-deep) !important;
+  font-style: normal !important;
+  text-shadow: 0 2px 12px rgba(124, 58, 237, 0.15);
+}
+
+p {
+  margin: 0 0 2rem;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  font-family: "Poppins", sans-serif !important;
+  text-align: center;
+  color: var(--grey-600) !important;
+}
+
+form {
+  width: 100%;
+  max-width: 460px;
+  padding: 2.25rem 2rem 2rem;
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-top: 5px solid var(--purple-main);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+form > label {
+  display: block;
+  margin-bottom: 1.15rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--grey-800);
+}
+
+form > label:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  margin-top: 0.45rem;
+  padding: 0.72rem 0.95rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--grey-800);
+  background: var(--grey-50);
+  border: 2px solid var(--grey-200);
+  border-radius: 8px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background: var(--white);
+  border-color: var(--purple-main);
+  box-shadow: 0 0 0 4px var(--purple-glow);
+}
+
+input::placeholder {
+  color: var(--grey-400);
+}
+
+input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.35rem 0 0.85rem;
+  accent-color: var(--purple-main);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+form > label label {
+  display: inline;
+  margin-right: 0.75rem;
+  font-weight: 500;
+  color: var(--grey-600);
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple-main));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.3);
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.38);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+br {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  form {
+    padding: 1.75rem 1.25rem;
+  }
+
+  h1 {
+    letter-spacing: 0.06em;
+  }
+}

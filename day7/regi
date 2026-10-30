@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="CSS/style.css"/>
+</head>
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <p>Submit the form to register your account</p>
+    <form action="registration.php" method="post" class="form">
+        <label>
+            Name :
+            <input type="text" name="textName" id="textName" required placeholder="Enter your name"/>
+        </label>
+        <br>
+        <label>
+            Email :
+            <input type="email" id="txtMail" name="txtMail" required placeholder="Enter your email"/>
+        </label>
+        <label>
+            Phone No. :
+            <input type="number" id="txtPhone" name="txtPhone" required placeholder="Enter your number" maxlength="10"/>
+        </label>
+        <br>
+        <label> Gender:
+            <input type="radio" id="check-male" name="gender" value="male"/>
+            <label for="check-male">Male</label>
+            <input type="radio" id="check-female" name="gender" value="female"/>
+            <label for="check-female">Female</label>
+        </label>
+        <br>
+        <label for="dtDOB"> D.O.B :
+            <input type="date" name="dtDOB" id="dtDOB"/>
+        </label>
+        <br>
+        <label for="password">Password :
+            <input type="password" name="pwdPassword" id="pwdPassword" required placeholder="password required" minlength="8" maxlength="16"/>
+        </label>
+        <br>
+        <label for="confirmPassword">Confirm Password :
+            <input type="password" name="pwdConfirmPassword" id="pwdConfirmPassword" required placeholder="confirm password required" minlength="8" maxlength="16"/>
+        </label>
+        <br>
+        <input type="submit" name="btnSubmit" id="Submit"/>
+    </form>
+</body>
+</html>

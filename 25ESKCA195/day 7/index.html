@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div id="heading">
+                <h1>Registration</h1>
+            </div>
+
+            <form id="form-container" action="registration.php" method="post">
+                <div class="form-group">
+                    <label for="txtName">Name</label>
+                    <input type="text" placeholder="Enter your name" id="txtName" name="txtName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="txtEmail">Email</label>
+                    <input type="email" placeholder="Enter your email" id="txtEmail" name="txtEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="numPhone">Phone Number</label>
+                    <input type="text" placeholder="Enter your phone number" id="numPhone" name="numPhone" required>
+                </div>         
+
+                <fieldset id="gender">
+                    <legend>Gender</legend>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" id="chkMale" name="gender" value="Male" checked> 
+                            Male
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" id="chkFemale" name="gender" value="Female"> 
+                            Female
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" id="chkTransgender" name="gender" value="Transgender"> 
+                            Transgender
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" id="chkOther" name="gender" value="Prefer not to say"> 
+                            Prefer not to say
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <div class="form-group">
+                    <label for="dtDOB">Date of Birth</label>
+                    <input type="date" id="dtDOB" name="dtDOB" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pwdPassword">Password</label>
+                    <input type="password" id="pwdPassword" name="pwdPassword" placeholder="Enter password" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="pwdConformPassword">Confirm Password</label>
+                    <input type="password" id="pwdConformPassword" name="pwdConformPassword" placeholder="Confirm password" required />
+                </div>
+
+                <button type="submit" id="btnSubmit">Register</button>
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

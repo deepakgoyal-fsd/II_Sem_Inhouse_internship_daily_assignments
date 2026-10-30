@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<form>
+
+<input type="text" id="number1" placeholder="Enter first No"/>
+<input type="text" id="number2" placeholder="Enter Second No"/>
+
+<select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select>
+
+<button type="button" onclick="performArithmaticoperatioon();">
+    Perform Arithmetic Operation
+</button>
+
+<div id="result"></div>
+
+</form>
+
+<script>
+
+function performArithmaticoperatioon(){
+
+const pi=3.14;
+let var1=10;
+
+const number1=parseFloat(document.getElementById("number1").value);
+const number2=parseFloat(document.getElementById("number2").value);
+
+const operator=document.getElementById("operator").value;
+
+let result;
+
+switch(operator){
+
+    case "+":
+        result=number1+number2;
+        break;
+    case "-":
+        result=number1-number2;
+        break;
+    case "*":
+        result=number1*number2;
+        break;
+    case "/":
+        if(number2!=0){
+            result=number1/number2;
+        }
+        else{
+            result="Not Defined";
+        }
+        break;
+    default:
+        result="Invalid Operator";
+}
+
+document.getElementById("result").innerHTML=result;
+
+alert(var1);
+alert(pi);
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #fdf6e3;
+    padding: 40px;
+  }
+  button#submitBtn {
+    padding: 10px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2e8b57;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  button#submitBtn:hover {
+    background: #246b45;
+  }
+  .fruits-container {
+    display: none;
+    gap: 60px;
+    justify-content: center;
+  }
+  .fruit-box {
+    cursor: pointer;
+    user-select: none;
+  }
+  .fruit-emoji {
+    font-size: 80px;
+    transition: transform 0.15s ease;
+  }
+  .fruit-box:active .fruit-emoji {
+    transform: scale(0.9);
+  }
+  .fruit-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .fruit-count {
+    font-size: 18px;
+    margin-top: 5px;
+    color: #555;
+  }

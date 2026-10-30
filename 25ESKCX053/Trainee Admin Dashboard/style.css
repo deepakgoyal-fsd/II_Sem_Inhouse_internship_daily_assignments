@@ -1,0 +1,203 @@
+/* Enhanced Custom Styling for Training Dashboard */
+
+/* 1. Import a beautiful, modern font (Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body.bg-light {
+    background-color: #f0f4f8 !important; /* A softer, cooler gray/blue background */
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+}
+
+/* 2. Sidebar - Deep modern slate with a smooth gradient */
+.sidebar {
+    background: linear-gradient(195deg, #1e293b 0%, #0f172a 100%) !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar h4 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* 3. Sidebar Links - Smooth hover effects */
+.sidebar .nav-link {
+    color: #94a3b8 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(6px);
+    color: #ffffff !important;
+}
+
+/* Override Bootstrap's secondary background to a beautiful Blue gradient for the Active page */
+.sidebar .nav-link.bg-secondary {
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+/* 4. Cards - Soft shadows and floating hover effect */
+.card {
+    border: none;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid #f1f5f9;
+    font-weight: 600;
+    color: #0f172a;
+    padding: 16px 20px;
+}
+
+/* 5. Modernize the Tables */
+.table {
+    margin-bottom: 0;
+}
+
+/* Overriding Bootstrap's dark table header to look lighter and sleeker */
+.table-dark th {
+    background-color: #f8fafc !important; 
+    color: #64748b !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 14px 16px;
+}
+
+.table td {
+    padding: 16px;
+    vertical-align: middle;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8fafc;
+    transform: scale(1.005);
+    transition: all 0.2s ease;
+}
+
+/* 6. Form Inputs - Softer borders and focus rings */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 10px 15px;
+    transition: all 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* 7. Buttons - Glowing shadows on hover */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background: #10b981;
+    border: none;
+}
+.btn-success:hover {
+    background: #059669;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #ef4444;
+    border: none;
+}
+.btn-danger:hover {
+    background: #dc2626;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- NEW LAYOUT & TOGGLE STYLES --- */
+
+/* The top navigation bar */
+.top-nav {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* The hamburger button */
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #334155;
+    transition: color 0.2s;
+}
+
+.toggle-btn:hover {
+    color: #3b82f6;
+}
+
+/* Page wrapper to hold sidebar and main content side-by-side */
+.page-wrapper {
+    display: flex;
+    align-items: stretch;
+    min-height: calc(100vh - 60px); /* Full height minus top nav */
+}
+
+/* Sidebar transition */
+.sidebar {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* When the sidebar is hidden, it slides left out of the screen */
+.sidebar.collapsed {
+    margin-left: -250px; 
+}
+
+/* Footer styling */
+.admin-footer {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 15px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Make main content fill remaining space and structure it for the footer */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

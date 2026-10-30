@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>College Admission Form</h1>
+
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter your phone number" required>
+
+        <label>Date of Birth</label>
+        <input type="date" required>
+
+        <label>Gender</label>
+        <div class="gender">
+            <label><input type="radio" name="gender" required> Male</label>
+            <label><input type="radio" name="gender"> Female</label>
+            <label><input type="radio" name="gender"> Other</label>
+        </div>
+
+        <label>Address</label>
+        <textarea placeholder="Enter your address" required></textarea>
+
+        <label>City</label>
+        <input type="text" placeholder="Enter city" required>
+
+        <label>State</label>
+        <input type="text" placeholder="Enter state" required>
+
+        <label>Pincode</label>
+        <input type="number" placeholder="Enter pincode" required>
+
+        <label>Select Course</label>
+        <select required>
+            <option value="">Choose Course</option>
+            <option>B.Tech</option>
+            <option>BCA</option>
+            <option>BBA</option>
+            <option>B.Sc</option>
+            <option>MBA</option>
+        </select>
+
+        <label>Upload Photo</label>
+        <input type="file" required>
+
+        <label>Upload 12th Marksheet</label>
+        <input type="file" required>
+
+        <div class="check">
+            <input type="checkbox" required>
+            <label>I confirm that the above information is correct.</label>
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+</div>
+
+</body>
+</html>

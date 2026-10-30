@@ -1,0 +1,66 @@
+<?php
+
+include "header.php";
+
+function calculateGrade($cgpa)
+{
+    if ($cgpa >= 9) return "A+";
+    elseif ($cgpa >= 8) return "A";
+    elseif ($cgpa >= 7) return "B";
+    else return "C";
+}
+
+$name = $_POST["name"];
+$email = $_POST["email"];
+$cgpa = $_POST["cgpa"];
+$branch = $_POST["branch"];
+$college = $_POST["college"];
+
+if (empty($name) || empty($email) || empty($cgpa)
+    || empty($branch) || empty($college))
+{
+    echo "<div class='alert alert-danger'>
+    Please fill all fields
+    </div>";
+}
+else
+{
+    $grade = calculateGrade($cgpa);
+?>
+
+<div class="card shadow p-4 text-white"
+style="background:linear-gradient(45deg,#007bff,#6610f2)">
+
+    <div class="text-center">
+
+        <i class="fa fa-user-circle fa-5x"></i>
+
+        <h2>Welcome <?php echo $name; ?> 🎉</h2>
+
+    </div>
+
+    <hr>
+
+    <p><b>Email:</b> <?php echo $email; ?></p>
+
+    <p><b>CGPA:</b> <?php echo $cgpa; ?></p>
+
+    <p><b>Branch:</b> <?php echo $branch; ?></p>
+
+    <p><b>College:</b> <?php echo $college; ?></p>
+
+    <div class="alert alert-success">
+        Grade: <?php echo $grade; ?>
+    </div>
+
+    <p>
+        Date: <?php echo date("d-m-Y"); ?>
+    </p>
+
+</div>
+
+<?php
+}
+
+include "footer.php";
+?>

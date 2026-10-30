@@ -1,0 +1,95 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+    width:400px;
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.container h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:6px;
+    color:#444;
+    font-weight:bold;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:0.3s;
+}
+
+.input-box input:focus{
+    border-color:#667eea;
+    box-shadow:0 0 6px rgba(102,126,234,0.4);
+}
+
+.gender{
+    margin-bottom:20px;
+}
+
+.gender label{
+    font-weight:bold;
+    color:#444;
+}
+
+.gender-options{
+    margin-top:10px;
+    display:flex;
+    gap:20px;
+}
+
+.gender-options label{
+    font-weight:normal;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#667eea;
+    color:#fff;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#5a67d8;
+}
+
+@media(max-width:450px){
+    .container{
+        width:90%;
+    }
+}

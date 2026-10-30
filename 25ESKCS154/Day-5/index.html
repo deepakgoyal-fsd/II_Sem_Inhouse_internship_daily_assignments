@@ -1,0 +1,817 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WanderNest | Luxury Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+                NAVBAR
+=========================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="#">
+
+                <i class="fa-solid fa-earth-americas me-2"></i>
+                WanderNest
+
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="#home">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#destinations">
+
+                            Destinations
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#why">
+
+                            Why Us
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#packages">
+
+                            Packages
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#calculator">
+
+                            Calculator
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#contact">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <!-- Dark Mode -->
+
+                <button id="darkModeBtn" class="btn btn-outline-warning ms-lg-3">
+
+                    🌙 Dark Mode
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ==========================================
+                HERO SECTION
+=========================================== -->
+
+    <section id="home" class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <h1>
+
+                    Explore The World
+                    <br>
+                    With WanderNest
+
+                </h1>
+
+                <p>
+
+                    Luxury travel experiences designed for
+                    unforgettable memories, breathtaking
+                    destinations and premium adventures.
+
+                </p>
+
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                    <a href="#destinations" class="btn btn-warning btn-lg">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Explore Destinations
+
+                    </a>
+
+                    <a href="#packages" class="btn btn-outline-light btn-lg">
+
+                        <i class="fa-solid fa-suitcase"></i>
+
+                        View Packages
+
+                    </a>
+
+                </div>
+
+                <div class="row mt-5">
+
+                    <div class="col-md-4">
+
+                        <h3>
+
+                            <i class="fa-solid fa-earth-asia text-warning"></i>
+
+                            50+
+
+                        </h3>
+
+                        <p>
+
+                            Destinations
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <h3>
+
+                            <i class="fa-solid fa-users text-warning"></i>
+
+                            10K+
+
+                        </h3>
+
+                        <p>
+
+                            Happy Travelers
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <h3>
+
+                            <i class="fa-solid fa-star text-warning"></i>
+
+                            4.9★
+
+                        </h3>
+
+                        <p>
+
+                            Average Rating
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ==========================================
+            DESTINATIONS (DAY 5)
+========================================== -->
+
+    <section id="destinations" class="py-5">
+
+        <div class="container">
+
+            <h2 class="text-center">
+                Popular Destinations
+            </h2>
+
+            <p class="text-center text-muted mb-3">
+                Browse destinations generated dynamically using JavaScript Arrays,
+                Objects and Loops.
+            </p>
+
+            <!-- Total Destinations -->
+
+            <h5 class="text-center mb-4">
+
+                <i class="fa-solid fa-location-dot text-primary"></i>
+
+                Total Destinations :
+
+                <span id="destinationCount" class="badge bg-primary">
+
+                    0
+
+                </span>
+
+            </h5>
+
+            <!-- Search Box -->
+
+            <div class="row justify-content-center mb-5">
+
+                <div class="col-lg-6">
+
+                    <input type="text" id="searchBox" class="form-control form-control-lg"
+                        placeholder="🔍 Search Destination...">
+
+                </div>
+
+            </div>
+
+            <!-- Dynamic Cards -->
+
+            <div id="destinationContainer" class="row g-4">
+
+                <!-- JavaScript will generate destination cards here -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                WHY CHOOSE US
+========================================== -->
+
+    <section id="why" class="py-5 bg-light">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">
+
+                Why Choose WanderNest?
+
+            </h2>
+
+            <div class="row text-center g-4">
+
+                <div class="col-md-3">
+
+                    <i class="fas fa-hotel fa-3x text-primary mb-3"></i>
+
+                    <h4>
+                        Luxury Hotels
+                    </h4>
+
+                    <p>
+
+                        Stay in carefully selected premium hotels
+                        with world-class facilities.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <i class="fas fa-plane fa-3x text-primary mb-3"></i>
+
+                    <h4>
+                        Easy Booking
+                    </h4>
+
+                    <p>
+
+                        Reserve your dream vacation in just a
+                        few clicks.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <i class="fas fa-map-marked-alt fa-3x text-primary mb-3"></i>
+
+                    <h4>
+
+                        Expert Guides
+
+                    </h4>
+
+                    <p>
+
+                        Travel with experienced local guides who
+                        know every hidden gem.
+
+                    </p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <i class="fas fa-headset fa-3x text-primary mb-3"></i>
+
+                    <h4>
+
+                        24/7 Support
+
+                    </h4>
+
+                    <p>
+
+                        Our team is available around the clock
+                        throughout your journey.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                PACKAGES
+========================================== -->
+
+    <section id="packages" class="py-5">
+
+        <div class="container">
+
+            <h2 class="text-center mb-3">
+
+                Choose Your Package
+
+            </h2>
+
+            <p class="text-center text-muted mb-5">
+
+                Packages are generated dynamically from
+                JavaScript objects.
+
+            </p>
+
+            <div id="packageContainer" class="row g-4">
+
+                <!-- Package Cards Generated by JavaScript -->
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ==========================================
+            TRAVEL CALCULATOR
+========================================== -->
+
+    <section id="calculator" class="py-5 bg-light">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">
+                Travel Cost Calculator
+            </h2>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-6">
+
+                    <div class="card p-4 shadow">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Number of Travelers
+                            </label>
+
+                            <input type="number" id="travelers" class="form-control" min="1" value="1">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Select Package
+                            </label>
+
+                            <select id="package" class="form-select">
+
+                                <!-- Filled by JavaScript -->
+
+                            </select>
+
+                        </div>
+
+                        <button id="calculateBtn" class="btn btn-success">
+
+                            Calculate Cost
+
+                        </button>
+
+                        <h3 class="text-center mt-4">
+
+                            Total Cost :
+
+                            <span id="totalCost">
+
+                                $0
+
+                            </span>
+
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                TESTIMONIALS
+========================================== -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">
+                Happy Travelers
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="card shadow h-100">
+
+                        <div class="card-body text-center">
+
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle mb-3"
+                                width="90">
+
+                            <h4>Emma</h4>
+
+                            <p class="text-warning">
+                                ★★★★★
+                            </p>
+
+                            <p>
+
+                                The vacation was perfectly planned.
+                                Highly recommended!
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card shadow h-100">
+
+                        <div class="card-body text-center">
+
+                            <img src="https://randomuser.me/api/portraits/men/52.jpg" class="rounded-circle mb-3"
+                                width="90">
+
+                            <h4>James</h4>
+
+                            <p class="text-warning">
+                                ★★★★★
+                            </p>
+
+                            <p>
+
+                                Excellent hotels and wonderful support.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card shadow h-100">
+
+                        <div class="card-body text-center">
+
+                            <img src="https://randomuser.me/api/portraits/women/42.jpg" class="rounded-circle mb-3"
+                                width="90">
+
+                            <h4>Sophia</h4>
+
+                            <p class="text-warning">
+                                ★★★★★
+                            </p>
+
+                            <p>
+
+                                Our honeymoon trip was magical!
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                    FAQ
+========================================== -->
+
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">
+
+                Frequently Asked Questions
+
+            </h2>
+
+            <div class="accordion" id="faq">
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+
+                            Are flights included?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq1" class="accordion-collapse collapse show">
+
+                        <div class="accordion-body">
+
+                            Flights are included in Premium
+                            and Luxury packages.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+
+                            Can I cancel my booking?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq2" class="accordion-collapse collapse">
+
+                        <div class="accordion-body">
+
+                            Yes.
+                            Free cancellation within 48 hours.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+
+                            Do you offer group discounts?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq3" class="accordion-collapse collapse">
+
+                        <div class="accordion-body">
+
+                            Yes.
+                            We offer discounts for groups.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                CONTACT
+========================================== -->
+
+    <section id="contact" class="py-5">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">
+
+                Contact Us
+
+            </h2>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <input type="text" id="name" class="form-control" placeholder="Your Name">
+
+                            <div id="nameError" class="text-danger mt-1">
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <input type="email" id="email" class="form-control" placeholder="Email Address">
+
+                            <div id="emailError" class="text-danger mt-1">
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+
+                        </div>
+
+                        <button id="submitBtn" class="btn btn-primary w-100">
+
+                            Send Message
+
+                        </button>
+
+                        <div id="successMsg" class="text-success fw-bold text-center mt-3">
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                FOOTER
+========================================== -->
+
+    <footer class="bg-dark text-white py-4">
+
+        <div class="container text-center">
+
+            <h3>WanderNest</h3>
+
+            <p>
+
+                Explore • Dream • Discover
+
+            </p>
+
+            <div class="mb-3">
+
+                <a href="#" class="text-white mx-2">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+
+                <a href="#" class="text-white mx-2">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+
+                <a href="#" class="text-white mx-2">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+
+                <a href="#" class="text-white mx-2">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+
+            </div>
+
+            <p class="mb-0">
+
+                © 2026 WanderNest. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ==========================================
+            JAVASCRIPT
+========================================== -->
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery (Day 5 Requirement) -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Custom JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+index.html
+Displaying index.html.

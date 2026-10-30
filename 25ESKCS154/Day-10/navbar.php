@@ -1,0 +1,1 @@
+<nav class="navbar navbar-dark bg-primary"><div class="container"><a class="navbar-brand" href="index.php">Student Management</a><a href="students.php" class="btn btn-light">Students</a></div></nav>

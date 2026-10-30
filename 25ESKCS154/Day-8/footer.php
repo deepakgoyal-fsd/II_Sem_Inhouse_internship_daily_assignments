@@ -1,0 +1,1 @@
+</div><footer class="text-center py-3 bg-dark text-white">© 2026 Student Registration</footer></body></html>

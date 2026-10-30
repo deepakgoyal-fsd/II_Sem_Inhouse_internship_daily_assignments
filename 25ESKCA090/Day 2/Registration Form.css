@@ -1,0 +1,66 @@
+.bgcolour{
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid blueviolet;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+input{
+    width:100%;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 8px;
+    box-sizing: border-box;
+}
+body{
+    background-color: antiquewhite;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#textmale{
+    width: 40px;
+    margin: 8px;
+}
+#textfemale{
+    width: 40px;
+    margin: 8px;
+}
+#texttrans{
+    width: 40px;
+    margin: 8px;
+}
+#textclear{
+    width: 200px;
+    padding: 8px 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: x-large;
+    margin: 10px;
+    background-color:antiquewhite;
+}
+#textsubmit{
+    width: 200px;
+    padding: 8px 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: x-large;
+    margin: 10px;
+    background-color: antiquewhite;
+}
+
+select{
+    width:100%;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 8px;
+    box-sizing: border-box;
+}
+textarea{
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+}

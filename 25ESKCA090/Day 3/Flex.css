@@ -1,0 +1,113 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: aquamarine;
+    color: black;
+}
+.box1  {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    z-index: 1;
+    min-width: 100px;
+    height: 100px;
+    background: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1;
+}
+.box2 {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+   z-index: 2;
+    background: lightseagreen;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: bisque;
+    font-size: 20px;
+    font-weight: 100;
+    z-index: 2;
+}
+.box3 {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    z-index: 3;
+    background: lightyellow;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(196, 255, 209);
+    font-size: 20px;
+    font-weight: 100;
+    z-index: 3;
+}
+.box4 {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    z-index: 4;
+    background: lightpink;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 196, 236);
+    font-size: 20px;
+    font-weight: 100;
+    z-index: 4;
+}
+.box5 {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    z-index: 5;
+    background: lightblue;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(173, 216, 230);
+    font-size: 20px;
+    font-weight: 100;
+}
+.box6 {
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    z-index: 6;
+    background: lightgreen;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 213, 196);
+    font-size: 20px;
+    font-weight: 100;
+    z-index: 6;
+}

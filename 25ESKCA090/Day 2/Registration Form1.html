@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Form</title>
+
+    <link rel="stylesheet" href="C:\Users\singa\OneDrive\Desktop\c\15 Internship\css\form"/>
+    <style>
+        body {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="color: blue;">
+            Registration Form
+        </h1>
+
+    <form>
+
+        <label>
+            name: 
+            <input type="text" id="txtName" required placeholder="Enter your name" />
+            <br>
+        </label>
+        <label>
+            email: 
+            <input type="email" id="txtEmail" required placeholder="Enter your email" />
+            <br>
+        </label>
+        <label>
+            phone number:
+            <input type="tel" id="txtPhone" required placeholder="Enter your phone number" />
+            <br>
+        </label>
+        
+        <input type="radio" id="chkMale" name="gender" checked>
+        <label for="chkMale">Male</label>
+        <br>
+
+        <input type="radio" id="chkFemale" name="gender">
+        <label for="chkFemale">Female</label>
+        <br>
+
+        <input type="radio" id="chkTransgender" name="gender">
+        <label for="chkTransgender">Transgender</label>
+        <br>
+
+        <input type="radio" id="chkOther" name="gender">
+        <label for="chkOther">Other</label>
+        <br>
+
+        <input type="date" id="dtDOB" name="dtDOB">
+        <label for="dtDOB">Date of Birth</label>
+        <br>
+
+        <label for="pwdPassword">Password:</label>
+        <input type="password" id="pwdPassword" name="pwdPassword" required>
+        <br>
+
+        <label for="pwdConfirmPassword">Confirm Password:</label>
+        <input type="password" id="pwdConfirmPassword" name="pwdConfirmPa
+        ssword" required>
+        <br>
+
+        <input type="submit" value="Register">
+
+    </form>
+</body>
+</html>

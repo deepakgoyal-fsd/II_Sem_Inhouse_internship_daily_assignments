@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <form class="bgcolour">
+
+        <h1><center>Registration Form</center></h1>
+
+        <label>
+            Name :  
+            <input type="text" 
+               id="textname"  required placeholder = "enter your name"/>
+        </label>
+
+        <br>
+
+        <label>
+            E-mail : 
+            <input type="email"
+              id="textmail" required placeholder="enter your mail">
+        </label>
+
+        <br>
+        
+        <label>
+            Phone no. : 
+            <input type="tel"
+              id="textphone no." required placeholder="enter your phone no.">
+        </label>
+
+        <br> 
+         
+        Gender : 
+
+        <br>
+
+            <input type="radio"
+              id="textmale" name="gender"checked/>
+              <label for="textmale">Male</label>
+           
+            <input type="radio"
+              id="textfemale" name="gender"checked/>
+              <label for="textfemale">female</label>
+          
+            <input type="radio"
+              id="texttrans" name="gender"checked/>
+              <label for="texttrans">transgender</label>
+
+        <br>
+               
+        Birth Date :
+              <input type="date"
+              id="textdob" name="dtDOB"/>
+              <label for="textdob"></label>
+
+        <br>
+
+        Adress : 
+             <textarea placeholder="Enter your adress" rows="2"></textarea>
+        <br>
+            <select>
+                <option value="">Country</option>
+                <option value="India">India</option>
+                <option value="UK">UK</option>
+                <option value="USA">USA</option>
+            </select>
+
+        <br>
+        
+        Password : 
+              <input type="password"
+              id="textpassword" name="password"/>
+              <label for="textpassword"></label>
+
+        <br>
+
+        Confirm Password :
+              <input type="password"
+              id="textconfirmpassword" name="confirmpassword"/>
+              <label for="textconfirmpassword"></label>
+
+        <br>
+        
+        <input type="button" value="Clear" id="textclear"/>
+        <input type="submit" id="textsubmit"/>      
+
+    </form>
+
+</body>
+</html>

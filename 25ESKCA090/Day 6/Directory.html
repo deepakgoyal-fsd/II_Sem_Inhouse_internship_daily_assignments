@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .bg-dark {
+            background-color: #8390b9f2 !important;
+            color: rgb(0, 0, 0);
+        }
+        .hover-zoom {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(res => res.json())
+                .then(data => {
+                    fetch('https://jsonplaceholder.typicode.com/users')
+                        .then(res => res.json())
+                        .then(data => {
+
+                            console.log(data)
+
+                            let username = data.map(user => user.username);
+                            console.log(username);
+
+                            let name = data.map(user => user.name);
+                            console.log(name);
+
+                            let address = data.map(user => user.address);
+                            console.log(address);
+
+                            let html = ""
+                            for (let i = 0; i < data.length; i++) {
+                                html += `
+                            <div class="col-md-4 card-item hover-zoom " >
+                            <div class="card shadow ">
+                            <div class="card-body text-center ">
+                                <img src="https://i.pravatar.cc/100?img=${data[i].id}" 
+                                    class="rounded-circle mb-2" 
+                                    alt="${data[i].name}"
+                                    width="80" height="80">
+                                    <h4>${data[i].name}</h4>
+                                    <button class="btn btn-primary btn-sm mt-2">
+                                        Show Details
+                                    </button>
+
+                                    <div class="details mt-3" style="display:none;">
+                                        <p><strong>Name:</strong> ${data[i].username}</p>
+                                        <p><strong>Address:</strong> ${data[i].address.city}</p>
+                                    </div>
+                                </div>
+                            </div> 
+                            </div>   
+                            ` ;
+                            }
+
+
+
+                            document.getElementById("container").innerHTML = html;
+
+                            $(document).on("click", ".btn", function () {
+                                $(this).next(".details").slideToggle();
+                            });
+
+                            $("#search").keyup(function () {
+                                let val = $(this).val().toLowerCase();
+
+                                $(".card-item").each(function () {
+
+                                    let name = $(this).find("h4").text().toLowerCase();
+
+                                    if (name.includes(val)) {
+                                        $(this).show();
+                                    }
+                                    else {
+                                        $(this).hide();
+                                    }
+                                });
+                            });
+                            document.getElementById("json").innerHTML = JSON.stringify(data, function (key, value) {
+                                if (key === "suite" || key === "zipcode" || key === "geo" || key === "lat" || key === "lng" || key === "email" || key === "phone" || key === "website" || key === "company" || key === "street") return undefined; // ye field skip karna ho toh
+                                return value;
+                            }, 4);
+                        })
+                });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+        <h2 class="text-center mb-4"> Student recordss </h2>
+        <input type="text" id="search" class="form-control mb-4" placeholder="search Student">
+        <div id="container" class="row g-4"></div>
+        <div id="json"></div>
+    </div>
+
+
+
+</body>
+
+</html>

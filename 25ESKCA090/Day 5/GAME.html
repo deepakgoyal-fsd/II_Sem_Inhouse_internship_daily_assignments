@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+<style>
+    img.both {
+        width: 80px;
+        height: 50px;
+        margin: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.4s;
+        background-color: #d66b6b;
+        transform: scale(5);
+        transform-origin: center;
+    }
+</style>
+
+<body>
+    <div class="fruit-container">
+        <style>
+            .fruit-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                border: 2px solid #ccc;
+                transition: transform 0.4s ease-in-out;
+                animation: bounce 0.2s;
+                animation-iteration-count: infinite;
+                animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+            
+        </style>
+        
+        <p>Apple: <span id="apple">0</span></p>
+        <img src="https://healthjade.net/wp-content/uploads/2017/10/apple-fruit.jpg" alt="Apple" onclick="updateCount('apple')" style="width: 250px; height: 200px;">
+            <script>
+                const appleImage = document.querySelector('img[alt="Apple"]');
+                appleImage.addEventListener('click', () => {
+                    appleImage.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        appleImage.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            </script>
+
+        <p>Banana: <span id="banana">0</span></p>
+        <img src="https://tse4.mm.bing.net/th/id/OIP.-GfGzAn4iy8XVJ7ls6FsHgHaFv?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Banana" onclick="updateCount('banana')" style="width: 250px; height: 200px;">
+        <script>
+            const bananaImage = document.querySelector('img[alt="Banana"]');
+            bananaImage.addEventListener('click', () => {
+                bananaImage.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    bananaImage.style.transform = 'scale(1)';
+                }, 200);
+            });
+        </script>
+
+    </div>
+
+    <script>
+        let appleCount = 0;
+        let bananaCount = 0;
+
+        function updateCount(fruit) {
+            if (fruit === 'apple') {
+                appleCount++;
+                document.getElementById('apple').textContent = appleCount;
+            } else if (fruit === 'banana') {
+                bananaCount++;
+                document.getElementById('banana').textContent = bananaCount;
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('img').click(function () {
+                var fruit = $(this).attr('src').split('/').pop().split('.')[0];
+                updateCount(fruit);
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+
+</html>

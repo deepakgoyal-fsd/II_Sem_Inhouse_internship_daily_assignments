@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JSON Basics</title>
+</head>
+
+<body>
+  <h2>Open Console (F12)</h2>
+
+  <script>
+    // JavaScript Object
+    const students = [{
+      name: "Rahul",
+      branch: "CSE",
+      skills: ["HTML", "JS", "CSS"]
+    },
+    {
+      name: "Mahesh",
+      branch: "CSE",
+      skills: ["HTML", "JS", "CSS"]
+    }];
+    
+    //console.log("JS Object:", student);
+
+    // // Convert object to JSON string
+    const jsonString = JSON.stringify(students);
+    console.log("JSON String:", jsonString);
+
+    // // Convert JSON string back to object
+     const parsedObject = JSON.parse(jsonString);
+     console.log("Parsed Object:", parsedObject);
+  </script>
+</body>
+
+</html>

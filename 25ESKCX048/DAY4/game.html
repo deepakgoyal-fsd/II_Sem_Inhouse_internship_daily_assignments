@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple & Banana Game</title>
+  <link rel="stylesheet" href="game.css" />
+</head>
+<body>
+  <div class="start-screen" id="startScreen">
+    <div class="card">
+      <h1>Apple & Banana Game</h1>
+      <p>Enter your name and start catching the fruits!</p>
+      <input type="text" id="playerName" placeholder="Enter your name" maxlength="20" />
+      <button id="startBtn">Start Game</button>
+    </div>
+  </div>
+
+  <div class="game-area hidden" id="gameArea">
+    <div class="top-bar">
+      <div><strong>Player:</strong> <span id="playerLabel">Player</span></div>
+      <div><strong>Score:</strong> <span id="scoreLabel">0</span></div>
+      <div><strong>Time:</strong> <span id="timeLabel">30</span>s</div>
+    </div>
+
+    <div class="board" id="board"></div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

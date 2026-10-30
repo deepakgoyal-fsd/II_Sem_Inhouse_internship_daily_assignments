@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PARVAH 2026 — SKIT Annual Fest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --cream:#FAF3E1;
+    --cream-2:#F3EAD2;
+    --white:#FFFFFF;
+    --yellow:#F5B700;
+    --yellow-soft:#FDE3A0;
+    --gold:#B9840F;
+    --green:#2F5233;
+    --green-deep:#1E3A24;
+    --leaf:#6B9B37;
+    --black:#181511;
+    --ink:#241F17;
+    --line: rgba(24,21,17,0.12);
+    --radius: 18px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:12px;
+    font-weight:700;
+    color:var(--green);
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; line-height:1.05; color:var(--black);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Manrope',sans-serif; font-weight:700; font-size:15px;
+    padding:14px 26px; border-radius:999px; border:2px solid var(--black);
+    cursor:pointer; transition:transform .25s ease, background .25s ease, color .25s ease;
+    background:none;
+  }
+  .btn-solid{background:var(--black); color:var(--cream);}
+  .btn-solid:hover{transform:translateY(-2px); background:var(--green-deep);}
+  .btn-line{background:transparent; color:var(--black);}
+  .btn-line:hover{transform:translateY(-2px); background:var(--black); color:var(--cream);}
+  .btn-yellow{background:var(--yellow); border-color:var(--yellow); color:var(--black);}
+  .btn-yellow:hover{transform:translateY(-2px); background:var(--gold); border-color:var(--gold);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(250,243,225,0.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1180px; margin:0 auto;}
+  .logo{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:700; font-size:26px;
+    letter-spacing:0.01em; display:flex; flex-direction:column; position:relative; cursor:pointer;
+  }
+  .logo .letters span{
+    display:inline-block; opacity:0; transform:translateY(14px);
+    animation:letterIn .6s cubic-bezier(.2,.9,.3,1) forwards;
+  }
+  @keyframes letterIn{to{opacity:1; transform:translateY(0);}}
+  .logo .flow-underline{
+    width:100%; height:5px; margin-top:2px; border-radius:4px;
+    background:linear-gradient(90deg, var(--green), var(--yellow), var(--leaf), var(--yellow), var(--green));
+    background-size:300% 100%;
+    animation:flowmove 4s linear infinite;
+  }
+  @keyframes flowmove{ to{ background-position:-300% 0; } }
+  .navlinks{display:flex; gap:28px; align-items:center;}
+  .navlinks a{font-size:14px; font-weight:600; letter-spacing:.02em; position:relative; padding:4px 0;}
+  .navlinks a::after{content:'';position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--green); transition:width .25s ease;}
+  .navlinks a:hover::after{width:100%;}
+  .nav-toggle{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .nav-toggle span{width:24px; height:2px; background:var(--black);}
+  @media (max-width:880px){
+    .navlinks{position:fixed; top:64px; left:0; right:0; background:var(--cream); flex-direction:column; padding:20px 28px; gap:18px; border-bottom:1px solid var(--line); transform:translateY(-140%); transition:transform .35s ease;}
+    .navlinks.open{transform:translateY(0);}
+    .nav-toggle{display:flex;}
+    .navlinks .btn{width:100%; justify-content:center;}
+  }
+
+  /* ---------- FLOW LINE DECOR ---------- */
+  .flow-decor{position:absolute; left:0; width:100%; pointer-events:none; z-index:0; opacity:.9;}
+  .flow-decor path{ stroke-dasharray: 14 10; animation:dashflow 6s linear infinite; }
+  @keyframes dashflow{ to{ stroke-dashoffset:-240; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; padding:170px 0 110px; overflow:hidden;
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(245,183,0,0.18), transparent 55%),
+      radial-gradient(ellipse at 85% 10%, rgba(107,155,55,0.16), transparent 50%),
+      var(--cream);
+  }
+  .hero-inner{position:relative; z-index:2; text-align:center;}
+  .hero .eyebrow{display:block; margin-bottom:18px;}
+  .hero h1{
+    font-size:clamp(64px, 13vw, 160px);
+    font-style:italic; font-weight:300;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{ font-weight:700; color:var(--green); }
+  .hero-sub{
+    font-family:'Space Mono', monospace; font-size:15px; letter-spacing:.05em;
+    margin-top:22px; color:var(--ink); font-weight:700;
+  }
+  .hero-sub b{color:var(--gold);}
+  .hero-tag{max-width:520px; margin:20px auto 0; font-size:16px; color:#4a4436; line-height:1.6;}
+  .hero-actions{display:flex; gap:16px; justify-content:center; margin-top:36px; flex-wrap:wrap;}
+
+  .countdown{display:flex; gap:14px; justify-content:center; margin-top:56px; flex-wrap:wrap;}
+  .cd-box{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:16px 20px; min-width:88px; text-align:center;
+    box-shadow:0 10px 24px -14px rgba(24,21,17,0.25);
+  }
+  .cd-box .num{font-family:'Space Mono',monospace; font-size:34px; font-weight:700; color:var(--green-deep);}
+  .cd-box .lab{font-size:11px; text-transform:uppercase; letter-spacing:.14em; color:var(--gold); margin-top:4px; font-weight:700;}
+
+  /* ---------- STATS STRIP ---------- */
+  .stats{
+    background:var(--black); color:var(--cream); padding:34px 0;
+    position:relative; z-index:2;
+  }
+  .stats .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .stat{flex:1; min-width:130px; text-align:center; border-left:1px solid rgba(250,243,225,0.15);}
+  .stat:first-child{border-left:none;}
+  .stat .n{font-family:'Fraunces',serif; font-size:36px; font-weight:600; color:var(--yellow);}
+  .stat .l{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#cfc7ae; margin-top:4px;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:100px 0; position:relative;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(34px,5vw,52px); margin-top:10px;}
+  .section-head p{margin-top:14px; color:#54503f; font-size:16px; line-height:1.6;}
+  .divider{height:1px; background:var(--line); width:100%;}
+
+  /* ---------- EVENTS GRID ---------- */
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:980px){.grid-4{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.grid-4{grid-template-columns:1fr;}}
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 24px; transition:transform .3s ease, box-shadow .3s ease; display:flex; flex-direction:column; gap:14px;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 22px 40px -22px rgba(24,21,17,0.3);}
+  .card .icon{
+    width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:var(--cream-2); color:var(--green);
+  }
+  .card h3{font-size:21px; font-weight:600;}
+  .card p{font-size:14px; color:#5c5847; line-height:1.55; flex:1;}
+  .card .meta{font-family:'Space Mono',monospace; font-size:12px; color:var(--gold); font-weight:700;}
+  .card a.go{font-size:13px; font-weight:700; color:var(--green-deep); display:inline-flex; align-items:center; gap:6px;}
+
+  /* ---------- GAMING (dark) ---------- */
+  .gaming{background:var(--black); color:var(--cream);}
+  .gaming .section-head p{color:#c9c2ab;}
+  .gaming .eyebrow{color:var(--yellow);}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:900px){.grid-3{grid-template-columns:1fr;}}
+  .game-card{
+    background:linear-gradient(180deg, rgba(250,243,225,0.05), rgba(250,243,225,0.02));
+    border:1px solid rgba(250,243,225,0.14); border-radius:var(--radius); padding:28px; position:relative; overflow:hidden;
+  }
+  .game-card::before{
+    content:''; position:absolute; top:-40px; right:-40px; width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle, rgba(245,183,0,0.25), transparent 70%);
+  }
+  .game-card h3{color:var(--cream); font-size:24px;}
+  .game-card .tag{display:inline-block; background:var(--yellow); color:var(--black); font-family:'Space Mono',monospace; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; margin-bottom:14px;}
+  .game-card ul{margin:16px 0; display:flex; flex-direction:column; gap:8px;}
+  .game-card li{font-size:13px; color:#d8d2ba; display:flex; justify-content:space-between; border-bottom:1px dashed rgba(250,243,225,0.15); padding-bottom:6px;}
+  .game-card li b{color:var(--cream); font-family:'Space Mono',monospace;}
+  .game-card .btn{width:100%; justify-content:center; margin-top:8px; border-color:var(--cream); color:var(--cream);}
+  .game-card .btn:hover{background:var(--yellow); border-color:var(--yellow); color:var(--black);}
+
+  /* ---------- CELEBRITY NIGHT ---------- */
+  .celeb{
+    background:linear-gradient(180deg, var(--cream), var(--cream-2));
+  }
+  .celeb-panel{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+    background:var(--white); border-radius:24px; border:1px solid var(--line); padding:48px; overflow:hidden; position:relative;
+  }
+  @media (max-width:900px){.celeb-panel{grid-template-columns:1fr;}}
+  .celeb-panel h2{font-size:clamp(32px,5vw,50px); font-style:italic;}
+  .celeb-panel .date-pill{
+    display:inline-flex; align-items:center; gap:8px; font-family:'Space Mono',monospace; font-size:13px;
+    background:var(--green); color:var(--cream); padding:8px 16px; border-radius:999px; margin-bottom:18px; font-weight:700;
+  }
+  .ticket-tiers{display:flex; flex-direction:column; gap:12px;}
+  .tier{
+    display:flex; justify-content:space-between; align-items:center; border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+    background:var(--cream);
+  }
+  .tier .name{font-weight:700;}
+  .tier .price{font-family:'Space Mono',monospace; color:var(--gold); font-weight:700;}
+  .tier.vip{border-color:var(--yellow); background:var(--yellow-soft);}
+
+  /* ---------- PROGRAMS TIMELINE ---------- */
+  .timeline{display:flex; flex-direction:column;}
+  .t-row{
+    display:grid; grid-template-columns:90px 1fr; gap:24px; padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .t-row:first-child{border-top:1px solid var(--line);}
+  .t-day{font-family:'Fraunces',serif; font-size:15px; color:var(--green-deep); font-weight:700;}
+  .t-day span{display:block; font-family:'Space Mono',monospace; font-size:12px; color:var(--gold); font-weight:700; margin-top:4px;}
+  .t-content h4{font-size:18px; font-weight:700; color:var(--black); font-family:'Manrope',sans-serif;}
+  .t-content p{font-size:13.5px; color:#5c5847; margin-top:4px;}
+
+  /* ---------- REGISTRATION ---------- */
+  .register{background:var(--black); color:var(--cream);}
+  .register .eyebrow{color:var(--yellow);}
+  .reg-layout{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  @media (max-width:900px){.reg-layout{grid-template-columns:1fr;}}
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:#c9c2ab; margin-bottom:8px; font-weight:700;}
+  .field input, .field select{
+    width:100%; padding:13px 14px; border-radius:10px; border:1px solid rgba(250,243,225,0.25);
+    background:rgba(250,243,225,0.06); color:var(--cream); font-family:'Manrope',sans-serif; font-size:14px;
+  }
+  .field input::placeholder{color:#8b8570;}
+  .field input:focus, .field select:focus{outline:2px solid var(--yellow); border-color:transparent;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:520px){.row2{grid-template-columns:1fr;}}
+  .checklist{display:flex; flex-direction:column; gap:10px;}
+  .chk{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    border:1px solid rgba(250,243,225,0.18); border-radius:12px; padding:13px 16px; cursor:pointer;
+    background:rgba(250,243,225,0.04); transition:border-color .2s ease, background .2s ease;
+  }
+  .chk:hover{border-color:var(--yellow);}
+  .chk.checked{border-color:var(--yellow); background:rgba(245,183,0,0.1);}
+  .chk .left{display:flex; align-items:center; gap:12px; font-size:14px; font-weight:600;}
+  .chk input{accent-color:var(--yellow); width:18px; height:18px;}
+  .chk .price{font-family:'Space Mono',monospace; color:var(--yellow); font-size:13px; font-weight:700;}
+  .total-bar{
+    display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding:20px;
+    background:linear-gradient(90deg, rgba(245,183,0,0.14), rgba(107,155,55,0.1)); border-radius:14px; border:1px solid rgba(245,183,0,0.3);
+  }
+  .total-bar .lab{font-size:13px; color:#d8d2ba; text-transform:uppercase; letter-spacing:.08em; font-weight:700;}
+  .total-bar .amt{font-family:'Fraunces',serif; font-size:32px; color:var(--yellow); font-weight:700;}
+  #payBtn{width:100%; justify-content:center; margin-top:22px; padding:16px; font-size:16px;}
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(24,21,17,0.72); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--cream); border-radius:22px; max-width:420px; width:100%; padding:34px; position:relative;
+    max-height:90vh; overflow-y:auto;
+  }
+  .modal .close{position:absolute; top:16px; right:18px; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
+  .modal h3{font-size:26px; font-style:italic; margin-bottom:6px;}
+  .modal .sub{font-size:13px; color:#5c5847; margin-bottom:20px;}
+  .qr-box{
+    background:var(--white); border:1px solid var(--line); border-radius:16px; padding:20px; display:flex;
+    flex-direction:column; align-items:center; gap:12px; margin-bottom:18px;
+  }
+  #qrcode{padding:6px; background:#fff;}
+  .qr-amt{font-family:'Space Mono',monospace; font-size:26px; font-weight:700; color:var(--green-deep);}
+  .qr-note{font-size:11.5px; color:#8b8570; text-align:center; line-height:1.5;}
+  .txn-id{font-family:'Space Mono',monospace; font-size:12px; background:var(--cream-2); padding:6px 10px; border-radius:8px;}
+  .demo-flag{
+    font-size:11.5px; background:var(--yellow-soft); border:1px dashed var(--gold); color:#5c4400;
+    padding:10px 12px; border-radius:10px; margin-bottom:16px; line-height:1.5;
+  }
+  .success-view{text-align:center; display:none;}
+  .success-view.open{display:block;}
+  .success-view .tick{
+    width:64px; height:64px; border-radius:50%; background:var(--green); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:30px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--green-deep); color:var(--cream); padding:60px 0 30px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(250,243,225,0.15);}
+  @media (max-width:760px){.foot-grid{grid-template-columns:1fr;}}
+  .foot-logo{font-family:'Fraunces',serif; font-style:italic; font-size:28px; font-weight:700;}
+  .foot-grid p{font-size:13.5px; color:#c9d6c9; margin-top:12px; line-height:1.6; max-width:320px;}
+  .foot-grid h5{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--yellow); margin-bottom:14px;}
+  .foot-grid a, .foot-grid li{font-size:13.5px; color:#d8e3d8; margin-bottom:9px; display:block;}
+  .foot-bottom{padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#a9bba9;}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav>
+    <a href="#home" class="logo" aria-label="Parvah 2026 home">
+      <span class="letters" id="logoLetters"></span>
+      <span class="flow-underline"></span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="#events">Events</a>
+      <a href="#gaming">Gaming Arena</a>
+      <a href="#celebrity">Celebrity Night</a>
+      <a href="#programs">Schedule</a>
+      <a href="#register" class="btn btn-solid">Register</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <svg class="flow-decor" style="top:60px; height:420px;" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#6B9B37"/>
+        <stop offset="50%" stop-color="#F5B700"/>
+        <stop offset="100%" stop-color="#2F5233"/>
+      </linearGradient>
+    </defs>
+    <path d="M -50 320 C 150 220, 300 380, 500 260 S 850 120, 1000 240 S 1250 340 1350 220"
+          fill="none" stroke="url(#flowGrad)" stroke-width="2.5" opacity="0.55"/>
+    <path d="M -50 120 C 200 60, 350 200, 600 100 S 900 220, 1150 90"
+          fill="none" stroke="url(#flowGrad)" stroke-width="1.5" opacity="0.35"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">SKIT PRESENTS · SWAMI KESHVANAND INSTITUTE OF TECHNOLOGY, JAIPUR</span>
+    <h1>PAR<span class="accent">VAH</span> <span class="accent">2026</span></h1>
+    <div class="hero-sub">10 — 16 JULY 2026 <b>&middot;</b> SKIT CAMPUS, JAIPUR</div>
+    <p class="hero-tag">Seven days of music, madness and momentum — competitions, celebrity night, a gaming arena and a finale that doesn't sit still. This year, let the fest flow.</p>
+    <div class="hero-actions">
+      <a href="#register" class="btn btn-yellow">Register Now →</a>
+      <a href="#events" class="btn btn-line">Explore Events</a>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><div class="num" id="cd-days">--</div><div class="lab">Days</div></div>
+      <div class="cd-box"><div class="num" id="cd-hours">--</div><div class="lab">Hours</div></div>
+      <div class="cd-box"><div class="num" id="cd-mins">--</div><div class="lab">Mins</div></div>
+      <div class="cd-box"><div class="num" id="cd-secs">--</div><div class="lab">Secs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">7</div><div class="l">Days of Fest</div></div>
+    <div class="stat"><div class="n">30+</div><div class="l">Events &amp; Competitions</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Gaming Titles</div></div>
+    <div class="stat"><div class="n">₹5L+</div><div class="l">Prize Pool</div></div>
+  </div>
+</div>
+
+<!-- ============ EVENTS ============ -->
+<section id="events">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What's on</span>
+      <h2>Four ways to fest.</h2>
+      <p>From the main stage to the last dance — pick your current and dive in.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg></div>
+        <h3>Programs</h3>
+        <p>Cultural nights, flash mobs, live bands and stage performances across all seven days.</p>
+        <div class="meta">10–16 JUL · MAIN STAGE</div>
+        <a class="go" href="#programs">View schedule →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM3 6h4M17 6h4"/></svg></div>
+        <h3>Competitions</h3>
+        <p>Dance battles, singing, drama, debate, fashion, photography &amp; treasure hunt.</p>
+        <div class="meta">30+ EVENTS · CASH PRIZES</div>
+        <a class="go" href="#register">Register now →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></div>
+        <h3>Celebrity Night</h3>
+        <p>The headline concert — one big stage, one unforgettable night under the lights.</p>
+        <div class="meta">15 JUL · OPEN GROUNDS</div>
+        <a class="go" href="#celebrity">Get tickets →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15v-3a8 8 0 0116 0v3M2 15h4v5H2zM18 15h4v5h-4zM9 19h6"/></svg></div>
+        <h3>Night Party</h3>
+        <p>DJ finale to close the fest — lights, beats, and the last dance of Parvah 2026.</p>
+        <div class="meta">16 JUL · CAMPUS GROUNDS</div>
+        <a class="go" href="#register">Get tickets →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMING ARENA ============ -->
+<section id="gaming" class="gaming">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Esports</span>
+      <h2 style="color:var(--cream);">The Gaming Arena.</h2>
+      <p>Squad up. Three titles, one arena, real prize money — LAN &amp; online slots both open.</p>
+    </div>
+    <div class="grid-3">
+      <div class="game-card">
+        <span class="tag">SQUAD · 4 PLAYERS</span>
+        <h3>BGMI / PUBG Mobile</h3>
+        <ul>
+          <li>Format <b>Squad, TPP</b></li>
+          <li>Entry fee <b>₹200 / team</b></li>
+          <li>Prize pool <b>₹40,000</b></li>
+          <li>Mode <b>Online + LAN Finals</b></li>
+        </ul>
+        <a class="btn btn-line" href="#register">Register Squad</a>
+      </div>
+      <div class="game-card">
+        <span class="tag">SQUAD · 4 PLAYERS</span>
+        <h3>Free Fire Max</h3>
+        <ul>
+          <li>Format <b>Squad, Battle Royale</b></li>
+          <li>Entry fee <b>₹150 / team</b></li>
+          <li>Prize pool <b>₹25,000</b></li>
+          <li>Mode <b>Online + LAN Finals</b></li>
+        </ul>
+        <a class="btn btn-line" href="#register">Register Squad</a>
+      </div>
+      <div class="game-card">
+        <span class="tag">5v5 · TEAM</span>
+        <h3>Valorant</h3>
+        <ul>
+          <li>Format <b>5v5, Single elim.</b></li>
+          <li>Entry fee <b>₹250 / team</b></li>
+          <li>Prize pool <b>₹30,000</b></li>
+          <li>Mode <b>Online + LAN Finals</b></li>
+        </ul>
+        <a class="btn btn-line" href="#register">Register Squad</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CELEBRITY NIGHT ============ -->
+<section id="celebrity" class="celeb">
+  <div class="wrap">
+    <div class="celeb-panel">
+      <div>
+        <span class="date-pill">15 JUL 2026 · 7 PM ONWARDS</span>
+        <h2>Celebrity Night.</h2>
+        <p style="margin-top:16px; color:#5c5847; font-size:15px; line-height:1.6; max-width:420px;">
+          One headline act, one massive stage, and the whole campus in one place. Artist reveal dropping soon — grab your tier before prices climb.
+        </p>
+        <div style="margin-top:26px;">
+          <a href="#register" class="btn btn-solid">Book Celebrity Night →</a>
+        </div>
+      </div>
+      <div class="ticket-tiers">
+        <div class="tier"><span class="name">Silver</span><span class="price">₹699</span></div>
+        <div class="tier"><span class="name">Gold</span><span class="price">₹1,299</span></div>
+        <div class="tier vip"><span class="name">VIP Front Row</span><span class="price">₹2,499</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS / SCHEDULE ============ -->
+<section id="programs">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Day by day</span>
+      <h2>Seven days, mapped out.</h2>
+      <p>The full flow of Parvah 2026 — same order every year, different energy every day.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-row"><div class="t-day">Day 01<span>10 JUL</span></div><div class="t-content"><h4>Inauguration &amp; Flash Mob</h4><p>Opening ceremony, lamp lighting and the flash mob that kicks Parvah off.</p></div></div>
+      <div class="t-row"><div class="t-day">Day 02<span>11 JUL</span></div><div class="t-content"><h4>Dance Battle &amp; Solo Singing</h4><p>Crew dance-offs on the main stage, solo vocalists in the auditorium.</p></div></div>
+      <div class="t-row"><div class="t-day">Day 03<span>12 JUL</span></div><div class="t-content"><h4>Drama Night &amp; Debate</h4><p>Skit competitions and the annual inter-college debate finals.</p></div></div>
+      <div class="t-row"><div class="t-day">Day 04<span>13 JUL</span></div><div class="t-content"><h4>Gaming Arena Finals</h4><p>BGMI, Free Fire and Valorant LAN finals live on the big screen.</p></div></div>
+      <div class="t-row"><div class="t-day">Day 05<span>14 JUL</span></div><div class="t-content"><h4>Fashion Show &amp; Photography Expo</h4><p>Ramp walk finale and the campus photography exhibition.</p></div></div>
+      <div class="t-row"><div class="t-day">Day 06<span>15 JUL</span></div><div class="t-content"><h4>Celebrity Night</h4><p>The headline concert — the biggest stage of the week.</p></div></div>
+      <div class="t-row"><div class="t-day">Day 07<span>16 JUL</span></div><div class="t-content"><h4>Night Party &amp; Prize Distribution</h4><p>Closing ceremony, prize distribution, then the DJ finale.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTRATION ============ -->
+<section id="register" class="register">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Join in</span>
+      <h2 style="color:var(--cream);">Register for Parvah 2026.</h2>
+      <p>Fill in your details, pick what you're in for, and pay in one step.</p>
+    </div>
+    <div class="reg-layout">
+      <form id="regForm">
+        <div class="row2">
+          <div class="field"><label>Full name</label><input type="text" id="fname" placeholder="Your name" required></div>
+          <div class="field"><label>Phone</label><input type="tel" id="fphone" placeholder="10-digit number" required></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" id="femail" placeholder="you@example.com" required></div>
+        <div class="row2">
+          <div class="field"><label>College / Course</label><input type="text" id="fcollege" placeholder="e.g. SKIT, B.Tech CSE" required></div>
+          <div class="field">
+            <label>Year</label>
+            <select id="fyear">
+              <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div>
+        <label style="display:block; font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:#c9c2ab; margin-bottom:12px; font-weight:700;">What are you registering for?</label>
+        <div class="checklist" id="checklist">
+          <label class="chk"><span class="left"><input type="checkbox" data-price="150" data-label="Competitions Pass"> Competitions Pass (all events)</span><span class="price">₹150</span></label>
+          <label class="chk"><span class="left"><input type="checkbox" data-price="200" data-label="BGMI Squad Entry"> BGMI / PUBG Squad Entry</span><span class="price">₹200</span></label>
+          <label class="chk"><span class="left"><input type="checkbox" data-price="150" data-label="Free Fire Squad Entry"> Free Fire Squad Entry</span><span class="price">₹150</span></label>
+          <label class="chk"><span class="left"><input type="checkbox" data-price="250" data-label="Valorant Team Entry"> Valorant Team Entry</span><span class="price">₹250</span></label>
+          <label class="chk"><span class="left"><input type="checkbox" data-price="699" data-label="Celebrity Night — Silver"> Celebrity Night — Silver</span><span class="price">₹699</span></label>
+          <label class="chk"><span class="left"><input type="checkbox" data-price="499" data-label="Night Party Ticket"> Night Party Ticket</span><span class="price">₹499</span></label>
+        </div>
+        <div class="total-bar">
+          <span class="lab">Total amount</span>
+          <span class="amt">₹<span id="totalAmt">0</span></span>
+        </div>
+        <button type="button" class="btn btn-yellow" id="payBtn">Proceed to Pay →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAYMENT MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="close" id="modalClose" aria-label="Close">&times;</button>
+
+    <div id="payView">
+      <h3>Scan &amp; pay</h3>
+      <p class="sub">Complete your Parvah 2026 registration payment.</p>
+      <div class="demo-flag">⚠ Demo QR for preview only — this does not process real payments. Connect a licensed payment gateway (Razorpay / PayU / a verified UPI merchant ID) before accepting money from students.</div>
+      <div class="qr-box">
+        <div id="qrcode"></div>
+        <div class="qr-amt">₹<span id="modalAmt">0</span></div>
+        <div class="txn-id" id="txnId">TXN-000000</div>
+        <p class="qr-note">Open any UPI app and scan this code, or press the button below once you've paid.</p>
+      </div>
+      <button class="btn btn-solid" style="width:100%; justify-content:center;" id="confirmPay">I've completed the payment</button>
+    </div>
+
+    <div class="success-view" id="successView">
+      <div class="tick">✓</div>
+      <h3 style="text-align:center;">You're in!</h3>
+      <p class="sub" style="text-align:center;">Your Parvah 2026 registration is confirmed.</p>
+      <div class="qr-box" style="align-items:stretch;">
+        <div style="display:flex; justify-content:space-between; font-size:13px;"><span>Registration ID</span><b id="regId">PVH-000000</b></div>
+        <div style="display:flex; justify-content:space-between; font-size:13px;"><span>Amount paid</span><b>₹<span id="paidAmt">0</span></b></div>
+      </div>
+      <button class="btn btn-line" style="width:100%; justify-content:center;" id="doneBtn">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Parvah 2026</div>
+        <p>The annual fest of SKIT — Swami Keshvanand Institute of Technology, Management &amp; Gramothan, Jaipur. Seven days. One flow.</p>
+      </div>
+      <div>
+        <h5>Fest</h5>
+        <a href="#events">Events</a>
+        <a href="#gaming">Gaming Arena</a>
+        <a href="#celebrity">Celebrity Night</a>
+        <a href="#programs">Schedule</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <span>SKIT Campus, Ram Nagariya Road, Jaipur</span>
+        <span>parvah2026@skit.ac.in</span>
+        <span>+91 90000 00000</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Parvah, SKIT Jaipur. Built by students, for students.</span>
+      <span>Instagram · YouTube · WhatsApp</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- animated logo letters ----
+  const logoText = "PARVAH";
+  const lettersEl = document.getElementById('logoLetters');
+  logoText.split('').forEach((ch,i)=>{
+    const s = document.createElement('span');
+    s.textContent = ch;
+    s.style.animationDelay = (i*0.08)+'s';
+    lettersEl.appendChild(s);
+  });
+
+  // ---- mobile nav ----
+  const navToggle = document.getElementById('navToggle');
+  const navlinks = document.getElementById('navlinks');
+  navToggle.addEventListener('click', ()=> navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navlinks.classList.remove('open')));
+
+  // ---- countdown ----
+  const target = new Date("2026-07-10T00:00:00+05:30").getTime();
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+
+  // ---- checklist + total ----
+  const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+  const totalAmt = document.getElementById('totalAmt');
+  function recalc(){
+    let total = 0;
+    checkboxes.forEach(cb=>{
+      cb.closest('.chk').classList.toggle('checked', cb.checked);
+      if(cb.checked) total += parseInt(cb.dataset.price,10);
+    });
+    totalAmt.textContent = total;
+    return total;
+  }
+  checkboxes.forEach(cb=>cb.addEventListener('change', recalc));
+  recalc();
+
+  // ---- payment modal ----
+  const overlay = document.getElementById('modalOverlay');
+  const payBtn = document.getElementById('payBtn');
+  const modalClose = document.getElementById('modalClose');
+  const payView = document.getElementById('payView');
+  const successView = document.getElementById('successView');
+  let qrInstance = null;
+
+  function randomId(prefix){
+    return prefix + '-' + Math.floor(100000 + Math.random()*900000);
+  }
+
+  payBtn.addEventListener('click', ()=>{
+    const total = recalc();
+    if(total === 0){
+      alert('Please select at least one event or ticket before proceeding to pay.');
+      return;
+    }
+    const name = document.getElementById('fname').value.trim();
+    if(!name){
+      alert('Please fill in your name before proceeding.');
+      document.getElementById('fname').focus();
+      return;
+    }
+    const txn = randomId('TXN');
+    document.getElementById('txnId').textContent = txn;
+    document.getElementById('modalAmt').textContent = total;
+
+    const upiString = `upi://pay?pa=skitparvah2026@upi&pn=SKIT%20Parvah%202026&am=${total}&cu=INR&tn=${txn}`;
+    document.getElementById('qrcode').innerHTML = '';
+    qrInstance = new QRCode(document.getElementById('qrcode'), {
+      text: upiString, width: 168, height: 168,
+      colorDark: "#181511", colorLight: "#ffffff"
+    });
+
+    payView.style.display = 'block';
+    successView.classList.remove('open');
+    overlay.classList.add('open');
+  });
+
+  document.getElementById('confirmPay').addEventListener('click', ()=>{
+    const total = document.getElementById('modalAmt').textContent;
+    document.getElementById('paidAmt').textContent = total;
+    document.getElementById('regId').textContent = randomId('PVH');
+    payView.style.display = 'none';
+    successView.classList.add('open');
+  });
+
+  function closeModal(){ overlay.classList.remove('open'); }
+  modalClose.addEventListener('click', closeModal);
+  document.getElementById('doneBtn').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+</script>
+</body>
+</html>

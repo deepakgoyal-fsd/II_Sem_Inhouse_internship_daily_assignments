@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANTEEN STORE | Royal Dining & Hall Booking</title>
+
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <div class="app-layout">
+        
+        <!-- Top Announcement Bar -->
+        <div class="top-announcement-bar">
+            <span class="font-accent">✨ CANTEEN STORE • ROYAL PURE VEG DINING ✨</span>
+            <span class="font-quote">"Savor the taste of purity & celebrate your special moments with us."</span>
+            <span class="font-badge"><i class="fa-solid fa-leaf"></i> 100% Pure Veg</span>
+        </div>
+
+        <!-- Sticky Navigation Header -->
+        <header class="navbar">
+            <!-- Brand Logo -->
+            <div class="brand-container" id="owner-info-trigger" title="Click for Canteen Store & Owner Details">
+                <div class="brand-logo-glow">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>CANTEEN <span class="gold-text">STORE</span></h1>
+                    <span class="status-indicator"><i class="fa-solid fa-circle pulse-dot"></i> Pure Veg • Live Portal</span>
+                </div>
+            </div>
+
+            <!-- Navigation Bar Actions -->
+            <div class="nav-controls">
+                <!-- Search Input Box -->
+                <div class="search-bar-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search delicacies..." aria-label="Search menu">
+                    <button id="clear-search" class="clear-btn" aria-label="Clear Search"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Floating Cart Button -->
+                <button class="cart-trigger" id="cart-drawer-toggle" aria-label="View Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="nav-cart-badge">0</span>
+                </button>
+
+                <!-- THREE-DOT MENU BUTTON (Triggers Side Navigation) -->
+                <button class="three-dots-btn" id="three-dots-toggle" title="Open Extended Services Menu">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Body Landing Page -->
+        <div class="main-body">
+            <main class="menu-section">
+                
+                <!-- Hero Banner Section -->
+                <section class="hero-banner">
+                    <div class="hero-content">
+                        <span class="hero-tag">🌟 Executive Dining & Celebration Portal</span>
+                        <h2 class="hero-headline">Taste The Pure <br><span class="gold-text">Vegetarian Elegance</span></h2>
+                        <p class="hero-subtext">Quick counter meals, fresh snacks & luxury private party room bookings — all in one place!</p>
+                    </div>
+                    <div class="hero-animation">
+                        <div class="floating-badge badge-1">🌿 100% Pure Veg</div>
+                        <div class="floating-badge badge-2">🎉 Party Hall Ready</div>
+                        <img src="https://img.freepik.com/premium-photo/food-photography_948735-41466.jpg" alt="Veg Dining" class="animated-hero-img">
+                    </div>
+                </section>
+
+                <!-- Active View Heading Title -->
+                <div class="view-header-title">
+                    <h2 id="current-view-heading"><i class="fa-solid fa-utensils"></i> All Popular Dishes</h2>
+                    <p id="current-view-sub">Select food items or open the 3-dot menu for Party Hall Bookings.</p>
+                </div>
+
+                <!-- Food Grid Container -->
+                <section class="food-grid" id="food-grid" aria-live="polite">
+                    <!-- Dynamic Items Populated by JS -->
+                </section>
+            </main>
+
+            <!-- Slide-Out Cart Sidebar -->
+            <aside class="cart-drawer" id="cart-drawer">
+                <div class="drawer-header">
+                    <h3><i class="fa-solid fa-cart-shopping"></i> Selected Items</h3>
+                    <button class="close-drawer-btn" id="close-drawer"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="cart-items-wrapper" id="cart-items-container">
+                    <!-- Dynamic Cart Rows -->
+                </div>
+
+                <div class="pickup-time-section">
+                    <label><i class="fa-regular fa-clock"></i> Food Preparation Time:</label>
+                    <select id="prep-time-select" class="luxury-select">
+                        <option value="10-15 mins">⚡ Immediate Pickup (10-15 mins)</option>
+                        <option value="20-25 mins">⏳ In 20-25 mins</option>
+                        <option value="30-40 mins">🕒 In 30-40 mins</option>
+                    </select>
+                </div>
+
+                <div class="cart-summary-footer">
+                    <div class="summary-line">
+                        <span>Items Subtotal</span>
+                        <span>₹<span id="subtotal-price">0.00</span></span>
+                    </div>
+                    <div class="summary-line">
+                        <span>CGST (2.5%)</span>
+                        <span>₹<span id="cgst-price">0.00</span></span>
+                    </div>
+                    <div class="summary-line">
+                        <span>SGST (2.5%)</span>
+                        <span>₹<span id="sgst-price">0.00</span></span>
+                    </div>
+                    <div class="summary-line grand-total">
+                        <span>Total Payable</span>
+                        <span>₹<span id="grand-total-price">0.00</span></span>
+                    </div>
+
+                    <button class="checkout-btn" id="checkout-trigger">
+                        <span>Generate Bill & Pay</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p class="quote-footer">"Pure Ingredients, Royal Flavors, Unmatched Quality."</p>
+                <p class="copyright-text">&copy; 2026 <strong>CANTEEN STORE</strong>. All Rights Reserved.</p>
+                <p class="license-info">FSSAI Certified Pure Veg Establishment: <span class="license-no">#LIC-2026-CS-9842</span></p>
+                <button class="feedback-trigger-btn" id="open-feedback-btn">
+                    <i class="fa-solid fa-star"></i> Customer Feedback
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- THREE-DOT SIDE DRAWER MENU (Contains Breakfast, Lunch, Dinner, Party Options) -->
+    <div class="modal-overlay" id="three-dots-modal" aria-hidden="true">
+        <div class="modal-card three-dots-menu-card">
+            <button class="modal-close" id="three-dots-close">&times;</button>
+            <div class="menu-drawer-header">
+                <i class="fa-solid fa-bars-staggered"></i>
+                <h2>Canteen Store Services</h2>
+                <p>Select category to explore menu or book party halls</p>
+            </div>
+            <div class="services-list">
+                <button class="service-opt-btn" onclick="switchCategoryView('breakfast')">
+                    <div class="opt-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <div class="opt-text">
+                        <h4>Breakfast Express</h4>
+                        <span>Fresh Poha, Parathas, Chai & South Indian</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </button>
+
+                <button class="service-opt-btn" onclick="switchCategoryView('lunch')">
+                    <div class="opt-icon"><i class="fa-solid fa-bowl-rice"></i></div>
+                    <div class="opt-text">
+                        <h4>Gourmet Lunch</h4>
+                        <span>Veg Thali, Paneer Dishes, Rice & Combos</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </button>
+
+                <button class="service-opt-btn" onclick="switchCategoryView('dinner')">
+                    <div class="opt-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+                    <div class="opt-text">
+                        <h4>Royal Dinner</h4>
+                        <span>Pizzas, Luxury Paneer Gravies, Naan & Special Desserts</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </button>
+
+                <button class="service-opt-btn party-highlight-btn" onclick="openPartyBookingFlow()">
+                    <div class="opt-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <div class="opt-text">
+                        <h4>Party & Room Booking</h4>
+                        <span>Birthdays, Celebrations & Private Room Packages</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTY PACKAGES SELECTION MODAL -->
+    <div class="modal-overlay" id="party-packages-modal" aria-hidden="true">
+        <div class="modal-card party-modal-card">
+            <button class="modal-close" id="party-modal-close">&times;</button>
+            <div class="party-modal-header">
+                <h2><i class="fa-solid fa-champagne-glasses" style="color: var(--gold-primary);"></i> Canteen Store Celebration Packages</h2>
+                <p>Choose from 5 different luxury packages (Lowest to Highest price range)</p>
+            </div>
+
+            <!-- 5 Party Packages Grid -->
+            <div class="packages-grid" id="packages-grid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTY BOOKING DETAILS & CUSTOMER VERIFICATION FORM MODAL -->
+    <div class="modal-overlay" id="party-form-modal" aria-hidden="true">
+        <div class="modal-card form-modal-card">
+            <button class="modal-close" id="party-form-close">&times;</button>
+            <div class="receipt-header">
+                <h2>Party Room Verification Form</h2>
+                <p>Please enter your details to lock room booking & receive confirmation</p>
+            </div>
+
+            <form id="party-booking-form" onsubmit="handlePartyFormSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-user"></i> Full Customer Name *</label>
+                        <input type="text" id="cust-name" required placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-phone"></i> Mobile Phone Number *</label>
+                        <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile no">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-id-card"></i> Aadhaar Card Number *</label>
+                        <input type="text" id="cust-aadhaar" required placeholder="Enter 12-digit Aadhaar number">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-users"></i> Approx Members / Guests *</label>
+                        <input type="number" id="cust-guests" min="1" max="100" required placeholder="e.g. 15">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-calendar-check"></i> Event / Celebration Type *</label>
+                        <select id="cust-occasion" class="luxury-select" required>
+                            <option value="Birthday Celebration">Birthday Party</option>
+                            <option value="Anniversary Party">Anniversary Party</option>
+                            <option value="Get-Together Party">Friends Get-Together</option>
+                            <option value="Corporate Celebration">Corporate Lunch/Dinner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-camera"></i> Customer Photo / ID Proof Upload *</label>
+                        <input type="file" id="cust-photo" accept="image/*" required class="file-input">
+                    </div>
+                </div>
+
+                <div class="form-group full-width" style="margin-top: 10px;">
+                    <label><i class="fa-solid fa-comment-dots"></i> Special Menu / Cake Customization Requirements</label>
+                    <textarea id="cust-requests" rows="2" placeholder="e.g. Write Happy Birthday Rahul on Cake, Less spicy food..." class="feedback-textarea"></textarea>
+                </div>
+
+                <!-- Package Summary Box -->
+                <div class="selected-package-summary" id="selected-package-summary">
+                    <!-- JS Injected -->
+                </div>
+
+                <button type="submit" class="confirm-paid-btn">
+                    <i class="fa-solid fa-lock"></i> Proceed to Pay 50% Advance Booking Amount
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- OWNER / STORE DETAILS MODAL -->
+    <div class="modal-overlay" id="owner-modal" aria-hidden="true">
+        <div class="modal-card owner-card">
+            <button class="modal-close" id="owner-modal-close">&times;</button>
+            <div class="owner-header">
+                <img src="https://png.pngtree.com/png-clipart/20240415/original/pngtree-vector-illustration-of-a-cute-boy-with-smile-on-his-face-png-image_14814902.png" alt="Raju Sharma Owner" class="owner-img">
+                <h2>Raju Sharma</h2>
+                <span class="owner-title">Owner & General Manager, CANTEEN STORE</span>
+            </div>
+            <div class="owner-details-body">
+                <p><i class="fa-solid fa-store"></i> <strong>Store Name:</strong> CANTEEN STORE</p>
+                <p><i class="fa-solid fa-location-dot"></i> <strong>Address:</strong> Counter No. 1, Main Food Court, Tech Park, Sector 62</p>
+                <p><i class="fa-solid fa-phone"></i> <strong>Contact No:</strong> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> rajusharma@canteenstore.com</p>
+                <p><i class="fa-solid fa-leaf"></i> <strong>Specialty:</strong> Pure Veg Gourmet Foods & Private Party Bookings</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINTABLE RECEIPT / BILL MODAL (Matching Requested Sample Invoice Style) -->
+    <div class="modal-overlay" id="checkout-modal" aria-hidden="true">
+        <div class="modal-card receipt-modal-card">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            
+            <div class="printable-bill" id="printable-bill">
+                <!-- Bill Header -->
+                <div class="bill-header">
+                    <h2>CANTEEN STORE</h2>
+                    <p class="bill-address">Counter No. 1, Main Food Court, Tech Park, Sector 62</p>
+                    <p class="bill-contact">CONTACT NO: +91 98765 43210</p>
+                    <p class="bill-email">EMAIL: rajusharma@canteenstore.com</p>
+                    <p class="bill-owner">OWNER: RAJU SHARMA</p>
+                </div>
+
+                <div class="bill-divider"></div>
+
+                <!-- Date & Time Info -->
+                <div class="bill-meta-grid">
+                    <div><strong>Date:</strong> <span id="bill-date">26/07/2026</span></div>
+                    <div><strong>Time:</strong> <span id="bill-time">12:36 PM</span></div>
+                    <div><strong>Payment:</strong> ONLINE (UPI ONLY)</div>
+                </div>
+
+                <div class="bill-divider"></div>
+
+                <!-- Customer Details & Confirmation Tag -->
+                <div class="bill-meta-block">
+                    <div class="meta-row">
+                        <span>RECEIPT NO:</span>
+                        <strong id="bill-receipt-no">INV-2026-8128</strong>
+                    </div>
+                    <div class="meta-row">
+                        <span>CUSTOMER NAME:</span>
+                        <strong id="bill-cust-name">Valued Customer</strong>
+                    </div>
+                    <div class="meta-row" id="bill-aadhaar-row" style="display:none;">
+                        <span>AADHAAR NO:</span>
+                        <strong id="bill-cust-aadhaar">XXXX-XXXX-1234</strong>
+                    </div>
+                    <div class="meta-row highlight-token">
+                        <span>TOKEN NO:</span>
+                        <strong id="bill-token-no">#CS-4092</strong>
+                    </div>
+                    <div class="meta-row">
+                        <span>BOOKING STATUS:</span>
+                        <strong id="bill-prep-time" style="color: var(--veg-green);">CONFIRMED BY RAJU SHARMA</strong>
+                    </div>
+                </div>
+
+                <div class="bill-divider"></div>
+
+                <!-- Item Breakdown Table -->
+                <div class="bill-items-table" id="bill-items-list">
+                    <!-- Dynamic items rendered via JS -->
+                </div>
+
+                <div class="bill-divider"></div>
+
+                <!-- Totals -->
+                <div class="bill-totals-block">
+                    <div class="total-row"><span>SUBTOTAL:</span> <span>₹<span id="bill-subtotal">0.00</span></span></div>
+                    <div class="total-row"><span>CGST (2.5%):</span> <span>₹<span id="bill-cgst">0.00</span></span></div>
+                    <div class="total-row"><span>SGST (2.5%):</span> <span>₹<span id="bill-sgst">0.00</span></span></div>
+                    <div class="total-row grand-total-bill"><span>TOTAL PAYABLE:</span> <span>₹<span id="bill-total">0.00</span></span></div>
+                    <div class="total-row" id="bill-advance-row" style="display:none; color: var(--gold-primary); font-weight: bold;">
+                        <span>50% ADVANCE PAID:</span> <span>₹<span id="bill-advance">0.00</span></span>
+                    </div>
+                </div>
+
+                <div class="bill-divider"></div>
+
+                <!-- Owner Security Guarantee Card -->
+                <div class="owner-security-badge">
+                    <img src="https://png.pngtree.com/png-clipart/20240415/original/pngtree-vector-illustration-of-a-cute-boy-with-smile-on-his-face-png-image_14814902.png" alt="Raju Sharma" class="mini-owner-img">
+                    <div class="sec-text">
+                        <strong style="color: var(--gold-primary);">Verified & Approved By Owner:</strong>
+                        <p style="margin: 0;">Raju Sharma (+91 98765 43210)</p>
+                        <small>Canteen Store Guaranteed Safe Booking</small>
+                    </div>
+                </div>
+
+                <div class="bill-divider"></div>
+
+                <!-- QR Payment Section -->
+                <div class="qr-payment-section">
+                    <p class="qr-title">SCAN QR CODE FOR ONLINE PAYMENT</p>
+                    <div class="qr-image-wrapper">
+                        <img id="upi-qr-image" src="" alt="UPI Payment QR Code" class="qr-code-img">
+                    </div>
+                    <small>Accepts Google Pay, PhonePe, Paytm & BHIM UPI</small>
+                </div>
+
+                <p class="bill-footer-msg">THANK YOU FOR CHOOSING CANTEEN STORE!<br>100% PURE VEGETARIAN DELIGHT</p>
+            </div>
+
+            <button class="confirm-paid-btn" id="final-confirm-btn">
+                <i class="fa-solid fa-check-double"></i> Confirm Online Payment & Finalize
+            </button>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal-overlay" id="feedback-modal" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" id="feedback-modal-close">&times;</button>
+            <div class="receipt-header">
+                <h2>Rate Your Experience</h2>
+                <p>How was the food and service at Canteen Store?</p>
+            </div>
+
+            <div class="star-rating-wrapper" id="star-rating">
+                <i class="fa-solid fa-star star" data-rating="1"></i>
+                <i class="fa-solid fa-star star" data-rating="2"></i>
+                <i class="fa-solid fa-star star" data-rating="3"></i>
+                <i class="fa-solid fa-star star" data-rating="4"></i>
+                <i class="fa-solid fa-star star" data-rating="5"></i>
+            </div>
+
+            <textarea id="feedback-text" placeholder="Write your review here..." rows="4" class="feedback-textarea"></textarea>
+
+            <button class="confirm-paid-btn" id="submit-feedback-btn">
+                <i class="fa-solid fa-paper-plane"></i> Submit Feedback
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

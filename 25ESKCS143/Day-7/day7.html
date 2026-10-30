@@ -1,0 +1,525 @@
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+
+/* 🌌 BACKGROUND */
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+min-height:100vh;
+overflow-x:hidden;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:30px;
+
+background:linear-gradient(-45deg,
+#0f172a,
+#1e3a8a,
+#2563eb,
+#7c3aed);
+
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+position:relative;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Floating glowing circles */
+
+body::before,
+body::after{
+content:"";
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+z-index:-1;
+animation:float 10s infinite alternate ease-in-out;
+}
+
+body::before{
+width:300px;
+height:300px;
+background:#00e5ff;
+top:-80px;
+left:-80px;
+}
+
+body::after{
+width:250px;
+height:250px;
+background:#ff00ff;
+right:-80px;
+bottom:-80px;
+}
+
+@keyframes float{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(60px);
+}
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1{
+color:white;
+margin-bottom:15px;
+text-shadow:0 0 15px rgba(0,255,255,0.4);
+}
+
+
+#search{
+
+width:500px;
+
+max-width:95%;
+
+padding:15px 20px;
+
+font-size:17px;
+
+border-radius:50px;
+
+border:none;
+
+outline:none;
+
+background:white;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.2);
+
+transition:.4s;
+
+}
+
+#search:focus{
+
+transform:scale(1.03);
+
+box-shadow:
+
+0 0 25px cyan;
+
+}
+/* GRID */
+.container{
+width:100%;
+max-width:1100px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+}
+
+/* 🧊 CARD DESIGN */
+.card{
+
+position:relative;
+height:330px;
+
+border-radius:20px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+transition:0.5s;
+
+transform-style:preserve-3d;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.35),
+
+0 0 25px rgba(0,255,255,.15);
+
+}
+
+.card:hover{
+
+transform:
+
+perspective(1000px)
+
+rotateX(8deg)
+
+rotateY(-8deg)
+
+translateY(-15px)
+
+scale(1.04);
+
+box-shadow:
+
+0 25px 45px rgba(0,0,0,.5),
+
+0 0 35px cyan;
+
+}
+
+
+
+/* IMAGE */
+.bg{
+
+position:absolute;
+
+inset:0;
+
+background-size:cover;
+
+background-position:center;
+
+transition:.6s;
+
+}
+
+.card:hover .bg{
+
+transform:scale(1.15);
+
+}
+/* OVERLAY */
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,0.85),rgba(0,0,0,0.2));
+}
+
+/* CONTENT */
+.content{
+position:relative;
+padding:15px;
+color:white;
+z-index:2;
+}
+
+.name{
+font-size:18px;
+font-weight:bold;
+}
+
+.course{
+font-size:13px;
+opacity:0.85;
+margin-bottom:8px;
+}
+
+/* DETAILS */
+.details{
+display:none;
+margin-top:10px;
+font-size:13px;
+background:rgba(255,255,255,0.1);
+padding:10px;
+border-radius:10px;
+backdrop-filter:blur(8px);
+}
+
+/* TAGS */
+.tag{
+display:inline-block;
+padding:4px 8px;
+background:rgba(0,255,255,0.15);
+border-radius:20px;
+font-size:11px;
+margin:3px;
+color:#aef;
+}
+
+/* NO DATA */
+#noData{
+color:white;
+display:none;
+margin-top:20px;
+}
+
+/* ✨ subtle glow border */
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:18px;
+padding:1px;
+background:linear-gradient(45deg,transparent,rgba(0,255,255,0.3),transparent);
+mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+mask-composite:exclude;
+pointer-events:none;
+}
+.card::after{
+
+content:"";
+
+position:absolute;
+
+top:-120%;
+
+left:-40%;
+
+width:60%;
+
+height:300%;
+
+background:
+
+linear-gradient(
+
+120deg,
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent
+
+);
+
+transform:rotate(25deg);
+
+transition:.8s;
+
+}
+
+.card:hover::after{
+
+left:140%;
+
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎓 Student Directory</h1>
+
+<input type="text" id="search" placeholder="🔍 Search student...">
+
+<div class="container">
+
+<!-- 10 CARDS (same data, cleaned look) -->
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Alex Johnson</div>
+<div class="course">Computer Science</div>
+<div class="details">
+📧 alex@gmail.com<br>
+📍 Jaipur<br>
+🎂 20 Years<br>
+<span class="tag">Java</span>
+<span class="tag">HTML</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Sophia Smith</div>
+<div class="course">IT</div>
+<div class="details">
+📧 sophia@gmail.com<br>
+📍 Delhi<br>
+🎂 21 Years<br>
+<span class="tag">React</span>
+<span class="tag">Node</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">James Brown</div>
+<div class="course">Mechanical</div>
+<div class="details">
+📧 james@gmail.com<br>
+📍 Mumbai<br>
+🎂 22 Years<br>
+<span class="tag">AutoCAD</span>
+<span class="tag">Design</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Chitra Maheshwari</div>
+<div class="course">Electronics</div>
+<div class="details">
+📧 emily@gmail.com<br>
+📍 Pune<br>
+🎂 20 Years<br>
+<span class="tag">IoT</span>
+<span class="tag">Circuits</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Michael Lee</div>
+<div class="course">Civil</div>
+<div class="details">
+📧 michael@gmail.com<br>
+📍 Kolkata<br>
+🎂 23 Years<br>
+<span class="tag">CAD</span>
+<span class="tag">Structures</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Olivia Wilson</div>
+<div class="course">AI & ML</div>
+<div class="details">
+📧 olivia@gmail.com<br>
+📍 Bangalore<br>
+🎂 21 Years<br>
+<span class="tag">Python</span>
+<span class="tag">ML</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1544723795-3fb6469f5b39');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">David jain</div>
+<div class="course">Data Science</div>
+<div class="details">
+📧 david@gmail.com<br>
+📍 Hyderabad<br>
+🎂 22 Years<br>
+<span class="tag">Python</span>
+<span class="tag">Data</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Ava Martinez</div>
+<div class="course">Design</div>
+<div class="details">
+📧 ava@gmail.com<br>
+📍 Chennai<br>
+🎂 20 Years<br>
+<span class="tag">UI</span>
+<span class="tag">UX</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('https://images.unsplash.com/photo-1519345182560-3f2917c472ef');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Daniel Scott</div>
+<div class="course">Cyber Security</div>
+<div class="details">
+📧 daniel@gmail.com<br>
+📍 Delhi<br>
+🎂 24 Years<br>
+<span class="tag">Security</span>
+<span class="tag">Networking</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="bg" style="background-image:url('himisha.jpeg');"></div>
+<div class="overlay"></div>
+<div class="content">
+<div class="name">Himisha Nahar</div>
+<div class="course">B.tech</div>
+<div class="details">
+📧 himishanahar21@gmail.com<br>
+📍 Bhilwara<br>
+🎂 19 Years<br>
+<span class="tag">Engineer</span>
+<span class="tag">Research</span>
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="noData">❌ No student found</div>
+
+<script>
+
+// click expand
+$(".card").click(function(){
+$(this).find(".details").slideToggle(200);
+$(this).siblings().find(".details").slideUp(200);
+});
+
+// search
+$("#search").on("keyup",function(){
+
+let value=$(this).val().toLowerCase();
+let found=false;
+
+$(".card").each(function(){
+
+let text=$(this).text().toLowerCase();
+
+if(text.includes(value)){
+$(this).show();
+found=true;
+}else{
+$(this).hide();
+}
+
+});
+
+$("#noData").toggle(!found);
+
+});
+
+</script>
+
+</body>
+</html>

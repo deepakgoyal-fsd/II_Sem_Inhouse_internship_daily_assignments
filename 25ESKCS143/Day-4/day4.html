@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    .img-fluid {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .nav-item {
+      font-weight: 400;
+      font-size: x-large;
+      color: white;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      transition: 0.3s;
+    }
+
+    .dark {
+      background-color: #121212;
+      color: white;
+    }
+
+    input {
+      padding: 10px;
+      margin: 8px;
+      width: 250px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      display: inline-block;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="color:rgb(51, 0, 255); ">Online Shopping Here!</h1>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <div>
+    <nav class="navbar navbar-expand-lg" style="background-color:black;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
+
+            <li class="nav-item">
+              <a class="nav-link text-white " aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Quality</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Services</a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a class="nav-link  text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Gender
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Girls</a></li>
+                <li><a class="dropdown-item" href="#">Boys</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Children</a></li>
+
+              </ul>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Feedback</a>
+            </li>
+
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <section class="bg-light py-5">
+    <div class="container">
+      <div style="background-color: rgb(255, 173, 105);" class="row align-items-center">
+
+        <div class="col-md-6">
+          <h1 class="display-5 fw-bold">Welcome to MyShop</h1>
+          <p class="lead">Best deals on electronics, fashion and more.</p>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+      <img src="imagecopy.png" alt="My Photo" width="150">
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="container mt-4">
+
+    <div class="row">
+
+      <!-- AMAZON -->
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+
+          <div style="background-color:rgb(228, 255, 182);" class="card-body text-center">
+            <h5 class="card-title">Amazon</h5>
+
+            <h6>Great Deals on Electronics</h6>
+
+            <p class="lead">Shop the latest products at amazing prices.</p>
+
+            <button class="btn btn-warning btn-lg">
+              Shop Now
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FLIPKART -->
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+
+          <div style="background-color:rgb(182, 255, 253);" class="card-body text-center">
+            <h5 class="card-title">Flipkart</h5>
+
+
+            <p class="mb-2">Smartphone</p>
+
+            <p class="text-success fw-bold">₹12,999</p>
+
+            <p class="text-muted small">Free Delivery</p>
+
+            <button class="btn btn-primary w-100">
+              Buy Now
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MEESHO -->
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+
+          <div style="background-color:lightpink;" class="card-body text-center">
+
+            <h5 class="card-title">Meesho</h5>
+
+            <p>Here also available some offers, you can visit this.</p>
+            <p>Great offers, visit us.</p>
+            <button class="btn btn-danger">
+              Go here
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+<h2>🛒 Shopping Order Form</h2>
+
+  <div class="box">
+
+    <input type="text" id="name" placeholder="Enter Name"><br>
+    <input type="email" id="email" placeholder="Enter Email"><br>
+    <input type="tel" id="phone" placeholder="Enter Phone"><br>
+
+
+    <h3>Product Quantity: <span id="count">0</span></h3>
+
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+    <button onclick="reset()">Reset</button>
+
+    <br><br>
+
+    <button onclick="submitOrder()">Submit Order</button>
+    <p id="msg"></p>
+
+  </div>
+  <script>
+    let count = 0;
+
+    function updateDisplay() {
+      document.getElementById("count").innerText = count;
+    }
+
+    function increase() {
+      count++;
+      updateDisplay();
+    }
+
+    function decrease() {
+      if (count > 0) count--;
+      updateDisplay();
+    }
+
+    function reset() {
+      count = 0;
+      updateDisplay();
+    }
+ function submitOrder() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+
+
+      if (!name || !email || !phone) {
+        document.getElementById("msg").innerText = "⚠️ Please fill all details!";
+        document.getElementById("msg").style.color = "red";
+        return;
+      }
+      document.getElementById("msg").style.color = "green";
+      document.getElementById("msg").innerText =
+        "✅ Order placed for " + name + " (Qty: " + count + ")";
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phone").value = "";
+      count = 0;
+      updateDisplay();
+
+    }
+     </script>
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">© 2026 MyShop. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackathon 10 July</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+
+/* ================= BACKGROUND ================= */
+body {
+ 
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+
+  /* ✅ IMPORTANT FIX */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.8;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.stats div {
+  background: rgba(255,255,255,0.08);
+  padding: 10px 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* ================= PRIZES ================= */
+.prize-hero {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.prize-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  width: 170px;
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 25px #06b6d4;
+}
+
+.gold { border: 2px solid gold; }
+.silver { border: 2px solid silver; }
+.bronze { border: 2px solid #cd7f32; }
+
+/* ================= FORM ================= */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  padding: 40px 0;
+}
+
+.form-box {
+  width: 370px;
+  padding: 30px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  text-align: center;
+  margin :auto;
+}
+
+.input-group {
+  margin: 15px 0;
+}
+
+input, select {
+  width: 90%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: blue;
+  font-size: medium;
+  font-weight: bold;
+}
+
+/* ================= BUTTON ================= */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#6366f1,#06b6d4);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* ================= COUNTDOWN ================= */
+#countdown {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #38bdf8;
+}
+
+/* ================= SMALL IMPROVEMENTS ================= */
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <h1>🚀 Hackathon 10 July</h1>
+  <p>Build • Innovate • Win Big</p>
+
+  <h3 id="countdown"></h3>
+
+  <div class="stats">
+    <div>👨‍💻 500+ Participants</div>
+    <div>🏆 ₹1 Lakh Prize Pool</div>
+    <div>⏳ 24 Hours Event</div>
+  </div>
+</div>
+
+<!-- ================= PRIZES ================= -->
+<div class="prize-hero">
+  <h2>🏆 Prize Pool</h2>
+
+  <div class="prize-cards">
+    <div class="card gold">
+      <h3>🥇 1st Prize</h3>
+      <p>₹50,000</p>
+    </div>
+
+    <div class="card silver">
+      <h3>🥈 2nd Prize</h3>
+      <p>₹30,000</p>
+    </div>
+
+    <div class="card bronze">
+      <h3>🥉 3rd Prize</h3>
+      <p>₹20,000</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FORM ================= -->
+<div class="container">
+  <div class="form-box">
+
+    <h2>Registration Form</h2>
+
+    <form id="registerForm">
+
+      <div class="input-group">
+        <input type="text" id="name" placeholder="Full Name" required>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="input-group">
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="college" placeholder="College / Organization" required>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="team" placeholder="Team Name" required>
+      </div>
+
+      <div class="input-group">
+        <select id="experience" required>
+          <option value="" disabled selected>Select Experience</option>
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+
+      <button type="submit">Register Now</button>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+
+// COUNTDOWN
+let eventDate = new Date("July 10, 2026 00:00:00").getTime();
+
+setInterval(function(){
+  let now = new Date().getTime();
+  let diff = eventDate - now;
+
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById("countdown").innerHTML =
+    "⏳ " + days + " Days Left";
+}, 1000);
+
+// FORM VALIDATION
+$("#registerForm").submit(function(e){
+  e.preventDefault();
+
+  if($("#name").val()=="" || $("#email").val()=="" || $("#phone").val()==""){
+    Swal.fire("Error","Please fill required fields","error");
+  } else {
+    Swal.fire("Success","Registered Successfully 🎉","success");
+    $("#registerForm")[0].reset();
+  }
+});
+
+// CARD ANIMATION
+$(".card").hover(
+  function(){ $(this).css("transform","translateY(-10px) scale(1.08)"); },
+  function(){ $(this).css("transform","translateY(0) scale(1)"); }
+);
+
+</script>
+
+</body>
+</html>

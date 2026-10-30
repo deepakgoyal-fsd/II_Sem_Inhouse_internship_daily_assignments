@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>REGESTRATION FORM</title>
+    <link rel="stylesheet" href="registration form.css" >
+</head>
+<body>
+
+  <div class="form-card">
+    <h2>Registration Form</h2>
+
+    <!-- Name -->
+    <div class="field-group">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" placeholder="Enter full name" />
+    </div>
+
+    <!-- Email -->
+    <div class="field-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter email address" />
+    </div>
+
+    <!-- Phone + Birth Date -->
+    <div class="row-2">
+      <div class="field-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter phone number" />
+      </div>
+      <div class="field-group">
+        <label for="dob">Birth Date</label>
+        <input type="date" id="dob" />
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="field-group">
+      <label>Gender</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="gender" value="male" checked />
+          Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" />
+          Female
+        </label>
+        <label>
+          <input type="radio" name="gender" value="prefer_not" />
+          Prefer not to say
+        </label>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="field-group">
+      <div class="section-label">Address</div>
+      <input type="text" placeholder="Enter street address" style="margin-bottom:14px;" />
+      <input type="text" placeholder="Enter street address line 2" />
+    </div>
+
+    <!-- Country + City -->
+    <div class="row-2">
+      <div class="field-group">
+        <select>
+          <option value="">Country</option>
+          <option value="IN">India</option>
+          <option value="US">United States</option>
+          <option value="GB">United Kingdom</option>
+          <option value="CA">Canada</option>
+          <option value="AU">Australia</option>
+          <option value="GE">Germany</option>
+          <option value="IT">Italy</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <input type="text" placeholder="Enter your city" />
+      </div>
+    </div>
+
+    <!-- Region + Postal Code -->
+    <div class="row-2" style="margin-top:14px;">
+      <div class="field-group">
+        <input type="text" placeholder="Enter your region" />
+      </div>
+      <div class="field-group">
+        <input type="text" placeholder="Enter postal code" />
+      </div>
+    </div>
+
+    <button class="submit-btn">Submit</button>
+  </div>
+
+</body>
+</html>

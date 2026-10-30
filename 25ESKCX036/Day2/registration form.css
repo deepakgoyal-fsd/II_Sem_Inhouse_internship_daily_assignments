@@ -1,0 +1,164 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #06090dfb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 30px 20px;
+    }
+
+    .form-card {
+      background: #dbe2dbe0;
+      border-radius: 40px;
+      padding: 30px 32px 40px;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 0px 20px rgb(248, 245, 245);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #080a0c;
+      margin-bottom: 28px;
+      letter-spacing: 1px;
+    }
+
+    .field-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #07090b;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(10, 50, 90, 0.4);
+      padding: 8px 4px;
+      font-size: 0.9rem;
+      color: #01070d;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input::placeholder,
+    select option[value=""] {
+      color: rgba(4, 6, 8, 0.5);
+    }
+
+    input:focus,
+    select:focus {
+      border-bottom-color: #030609;
+    }
+
+    /* Two-column row */
+    .row-2 {
+      display: flex;
+      gap: 20px;
+    }
+
+    .row-2 .field-group {
+      flex: 1;
+    }
+
+    /* Gender radios */
+    .radio-group {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      padding: 6px 0 4px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 500;
+      font-size: 0.92rem;
+      cursor: pointer;
+      color: #0d2a4a;
+      margin-bottom: 0;
+    }
+
+    .radio-group input[type="radio"] {
+      accent-color: #020405;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* Address section */
+    .section-label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #0d2a4a;
+      margin-bottom: 10px;
+    }
+
+    /* Select styling */
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230d2a4a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+      padding-right: 24px;
+      cursor: pointer;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      display: block;
+      width: calc(100% + 64px);
+      margin: 32px -32px -40px;
+      padding: 18px;
+      background: #1a509c;
+      color: #fff;
+      border: none;
+      border-radius: 0 0 16px 16px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #1430a0;
+    }
+
+    @media (max-width: 480px) {
+      .form-card {
+        padding: 28px 18px 36px;
+      }
+
+      .row-2 {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .submit-btn {
+        width: calc(100% + 36px);
+        margin: 28px -18px -36px;
+      }
+    }

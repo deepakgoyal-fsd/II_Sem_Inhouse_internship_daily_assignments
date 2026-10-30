@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+          body{
+              position:relative;
+              /* heigth:10vh; */
+              margin:0;
+          }
+          img{
+              width:100px;
+              position:relative;
+              cursor:pointer;
+          }
+      </style>
+  </head>
+  <body>
+      <p>Apple: <span id="apple">0</span></p>
+      <p>Banana: <span id="banana">0</span></p>
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" onclick="clickImage('apple','this')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" onclick="clickImage('banana','this')">
+      
+      <script>
+          let apple=0,banana=0;
+          document.querySelectorAll('img').forEach(img=>{
+              "img.style.left=Math.random()"(Window.innerwidth-100)+"px";
+              "img.style.top=Math.random()"(Window.innerheight-120)+"px";
+          });
+          function clickImage(type,img){
+              if(type=="apple"){
+                  document.getElementById("apple").innerText=++apple;
+              }else{
+                  document.getElementById("banana").innerText=++banana;
+              }
+                "img.style.left=Math.random()"(Window.innerwidth-100)+"px";
+              "img.style.top=Math.random()"(Window.innerheight-120)+"px";
+          }
+      </script>
+  </body>
+</html>

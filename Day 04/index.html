@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <p class="title">Registration Form</p>
+        <hr>
+
+        <form class="form">
+
+            <p class="headings"><b>Name:</b></p>
+            <input type="text" id="name" class="entries" placeholder="Enter Your Name">
+
+            <p class="headings"><b>Email:</b></p>
+            <input type="email" id="email" class="entries" placeholder="Enter Your Email">
+
+            <p class="headings"><b>Phone:</b></p>
+            <input type="tel" id="phone" class="entries" placeholder="Enter Your Phone Number">
+
+            <br><br>
+
+            <p class="headings"><b>Gender:</b></p>
+
+            <input type="radio" id="male" name="Gender" value="Male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="Gender" value="Female">
+            <label for="female">Female</label>
+
+            <input type="radio" id="other" name="Gender" value="Other">
+            <label for="other">Other</label>
+
+            <br><br>
+
+            <label for="dob" class="headings"><b>DOB:</b></label>
+            <input type="date" id="dob" class="entries">
+
+            <br><br>
+
+            <label for="dept" class="headings"><b>Department:</b></label>
+            <select id="dept" class="entries">
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science</option>
+                <option value="CE">Civil Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+            </select>
+
+            <br><br>
+
+            <label for="pass" class="headings"><b>Password:</b></label>
+            <input type="password" id="pass" class="entries" placeholder="Enter Password">
+
+            <br><br>
+
+            <label for="cpass" class="headings"><b>Confirm Password:</b></label>
+            <input type="password" id="cpass" class="entries" placeholder="Confirm Password">
+
+            <br><br>
+
+            <button type="button" id="submitBtn">SUBMIT</button>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

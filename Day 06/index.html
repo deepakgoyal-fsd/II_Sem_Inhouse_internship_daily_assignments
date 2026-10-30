@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container" style="display: none;"> <!-- Hidden initially for fadeIn bonus -->
+        <header>
+            <h1>Student Directory</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search students by name...">
+            </div>
+        </header>
+        
+        <main>
+            <div id="studentContainer" class="student-grid">
+                <!-- Cards will be generated here dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

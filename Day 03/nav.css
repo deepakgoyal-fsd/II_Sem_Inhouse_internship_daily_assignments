@@ -1,0 +1,26 @@
+.container{
+    background-color: black;
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.items{
+    color: antiquewhite;
+    padding: 15px;
+}
+
+img{
+    border-radius: 60px;
+
+}
+
+button{
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+

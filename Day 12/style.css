@@ -1,0 +1,91 @@
+:root {
+    --bg-primary: #f8fafc;
+    --nav-bg: #0f172a;
+    --card-bg: #ffffff;
+    --accent-primary: #3b82f6;
+    --text-main: #334155;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    min-height: 100vh;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    transition: margin .25s ease-out;
+}
+
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -250px;
+}
+
+.active-nav {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+    color: #60a5fa !important;
+    border-left: 4px solid var(--accent-primary);
+}
+
+.list-group-item {
+    border: none;
+    padding: 1rem 1.5rem;
+    transition: 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    padding-left: 2rem;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table-custom {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-custom thead {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.login-bg {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.highlight {
+    background-color: #fef08a;
+    font-weight: bold;
+    padding: 0 2px;
+    border-radius: 2px;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+}

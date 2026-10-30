@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+    <h1 style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 100px;">Click Counter</h1>
+
+    
+    <p id = "counter" style="text-align: center; font-size: 50px;">Number of Clicks: 0</p>
+    <div>
+        <button id = "btn" style="border-radius: 5px; height: 50px; width: 100px; font-size: large;">Click Me!</button>
+        <button id = "resetbtn" style="border-radius: 5px; height: 50px; width: 100px; font-size: large;">Reset!</button>
+    </div>
+
+</body>
+<script>
+    let count = 0;
+    let click = document.getElementById("counter");
+    let button = document.getElementById("btn");
+    let rbutton = document.getElementById("resetbtn");
+
+    function func() {
+        count++;
+        click.textContent = `Number of Clicks: ${count}`;
+    }
+
+    button.addEventListener("click", func);
+
+    function rfunc() {
+        count = 0;
+        click.textContent = `Number of Clicks: ${count}`;
+    }
+    
+    rbutton.addEventListener("click", rfunc);
+
+</script>
+</html>

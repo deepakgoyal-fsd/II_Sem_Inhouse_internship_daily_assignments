@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+<body>
+
+    
+    <h2>PROFILE:</h2>    
+
+    <img src="Profile.jpeg" alt="Profile Image" height="400px">
+    <h1>Chirag Saxena</h1>
+    <h2>Computer Science Student at SKIT, Jaipur</h2>
+    
+    <hr>
+
+    <h2>EDUCATION:</h2>
+
+    <table border="2">
+
+        <thead>
+            <tr>
+                <th>Institution</th>
+                <th>Year</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="2">Bharatiya Vidya Bhavan Vidyashram, Jaipur</td>
+                <td>2022-2023</td>
+                <td>Class - X: 87%</td>
+            </tr>
+            <tr>
+                <td>2024-2025</td>
+                <td>Class XII: 93%</td>
+            </tr>
+            <tr>
+                <td>Swami Keshvanand Institute of Technology, Management & Gramothan (SKIT), Jaipur</td>
+                <td>2025-2029</td>
+                <td>CGPA (till 2nd Sem): 9.77</td>
+            </tr>   
+        </tbody>
+
+    </table>
+    
+    <br>
+
+    <hr>
+
+    <h2>SKILLS: </h2>
+
+    <ul>
+        <li><b>Programming Languages:</b>
+            <ul>
+                <li>C/C++</li>
+                <li>Python</li>
+            </ul>
+            <br>
+        </li>
+        <li><b>Web Development:</b>
+            <ul>
+                <li>Html</li>
+                <li>CSS</li>
+            </ul>
+            <br>
+        </li>
+        <li><b>Tools & Platforms: </b>
+                <ul>
+                    <li>Git/Github</li>
+                    <li>VS Code</li>
+                </ul>
+            <br>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Favourite Websites: </h2>
+    <ul>
+        <li><b>Documentation: </b>
+            <ul>
+                <a href="https://www.w3schools.com/" target="_blank"><li>W3Schools</li></a>
+                <a href="https://www.geeksforgeeks.org/" target="_blank"><li>GeeksforGeeks</li></a>
+            </ul>
+            <br>
+        </li>
+        <li><b>DSA Practice Sites</b>
+            <ul>
+                <a href="https://leetcode.com/"><li>LeetCode</li></a>
+                <a href="geeksforgeeks.org/explore"><li>GeeksforGeeks</li></a>
+                <a href="https://codeforces.com/"><li>CodeForces</li></a>
+            </ul>
+            <br>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Contact Form: </h2>
+    
+    <form>
+        <label for="userName"><b>User Name: </b></label>
+        <input type="text" name="UName" id="userName" required>
+        <br>
+        <br>
+        <label for="userEmail"><b>Email: </b></label>
+        <input type="email" name="UEmail" id="userEmail" required>
+        <br>
+        <br>
+        <label for="Male"><b>Male</b></label>
+        <input type="radio" name="UGender" id="Male" value="Male">
+        <label for="Female"><b>Female</b></label>
+        <input type="radio" name="UGender" id="Female" value="Female">
+        <label for="Other"><b>Other</b></label>
+        <input type="radio" name="UGender" id="Other" value="Other">
+        <br>
+        <br>
+        <label><b>Interests: </b></label>
+        <br>
+        <label for="DSA">DSA</label>
+        <input type="checkbox" name="UDSA" id="DSA" value="DSA">
+        <label for="Web Dev">Web Development</label>
+        <input type="checkbox" name="UWeb" id="Web Dev" value="Web Dev">
+        <label for="AI/ML">AI/ML</label>
+        <input type="checkbox" name="UAI/ML" id="AI/ML" value="AI/ML">
+        <br>
+        <br>
+        <label><b>Experience Level: </b></label>
+        <br>
+        <label for="beginner">Beginner</label>
+        <input type="radio" name="UExperience" id="beginner" value="Beginner">
+        <label for="intermediate">Intermediate</label>
+        <input type="radio" name="UExperience" id="intermediate" value="Intermediate">
+        <label for="advanced">Advanced</label>
+        <input type="radio" name="UExperience" id="advanced" value="Advanced">
+        <br>
+        <br>
+        <label for="Message"><b>Message: </b></label>
+        <br>
+        <textarea name="UMessage" id="Message" rows="7" cols="37"></textarea>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+        </form>
+
+
+
+    
+    
+</body>
+</html>

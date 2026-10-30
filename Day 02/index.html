@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class = "container">
+        <p class = "title">Registration Form</p>
+        <hr>
+        <form class="form">
+        <p class="headings"><b>Name: </b></p>
+        <input type="text" placeholder="Enter Your Name " class="entries">
+
+        <p class="headings"><b>Email: </b></p>
+        <input type="email" placeholder="Enter Your Email " class="entries">
+
+        <p class="headings"><b>Phone: </b></p>
+        <input type="tel" placeholder="Enter Your Phone Number " class="entries">
+
+        <br>
+
+        <p class="headings"><b>Gender: </b></p>
+        <input type="radio" name="Gender" value="Male" class="rbtn">
+        <label for="Gender">Male</label>
+        <input type="radio" name="Gender" value="Female" class="rbtn">
+        <label for="Gender">Female</label>
+        <input type="radio" name="Gender" value="Other" class="rbtn">
+        <label for="Gender">Other</label>
+
+        <br>
+        <br>
+
+        <label for="DOB" class="headings"><b>DOB: </b></label>
+        <input type="date" name="DOB" class="entries">
+
+        <br>
+        <br>
+
+        <label for="dept" class="headings"><b>Department: </b></label>
+        <select name="dept" id="dept" class="entries">
+            <option value="CSE">Computer Science</option>
+            <option value="CE">Civil</option>
+            <option value="ME">Mechanical</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="pass" class="headings"><b>Password: </b></label>
+        <input type="password" name="pass" placeholder = "Enter Password" class = "entries">
+
+        <br>
+        <br>
+
+        <label for="cpass" class="headings"><b>Confirm Password: </b></label>
+        <input type="password" name="cpass" placeholder = "Confirm Password" class="entries">
+        
+        <br>
+        <br>
+        <button type="button">SUBMIT</button>
+
+    </form>
+    </div>
+
+    
+</body>
+</html>

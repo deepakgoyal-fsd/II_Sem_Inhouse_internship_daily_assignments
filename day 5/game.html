@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Tap Game</title>
+
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            overflow:hidden;
+            position:relative;
+        }
+
+        h1,p{
+            margin-left:10px;
+        }
+
+        img{
+            width:100px;
+            position:absolute;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tap the Fruits</h1>
+
+    <p>Apple: <span id="Apple">0</span></p>
+    <p>Banana: <span id="Banana">0</span></p>
+
+    <img src="apple.jpeg" onclick="clickImage('Apple', this)">
+    <img src="banana.jpeg" onclick="clickImage('Banana', this)">
+
+<script>
+
+let apple = 0;
+let banana = 0;
+
+// Random position when page loads
+document.querySelectorAll("img").forEach(img => {
+    img.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    img.style.top = Math.random() * (window.innerHeight - 120) + "px";
+});
+
+function clickImage(type, img){
+
+    if(type === "Apple"){
+        apple++;
+        document.getElementById("Apple").innerText = apple;
+    }
+    else{
+        banana++;
+        document.getElementById("Banana").innerText = banana;
+    }
+
+    // Move clicked image to a new random position
+    img.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    img.style.top = Math.random() * (window.innerHeight - 120) + "px";
+}
+
+</script>
+
+</body>
+</html>

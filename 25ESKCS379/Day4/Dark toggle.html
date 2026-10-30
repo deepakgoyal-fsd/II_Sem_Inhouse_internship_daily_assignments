@@ -1,0 +1,112 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Landing Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home">Sprint<span>Lab</span></a>
+
+    <nav aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#counter">Counter</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" type="button">Dark Mode</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">Build Sprint: 30 Minutes</p>
+        <h1>Interactive Landing Page</h1>
+        <p class="hero-text">
+          A polished practice project using HTML structure, CSS styling, JavaScript DOM manipulation,
+          events, a counter, a dark mode toggle, and form validation.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#contact">Join the Sprint</a>
+          <a class="secondary-link" href="#features">View Tasks</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features" aria-labelledby="featuresTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Mission Modules</p>
+        <h2 id="featuresTitle">What this page includes</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span>01</span>
+          <h3>Structure</h3>
+          <p>Header, navigation, hero section, feature cards, a counter area, and a validated form.</p>
+        </article>
+        <article class="feature-card">
+          <span>02</span>
+          <h3>Dark Mode Toggle</h3>
+          <p>A button adds or removes a <code>dark</code> class on the body and updates its label.</p>
+        </article>
+        <article class="feature-card">
+          <span>03</span>
+          <h3>Click Counter</h3>
+          <p>JavaScript tracks button clicks, displays the count, and can reset the value.</p>
+        </article>
+        <article class="feature-card">
+          <span>04</span>
+          <h3>Form Validation</h3>
+          <p>The form checks name and email fields before showing a success message.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="counter-section" id="counter" aria-labelledby="counterTitle">
+      <div>
+        <p class="eyebrow">DOM Events</p>
+        <h2 id="counterTitle">Click Counter</h2>
+        <p>Click the button and watch JavaScript update the page instantly.</p>
+      </div>
+
+      <div class="counter-card">
+        <span class="counter-label">Current Count</span>
+        <strong id="clickCount">0</strong>
+        <div class="counter-actions">
+          <button id="countButton" type="button">Click Me</button>
+          <button class="reset-button" id="resetButton" type="button">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contactTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Validation</p>
+        <h2 id="contactTitle">Join the Challenge</h2>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your name">
+          <small class="error-message" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email">
+          <small class="error-message" id="emailError"></small>
+        </div>
+
+        <button class="submit-button" type="submit">Submit Form</button>
+        <p class="success-message" id="successMessage" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+
+
+.counter-label {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+#clickCount {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.counter-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.counter-actions button {
+  padding: 0 18px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+  max-width: 680px;
+  padding: 24px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  outline: none;
+  padding: 0 14px;
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(18, 184, 134, 0.16);
+}
+
+.error-message {
+  min-height: 18px;
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.success-message {
+  min-height: 22px;
+  margin: 0;
+  color: var(--success);
+  font-weight: 800;
+}
+
+.submit-button {
+  justify-self: start;
+  padding: 0 20px;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feature-grid,
+  .counter-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .counter-section > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .feature-grid,
+  .counter-section {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-actions,
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .counter-actions button,
+  .primary-link,
+  .secondary-link {
+    justify-content: center;
+    width: 100%;
+  }
+}

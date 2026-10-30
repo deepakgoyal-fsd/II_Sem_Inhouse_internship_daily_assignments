@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0b1020;
+color:white;
+padding:30px;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+.search-box{
+width:100%;
+max-width:500px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.search-box input{
+width:100%;
+padding:14px;
+font-size:18px;
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1b2440;
+border-radius:12px;
+padding:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h2{
+margin-bottom:10px;
+color:#00d9ff;
+}
+
+.card p{
+margin:5px 0;
+}
+
+button{
+margin-top:15px;
+padding:10px 18px;
+border:none;
+background:#00b894;
+color:white;
+font-size:15px;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#009b78;
+}
+
+.details{
+margin-top:15px;
+max-height:0;
+overflow:hidden;
+transition:max-height .5s ease;
+background:#111827;
+border-radius:8px;
+padding:0 10px;
+}
+
+.details.show{
+max-height:300px;
+padding:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Student Directory</h1>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search Student by Name...">
+</div>
+
+<div class="container" id="studentContainer"></div>
+
+<script>
+
+const students=[
+
+{
+id:101,
+name:"Yashwini Yadav",
+age:17,
+department:"Computer Science",
+year:"Second Year",
+email:"yashwiniyadav55@gmail.com",
+phone:"8854809236",
+city:"Jaipur"
+},
+
+{
+id:102,
+name:"Vanshika Rajawat",
+age:19,
+department:"Computer Science",
+year:"First Year",
+email:"vanshika@gmail.com",
+phone:"9876501234",
+city:"Jaipur"
+},
+
+{
+id:103,
+name:"Vinni Chaudhary",
+age:20,
+department:"Computer Science",
+year:"Second Year",
+email:"vinni@gmail.com",
+phone:"9988776655",
+city:"Bikaner"
+},
+
+{
+id:104,
+name:"Soniya Kumawat",
+age:20,
+department:"Computer Science",
+year:"Second Year",
+email:"soniya@gmail.com",
+phone:"9123456789",
+city:"Ahmedabad"
+},
+
+{
+id:105,
+name:"Purvesh Yadav",
+age:19,
+department:"Computer Science",
+year:"Second Year",
+email:"purvesh@gmail.com",
+phone:"9988123456",
+city:"Jaipur"
+},
+
+{
+id:106,
+name:"Kanishka Rathore",
+age:20,
+department:"Computer Science",
+year:"Second Year",
+email:"kanishka@gmail.com",
+phone:"9871234567",
+city:"Sikar"
+},
+
+{
+id:107,
+name:"Anil Choudhary",
+age:23,
+department:"Computer Science",
+year:"Fourth Year",
+email:"anil@gmail.com",
+phone:"9001122334",
+city:"Trichi"
+},
+
+{
+id:108,
+name:"Anil Yadav",
+age:23,
+department:"Cardiologist",
+year:"Fourth Year",
+email:"anil@gmail.com",
+phone:"9874512365",
+city:"Jaipur"
+},
+
+{
+id:109,
+name:"Hitesh Nasana",
+age:21,
+department:"Cyber Security",
+year:"Second Year",
+email:"hitesh@gmail.com",
+phone:"9870098765",
+city:"Jaipur"
+},
+
+{
+id:110,
+name:"Aryan Kumawat",
+age:21,
+department:"Neurology",
+year:"Third Year",
+email:"aryan@gmail.com",
+phone:"9811122233",
+city:"Jaipur"
+}
+
+];
+
+const container=document.getElementById("studentContainer");
+
+function displayStudents(data){
+
+container.innerHTML="";
+
+data.forEach(student=>{
+
+const card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+
+<h2>${student.name}</h2>
+
+<p><b>ID:</b> ${student.id}</p>
+
+<p><b>Department:</b> ${student.department}</p>
+
+<button onclick="toggleDetails(${student.id})">
+Show / Hide Details
+</button>
+
+<div class="details" id="detail-${student.id}">
+
+<p><b>Age:</b> ${student.age}</p>
+
+<p><b>Year:</b> ${student.year}</p>
+
+<p><b>Email:</b> ${student.email}</p>
+
+<p><b>Phone:</b> ${student.phone}</p>
+
+<p><b>City:</b> ${student.city}</p>
+
+</div>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+displayStudents(students);
+
+function toggleDetails(id){
+
+let detail=document.getElementById("detail-"+id);
+
+detail.classList.toggle("show");
+
+}
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+let filtered=students.filter(student=>
+
+student.name.toLowerCase().includes(value)
+
+);
+
+displayStudents(filtered);
+
+});
+
+</script>
+
+</body>
+</html>

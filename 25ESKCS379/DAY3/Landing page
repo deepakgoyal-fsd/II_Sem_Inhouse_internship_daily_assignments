@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CodePro Academy</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>CodePro</h2>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#features">Courses</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<button>Enroll Now</button>
+
+</nav>
+
+
+<section class="hero" id="home">
+
+<div class="left">
+
+<h1>
+Learn. Build.
+Become a Full Stack Developer.
+</h1>
+
+<p>
+Join our expert trainers and become job-ready through
+real-world projects.
+</p>
+
+<button class="primary">
+Explore Courses
+</button>
+
+<button class="secondary">
+Download Syllabus
+</button>
+
+</div>
+
+<div class="right">
+
+<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600"
+alt="student">
+
+</div>
+
+</section>
+
+
+
+<section class="features" id="features">
+
+<h2>Why Learn With Us?</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fas fa-laptop-code"></i>
+
+<h3>Expert Trainers</h3>
+
+<p>Industry professionals with years of experience.</p>
+
+</div>
+
+
+<div class="card">
+
+<i class="fas fa-code"></i>
+
+<h3>Real Projects</h3>
+
+<p>Build practical projects for your portfolio.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-certificate"></i>
+
+<h3>Certification</h3>
+
+<p>Receive an industry-recognized certificate.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="team" id="team">
+
+<h2>Meet Our Team</h2>
+
+<div class="team-container">
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<h3>Rahul Sharma</h3>
+
+<p>Frontend Mentor</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<h3>Priya Singh</h3>
+
+<p>Backend Expert</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/52.jpg">
+
+<h3>Amit Kumar</h3>
+
+<p>Full Stack Developer</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 CodePro Academy | Build Sprint
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

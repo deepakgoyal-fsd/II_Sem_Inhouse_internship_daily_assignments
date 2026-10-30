@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Yahwini Yadav",
+    "email": "yashwini@example.com",
+    "branch": "Computer Science"
+  },
+  {
+    "id": 2,
+    "name": "Vanshika Rajawat",
+    "email": "rajawat@example.com",
+    "branch": "Computer Science"
+  },
+  {
+    "id": 3,
+    "name":"Vinni Chaudhary",
+    "email": "vinni@example.com",
+    "branch": "Computer Science"
+  },
+  {
+    "id": 4,
+    "name": "Yuvraj Singh Dudi",
+    "email": "dudi@example.com",
+    "branch": "Computer Science"
+  },
+  {
+    "id": 5,
+    "name": "Yuvraj Singh Bhati",
+    "email": "bahti@example.com",
+    "branch": "Computer Science"
+  }
+
+
+]

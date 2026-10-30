@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Directory</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#111827;
+    color:white;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+}
+
+h1 span{
+    color:#00e5ff;
+}
+
+.description{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    border:2px solid cyan;
+    border-radius:8px;
+    background:#1f2937;
+    color:white;
+    margin-bottom:25px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#1f2937;
+    border:2px solid cyan;
+    border-radius:10px;
+    padding:20px;
+}
+
+.card h2{
+    margin-top:0;
+}
+
+button{
+    padding:10px 20px;
+    background:cyan;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#00bcd4;
+}
+
+.details{
+    display:none;
+    margin-top:15px;
+    background:#374151;
+    padding:10px;
+    border-radius:5px;
+}
+
+.footer{
+    margin-top:30px;
+    background:#00c853;
+    text-align:center;
+    padding:15px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+.cards{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Today's Mission: <span>Student Directory</span></h1>
+
+<p class="description">
+Every concept you learn today feeds directly into one real application —
+a fully dynamic Student Directory.
+</p>
+
+<input type="text" id="search" placeholder="Search Student by Name..." onkeyup="searchStudent()">
+
+<div class="cards">
+
+<div class="card">
+<h2>Utsav Jha</h2>
+<p>CSE - First Year</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 359</p>
+<p><b>Email:</b> utsavjha3737@gmail.com</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Bhumi Sharma</h2>
+<p>Information Technology</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 102</p>
+<p><b>Email:</b> bhumi@gmail.com</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Rohan Gupta</h2>
+<p>Electronics</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 103</p>
+<p><b>Email:</b> rohan@gmail.com</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Aarav Jain</h2>
+<p>Artificial Intelligence</p>
+
+<button onclick="toggle(this)">Show Details</button>
+
+<div class="details">
+<p><b>Roll No:</b> 234</p>
+<p><b>Email:</b> aarav@gmail.com</p>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+Every module today is a building block. Nothing is filler — everything ships in the final product.
+</div>
+
+</div>
+
+<script>
+
+function toggle(button){
+
+var details=button.nextElementSibling;
+
+if(details.style.display==="block"){
+details.style.display="none";
+button.innerHTML="Show Details";
+}
+else{
+details.style.display="block";
+button.innerHTML="Hide Details";
+}
+
+}
+
+function searchStudent(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var cards=document.getElementsByClassName("card");
+
+for(var i=0;i<cards.length;i++){
+
+var name=cards[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase();
+
+if(name.indexOf(input)>-1){
+cards[i].style.display="block";
+}
+else{
+cards[i].style.display="none";
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

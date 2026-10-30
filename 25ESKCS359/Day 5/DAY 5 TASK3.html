@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission - JavaScript Object</title>
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        background:#f2f2f2;
+        font-family:Arial, sans-serif;
+    }
+
+    .container{
+        width:500px;
+        margin:60px auto;
+        background:white;
+        padding:25px;
+        border-radius:10px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        text-align:center;
+        color:#333;
+    }
+
+    p{
+        font-size:18px;
+        margin:12px 0;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>My Profile Object</h2>
+
+    <p id="output"></p>
+    <p id="skill"></p>
+    <p id="hobby"></p>
+</div>
+
+<script>
+
+let myProfile = {
+    name: "Utsav Jha",
+    branch: "CSE",
+    year: 2,
+    city: "Jaipur",
+    skills: ["HTML", "CSS", "JavaScript"],
+    hobbies: ["Cricket", "Football", "Gym"]
+};
+
+let sentence = `I am ${myProfile.name} from ${myProfile.branch}, Year ${myProfile.year}. Currently I live in ${myProfile.city}.`;
+
+document.getElementById("output").innerHTML = sentence;
+
+document.getElementById("skill").innerHTML =
+`My first skill is ${myProfile.skills[0]}.`;
+
+document.getElementById("hobby").innerHTML =
+`My first hobby is ${myProfile.hobbies[0]}.`;
+
+console.log(sentence);
+console.log(myProfile.skills[0]);
+console.log(myProfile.hobbies[0]);
+
+</script>
+
+</body>
+</html>

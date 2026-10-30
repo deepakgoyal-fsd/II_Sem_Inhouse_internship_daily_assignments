@@ -1,0 +1,53 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: rgb(218, 221, 237);
+    background-image: url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-size: 24px;
+    color:rgb(7, 8, 9);
+}
+
+
+.card{
+    border:none;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.card-body{
+    padding:30px;
+}
+.box {
+    font-weight: bold;
+    font-size: 16px;
+    color:brown
+}
+h4{
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color:black;
+   
+}
+p{
+    color:saddlebrown
+}
+    
+.card{
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}

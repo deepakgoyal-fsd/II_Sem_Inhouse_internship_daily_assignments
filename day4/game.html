@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Banana Game</title>
+
+        <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color:ghostwhite;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+<p>Apple: <span id="apple">0</span></p>
+<p>Banana: <span id="banana">0</span></p>
+
+
+<img src="apple.jpg" id="appleImg" onclick="clickImage('apple', this)">
+<img src="banana.jpg" id="bananaImg" onclick="clickImage('banana', this)">
+
+<script>
+
+let apple = 0;
+let banana = 0;
+
+
+
+// Initial speeds (milliseconds)
+let appleSpeed = 700;
+let bananaSpeed = 300;   // Fastest
+
+
+setInterval(function () {
+
+    playTime++;
+
+    let minutes = Math.floor(playTime / 60);
+    let seconds = playTime % 60;
+
+    document.getElementById("playTime").innerText =
+        minutes + ":" + String(seconds).padStart(2, "0");
+
+}, 1000);
+
+// Place images randomly when page loads
+document.querySelectorAll("img").forEach(img => {
+    moveImage(img);
+});
+
+let speed = 1000; // starts at 1 second
+
+setInterval(function(){
+
+    // Faster movement (minimum 100 ms)
+    appleSpeed = Math.max(100, appleSpeed - 50);
+    bananaSpeed = Math.max(80, bananaSpeed - 30);
+
+
+    clearInterval(appleTimer);
+    clearInterval(bananaTimer);
+    
+
+    appleTimer = setInterval(function(){
+
+        moveImage(document.getElementById("appleImg"));
+
+    }, appleSpeed);
+
+    bananaTimer = setInterval(function(){
+
+        moveImage(document.getElementById("bananaImg"));
+
+    }, bananaSpeed);
+
+},5000);
+function moveImage(img) {
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 150);
+
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+}
+
+function clickImage(type, img) {
+
+    if (type === "apple") {
+        apple++;
+        
+        document.getElementById("apple").innerText = apple;
+    }
+    else if (type === "banana") {
+
+        banana++;
+        document.getElementById("banana").innerText = banana;
+    }
+
+    moveImage(img);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAAH 2026 | College Fest</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(45deg,#00f5ff,#a855f7,#ff3cac,#00f5ff);
+background-size:400% 400%;
+animation:bg 12s infinite alternate;
+z-index:-2;
+opacity:.25;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#00f5ff;
+text-shadow:0 0 20px cyan;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00f5ff;
+}
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:70px;
+color:#00f5ff;
+text-shadow:0 0 20px cyan,0 0 40px cyan;
+}
+
+.hero h2{
+margin-top:20px;
+font-size:30px;
+color:#ff3cac;
+}
+
+.hero p{
+margin:20px;
+font-size:20px;
+}
+
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:#00f5ff;
+color:black;
+font-size:18px;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 0 20px cyan;
+}
+
+.btn:hover{
+transform:scale(1.1);
+background:#ff3cac;
+color:white;
+box-shadow:0 0 30px #ff3cac;
+}
+
+.events{
+padding:80px 40px;
+text-align:center;
+}
+
+.events h2{
+font-size:45px;
+margin-bottom:40px;
+color:#00f5ff;
+text-shadow:0 0 20px cyan;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:30px;
+transition:.4s;
+border:2px solid #00f5ff;
+box-shadow:0 0 20px rgba(0,255,255,.5);
+}
+.card:hover{
+
+transform:translateY(-15px) scale(1.08);
+
+box-shadow:0 0 20px cyan,
+0 0 40px cyan,
+0 0 60px #00f5ff;
+
+
+}
+
+.card h3{
+margin:15px 0;
+color:#ff3cac;
+font-size:28px;
+}
+
+.card p{
+font-size:17px;
+}
+
+.register{
+padding:80px 20px;
+display:flex;
+justify-content:center;
+}
+
+form{
+width:500px;
+background:rgba(255,255,255,.08);
+padding:35px;
+border-radius:30px;
+backdrop-filter:blur(15px);
+border:2px solid cyan;
+box-shadow:0 0 25px cyan;
+}
+
+form h2{
+text-align:center;
+margin-bottom:25px;
+color:#00f5ff;
+}
+
+input,select{
+width:100%;
+padding:15px;
+margin:12px 0;
+border:none;
+border-radius:12px;
+background:#101828;
+color:white;
+outline:none;
+}
+
+input:focus,select:focus{
+box-shadow:0 0 15px cyan;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:40px;
+background:#00f5ff;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#ff3cac;
+color:white;
+box-shadow:0 0 20px #ff3cac;
+}
+
+footer{
+padding:20px;
+text-align:center;
+background:#02030b;
+margin-top:50px
+}
+
+body{
+    background: radial-gradient(circle at bottom,#0b0f2a,#02030b 70%);
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+      radial-gradient(2px 2px at 120px 150px,#00f5ff,transparent),
+      radial-gradient(1.5px 1.5px at 250px 70px,#fff,transparent),
+      radial-gradient(2px 2px at 400px 220px,#ff3cac,transparent),
+      radial-gradient(2px 2px at 600px 100px,#00f5ff,transparent),
+      radial-gradient(1px 1px at 800px 250px,#fff,transparent);
+    background-size:800px 500px;
+    animation:starsMove 60s linear infinite;
+    z-index:-2;
+}
+
+.twinkle{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:url("https://www.transparenttextures.com/patterns/stardust.png");
+    animation:twinkle 6s linear infinite;
+    opacity:.5;
+    z-index:-3;
+}
+
+@keyframes twinkle{
+    0%{opacity:.2;}
+    50%{opacity:.7;}
+    100%{opacity:.2;}
+}
+
+.shooting-star{
+    position:fixed;
+    width:180px;
+    height:2px;
+    background:linear-gradient(90deg,#fff,transparent);
+    top:15%;
+    left:-200px;
+    transform:rotate(-25deg);
+    animation:shoot 6s linear infinite;
+    z-index:-1;
+}
+
+.s2{
+    top:40%;
+    animation-delay:2s;
+}
+
+.s3{
+    top:70%;
+    animation-delay:4s;
+}
+
+@keyframes shoot{
+    from{
+        transform:translateX(0) translateY(0) rotate(-25deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateX(1700px) translateY(400px) rotate(-25deg);
+        opacity:0;
+    }
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:float 12s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-100vh);
+    }
+}
+
+.galaxy{
+    position:fixed;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(0,255,255,.25),
+        rgba(128,0,255,.2),
+        transparent 70%);
+    filter:blur(80px);
+    top:-200px;
+    right:-150px;
+    animation:galaxy 12s ease-in-out infinite alternate;
+    z-index:-2;
+}
+
+@keyframes galaxy{
+    from{
+        transform:rotate(0deg) scale(1);
+    }
+    to{
+        transform:rotate(360deg) scale(1.2);
+    }
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    top:-150px;
+    left:-100px;
+    background:radial-gradient(circle,#7c3aed55,transparent 70%);
+    filter:blur(40px);
+    z-index:-1;
+    animation:nebula 10s ease-in-out infinite alternate;
+}
+
+@keyframes starsMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(500px);
+    }
+}
+
+@keyframes nebula{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(200px);
+    }
+}
+.countdown{
+display:flex;
+justify-content:center;
+gap:20px;
+margin:40px 0;
+flex-wrap:wrap;
+}
+
+.time-box{
+width:100px;
+height:100px;
+border-radius:20px;
+background:rgba(255,255,255,.08);
+border:2px solid cyan;
+box-shadow:0 0 20px cyan;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.time-box h3{
+font-size:32px;
+color:#00f5ff;
+}
+
+.time-box p{
+font-size:15px;
+}
+
+html{ 
+    scroll-behavior: smooth;
+}
+
+.cursor{
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00f5ff;
+    box-shadow: 0 0 20px cyan,
+                0 0 40px cyan;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+            
+}
+
+.planet{
+    position:absolute;
+    border-radius:50%;
+    animation:floatPlanet 8s ease-in-out infinite alternate;
+}
+
+
+.moon{
+    width:90px;
+    height:90px;
+    top:80px;
+    right:120px;
+    background:radial-gradient(circle,#ffffff,#d9d9d9,#999);
+    box-shadow:0 0 40px #ffffff;
+}
+
+
+.saturn{
+    width:130px;
+    height:130px;
+    bottom:60px;
+    left:80px;
+    background:radial-gradient(circle,#f9d976,#f39f86);
+    box-shadow:0 0 35px #f9d976;
+}
+
+.saturn::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:22px;
+    border:4px solid rgba(255,255,255,.6);
+    border-radius:50%;
+    top:52px;
+    left:-25px;
+    transform:rotate(-20deg);
+}
+
+
+
+.nebula{
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.35;
+    animation:nebulaMove 10s ease-in-out infinite alternate;
+}
+
+.nebula1{
+    background:#7b2cff;
+    top:15%;
+    left:8%;
+}
+
+.nebula2{
+    background:#00d9ff;
+    bottom:10%;
+    right:8%;
+}
+
+@keyframes floatPlanet{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(-20px);
+}
+
+}
+
+@keyframes nebulaMove{
+
+from{
+transform:translateX(0);
+}
+
+to{
+transform:translateX(80px);
+}
+
+}
+
+#successMsg{
+
+position:fixed;
+
+top:25px;
+
+right:-420px;
+
+background:linear-gradient(45deg,#00f5ff,#7b2cff);
+
+color:white;
+
+padding:18px 30px;
+
+border-radius:15px;
+
+font-size:18px;
+
+font-weight:bold;
+
+box-shadow:
+
+0 0 20px cyan,
+
+0 0 40px #7b2cff;
+
+transition:.6s;
+
+z-index:99999;
+
+}
+
+#successMsg.show{
+
+right:30px;
+
+}
+</style>
+</head>
+
+<body>
+<div class="nebula nebula1"></div>
+<div class="nebula nebula2"></div>
+
+
+
+<div class="shooting-star"></div>
+<div class="shooting-star s2"></div>
+<div class="shooting-star s3"></div>
+
+<div class="twinkle"></div>
+
+<div class="galaxy"></div>
+<nav>
+<div class="logo">⚡ PRAVAAH 2026</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#register">Register</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+    <h2 style="text-align:center;color:#00f5ff;">
+Fest Begins In
+</h2>
+
+<div class="countdown">
+
+<div class="time-box">
+<h3 id="days">00</h3>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<h3 id="hours">00</h3>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<h3 id="minutes">00</h3>
+<p>Minutes</p>
+</div>
+
+<div class="time-box">
+<h3 id="seconds">00</h3>
+<p>Seconds</p>
+</div>
+
+</div>
+
+<h1>PRAVAAH 2026</h1>
+
+<h2>5 August - 10 August</h2>
+
+<p>
+Experience the biggest cultural and technical fest of the year.
+Dance • Code • Sing • Paint • Win
+</p>
+
+<a href="#register">
+<button class="btn">Register Now</button>
+</a>
+
+</section>
+
+<section class="events" id="events">
+
+<h2>Our Events</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>💃 Dance Battle</h3>
+<p>Show your best moves and win exciting prizes.</p>
+</div>
+
+<div class="card">
+<h3>💻 Coding Jalwa</h3>
+<p>Solve coding challenges and prove your skills.</p>
+</div>
+
+<div class="card">
+<h3>🎤 Sur Damdaar</h3>
+<p>Sing your heart out on the grand stage.</p>
+</div>
+
+<div class="card">
+<h3>🎨Painting Kamal</h3>
+<p>Show your creativity with colors.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="register" id="register">
+
+<form>
+
+<h2>Fest Registration</h2>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<input type="text" placeholder="Course">
+
+<select required>
+<option value="">Choose Event</option>
+<option>Dance Battle</option>
+<option>Coding Jalwa</option>
+<option>Sur Damdaar</option>
+<option>Painting Kamal</option>
+</select>
+
+<button type="submit">REGISTER</button>
+
+</form>
+
+</section>
+
+<footer>
+© 2026 PRAVAAH College Fest | Designed with 💜
+</footer>
+<div id="successMsg">
+    🎉 Registration Successful!
+</div>
+<script>
+
+const targetDate=new Date("August 5, 2026 09:00:00").getTime();
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+
+const distance=targetDate-now;
+
+document.getElementById("days").innerHTML=Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerHTML=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("minutes").innerHTML=Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/1000);
+
+},1000);
+
+</script>
+<div class="cursor"></div>
+<script>
+const cursor=document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+
+cursor.style.top=e.clientY+"px";
+
+});
+</script>
+<script>
+
+const form=document.querySelector("form");
+
+const msg=document.getElementById("successMsg");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+form.reset();
+
+msg.classList.add("show");
+
+setTimeout(()=>{
+
+msg.classList.remove("show");
+
+},3000);
+
+});
+
+
+
+</script>
+</body>
+</html>

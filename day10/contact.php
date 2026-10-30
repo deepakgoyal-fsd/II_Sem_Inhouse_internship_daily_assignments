@@ -1,0 +1,37 @@
+<?php
+include("header.php");
+?>
+
+<div class="container mt-5" style="max-width:600px;">
+
+    <h2>Contact Us</h2>
+    <hr>
+
+    <form>
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Message</label>
+            <textarea class="form-control" rows="5"></textarea>
+        </div>
+
+        <button class="btn btn-primary">
+            Send Message
+        </button>
+
+    </form>
+
+</div>
+
+<?php
+include("footer.php");
+?>

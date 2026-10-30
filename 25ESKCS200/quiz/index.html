@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🧠 AI Quiz Generator</h1>
+        <p>Enter a topic, and let AI build a custom quiz for you!</p>
+
+
+        <div id="setup-section">
+            <input type="text" id="topic-input" placeholder="e.g., Space Exploration, JavaScript Basics, Ancient Egypt">
+            <button id="generate-btn" type="submit" >Generate Quiz ✨</button>
+        </div>
+
+
+        
+        <!---
+         form.html
+        <form action="generate_quiz.php" method="POST">
+            <label for="topic">Enter Topic:</label>
+            
+            <input type="text" id="topic" name="topic">
+
+            <button type="submit" name="submit">Submit</button>
+        </form>
+        -->
+
+        <div id="loading" style="display: none;">
+            <p>🤖 AI is thinking and writing questions...</p>
+        </div>
+
+
+        <div id="quiz-section" style="display: none;">
+            <h2 id="quiz-title"></h2>
+            <div id="questions-container"></div>
+            <button id="submit-btn">Submit Answers 📝</button>
+            <div id="results" style="margin-top: 20px;"></div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

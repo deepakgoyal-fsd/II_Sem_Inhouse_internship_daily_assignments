@@ -1,0 +1,850 @@
+/* =====================================================================
+   PRAVAH 2026 — MAIN STYLESHEET
+   Design System: Glassmorphism + Blue-Purple Gradient Theme
+   Organized by section. Mobile-first responsive approach.
+   ===================================================================== */
+
+
+/* =====================================================================
+   1. CSS VARIABLES (LIGHT MODE DEFAULTS + DARK MODE OVERRIDES)
+   ===================================================================== */
+:root {
+    /* --- Brand Colors --- */
+    --color-primary: #6C63FF;          /* Purple */
+    --color-secondary: #4F9DFF;        /* Blue */
+    --color-accent: #A855F7;           /* Violet accent */
+    --gradient-primary: linear-gradient(135deg, var(--color-secondary), var(--color-primary), var(--color-accent));
+    --gradient-text: linear-gradient(90deg, #4F9DFF, #A855F7);
+
+    /* --- Backgrounds --- */
+    --bg-body: #F5F7FF;
+    --bg-section-alt: #EEF1FE;
+    --bg-glass: rgba(255, 255, 255, 0.55);
+    --bg-glass-strong: rgba(255, 255, 255, 0.75);
+    --border-glass: rgba(255, 255, 255, 0.35);
+
+    /* --- Text --- */
+    --text-primary: #1B1B2F;
+    --text-muted: #5A5A72;
+
+    /* --- Shadows --- */
+    --shadow-soft: 0 8px 30px rgba(76, 60, 180, 0.12);
+    --shadow-hover: 0 15px 40px rgba(76, 60, 180, 0.22);
+
+    /* --- Radii & Spacing --- */
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+
+    /* --- Fonts --- */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+
+    /* --- Transitions --- */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.4s ease;
+    --transition-slow: 0.7s ease;
+}
+
+/* --- Dark Mode Overrides (activated via [data-theme="dark"] on <html> or <body>) --- */
+[data-theme="dark"] {
+    --bg-body: #0F0F1A;
+    --bg-section-alt: #14142B;
+    --bg-glass: rgba(30, 30, 50, 0.55);
+    --bg-glass-strong: rgba(30, 30, 50, 0.75);
+    --border-glass: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #F1F1FA;
+    --text-muted: #A8A8C0;
+
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =====================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ===================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+a {
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.text-muted-light {
+    color: var(--text-muted) !important;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+/* --- Responsive Typography (fluid scaling using clamp) --- */
+.hero-title {
+    font-size: clamp(2.2rem, 5vw + 1rem, 4rem);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1vw + 0.8rem, 1.25rem);
+    color: var(--text-muted);
+    max-width: 550px;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.75rem);
+    margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+    font-size: clamp(0.95rem, 1vw + 0.7rem, 1.1rem);
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* --- Brand Gradient Text --- */
+.brand-gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.brand-year {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+
+/* =====================================================================
+   3. SECTION SPACING UTILITIES
+   ===================================================================== */
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-alt {
+    background-color: var(--bg-section-alt);
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 56px 0;
+    }
+}
+
+
+/* =====================================================================
+   4. GLASSMORPHISM CORE COMPONENT
+   ===================================================================== */
+.glass-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.badge-glass {
+    display: inline-block;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* =====================================================================
+   5. BUTTONS
+   ===================================================================== */
+.btn-gradient-primary {
+    background: var(--gradient-primary);
+    background-size: 200% auto;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: background-position var(--transition-slow), transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
+}
+
+.btn-gradient-primary:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(108, 99, 255, 0.45);
+    color: #fff;
+}
+
+.btn-outline-glass {
+    background: transparent;
+    border: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.btn-outline-glass:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================================
+   6. NAVBAR
+   ===================================================================== */
+.glass-navbar {
+    background: var(--bg-glass);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--border-glass);
+    transition: background-color var(--transition-medium), padding var(--transition-fast);
+    padding: 14px 0;
+}
+
+.glass-navbar.scrolled {
+    padding: 8px 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.nav-link-custom {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    position: relative;
+    margin: 0 6px;
+}
+
+.nav-link-custom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-fast);
+}
+
+.nav-link-custom:hover::after,
+.nav-link-custom.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    box-shadow: none !important;
+}
+
+
+/* =====================================================================
+   7. HERO SECTION
+   ===================================================================== */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 100px;
+    overflow: hidden;
+}
+
+/* --- Decorative animated blobs --- */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    z-index: 0;
+    animation: floatBlob 10s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 350px;
+    height: 350px;
+    background: var(--color-secondary);
+    top: -80px;
+    left: -80px;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--color-accent);
+    bottom: -60px;
+    right: -60px;
+    animation-delay: 2s;
+}
+
+.blob-3 {
+    width: 250px;
+    height: 250px;
+    background: var(--color-primary);
+    top: 40%;
+    left: 45%;
+    animation-delay: 4s;
+}
+
+@keyframes floatBlob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.1); }
+}
+
+.hero-illustration {
+    max-height: 550px;
+}
+
+.floating-animation {
+    animation: floatUpDown 4s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    animation: bounceDown 2s infinite;
+}
+
+@keyframes bounceDown {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 10px); }
+}
+
+
+/* =====================================================================
+   8. COUNTDOWN SECTION
+   ===================================================================== */
+.countdown-box {
+    border-radius: var(--radius-lg);
+}
+
+.countdown-item {
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+
+/* =====================================================================
+   9. ABOUT / STAT CARDS
+   ===================================================================== */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.info-card, .highlight-card, .contact-card {
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.stat-card {
+    border-radius: var(--radius-md);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+
+/* =====================================================================
+   10. SPEAKER CARDS
+   ===================================================================== */
+.speaker-card {
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.speaker-photo {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border: 3px solid var(--border-glass);
+    box-shadow: var(--shadow-soft);
+}
+
+.speaker-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background: var(--bg-glass-strong);
+    color: var(--color-primary);
+    transition: all var(--transition-fast);
+}
+
+.speaker-socials a:hover {
+    background: var(--gradient-primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================================
+   11. EVENT TIMELINE
+   ===================================================================== */
+.timeline-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px;
+    border-left: 3px solid var(--color-primary);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -39px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    box-shadow: 0 0 0 4px var(--bg-glass);
+}
+
+.timeline-content {
+    padding: 20px 24px;
+}
+
+.timeline-day {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+@media (max-width: 576px) {
+    .timeline-wrapper {
+        padding-left: 20px;
+    }
+    .timeline-dot {
+        left: -29px;
+    }
+}
+
+
+/* =====================================================================
+   12. GALLERY
+   ===================================================================== */
+.gallery-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform var(--transition-medium), filter var(--transition-medium);
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+/* --- Gallery Card wrapper (used with Bootstrap .card in gallery grid) --- */
+.gallery-card {
+    overflow: hidden; /* keeps zoomed image corners clipped to the rounded card */
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =====================================================================
+   13. REGISTRATION CTA
+   ===================================================================== */
+.cta-card {
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg-glass);
+    backdrop-filter: blur(6px);
+}
+
+.cta-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-card .section-title,
+.cta-card .section-subtitle,
+.cta-card .section-tag {
+    color: #fff;
+}
+
+.cta-card .brand-gradient-text {
+    -webkit-text-fill-color: #fff;
+    background: none;
+}
+
+
+/* =====================================================================
+   14. FAQ / ACCORDION
+   ===================================================================== */
+.accordion-item {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-button {
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.accordion-button::after {
+    filter: hue-rotate(220deg);
+}
+
+.accordion-body {
+    padding-top: 0;
+}
+
+
+/* =====================================================================
+   15. MAP PLACEHOLDER
+   ===================================================================== */
+.map-placeholder {
+    height: 450px;        /* or whatever height fits your layout */
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;  /* optional, to match your glass-card style */
+    padding: 0;           /* remove any padding that could push the iframe off */
+}
+
+.map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* =====================================================================
+   16. CONTACT SECTION
+   ===================================================================== */
+.contact-card .icon-circle {
+    margin-bottom: 1rem;
+}
+
+
+/* =====================================================================
+   17. NEWSLETTER
+   ===================================================================== */
+.newsletter-input {
+    background: var(--bg-glass-strong);
+    border: 1px solid var(--border-glass);
+    border-radius: 50px;
+    padding: 12px 20px;
+    color: var(--text-primary);
+    max-width: 350px;
+}
+
+.newsletter-input:focus {
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25);
+    border-color: var(--color-primary);
+}
+
+.newsletter-input::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* =====================================================================
+   18. FOOTER
+   ===================================================================== */
+.footer-section {
+    background-color: var(--bg-section-alt);
+    border-top: 1px solid var(--border-glass);
+}
+
+.footer-heading {
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text-primary);
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    margin-top: 12px;
+    border-radius: 50%;
+    background: var(--bg-glass-strong);
+    color: var(--color-primary);
+    transition: all var(--transition-fast);
+}
+
+.footer-socials a:hover {
+    background: var(--gradient-primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer-divider {
+    border-color: var(--border-glass);
+    margin: 32px 0 20px;
+}
+
+
+/* =====================================================================
+   19. BACK TO TOP BUTTON
+   ===================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    box-shadow: var(--shadow-hover);
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+
+/* =====================================================================
+   20. SCROLL ANIMATION HELPER (for JS-toggled reveal classes)
+   ===================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =====================================================================
+   21. DARK MODE TOGGLE BUTTON (optional UI element)
+   ===================================================================== */
+.theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-glass);
+    background: var(--bg-glass-strong);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--gradient-primary);
+    color: #fff;
+}
+
+
+/* =====================================================================
+   22. RESPONSIVE BREAKPOINTS (MOBILE-FIRST ADJUSTMENTS)
+   ===================================================================== */
+
+/* --- Small devices (phones) --- */
+@media (max-width: 576px) {
+    .hero-section {
+        padding-top: 90px;
+        text-align: center;
+    }
+    .countdown-item {
+        min-width: 65px;
+    }
+    .back-to-top {
+        width: 42px;
+        height: 42px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* --- Medium devices (tablets) --- */
+@media (min-width: 577px) and (max-width: 991px) {
+    .hero-illustration {
+        max-height: 320px;
+    }
+}
+
+/* --- Large devices (desktops) --- */
+@media (min-width: 992px) {
+    .hero-section {
+        text-align: left;
+    }
+}
+
+/* --- Reduced motion accessibility --- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

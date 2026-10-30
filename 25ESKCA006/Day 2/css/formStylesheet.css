@@ -1,0 +1,94 @@
+p{
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   text-align: center;
+   font-weight: 900px;
+}
+
+h1{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(19, 111, 176) !important;
+}
+
+.rounded{
+    border-radius: 10px;
+}
+
+#txtPhone{
+    font-size: 16pt;
+    
+}
+body{
+    background-color: #9ee1f9;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 150vh;
+    display: flex;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="date"]{
+    border: .5px solid #000000;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 20px 0;
+    display: flex;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
+form{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+address-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    padding: 20px;
+}  
+.row{
+    display: flex;
+    justify-content: space-between;
+}        
+.row div{
+    flex:1;
+} 
+.colm {
+    display: flex;
+    gap: 1px;
+    align-items: flex-start;
+}
+
+.colm label {
+    display: flex;
+    flex-direction: column;
+}
+.colm input {
+    width: 350px;
+    padding: 10px;
+     margin: 20px 0;
+    border: .5px solid #000000;
+    border-radius: 8px;
+   font-size: 10px;
+}
+input[type="submit"]{
+    background-color: rgb(8, 123, 255);
+    border-radius: 50px;
+    color: white;
+    border-color:white ;
+}

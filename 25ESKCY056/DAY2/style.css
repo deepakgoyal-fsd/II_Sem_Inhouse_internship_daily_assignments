@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(205, 243, 244);
+    margin: 30px;
+}
+div.box {
+    border: 2px solid #000;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f4eeee;
+}

@@ -1,0 +1,37 @@
+body{
+background:#f2f5f9;
+font-family:Arial;
+}
+
+.container-box{
+width:700px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0px 0px 10px gray;
+}
+
+h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.error-box{
+background:#ffe5e5;
+color:red;
+padding:15px;
+border-radius:8px;
+margin-bottom:20px;
+}
+
+.success-box{
+background:#e7ffe7;
+padding:20px;
+border-radius:10px;
+}
+
+img{
+margin-top:10px;
+border-radius:10px;
+}

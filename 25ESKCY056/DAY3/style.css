@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(241, 241, 203);
+}
+
+.navbar {
+    background-color: darkblue;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+.navbar a {
+    color: rgb(232, 229, 236);
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 180px;
+    height: 120px;
+    border: 2px solid black;
+    margin: 5px;
+}
+
+input,
+textarea {
+    width: 250px;
+    padding: 6px;
+    margin: 5px 0;
+}
+
+button {
+    background-color: darkblue;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
+
+footer {
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

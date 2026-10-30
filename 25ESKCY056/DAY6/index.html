@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts Directory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" >
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div>
+            <h1>📋 Posts from <span>/posts</span></h1>
+            <p style="margin:0;font-size:0.8rem;color:var(--muted);">JSONPlaceholder API · 100 entries</p>
+        </div>
+        <span class="badge-count" id="card-count">Loading…</span>
+    </header>
+
+    <!-- Search & Filter -->
+    <div class="search-wrap">
+        <input type="text" id="search-input" placeholder="🔍  Search by title or body…" />
+        <select class="filter-select" id="user-filter">
+            <option value="">All Users</option>
+        </select>
+    </div>
+
+    <!-- Error -->
+    <main>
+        <div id="error-msg">⚠️ Failed to load posts. Please check your connection and try again.</div>
+
+        <!-- Loading -->
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Fetching posts…</p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="row g-3" id="cards-container"></div>
+
+        <!-- No results -->
+        <div id="no-results">No posts match your search.</div>
+    </main>
+
+    <footer>
+        Data from <a href="https://jsonplaceholder.typicode.com/posts"
+            target="_blank">jsonplaceholder.typicode.com/posts</a>
+    </footer>
+
+    <script>
+        scr="js/script.js"
+    </script> 
+</body>
+
+</html>

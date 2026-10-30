@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    margin: 20px;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+h2 {
+    color: darkgreen;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
+.profile {
+    text-align: center;
+}
+
+.footer-text {
+    text-align: center;
+}

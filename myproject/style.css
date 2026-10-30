@@ -1,0 +1,61 @@
+/* Hero Section Custom Background Gradient */
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a48b3 100%);
+}
+
+/* Step Indicator Alignment */
+.step-indicator {
+    position: relative;
+    z-index: 1;
+}
+
+.step-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #e2e8f0;
+    z-index: -1;
+    transform: translateY(-50%);
+}
+
+.step {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background-color: #0d6efd;
+    color: #ffffff;
+    box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.2);
+}
+
+/* Form Visibility Adjustments */
+.form-step {
+    display: none;
+}
+
+.form-step.active-step {
+    display: block;
+    animation: fadeIn 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

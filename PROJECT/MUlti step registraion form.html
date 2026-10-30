@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Step Registration Form</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #dbeafe, #f8fafc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 700px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e293b;
+    }
+
+    h3 {
+      color: #2563eb;
+      margin-bottom: 20px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 25%;
+      background: #2563eb;
+      transition: 0.3s;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #374151;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #2563eb;
+    }
+
+    .error {
+      color: #dc2626;
+      font-size: 13px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .review-box {
+      background: #f8fafc;
+      border: 1px solid #dbe4ee;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .review-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .review-row:last-child {
+      border-bottom: none;
+    }
+
+    .review-row strong {
+      color: #374151;
+    }
+
+    .btn-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #prevBtn {
+      background: #64748b;
+      color: white;
+      display: none;
+    }
+
+    #nextBtn {
+      background: #2563eb;
+      color: white;
+      margin-left: auto;
+    }
+
+    #submitBtn {
+      background: #16a34a;
+      color: white;
+      display: none;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 500px) {
+      .form-container {
+        padding: 22px;
+      }
+
+      .btn-box {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .review-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Multi Step Registration Form</h2>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <form id="registrationForm">
+
+      <div class="step active">
+        <h3>Step 1: Personal Details</h3>
+
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="Enter your email">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Mobile Number</label>
+          <input type="text" id="mobile" placeholder="Enter 10 digit mobile number">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Gender</label>
+          <select id="gender">
+            <option value="">Select gender</option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
+          </select>
+          <span class="error"></span>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>Step 2: Education Details</h3>
+
+        <div class="input-group">
+          <label>College Name</label>
+          <input type="text" id="college" placeholder="Enter your college name">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Course</label>
+          <select id="course">
+            <option value="">Select course</option>
+            <option>BCA</option>
+            <option>B.Tech</option>
+            <option>B.Sc IT</option>
+            <option>MCA</option>
+            <option>Other</option>
+          </select>
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Semester</label>
+          <input type="number" id="semester" placeholder="Enter semester">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Skill Learned</label>
+          <select id="skill">
+            <option value="">Select skill</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+            <option>Bootstrap</option>
+            <option>MySQL</option>
+            <option>PHP MyAdmin</option>
+          </select>
+          <span class="error"></span>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>Step 3: Account Details</h3>
+
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="username" placeholder="Create username">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Create password">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm password">
+          <span class="error"></span>
+        </div>
+
+        <div class="input-group">
+          <label>Address</label>
+          <textarea id="address" rows="3" placeholder="Enter your address"></textarea>
+          <span class="error"></span>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>Step 4: Review & Submit</h3>
+
+        <div class="review-box" id="reviewBox"></div>
+
+        <div class="input-group" style="margin-top: 15px;">
+          <label>
+            <input type="checkbox" id="terms" style="width: auto;">
+            I confirm that all information is correct
+          </label>
+          <span class="error"></span>
+        </div>
+      </div>
+
+      <div class="btn-box">
+        <button type="button" id="prevBtn">Previous</button>
+        <button type="button" id="nextBtn">Next</button>
+        <button type="submit" id="submitBtn">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    let currentStep = 0;
+
+    const steps = document.querySelectorAll(".step");
+    const progressBar = document.getElementById("progressBar");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const form = document.getElementById("registrationForm");
+    const reviewBox = document.getElementById("reviewBox");
+
+    function showStep(index) {
+      steps.forEach((step, stepIndex) => {
+        step.classList.toggle("active", stepIndex === index);
+      });
+
+      progressBar.style.width = ((index + 1) / steps.length) * 100 + "%";
+
+      prevBtn.style.display = index === 0 ? "none" : "inline-block";
+      nextBtn.style.display = index === steps.length - 1 ? "none" : "inline-block";
+      submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
+
+      if (index === steps.length - 1) {
+        showReview();
+      }
+    }
+
+    function showError(input, message) {
+      const error = input.parentElement.querySelector(".error");
+      error.innerText = message;
+      input.style.borderColor = "#dc2626";
+    }
+
+    function clearError(input) {
+      const error = input.parentElement.querySelector(".error");
+      error.innerText = "";
+      input.style.borderColor = "#cbd5e1";
+    }
+
+    function validateStep() {
+      let isValid = true;
+
+      const fullName = document.getElementById("fullName");
+      const email = document.getElementById("email");
+      const mobile = document.getElementById("mobile");
+      const gender = document.getElementById("gender");
+
+      const college = document.getElementById("college");
+      const course = document.getElementById("course");
+      const semester = document.getElementById("semester");
+      const skill = document.getElementById("skill");
+
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirmPassword");
+      const address = document.getElementById("address");
+
+      const terms = document.getElementById("terms");
+
+      if (currentStep === 0) {
+        if (fullName.value.trim().length < 3) {
+          showError(fullName, "Full name must be at least 3 characters");
+          isValid = false;
+        } else {
+          clearError(fullName);
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+          showError(email, "Enter a valid email address");
+          isValid = false;
+        } else {
+          clearError(email);
+        }
+
+        if (!/^[0-9]{10}$/.test(mobile.value.trim())) {
+          showError(mobile, "Mobile number must be exactly 10 digits");
+          isValid = false;
+        } else {
+          clearError(mobile);
+        }
+
+        if (gender.value === "") {
+          showError(gender, "Please select gender");
+          isValid = false;
+        } else {
+          clearError(gender);
+        }
+      }
+
+      if (currentStep === 1) {
+        if (college.value.trim().length < 3) {
+          showError(college, "Enter a valid college name");
+          isValid = false;
+        } else {
+          clearError(college);
+        }
+
+        if (course.value === "") {
+          showError(course, "Please select course");
+          isValid = false;
+        } else {
+          clearError(course);
+        }
+
+        if (semester.value < 1 || semester.value > 10 || semester.value === "") {
+          showError(semester, "Semester must be between 1 and 10");
+          isValid = false;
+        } else {
+          clearError(semester);
+        }
+
+        if (skill.value === "") {
+          showError(skill, "Please select a skill");
+          isValid = false;
+        } else {
+          clearError(skill);
+        }
+      }
+
+      if (currentStep === 2) {
+        if (username.value.trim().length < 4) {
+          showError(username, "Username must be at least 4 characters");
+          isValid = false;
+        } else {
+          clearError(username);
+        }
+
+        if (password.value.length < 6) {
+          showError(password, "Password must be at least 6 characters");
+          isValid = false;
+        } else {
+          clearError(password);
+        }
+
+        if (confirmPassword.value !== password.value || confirmPassword.value === "") {
+          showError(confirmPassword, "Password and confirm password must match");
+          isValid = false;
+        } else {
+          clearError(confirmPassword);
+        }
+
+        if (address.value.trim().length < 5) {
+          showError(address, "Enter a valid address");
+          isValid = false;
+        } else {
+          clearError(address);
+        }
+      }
+
+      if (currentStep === 3) {
+        if (!terms.checked) {
+          showError(terms, "Please confirm before submitting");
+          isValid = false;
+        } else {
+          clearError(terms);
+        }
+      }
+
+      return isValid;
+    }
+
+    function showReview() {
+      const data = {
+        "Full Name": document.getElementById("fullName").value,
+        "Email": document.getElementById("email").value,
+        "Mobile": document.getElementById("mobile").value,
+        "Gender": document.getElementById("gender").value,
+        "College": document.getElementById("college").value,
+        "Course": document.getElementById("course").value,
+        "Semester": document.getElementById("semester").value,
+        "Skill Learned": document.getElementById("skill").value,
+        "Username": document.getElementById("username").value,
+        "Address": document.getElementById("address").value
+      };
+
+      reviewBox.innerHTML = "";
+
+      for (let key in data) {
+        reviewBox.innerHTML += `
+          <div class="review-row">
+            <strong>${key}</strong>
+            <span>${data[key]}</span>
+          </div>
+        `;
+      }
+    }
+
+    nextBtn.addEventListener("click", function () {
+      if (validateStep()) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+
+    prevBtn.addEventListener("click", function () {
+      currentStep--;
+      showStep(currentStep);
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (validateStep()) {
+        alert("Registration Successful!");
+        form.reset();
+        currentStep = 0;
+        showStep(currentStep);
+      }
+    });
+
+    showStep(currentStep);
+  </script>
+
+</body>
+</html>
